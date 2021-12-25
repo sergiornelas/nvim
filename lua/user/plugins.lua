@@ -40,6 +40,20 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
+  -- STARTUP OPTIMIZATIONS ---------------------------
+  use {
+    "nathom/filetype.nvim",
+  }
+
+  use {
+    "lewis6991/impatient.nvim",
+  }
+
+  use {
+    "tweekmonster/startuptime.vim",
+    cmd = "StartupTime",
+  }
+
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
@@ -91,18 +105,13 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
   -- use "nvim-telescope/telescope-media-files.nvim"
 
-  -- STARTUP OPTIMIZATIONS ---------------------------
+  -- NVIM TREE ------------------------------------------
   use {
-    "nathom/filetype.nvim",
-  }
-
-  use {
-    "lewis6991/impatient.nvim",
-  }
-
-  use {
-    "tweekmonster/startuptime.vim",
-    cmd = "StartupTime",
+    "kyazdani42/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    -- config = function()
+    --   require "plugins.nvimtree"
+    -- end,
   }
 
   -- Automatically set up your configuration after cloning packer.nvim

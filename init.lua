@@ -38,6 +38,7 @@ require "user.cmp"
 require "user.lsp"
 require "user.treesitter"
 require "user.telescope"
+require "user.nvimtree"
 require "user.others".comment()
 
 -- -- load options, mappings, and plugins
