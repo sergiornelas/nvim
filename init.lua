@@ -38,8 +38,8 @@ require "user.cmp"
 require "user.lsp"
 require "user.treesitter"
 require "user.telescope"
-require "user.nvimtree"
 require "user.others".comment()
+-- require "user.nvimtree"
 
 -- -- load options, mappings, and plugins
 -- local modules = {

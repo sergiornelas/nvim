@@ -81,7 +81,7 @@ lspconfig.tsserver.setup({
 --     -- null_ls.builtins.diagnostics.eslint.with({
 --     --     prefer_local = "node_modules/.bin",      -- Use eslint to a project-local executable form node_modules
 --     --                                              --  when available but fall back to a global executable.
---     -- --  only_local = "node_modules/.bin",        -- Use eslint to ONLY run when a project-local executable is 
+--     -- --  only_local = "node_modules/.bin",        -- Use eslint to ONLY run when a project-local executable is
 --     --                                              --  available in node_modules.
 --     -- }),
 --     -- null_ls.builtins.code_actions.eslint.with({  -- Conditional registration, if project has x root file.
@@ -95,6 +95,9 @@ lspconfig.tsserver.setup({
 -- Set our tsserver settings to null_ls. null-ls provides formatting, diagnostics and code actions to tsserver.
 -- lspconfig["null-ls"].setup({ on_attach = on_attach })
 
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+-- local formatting = null_ls.builtins.formatting
+
 null_ls.setup({
     sources = {
         null_ls.builtins.diagnostics.eslint_d,
@@ -105,5 +108,6 @@ null_ls.setup({
         --   disabled_filetypes = {'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact'}
         -- }),
     },
-    on_attach = on_attach
+    on_attach = on_attach,
+    -- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } })
 })

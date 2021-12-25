@@ -106,13 +106,13 @@ return packer.startup(function(use)
   -- use "nvim-telescope/telescope-media-files.nvim"
 
   -- NVIM TREE ------------------------------------------
-  use {
-    "kyazdani42/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    -- config = function()
-    --   require "plugins.nvimtree"
-    -- end,
-  }
+  -- use {
+  --   "kyazdani42/nvim-tree.lua",
+  --   cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+  --   config = function()
+  --     require "plugins.nvimtree"
+  --   end,
+  -- }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

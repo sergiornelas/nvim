@@ -73,7 +73,7 @@
 -- }
 
 local present, _ = pcall(require, "nvim-tree")
-vim.cmd [[highlight NvimTreeNormal guifg=#D8DEE9  guibg=#2a2e39]]
+-- vim.cmd [[highlight NvimTreeNormal guifg=#D8DEE9  guibg=#2a2e39]]
 if not present then
    return
 end
