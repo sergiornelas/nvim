@@ -12,8 +12,6 @@
 
 <img width="1450" alt="image" src="https://user-images.githubusercontent.com/71196912/144915258-dc6652cf-64e4-458f-8f01-8f17dbb33756.png">
 
-# Neovim from scratch
-
 ## Try out this config
 
 Make sure to remove or move your current `nvim` directory
@@ -22,10 +20,9 @@ Make sure to remove or move your current `nvim` directory
 git clone git@github.com:sergiornelas/Neovim ~/.config/nvim
 ```
 
-Run `nvim` and wait for the plugins to be installed 
+Run `nvim` and wait for the plugins to be installed
 
-**NOTE** (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim) 
-
+**NOTE** (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim)
 
 each video will be associated with a branch so checkout the one you are interested in
 
