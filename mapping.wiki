@@ -1,0 +1,138 @@
+﻿~~Pending to do:~~
+- Map hold enter as Ctrl
+
+DON'T SET ANYTHING WITH <leader> THAT IS IN `INSERT MODE`
+
+=========Available maps==========
+ENTER      = FREE
+BACKSPACE  = FREE
+CTRL + g   = FREE
+CTRL + t   = (tag stack)
+CTRL + m   = FREE (unmapped in keybindings file)
+<Leader w> = FREE
+<Leader g> is reserverd for vim-fugitive
+=================================
+
+~~VIM CTRLS (NORMAL MODE)~~
+`Ctrl + y` - move screen up one line (without moving cursor)
+`Ctrl + e` - move screen down one line (without moving cursor)
+`Ctrl + u` - move back 1/2 a screen
+`Ctrl + d` - move forward 1/2 a screen
+`Ctrl + b` - move back one full screen
+`Ctrl + f` - move forward one full screen
+`Ctrl + i` - go to newer position in jump list
+`Ctrl + o` - go to older position in jump list
+`Ctrl + ]` - jump to the tag under cursor
+`Ctrl + a` - increase number by 1 (tmux uses this)
+`Ctrl + x` - decrease number by 1
+`Ctrl + g` - :f (`mappeable`)
+`Ctrl + t` - tag stack
+`Ctrl + ^` - switch buffer (`mapped as terminal`)
+`ctrl + j` - enter (`mapped as find buffer`)
+`Ctrl + w` - ...all kind of window shortcuts, one for tab
+`Ctrl + r` - redo
+`Ctrl + v` = square select
+`ctrl + c` = gives info about how to exit vim `(mappeable, used for emmet immediate)`
+
+----------------------------------------------------------------------------------------
+===MAPPED KEYS===
+~~NO PLUGINS~~
+`alt + a` = resize window
+`alt + s` = resize window
+`alt + d` = resize window
+`alt + f` = resize window
+
+`alt + j` = move row below
+`alt + k` = move row above
+
+`ctrl + h` = move left complete window, in selection mode delete and swaps to insert. 
+`ctrl + p` = move top complete window
+`ctrl + n` = move bottom complete window
+`ctrl + l` = move right complete window 
+
+~~PLUGINS~~
+`s` = Sneak next match
+`S` = Sneak prev match
+
+`ctrl + ^` = terminal 
+`ctrl + q` = quick fix (you could replace this)
+`ctrl + l` = next snippet term
+`ctrl + s` = previous snippet term
+`ctrl + k` = switch buffer
+`ctrl + )` = emmet king (trash)
+`ctrl + c` = emmet immediate
+`ctrl + j` = telescope buffer list, telescope select option, cmp select item, 
+`ctrl + n` = cmp next item, telescope next buffer
+`ctrl + p` = cmp previous item, telescope previous buffer
+`ctrl + e` = cmp close items
+`ctrl + b` = cmp other option
+`ctrl + f` = cmp other option
+`ctrl + space` = cmp other option
+
+----------------------------------------------------------------------------------------
+~~REPLACEABLE~~
+`S` = synonym for cc `used in swap buffers`
+`s` = synonym for cl `used in swap buffers`
+`Del` = (can be used as x)
+
+----------------------------------------------------------------------------------------
+~~VIM CONTROLS INSERT MODE:~~
+`Ctrl + h` - backpace
+`Ctrl + t` - move whole line to the RIGHT.
+`Ctrl + d` - move whole line to the LEFT.
+`Ctrl + f` - move whole line at the corresponding BEGGING.
+`Ctrl + j` - begin new line during insert mode (insert mode) / the reason of your bug
+`Ctrl + i` - equivalent as tab 
+`Ctrl + o` - you can insert one vim command, and then return to normal mode. (quite useless, mappeable)
+`Ctrl + w` - delete one word
+`Ctrl + r` - weird menu, with posibilites = %: file name
+`Ctrl + k` - karate characters (`mappeable`)
+`Ctrl + u` - delete whole line
+`Ctrl + a` - ?
+`Ctrl + e` - write character bellow cursor `(used for vsnip, close the menu)`
+`Ctrl + y` - write character above cursor `(mappeable)`
+`ctrl + l` next snippet term
+`ctrl + s` = previous snippet term
+
+check this list in help:
+`:help ins-special-keys`
+----------------------------------------------------------------------------------------
+~~<LEADER> (SPACE)~~
+<leader> + r  = :w
+<leader> + q  = :q
+<leader> + so = :so %
+<leader> + t  = Toggle highlights
+<leader> + c  = :find ~/.config/nvim/init.lua
+<leader> + l  = <hop line>
+<leader> + j  = <hop word>
+<leader> + h* = <git hunk menu>
+<leader> + e  = <tree toggle>
+<leader> + g* = <...reserved for vim-fugitive>
+<leader> + t  = <telescope live grep>
+<leader> + f  = <telescope find file>
+<leader> + u  = <telescope historial>
+<leader> + sp = <telescope colorscheme>
+<leader> + st = <telescope livegrep>
+<leader> + p  = <telescope Projects>
+<leader> + m  = <telescope marks>
+<leader> + :  = <telescope commands>
+<leader> + ss = <luasnipUnlinkCurrent> (bug)
+
+----------------------------------------------------------------------------------------
+~~VIMIUM MAPPING~~
+map `<c-j>` previousTab
+map `<c-k>` nextTab
+map `<a-q>` moveTabLeft
+map `<a-w>` moveTabRight
+
+map `J` goBack
+map `K` goForward
+
+----------------------------------------------------------------------------------------
+~~LINUX SETTED MAPS~~
+`alt + i` = move window left
+`alt + o` = move window center
+`alt + p` = move window right
+`ctrl + alt p` = move window right
+`ctrl + alt i` = move window right
+
