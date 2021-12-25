@@ -1,4 +1,4 @@
-# NeoVim Configurations
+# Sergiornelas Neovim
 
 <div align="center">
   
@@ -19,7 +19,7 @@
 Make sure to remove or move your current `nvim` directory
 
 ```
-git clone git@github.com:ChristianChiarulli/Neovim-from-scratch.git ~/.config/nvim
+git clone git@github.com:sergiornelas/Neovim ~/.config/nvim
 ```
 
 Run `nvim` and wait for the plugins to be installed 
@@ -70,4 +70,3 @@ Next we need to install python support (node is optional)
   ```
   npm i -g neovim
   ```
-# Neovim
