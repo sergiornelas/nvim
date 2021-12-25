@@ -12,36 +12,62 @@
 
 <img width="1450" alt="image" src="https://user-images.githubusercontent.com/71196912/144915258-dc6652cf-64e4-458f-8f01-8f17dbb33756.png">
 
-## Install
+# Neovim from scratch
 
-### Using nix:
+## Try out this config
 
-Requires nix version > 21.11, with experimental features `flakes` and `nix-commands` enabled
+Make sure to remove or move your current `nvim` directory
 
-```bash
-git clone --depth 1 shaunsingh/nyoom.nvim && cd nyoom.nvim
-nix develop
-nvim
+```
+git clone git@github.com:ChristianChiarulli/Neovim-from-scratch.git ~/.config/nvim
 ```
 
-Then run `:PackerSync`
+Run `nvim` and wait for the plugins to be installed 
 
-### Regular:
+**NOTE** (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim) 
 
-Install the following dependencies:
 
-- neovim-nightly (or neovim stable)
-- luajit
-- ripgrep
-- nodejs (optional, for copilot)
+each video will be associated with a branch so checkout the one you are interested in
 
-Then run `:PackerSync`
+## Get healthy
 
-## Features
+Open `nvim` and enter the following:
 
-## TODO
+```
+:checkhealth
+```
 
-- ~~Rewrite statusline w/o plugins (+async)~~
-- ~~Redo Cmp/LspConfig/Copilot configs and integrations~~
-- ~~Rewrite theme to use `nvim_set_hl`~~
-- Check all plugins are lazyloaded.
+You'll probably notice you don't have support for copy/paste also that python and node haven't been setup
+
+So let's fix that
+
+First we'll fix copy/paste
+
+- On mac `pbcopy` should be builtin
+
+- On Ubuntu
+
+  ```
+  sudo apt install xsel
+  ```
+
+- On Arch Linux
+
+  ```
+  sudo pacman -S xsel
+  ```
+
+Next we need to install python support (node is optional)
+
+- Neovim python support
+
+  ```
+  pip install pynvim
+  ```
+
+- Neovim node support
+
+  ```
+  npm i -g neovim
+  ```
+# Neovim
