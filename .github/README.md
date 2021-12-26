@@ -10,7 +10,7 @@
 
 ## Showcase
 
-<img width="1450" alt="image" src="https://user-images.githubusercontent.com/71196912/144915258-dc6652cf-64e4-458f-8f01-8f17dbb33756.png">
+<img width="1450" alt="image" src="sergionvim.png">
 
 ## Try out this config
 

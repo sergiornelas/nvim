@@ -115,9 +115,9 @@ end
 -- vim.g.t_Co = 256                          -- Show all gamma colors.
 -- vim.g.colors_name = 'srcery'
 -- vim.cmd('colorscheme nord')
--- vim.g.gruvbox_contrast_dark = 'hard'
+vim.g.gruvbox_contrast_dark = 'hard'
 -- vim.o.background='dark'
--- vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme gruvbox]])
 -- vim.opt.transparent_window = true
 
 -- PLUGINS
