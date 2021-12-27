@@ -16,18 +16,15 @@ telescope.setup {
 
     mappings = {
       i = {
-        ["<C-j>"] = actions.cycle_history_next,
-        ["<C-k>"] = actions.cycle_history_prev,
+        -- ["<C-j>"] = actions.cycle_history_next,
+        -- ["<C-k>"] = actions.cycle_history_prev,
 
-        ["<C-n>"] = actions.move_selection_next,
-        ["<C-p>"] = actions.move_selection_previous,
+        -- ["<C-n>"] = actions.move_selection_next,
+        -- ["<C-p>"] = actions.move_selection_previous,
 
         ["<C-c>"] = actions.close,
 
-        ["<Down>"] = actions.move_selection_next,
-        ["<Up>"] = actions.move_selection_previous,
-
-        ["<CR>"] = actions.select_default,
+        ["<C-j>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
@@ -38,11 +35,13 @@ telescope.setup {
         ["<PageUp>"] = actions.results_scrolling_up,
         ["<PageDown>"] = actions.results_scrolling_down,
 
-        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+        -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+        ["<C-l>"] = actions.toggle_selection + actions.move_selection_worse,
+        -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+        ["<C-k>"] = actions.toggle_selection + actions.move_selection_better,
         ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-        ["<C-l>"] = actions.complete_tag,
+        -- ["<C-l>"] = actions.complete_tag,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
       },
 
