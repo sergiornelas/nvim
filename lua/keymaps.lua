@@ -1,74 +1,3 @@
--- local opts = { noremap = true, silent = true }
---
--- local term_opts = { silent = true }
---
--- -- Shorten function name
--- local keymap = vim.api.nvim_set_keymap
---
--- --Remap space as leader key
--- keymap("", "<Space>", "<Nop>", opts)
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
---
--- -- Modes
--- --   normal_mode = "n",
--- --   insert_mode = "i",
--- --   visual_mode = "v",
--- --   visual_block_mode = "x",
--- --   term_mode = "t",
--- --   command_mode = "c",
---
--- -- Normal --
--- -- Better window navigation
--- keymap("n", "<C-h>", "<C-w>h", opts)
--- keymap("n", "<C-j>", "<C-w>j", opts)
--- keymap("n", "<C-k>", "<C-w>k", opts)
--- keymap("n", "<C-l>", "<C-w>l", opts)
---
--- keymap("n", "<leader>e", ":Lex 30<cr>", opts)
---
--- -- Resize with arrows
--- keymap("n", "<C-Up>", ":resize -2<CR>", opts)
--- keymap("n", "<C-Down>", ":resize +2<CR>", opts)
--- keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
--- keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
---
--- -- Navigate buffers
--- keymap("n", "<S-l>", ":bnext<CR>", opts)
--- keymap("n", "<S-h>", ":bprevious<CR>", opts)
---
--- -- Move text up and down
--- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
--- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
---
--- -- Insert --
--- -- Press jk fast to enter
--- keymap("i", "jk", "<ESC>", opts)
---
--- -- Visual --
--- -- Stay in indent mode
--- keymap("v", "<", "<gv", opts)
--- keymap("v", ">", ">gv", opts)
---
--- -- Move text up and down
--- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
--- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
--- keymap("v", "p", '"_dP', opts)
---
--- -- Visual Block --
--- -- Move text up and down
--- keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
--- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
---
--- -- Terminal --
--- -- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
--- ========================================================================================================
 -- Equivalent:
 -- <c-i> and <Tab>
 -- <c-m> and <CR> (enter)
@@ -79,7 +8,7 @@
 -- ["<Leader>j"] = ":buffers<CR>:buffer<Space>",
 -- nnoremap <C-a> mzggvvGy`z- (tried to copy all text)
 -- ========================================================================================================
--- Don't set alt + i, alt + o, alt + p, they are for moving the window.
+-- Don't set alt + i, alt + o, alt + p, they are for moving the window (ubuntu settings)
 -- DON'T MAP ANYTHING WITH <leader> THAT SETS IN INSERT MODE
 -- ========================================================================================================
 
@@ -93,7 +22,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 vim.g.mapleader = " " --leader
-map("n", ";", ":")                                --semicolon to enter command mode
+map("n", ";", ":")    --semicolon to enter command mode
 
 -- <HOP>
 map("n", "<leader>j", "<cmd>HopWord<CR>")
@@ -109,7 +38,6 @@ map("n", "<leader>sp",  "<cmd>Telescope colorscheme<cr>")
 map("n", "<leader>p",   "<cmd>Telescope projects<cr>")
 map("n", "<leader>m",   "<cmd>Telescope marks<cr>")
 map("n", "<leader>:",   "<cmd>Telescope commands<cr>")
--- map("n", "<leader>f", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
 
 -- <NVIM TREE>
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
@@ -118,18 +46,9 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 vim.g.user_emmet_expandabbr_key = '<c-c>'
 vim.g.user_emmet_leader_key='<C-)>' --I don't use all the emmet features.
 
--- map("n", "<leader>tz", "<cmd>TZAtaraxis<cr>") --ataraxis
--- map("n", "<leader>tw", "<cmd>set wrap!<cr>") --nvimtree
-
--- WINDOW NAVIGATION
--- map("n", "<c-h>", "<cmd>wincmd h<cr>")                          --move left window
--- map("n", "<c-n>", "<cmd>wincmd j<cr>")                          --move below window
--- map("n", "<c-p>", "<cmd>wincmd k<cr>")                          --move upper window
--- map("n", "<c-l>", "<cmd>wincmd l<cr>")                          --move right window
-
 -- BUFFER NAVIGATION
-map('n', '<c-j>',      '<cmd>bp<cr>')           --resize window horizontal
-map('n', '<c-l>',      '<cmd>bn<cr>')           --resize window horizontal
+map('n', '<c-j>',      '<cmd>bprevious<cr>')           --resize window horizontal
+map('n', '<c-l>',      '<cmd>bnext<cr>')           --resize window horizontal
 
 -- RESIZE WINDOW
 map('n', '<m-a>',      '<cmd>vertical resize +4<cr>')           --resize window horizontal
@@ -147,7 +66,6 @@ map('n', '<c-o>',      '<c-o>zz')                               --center view wh
 map('n', '<Leader>r',  '<cmd>w<cr>')                            --save file
 map('n', '<Leader>q',  '<cmd>q<cr>')                            --quit file
 map('n', '<Leader>t',  '<cmd>set hlsearch!<cr>')                --toggle highlight
--- map('n', '<c-k>',      '<c-^>')                                 --toggle close buffer
 map('n', 'V',          'vg_')                                   --visual to the right
 map('n', 'vv',         'Vg_')                                   --visual whole line
 map('n', 'J',          'mzJ`z')                                 --cursor stay current position when J
@@ -155,7 +73,14 @@ map('v', 'y',          'ygv<esc>')                              --yanking select
 map('v', 'p',          '"_dP')                                  --Pasting without yanking
 map('v', 'P',          '"_dP')                                  --Pasting without yanking
 map('n', '<Leader>c',  '<cmd>find ~/.config/nvim/init.lua<cr>') --go to init.lua
+-- map('n', '<c-k>',      '<c-^>')                                 --toggle close buffer
 -- map('i', '<c-c>',      '<esc>bi<<esc>ea><esc>F<vf>yPa')      --Emmet emulation
+
+-- WINDOW NAVIGATION
+-- map("n", "<c-h>", "<cmd>wincmd h<cr>")                          --move left window
+-- map("n", "<c-n>", "<cmd>wincmd j<cr>")                          --move below window
+-- map("n", "<c-p>", "<cmd>wincmd k<cr>")                          --move upper window
+-- map("n", "<c-l>", "<cmd>wincmd l<cr>")                          --move right window
 
 -- HARD TO MAP
 vim.cmd([[
