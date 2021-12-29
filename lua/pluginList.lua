@@ -65,6 +65,7 @@ return packer.startup(function()
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+  use "rebelot/kanagawa.nvim"
 
   -- CMP ---------------------------------------------
   use {
@@ -292,6 +293,200 @@ return packer.startup(function()
     end,
   }
 
+  -- sergio
+  -- use 'andymass/vim-matchup'
+  -- JSX COMMENTS
+  -- use { "JoosepAlviste/nvim-ts-context-commentstring" }
+
+  -- HARD MODE
+  -- use 'takac/vim-hardtime'
+
+  -- THEMES
+  -- use 'gruvbox-community/gruvbox'
+  -- use 'tomasr/molokai'
+  -- use 'nxvu699134/vn-night.nvim'
+  -- use "folke/tokyonight.nvim"
+  -- use 'srcery-colors/srcery-vim'
+  -- use 'ray-x/aurora'
+
+  -- VIMWIKI
+  -- use {
+  --   'vimwiki/vimwiki',
+  --   opt = true,
+  --   keys = '<leader>ww',
+  --   -- config = function()
+  --   --   require('vimwiki').setup()
+  --   -- end
+  -- }
+
+  -- TWILIGHT
+  -- use {
+  --   "folke/twilight.nvim",
+  --   cmd = {
+  --     "Twilight",
+  --     "TwilightEnable",
+  --   },
+  --   config = function()
+  --     require("twilight").setup {}
+  --   end,
+  -- }
+
+  -- use {
+  --    "max397574/better-escape.nvim",
+  --    event = "InsertEnter",
+  --    config = function()
+  --       require("better_escape").setup {
+  --          mapping = { "jk", "jj" },
+  --          clear_empty_lines = true,
+  --          keys = "<Esc>",
+  --       }
+  --    end,
+  -- }
+
+  -- use {
+  --    "Clutch-Squad-10669/nord.nvim",
+  --    config = function()
+  --       require("nord").set()
+  --    end,
+  -- }
+
+  -- use {
+  --    "folke/which-key.nvim",
+  --    keys = "<space>",
+  --    config = function()
+  --       require("which-key").setup()
+  --    end,
+  -- }
+
+  -- use {
+  --    "akinsho/bufferline.nvim",
+  --    config = function()
+  --       require "plugins.bufferline"
+  --    end,
+  -- }
+
+  -- use {
+  --       "nvim-lualine/lualine.nvim",
+  --       config = function()
+  --          require "plugins.statusline"
+  --       end,
+  --    }
+
+  -- use {
+  --    "lukas-reineke/indent-blankline.nvim",
+  --    config = function()
+  --       require("plugins.others").blankline()
+  --    end,
+  -- }
+
+  -- use {
+  --    "nvim-treesitter/playground",
+  --    cmd = "TSPlayground",
+  -- }
+
+  -- use {
+  --    "p00f/nvim-ts-rainbow",
+  --    after = "nvim-treesitter",
+  -- }
+
+  -- LSP (and copilot
+  -- use {
+  --    "github/copilot.vim",
+  --    event = "InsertEnter",
+  -- }
+
+  -- use {
+  --    "VonHeikemen/fine-cmdline.nvim",
+   --    requires = {
+   --       "MunifTanjim/nui.nvim",
+   --    },
+   --    config = function()
+   --       require("plugins.others").fineCmdline()
+   --    end,
+   -- }
+
+   -- use {
+   --    "VonHeikemen/searchbox.nvim",
+   --    requires = {
+   --       "MunifTanjim/nui.nvim",
+   --    },
+   --    config = function()
+   --       require("plugins.others").searchbox()
+   --    end,
+   -- }
+
+   -- use {
+   --    "rcarriga/nvim-notify",
+   --    config = function()
+   --       vim.notify = require "notify"
+   --       require("notify").setup {
+   --          stages = "slide",
+   --          timeout = 2500,
+   --          minimum_width = 50,
+   --          icons = {
+   --             ERROR = "",
+   --             WARN = "",
+   --             INFO = "",
+   --             DEBUG = "",
+   --             TRACE = "✎",
+   --          },
+   --       }
+   --    end,
+   -- }
+
+   -- use {
+   --    "Pocco81/TrueZen.nvim",
+   --    cmd = {
+   --       "TZAtaraxis",
+   --       "TZMinimalist",
+   --       "TZFocus",
+   --    },
+   --    config = function()
+   --       require "plugins.zenmode"
+   --    end,
+   -- }
+
+   -- use {
+   --    "sindrets/diffview.nvim",
+   --    after = "neogit",
+   -- }
+
+   -- use {
+   --    "TimUntersberger/neogit",
+   --    cmd = {
+   --       "Neogit",
+   --       "Neogit commit",
+   --    },
+   --    config = function()
+   --       require "plugins.neogit"
+   --    end,
+   -- }
+
+   -- use {
+   --    "nvim-neorg/neorg",
+   --    branch = "unstable",
+   --    setup = vim.cmd "autocmd BufRead,BufNewFile *.norg setlocal filetype=norg",
+   --    after = { "nvim-treesitter" }, -- you may also specify telescope
+   --    ft = "norg",
+   --    config = function()
+   --       require "plugins.neorg"
+   --    end,
+   -- }
+
+   -- use {
+   --    "nvim-orgmode/orgmode",
+   --    ft = "org",
+   --    setup = vim.cmd "autocmd BufRead,BufNewFile *.org setlocal filetype=org",
+   --    after = { "nvim-treesitter" },
+   --    config = function()
+   --       require("orgmode").setup {}
+   --    end,
+   -- }
+
+   -- use {
+   --    "nvim-neorg/neorg-telescope",
+   --    ft = "norg",
+   -- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   -- if PACKER_BOOTSTRAP then
