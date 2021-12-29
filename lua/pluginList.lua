@@ -45,8 +45,17 @@ return packer.startup(function()
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
 
   -- STARTUP OPTIMIZATIONS ---------------------------
-  use "nathom/filetype.nvim"
-  use "lewis6991/impatient.nvim"
+  use {
+      "nathom/filetype.nvim",
+      config = function()
+        vim.g.did_load_filetypes = 1
+      end,
+  }
+  use {
+    "lewis6991/impatient.nvim",
+    -- after = 'filetype.nvim',
+  }
+
   use {
     "tweekmonster/startuptime.vim",
     cmd = "StartupTime",
@@ -67,16 +76,16 @@ return packer.startup(function()
   }
   use {
     "hrsh7th/cmp-buffer",
-    -- after = "nvim-cmp",
+    after = "nvim-cmp",
   }
   use {
     "hrsh7th/cmp-path",
-    -- after = "nvim-cmp",
+    after = "nvim-cmp",
   }
 
   use {
     "hrsh7th/cmp-cmdline",
-    -- after = "nvim-cmp",
+    after = "nvim-cmp",
   }
   use {
     "saadparwaiz1/cmp_luasnip",
@@ -85,12 +94,14 @@ return packer.startup(function()
   -- LSP CMP
   use {
     "hrsh7th/cmp-nvim-lsp",
+    after = "nvim-lspconfig",
     -- after = "nvim-cmp",
+    -- after = {"nvim-lspconfig", "nvim-cmp"}
   }
   -- LUA CMP
   use {
     "hrsh7th/cmp-nvim-lua",
-    -- after = "nvim-cmp",
+    after = "nvim-cmp",
   }
   -- DETAILED INFO CMP
   -- use {
@@ -111,9 +122,6 @@ return packer.startup(function()
     "L3MON4D3/LuaSnip",
     wants = "friendly-snippets",
     after = "nvim-cmp",
-    config = function()
-      require("plugins.others").luasnip()
-    end,
   }
 
   use {
@@ -124,13 +132,21 @@ return packer.startup(function()
   -- LSP ----------------------------------------------
   use {
     "neovim/nvim-lspconfig",
+    after = "nvim-lsp-installer",
     config = function()
-      -- require "plugins.lspconfig"
       require "lsp"
     end,
   }
   use {
     "williamboman/nvim-lsp-installer",
+    opt = true,
+    setup = function()
+      require("config").packer_lazy_load "nvim-lsp-installer"
+        -- reload the current file so lsp actually starts for it
+        vim.defer_fn(function()
+          vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
+        end, 0)
+      end,
     config = function()
       require "lsp"
     end,
@@ -156,6 +172,7 @@ return packer.startup(function()
     config = function()
       require "plugins.treesitter"
     end,
+    event = "BufRead",
     run = ":TSUpdate",
   }
   -- RAINBOW
