@@ -79,7 +79,7 @@ if not present then
 end
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-vim.g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
+-- vim.g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
 -- vim.g.nvim_tree_respect_buf_cwd = 1 --update when switch project
 
 require("nvim-tree").setup({

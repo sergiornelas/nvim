@@ -10,7 +10,7 @@
 
 ## Showcase
 
-<img width="1450" alt="image" src="sergionvim.png">
+<img width="1450" alt="image" src="neovim.png">
 
 ## Try out this config
 

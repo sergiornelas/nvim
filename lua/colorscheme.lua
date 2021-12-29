@@ -6,6 +6,7 @@
 
 -- colorscheme darkplus
 -- colorscheme gruvbox
+-- colorscheme kanagawa
 vim.cmd [[
 try
   colorscheme kanagawa
