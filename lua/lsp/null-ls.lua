@@ -1,8 +1,8 @@
 local present1, lspconfig = pcall(require, "lspconfig")
 local present2, null_ls = pcall(require, "null-ls")
--- local present3, _ = pcall(require, "nvim-lsp-ts-utils")
+local present3, _ = pcall(require, "nvim-lsp-ts-utils")
 
-if not (present1 or present2) then
+if not (present1 or present2 or present3) then
    return
 end
 
@@ -38,14 +38,31 @@ local on_attach = function(client, bufnr)
   buf_map(bufnr, "n", "gr", ":LspRename<CR>")
   buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>")
   buf_map(bufnr, "n", "K",  ":LspHover<CR>")
-  buf_map(bufnr, "n", "[a", ":LspDiagPrev<CR>")
-  buf_map(bufnr, "n", "]a", ":LspDiagNext<CR>")
+  buf_map(bufnr, "n", "[d", ":LspDiagPrev<CR>")
+  buf_map(bufnr, "n", "]d", ":LspDiagNext<CR>")
   buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>")
   buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
   buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
   if client.resolved_capabilities.document_formatting then
     -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()")
+  end
+end
+
+-- Highlight
+local function lsp_highlight_document(client)
+  -- Set autocommands conditional on server_capabilities
+  if client.resolved_capabilities.document_highlight then
+    vim.api.nvim_exec(
+      [[
+      augroup lsp_document_highlight
+        autocmd! * <buffer>
+        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      augroup END
+    ]],
+      false
+    )
   end
 end
 
@@ -56,6 +73,7 @@ lspconfig.tsserver.setup({
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false
+    lsp_highlight_document(client)
     local ts_utils = require("nvim-lsp-ts-utils")
     ts_utils.setup({})
     ts_utils.setup_client(client)
@@ -68,6 +86,20 @@ lspconfig.tsserver.setup({
 
 --=================={null_ls}===========================
 -- NULL (LSP ACTIONS USING PURE LUA, NO CONNECTION WITH A LSP SERVER, ALLOWS TYPES OF FORMAT AND DIFFERENT ACTIONS)
+null_ls.setup({
+    sources = {
+        null_ls.builtins.diagnostics.eslint_d,
+        null_ls.builtins.code_actions.eslint_d,
+        null_ls.builtins.formatting.prettierd,
+        -- null_ls.builtins.formatting.prettier,
+        -- null_ls.builtins.formatting.prettier.with({
+        --   disabled_filetypes = {'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact'}
+        -- }),
+    },
+    on_attach = on_attach,
+    -- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } })
+})
+
 -- null_ls.config({
 --   sources = {
 --     -- null_ls.builtins.formatting.prettier,        -- Prettier all default files.
@@ -98,16 +130,3 @@ lspconfig.tsserver.setup({
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 -- local formatting = null_ls.builtins.formatting
 
-null_ls.setup({
-    sources = {
-        null_ls.builtins.diagnostics.eslint_d,
-        null_ls.builtins.code_actions.eslint_d,
-        null_ls.builtins.formatting.prettierd,
-        -- null_ls.builtins.formatting.prettier,
-        -- null_ls.builtins.formatting.prettier.with({
-        --   disabled_filetypes = {'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact'}
-        -- }),
-    },
-    on_attach = on_attach,
-    -- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } })
-})
