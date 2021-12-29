@@ -3,17 +3,15 @@ if not status_ok then
   return
 end
 
+telescope.load_extension('projects')
 -- telescope.load_extension('media_files')
-
 local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
-
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-
     mappings = {
       i = {
         -- ["<C-j>"] = actions.cycle_history_next,
@@ -103,3 +101,4 @@ telescope.setup {
   --   -- please take a look at the readme of the extension you want to configure
   -- },
 }
+

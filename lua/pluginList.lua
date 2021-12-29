@@ -23,8 +23,6 @@ else
    return false
 end
 
-local use = packer.use
-
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
   augroup packer_user_config
@@ -33,6 +31,7 @@ vim.cmd [[
   augroup end
 ]]
 
+local use = packer.use
 -- Install your plugins here
 return packer.startup(function()
   -- HAVE PACKER MANAGE ITSELF -----------------------
@@ -62,9 +61,8 @@ return packer.startup(function()
   }
 
   -- COLORSCHEMES
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
-  use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+  use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}} --heavy af
   use "rebelot/kanagawa.nvim"
 
   -- CMP ---------------------------------------------
@@ -112,7 +110,7 @@ return packer.startup(function()
     -- require("plugins.others").signature()
     -- end,
   -- }
-  -- Treesitter cmp
+  -- TREESITTER CMP
   -- use {
   --   "ray-x/cmp-treesitter",
   --   after = "nvim-cmp",
@@ -124,7 +122,6 @@ return packer.startup(function()
     wants = "friendly-snippets",
     after = "nvim-cmp",
   }
-
   use {
     "rafamadriz/friendly-snippets",
     event = "InsertEnter",
@@ -158,9 +155,6 @@ return packer.startup(function()
     'jose-elias-alvarez/null-ls.nvim',
   	module = 'lspconfig',
   	requires = { 'nvim-lua/plenary.nvim' },
-  	config = function()
-  	  require('null-ls')
-  	end,
   }
   use({
     'jose-elias-alvarez/nvim-lsp-ts-utils', -- LSP-TS-UTILS
@@ -224,7 +218,6 @@ return packer.startup(function()
   -- COLORIZER ------------------------------------------
   use {
     "norcalli/nvim-colorizer.lua",
-    cmd = "ColorizerToggle",
     config = function()
       require("plugins.others").colorizer()
     end,
@@ -289,11 +282,10 @@ return packer.startup(function()
   use {
     "ahmedkhalf/project.nvim",
     config = function()
-      require("plugins.project")
+      require('project_nvim').setup()
     end,
   }
 
-  -- sergio
   -- use 'andymass/vim-matchup'
   -- JSX COMMENTS
   -- use { "JoosepAlviste/nvim-ts-context-commentstring" }

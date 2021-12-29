@@ -53,11 +53,11 @@ CTRL + m   = FREE (unmapped in keybindings file)
 
 ~~PLUGINS~~
 `ctrl + j` = prev buffer
-`ctrl + j  = selectTelescopeelement, selectCMP
-`ctrl + k` = telescope buffer history
-`ctrl + k` = next Telescopelement, next Cmpelment, next snippet checkpoint
+`ctrl + j  = select-Telescope-Element, select-CMP-Element
+`ctrl + k` = telescope-buffer-history
+`ctrl + k` = next Telescope-Element, next CMP-element, next-Snippet-Checkpoint
 `ctrl + l` = next buffer
-`ctrl + l` = previousTelescopelement, previous Cmpelment, previous snippet checkpoint 
+`ctrl + l` = previous-Telescope-element, previous-CMP-element, previous-Snippet-Checkpoint 
 `ctrl + ^` = terminal 
 `ctrl + q` = quick fix (you could replace this)
 `ctrl + )` = emmet king (trash)

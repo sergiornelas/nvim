@@ -54,6 +54,7 @@ vim.opt.shortmess:append "c"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.cmd('set nofoldenable') --helps with everything fold?
 
 -- ===============================================================================
 -- vim.g.did_load_filetypes = 1
@@ -67,8 +68,6 @@ vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 -- --Remap for dealing with word wrap (not jumps wrapped lines)
 -- vim.api.nvim_set_keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
-
--- vim.cmd('set nofoldenable') --helps with everything fold?
 
 -- PLUGINS
 -- vim.g.hardtime_default_on = 1             -- Hard mode on/off.
