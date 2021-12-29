@@ -29,7 +29,7 @@ local use = packer.use
 vim.cmd [[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost pluginList.lua source <afile> | PackerSync
   augroup end
 ]]
 
@@ -67,16 +67,16 @@ return packer.startup(function()
   }
   use {
     "hrsh7th/cmp-buffer",
-    after = "nvim-cmp",
+    -- after = "nvim-cmp",
   }
   use {
     "hrsh7th/cmp-path",
-    after = "nvim-cmp",
+    -- after = "nvim-cmp",
   }
 
   use {
     "hrsh7th/cmp-cmdline",
-    after = "nvim-cmp",
+    -- after = "nvim-cmp",
   }
   use {
     "saadparwaiz1/cmp_luasnip",
@@ -85,12 +85,12 @@ return packer.startup(function()
   -- LSP CMP
   use {
     "hrsh7th/cmp-nvim-lsp",
-    after = "nvim-cmp",
+    -- after = "nvim-cmp",
   }
   -- LUA CMP
   use {
     "hrsh7th/cmp-nvim-lua",
-    after = "nvim-cmp",
+    -- after = "nvim-cmp",
   }
   -- DETAILED INFO CMP
   -- use {
@@ -115,6 +115,7 @@ return packer.startup(function()
       require("plugins.others").luasnip()
     end,
   }
+
   use {
     "rafamadriz/friendly-snippets",
     event = "InsertEnter",

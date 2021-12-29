@@ -36,6 +36,7 @@ map("n", "<leader>st",  "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>u",   "<cmd>Telescope oldfiles<cr>")
 map("n", "<leader>sp",  "<cmd>Telescope colorscheme<cr>")
 map("n", "<leader>p",   "<cmd>Telescope projects<cr>")
+-- map("n", "<leader>p",   "<cmd>lua require('telescope').extensions.projects.projects()<cr>")
 map("n", "<leader>m",   "<cmd>Telescope marks<cr>")
 map("n", "<leader>:",   "<cmd>Telescope commands<cr>")
 

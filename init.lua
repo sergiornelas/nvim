@@ -1,16 +1,13 @@
-pcall(require, "impatient")
+-- pcall(require, "impatient")
 
--- local impatient, impatient = pcall(require, "impatient")
--- if impatient then
---   -- NOTE: currently broken, will fix soon
---   --impatient.enable_profile()
--- end
+local impatient, impatient = pcall(require, "impatient")
+if impatient then
+  -- NOTE: currently broken, will fix soon
+  --impatient.enable_profile()
+end
 
--- --load impatient first
--- local impatient, impatient = pcall(require, "impatient")
--- if impatient then
---    impatient.enable_profile()
--- end
+--load impatient first
+-- local present, impatient = pcall(require, 'impatient')
 
 --disable builtin plugins
 local disabled_built_ins = {

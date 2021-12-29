@@ -70,14 +70,6 @@ vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
 -- vim.cmd('set nofoldenable') --helps with everything fold?
 
--- AESTHETIC
-vim.cmd([[colorscheme gruvbox]])
-vim.g.gruvbox_contrast_dark = 'hard'
--- vim.g.colors_name = 'srcery'
--- vim.cmd('colorscheme nord')
--- vim.o.background='dark'
--- vim.opt.transparent_window = true
-
 -- PLUGINS
 -- vim.g.hardtime_default_on = 1             -- Hard mode on/off.
 -- vim.g.hardtime_maxcount = 3               -- Hard mode limit (hjkl).
