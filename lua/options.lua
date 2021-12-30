@@ -41,21 +41,6 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
--- Highlight on yank
-vim.cmd [[
-  augroup YankHighlight
-  autocmd!
-  autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]]
-
-vim.opt.shortmess:append "c"
-
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
-vim.cmd('set nofoldenable') 	   --helps with everything fold
-
 -- ===============================================================================
 -- vim.g.did_load_filetypes = 1
 -- vim.g.neovide_cursor_vfx_mode = "pixiedust" -- neovide trail
