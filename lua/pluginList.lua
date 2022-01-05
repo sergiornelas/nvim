@@ -264,9 +264,9 @@ return packer.startup(function()
   }
 
   -- AUTO CHANGE HTML & JSX TAGS ----------------------------
-  use {
-    "windwp/nvim-ts-autotag",
-  }
+  -- use {
+  --   "windwp/nvim-ts-autotag",
+  -- }
 
   -- TERMINAL ------------------------------------------------
   use {
@@ -296,9 +296,9 @@ return packer.startup(function()
   -- THEMES
   -- use 'gruvbox-community/gruvbox'
   -- use 'tomasr/molokai'
-  -- use 'nxvu699134/vn-night.nvim'
+  use 'nxvu699134/vn-night.nvim'
   -- use "folke/tokyonight.nvim"
-  -- use 'srcery-colors/srcery-vim'
+  use 'srcery-colors/srcery-vim'
   -- use 'ray-x/aurora'
 
   -- VIMWIKI

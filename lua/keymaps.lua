@@ -44,7 +44,7 @@ map("n", "<leader>:",   "<cmd>Telescope commands<cr>")
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
 -- <EMMET>
-vim.g.user_emmet_expandabbr_key = '<c-c>'
+-- vim.g.user_emmet_expandabbr_key = '<c-c>'
 vim.g.user_emmet_leader_key='<C-)>' --I don't use all the emmet features.
 
 -- BUFFER NAVIGATION
@@ -75,7 +75,7 @@ map('v', 'p',          '"_dP')                                  --Pasting withou
 map('v', 'P',          '"_dP')                                  --Pasting without yanking
 map('n', '<Leader>c',  '<cmd>find ~/.config/nvim/init.lua<cr>') --go to init.lua
 -- map('n', '<c-k>',      '<c-^>')                                 --toggle close buffer
--- map('i', '<c-c>',      '<esc>bi<<esc>ea><esc>F<vf>yPa')      --Emmet emulation
+map('i', '<c-c>',      '<esc>bi<<esc>ea><esc>F<vf>yPa')      --Emmet emulation
 
 -- WINDOW NAVIGATION
 -- map("n", "<c-h>", "<cmd>wincmd h<cr>")                          --move left window

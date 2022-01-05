@@ -13,8 +13,11 @@ luasnip.config.set_config {
   updateevents = "TextChanged,TextChangedI",
 }
 
-require("luasnip/loaders/from_vscode").lazy_load()
--- require("luasnip/loaders/from_vscode").load()
+-- ADD HTML SNIPPETS TO JAVASCRIPT/REACT
+luasnip.snippets = {html = {}}  -- {all = {}}
+luasnip.snippets.javascriptreact = luasnip.snippets.html  --javascript, typescriptreact
+require("luasnip/loaders/from_vscode").load({})
+-- require("luasnip/loaders/from_vscode").load({include = {"html"}})
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
