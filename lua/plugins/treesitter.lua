@@ -24,6 +24,10 @@ configs.setup {
   autopairs = {
     enable = true,
   },
+  context_commentstring = { --JSX commments
+    enable = true,
+    enable_autocmd = false
+  },
   -- autotag = {
   --   enable = true
   -- },

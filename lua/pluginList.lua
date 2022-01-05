@@ -288,7 +288,7 @@ return packer.startup(function()
 
   -- use 'andymass/vim-matchup'
   -- JSX COMMENTS
-  -- use { "JoosepAlviste/nvim-ts-context-commentstring" }
+  use { "JoosepAlviste/nvim-ts-context-commentstring" }
 
   -- HARD MODE
   -- use 'takac/vim-hardtime'
