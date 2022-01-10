@@ -64,6 +64,12 @@ return packer.startup(function()
   use "lunarvim/darkplus.nvim"
   use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}} --heavy af
   use "rebelot/kanagawa.nvim"
+  use 'nxvu699134/vn-night.nvim'
+  use 'srcery-colors/srcery-vim'
+  -- use 'gruvbox-community/gruvbox'
+  -- use 'tomasr/molokai'
+  -- use "folke/tokyonight.nvim"
+  -- use 'ray-x/aurora'
 
   -- CMP ---------------------------------------------
   use {
@@ -289,20 +295,13 @@ return packer.startup(function()
   -- use 'andymass/vim-matchup'
   -- JSX COMMENTS
   use {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    ft = {'javascriptreact', 'typescript', 'typescriptreact'}
+    "JoosepAlviste/nvim-ts-context-commentstring",        --heavy plugin (0.784)
+    -- ft = {'javascriptreact', 'typescript', 'typescriptreact'}
+    -- ft = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact'}
   }
 
   -- HARD MODE
   -- use 'takac/vim-hardtime'
-
-  -- THEMES
-  -- use 'gruvbox-community/gruvbox'
-  -- use 'tomasr/molokai'
-  use 'nxvu699134/vn-night.nvim'
-  -- use "folke/tokyonight.nvim"
-  use 'srcery-colors/srcery-vim'
-  -- use 'ray-x/aurora'
 
   -- VIMWIKI
   -- use {
@@ -339,21 +338,6 @@ return packer.startup(function()
   -- }
 
   -- use {
-  --    "Clutch-Squad-10669/nord.nvim",
-  --    config = function()
-  --       require("nord").set()
-  --    end,
-  -- }
-
-  -- use {
-  --    "folke/which-key.nvim",
-  --    keys = "<space>",
-  --    config = function()
-  --       require("which-key").setup()
-  --    end,
-  -- }
-
-  -- use {
   --    "akinsho/bufferline.nvim",
   --    config = function()
   --       require "plugins.bufferline"
@@ -365,14 +349,11 @@ return packer.startup(function()
   --       config = function()
   --          require "plugins.statusline"
   --       end,
-  --    }
-
-  -- use {
-  --    "lukas-reineke/indent-blankline.nvim",
-  --    config = function()
-  --       require("plugins.others").blankline()
-  --    end,
   -- }
+
+  use {
+    "lukas-reineke/indent-blankline.nvim",  --heavy (2.473)
+  }
 
   -- use {
   --    "nvim-treesitter/playground",
