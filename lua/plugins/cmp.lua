@@ -128,6 +128,7 @@ cmp.setup {
     { name = "nvim_lua" },
     { name = "buffer" },
     { name = "path" },
+    { name = "orgmode"},
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

@@ -300,6 +300,24 @@ return packer.startup(function()
     -- ft = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact'}
   }
 
+  use {
+    "lukas-reineke/indent-blankline.nvim",  --heavy (2.473)
+  }
+
+  use {
+    'nvim-orgmode/orgmode',
+    config = function()
+      require('plugins.orgmode')
+    end
+  }
+
+  use {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require "plugins.lualine"
+    end,
+  }
+
   -- HARD MODE
   -- use 'takac/vim-hardtime'
 
@@ -343,17 +361,6 @@ return packer.startup(function()
   --       require "plugins.bufferline"
   --    end,
   -- }
-
-  -- use {
-  --       "nvim-lualine/lualine.nvim",
-  --       config = function()
-  --          require "plugins.statusline"
-  --       end,
-  -- }
-
-  use {
-    "lukas-reineke/indent-blankline.nvim",  --heavy (2.473)
-  }
 
   -- use {
   --    "nvim-treesitter/playground",
