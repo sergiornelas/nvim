@@ -15,7 +15,9 @@ luasnip.config.set_config {
 
 -- ADD HTML SNIPPETS TO JAVASCRIPT/REACT
 luasnip.snippets = {html = {}}  -- {all = {}}
-luasnip.snippets.javascriptreact = luasnip.snippets.html  --javascript, typescriptreact
+luasnip.snippets.javascriptreact = luasnip.snippets.html
+-- luasnip.snippets.javascript = luasnip.snippets.html  -- add jsx snippets to .js files but duplicate snippets
+luasnip.snippets.typescriptreact = luasnip.snippets.html
 require("luasnip/loaders/from_vscode").load({})
 -- require("luasnip/loaders/from_vscode").load({include = {"html"}})
 

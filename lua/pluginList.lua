@@ -293,15 +293,11 @@ return packer.startup(function()
   }
 
   -- use 'andymass/vim-matchup'
+
   -- JSX COMMENTS
   use {
     "JoosepAlviste/nvim-ts-context-commentstring",        --heavy plugin (0.784)
-    -- ft = {'javascriptreact', 'typescript', 'typescriptreact'}
-    -- ft = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact'}
-  }
-
-  use {
-    "lukas-reineke/indent-blankline.nvim",  --heavy (2.473)
+    ft = {'typescriptreact', 'javascriptreact'}
   }
 
   use {
