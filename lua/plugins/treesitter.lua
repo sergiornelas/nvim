@@ -4,14 +4,13 @@ if not status_ok then
 end
 
 configs.setup {
-  ensure_installed = {'javascript', 'css', 'html', 'lua', 'json', 'org'}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {'javascript', 'css', 'html', 'lua', 'json', 'norg', 'norg_table', 'norg_meta'}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension
-    disable = { 'org' }, -- list of language that will be disabled
-    -- additional_vim_regex_highlighting = true,
-    additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
+    disable = { '' }, -- list of language that will be disabled
+    additional_vim_regex_highlighting = true,
   },
   indent = { enable = true, disable = { "yaml" } },
   rainbow = {
@@ -34,19 +33,36 @@ configs.setup {
   -- },
 }
 
--- ORGMODE
--- local present, parser_config = pcall(require, "nvim-treesitter.parsers")
--- if not present then
---   return
--- end
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
--- parser_config = parser_config.get_parser_configs()
-parser_config.org = {
-  install_info = {
-    url = 'https://github.com/milisims/tree-sitter-org',
-    revision = 'f110024d539e676f25b72b7c80b0fd43c34264ef',
-    files = {'src/parser.c', 'src/scanner.cc'},
-  },
-  filetype = 'org',
+--NEORG
+local present, parser_config = pcall(require, "nvim-treesitter.parsers")
+if not present then
+  return
+end
+
+parser_config = parser_config.get_parser_configs()
+-- local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+
+parser_config.norg = {
+    install_info = {
+      url = "https://github.com/nvim-neorg/tree-sitter-norg",
+      files = { "src/parser.c", "src/scanner.cc" },
+      branch = "main"
+    },
+}
+
+parser_config.norg_meta = {
+    install_info = {
+      url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
+      files = { "src/parser.c" },
+      branch = "main"
+    },
+}
+
+parser_config.norg_table = {
+    install_info = {
+      url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
+      files = { "src/parser.c" },
+      branch = "main"
+    },
 }
 

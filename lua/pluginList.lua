@@ -305,17 +305,26 @@ return packer.startup(function()
   }
 
   use {
-    'nvim-orgmode/orgmode',
-    config = function()
-      require('plugins.orgmode')
-    end
-  }
-
-  use {
     "nvim-lualine/lualine.nvim",
     config = function()
       require "plugins.lualine"
     end,
+  }
+
+  use {
+    "nvim-neorg/neorg",
+    setup = vim.cmd("autocmd BufRead,BufNewFile *.norg setlocal filetype=norg"),
+    after = {"nvim-treesitter"},  -- you may also specify telescope
+    ft = "norg",
+    config = function()
+      require "plugins.neorg"
+    end,
+    requires = "nvim-lua/plenary.nvim"
+  }
+
+  use {
+    "nvim-neorg/neorg-telescope",
+    -- ft = "norg",
   }
 
   -- HARD MODE
@@ -446,17 +455,6 @@ return packer.startup(function()
    -- }
 
    -- use {
-   --    "nvim-neorg/neorg",
-   --    branch = "unstable",
-   --    setup = vim.cmd "autocmd BufRead,BufNewFile *.norg setlocal filetype=norg",
-   --    after = { "nvim-treesitter" }, -- you may also specify telescope
-   --    ft = "norg",
-   --    config = function()
-   --       require "plugins.neorg"
-   --    end,
-   -- }
-
-   -- use {
    --    "nvim-orgmode/orgmode",
    --    ft = "org",
    --    setup = vim.cmd "autocmd BufRead,BufNewFile *.org setlocal filetype=org",
@@ -466,10 +464,6 @@ return packer.startup(function()
    --    end,
    -- }
 
-   -- use {
-   --    "nvim-neorg/neorg-telescope",
-   --    ft = "norg",
-   -- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   -- if PACKER_BOOTSTRAP then

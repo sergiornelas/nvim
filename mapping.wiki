@@ -9,12 +9,15 @@ BACKSPACE  = FREE
 CTRL + g   = FREE
 CTRL + h   = FREE
 CTRL + n   = FREE
-CTRL + p   = FREE
-CTRL + s   = FREE
 CTRL + t   = (tag stack)
 CTRL + m   = FREE (unmapped in keybindings file)
 <Leader w> = FREE
 <Leader g> is reserverd for vim-fugitive
+=================================
+
+==========Testing================
+CTRL + p   = autocomplete [({})]
+CTRL + s   = neorg telescope
 =================================
 
 ~~VIM CTRLS (NORMAL MODE)~~
@@ -74,7 +77,7 @@ CTRL + m   = FREE (unmapped in keybindings file)
 `Del` = (can be used as x)
 
 ----------------------------------------------------------------------------------------
-~~VIM CONTROLS INSERT MODE:~~
+~~VIM MAPS INSERT MODE:~~
 `Ctrl + h` - backpace
 `Ctrl + t` - move whole line to the RIGHT.
 `Ctrl + d` - move whole line to the LEFT.
@@ -89,6 +92,9 @@ CTRL + m   = FREE (unmapped in keybindings file)
 `Ctrl + a` - ?
 `Ctrl + e` - write character bellow cursor `(used for vsnip, close the menu)`
 `Ctrl + y` - write character above cursor `(mappeable)`
+
+~~PLUGIN MAPS INSERT MODE:~~
+`Ctrl + l` - create link neorg
 
 check this list in help:
 `:help ins-special-keys`

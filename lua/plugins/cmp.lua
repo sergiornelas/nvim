@@ -118,6 +118,7 @@ cmp.setup {
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
+        neorg = "[Neorg]",
       })[entry.source.name]
       return vim_item
     end,
@@ -128,7 +129,7 @@ cmp.setup {
     { name = "nvim_lua" },
     { name = "buffer" },
     { name = "path" },
-    { name = "orgmode"},
+    { name = "neorg"},
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
