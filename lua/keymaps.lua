@@ -53,10 +53,10 @@ map('n', '<c-k>',      '<cmd>bnext<cr>')                        --next buffer
 map('n', '<c-t>',      '<cmd>bd<cr>')                           --close buffer
 
 -- RESIZE WINDOW
-map('n', '<m-a>',      '<cmd>vertical resize +4<cr>')           --resize window horizontal
-map('n', '<m-s>',      '<cmd>resize +4<cr>')                    --resize window vertical
-map('n', '<m-d>',      '<cmd>resize -4<cr>')                    --resize window vertical
-map('n', '<m-f>',      '<cmd>vertical resize -4<cr>')           --resize window horizontal
+map('n', '<left>',      '<cmd>vertical resize +4<cr>')          --resize window horizontal
+map('n', '<down>',      '<cmd>resize +4<cr>')                   --resize window vertical
+map('n', '<up>',      '<cmd>resize -4<cr>')                     --resize window vertical
+map('n', '<right>',      '<cmd>vertical resize -4<cr>')         --resize window horizontal
 
 -- CENTER VIEW
 map('n', 'n',          'nzzzv')                                 --center view when find next word
@@ -86,14 +86,12 @@ map("n", "<c-l>", "<cmd>wincmd l<cr>")                          --move right win
 
 -- HARD TO MAP
 vim.cmd([[
-  nnoremap <leader>so :so %<cr>
+  inoremap <c-n> <cmd>:m .+1<cr>
+  inoremap <c-p> <cmd>:m .-2<cr>
+  vnoremap <c-n> :m '>+1<cr>gv=gv
+  vnoremap <c-p> :m '<-2<cr>gv=gv
 
-  nnoremap <m-j> :m .+1<cr>==
-  nnoremap <m-k> :m .-2<cr>==
-  inoremap <m-j> <esc>:m .+1<cr>==
-  inoremap <m-k> <esc>:m .-2<cr>==
-  vnoremap <m-j> :m '>+1<cr>gv=gv
-  vnoremap <m-k> :m '<-2<cr>gv=gv
+  nnoremap <leader>so :so %<cr>
 
   autocmd TermEnter term://*toggleterm#*
         \ tnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<cr>

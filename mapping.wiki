@@ -77,6 +77,8 @@ autocomplete [({})]
 
 ----------------------------------------------------------------------------------------
 ~~VIM MAPS INSERT MODE:~~
+`Ctrl + n` - move current line bottom
+`Ctrl + p` - move current line top
 `Ctrl + h` - backpace
 `Ctrl + t` - move whole line to the RIGHT.
 `Ctrl + d` - move whole line to the LEFT.
@@ -94,6 +96,10 @@ autocomplete [({})]
 
 ~~PLUGIN MAPS INSERT MODE:~~
 `Ctrl + l` - create link neorg
+
+~~VIM MAPS VISUAL MODE:~~
+`Ctrl + n` - move current block bottom
+`Ctrl + p` - move current block top
 
 check this list in help:
 `:help ins-special-keys`
