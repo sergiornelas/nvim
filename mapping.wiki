@@ -9,6 +9,7 @@ BACKSPACE  = FREE
 CTRL + g   = FREE
 CTRL + m   = FREE (?)
 CTRL + c   = FREE (custom emmet?)
+CTRL + q   = FREE (quick fix?)
 <Leader w> = FREE
 <Leader g> is reserverd for vim-fugitive
 =================================
@@ -25,13 +26,14 @@ CTRL + c   = FREE (custom emmet?)
 `Ctrl + ]` - jump to the tag under cursor
 `Ctrl + a` - increase number by 1 (tmux uses this)
 `Ctrl + x` - decrease number by 1
-`Ctrl + g` - :f
+`Ctrl + g` - :f (mappeable)
 `Ctrl + t` - tag stack (mapped as close buffer)
 `Ctrl + ^` - switch buffer
 `Ctrl + j` - enter (`mapped as prev buffer, select cmp element, telescope select)
 `Ctrl + w` - ...all kind of window shortcuts, one for tab
 `Ctrl + r` - redo
 `Ctrl + v` = square select
+`Ctrl + q` = square select again (mappeable)
 `ctrl + c` = gives info about how to exit vim `(mappeable, used for emmet immediate)`
 
 ----------------------------------------------------------------------------------------
