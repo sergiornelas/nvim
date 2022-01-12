@@ -6,13 +6,11 @@ DON'T SET ANYTHING WITH <leader> THAT IS IN `INSERT MODE`
 =========Available maps==========
 ENTER      = FREE
 BACKSPACE  = FREE
-CTRL + m   = FREE
+CTRL + g   = FREE
+CTRL + m   = FREE (?)
+CTRL + c   = FREE (custom emmet?)
 <Leader w> = FREE
 <Leader g> is reserverd for vim-fugitive
-=================================
-
-==========Pending================
-autocomplete [({})]
 =================================
 
 ~~VIM CTRLS (NORMAL MODE)~~
@@ -27,9 +25,9 @@ autocomplete [({})]
 `Ctrl + ]` - jump to the tag under cursor
 `Ctrl + a` - increase number by 1 (tmux uses this)
 `Ctrl + x` - decrease number by 1
-`Ctrl + g` - :f (`mappeable`)
+`Ctrl + g` - :f
 `Ctrl + t` - tag stack (mapped as close buffer)
-`Ctrl + ^` - switch buffer (`mapped as terminal`)
+`Ctrl + ^` - switch buffer
 `Ctrl + j` - enter (`mapped as prev buffer, select cmp element, telescope select)
 `Ctrl + w` - ...all kind of window shortcuts, one for tab
 `Ctrl + r` - redo
@@ -58,7 +56,6 @@ autocomplete [({})]
 `ctrl + j  = select-Telescope-Element, select-CMP-Element
 `ctrl + k` = next Telescope-Element, next CMP-element, next-Snippet-Checkpoint
 `ctrl + l` = previous-Telescope-element, previous-CMP-element, previous-Snippet-Checkpoint 
-`ctrl + ^` = terminal 
 `ctrl + q` = quick fix (you could replace this)
 `ctrl + s` = neorg telescope
 `ctrl + )` = emmet king (trash)
@@ -67,7 +64,9 @@ autocomplete [({})]
 `ctrl + b` = cmp other option
 `ctrl + f` = cmp other option
 `ctrl + space` = cmp other option
-`ctrl + g` = open terminal
+
+~~OTHER KEYS MAPPINGS~~
+`tab` = open terminal
 
 ----------------------------------------------------------------------------------------
 ~~REPLACEABLE~~
@@ -96,6 +95,7 @@ autocomplete [({})]
 
 ~~PLUGIN MAPS INSERT MODE:~~
 `Ctrl + l` - create link neorg
+`Ctrl + m` - autopairs ({[]})
 
 ~~VIM MAPS VISUAL MODE:~~
 `Ctrl + n` - move current block bottom
