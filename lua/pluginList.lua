@@ -323,6 +323,14 @@ return packer.startup(function()
     -- ft = "norg",
   }
 
+  use {
+    "akinsho/bufferline.nvim",
+    after = "nvim-web-devicons",
+    config = function()
+      require "plugins.bufferline"
+    end,
+  }
+
   -- HARD MODE
   -- use 'takac/vim-hardtime'
 

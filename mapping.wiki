@@ -6,12 +6,11 @@ DON'T SET ANYTHING WITH <leader> THAT IS IN `INSERT MODE`
 =========Available maps==========
 ENTER      = FREE
 BACKSPACE  = FREE
-CTRL + g   = FREE
 CTRL + h   = FREE
 CTRL + n   = FREE
-CTRL + t   = (tag stack)
 CTRL + m   = FREE (unmapped in keybindings file)
 <Leader w> = FREE
+<Leader k> = FREE
 <Leader g> is reserverd for vim-fugitive
 =================================
 
@@ -33,7 +32,7 @@ CTRL + s   = neorg telescope
 `Ctrl + a` - increase number by 1 (tmux uses this)
 `Ctrl + x` - decrease number by 1
 `Ctrl + g` - :f (`mappeable`)
-`Ctrl + t` - tag stack
+`Ctrl + t` - tag stack (mapped as close buffer)
 `Ctrl + ^` - switch buffer (`mapped as terminal`)
 `ctrl + j` - enter (`mapped as find buffer`)
 `Ctrl + w` - ...all kind of window shortcuts, one for tab
@@ -46,6 +45,7 @@ CTRL + s   = neorg telescope
 ~~NO PLUGINS~~
 `ctrl + j` = prev buffer
 `ctrl + l` = next buffer
+`ctrl + t` = close buffer
 `alt + a` = resize window
 `alt + s` = resize window
 `alt + d` = resize window
@@ -69,6 +69,7 @@ CTRL + s   = neorg telescope
 `ctrl + b` = cmp other option
 `ctrl + f` = cmp other option
 `ctrl + space` = cmp other option
+`ctrl + g` = open terminal
 
 ----------------------------------------------------------------------------------------
 ~~REPLACEABLE~~
@@ -100,6 +101,7 @@ check this list in help:
 `:help ins-special-keys`
 ----------------------------------------------------------------------------------------
 ~~<LEADER> (SPACE)~~
+<leader> + k  = FREE
 <leader> + r  = :w
 <leader> + q  = :q
 <leader> + so = :so %
@@ -110,7 +112,6 @@ check this list in help:
 <leader> + h* = <git hunk menu>
 <leader> + e  = <tree toggle>
 <leader> + g* = <...reserved for vim-fugitive>
-<leader> + t  = <telescope live grep>
 <leader> + f  = <telescope find file>
 <leader> + u  = <telescope historial>
 <leader> + sp = <telescope colorscheme>

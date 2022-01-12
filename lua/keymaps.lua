@@ -48,8 +48,9 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 vim.g.user_emmet_leader_key='<C-)>' --I don't use all the emmet features.
 
 -- BUFFER NAVIGATION
-map('n', '<c-j>',      '<cmd>bprevious<cr>')           --resize window horizontal
-map('n', '<c-l>',      '<cmd>bnext<cr>')           --resize window horizontal
+map('n', '<c-j>',      '<cmd>bprevious<cr>')                    --previous buffer
+map('n', '<c-l>',      '<cmd>bnext<cr>')                        --next buffer
+map('n', '<c-t>',      '<cmd>bd<cr>')                           --close buffer
 
 -- RESIZE WINDOW
 map('n', '<m-a>',      '<cmd>vertical resize +4<cr>')           --resize window horizontal
@@ -95,9 +96,9 @@ vim.cmd([[
   vnoremap <m-k> :m '<-2<cr>gv=gv
 
   autocmd TermEnter term://*toggleterm#*
-        \ tnoremap <silent><c-^> <Cmd>exe v:count1 . "ToggleTerm"<cr>
-  nnoremap <silent><c-^> <Cmd>exe v:count1 . "ToggleTerm"<cr>
-  inoremap <silent><c-^> <Esc><Cmd>exe v:count1 . "ToggleTerm"<cr>
+        \ tnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<cr>
+  nnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<cr>
+  inoremap <silent><c-g> <Esc><Cmd>exe v:count1 . "ToggleTerm"<cr>
 
   snoremap <c-h> <BS>i
 

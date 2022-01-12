@@ -33,7 +33,7 @@ local options = {
   sidescrolloff = 3,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
   cursorline = false,                      -- highlight the current line
-  number = false,                          -- set numbered lines
+  number = true,                          -- set numbered lines
   cmdheight = 1,                           -- more space in the neovim command line for displaying messages
 }
 
