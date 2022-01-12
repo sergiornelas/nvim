@@ -29,7 +29,7 @@ map("n", "<leader>j", "<cmd>HopWord<CR>")
 map("n", "<leader>l", "<cmd>HopLine<CR>")
 
 -- <TELESCOPE>
-map("n", "<c-k>",       "<cmd>Telescope buffers<cr>")
+map("n", "<leader>k",       "<cmd>Telescope buffers<cr>")
 map("n", "<leader>f",   "<cmd>Telescope find_files<cr>")
 -- map("n", "<leader>f",   "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>")
 map("n", "<leader>st",  "<cmd>Telescope live_grep<cr>")
@@ -49,7 +49,7 @@ vim.g.user_emmet_leader_key='<C-)>' --I don't use all the emmet features.
 
 -- BUFFER NAVIGATION
 map('n', '<c-j>',      '<cmd>bprevious<cr>')                    --previous buffer
-map('n', '<c-l>',      '<cmd>bnext<cr>')                        --next buffer
+map('n', '<c-k>',      '<cmd>bnext<cr>')                        --next buffer
 map('n', '<c-t>',      '<cmd>bd<cr>')                           --close buffer
 
 -- RESIZE WINDOW
@@ -79,10 +79,10 @@ map('n', '<Leader>c',  '<cmd>find ~/.config/nvim/init.lua<cr>') --go to init.lua
 map('i', '<c-c>',      '<esc>bi<<esc>ea><esc>F<vf>yPa')      --Emmet emulation
 
 -- WINDOW NAVIGATION
--- map("n", "<c-h>", "<cmd>wincmd h<cr>")                          --move left window
--- map("n", "<c-n>", "<cmd>wincmd j<cr>")                          --move below window
--- map("n", "<c-p>", "<cmd>wincmd k<cr>")                          --move upper window
--- map("n", "<c-l>", "<cmd>wincmd l<cr>")                          --move right window
+map("n", "<c-h>", "<cmd>wincmd h<cr>")                          --move left window
+map("n", "<c-n>", "<cmd>wincmd j<cr>")                          --move below window
+map("n", "<c-p>", "<cmd>wincmd k<cr>")                          --move upper window
+map("n", "<c-l>", "<cmd>wincmd l<cr>")                          --move right window
 
 -- HARD TO MAP
 vim.cmd([[

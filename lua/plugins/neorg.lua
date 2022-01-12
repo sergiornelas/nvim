@@ -30,7 +30,6 @@ neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, key
         n = { -- Bind keys in normal mode
             { "<C-s>", "core.integrations.telescope.find_linkable" },
         },
-
         i = { -- Bind in insert mode
             { "<C-l>", "core.integrations.telescope.insert_link" },
         },
