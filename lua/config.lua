@@ -37,6 +37,27 @@ vim.cmd [[
   augroup end
 ]]
 
+-- Format on save
+--vim.api.nvim_exec([[
+--augroup FormatAutogroup
+  --autocmd!
+  --autocmd BufWritePost *.js,*.rs,*.lua FormatWrite
+--augroup END
+--]], true)
+
+--vim.api.nvim_exec([[
+--function! AddLastLine()
+    --if getline('$') !~ "^$"
+      --call append(line('$'), '')
+    --endif
+--endfunction
+--autocmd BufWritePre * call AddLastLine()
+--]])
+
+--vim.api.nvim_exec ([[
+--  autocmd BufWritePre * if (getline('$') !~ "^\s*$") | call append(line('$'), "") | endif
+--]], true)
+
 vim.opt.shortmess:append "c"
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"

@@ -97,8 +97,7 @@ null_ls.setup({
         -- null_ls.builtins.formatting.prettier.with({
         --   disabled_filetypes = {'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact'}
         -- }),
-        --formatting.prettierd.with({ extra_args = {"--end-of-line"} })
-        --formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+        -- formatting.prettierd.with({ extra_args = { "--single-quote", "--end-of-line auto" } }),  --ONLY WORKS ON NORMAL PRETTIER
         --formatting.prettier.with({ extra_args = {"lf"} })
     },
     on_attach = on_attach,
@@ -116,6 +115,8 @@ null_ls.setup({
 --       disabled_filetypes = {'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact'}
 --     }),
 --     -- When there is an extra server :NullLsInfo => prettier,prettier (twice).
+--
+--      HEEEEEREEEEEEEEEEEEEEEEEEEEEEEEEE:
 --
 --     -- null_ls.builtins.diagnostics.eslint.with({
 --     --     prefer_local = "node_modules/.bin",      -- Use eslint to a project-local executable form node_modules

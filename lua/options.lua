@@ -1,4 +1,6 @@
 local options = {
+  --eol = false,
+  --list = true,
   tabstop = 2,                             -- Width of tab is set to 2. Still it is a \t.
   shiftwidth = 2,                          -- Size of an Indent (in spaces). Applies for <</>> as well.
   expandtab = true,                        -- Tab key (insert mode) insert spaces instead of tab.
