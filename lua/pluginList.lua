@@ -262,12 +262,12 @@ return packer.startup(function()
   }
 
   -- EMMET --------------------------------------------------
-  use {
-    "mattn/emmet-vim",
-    opt = true,
-    keys = '<c-c>',
-    -- cmd = {'emmet-expand-abbr'}
-  }
+  -- use {
+  --   "mattn/emmet-vim",
+  --   opt = true,
+  --   keys = '<c-c>',
+  --   -- cmd = {'emmet-expand-abbr'}
+  -- }
 
   -- AUTO CHANGE HTML & JSX TAGS ----------------------------
   -- use {
@@ -365,13 +365,6 @@ return packer.startup(function()
   --          clear_empty_lines = true,
   --          keys = "<Esc>",
   --       }
-  --    end,
-  -- }
-
-  -- use {
-  --    "akinsho/bufferline.nvim",
-  --    config = function()
-  --       require "plugins.bufferline"
   --    end,
   -- }
 

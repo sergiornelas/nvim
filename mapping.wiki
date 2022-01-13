@@ -5,7 +5,7 @@ DON'T SET ANYTHING WITH <leader> THAT IS IN `INSERT MODE`
 
 =========Available maps==========
 ENTER      = FREE
-BACKSPACE  = FREE
+TAB        = FREE
 CTRL + g   = FREE
 CTRL + m   = FREE (?)
 CTRL + c   = FREE (custom emmet?)
@@ -68,7 +68,7 @@ CTRL + q   = FREE (quick fix?)
 `ctrl + space` = cmp other option
 
 ~~OTHER KEYS MAPPINGS~~
-`tab` = open terminal
+`backspace` = open terminal
 
 ----------------------------------------------------------------------------------------
 ~~REPLACEABLE~~

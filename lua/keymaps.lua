@@ -31,12 +31,10 @@ map("n", "<leader>l", "<cmd>HopLine<CR>")
 -- <TELESCOPE>
 map("n", "<leader>k",       "<cmd>Telescope buffers<cr>")
 map("n", "<leader>f",   "<cmd>Telescope find_files<cr>")
--- map("n", "<leader>f",   "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>")
 map("n", "<leader>st",  "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>u",   "<cmd>Telescope oldfiles<cr>")
 map("n", "<leader>sp",  "<cmd>Telescope colorscheme<cr>")
 map("n", "<leader>p",   "<cmd>Telescope projects<cr>")
--- map("n", "<leader>p",   "<cmd>lua require('telescope').extensions.projects.projects()<cr>")
 map("n", "<leader>m",   "<cmd>Telescope marks<cr>")
 map("n", "<leader>:",   "<cmd>Telescope commands<cr>")
 
@@ -45,7 +43,7 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
 -- <EMMET>
 -- vim.g.user_emmet_expandabbr_key = '<c-c>'
-vim.g.user_emmet_leader_key='<C-)>' --I don't use all the emmet features.
+-- vim.g.user_emmet_leader_key='<C-)>' --I don't use all the emmet features.
 
 -- BUFFER NAVIGATION
 map('n', '<c-j>',      '<cmd>bprevious<cr>')                    --previous buffer
@@ -94,9 +92,9 @@ vim.cmd([[
   nnoremap <leader>so :so %<cr>
 
   autocmd TermEnter term://*toggleterm#*
-        \ tnoremap <silent><tab> <Cmd>exe v:count1 . "ToggleTerm"<cr>
-  nnoremap <silent><tab> <Cmd>exe v:count1 . "ToggleTerm"<cr>
-  inoremap <silent><tab> <Esc><Cmd>exe v:count1 . "ToggleTerm"<cr>
+        \ tnoremap <silent><BS> <Cmd>exe v:count1 . "ToggleTerm"<cr>
+  nnoremap <silent><BS> <Cmd>exe v:count1 . "ToggleTerm"<cr>
+  inoremap <silent><BS> <Esc><Cmd>exe v:count1 . "ToggleTerm"<cr>
 
   snoremap <c-h> <BS>i
 

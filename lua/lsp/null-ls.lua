@@ -44,8 +44,8 @@ local on_attach = function(client, bufnr)
   buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
   buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
   if client.resolved_capabilities.document_formatting then
-    -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()")
+    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+    -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()")
   end
 end
 
@@ -86,18 +86,25 @@ lspconfig.tsserver.setup({
 
 --=================={null_ls}===========================
 -- NULL (LSP ACTIONS USING PURE LUA, NO CONNECTION WITH A LSP SERVER, ALLOWS TYPES OF FORMAT AND DIFFERENT ACTIONS)
+local formatting = null_ls.builtins.formatting
 null_ls.setup({
+    debug = false,
     sources = {
         null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.code_actions.eslint_d,
         null_ls.builtins.formatting.prettierd,
-        -- null_ls.builtins.formatting.prettier,
+        --null_ls.builtins.formatting.prettier,
         -- null_ls.builtins.formatting.prettier.with({
         --   disabled_filetypes = {'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact'}
         -- }),
+        --formatting.prettierd.with({ extra_args = {"--end-of-line"} })
+        --formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+        --formatting.prettier.with({ extra_args = {"lf"} })
     },
     on_attach = on_attach,
     -- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } })
+    -- formatting.prettier.with({ extra_args = {"--end-of-line"} })
+    -- formatting.prettier.with({ extra_args = {"lf"} })
 })
 
 -- null_ls.config({
