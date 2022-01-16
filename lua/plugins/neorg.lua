@@ -5,16 +5,21 @@ end
 
 neorg.setup({
   load = {
-      ["core.defaults"] = {}, -- Load all the default modules
-      ["core.norg.concealer"] = {}, -- Allows for use of icons
-      ["core.integrations.telescope"] = {}, -- Enable telescope module
-      ["core.norg.dirman"] = { -- Manage your directories with Neorg
-        config = {
-          workspaces = {
-            my_workspace = "~/neorg"
-          }
+    ["core.defaults"] = {}, -- Load all the default modules
+    ["core.norg.concealer"] = {}, -- Allows for use of icons
+    ["core.integrations.telescope"] = {}, -- Enable telescope module
+    ["core.norg.dirman"] = { -- Manage your directories with Neorg
+      config = {
+        workspaces = {
+          my_workspace = "~/neorg"
         }
       }
+    },
+    ["core.norg.esupports.metagen"] = {
+      config = { -- Note that this table is optional and doesn't need to be provided
+        type = "none"
+      }
+    }
   },
 })
 

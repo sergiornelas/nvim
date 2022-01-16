@@ -39,8 +39,8 @@ if not present then
   return
 end
 
-parser_config = parser_config.get_parser_configs()
--- local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+-- commented for avoiding auto install norg languages over and over again.
+--parser_config = parser_config.get_parser_configs()
 
 parser_config.norg = {
     install_info = {

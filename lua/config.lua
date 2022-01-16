@@ -1,8 +1,24 @@
 -- Give neovide a pixiedust effect on its trail
 -- vim.g.neovide_cursor_vfx_mode = "pixiedust"
+--vim.g.neovide_transparency=0.8
+--vim.g.neovide_fullscreen=true
+
+--vim.g.neovide_refresh_rate=60
+--vim.g.neovide_transparency=0.85
+--vim.g.neovide_no_idle=false
+--vim.g.neovide_fullscreen=false
+--vim.g.neovide_cursor_animation_length=0.13
+--vim.g.neovide_cursor_trail_length=0.5
+--vim.g.neovide_cursor_antialiasing=true
+--vim.g.neovide_cursor_vfx_mode = "ripple"
+--vim.g.neovide_cursor_vfx_opacity=200.0
+--vim.g.neovide_cursor_vfx_particle_lifetime=1.2
+--vim.g.neovide_cursor_vfx_particle_density=7.0
+--vim.g.neovide_cursor_vfx_particle_speed=10.0
+--vim.g.neovide_cursor_vfx_particle_phase=1.5
+--vim.g.neovide_cursor_vfx_particle_curl=1.0
 
 -- Using autocmd and CursorMoved/CursorMovedI events, zz is applied to every keystroke that would change the cursor position. Minorly optimized by only applying zz to vertical line movement. Will update to lua once autocmd is natively supported, vimscript is currently more performant
-
 -- vim.api.nvim_exec(
 --   [[
 --     :function StayCenteredI()
