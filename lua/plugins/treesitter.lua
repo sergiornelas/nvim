@@ -39,8 +39,7 @@ if not present then
   return
 end
 
--- commented for avoiding auto install norg languages over and over again.
---parser_config = parser_config.get_parser_configs()
+parser_config = parser_config.get_parser_configs()
 
 parser_config.norg = {
     install_info = {
