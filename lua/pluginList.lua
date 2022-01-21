@@ -185,7 +185,6 @@ return packer.startup(function()
   -- COMMENT --------------------------------------------
   use {
     "numToStr/Comment.nvim",
-    -- after = "friendly-snippets",
     config = function()
       require("plugins.others").comment()
     end,
@@ -297,7 +296,6 @@ return packer.startup(function()
   -- JSX COMMENTS
   use {
     "JoosepAlviste/nvim-ts-context-commentstring",        --heavy plugin (0.784)
-    ft = {'typescriptreact', 'javascriptreact'}
   }
 
   use {

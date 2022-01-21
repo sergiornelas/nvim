@@ -41,27 +41,27 @@ end
 
 parser_config = parser_config.get_parser_configs()
 
-parser_config.norg = {
-    install_info = {
-      url = "https://github.com/nvim-neorg/tree-sitter-norg",
-      files = { "src/parser.c", "src/scanner.cc" },
-      branch = "main"
-    },
-}
+-- parser_config.norg = {
+--     install_info = {
+--       url = "https://github.com/nvim-neorg/tree-sitter-norg",
+--       files = { "src/parser.c", "src/scanner.cc" },
+--       branch = "main"
+--     },
+-- }
 
-parser_config.norg_meta = {
-    install_info = {
-      url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
-      files = { "src/parser.c" },
-      branch = "main"
-    },
-}
+-- parser_config.norg_meta = {
+--     install_info = {
+--       url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
+--       files = { "src/parser.c" },
+--       branch = "main"
+--     },
+-- }
 
-parser_config.norg_table = {
-    install_info = {
-      url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
-      files = { "src/parser.c" },
-      branch = "main"
-    },
-}
+-- parser_config.norg_table = {
+--     install_info = {
+--       url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
+--       files = { "src/parser.c" },
+--       branch = "main"
+--     },
+-- }
 
