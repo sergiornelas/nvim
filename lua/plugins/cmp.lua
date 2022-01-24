@@ -17,6 +17,7 @@ luasnip.config.set_config {
 luasnip.filetype_extend("javascript", { "html" })
 luasnip.filetype_extend("javascriptreact", { "html" })
 luasnip.filetype_extend("typescript", { "javascript" })
+luasnip.filetype_extend("typescript", { "html" })
 luasnip.filetype_extend("typescriptreact", { "javascript" })
 luasnip.filetype_extend("typescriptreact", { "html" })
 
