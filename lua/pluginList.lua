@@ -66,8 +66,8 @@ return packer.startup(function()
   use "rebelot/kanagawa.nvim"
   use 'nxvu699134/vn-night.nvim'
   use 'srcery-colors/srcery-vim'
+  use 'tomasr/molokai'
   -- use 'gruvbox-community/gruvbox'
-  -- use 'tomasr/molokai'
   -- use "folke/tokyonight.nvim"
   -- use 'ray-x/aurora'
 

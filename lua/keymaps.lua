@@ -21,8 +21,8 @@ local function map(mode, lhs, rhs, opts)
    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-vim.g.mapleader = " " --leader
-map("n", ";", ":")    --semicolon to enter command mode
+vim.g.mapleader = " " --Leader
+map("n", ";", ":")    --Semicolon to enter command mode
 
 -- <HOP>
 map("n", "<leader>j", "<cmd>HopWord<CR>")
@@ -41,9 +41,6 @@ map("n", "<leader>:",   "<cmd>Telescope commands<cr>")
 -- <NVIM TREE>
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
--- <EMMET>
--- vim.g.user_emmet_expandabbr_key = '<c-c>'
--- vim.g.user_emmet_leader_key='<C-)>' --I don't use all the emmet features.
 
 -- BUFFER NAVIGATION
 map('n', '<c-j>',      '<cmd>bprevious<cr>')                    --previous buffer
@@ -59,7 +56,6 @@ map('n', '<right>',      '<cmd>vertical resize -4<cr>')         --resize window 
 -- CENTER VIEW
 map('n', 'n',          'nzzzv')                                 --center view when find next word
 map('n', 'N',          'Nzzzv')                                 --center view when find previous word
-map('n', '<c-i>',      '<c-i>zz')                               --center view when goes for next pos.
 map('n', '<c-o>',      '<c-o>zz')                               --center view when goes for previous pos.
 
 -- UTILS
@@ -73,8 +69,8 @@ map('v', 'y',          'ygv<esc>')                              --yanking select
 map('v', 'p',          '"_dP')                                  --Pasting without yanking
 map('v', 'P',          '"_dP')                                  --Pasting without yanking
 map('n', '<Leader>c',  '<cmd>find ~/.config/nvim/init.lua<cr>') --go to init.lua
--- map('n', '<c-k>',      '<c-^>')                                 --toggle close buffer
-map('i', '<c-c>',      '<esc>bi<<esc>ea><esc>F<vf>yPa')      --Emmet emulation
+map('i', '<c-c>',      '<esc>bi<<esc>ea><esc>F<vf>yPa')         --Emmet emulation
+-- map('n', '<c-k>',      '<c-^>')                              --toggle close buffer
 
 -- WINDOW NAVIGATION
 map("n", "<c-h>", "<cmd>wincmd h<cr>")                          --move left window
@@ -101,3 +97,6 @@ vim.cmd([[
   nnoremap <leader>ss <CMD>LuaSnipUnlinkCurrent<CR>
 ]])
 
+-- <EMMET>
+-- vim.g.user_emmet_expandabbr_key = '<c-c>'
+-- vim.g.user_emmet_leader_key='<C-)>' --I don't use all the emmet features.

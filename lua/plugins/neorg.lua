@@ -6,6 +6,11 @@ end
 neorg.setup({
   load = {
     ["core.defaults"] = {}, -- Load all the default modules
+    ["core.keybinds"] = {
+      config = {
+        default_keybinds = false
+      }
+    }, -- Load all the default modules
     ["core.norg.concealer"] = {}, -- Allows for use of icons
     ["core.integrations.telescope"] = {}, -- Enable telescope module
     ["core.norg.dirman"] = { -- Manage your directories with Neorg
@@ -31,6 +36,9 @@ local neorg_callbacks = require("neorg.callbacks")
 
 neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, keybinds)
     -- Map all the below keybinds only when the "norg" mode is active
+    -- keybinds.map("norg", "n", "gt", "<cmd>echo 'Hello!'<CR>")
+    -- keybinds.unmap("norg", "n", "gt")
+    -- DONT WORKING BECAUSE line 9 conf
     keybinds.map_event_to_mode("norg", {
         n = { -- Bind keys in normal mode
             { "<C-s>", "core.integrations.telescope.find_linkable" },

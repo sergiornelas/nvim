@@ -1,11 +1,7 @@
 local options = {
-  --eol = false,
-  --list = true,
   tabstop = 2,                             -- Width of tab is set to 2. Still it is a \t.
   shiftwidth = 2,                          -- Size of an Indent (in spaces). Applies for <</>> as well.
   expandtab = true,                        -- Tab key (insert mode) insert spaces instead of tab.
-  -- titlestring = '%t',                      -- Title of window is the name of the file.
-  -- title = true,                            -- Activate titlestring behavi ur.
   backup = false,                          -- creates a backup file
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
@@ -33,36 +29,17 @@ local options = {
   wrap = false,                            -- display lines as one long line
   scrolloff = 3,                           -- is one of my fav
   sidescrolloff = 3,
-  guifont = "monospace:h17",               -- the font used in graphical neovim applications
   cursorline = false,                      -- highlight the current line
-  number = true,                          -- set numbered lines
+  number = true,                           -- set numbered lines
   cmdheight = 1,                           -- more space in the neovim command line for displaying messages
+  -- eol = false,
+  -- list = true,
+  -- guifont = "monospace:h17",            -- the font used in graphical neovim applications
+  -- titlestring = '%t',                   -- Title of window is the name of the file.
+  -- title = true,                         -- Activate titlestring behavi ur.
 }
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-
--- ===============================================================================
--- vim.g.did_load_filetypes = 1
--- vim.g.neovide_cursor_vfx_mode = "pixiedust" -- neovide trail
--- vim.opt.linebreak = true -- clean linebreaks
--- vim.opt.guifont = "Liga SFMono Nerd Font:h14" -- set guifont for neovide
--- vim.opt.shortmess:append "casI" -- disable intro
--- vim.opt.whichwrap:append "<>hl" -- clean aligned wraps
--- vim.opt.guicursor:append "i:blinkwait700-blinkon400-blinkoff250"
-
--- --Remap for dealing with word wrap (not jumps wrapped lines)
--- vim.api.nvim_set_keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
--- vim.api.nvim_set_keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
-
--- PLUGINS
--- vim.g.hardtime_default_on = 1             -- Hard mode on/off.
--- vim.g.hardtime_maxcount = 3               -- Hard mode limit (hjkl).
-
--- PERFORMANCE
--- vim.opt.shadafile = "NONE"
--- vim.opt.shadafile = ""
--- vim.opt.shell = "/bin/bash"               -- Use shell bash default instead fish for example.
--- vim.opt.lazyredraw = true                 -- Macros or regexes on a large file, not draw the screen.
 
