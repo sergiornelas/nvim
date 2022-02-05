@@ -88,9 +88,9 @@ vim.cmd([[
   nnoremap <leader>so :so %<cr>
 
   autocmd TermEnter term://*toggleterm#*
-        \ tnoremap <silent><BS> <Cmd>exe v:count1 . "ToggleTerm"<cr>
-  nnoremap <silent><BS> <Cmd>exe v:count1 . "ToggleTerm"<cr>
-  inoremap <silent><BS> <Esc><Cmd>exe v:count1 . "ToggleTerm"<cr>
+        \ tnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<cr>
+  nnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<cr>
+  inoremap <silent><c-g> <Esc><Cmd>exe v:count1 . "ToggleTerm"<cr>
 
   snoremap <c-h> <BS>i
 

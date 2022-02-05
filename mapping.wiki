@@ -2,16 +2,16 @@
 - Map hold enter as Ctrl
 
 DON'T SET ANYTHING WITH <leader> THAT IS IN `INSERT MODE`
+TAB is not mappeable (ctrl+i)
 
 =========Available maps==========
 ENTER      = FREE
-TAB        = FREE
-CTRL + g   = FREE
+BACKSPACE  = FREE
 CTRL + m   = FREE (?)
 CTRL + c   = FREE (custom emmet?)
 CTRL + q   = FREE (quick fix?)
 <Leader w> = FREE
-<Leader g> is reserverd for vim-fugitive
+<Leader g> is reserved for vim-fugitive
 =================================
 
 ~~VIM CTRLS (NORMAL MODE)~~
@@ -66,9 +66,7 @@ CTRL + q   = FREE (quick fix?)
 `ctrl + b` = cmp other option
 `ctrl + f` = cmp other option
 `ctrl + space` = cmp other option
-
-~~OTHER KEYS MAPPINGS~~
-`backspace` = open terminal
+`ctrl + g` = terminal
 
 ----------------------------------------------------------------------------------------
 ~~REPLACEABLE~~
