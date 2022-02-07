@@ -1,32 +1,32 @@
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
-vim.g.neovide_transparency=0.8
-vim.g.neovide_refresh_rate=60
-vim.g.neovide_transparency=0.85
+vim.g.neovide_transparency = 0.8
+vim.g.neovide_refresh_rate = 60
+vim.g.neovide_transparency = 0.85
 
 -- Highlight on yank
-vim.cmd [[
+vim.cmd([[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
-]]
+]])
 
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append("c")
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
-vim.cmd('set nofoldenable') 	   --helps with everything fold
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
+vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
+vim.cmd("set nofoldenable") --helps with everything fold
 
 -- I want to defer lsp by a bit, and some other utilities
 local M = {}
 M.packer_lazy_load = function(plugin, timer)
-   if plugin then
-      timer = timer or 0
-      vim.defer_fn(function()
-         require("packer").loader(plugin)
-      end, timer)
-   end
+	if plugin then
+		timer = timer or 0
+		vim.defer_fn(function()
+			require("packer").loader(plugin)
+		end, timer)
+	end
 end
 return M
 
@@ -62,20 +62,19 @@ return M
 --   ]], true
 -- )
 
-
 -- FORMAT ON SAVE ====================
 --vim.api.nvim_exec([[
 --augroup FormatAutogroup
-  --autocmd!
-  --autocmd BufWritePost *.js,*.rs,*.lua FormatWrite
+--autocmd!
+--autocmd BufWritePost *.js,*.rs,*.lua FormatWrite
 --augroup END
 --]], true)
 
 --vim.api.nvim_exec([[
 --function! AddLastLine()
-    --if getline('$') !~ "^$"
-      --call append(line('$'), '')
-    --endif
+--if getline('$') !~ "^$"
+--call append(line('$'), '')
+--endif
 --endfunction
 --autocmd BufWritePre * call AddLastLine()
 --]])
@@ -83,4 +82,3 @@ return M
 --vim.api.nvim_exec ([[
 --  autocmd BufWritePre * if (getline('$') !~ "^\s*$") | call append(line('$'), "") | endif
 --]], true)
-
