@@ -15,16 +15,12 @@ vim.cmd([[
 ]])
 
 local use = packer.use
--- Install your plugins here
 return packer.startup(function()
 	-- HAVE PACKER MANAGE ITSELF -----------------------
 	use({
 		"wbthomason/packer.nvim",
 		event = "VimEnter",
 	})
-
-	-- ELEMENTAL ---------------------------------------
-	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 
 	-- STARTUP OPTIMIZATIONS ---------------------------
 	use({
@@ -50,9 +46,9 @@ return packer.startup(function()
 	use("nxvu699134/vn-night.nvim")
 	use("srcery-colors/srcery-vim")
 	use("tomasr/molokai")
+	use("ray-x/aurora")
 	-- use 'gruvbox-community/gruvbox'
 	-- use "folke/tokyonight.nvim"
-	-- use 'ray-x/aurora'
 
 	-- CMP ---------------------------------------------
 	use({
@@ -165,12 +161,18 @@ return packer.startup(function()
 		after = "nvim-treesitter",
 	})
 
-	-- COMMENT --------------------------------------------
+	-- COMMENTS --------------------------------------------
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
 			require("plugins.others").comment()
 		end,
+	})
+
+	-- JSX COMMENTS
+	use({
+		"JoosepAlviste/nvim-ts-context-commentstring", --heavy plugin (0.784)
+		-- ft = "javascript, javascriptreact, typescript, typescriptreact", (didn't work)
 	})
 
 	-- TELESCOPE ------------------------------------------
@@ -219,6 +221,12 @@ return packer.startup(function()
 		end,
 	})
 
+	-- GIT DIFF --------------------------------------------------
+	use({
+		"sindrets/diffview.nvim", --heavy plugin (+3.8)
+		cmd = { "DiffviewOpen" },
+	})
+
 	-- HOP --------------------------------------------------
 	use({
 		"phaazon/hop.nvim",
@@ -243,19 +251,6 @@ return packer.startup(function()
 		end,
 	})
 
-	-- EMMET --------------------------------------------------
-	-- use {
-	--   "mattn/emmet-vim",
-	--   opt = true,
-	--   keys = '<c-c>',
-	--   -- cmd = {'emmet-expand-abbr'}
-	-- }
-
-	-- AUTO CHANGE HTML & JSX TAGS ----------------------------
-	-- use {
-	--   "windwp/nvim-ts-autotag",
-	-- }
-
 	-- TERMINAL ------------------------------------------------
 	use({
 		"akinsho/toggleterm.nvim",
@@ -274,13 +269,7 @@ return packer.startup(function()
 		end,
 	})
 
-	-- use 'andymass/vim-matchup'
-
-	-- JSX COMMENTS
-	use({
-		"JoosepAlviste/nvim-ts-context-commentstring", --heavy plugin (0.784)
-	})
-
+	-- LUALINE --------------------------------------------------
 	use({
 		"nvim-lualine/lualine.nvim",
 		config = function()
@@ -288,6 +277,7 @@ return packer.startup(function()
 		end,
 	})
 
+	-- NOTES --------------------------------------------------
 	use({
 		"nvim-neorg/neorg",
 		setup = vim.cmd("autocmd BufRead,BufNewFile *.norg setlocal filetype=norg"),
@@ -301,9 +291,9 @@ return packer.startup(function()
 
 	use({
 		"nvim-neorg/neorg-telescope",
-		-- ft = "norg",
 	})
 
+	-- BUFFERLINE --------------------------------------------------
 	use({
 		"akinsho/bufferline.nvim",
 		after = "nvim-web-devicons",
@@ -312,115 +302,33 @@ return packer.startup(function()
 		end,
 	})
 
-	-- HARD MODE
+	-- ZEN MODE --------------------------------------------------
+	use("Pocco81/TrueZen.nvim")
+
+	-- EMMET ------------------------------------------------
+	-- use {
+	--   "mattn/emmet-vim",
+	--   opt = true,
+	--   keys = '<c-c>',
+	--   -- cmd = {'emmet-expand-abbr'}
+	-- }
+
+	-- AUTO CHANGE HTML & JSX TAGS --------------------------
+	-- use {
+	--   "windwp/nvim-ts-autotag",
+	-- }
+
+	-- HARD MODE --------------------------------------------
 	-- use 'takac/vim-hardtime'
 
-	-- VIMWIKI
-	-- use {
-	--   'vimwiki/vimwiki',
-	--   opt = true,
-	--   keys = '<leader>ww',
-	--   -- config = function()
-	--   --   require('vimwiki').setup()
-	--   -- end
-	-- }
-
-	-- TWILIGHT
-	-- use {
-	--   "folke/twilight.nvim",
-	--   cmd = {
-	--     "Twilight",
-	--     "TwilightEnable",
-	--   },
-	--   config = function()
-	--     require("twilight").setup {}
-	--   end,
-	-- }
-
-	-- use {
-	--    "max397574/better-escape.nvim",
-	--    event = "InsertEnter",
-	--    config = function()
-	--       require("better_escape").setup {
-	--          mapping = { "jk", "jj" },
-	--          clear_empty_lines = true,
-	--          keys = "<Esc>",
-	--       }
-	--    end,
-	-- }
-
-	-- use {
-	--    "nvim-treesitter/playground",
-	--    cmd = "TSPlayground",
-	-- }
-
-	-- use {
-	--    "p00f/nvim-ts-rainbow",
-	--    after = "nvim-treesitter",
-	-- }
-
+	-- COPILOT ----------------------------------------------
 	-- LSP (and copilot
 	-- use {
 	--    "github/copilot.vim",
 	--    event = "InsertEnter",
 	-- }
 
-	-- use {
-	--    "VonHeikemen/fine-cmdline.nvim",
-	--    requires = {
-	--       "MunifTanjim/nui.nvim",
-	--    },
-	--    config = function()
-	--       require("plugins.others").fineCmdline()
-	--    end,
-	-- }
-
-	-- use {
-	--    "VonHeikemen/searchbox.nvim",
-	--    requires = {
-	--       "MunifTanjim/nui.nvim",
-	--    },
-	--    config = function()
-	--       require("plugins.others").searchbox()
-	--    end,
-	-- }
-
-	-- use {
-	--    "rcarriga/nvim-notify",
-	--    config = function()
-	--       vim.notify = require "notify"
-	--       require("notify").setup {
-	--          stages = "slide",
-	--          timeout = 2500,
-	--          minimum_width = 50,
-	--          icons = {
-	--             ERROR = "",
-	--             WARN = "",
-	--             INFO = "",
-	--             DEBUG = "",
-	--             TRACE = "✎",
-	--          },
-	--       }
-	--    end,
-	-- }
-
-	-- use {
-	--    "Pocco81/TrueZen.nvim",
-	--    cmd = {
-	--       "TZAtaraxis",
-	--       "TZMinimalist",
-	--       "TZFocus",
-	--    },
-	--    config = function()
-	--       require "plugins.zenmode"
-	--    end,
-	-- }
-
-	-- use {
-	--    "sindrets/diffview.nvim",
-	--    after = "neogit",
-	-- }
-
+	-- NEOGIT -----------------------------------------------
 	-- use {
 	--    "TimUntersberger/neogit",
 	--    cmd = {
@@ -431,37 +339,4 @@ return packer.startup(function()
 	--       require "plugins.neogit"
 	--    end,
 	-- }
-
-	-- use {
-	--    "nvim-orgmode/orgmode",
-	--    ft = "org",
-	--    setup = vim.cmd "autocmd BufRead,BufNewFile *.org setlocal filetype=org",
-	--    after = { "nvim-treesitter" },
-	--    config = function()
-	--       require("orgmode").setup {}
-	--    end,
-	-- }
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	-- if PACKER_BOOTSTRAP then
-	--   require("packer").sync()
-	-- end
 end)
-
--- -- Chris@ packer autoinstaller:
--- local fn = vim.fn
--- -- Automatically install packer
--- local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
--- if fn.empty(fn.glob(install_path)) > 0 then
---   PACKER_BOOTSTRAP = fn.system {
---     "git",
---     "clone",
---     "--depth",
---     "1",
---     "https://github.com/wbthomason/packer.nvim",
---     install_path,
---   }
---   print "Installing packer close and reopen Neovim..."
---   vim.cmd [[packadd packer.nvim]]
--- end

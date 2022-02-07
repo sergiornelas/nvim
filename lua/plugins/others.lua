@@ -8,7 +8,6 @@ M.colorizer = function()
 			RRGGBB = true, -- #RRGGBB hex codes
 			mode = "foreground", -- Set the display mode.
 		})
-		-- vim.cmd "ColorizerReloadAllBuffers"
 	end
 end
 
