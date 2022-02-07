@@ -41,17 +41,16 @@ map("n", "<leader>:",   "<cmd>Telescope commands<cr>")
 -- <NVIM TREE>
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
-
 -- BUFFER NAVIGATION
 map('n', '<c-j>',      '<cmd>bprevious<cr>')                    --previous buffer
 map('n', '<c-k>',      '<cmd>bnext<cr>')                        --next buffer
-map('n', '<c-t>',      '<cmd>bd<cr>')                           --close buffer
+map('n', '<c-t>',      '<cmd>bp<bar>sp<bar>bn<bar>bd<CR>')      --close buffer without closing window.
 
 -- RESIZE WINDOW
-map('n', '<left>',      '<cmd>vertical resize +4<cr>')          --resize window horizontal
-map('n', '<down>',      '<cmd>resize +4<cr>')                   --resize window vertical
-map('n', '<up>',      '<cmd>resize -4<cr>')                     --resize window vertical
-map('n', '<right>',      '<cmd>vertical resize -4<cr>')         --resize window horizontal
+map('n', 'å',      '<cmd>vertical resize +4<cr>')               --resize window horizontal
+map('n', 'ß',      '<cmd>resize +4<cr>')                        --resize window vertical
+map('n', '∂',        '<cmd>resize -4<cr>')                      --resize window vertical
+map('n', 'ƒ',     '<cmd>vertical resize -4<cr>')                --resize window horizontal
 
 -- CENTER VIEW
 map('n', 'n',          'nzzzv')                                 --center view when find next word
@@ -70,7 +69,6 @@ map('v', 'p',          '"_dP')                                  --Pasting withou
 map('v', 'P',          '"_dP')                                  --Pasting without yanking
 map('n', '<Leader>c',  '<cmd>find ~/.config/nvim/init.lua<cr>') --go to init.lua
 map('i', '<c-c>',      '<esc>bi<<esc>ea><esc>F<vf>yPa')         --Emmet emulation
--- map('n', '<c-k>',      '<c-^>')                              --toggle close buffer
 
 -- WINDOW NAVIGATION
 map("n", "<c-h>", "<cmd>wincmd h<cr>")                          --move left window
