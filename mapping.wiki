@@ -108,7 +108,8 @@ check this list in help:
 <leader> + r  = :w
 <leader> + q  = :q
 <leader> + so = :so %
-<leader> + t  = Toggle highlights
+<leader> + t  = toggle highlights
+<leader> + y =  close tab
 <leader> + c  = :find ~/.config/nvim/init.lua
 <leader> + l  = <hop line>
 <leader> + j  = <hop word>
@@ -123,7 +124,11 @@ check this list in help:
 <leader> + p  = <telescope Projects>
 <leader> + m  = <telescope marks>
 <leader> + :  = <telescope commands>
-<leader> + ss = <luasnipUnlinkCurrent> (bug)
+<leader> + ss = <luasnipunlinkCurrent> (bug)
+<leader> + d  = <diffviewclose>
+<leader> + aj = <zen mode ataraxis>
+<leader> + ak = <zen mode focus>
+<leader> + al = <zen mode minimalist>
 
 ----------------------------------------------------------------------------------------
 ~~VIMIUM MAPPING~~

@@ -33,6 +33,14 @@ map("n", "<leader>:", "<cmd>Telescope commands<cr>")
 -- <NVIM TREE>
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
+-- <ZEN MODE>
+map("n", "<leader>aj", "<cmd>TZAtaraxis<cr>")
+map("n", "<leader>ak", "<cmd>TZFocus<cr>")
+map("n", "<leader>al", "<cmd>TZMinimalist<cr>")
+
+-- <DIFF VIEW GIT>
+map("n", "<leader>d", "<cmd>DiffviewOpen<cr>")
+
 -- BUFFER NAVIGATION
 map("n", "<c-j>", "<cmd>bprevious<cr>") --previous buffer
 map("n", "<c-k>", "<cmd>bnext<cr>") --next buffer
@@ -59,6 +67,7 @@ map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window
 map("n", "<Leader>r", "<cmd>w<cr>") --save file
 map("n", "<Leader>q", "<cmd>q<cr>") --quit file
 map("n", "<Leader>t", "<cmd>set hlsearch!<cr>") --toggle highlight
+map("n", "<Leader>y", "<cmd>tabclose<cr>") --toggle highlight
 map("n", "V", "vg_") --visual to the right
 map("n", "vv", "Vg_") --visual whole line
 map("n", "J", "mzJ`z") --cursor stay current position when J

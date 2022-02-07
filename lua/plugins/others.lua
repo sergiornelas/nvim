@@ -11,6 +11,33 @@ M.colorizer = function()
 	end
 end
 
+M.truezen = function()
+	local status_ok, _ = pcall(require, "true-zen")
+	if not status_ok then
+		return
+	end
+end
+
+M.gitdiff = function()
+	local status_ok, diff = pcall(require, "diffview")
+	if not status_ok then
+		return
+	end
+
+	local cb = require("diffview.config").diffview_callback
+
+	diff.setup({
+		key_bindings = {
+			file_panel = {
+				["l"] = cb("select_entry"),
+			},
+			file_history_panel = {
+				["l"] = cb("select_entry"),
+			},
+		},
+	})
+end
+
 M.comment = function()
 	local status_ok, comment = pcall(require, "Comment")
 	if not status_ok then

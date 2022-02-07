@@ -225,6 +225,9 @@ return packer.startup(function()
 	use({
 		"sindrets/diffview.nvim", --heavy plugin (+3.8)
 		cmd = { "DiffviewOpen" },
+		config = function()
+			require("plugins.others").gitdiff()
+		end,
 	})
 
 	-- HOP --------------------------------------------------
@@ -303,7 +306,13 @@ return packer.startup(function()
 	})
 
 	-- ZEN MODE --------------------------------------------------
-	use("Pocco81/TrueZen.nvim")
+	use({
+		"Pocco81/TrueZen.nvim",
+		cmd = { "TZAtaraxis", "TZFocus", "TZMinimalist" },
+		config = function()
+			require("plugins.others").truezen()
+		end,
+	})
 
 	-- EMMET ------------------------------------------------
 	-- use {
