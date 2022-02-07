@@ -4,14 +4,6 @@
 -- <c-j> and <NL> (new line)
 -- <c-h> and backspace
 
---             Interesting combos:
--- ["<Leader>j"] = ":buffers<CR>:buffer<Space>",
--- nnoremap <C-a> mzggvvGy`z- (tried to copy all text)
--- ========================================================================================================
--- Don't set alt + i, alt + o, alt + p, they are for moving the window (ubuntu settings)
--- DON'T MAP ANYTHING WITH <leader> THAT SETS IN INSERT MODE
--- ========================================================================================================
-
 -- Helper function for clean mappings
 local function map(mode, lhs, rhs, opts)
    local options = { noremap = true, silent = true }
@@ -47,15 +39,21 @@ map('n', '<c-k>',       '<cmd>bnext<cr>')                        --next buffer
 map('n', '<c-t>',       '<cmd>bp<bar>sp<bar>bn<bar>bd<CR>')      --close buffer without closing window.
 
 -- RESIZE WINDOW
-map('n', 'å',           '<cmd>vertical resize +4<cr>')           --resize window horizontal
-map('n', 'ß',           '<cmd>resize +4<cr>')                    --resize window vertical
-map('n', '∂',           '<cmd>resize -4<cr>')                    --resize window vertical
-map('n', 'ƒ',           '<cmd>vertical resize -4<cr>')           --resize window horizontal
+map('n', '˙',           '<cmd>vertical resize +4<cr>')           --resize window horizontal
+map('n', '∆',           '<cmd>resize +4<cr>')                    --resize window vertical
+map('n', '˚',           '<cmd>resize -4<cr>')                    --resize window vertical
+map('n', '¬',           '<cmd>vertical resize -4<cr>')           --resize window horizontal
 
 -- CENTER VIEW
 map('n', 'n',           'nzzzv')                                 --center view when find next word
 map('n', 'N',           'Nzzzv')                                 --center view when find previous word
 map('n', '<c-o>',       '<c-o>zz')                               --center view when goes for previous pos.
+
+-- WINDOW NAVIGATION
+map("n", "<c-h>",       "<cmd>wincmd h<cr>")                     --move left window
+map("n", "<c-n>",       "<cmd>wincmd j<cr>")                     --move below window
+map("n", "<c-p>",       "<cmd>wincmd k<cr>")                     --move upper window
+map("n", "<c-l>",       "<cmd>wincmd l<cr>")                     --move right window
 
 -- UTILS
 map('n', '<Leader>r',   '<cmd>w<cr>')                            --save file
@@ -69,12 +67,6 @@ map('v', 'p',           '"_dP')                                  --Pasting witho
 map('v', 'P',           '"_dP')                                  --Pasting without yanking
 map('n', '<Leader>c',   '<cmd>find ~/.config/nvim/init.lua<cr>') --go to init.lua
 map('i', '<c-c>',       '<esc>bi<<esc>ea><esc>F<vf>yPa')         --emmet emulation
-
--- WINDOW NAVIGATION
-map("n", "<c-h>",       "<cmd>wincmd h<cr>")                     --move left window
-map("n", "<c-n>",       "<cmd>wincmd j<cr>")                     --move below window
-map("n", "<c-p>",       "<cmd>wincmd k<cr>")                     --move upper window
-map("n", "<c-l>",       "<cmd>wincmd l<cr>")                     --move right window
 
 -- HARD TO MAP
 vim.cmd([[
