@@ -64,6 +64,10 @@ map("n", "<c-p>", "<cmd>wincmd k<cr>") --move upper window
 map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window
 
 -- AVOID UNPRACTICAL YANKING
+map("n", "<leader>d", "d") -- Cut
+map("v", "<leader>d", "d") -- Cut
+map("n", "<leader>D", "D") -- Cut
+map("n", "<leader>C", "C") -- Cut
 map("v", "p", '"_dP') --Pasting without yanking
 map("v", "P", '"_dP') --Pasting without yanking
 map("n", "d", '"_d') --Deleting without yanking
@@ -79,10 +83,11 @@ map("n", "<Leader>q", "<cmd>q<cr>") --quit file
 map("n", "<Leader>t", "<cmd>set hlsearch!<cr>") --toggle highlight
 map("n", "<Leader>y", "<cmd>tabclose<cr>") --toggle highlight
 map("n", "V", "vg_") --visual to the right
-map("n", "vv", "Vg_") --visual whole line
+map("n", "vv", "v^og_") --visual whole line without break
+-- map("n", "vv", "Vg_") --visual whole line
+-- map("n", "yy", "mzv^og_y`z") --yank whole line without break
 map("n", "J", "mzJ`z") --cursor stay current position when J
 map("v", "y", "ygv<esc>") --yanking selection don't returns cursor
-map("n", "<Leader>c", "<cmd>find ~/.config/nvim/init.lua<cr>") --go to init.lua
 map("i", "<c-c>", "<esc>bi<<esc>ea><esc>F<vf>yPa") --emmet emulation
 
 -- HARD TO MAP
