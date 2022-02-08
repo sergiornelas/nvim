@@ -39,7 +39,7 @@ map("n", "<leader>ak", "<cmd>TZFocus<cr>")
 map("n", "<leader>al", "<cmd>TZMinimalist<cr>")
 
 -- <DIFF VIEW GIT>
-map("n", "<leader>d", "<cmd>DiffviewOpen<cr>")
+map("n", "<leader>sg", "<cmd>DiffviewOpen<cr>")
 
 -- BUFFER NAVIGATION
 map("n", "<c-j>", "<cmd>bprevious<cr>") --previous buffer
@@ -63,6 +63,16 @@ map("n", "<c-n>", "<cmd>wincmd j<cr>") --move below window
 map("n", "<c-p>", "<cmd>wincmd k<cr>") --move upper window
 map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window
 
+-- AVOID UNPRACTICAL YANKING
+map("v", "p", '"_dP') --Pasting without yanking
+map("v", "P", '"_dP') --Pasting without yanking
+map("n", "d", '"_d') --Deleting without yanking
+map("n", "D", '"_D') --Deleting without yanking
+map("n", "C", '"_C') --Deleting without yanking
+map("v", "d", '"_d') --Deleting without yanking
+map("n", "x", '"_x') --Deleting without yanking
+map("v", "x", '"_x') --Deleting without yanking
+
 -- UTILS
 map("n", "<Leader>r", "<cmd>w<cr>") --save file
 map("n", "<Leader>q", "<cmd>q<cr>") --quit file
@@ -72,8 +82,6 @@ map("n", "V", "vg_") --visual to the right
 map("n", "vv", "Vg_") --visual whole line
 map("n", "J", "mzJ`z") --cursor stay current position when J
 map("v", "y", "ygv<esc>") --yanking selection don't returns cursor
-map("v", "p", '"_dP') --Pasting without yanking
-map("v", "P", '"_dP') --Pasting without yanking
 map("n", "<Leader>c", "<cmd>find ~/.config/nvim/init.lua<cr>") --go to init.lua
 map("i", "<c-c>", "<esc>bi<<esc>ea><esc>F<vf>yPa") --emmet emulation
 
