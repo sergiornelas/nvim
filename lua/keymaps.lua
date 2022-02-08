@@ -21,14 +21,14 @@ map("n", "<leader>j", "<cmd>HopWord<CR>")
 map("n", "<leader>l", "<cmd>HopLine<CR>")
 
 -- <TELESCOPE>
-map("n", "<leader>k", "<cmd>Telescope buffers<cr>")
-map("n", "<leader>f", "<cmd>Telescope find_files<cr>")
-map("n", "<leader>st", "<cmd>Telescope live_grep<cr>")
-map("n", "<leader>u", "<cmd>Telescope oldfiles<cr>")
-map("n", "<leader>sp", "<cmd>Telescope colorscheme<cr>")
-map("n", "<leader>p", "<cmd>Telescope projects<cr>")
-map("n", "<leader>m", "<cmd>Telescope marks<cr>")
-map("n", "<leader>:", "<cmd>Telescope commands<cr>")
+map("n", "<leader>k", "<cmd>Telescope buffers theme=ivy<cr>")
+map("n", "<leader>f", "<cmd>Telescope find_files theme=ivy<cr>")
+map("n", "<leader>st", "<cmd>Telescope live_grep theme=ivy<cr>")
+map("n", "<leader>u", "<cmd>Telescope oldfiles theme=ivy<cr>")
+map("n", "<leader>sp", "<cmd>Telescope colorscheme theme=ivy<cr>")
+map("n", "<leader>p", "<cmd>Telescope projects theme=ivy<cr>")
+map("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>")
+map("n", "<leader>:", "<cmd>Telescope commands theme=ivy<cr>")
 
 -- <NVIM TREE>
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
