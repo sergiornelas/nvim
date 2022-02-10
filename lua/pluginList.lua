@@ -195,7 +195,6 @@ return packer.startup(function()
 	-- NVIM TREE ------------------------------------------
 	use({
 		"kyazdani42/nvim-tree.lua",
-		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
 		config = function()
 			require("plugins.nvimtree")
 		end,

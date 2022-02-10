@@ -64,18 +64,10 @@ map("n", "<c-p>", "<cmd>wincmd k<cr>") --move upper window
 map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window
 
 -- AVOID UNPRACTICAL YANKING
-map("n", "<leader>d", "d") -- Cut
-map("v", "<leader>d", "d") -- Cut
-map("n", "<leader>D", "D") -- Cut
-map("n", "<leader>C", "C") -- Cut
 map("v", "p", '"_dP') --Pasting without yanking
 map("v", "P", '"_dP') --Pasting without yanking
-map("n", "d", '"_d') --Deleting without yanking
-map("n", "D", '"_D') --Deleting without yanking
-map("n", "C", '"_C') --Deleting without yanking
-map("v", "d", '"_d') --Deleting without yanking
-map("n", "x", '"_x') --Deleting without yanking
-map("v", "x", '"_x') --Deleting without yanking
+-- map("n", "<leader>d", "d") -- Cut
+-- map("n", "d", '"_d') --Deleting without yanking
 
 -- UTILS
 map("n", "<Leader>r", "<cmd>w<cr>") --save file

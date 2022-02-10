@@ -110,9 +110,6 @@ check this list in help:
 <leader> + so = :so %
 <leader> + t  = toggle highlights
 <leader> + y =  close tab
-<leader> + d  = Cut
-<leader> + D  = Cut forward line
-<leader> + C  = Cut forward line and insert mode
 <leader> + l  = <hop line>
 <leader> + j  = <hop word>
 <leader> + h* = <git hunk menu>
