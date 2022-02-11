@@ -1,8 +1,4 @@
--- Equivalent:
--- <c-i> and <Tab>
--- <c-m> and <CR> (enter)
--- <c-j> and <NL> (new line)
--- <c-h> and backspace
+-- Equivalent: <c-i> and <Tab>, <c-m> and <CR> (enter), <c-j> and <NL> (new line), <c-h> and backspace
 
 -- Helper function for clean mappings
 local function map(mode, lhs, rhs, opts)
@@ -14,7 +10,6 @@ local function map(mode, lhs, rhs, opts)
 end
 
 vim.g.mapleader = " " --Leader
-map("n", ";", ":") --Semicolon to enter command mode
 
 -- <HOP>
 map("n", "<leader>j", "<cmd>HopWord<CR>")
@@ -45,6 +40,8 @@ map("n", "<leader>sg", "<cmd>DiffviewOpen<cr>")
 map("n", "<c-j>", "<cmd>bprevious<cr>") --previous buffer
 map("n", "<c-k>", "<cmd>bnext<cr>") --next buffer
 map("n", "<c-t>", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>") --close buffer without closing window.
+map("n", "∑", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
+map("n", "œ", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 
 -- RESIZE WINDOW
 map("n", "˙", "<cmd>vertical resize +4<cr>") --resize window horizontal
@@ -64,22 +61,19 @@ map("n", "<c-p>", "<cmd>wincmd k<cr>") --move upper window
 map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window
 
 -- AVOID UNPRACTICAL YANKING
-map("v", "p", '"_dP') --Pasting without yanking
-map("v", "P", '"_dP') --Pasting without yanking
--- map("n", "<leader>d", "d") -- Cut
--- map("n", "d", '"_d') --Deleting without yanking
+-- map("v", "p", '"_dP') --Pasting without yanking
+-- map("v", "P", '"_dP') --Pasting without yanking
 
 -- UTILS
 map("n", "<Leader>r", "<cmd>w<cr>") --save file
 map("n", "<Leader>q", "<cmd>q<cr>") --quit file
 map("n", "<Leader>t", "<cmd>set hlsearch!<cr>") --toggle highlight
-map("n", "<Leader>y", "<cmd>tabclose<cr>") --toggle highlight
+map("n", "<Leader>y", "<cmd>tabclose<cr>") --close current tab
 map("n", "V", "vg_") --visual to the right
-map("n", "vv", "v^og_") --visual whole line without break
--- map("n", "vv", "Vg_") --visual whole line
+map("n", "vv", "Vg_") --visual whole line
 -- map("n", "yy", "mzv^og_y`z") --yank whole line without break
 map("n", "J", "mzJ`z") --cursor stay current position when J
-map("v", "y", "ygv<esc>") --yanking selection don't returns cursor
+-- map("v", "y", "ygv<esc>") --yanking selection don't returns cursor
 map("i", "<c-c>", "<esc>bi<<esc>ea><esc>F<vf>yPa") --emmet emulation
 
 -- HARD TO MAP

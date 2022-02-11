@@ -41,3 +41,4 @@ luac.out
 
 plugin/packer_compiled.lua
 lua/packer_compiled.lua
+neovim_pendings.norg

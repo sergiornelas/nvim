@@ -86,7 +86,7 @@ CTRL + q   = FREE (quick fix?)
 `Ctrl + i` - equivalent as tab 
 `Ctrl + o` - you can insert one vim command, and then return to normal mode. (quite useless, mappeable)
 `Ctrl + w` - delete one word
-`Ctrl + r` - weird menu, with posibilites = %: file name
+`Ctrl + r` - pasting in insert mode (registers)
 `Ctrl + k` - karate characters (`mappeable`)
 `Ctrl + u` - delete whole line
 `Ctrl + a` - ?
