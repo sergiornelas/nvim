@@ -20,11 +20,11 @@ telescope.setup({
 			},
 		},
 	},
-	-- pickers = {
-	-- 	find_files = {
-	-- 		theme = "ivy",
-	-- 	},
-	-- },
+	pickers = {
+		find_files = {
+			theme = "ivy",
+		},
+	},
 	-- extensions = {
 	--   media_files = {
 	--     -- filetypes whitelist
