@@ -117,7 +117,7 @@ check this list in help:
 <leader> + g* = <...reserved for vim-fugitive>
 <leader> + k  = <telescope buffer list>
 <leader> + f  = <telescope find file>
-<leader> + u  = <telescope historial>
+<leader> + o  = <telescope historial>
 <leader> + sp = <telescope colorscheme>
 <leader> + st = <telescope livegrep>
 <leader> + p  = <telescope Projects>

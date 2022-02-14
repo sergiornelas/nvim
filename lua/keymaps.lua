@@ -19,7 +19,7 @@ map("n", "<leader>l", "<cmd>HopLine<CR>")
 map("n", "<leader>k", "<cmd>Telescope buffers theme=ivy<cr>")
 map("n", "<leader>f", "<cmd>Telescope find_files theme=ivy<cr>")
 map("n", "<leader>st", "<cmd>Telescope live_grep theme=ivy<cr>")
-map("n", "<leader>u", "<cmd>Telescope oldfiles theme=ivy<cr>")
+map("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy<cr>")
 map("n", "<leader>sp", "<cmd>Telescope colorscheme theme=ivy<cr>")
 map("n", "<leader>p", "<cmd>Telescope projects theme=ivy<cr>")
 map("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>")
@@ -39,7 +39,7 @@ map("n", "<leader>sg", "<cmd>DiffviewOpen<cr>")
 -- BUFFER NAVIGATION
 map("n", "<c-j>", "<cmd>bprevious<cr>") --previous buffer
 map("n", "<c-k>", "<cmd>bnext<cr>") --next buffer
-map("n", "<c-t>", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>") --close buffer without closing window.
+map("n", "<c-t>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "∑", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "œ", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 

@@ -44,11 +44,8 @@ return packer.startup(function()
 	use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } }) --heavy af
 	use("rebelot/kanagawa.nvim")
 	use("nxvu699134/vn-night.nvim")
-	use("srcery-colors/srcery-vim")
-	use("tomasr/molokai")
 	use("ray-x/aurora")
-	-- use 'gruvbox-community/gruvbox'
-	-- use "folke/tokyonight.nvim"
+	use("folke/tokyonight.nvim")
 
 	-- CMP ---------------------------------------------
 	use({
@@ -311,6 +308,12 @@ return packer.startup(function()
 		config = function()
 			require("plugins.others").truezen()
 		end,
+	})
+
+	-- BUFFER DELETE --------------------------------------------------
+	use({
+		"famiu/bufdelete.nvim",
+		cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
 	})
 
 	-- EMMET ------------------------------------------------
