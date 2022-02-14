@@ -124,7 +124,9 @@ check this list in help:
 <leader> + m  = <telescope marks>
 <leader> + :  = <telescope commands>
 <leader> + ss = <luasnipunlinkCurrent> (bug)
-<leader> + sg = <diffviewclose>
+<leader> + sd = <diffviewclose>
+<leader> + sk = <save session>
+<leader> + sl = <load session>
 <leader> + aj = <zen mode ataraxis>
 <leader> + ak = <zen mode focus>
 <leader> + al = <zen mode minimalist>

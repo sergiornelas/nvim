@@ -34,7 +34,10 @@ map("n", "<leader>ak", "<cmd>TZFocus<cr>")
 map("n", "<leader>al", "<cmd>TZMinimalist<cr>")
 
 -- <DIFF VIEW GIT>
-map("n", "<leader>sg", "<cmd>DiffviewOpen<cr>")
+map("n", "<leader>sd", "<cmd>DiffviewOpen<cr>")
+
+-- <SESSION MANAGEMENT>
+map("n", "<leader>sl", "<cmd>SearchSession<CR>")
 
 -- BUFFER NAVIGATION
 map("n", "<c-j>", "<cmd>bprevious<cr>") --previous buffer
@@ -84,6 +87,8 @@ vim.cmd([[
   vnoremap <c-p> :m '<-2<cr>gv=gv
 
   nnoremap <leader>so :so %<cr>
+
+  nnoremap <leader>sk :SaveSession ~/sessions/
 
   autocmd TermEnter term://*toggleterm#*
         \ tnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<cr>
