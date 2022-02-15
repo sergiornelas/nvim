@@ -75,7 +75,8 @@ return packer.startup(function()
 	-- LSP CMP
 	use({
 		"hrsh7th/cmp-nvim-lsp",
-		after = "nvim-lspconfig",
+		-- after = "nvim-lspconfig",
+
 		-- after = "nvim-cmp",
 		-- after = {"nvim-lspconfig", "nvim-cmp"}
 	})
@@ -112,11 +113,12 @@ return packer.startup(function()
 	-- LSP ----------------------------------------------
 	use({
 		"neovim/nvim-lspconfig",
-		after = "nvim-lsp-installer",
+		-- after = "nvim-lsp-installer",
 		config = function()
 			require("lsp")
 		end,
 	})
+
 	use({
 		"williamboman/nvim-lsp-installer",
 		opt = true,
