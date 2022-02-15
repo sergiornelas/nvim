@@ -316,13 +316,13 @@ return packer.startup(function()
 		cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
 	})
 
-	-- SESSION --------------------------------------------------
+	-- -- SESSION --------------------------------------------------
 	use({
 		"rmagatti/auto-session",
+		-- cmd = { "SaveSession", "RestoreSession", "DeleteSession" }, --not working
 		config = function()
 			require("auto-session").setup({
 				log_level = "info",
-				-- auto_session_suppress_dirs = {'~/', '~/Projects'}
 			})
 		end,
 	})
@@ -330,9 +330,9 @@ return packer.startup(function()
 	use({
 		"rmagatti/session-lens",
 		requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+		cmd = { "SearchSession" },
 		config = function()
-			require("session-lens").setup({--[[your custom config--]]
-			})
+			require("session-lens").setup()
 		end,
 	})
 

@@ -11,7 +11,6 @@ CTRL + m   = FREE (?)
 CTRL + c   = FREE (custom emmet?)
 CTRL + q   = FREE (quick fix?)
 <Leader w> = FREE
-<Leader g> is reserved for vim-fugitive
 =================================
 
 ~~VIM CTRLS (NORMAL MODE)~~
@@ -110,11 +109,11 @@ check this list in help:
 <leader> + so = :so %
 <leader> + t  = toggle highlights
 <leader> + y =  close tab
+<leader> + g  = next tab
 <leader> + l  = <hop line>
 <leader> + j  = <hop word>
 <leader> + h* = <git hunk menu>
 <leader> + e  = <tree toggle>
-<leader> + g* = <...reserved for vim-fugitive>
 <leader> + k  = <telescope buffer list>
 <leader> + f  = <telescope find file>
 <leader> + o  = <telescope historial>

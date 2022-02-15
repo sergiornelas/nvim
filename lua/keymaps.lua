@@ -78,6 +78,7 @@ map("n", "vv", "Vg_") --visual whole line
 map("n", "J", "mzJ`z") --cursor stay current position when J
 -- map("v", "y", "ygv<esc>") --yanking selection don't returns cursor
 map("i", "<c-c>", "<esc>bi<<esc>ea><esc>F<vf>yPa") --emmet emulation
+map("n", "<Leader>g", "gt") --next tab
 
 -- HARD TO MAP
 vim.cmd([[
@@ -88,7 +89,7 @@ vim.cmd([[
 
   nnoremap <leader>so :so %<cr>
 
-  nnoremap <leader>sk :SaveSession ~/sessions/
+  nnoremap <leader>sk :SaveSession ~/.local/share/nvim/sessions/
 
   autocmd TermEnter term://*toggleterm#*
         \ tnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<cr>
