@@ -76,9 +76,7 @@ return packer.startup(function()
 	use({
 		"hrsh7th/cmp-nvim-lsp",
 		-- after = "nvim-lspconfig",
-
 		-- after = "nvim-cmp",
-		-- after = {"nvim-lspconfig", "nvim-cmp"}
 	})
 	-- LUA CMP
 	use({
@@ -118,7 +116,6 @@ return packer.startup(function()
 			require("lsp")
 		end,
 	})
-
 	use({
 		"williamboman/nvim-lsp-installer",
 		opt = true,
@@ -137,12 +134,12 @@ return packer.startup(function()
 	-- NULL-LS -------------------------------------------
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		module = "lspconfig",
+		-- module = "lspconfig",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use({
 		"jose-elias-alvarez/nvim-lsp-ts-utils", -- LSP-TS-UTILS
-		after = "null-ls.nvim",
+		-- after = "null-ls.nvim",
 	})
 
 	-- TREESITTER -----------------------------------------
@@ -177,7 +174,6 @@ return packer.startup(function()
 	-- TELESCOPE ------------------------------------------
 	use({
 		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
 		requires = {
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
@@ -316,26 +312,6 @@ return packer.startup(function()
 	use({
 		"famiu/bufdelete.nvim",
 		cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
-	})
-
-	-- -- SESSION --------------------------------------------------
-	use({
-		"rmagatti/auto-session",
-		-- cmd = { "SaveSession", "RestoreSession", "DeleteSession" }, --not working
-		config = function()
-			require("auto-session").setup({
-				log_level = "info",
-			})
-		end,
-	})
-
-	use({
-		"rmagatti/session-lens",
-		requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
-		cmd = { "SearchSession" },
-		config = function()
-			require("session-lens").setup()
-		end,
 	})
 
 	-- EMMET ------------------------------------------------

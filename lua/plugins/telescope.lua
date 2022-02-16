@@ -24,6 +24,14 @@ telescope.setup({
 		find_files = {
 			theme = "ivy",
 		},
+		buffers = {
+			sort_lastused = true,
+			mappings = {
+				i = {
+					["<c-g>"] = actions.delete_buffer,
+				},
+			},
+		},
 	},
 	-- extensions = {
 	--   media_files = {
