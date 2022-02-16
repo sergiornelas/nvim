@@ -43,6 +43,9 @@ map("n", "<c-t>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "∑", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "œ", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 
+-- CLOSE ALL (NO SAVE)
+map("n", "<c-q><c-q><c-q>", "<cmd>qa!<cr>") --close nvim no restrictions
+
 -- RESIZE WINDOW
 map("n", "˙", "<cmd>vertical resize +4<cr>") --resize window horizontal
 map("n", "∆", "<cmd>resize +4<cr>") --resize window vertical

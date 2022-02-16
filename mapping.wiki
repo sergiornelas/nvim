@@ -9,7 +9,6 @@ ENTER      = FREE
 BACKSPACE  = FREE
 CTRL + m   = FREE (?)
 CTRL + c   = FREE (custom emmet?)
-CTRL + q   = FREE (quick fix?)
 <Leader w> = FREE
 =================================
 
@@ -49,6 +48,7 @@ CTRL + q   = FREE (quick fix?)
 `ctrl + l` = move window right
 `ctrl + n` = move window down
 `ctrl + p` = move window top
+`ctrl + q` x3 = close neovim
 
 `alt + j` = move code below
 `alt + k` = move code above

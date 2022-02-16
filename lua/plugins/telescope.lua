@@ -14,9 +14,13 @@ telescope.setup({
 		path_display = { "smart" },
 		mappings = {
 			i = {
+				["<esc>"] = actions.close,
 				["<C-k>"] = actions.move_selection_next,
 				["<C-l>"] = actions.move_selection_previous,
 				["<C-j>"] = actions.select_default,
+			},
+			n = {
+				["<esc>"] = actions.close,
 			},
 		},
 	},
