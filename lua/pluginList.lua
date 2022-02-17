@@ -39,13 +39,31 @@ return packer.startup(function()
 		cmd = "StartupTime",
 	})
 
-	-- COLORSCHEMES
+	-- COLORSCHEMES ---------------------------------------
 	use("lunarvim/darkplus.nvim")
 	use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } }) --heavy af
 	use("rebelot/kanagawa.nvim")
 	use("nxvu699134/vn-night.nvim")
 	use("ray-x/aurora")
 	use("folke/tokyonight.nvim")
+	use("marko-cerovac/material.nvim")
+	-- use({
+	-- 	"shaeinst/roshnivim-cs",
+	-- 	config = function()
+	-- 		require("material").setup({})
+	-- 	end,
+	-- })
+
+	-- TRANSPARENT NVIM --------------------------------
+	use({
+		"xiyaowong/nvim-transparent",
+		-- cmd = { "TransparentToggle" }, --enable true don't work
+		config = function()
+			require("transparent").setup({
+				enable = true,
+			})
+		end,
+	})
 
 	-- CMP ---------------------------------------------
 	use({

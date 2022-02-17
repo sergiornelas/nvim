@@ -9,6 +9,6 @@ toggleterm.setup({
 	float_opts = {
 		border = "single",
 		width = 100,
-		winblend = 30,
+		height = 40,
 	},
 })

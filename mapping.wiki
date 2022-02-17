@@ -9,7 +9,9 @@ ENTER      = FREE
 BACKSPACE  = FREE
 CTRL + m   = FREE (?)
 CTRL + c   = FREE (custom emmet?)
-<Leader w> = FREE
+<Leader >w = FREE
+<Leader >y = FREE
+<Leader>x2 = FREE
 =================================
 
 ~~VIM CTRLS (NORMAL MODE)~~
@@ -37,21 +39,16 @@ CTRL + c   = FREE (custom emmet?)
 ----------------------------------------------------------------------------------------
 ===MAPPED KEYS===
 ~~NO PLUGINS~~
-`ctrl + j` = prev buffer
-`ctrl + k` = next buffer
 `ctrl + t` = close buffer
-`alt + a` = resize window
-`alt + s` = resize window
-`alt + d` = resize window
-`alt + f` = resize window
 `ctrl + h` = move window left
 `ctrl + l` = move window right
 `ctrl + n` = move window down
 `ctrl + p` = move window top
 `ctrl + q` x3 = close neovim
-
-`alt + j` = move code below
-`alt + k` = move code above
+`alt + h` = resize window
+`alt + j` = resize window
+`alt + k` = resize window
+`alt + l` = resize window
 
 ~~PLUGINS~~
 `ctrl + j  = select-Telescope-Element, select-CMP-Element
@@ -66,6 +63,10 @@ CTRL + c   = FREE (custom emmet?)
 `ctrl + f` = cmp other option
 `ctrl + space` = cmp other option
 `ctrl + g` = terminal
+`ctrl + j` = bufferlinecycleprev
+`ctrl + k` = bufferlinecyclenext
+`alt + f` = bufferlinemovenext
+`alt + a` = bufferlinemoveprev
 
 ----------------------------------------------------------------------------------------
 ~~REPLACEABLE~~
@@ -107,9 +108,10 @@ check this list in help:
 <leader> + r  = :w
 <leader> + q  = :q
 <leader> + so = :so %
-<leader> + t  = toggle highlights
-<leader> + y =  close tab
+<leader> + ;  = toggle highlights
+<leader> + u =  close tab
 <leader> + g  = next tab
+<leader> + t  = prev tab
 <leader> + l  = <hop line>
 <leader> + j  = <hop word>
 <leader> + h* = <git hunk menu>
@@ -118,7 +120,7 @@ check this list in help:
 <leader> + f  = <telescope find file>
 <leader> + o  = <telescope historial>
 <leader> + sp = <telescope colorscheme>
-<leader> + st = <telescope livegrep>
+<leader> + d  = <telescope livegrep>
 <leader> + p  = <telescope Projects>
 <leader> + m  = <telescope marks>
 <leader> + :  = <telescope commands>
@@ -136,15 +138,5 @@ map `<c-j>` previousTab
 map `<c-k>` nextTab
 map `<a-q>` moveTabLeft
 map `<a-w>` moveTabRight
-
 map `J` goBack
 map `K` goForward
-
-----------------------------------------------------------------------------------------
-~~LINUX SETTED MAPS~~
-`alt + i` = move window left
-`alt + o` = move window center
-`alt + p` = move window right
-`ctrl + alt p` = move window right
-`ctrl + alt i` = move window right
-
