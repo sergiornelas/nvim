@@ -40,5 +40,3 @@ luac.out
 *.hex
 
 plugin/packer_compiled.lua
-lua/packer_compiled.lua
-neovim_pendings.norg

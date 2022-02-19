@@ -16,20 +16,7 @@ vim.opt.shortmess:append("c")
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
-vim.cmd("set nofoldenable") --helps with everything fold
-
--- I want to defer lsp by a bit, and some other utilities
-local M = {}
-M.packer_lazy_load = function(plugin, timer)
-	if plugin then
-		timer = timer or 0
-		vim.defer_fn(function()
-			require("packer").loader(plugin)
-		end, timer)
-	end
-end
-return M
+-- vim.cmd("set nofoldenable") --helps with everything fold
 
 -- Using autocmd and CursorMoved/CursorMovedI events, zz
 -- is applied to every keystroke that would change the cursor position.

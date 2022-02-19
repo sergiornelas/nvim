@@ -89,8 +89,8 @@ vim.cmd([[
 
   nnoremap <leader>so :so %<cr>
 
-  nnoremap <leader>sk :mksession! ~/.local/share/nvim/sessions/
-  nnoremap <leader>sl :source ~/.local/share/nvim/sessions/
+  nnoremap <leader>sk :mksession! ~/sessions/
+  nnoremap <leader>sl :source ~/sessions/
 
   autocmd TermEnter term://*toggleterm#*
         \ tnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<cr>

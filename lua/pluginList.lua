@@ -1,9 +1,18 @@
--- Use a protected call so we don't error out on first use
-local present, packer = pcall(require, "packerInit")
-if present then
-	packer = require("packer")
-else
-	return false
+local fn = vim.fn
+
+--Automatically install packer
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+if fn.empty(fn.glob(install_path)) > 0 then
+	PACKER_BOOTSTRAP = fn.system({
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	})
+	print("Installing packer close and reopen Neovim...")
+	vim.cmd([[packadd packer.nvim]])
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -14,12 +23,25 @@ vim.cmd([[
   augroup end
 ]])
 
-local use = packer.use
-return packer.startup(function()
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+	return
+end
+
+-- Have packer use a popup window
+packer.init({
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
+})
+
+return packer.startup(function(use)
 	-- HAVE PACKER MANAGE ITSELF -----------------------
 	use({
 		"wbthomason/packer.nvim",
-		event = "VimEnter",
 	})
 
 	-- STARTUP OPTIMIZATIONS ---------------------------
@@ -134,16 +156,17 @@ return packer.startup(function()
 			require("lsp")
 		end,
 	})
+	------------------------------------------------------
 	use({
 		"williamboman/nvim-lsp-installer",
-		opt = true,
-		setup = function()
-			require("config").packer_lazy_load("nvim-lsp-installer")
-			-- reload the current file so lsp actually starts for it
-			vim.defer_fn(function()
-				vim.cmd('if &ft == "packer" | echo "" | else | silent! e %')
-			end, 0)
-		end,
+		-- opt = true,
+		-- setup = function()
+		-- 	require("config").packer_lazy_load("nvim-lsp-installer")
+		-- 	-- reload the current file so lsp actually starts for it
+		-- 	vim.defer_fn(function()
+		-- 		vim.cmd('if &ft == "packer" | echo "" | else | silent! e %')
+		-- 	end, 0)
+		-- end,
 		config = function()
 			require("lsp")
 		end,
@@ -166,10 +189,10 @@ return packer.startup(function()
 		config = function()
 			require("plugins.treesitter")
 		end,
-		event = "BufRead",
+		--event = "BufRead", --jsx comments issues
 		run = ":TSUpdate",
 	})
-	-- RAINBOW
+	-- RAINBOW ---------------------------------------------
 	use({
 		"p00f/nvim-ts-rainbow",
 		after = "nvim-treesitter",
@@ -366,4 +389,7 @@ return packer.startup(function()
 	--       require "plugins.neogit"
 	--    end,
 	-- }
+	if PACKER_BOOTSTRAP then
+		require("packer").sync()
+	end
 end)
