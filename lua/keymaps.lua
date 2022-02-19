@@ -43,9 +43,6 @@ map("n", "<c-t>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "ƒ", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "å", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 
--- CLOSE ALL (NO SAVE)
-map("n", "<c-q><c-q><c-q>", "<cmd>qa!<cr>") --close nvim no restrictions
-
 -- RESIZE WINDOW
 map("n", "˙", "<cmd>vertical resize +4<cr>") --resize window horizontal
 map("n", "∆", "<cmd>resize +4<cr>") --resize window vertical
@@ -70,6 +67,8 @@ map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window
 -- UTILS
 map("n", "<Leader>r", "<cmd>w<cr>") --save file
 map("n", "<Leader>q", "<cmd>q<cr>") --quit file
+map("n", "<Leader>ww", "<cmd>qa<cr>") --quit all files
+map("n", "<c-q><c-q>", "<cmd>qa!<cr>") --close nvim no restrictions
 map("n", "<Leader>;", "<cmd>set hlsearch!<cr>") --toggle highlight
 map("n", "<Leader>u", "<cmd>tabclose<cr>") --close current tab
 map("n", "V", "vg_") --visual to the right
