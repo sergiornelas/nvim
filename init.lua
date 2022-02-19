@@ -28,6 +28,7 @@ local modules = {
 	"options",
 	"keymaps",
 	"colorscheme",
+	"pluginList",
 }
 
 for i = 1, #modules, 1 do

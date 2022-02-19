@@ -1,6 +1,6 @@
 local fn = vim.fn
 
---Automatically install packer
+-- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = fn.system({
@@ -389,6 +389,7 @@ return packer.startup(function(use)
 	--       require "plugins.neogit"
 	--    end,
 	-- }
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
