@@ -1,6 +1,6 @@
 local fn = vim.fn
 
--- Automatically install packer
+-- Automatically install Packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = fn.system({
@@ -29,7 +29,7 @@ if not status_ok then
 	return
 end
 
--- Have packer use a popup window
+-- Packer popup
 packer.init({
 	display = {
 		open_fn = function()
@@ -47,15 +47,10 @@ return packer.startup(function(use)
 	-- STARTUP OPTIMIZATIONS ---------------------------
 	use({
 		"nathom/filetype.nvim",
-		config = function()
-			vim.g.did_load_filetypes = 1
-		end,
 	})
 	use({
 		"lewis6991/impatient.nvim",
-		-- after = 'filetype.nvim',
 	})
-
 	use({
 		"tweekmonster/startuptime.vim",
 		cmd = "StartupTime",
@@ -69,17 +64,10 @@ return packer.startup(function(use)
 	use("ray-x/aurora")
 	use("folke/tokyonight.nvim")
 	use("marko-cerovac/material.nvim")
-	-- use({
-	-- 	"shaeinst/roshnivim-cs",
-	-- 	config = function()
-	-- 		require("material").setup({})
-	-- 	end,
-	-- })
 
 	-- TRANSPARENT NVIM --------------------------------
 	use({
 		"xiyaowong/nvim-transparent",
-		-- cmd = { "TransparentToggle" }, --enable true don't work
 		config = function()
 			require("transparent").setup({
 				enable = true,
@@ -103,7 +91,6 @@ return packer.startup(function(use)
 		"hrsh7th/cmp-path",
 		after = "nvim-cmp",
 	})
-
 	use({
 		"hrsh7th/cmp-cmdline",
 		after = "nvim-cmp",
@@ -115,8 +102,7 @@ return packer.startup(function(use)
 	-- LSP CMP
 	use({
 		"hrsh7th/cmp-nvim-lsp",
-		-- after = "nvim-lspconfig",
-		-- after = "nvim-cmp",
+		after = "nvim-lspconfig",
 	})
 	-- LUA CMP
 	use({
@@ -125,11 +111,11 @@ return packer.startup(function(use)
 	})
 	-- DETAILED INFO CMP
 	-- use {
-	-- "ray-x/lsp_signature.nvim",
-	-- after = "nvim-lspconfig",
-	-- config = function()
-	-- require("plugins.others").signature()
-	-- end,
+	--    "ray-x/lsp_signature.nvim",
+	--    after = "nvim-lspconfig",
+	--    config = function()
+	--      require("plugins.others").signature()
+	--    end,
 	-- }
 	-- TREESITTER CMP
 	-- use {
@@ -151,22 +137,13 @@ return packer.startup(function(use)
 	-- LSP ----------------------------------------------
 	use({
 		"neovim/nvim-lspconfig",
-		-- after = "nvim-lsp-installer",
+		after = "nvim-lsp-installer",
 		config = function()
 			require("lsp")
 		end,
 	})
-	------------------------------------------------------
 	use({
 		"williamboman/nvim-lsp-installer",
-		-- opt = true,
-		-- setup = function()
-		-- 	require("config").packer_lazy_load("nvim-lsp-installer")
-		-- 	-- reload the current file so lsp actually starts for it
-		-- 	vim.defer_fn(function()
-		-- 		vim.cmd('if &ft == "packer" | echo "" | else | silent! e %')
-		-- 	end, 0)
-		-- end,
 		config = function()
 			require("lsp")
 		end,
@@ -175,12 +152,10 @@ return packer.startup(function(use)
 	-- NULL-LS -------------------------------------------
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		-- module = "lspconfig",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use({
-		"jose-elias-alvarez/nvim-lsp-ts-utils", -- LSP-TS-UTILS
-		-- after = "null-ls.nvim",
+		"jose-elias-alvarez/nvim-lsp-ts-utils",
 	})
 
 	-- TREESITTER -----------------------------------------
@@ -189,9 +164,9 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins.treesitter")
 		end,
-		--event = "BufRead", --jsx comments issues
 		run = ":TSUpdate",
 	})
+
 	-- RAINBOW ---------------------------------------------
 	use({
 		"p00f/nvim-ts-rainbow",
@@ -205,7 +180,6 @@ return packer.startup(function(use)
 			require("plugins.others").comment()
 		end,
 	})
-
 	-- JSX COMMENTS
 	use({
 		"JoosepAlviste/nvim-ts-context-commentstring", --heavy plugin (0.784)
@@ -255,7 +229,6 @@ return packer.startup(function(use)
 			require("plugins.gitsigns")
 		end,
 	})
-
 	-- GIT DIFF --------------------------------------------------
 	use({
 		"sindrets/diffview.nvim", --heavy plugin (+3.8)
@@ -270,14 +243,12 @@ return packer.startup(function(use)
 		"phaazon/hop.nvim",
 		cmd = {
 			"HopWord",
-			"HopLine",
-			"HopChar1",
-			"HopChar2",
-			"HopPattern",
 		},
 		as = "hop",
 		config = function()
-			require("hop").setup()
+			require("hop").setup({
+				keys = "asdfjkl;weio",
+			})
 		end,
 	})
 
@@ -326,7 +297,6 @@ return packer.startup(function(use)
 		end,
 		requires = "nvim-lua/plenary.nvim",
 	})
-
 	use({
 		"nvim-neorg/neorg-telescope",
 	})
@@ -354,19 +324,6 @@ return packer.startup(function(use)
 		"famiu/bufdelete.nvim",
 		cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
 	})
-
-	-- EMMET ------------------------------------------------
-	-- use {
-	--   "mattn/emmet-vim",
-	--   opt = true,
-	--   keys = '<c-c>',
-	--   -- cmd = {'emmet-expand-abbr'}
-	-- }
-
-	-- AUTO CHANGE HTML & JSX TAGS --------------------------
-	-- use {
-	--   "windwp/nvim-ts-autotag",
-	-- }
 
 	-- HARD MODE --------------------------------------------
 	-- use 'takac/vim-hardtime'

@@ -14,14 +14,26 @@ luasnip.config.set_config({
 })
 
 -- ADD HTML AND JS SNIPPETS TO JAVASCRIPT/TYPESCRIPT/REACT
-luasnip.filetype_extend("javascript", { "html" })
-luasnip.filetype_extend("javascriptreact", { "html" })
-luasnip.filetype_extend("typescript", { "javascript" })
-luasnip.filetype_extend("typescript", { "html" })
-luasnip.filetype_extend("typescriptreact", { "javascript" })
-luasnip.filetype_extend("typescriptreact", { "html" })
+-- ADD REACT SNIPPETS TO JAVASCRIPT AND TYPESCRIPT
+luasnip.snippets = {
+	html = {},
+}
 
-require("luasnip/loaders/from_vscode").load({})
+luasnip.snippets.javascriptreact = luasnip.snippets.html
+luasnip.snippets.javascript = luasnip.snippets.javascriptreact
+luasnip.snippets.typescriptreact = luasnip.snippets.html
+luasnip.snippets.typescript = luasnip.snippets.html
+
+require("luasnip/loaders/from_vscode").load({
+	include = {
+		"html",
+		"javascriptreact",
+		"lua",
+		"css",
+		"norg",
+		"shell",
+	},
+})
 
 local check_backspace = function()
 	local col = vim.fn.col(".") - 1
@@ -65,8 +77,6 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		--   ["<C-p>"] = cmp.mapping.select_prev_item(),
-		-- ["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -78,7 +88,6 @@ cmp.setup({
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<C-j>"] = cmp.mapping.confirm({ select = true }),
-		-- ["<Tab>"] = cmp.mapping(function(fallback)
 		["<C-k>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -95,7 +104,6 @@ cmp.setup({
 			"i",
 			"s",
 		}),
-		-- ["<S-Tab>"] = cmp.mapping(function(fallback)
 		["<C-l>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
@@ -115,7 +123,6 @@ cmp.setup({
 			-- Kind icons
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 			vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
-			-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 			vim_item.menu = ({
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[NVIM_LUA]",

@@ -18,9 +18,8 @@ telescope.setup({
 				["<C-k>"] = actions.move_selection_next,
 				["<C-l>"] = actions.move_selection_previous,
 				["<C-j>"] = actions.select_default,
-			},
-			n = {
-				["<esc>"] = actions.close,
+				["<C-n>"] = actions.cycle_history_next,
+				["<C-p>"] = actions.cycle_history_prev,
 			},
 		},
 	},
@@ -32,7 +31,7 @@ telescope.setup({
 			sort_lastused = true,
 			mappings = {
 				i = {
-					["<c-g>"] = actions.delete_buffer,
+					["<c-f>"] = actions.delete_buffer,
 				},
 			},
 		},

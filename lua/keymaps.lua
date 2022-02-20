@@ -11,19 +11,18 @@ end
 
 vim.g.mapleader = " " --Leader
 
--- <HOP>
-map("n", "<leader>j", "<cmd>HopWord<CR>")
-map("n", "<leader>l", "<cmd>HopLine<CR>")
-
 -- <TELESCOPE>
 map("n", "<leader>k", "<cmd>Telescope buffers theme=ivy<cr>")
 map("n", "<leader>f", "<cmd>Telescope find_files theme=ivy<cr>")
-map("n", "<leader>d", "<cmd>Telescope live_grep theme=ivy<cr>")
+map("n", "<leader>l", "<cmd>Telescope live_grep theme=ivy<cr>")
 map("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy<cr>")
 map("n", "<leader>sp", "<cmd>Telescope colorscheme theme=ivy<cr>")
 map("n", "<leader>p", "<cmd>Telescope projects theme=ivy<cr>")
 map("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>")
 map("n", "<leader>:", "<cmd>Telescope commands theme=ivy<cr>")
+
+-- <HOP>
+map("n", "<leader>j", "<cmd>HopWord<CR>")
 
 -- <NVIM TREE>
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
@@ -60,25 +59,25 @@ map("n", "<c-n>", "<cmd>wincmd j<cr>") --move below window
 map("n", "<c-p>", "<cmd>wincmd k<cr>") --move upper window
 map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window
 
--- AVOID UNPRACTICAL YANKING
--- map("v", "p", '"_dP') --Pasting without yanking
--- map("v", "P", '"_dP') --Pasting without yanking
-
 -- UTILS
 map("n", "<Leader>r", "<cmd>w<cr>") --save file
 map("n", "<Leader>q", "<cmd>q<cr>") --quit file
 map("n", "<Leader>ww", "<cmd>qa<cr>") --quit all files
-map("n", "<c-q><c-q>", "<cmd>qa!<cr>") --close nvim no restrictions
-map("n", "<Leader>;", "<cmd>set hlsearch!<cr>") --toggle highlight
+map("n", "<c-c><c-c>", "<cmd>qa!<cr>") --close nvim no restrictions
+map("n", "<Leader>h", "<cmd>set hlsearch!<cr>") --toggle highlight
 map("n", "<Leader>u", "<cmd>tabclose<cr>") --close current tab
+map("n", "<c-s>", "<cmd>StartupTime<cr>") --close current tab
 map("n", "V", "vg_") --visual to the right
 map("n", "vv", "Vg_") --visual whole line
 -- map("n", "yy", "mzv^og_y`z") --yank whole line without break
 map("n", "J", "mzJ`z") --cursor stay current position when J
 -- map("v", "y", "ygv<esc>") --yanking selection don't returns cursor
-map("i", "<c-c>", "<esc>bi<<esc>ea><esc>F<vf>yPa") --emmet emulation
 map("n", "<Leader>g", "gt") --next tab
 map("n", "<Leader>t", "gT") --prev tab
+
+-- AVOID UNPRACTICAL YANKING
+-- map("v", "p", '"_dP') --Pasting without yanking
+-- map("v", "P", '"_dP') --Pasting without yanking
 
 -- HARD TO MAP
 vim.cmd([[
@@ -101,7 +100,3 @@ vim.cmd([[
 
   nnoremap <leader>ss <CMD>LuaSnipUnlinkCurrent<CR>
 ]])
-
--- <EMMET>
--- vim.g.user_emmet_expandabbr_key = '<c-c>'
--- vim.g.user_emmet_leader_key='<C-)>' --I don't use all the emmet features.

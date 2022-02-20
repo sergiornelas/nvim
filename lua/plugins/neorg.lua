@@ -38,7 +38,7 @@ neorg.setup({
 -- 	-- Map all the below keybinds only when the "norg" mode is active
 -- 	keybinds.map_event_to_mode("norg", {
 -- 		n = {
--- 			{ "<C-s>", "core.integrations.telescope.find_linkable" },
+-- 			{ "<leader>n", "core.integrations.telescope.find_linkable" },
 -- 		},
 -- 		i = {
 -- 			{ "<C-l>", "core.integrations.telescope.insert_link" },
