@@ -58,7 +58,7 @@ return packer.startup(function(use)
 
 	-- COLORSCHEMES ---------------------------------------
 	use("lunarvim/darkplus.nvim")
-	use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } }) --heavy af
+	use("ellisonleao/gruvbox.nvim")
 	use("rebelot/kanagawa.nvim")
 	use("nxvu699134/vn-night.nvim")
 	use("ray-x/aurora")

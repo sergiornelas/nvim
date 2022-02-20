@@ -24,6 +24,9 @@ luasnip.snippets.javascript = luasnip.snippets.javascriptreact
 luasnip.snippets.typescriptreact = luasnip.snippets.html
 luasnip.snippets.typescript = luasnip.snippets.html
 
+-- Styled components
+luasnip.filetype_extend("typescript", { "css" })
+
 require("luasnip/loaders/from_vscode").load({
 	include = {
 		"html",
