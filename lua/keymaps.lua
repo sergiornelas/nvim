@@ -84,8 +84,8 @@ vim.cmd([[
 
   nnoremap <leader>so :so %<cr>
 
-  nnoremap <leader>sk :mksession! ~/sessions/
-  nnoremap <leader>sl :source ~/sessions/
+  nnoremap <leader>sh :mksession! ~/sessions/
+  nnoremap <leader>sj :source ~/sessions/
 
   autocmd TermEnter term://*toggleterm#*
         \ tnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<cr>
@@ -95,6 +95,8 @@ vim.cmd([[
   snoremap <c-h> <BS>i
 
   nnoremap <leader>ss <CMD>LuaSnipUnlinkCurrent<CR>
+
+  nnoremap <leader>sl :lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>
 ]])
 
 -- AVOID UNPRACTICAL YANKING

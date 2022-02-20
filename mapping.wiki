@@ -18,6 +18,7 @@ CTRL + q   = FREE
 <Leader >b = FREE
 <Leader >y = FREE
 <Leader>x2 = FREE
+<Leader >sk= FREE
 =================================
 
 ~~VIM CTRLS (NORMAL MODE)~~
@@ -122,23 +123,15 @@ check this list in help:
 <leader> + o  = <telescope historial>
 <leader> + sp = <telescope colorscheme>
 <leader> + l  = <telescope livegrep>
+<leader> + sl  = <telescope livegrep current buffers>
 <leader> + p  = <telescope Projects>
 <leader> + m  = <telescope marks>
 <leader> + :  = <telescope commands>
 <leader> + n  = <telescope neorg>
 <leader> + ss = <luasnipunlinkCurrent> (bug)
 <leader> + sd = <diffviewclose>
-<leader> + sk = <save session>
-<leader> + sl = <load session>
+<leader> + sh = <save session>
+<leader> + sj = <load session>
 <leader> + aj = <zen mode ataraxis>
 <leader> + ak = <zen mode focus>
 <leader> + al = <zen mode minimalist>
-
-----------------------------------------------------------------------------------------
-~~VIMIUM MAPPING~~
-map `<c-j>` previousTab
-map `<c-k>` nextTab
-map `<a-q>` moveTabLeft
-map `<a-w>` moveTabRight
-map `J` goBack
-map `K` goForward
