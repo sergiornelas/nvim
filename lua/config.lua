@@ -16,7 +16,7 @@ vim.opt.shortmess:append("c")
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
--- vim.cmd("set nofoldenable") --helps with everything fold
+vim.cmd("set nofoldenable") --helps with everything fold
 
 -- Using autocmd and CursorMoved/CursorMovedI events, zz
 -- is applied to every keystroke that would change the cursor position.
@@ -49,24 +49,3 @@ vim.cmd([[set iskeyword+=-]])
 --     augroup END
 --   ]], true
 -- )
-
--- FORMAT ON SAVE ====================
---vim.api.nvim_exec([[
---augroup FormatAutogroup
---autocmd!
---autocmd BufWritePost *.js,*.rs,*.lua FormatWrite
---augroup END
---]], true)
-
---vim.api.nvim_exec([[
---function! AddLastLine()
---if getline('$') !~ "^$"
---call append(line('$'), '')
---endif
---endfunction
---autocmd BufWritePre * call AddLastLine()
---]])
-
---vim.api.nvim_exec ([[
---  autocmd BufWritePre * if (getline('$') !~ "^\s*$") | call append(line('$'), "") | endif
---]], true)

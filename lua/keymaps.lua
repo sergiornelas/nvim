@@ -75,10 +75,6 @@ map("n", "J", "mzJ`z") --cursor stay current position when J
 map("n", "<Leader>g", "gt") --next tab
 map("n", "<Leader>t", "gT") --prev tab
 
--- AVOID UNPRACTICAL YANKING
--- map("v", "p", '"_dP') --Pasting without yanking
--- map("v", "P", '"_dP') --Pasting without yanking
-
 -- HARD TO MAP
 vim.cmd([[
   inoremap <c-n> <cmd>:m .+1<cr>
@@ -100,3 +96,7 @@ vim.cmd([[
 
   nnoremap <leader>ss <CMD>LuaSnipUnlinkCurrent<CR>
 ]])
+
+-- AVOID UNPRACTICAL YANKING
+-- map("v", "p", '"_dP') --Pasting without yanking
+-- map("v", "P", '"_dP') --Pasting without yanking
