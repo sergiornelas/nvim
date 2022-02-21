@@ -1,6 +1,3 @@
---load impatient first
-local present, impatient = pcall(require, "impatient")
-
 --disable builtin plugins
 local disabled_built_ins = {
 	"2html_plugin",

@@ -49,9 +49,6 @@ return packer.startup(function(use)
 		"nathom/filetype.nvim",
 	})
 	use({
-		"lewis6991/impatient.nvim",
-	})
-	use({
 		"tweekmonster/startuptime.vim",
 		cmd = "StartupTime",
 	})
@@ -253,12 +250,12 @@ return packer.startup(function(use)
 	})
 
 	-- AUTOPAIRS ---------------------------------------------
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("plugins.autopairs")
-		end,
-	})
+	-- use({
+	-- 	"windwp/nvim-autopairs",
+	-- 	config = function()
+	-- 		require("plugins.autopairs")
+	-- 	end,
+	-- })
 
 	-- TERMINAL ------------------------------------------------
 	use({

@@ -1,25 +1,3 @@
--- following options are the default
-vim.g.nvim_tree_icons = {
-	default = "",
-	symlink = "",
-	git = {
-		unstaged = "",
-		staged = "S",
-		unmerged = "",
-		renamed = "➜",
-		deleted = "",
-		untracked = "U",
-		ignored = "◌",
-	},
-	folder = {
-		default = "",
-		open = "",
-		empty = "",
-		empty_open = "",
-		symlink = "",
-	},
-}
-
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
 	return
@@ -29,47 +7,24 @@ nvim_tree.setup({
 	disable_netrw = true,
 	hijack_netrw = true,
 	open_on_setup = false,
-	ignore_ft_on_setup = {
-		"startify",
-		"dashboard",
-		"alpha",
-	},
-	auto_close = true,
+	ignore_ft_on_setup = {},
+	auto_close = false,
+	auto_reload_on_write = true,
 	open_on_tab = false,
 	hijack_cursor = true,
-	update_cwd = true,
-	update_to_buf_dir = {
+	update_cwd = true, --IMPORTANT (true) FOR UPDATING FOLDER (big folders structure)
+	hijack_unnamed_buffer_when_opening = false,
+	hijack_directories = {
 		enable = true,
 		auto_open = true,
 	},
-	diagnostics = {
-		enable = true,
-		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
-		},
-	},
 	update_focused_file = {
-		enable = true,
-		update_cwd = true,
-		ignore_list = {},
-	},
-	system_open = {
-		cmd = nil,
-		args = {},
-	},
-	filters = {
-		dotfiles = false,
-		custom = {},
-	},
-	git = {
-		enable = true,
-		ignore = true,
-		timeout = 500,
+		enable = true, --cursor goes to the file
+		update_cwd = true, --change the folders on new project
 	},
 	view = {
+		width = 30,
+		height = 30,
 		hide_root_folder = false,
 		side = "left",
 		auto_resize = true,
@@ -79,22 +34,14 @@ nvim_tree.setup({
 				{ key = { "l", "<CR>", "o" }, action = "edit" },
 			},
 		},
-		number = false,
-		relativenumber = false,
+		signcolumn = "yes",
 	},
-	trash = {
-		cmd = "trash",
-		require_confirm = true,
-	},
-	quit_on_open = 0,
-	git_hl = 1,
-	disable_window_picker = 0,
-	root_folder_modifier = ":t",
-	show_icons = {
-		git = 1,
-		folders = 1,
-		files = 1,
-		folder_arrows = 1,
-		tree_width = 30,
+	actions = {
+		change_dir = {
+			global = false,
+		},
+		open_file = {
+			quit_on_open = false,
+		},
 	},
 })
