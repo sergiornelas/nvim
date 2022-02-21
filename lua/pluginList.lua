@@ -99,7 +99,6 @@ return packer.startup(function(use)
 	-- LSP CMP
 	use({
 		"hrsh7th/cmp-nvim-lsp",
-		after = "nvim-lspconfig",
 	})
 	-- LUA CMP
 	use({
@@ -123,18 +122,14 @@ return packer.startup(function(use)
 	-- SNIPPETS ------------------------------------------
 	use({
 		"L3MON4D3/LuaSnip",
-		wants = "friendly-snippets",
-		after = "nvim-cmp",
 	})
 	use({
 		"rafamadriz/friendly-snippets",
-		event = "InsertEnter",
 	})
 
 	-- LSP ----------------------------------------------
 	use({
 		"neovim/nvim-lspconfig",
-		after = "nvim-lsp-installer",
 		config = function()
 			require("lsp")
 		end,
