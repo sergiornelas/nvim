@@ -7,9 +7,9 @@ TAB is not mappeable (ctrl+i)
 =========Available maps==========
 ENTER      = FREE
 BACKSPACE  = FREE
-CTRL + ;   = FREE
 CTRL + m   = FREE (?)
 CTRL + q   = FREE
+CTRL + ;   = FREE (?)
 <Leader >; = FREE
 <Leader >d = FREE
 <Leader >z = FREE
@@ -68,11 +68,11 @@ CTRL + q   = FREE
 `ctrl + g` = terminal
 `ctrl + j` = bufferlinecycleprev,
 `ctrl + k` = bufferlinecyclenext
-`alt + f` = bufferlinemovenext
-`alt + a` = bufferlinemoveprev
-`s`		  = Lightspeed
-`S`		  = Lightspeed
-
+`alt + f`  = bufferlinemovenext
+`alt + a`  = bufferlinemoveprev
+`s`		   = Lightspeed
+`S`		   = Lightspeed
+ 
 ----------------------------------------------------------------------------------------
 ~~VIM MAPS INSERT MODE:~~
 `Ctrl + n` - move current line bottom
@@ -128,6 +128,4 @@ check this list in help:
 <leader> + sd = <diffviewclose>
 <leader> + sh = <save session>
 <leader> + sj = <load session>
-<leader> + aj = <zen mode ataraxis>
-<leader> + ak = <zen mode focus>
-<leader> + al = <zen mode minimalist>
+<leader> + aj = <Maximizer>

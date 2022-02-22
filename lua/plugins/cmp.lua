@@ -138,11 +138,11 @@ cmp.setup({
 		end,
 	},
 	sources = {
-		{ name = "buffer" },
+		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
+		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "neorg" },
-		{ name = "luasnip" },
 		{ name = "nvim_lua" },
 	},
 	confirm_opts = {

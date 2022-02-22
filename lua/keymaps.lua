@@ -24,10 +24,8 @@ map("n", "<leader>:", "<cmd>Telescope commands theme=ivy<cr>")
 -- <NVIM TREE>
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
--- <ZEN MODE>
-map("n", "<leader>aj", "<cmd>TZAtaraxis<cr>")
-map("n", "<leader>ak", "<cmd>TZFocus<cr>")
-map("n", "<leader>al", "<cmd>TZMinimalist<cr>")
+-- <MAXIMIZER>
+map("n", "<leader>aj", "<cmd>MaximizerToggle!<cr>")
 
 -- <DIFF VIEW GIT>
 map("n", "<leader>sd", "<cmd>DiffviewOpen<cr>")
@@ -46,9 +44,9 @@ map("n", "˚", "<cmd>resize -4<cr>") --resize window vertical
 map("n", "¬", "<cmd>vertical resize -4<cr>") --resize window horizontal
 
 -- CENTER VIEW
-map("n", "n", "nzzzv") --center view when find next word
-map("n", "N", "Nzzzv") --center view when find previous word
-map("n", "<c-o>", "<c-o>zz") --center view when goes for previous pos.
+-- map("n", "n", "nzzzv") --center view when find next word
+-- map("n", "N", "Nzzzv") --center view when find previous word
+-- map("n", "<c-o>", "<c-o>zz") --center view when goes for previous pos.
 
 -- WINDOW NAVIGATION
 map("n", "<c-h>", "<cmd>wincmd h<cr>") --move left window

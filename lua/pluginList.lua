@@ -299,15 +299,6 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- ZEN MODE --------------------------------------------------
-	use({
-		"Pocco81/TrueZen.nvim",
-		cmd = { "TZAtaraxis", "TZFocus", "TZMinimalist" },
-		config = function()
-			require("plugins.others").truezen()
-		end,
-	})
-
 	-- BUFFER DELETE --------------------------------------------------
 	use({
 		"famiu/bufdelete.nvim",
@@ -326,6 +317,9 @@ return packer.startup(function(use)
 
 	-- HARD MODE --------------------------------------------
 	use("takac/vim-hardtime")
+
+	-- MAXIMIZER WINDOW -------------------------------------
+	use("szw/vim-maximizer")
 
 	-- COPILOT ----------------------------------------------
 	-- LSP (and copilot
