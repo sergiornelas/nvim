@@ -49,6 +49,9 @@ return packer.startup(function(use)
 		"nathom/filetype.nvim",
 	})
 	use({
+		"lewis6991/impatient.nvim",
+	})
+	use({
 		"tweekmonster/startuptime.vim",
 		cmd = "StartupTime",
 	})
@@ -99,6 +102,7 @@ return packer.startup(function(use)
 	-- LSP CMP
 	use({
 		"hrsh7th/cmp-nvim-lsp",
+		after = "nvim-lspconfig",
 	})
 	-- LUA CMP
 	use({
@@ -122,14 +126,18 @@ return packer.startup(function(use)
 	-- SNIPPETS ------------------------------------------
 	use({
 		"L3MON4D3/LuaSnip",
+		wants = "friendly-snippets",
+		after = "nvim-cmp",
 	})
 	use({
 		"rafamadriz/friendly-snippets",
+		event = "InsertEnter",
 	})
 
 	-- LSP ----------------------------------------------
 	use({
 		"neovim/nvim-lspconfig",
+		after = "nvim-lsp-installer",
 		config = function()
 			require("lsp")
 		end,
@@ -230,20 +238,6 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- HOP --------------------------------------------------
-	use({
-		"phaazon/hop.nvim",
-		cmd = {
-			"HopWord",
-		},
-		as = "hop",
-		config = function()
-			require("hop").setup({
-				keys = "asdfjkl;weio",
-			})
-		end,
-	})
-
 	-- AUTOPAIRS ---------------------------------------------
 	-- use({
 	-- 	"windwp/nvim-autopairs",
@@ -270,6 +264,9 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- ROOTER .GIT FOLDER --------------------------------------
+	use("airblade/vim-rooter")
+
 	-- LUALINE --------------------------------------------------
 	use({
 		"nvim-lualine/lualine.nvim",
@@ -278,7 +275,7 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- NOTES --------------------------------------------------
+	-- NOTES -------------------------------------------------
 	use({
 		"nvim-neorg/neorg",
 		setup = vim.cmd("autocmd BufRead,BufNewFile *.norg setlocal filetype=norg"),
@@ -317,8 +314,18 @@ return packer.startup(function(use)
 		cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
 	})
 
+	-- LIGHTSPEED -------------------------------------------
+	use({
+		"ggandor/lightspeed.nvim",
+		config = function()
+			require("lightspeed").setup({
+				ignore_case = true,
+			})
+		end,
+	})
+
 	-- HARD MODE --------------------------------------------
-	-- use 'takac/vim-hardtime'
+	use("takac/vim-hardtime")
 
 	-- COPILOT ----------------------------------------------
 	-- LSP (and copilot

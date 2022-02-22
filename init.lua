@@ -1,3 +1,9 @@
+local present, _ = pcall(require, "impatient")
+
+if not present then
+	return
+end
+
 --disable builtin plugins
 local disabled_built_ins = {
 	"2html_plugin",

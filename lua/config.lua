@@ -4,6 +4,11 @@ vim.g.neovide_transparency = 0.8
 vim.g.neovide_refresh_rate = 60
 vim.g.neovide_transparency = 0.85
 
+-- HARDTIME
+vim.g.hardtime_default_on = 1
+vim.g.hardtime_maxcount = 5
+-- vim.g.hardtime_timeout = 1000
+
 -- Highlight on yank
 vim.cmd([[
   augroup YankHighlight
@@ -25,7 +30,7 @@ vim.cmd("set nofoldenable") --helps with everything fold
 -- currently more performant.
 
 -- vim.api.nvim_exec(
---   [[
+-- 	[[
 --     :function StayCenteredI()
 --     :  let line = line(".")
 --     :  if line != get(b:, 'last_line', 0)
@@ -47,5 +52,6 @@ vim.cmd("set nofoldenable") --helps with everything fold
 --       autocmd CursorMovedI * :call StayCenteredI()
 --       autocmd CursorMoved * :call StayCentered()
 --     augroup END
---   ]], true
+--   ]],
+-- 	true
 -- )

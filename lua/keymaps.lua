@@ -21,9 +21,6 @@ map("n", "<leader>p", "<cmd>Telescope projects theme=ivy<cr>")
 map("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>")
 map("n", "<leader>:", "<cmd>Telescope commands theme=ivy<cr>")
 
--- <HOP>
-map("n", "<leader>j", "<cmd>HopWord<CR>")
-
 -- <NVIM TREE>
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
@@ -64,7 +61,7 @@ map("n", "<Leader>r", "<cmd>w<cr>") --save file
 map("n", "<Leader>q", "<cmd>q<cr>") --quit file
 map("n", "<Leader>ww", "<cmd>qa<cr>") --quit all files
 map("n", "<c-c><c-c>", "<cmd>qa!<cr>") --close nvim no restrictions
-map("n", "<Leader>d", "<cmd>set hlsearch!<cr>") --toggle highlight
+map("n", "<Leader>j", "<cmd>set hlsearch!<cr>") --toggle highlight
 map("n", "<Leader>u", "<cmd>tabclose<cr>") --close current tab
 map("n", "<c-s>", "<cmd>StartupTime<cr>") --close current tab
 map("n", "V", "vg_") --visual to the right

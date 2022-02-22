@@ -11,6 +11,7 @@ CTRL + ;   = FREE
 CTRL + m   = FREE (?)
 CTRL + q   = FREE
 <Leader >; = FREE
+<Leader >d = FREE
 <Leader >z = FREE
 <Leader >x = FREE
 <Leader >c = FREE
@@ -69,12 +70,8 @@ CTRL + q   = FREE
 `ctrl + k` = bufferlinecyclenext
 `alt + f` = bufferlinemovenext
 `alt + a` = bufferlinemoveprev
-
-----------------------------------------------------------------------------------------
-~~REPLACEABLE~~
-`S` = synonym for cc `used in swap buffers`
-`s` = synonym for cl `used in swap buffers`
-`Del` = (can be used as x)
+`s`		  = Lightspeed
+`S`		  = Lightspeed
 
 ----------------------------------------------------------------------------------------
 ~~VIM MAPS INSERT MODE:~~
@@ -110,12 +107,11 @@ check this list in help:
 <leader> + r  = :w
 <leader> + q  = :q
 <leader> + so = :so %
-<leader> + d  = toggle highlights
 <leader> + u =  close tab
 <leader> + g  = next tab
 <leader> + t  = prev tab
+<leader> + j  = switch highlights
 <leader> + ww = close all buffers
-<leader> + j  = <hop word>
 <leader> + h* = <git hunk menu>
 <leader> + e  = <tree toggle>
 <leader> + k  = <telescope buffer list>
