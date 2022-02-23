@@ -57,7 +57,6 @@ map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window
 -- UTILS
 map("n", "<Leader>r", "<cmd>w<cr>") --save file
 map("n", "<Leader>q", "<cmd>q<cr>") --quit file
-map("n", "<Leader>bb", "<cmd>bufdo bd<cr>") --quit all files
 map("n", "<Leader>ww", "<cmd>qa<cr>") --quit all files
 map("n", "<c-c><c-c>", "<cmd>qa!<cr>") --close nvim no restrictions
 map("n", "<Leader>j", "<cmd>set hlsearch!<cr>") --toggle highlight
