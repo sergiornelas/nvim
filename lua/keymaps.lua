@@ -57,6 +57,7 @@ map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window
 -- UTILS
 map("n", "<Leader>r", "<cmd>w<cr>") --save file
 map("n", "<Leader>q", "<cmd>q<cr>") --quit file
+map("n", "<Leader>bb", "<cmd>bufdo bd<cr>") --quit all files
 map("n", "<Leader>ww", "<cmd>qa<cr>") --quit all files
 map("n", "<c-c><c-c>", "<cmd>qa!<cr>") --close nvim no restrictions
 map("n", "<Leader>j", "<cmd>set hlsearch!<cr>") --toggle highlight
@@ -69,6 +70,7 @@ map("n", "J", "mzJ`z") --cursor stay current position when J
 -- map("v", "y", "ygv<esc>") --yanking selection don't returns cursor
 map("n", "<Leader>g", "gt") --next tab
 map("n", "<Leader>t", "gT") --prev tab
+map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
 
 -- HARD TO MAP
 vim.cmd([[
