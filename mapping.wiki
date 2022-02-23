@@ -114,6 +114,7 @@ check this list in help:
 <leader> + ww = close all buffers
 <leader> + h* = <git hunk menu>
 <leader> + e  = <tree toggle>
+<leader> + a  = <Maximizer>
 <leader> + k  = <telescope buffer list>
 <leader> + f  = <telescope find file>
 <leader> + o  = <telescope historial>
@@ -128,4 +129,3 @@ check this list in help:
 <leader> + sd = <diffviewclose>
 <leader> + sh = <save session>
 <leader> + sj = <load session>
-<leader> + aj = <Maximizer>

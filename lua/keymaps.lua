@@ -25,7 +25,7 @@ map("n", "<leader>:", "<cmd>Telescope commands theme=ivy<cr>")
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
 -- <MAXIMIZER>
-map("n", "<leader>aj", "<cmd>MaximizerToggle!<cr>")
+map("n", "<leader>a", "<cmd>MaximizerToggle!<cr>")
 
 -- <DIFF VIEW GIT>
 map("n", "<leader>sd", "<cmd>DiffviewOpen<cr>")
