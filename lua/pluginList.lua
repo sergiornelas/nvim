@@ -171,6 +171,7 @@ return packer.startup(function(use)
 	use({
 		"p00f/nvim-ts-rainbow",
 		after = "nvim-treesitter",
+		commit = "c6c26c4def0e9cd82f371ba677d6fc9baa0038af",
 	})
 
 	-- COMMENTS --------------------------------------------

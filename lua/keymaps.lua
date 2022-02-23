@@ -30,12 +30,15 @@ map("n", "<leader>a", "<cmd>MaximizerToggle!<cr>")
 -- <DIFF VIEW GIT>
 map("n", "<leader>sd", "<cmd>DiffviewOpen<cr>")
 
--- BUFFER NAVIGATION
+-- <BUFFER NAVIGATION>
 map("n", "<c-j>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
 map("n", "<c-k>", "<cmd>BufferLineCycleNext<cr>") --next buffer
 map("n", "<c-t>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "ƒ", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "å", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
+
+-- <TOGGLE TRANSPARENCY>
+map("n", "<leader>z", "<cmd>TransparentToggle<cr>")
 
 -- RESIZE WINDOW
 map("n", "˙", "<cmd>vertical resize +4<cr>") --resize window horizontal

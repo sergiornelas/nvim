@@ -4,8 +4,19 @@ if not status_ok then
 end
 
 configs.setup({
-	-- ensure_installed = { "javascript", "css", "html", "lua", "json", "norg", "norg_table", "norg_meta" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	ensure_installed = { "javascript", "css", "scss", "tsx", "vim", "html", "typescript", "lua", "json", "norg" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	ensure_installed = {
+		"javascript",
+		"css",
+		"scss",
+		"tsx",
+		"vim",
+		"html",
+		"typescript",
+		"lua",
+		"json",
+		"norg",
+		"bash",
+	}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {
@@ -44,19 +55,3 @@ parser_config.norg = {
 		branch = "main",
 	},
 }
-
--- parser_config.norg_meta = {
--- 	install_info = {
--- 		url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
--- 		files = { "src/parser.c" },
--- 		branch = "main",
--- 	},
--- }
-
--- parser_config.norg_table = {
--- 	install_info = {
--- 		url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
--- 		files = { "src/parser.c" },
--- 		branch = "main",
--- 	},
--- }
