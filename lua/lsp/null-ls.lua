@@ -73,13 +73,19 @@ lspconfig.tsserver.setup({
 	on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
+
 		lsp_highlight_document(client)
+
 		local ts_utils = require("nvim-lsp-ts-utils")
 		ts_utils.setup({})
+		-- required to fix code action ranges and filter diagnostics
 		ts_utils.setup_client(client)
+
 		buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
 		buf_map(bufnr, "n", "gi", ":TSLspRenameFile<CR>")
 		buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
+
+		-- runs whenever we open a file that tsserver supports
 		on_attach(client, bufnr)
 	end,
 })
@@ -98,6 +104,15 @@ null_ls.setup({
 		code_actions.gitsigns,
 		formatting.prettierd, --prettierd all files that can format
 		formatting.stylua,
+		-- diagnostics.eslint_d.with({
+		-- 	filetypes = { "javascript" },
+		-- }),
+		-- code_actions.eslint_d.with({
+		-- 	filetypes = { "javascript" },
+		-- }),
+		-- formatting.deno_fmt.with({
+		-- 	extra_args = { "--options-single-quote" },
+		-- }),
 
 		-- -- :LspInfo => Other clients that match the filetype:...
 		-- -- formatting.prettier.with only works on regular prettier.

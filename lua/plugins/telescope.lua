@@ -34,7 +34,7 @@ telescope.setup({
 			sort_lastused = true,
 			mappings = {
 				i = {
-					["<c-r>"] = actions.delete_buffer,
+					["<c-f>"] = actions.delete_buffer,
 				},
 			},
 		},

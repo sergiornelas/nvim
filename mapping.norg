@@ -15,7 +15,6 @@ TAB is not mappeable (ctrl+i)
 {<Leader >v} = FREE
 {<Leader >b} = FREE
 {<Leader >y} = FREE
-{<Leader>x2} = FREE
 {<Leader>sk} = FREE
 =================================
 
@@ -109,8 +108,9 @@ Check this list in help:
 [<leader> + g]  = next tab
 [<leader> + t]  = prev tab
 [<leader> + st] = new tab
-[<leader> + j]  = switch highlights
+[<leader> + j]  = zz
 [<leader> + ww] = close all buffers and exit (not force)
+[<leader> x 2]  = switch highlights
 [<leader> + h]* = <git hunk menu>
 [<leader> + e]  = <tree toggle>
 [<leader> + a]  = <Maximizer>

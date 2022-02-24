@@ -166,12 +166,10 @@ return packer.startup(function(use)
 		end,
 		run = ":TSUpdate",
 	})
-
 	-- RAINBOW ---------------------------------------------
 	use({
 		"p00f/nvim-ts-rainbow",
 		after = "nvim-treesitter",
-		commit = "c6c26c4def0e9cd82f371ba677d6fc9baa0038af",
 	})
 
 	-- COMMENTS --------------------------------------------
@@ -184,8 +182,15 @@ return packer.startup(function(use)
 	-- JSX COMMENTS
 	use({
 		"JoosepAlviste/nvim-ts-context-commentstring", --heavy plugin (0.784)
-		-- ft = "javascript, javascriptreact, typescript, typescriptreact", (didn't work)
+		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	})
+	-- AUTOTAG
+	use({
+		"windwp/nvim-ts-autotag",
+		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	})
+
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- TELESCOPE ------------------------------------------
 	use({
@@ -240,12 +245,12 @@ return packer.startup(function(use)
 	})
 
 	-- AUTOPAIRS ---------------------------------------------
-	-- use({
-	-- 	"windwp/nvim-autopairs",
-	-- 	config = function()
-	-- 		require("plugins.autopairs")
-	-- 	end,
-	-- })
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("plugins.autopairs")
+		end,
+	})
 
 	-- TERMINAL ------------------------------------------------
 	use({

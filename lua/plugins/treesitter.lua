@@ -4,6 +4,22 @@ if not status_ok then
 end
 
 configs.setup({
+	textobjects = {
+		select = {
+			enable = true,
+
+			-- Automatically jump forward to textobj, similar to targets.vim
+			lookahead = true,
+
+			keymaps = {
+				-- You can use the capture groups defined in textobjects.scm
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+			},
+		},
+	},
 	ensure_installed = {
 		"javascript",
 		"css",
@@ -32,6 +48,9 @@ configs.setup({
 		max_file_lines = nil, -- Do not enable for files with more than n lines, int
 	},
 	autopairs = {
+		enable = true,
+	},
+	autotag = {
 		enable = true,
 	},
 	context_commentstring = { --JSX commments
