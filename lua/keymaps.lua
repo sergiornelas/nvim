@@ -77,6 +77,7 @@ map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
 
 -- HARD TO MAP
 vim.cmd([[
+  " nnoremap <Leader>j :let &scrolloff=999-&scrolloff<CR>
   inoremap <c-n> <cmd>:m .+1<cr>
   inoremap <c-p> <cmd>:m .-2<cr>
   vnoremap <c-n> :m '>+1<cr>gv=gv
