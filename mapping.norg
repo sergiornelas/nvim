@@ -110,6 +110,7 @@ Check this list in help:
 [<leader> + st] = new tab
 [<leader> + j]  = zz
 [<leader> + ww] = close all buffers and exit (not force)
+[<leader> + we] = Call CleanNoNameEmptyBuffers
 [<leader> + d]  = switch highlights
 [<leader> + h]* = <git hunk menu>
 [<leader> + e]  = <tree toggle>

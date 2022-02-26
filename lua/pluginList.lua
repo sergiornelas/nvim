@@ -315,7 +315,8 @@ return packer.startup(function(use)
 		"ggandor/lightspeed.nvim",
 		config = function()
 			require("lightspeed").setup({
-				ignore_case = true,
+				ignore_case = false,
+				exit_after_idle_msecs = { unlabeled = 1000, labeled = 500 },
 			})
 		end,
 	})

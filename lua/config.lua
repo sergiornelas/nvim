@@ -23,6 +23,20 @@ vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd("set nofoldenable") --helps with everything fold
 
+-- Clean empty files
+vim.cmd([[
+  function! CleanNoNameEmptyBuffers()
+  let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val) < 0 && (getbufline(v:val, 1, "$") == [""])')
+  if !empty(buffers)
+  exe 'bd '.join(buffers, ' ')
+  else
+  echo 'No buffer deleted'
+  endif
+  endfunction
+
+  nnoremap <silent> ,C :call CleanNoNameEmptyBuffers()<CR>
+]])
+
 -- This will keep your cursor centered when you start up, move to another window,
 -- add or remove windows or tabs, or resize the GUI. You can disable it during
 -- your session with

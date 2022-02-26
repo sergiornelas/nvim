@@ -67,6 +67,7 @@ map("n", "J", "mzJ`z") --cursor stay current position when J
 map("n", "<Leader>g", "gt") --next tab
 map("n", "<Leader>t", "gT") --prev tab
 map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
+map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --new tab
 
 -- HARD TO MAP
 vim.cmd([[
