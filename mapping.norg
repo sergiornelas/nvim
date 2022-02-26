@@ -7,8 +7,8 @@ TAB is not mappeable (ctrl+i)
 {CTRL + m}   = FREE (?)
 {CTRL + q}   = FREE
 {CTRL + ;}   = FREE (?)
+{<Leader >x2}= FREE
 {<Leader >;} = FREE
-{<Leader >d} = FREE
 {<Leader >z} = FREE
 {<Leader >x} = FREE
 {<Leader >c} = FREE
@@ -110,7 +110,7 @@ Check this list in help:
 [<leader> + st] = new tab
 [<leader> + j]  = zz
 [<leader> + ww] = close all buffers and exit (not force)
-[<leader> x 2]  = switch highlights
+[<leader> + d]  = switch highlights
 [<leader> + h]* = <git hunk menu>
 [<leader> + e]  = <tree toggle>
 [<leader> + a]  = <Maximizer>

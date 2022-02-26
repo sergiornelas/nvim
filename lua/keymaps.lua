@@ -45,12 +45,7 @@ map("n", "˙", "<cmd>vertical resize +4<cr>") --resize window horizontal
 map("n", "∆", "<cmd>resize +4<cr>") --resize window vertical
 map("n", "˚", "<cmd>resize -4<cr>") --resize window vertical
 map("n", "¬", "<cmd>vertical resize -4<cr>") --resize window horizontal
-map("n", "<leader><leader>", "<cmd>set hlsearch!<cr>") --high lights
-
--- CENTER VIEW
--- map("n", "n", "nzzzv") --center view when find next word
--- map("n", "N", "Nzzzv") --center view when find previous word
--- map("n", "<c-o>", "<c-o>zz") --center view when goes for previous pos.
+map("n", "<leader>d", "<cmd>set hlsearch!<cr>") --highlights
 
 -- WINDOW NAVIGATION
 map("n", "<c-h>", "<cmd>wincmd h<cr>") --move left window
@@ -68,9 +63,7 @@ map("n", "<Leader>u", "<cmd>tabclose<cr>") --close current tab
 map("n", "<c-s>", "<cmd>StartupTime<cr>") --close current tab
 map("n", "V", "vg_") --visual to the right
 map("n", "vv", "Vg_") --visual whole line
--- map("n", "yy", "mzv^og_y`z") --yank whole line without break
 map("n", "J", "mzJ`z") --cursor stay current position when J
--- map("v", "y", "ygv<esc>") --yanking selection don't returns cursor
 map("n", "<Leader>g", "gt") --next tab
 map("n", "<Leader>t", "gT") --prev tab
 map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab

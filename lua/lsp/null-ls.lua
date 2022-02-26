@@ -8,8 +8,8 @@ end
 
 --=================={TSSERVER}=========================
 --  > npm install -g typescript typescript-language-server
---  > npm install -g diagnostic-languageserver
 --  > npm install -g eslint_d
+--  > npm install -g prettierd
 
 -- This plugin adds useful commands to organize and update imports, provides integration
 --  with null_ls to lint files with ESLint and format files with Prettier.

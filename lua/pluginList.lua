@@ -182,7 +182,6 @@ return packer.startup(function(use)
 	-- JSX COMMENTS
 	use({
 		"JoosepAlviste/nvim-ts-context-commentstring", --heavy plugin (0.784)
-		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	})
 	-- AUTOTAG
 	use({
@@ -319,7 +318,6 @@ return packer.startup(function(use)
 				ignore_case = true,
 			})
 		end,
-		commit = "4d8359a30b26ee5316d0e7c79af08b10cb17a57b",
 	})
 
 	-- HARD MODE --------------------------------------------
