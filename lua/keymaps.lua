@@ -40,6 +40,10 @@ map("n", "å", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 -- <TOGGLE TRANSPARENCY>
 map("n", "<leader>z", "<cmd>TransparentToggle<cr>")
 
+-- AVOID UNPRACTICAL YANKING
+map("v", "p", '"_dP') --Pasting without yanking
+map("v", "P", '"_dP') --Pasting without yanking
+
 -- RESIZE WINDOW
 map("n", "˙", "<cmd>vertical resize +4<cr>") --resize window horizontal
 map("n", "∆", "<cmd>resize +4<cr>") --resize window vertical
@@ -68,6 +72,10 @@ map("n", "<Leader>g", "gt") --next tab
 map("n", "<Leader>t", "gT") --prev tab
 map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
 map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --new tab
+map("n", "<c-u>", "<c-u>M") --center cursor when page up
+map("n", "<c-d>", "<c-d>M") --center cursor when page down
+map("n", "<c-f>", "<c-f>M") --center cursor when page up
+map("n", "<c-b>", "<c-b>M") --center cursor when page down
 
 -- HARD TO MAP
 vim.cmd([[
@@ -90,7 +98,3 @@ vim.cmd([[
 ]])
 -- TERMINAL COMMANDS IN toggleterm.lua
 -- <c-g>, <c-q>
-
--- AVOID UNPRACTICAL YANKING
--- map("v", "p", '"_dP') --Pasting without yanking
--- map("v", "P", '"_dP') --Pasting without yanking

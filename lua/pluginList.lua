@@ -126,8 +126,6 @@ return packer.startup(function(use)
 	-- SNIPPETS ------------------------------------------
 	use({
 		"L3MON4D3/LuaSnip",
-		wants = "friendly-snippets",
-		after = "nvim-cmp",
 	})
 	use({
 		"rafamadriz/friendly-snippets",
