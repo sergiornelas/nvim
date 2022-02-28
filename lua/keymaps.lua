@@ -101,3 +101,9 @@ vim.cmd([[
 ]])
 -- TERMINAL COMMANDS IN toggleterm.lua
 -- <c-g>, <c-q>
+
+-- TREESITTER UNIT
+vim.api.nvim_set_keymap("x", "ij", ':lua require"treesitter-unit".select()<CR>', { noremap = true })
+vim.api.nvim_set_keymap("o", "ij", ':<c-u>lua require"treesitter-unit".select()<CR>', { noremap = true })
+vim.api.nvim_set_keymap("x", "aj", ':lua require"treesitter-unit".select(true)<CR>', { noremap = true })
+vim.api.nvim_set_keymap("o", "aj", ':<c-u>lua require"treesitter-unit".select(true)<CR>', { noremap = true })

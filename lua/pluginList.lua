@@ -110,19 +110,6 @@ return packer.startup(function(use)
 		"hrsh7th/cmp-nvim-lua",
 		after = "nvim-cmp",
 	})
-	-- DETAILED INFO CMP
-	-- use {
-	--    "ray-x/lsp_signature.nvim",
-	--    after = "nvim-lspconfig",
-	--    config = function()
-	--      require("plugins.others").signature()
-	--    end,
-	-- }
-	-- TREESITTER CMP
-	-- use {
-	--   "ray-x/cmp-treesitter",
-	--   after = "nvim-cmp",
-	-- }
 
 	-- SNIPPETS ------------------------------------------
 	use({
@@ -171,6 +158,9 @@ return packer.startup(function(use)
 		after = "nvim-treesitter",
 	})
 
+	-- TREESITTER UNIT ------------------------------------
+	use({ "David-Kunz/treesitter-unit" })
+
 	-- COMMENTS --------------------------------------------
 	use({
 		"numToStr/Comment.nvim",
@@ -182,13 +172,12 @@ return packer.startup(function(use)
 	use({
 		"JoosepAlviste/nvim-ts-context-commentstring", --heavy plugin (0.784)
 	})
-	-- AUTOTAG
+
+	-- AUTOTAG ---------------------------------------------
 	use({
 		"windwp/nvim-ts-autotag",
 		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	})
-
-	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- TELESCOPE ------------------------------------------
 	use({
@@ -327,6 +316,20 @@ return packer.startup(function(use)
 
 	-- MAXIMIZER WINDOW -------------------------------------
 	use("szw/vim-maximizer")
+
+	-- DETAILED INFO CMP
+	-- use {
+	--    "ray-x/lsp_signature.nvim",
+	--    after = "nvim-lspconfig",
+	--    config = function()
+	--      require("plugins.others").signature()
+	--    end,
+	-- }
+	-- TREESITTER CMP
+	-- use {
+	--   "ray-x/cmp-treesitter",
+	--   after = "nvim-cmp",
+	-- }
 
 	-- COPILOT ----------------------------------------------
 	-- LSP (and copilot
