@@ -4,7 +4,7 @@ TAB is not mappeable (ctrl+i)
 =========Available maps==========
 {ENTER}      = FREE
 {BACKSPACE}  = FREE
-{CTRL + m}   = FREE (?)
+{CTRL + y}   = FREE
 {CTRL + ;}   = FREE (?)
 {CTRL + /}   = FREE (?)
 {<Leader >x2}= FREE
@@ -50,13 +50,14 @@ NO PLUGINS
 [ctrl + n] = move window down
 [ctrl + p] = move window top
 [ctrl + c] x2 = close neovim
+[ctrl + m] = page scrolls up one line
 [alt + h] = resize window
 [alt + j] = resize window
 [alt + k] = resize window
 [alt + l] = resize window
 
 PLUGINS
-[ctrl + j]  = select-Telescope-Element, select-CMP-Element
+[ctrl + j] = select-Telescope-Element, select-CMP-Element
 [ctrl + k] = next Telescope-Element, next CMP-element, next-Snippet-Checkpoint
 [ctrl + l] = previous-Telescope-element, previous-CMP-element, previous-Snippet-Checkpoint 
 [ctrl + q] = quick fix (you could replace this)
@@ -68,8 +69,8 @@ PLUGINS
 [ctrl + k] = bufferlinecyclenext
 [alt + f]  = bufferlinemovenext
 [alt + a]  = bufferlinemoveprev
-[s]		   = Lightspeed
-[S]		   = Lightspeed
+[s]		     = Lightspeed
+[S]		     = Lightspeed
 
 ----------------------------------------------------------------------------------------
 VIM MAPS INSERT MODE:

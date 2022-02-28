@@ -64,6 +64,7 @@ return packer.startup(function(use)
 	use("ray-x/aurora")
 	use("folke/tokyonight.nvim")
 	use("marko-cerovac/material.nvim")
+	use("ishan9299/nvim-solarized-lua")
 
 	-- TRANSPARENT NVIM --------------------------------
 	use({
@@ -234,7 +235,7 @@ return packer.startup(function(use)
 	})
 	-- GIT DIFF --------------------------------------------------
 	use({
-		"sindrets/diffview.nvim", --heavy plugin (+3.8)
+		"sindrets/diffview.nvim",
 		cmd = { "DiffviewOpen" },
 		config = function()
 			require("plugins.others").gitdiff()

@@ -1,4 +1,5 @@
 -- Equivalent: <c-i> and <Tab>, <c-m> and <CR> (enter), <c-j> and <NL> (new line), <c-h> and backspace
+-- :help key-notation
 
 -- Helper function for clean mappings
 local function map(mode, lhs, rhs, opts)
@@ -72,10 +73,12 @@ map("n", "<Leader>g", "gt") --next tab
 map("n", "<Leader>t", "gT") --prev tab
 map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
 map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --new tab
-map("n", "<c-u>", "<c-u>M") --center cursor when page up
-map("n", "<c-d>", "<c-d>M") --center cursor when page down
-map("n", "<c-f>", "<c-f>M") --center cursor when page up
-map("n", "<c-b>", "<c-b>M") --center cursor when page down
+map("n", "<c-u>", "<c-u>M^") --center cursor when page jumps up
+map("n", "<c-d>", "<c-d>M^") --center cursor when page jumps down
+map("n", "<c-f>", "<c-f>M^") --center cursor when page jumps up
+map("n", "<c-b>", "<c-b>M^") --center cursor when page jumps down
+map("n", "<c-m>", "<c-y>") --page scrolls up one line
+map("n", "<c-y>", "<leader>") --forcing new habits
 
 -- HARD TO MAP
 vim.cmd([[
