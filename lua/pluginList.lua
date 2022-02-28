@@ -254,8 +254,6 @@ return packer.startup(function(use)
 	-- TERMINAL ------------------------------------------------
 	use({
 		"akinsho/toggleterm.nvim",
-		opt = true,
-		cmd = "ToggleTerm",
 		config = function()
 			require("plugins.toggleterm")
 		end,
@@ -265,11 +263,15 @@ return packer.startup(function(use)
 	use({
 		"ahmedkhalf/project.nvim",
 		config = function()
-			require("project_nvim").setup()
+			require("project_nvim").setup({
+				manual_mode = true,
+				detection_methods = {},
+				patterns = {},
+			})
 		end,
 	})
 
-	-- ROOTER .GIT FOLDER --------------------------------------
+	-- ROOTER .GIT FOLDER (TRULY WORKS) -------------------------
 	use("airblade/vim-rooter")
 
 	-- LUALINE --------------------------------------------------
@@ -316,7 +318,7 @@ return packer.startup(function(use)
 		config = function()
 			require("lightspeed").setup({
 				ignore_case = false,
-				exit_after_idle_msecs = { unlabeled = 1000, labeled = 500 },
+				exit_after_idle_msecs = { unlabeled = 1000, labeled = 600 },
 			})
 		end,
 	})

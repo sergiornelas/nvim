@@ -5,8 +5,8 @@ TAB is not mappeable (ctrl+i)
 {ENTER}      = FREE
 {BACKSPACE}  = FREE
 {CTRL + m}   = FREE (?)
-{CTRL + q}   = FREE
 {CTRL + ;}   = FREE (?)
+{CTRL + /}   = FREE (?)
 {<Leader >x2}= FREE
 {<Leader >;} = FREE
 {<Leader >z} = FREE
@@ -16,6 +16,7 @@ TAB is not mappeable (ctrl+i)
 {<Leader >b} = FREE
 {<Leader >y} = FREE
 {<Leader>sk} = FREE
+{CTRL + BACKSPACE} = FREE (?)
 =================================
 
 VIM CTRLS (NORMAL MODE)
@@ -62,6 +63,7 @@ PLUGINS
 [ctrl + s] = Startup Time
 [ctrl + e] = cmp close items
 [ctrl + g] = terminal
+[ctrl + q] = termimal horizontal
 [ctrl + j] = bufferlinecycleprev,
 [ctrl + k] = bufferlinecyclenext
 [alt + f]  = bufferlinemovenext

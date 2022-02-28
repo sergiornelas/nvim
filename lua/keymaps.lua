@@ -82,17 +82,14 @@ vim.cmd([[
   nnoremap <leader>sh :mksession! ~/sessions/
   nnoremap <leader>sj :source ~/sessions/
 
-  autocmd TermEnter term://*toggleterm#*
-        \ tnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<cr>
-  nnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<cr>
-  inoremap <silent><c-g> <Esc><Cmd>exe v:count1 . "ToggleTerm"<cr>
-
   snoremap <c-h> <BS>i
 
   nnoremap <leader>ss <CMD>LuaSnipUnlinkCurrent<CR>
 
   nnoremap <leader>sl :lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>
 ]])
+-- TERMINAL COMMANDS IN toggleterm.lua
+-- <c-g>, <c-q>
 
 -- AVOID UNPRACTICAL YANKING
 -- map("v", "p", '"_dP') --Pasting without yanking
