@@ -52,6 +52,12 @@ map("n", "˚", "<cmd>resize -4<cr>") --resize window vertical
 map("n", "¬", "<cmd>vertical resize -4<cr>") --resize window horizontal
 map("n", "<leader>d", "<cmd>set hlsearch!<cr>") --highlights
 
+-- BUFFER CENTER
+map("n", "<c-u>", "<c-u>^zz") --center cursor when page jumps up
+map("n", "<c-d>", "<c-d>^zz") --center cursor when page jumps up
+map("n", "<c-f>", "<c-d><c-d>^zz") --center cursor when page jumps up
+map("n", "<c-b>", "<c-u><c-u>^zz") --center cursor when page jumps up
+
 -- WINDOW NAVIGATION
 map("n", "<c-h>", "<cmd>wincmd h<cr>") --move left window
 map("n", "<c-n>", "<cmd>wincmd j<cr>") --move below window
@@ -73,16 +79,12 @@ map("n", "<Leader>g", "gt") --next tab
 map("n", "<Leader>t", "gT") --prev tab
 map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
 map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --new tab
-map("n", "<c-u>", "<c-u>M^") --center cursor when page jumps up
-map("n", "<c-d>", "<c-d>M^") --center cursor when page jumps down
-map("n", "<c-f>", "<c-f>M^") --center cursor when page jumps up
-map("n", "<c-b>", "<c-b>M^") --center cursor when page jumps down
+
 map("n", "<c-m>", "<c-y>") --page scrolls up one line
 map("n", "<c-y>", "<leader>") --forcing new habits
 
 -- HARD TO MAP
 vim.cmd([[
-  " nnoremap <Leader>j :let &scrolloff=999-&scrolloff<CR>
   inoremap <c-n> <cmd>:m .+1<cr>
   inoremap <c-p> <cmd>:m .-2<cr>
   vnoremap <c-n> :m '>+1<cr>gv=gv
@@ -99,11 +101,22 @@ vim.cmd([[
 
   nnoremap <leader>sl :lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>
 ]])
+
+-- TREESITTER UNIT
+vim.api.nvim_set_keymap("x", "ij", ':lua require"treesitter-unit".select()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("o", "ij", ':<c-u>lua require"treesitter-unit".select()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("x", "aj", ':lua require"treesitter-unit".select(true)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"o",
+	"aj",
+	':<c-u>lua require"treesitter-unit".select(true)<CR>',
+	{ noremap = true, silent = true }
+)
+
 -- TERMINAL COMMANDS IN toggleterm.lua
 -- <c-g>, <c-q>
 
--- TREESITTER UNIT
-vim.api.nvim_set_keymap("x", "ij", ':lua require"treesitter-unit".select()<CR>', { noremap = true })
-vim.api.nvim_set_keymap("o", "ij", ':<c-u>lua require"treesitter-unit".select()<CR>', { noremap = true })
-vim.api.nvim_set_keymap("x", "aj", ':lua require"treesitter-unit".select(true)<CR>', { noremap = true })
-vim.api.nvim_set_keymap("o", "aj", ':<c-u>lua require"treesitter-unit".select(true)<CR>', { noremap = true })
+-- STOP COUNTING IN JUMP LIST
+-- " nnoremap <silent> <c-d> <c-d>:<C-u>execute "keepjumps norm! " . v:count1 . "M"<CR>^
+-- CURSOR CENTER ALL TIME
+-- " nnoremap <Leader>j :let &scrolloff=999-&scrolloff<CR>

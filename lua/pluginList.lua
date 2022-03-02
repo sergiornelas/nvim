@@ -170,7 +170,7 @@ return packer.startup(function(use)
 	})
 	-- JSX COMMENTS
 	use({
-		"JoosepAlviste/nvim-ts-context-commentstring", --heavy plugin (0.784)
+		"JoosepAlviste/nvim-ts-context-commentstring",
 	})
 
 	-- AUTOTAG ---------------------------------------------
@@ -193,7 +193,6 @@ return packer.startup(function(use)
 			require("plugins.telescope")
 		end,
 	})
-	-- use "nvim-telescope/telescope-media-files.nvim"
 
 	-- NVIM TREE ------------------------------------------
 	use({
@@ -317,7 +316,9 @@ return packer.startup(function(use)
 	-- MAXIMIZER WINDOW -------------------------------------
 	use("szw/vim-maximizer")
 
-	-- DETAILED INFO CMP
+	-- TELESCOPE MEDIA FILES --------------------------------
+	-- use "nvim-telescope/telescope-media-files.nvim"
+	-- DETAILED INFO CMP ------------------------------------
 	-- use {
 	--    "ray-x/lsp_signature.nvim",
 	--    after = "nvim-lspconfig",
@@ -325,19 +326,17 @@ return packer.startup(function(use)
 	--      require("plugins.others").signature()
 	--    end,
 	-- }
-	-- TREESITTER CMP
+	-- TREESITTER CMP ---------------------------------------
 	-- use {
 	--   "ray-x/cmp-treesitter",
 	--   after = "nvim-cmp",
 	-- }
-
 	-- COPILOT ----------------------------------------------
 	-- LSP (and copilot
 	-- use {
 	--    "github/copilot.vim",
 	--    event = "InsertEnter",
 	-- }
-
 	-- NEOGIT -----------------------------------------------
 	-- use {
 	--    "TimUntersberger/neogit",
@@ -349,7 +348,6 @@ return packer.startup(function(use)
 	--       require "plugins.neogit"
 	--    end,
 	-- }
-
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
