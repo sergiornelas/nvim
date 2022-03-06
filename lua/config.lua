@@ -5,9 +5,9 @@ vim.g.neovide_refresh_rate = 60
 vim.g.neovide_transparency = 0.85
 
 -- HARDTIME
--- vim.g.hardtime_default_on = 1
--- vim.g.hardtime_maxcountj= 5
--- vim.g.hardtime_timeout = 1000
+vim.g.hardtime_default_on = 1
+vim.g.hardtime_maxcount = 7
+--vim.g.hardtime_timeout = 1000
 
 -- Highlight on yank
 vim.cmd([[

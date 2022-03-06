@@ -53,10 +53,10 @@ map("n", "¬", "<cmd>vertical resize -4<cr>") --resize window horizontal
 map("n", "<leader>d", "<cmd>set hlsearch!<cr>") --highlights
 
 -- BUFFER CENTER
-map("n", "<c-u>", "<c-u>^zz") --center cursor when page jumps up
-map("n", "<c-d>", "<c-d>^zz") --center cursor when page jumps up
-map("n", "<c-f>", "<c-d><c-d>^zz") --center cursor when page jumps up
-map("n", "<c-b>", "<c-u><c-u>^zz") --center cursor when page jumps up
+-- map("n", "<c-u>", "<c-u>^zz") --center cursor when page jumps up
+-- map("n", "<c-d>", "<c-d>^zz") --center cursor when page jumps up
+-- map("n", "<c-f>", "<c-d><c-d>^zz") --center cursor when page jumps up
+-- map("n", "<c-b>", "<c-u><c-u>^zz") --center cursor when page jumps up
 
 -- WINDOW NAVIGATION
 map("n", "<c-h>", "<cmd>wincmd h<cr>") --move left window

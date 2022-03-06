@@ -224,7 +224,7 @@ return packer.startup(function(use)
 	-- GIT DIFF --------------------------------------------------
 	use({
 		"sindrets/diffview.nvim",
-		cmd = { "DiffviewOpen" },
+		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
 		config = function()
 			require("plugins.others").gitdiff()
 		end,
