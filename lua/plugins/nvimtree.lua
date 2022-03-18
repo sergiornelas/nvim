@@ -44,4 +44,7 @@ nvim_tree.setup({
 			quit_on_open = false,
 		},
 	},
+	git = {
+		ignore = false,
+	},
 })

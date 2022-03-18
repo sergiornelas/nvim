@@ -35,6 +35,7 @@ require("luasnip/loaders/from_vscode").load({
 		"css",
 		"norg",
 		"shell",
+		"markdown",
 	},
 })
 

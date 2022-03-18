@@ -311,7 +311,10 @@ return packer.startup(function(use)
 	})
 
 	-- HARD MODE --------------------------------------------
-	use("takac/vim-hardtime")
+	use({
+		"takac/vim-hardtime",
+		commit = "7cb78de364267a17a8fff5b9712c64d13094a6af",
+	})
 
 	-- MAXIMIZER WINDOW -------------------------------------
 	use("szw/vim-maximizer")
