@@ -1,3 +1,35 @@
+-- NEORG --------------
+local present, parser_config = pcall(require, "nvim-treesitter.parsers")
+if not present then
+	return
+end
+
+parser_config = parser_config.get_parser_configs()
+
+parser_config.norg = {
+	install_info = {
+		url = "https://github.com/nvim-neorg/tree-sitter-norg",
+		files = { "src/parser.c", "src/scanner.cc" },
+		branch = "main",
+	},
+}
+
+parser_config.norg_table = {
+	install_info = {
+		url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
+		files = { "src/parser.c" },
+		branch = "main",
+	},
+}
+
+parser_config.norg_meta = {
+	install_info = {
+		url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
+		files = { "src/parser.c" },
+		branch = "main",
+	},
+}
+
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
 	return
@@ -31,6 +63,8 @@ configs.setup({
 		"lua",
 		"json",
 		"norg",
+		"norg_table",
+		"norg_meta",
 		"bash",
 	}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
@@ -58,19 +92,3 @@ configs.setup({
 		enable_autocmd = false,
 	},
 })
-
--- NEORG --------------
-local present, parser_config = pcall(require, "nvim-treesitter.parsers")
-if not present then
-	return
-end
-
-parser_config = parser_config.get_parser_configs()
-
-parser_config.norg = {
-	install_info = {
-		url = "https://github.com/nvim-neorg/tree-sitter-norg",
-		files = { "src/parser.c", "src/scanner.cc" },
-		branch = "main",
-	},
-}

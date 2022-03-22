@@ -75,7 +75,6 @@ map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
 map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --new tab
 
 map("n", "<c-m>", "<c-y>") --page scrolls up one line
-map("n", "<c-y>", "<leader>") --forcing new habits
 
 -- HARD TO MAP
 vim.cmd([[

@@ -8,23 +8,28 @@ neorg.setup({
 		["core.defaults"] = {}, -- Load all the default modules
 		["core.keybinds"] = {
 			config = {
-				default_keybinds = false,
+				default_keybinds = true,
+				hook = function(keybinds)
+					keybinds.unmap("norg", "n", "<CR>") --core.norg.esupports.hop.hop-link
+				end,
 			},
 		}, -- Load all the default modules
-		["core.norg.concealer"] = {}, -- Allows for use of icons
-		["core.integrations.telescope"] = {}, -- Enable telescope module
-		["core.norg.dirman"] = { -- Manage your directories with Neorg
+		-- ["core.norg.concealer"] = {}, -- Allows for use of icons
+		-- ["core.norg.completion"] = {},
+		-- ["core.gtd.base"] = {}, --Manages your tasks with Neorg using the Getting Things Done methology
+		-- ["core.integrations.telescope"] = {}, -- Enable telescope module
+		["core.norg.dirman"] = { --Managing directories full of .norg files
 			config = {
 				workspaces = {
 					my_workspace = "~/neorg",
 				},
 			},
 		},
-		["core.norg.esupports.metagen"] = {
-			config = { -- Note that this table is optional and doesn't need to be provided
-				type = "none",
-			},
-		},
+		-- ["core.norg.esupports.metagen"] = { --module for generating metadata automatically
+		-- 	config = { -- Note that this table is optional and doesn't need to be provided
+		-- 		type = "none",
+		-- 	},
+		-- },
 	},
 })
 

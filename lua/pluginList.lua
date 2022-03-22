@@ -65,6 +65,7 @@ return packer.startup(function(use)
 	use("folke/tokyonight.nvim")
 	use("marko-cerovac/material.nvim")
 	use("ishan9299/nvim-solarized-lua")
+	use("navarasu/onedark.nvim")
 
 	-- TRANSPARENT NVIM --------------------------------
 	use({
@@ -280,9 +281,9 @@ return packer.startup(function(use)
 		end,
 		requires = "nvim-lua/plenary.nvim",
 	})
-	use({
-		"nvim-neorg/neorg-telescope",
-	})
+	-- use({
+	-- 	"nvim-neorg/neorg-telescope",
+	-- })
 
 	-- BUFFERLINE --------------------------------------------------
 	use({
