@@ -30,6 +30,7 @@ map("n", "<leader>a", "<cmd>MaximizerToggle!<cr>")
 
 -- <DIFF VIEW GIT>
 map("n", "<leader>sd", "<cmd>DiffviewOpen<cr>")
+map("n", "<leader>sk", "<cmd>DiffviewFileHistory<cr>")
 
 -- <BUFFER NAVIGATION>
 map("n", "<c-j>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
@@ -39,7 +40,7 @@ map("n", "ƒ", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "å", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 
 -- <TOGGLE TRANSPARENCY>
-map("n", "<leader>z", "<cmd>TransparentToggle<cr>")
+map("n", "<leader>;", "<cmd>TransparentToggle<cr>")
 
 -- AVOID UNPRACTICAL YANKING
 map("v", "p", '"_dP') --Pasting without yanking
@@ -88,6 +89,9 @@ vim.cmd([[
   nnoremap <leader>sh :mksession! ~/sessions/
   nnoremap <leader>sj :source ~/sessions/
 
+  " NEORG
+  nnoremap <leader>nw :Neorg workspace 
+
   snoremap <c-h> <BS>i
 
   nnoremap <leader>ss <CMD>LuaSnipUnlinkCurrent<CR>
@@ -105,11 +109,3 @@ vim.api.nvim_set_keymap(
 	':<c-u>lua require"treesitter-unit".select(true)<CR>',
 	{ noremap = true, silent = true }
 )
-
--- TERMINAL COMMANDS IN toggleterm.lua
--- <c-g>, <c-q>
-
--- STOP COUNTING IN JUMP LIST
--- " nnoremap <silent> <c-d> <c-d>:<C-u>execute "keepjumps norm! " . v:count1 . "M"<CR>^
--- CURSOR CENTER ALL TIME
--- " nnoremap <Leader>j :let &scrolloff=999-&scrolloff<CR>

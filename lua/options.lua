@@ -1,4 +1,3 @@
--- viminfo='100,f1, : store jumps and marks when closing session.
 local options = {
 	hidden = true,
 	tabstop = 2, -- Width of tab is set to 2. Still it is a \t.
