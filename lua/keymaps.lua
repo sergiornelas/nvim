@@ -33,8 +33,10 @@ map("n", "<leader>sd", "<cmd>DiffviewOpen<cr>")
 map("n", "<leader>sk", "<cmd>DiffviewFileHistory<cr>")
 
 -- <BUFFER NAVIGATION>
-map("n", "<c-j>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
-map("n", "<c-k>", "<cmd>BufferLineCycleNext<cr>") --next buffer
+-- map("n", "<c-n>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
+-- map("n", "<c-p>", "<cmd>BufferLineCycleNext<cr>") --next buffer
+map("n", "<c-n>", "<cmd>bp<cr>") --previous buffer
+map("n", "<c-p>", "<cmd>bn<cr>") --next buffer
 map("n", "<c-t>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "ƒ", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "å", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
@@ -55,8 +57,8 @@ map("n", "<leader>d", "<cmd>set hlsearch!<cr>") --highlights
 
 -- WINDOW NAVIGATION
 map("n", "<c-h>", "<cmd>wincmd h<cr>") --move left window
-map("n", "<c-n>", "<cmd>wincmd j<cr>") --move below window
-map("n", "<c-p>", "<cmd>wincmd k<cr>") --move upper window
+map("n", "<c-j>", "<cmd>wincmd j<cr>") --move below window
+map("n", "<c-k>", "<cmd>wincmd k<cr>") --move upper window
 map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window
 
 -- UTILS

@@ -3,41 +3,26 @@ if not cmp_status_ok then
 	return
 end
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
+local snip_status_ok, ls = pcall(require, "luasnip")
 if not snip_status_ok then
 	return
 end
 
-luasnip.config.set_config({
+ls.config.set_config({
 	history = true,
 	updateevents = "TextChanged,TextChangedI",
 })
 
--- ADD HTML AND JS SNIPPETS TO JAVASCRIPT/TYPESCRIPT/REACT
--- ADD REACT SNIPPETS TO JAVASCRIPT AND TYPESCRIPT
-luasnip.snippets = {
-	html = {},
-}
+-- ADD HTML, CSS (Styled components) AND JS SNIPPETS TO JAVASCRIPT/TYPESCRIPT/REACT files
+-- (filetype_set) in a js file: search javascriptreact-snippets, then all-snippets only (no javascript-snippets!).
+ls.filetype_set("javascript", { "javascriptreact" })
+ls.filetype_extend("javascript", { "html", "css" })
+ls.filetype_extend("javascriptreact", { "html", "css" })
+ls.filetype_extend("typescript", { "javascript", "typescriptreact", "html", "css" })
+ls.filetype_extend("typescriptreact", { "javascript", "html", "css" })
 
-luasnip.snippets.javascriptreact = luasnip.snippets.html
-luasnip.snippets.javascript = luasnip.snippets.javascriptreact
-luasnip.snippets.typescriptreact = luasnip.snippets.html
-luasnip.snippets.typescript = luasnip.snippets.html
-
--- Styled components
-luasnip.filetype_extend("typescript", { "css" })
-
-require("luasnip/loaders/from_vscode").load({
-	include = {
-		"html",
-		"javascriptreact",
-		"lua",
-		"css",
-		"norg",
-		"shell",
-		"markdown",
-	},
-})
+require("luasnip/loaders/from_vscode").load({})
+-- require("luasnip.loaders.from_vscode").load({})
 
 local check_backspace = function()
 	local col = vim.fn.col(".") - 1
@@ -77,7 +62,7 @@ local kind_icons = {
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			luasnip.lsp_expand(args.body) -- For `luasnip` users.
+			ls.lsp_expand(args.body) -- For `luasnip` users.
 		end,
 	},
 	mapping = {
@@ -95,10 +80,10 @@ cmp.setup({
 		["<C-k>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			elseif luasnip.expandable() then
-				luasnip.expand()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
+			elseif ls.expandable() then
+				ls.expand()
+			elseif ls.expand_or_jumpable() then
+				ls.expand_or_jump()
 			elseif check_backspace() then
 				fallback()
 			else
@@ -111,8 +96,8 @@ cmp.setup({
 		["<C-l>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
+			elseif ls.jumpable(-1) then
+				ls.jump(-1)
 			else
 				fallback()
 			end

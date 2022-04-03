@@ -1,3 +1,5 @@
+﻿* Correct buffer navigation and window navigation eventually
+
 ﻿DON'T SET ANYTHING WITH <leader> THAT IS IN `INSERT MODE`
 TAB is not mappeable (ctrl+i)
 

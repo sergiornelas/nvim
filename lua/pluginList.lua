@@ -286,13 +286,13 @@ return packer.startup(function(use)
 	-- })
 
 	-- BUFFERLINE --------------------------------------------------
-	use({
-		"akinsho/bufferline.nvim",
-		after = "nvim-web-devicons",
-		config = function()
-			require("plugins.bufferline")
-		end,
-	})
+	-- use({
+	-- 	"akinsho/bufferline.nvim",
+	-- 	after = "nvim-web-devicons",
+	-- 	config = function()
+	-- 		require("plugins.bufferline")
+	-- 	end,
+	-- })
 
 	-- BUFFER DELETE --------------------------------------------------
 	use({

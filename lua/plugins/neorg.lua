@@ -15,12 +15,10 @@ neorg.setup({
 				end,
 			},
 		},
-		["core.norg.concealer"] = {}, -- Allows for use of icons
 		["core.norg.dirman"] = { --Managing directories full of .norg files
 			config = {
 				workspaces = {
-					my_workspace = "~/neorg",
-					sergio = "~/neorg2",
+					notes = "~/notes",
 				},
 			},
 		},
@@ -29,6 +27,7 @@ neorg.setup({
 			-- 	type = "none",
 			-- },
 		},
+		-- ["core.norg.concealer"] = {}, -- Allows for use of icons
 		-- ["core.gtd.base"] = {}, --Manages your tasks with Neorg using the Getting Things Done methology
 		-- ["core.integrations.telescope"] = {}, -- Enable telescope module
 	},
