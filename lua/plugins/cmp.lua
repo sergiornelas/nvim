@@ -18,8 +18,9 @@ ls.config.set_config({
 ls.filetype_set("javascript", { "javascriptreact" })
 ls.filetype_extend("javascript", { "html", "css" })
 ls.filetype_extend("javascriptreact", { "html", "css" })
-ls.filetype_extend("typescript", { "javascript", "typescriptreact", "html", "css" })
-ls.filetype_extend("typescriptreact", { "javascript", "html", "css" })
+ls.filetype_set("typescript", { "typescriptreact" })
+ls.filetype_extend("typescript", { "html", "css" })
+ls.filetype_extend("typescriptreact", { "html", "css" })
 
 require("luasnip/loaders/from_vscode").load({})
 -- require("luasnip.loaders.from_vscode").load({})

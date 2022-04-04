@@ -320,6 +320,16 @@ return packer.startup(function(use)
 	-- MAXIMIZER WINDOW -------------------------------------
 	use("szw/vim-maximizer")
 
+	-- TABS -------------------------------------
+	use({
+		"nanozuki/tabby.nvim",
+		config = function()
+			require("tabby").setup({
+				tabline = require("tabby.presets").active_wins_at_tail,
+			})
+		end,
+	})
+
 	-- TELESCOPE MEDIA FILES --------------------------------
 	-- use "nvim-telescope/telescope-media-files.nvim"
 	-- DETAILED INFO CMP ------------------------------------

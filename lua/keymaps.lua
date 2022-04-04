@@ -35,8 +35,8 @@ map("n", "<leader>sk", "<cmd>DiffviewFileHistory<cr>")
 -- <BUFFER NAVIGATION>
 -- map("n", "<c-n>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
 -- map("n", "<c-p>", "<cmd>BufferLineCycleNext<cr>") --next buffer
-map("n", "<c-n>", "<cmd>bp<cr>") --previous buffer
-map("n", "<c-p>", "<cmd>bn<cr>") --next buffer
+map("n", "<c-p>", "<cmd>bp<cr>") --buffer previous
+map("n", "<c-n>", "<cmd>bn<cr>") --buffer next
 map("n", "<c-t>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "ƒ", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "å", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
