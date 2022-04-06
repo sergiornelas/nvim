@@ -4,6 +4,11 @@ if not present then
 	return
 end
 
+--google calendar
+vim.cmd([[
+  source ~/.cache/calendar.vim/credentials.vim
+]])
+
 --disable builtin plugins
 local disabled_built_ins = {
 	"2html_plugin",
@@ -20,6 +25,8 @@ local disabled_built_ins = {
 	"zip",
 	"zipPlugin",
 }
+
+require("orgmode").setup_ts_grammar()
 
 for _, plugin in pairs(disabled_built_ins) do
 	vim.g["loaded_" .. plugin] = 1

@@ -3,6 +3,11 @@ vim.g.hardtime_default_on = 1
 vim.g.hardtime_maxcount = 6
 --vim.g.hardtime_timeout = 1000
 
+-- GOOGLE CALENDAR
+vim.g.calendar_google_calendar = 1
+vim.g.calendar_google_task = 1
+-- vim.g.calendar_frame = "default"
+
 -- Highlight on yank
 vim.cmd([[
   augroup YankHighlight

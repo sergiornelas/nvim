@@ -68,7 +68,7 @@ return packer.startup(function(use)
 		"navarasu/onedark.nvim",
 		config = function()
 			require("onedark").setup({
-				toggle_style_key = "<s-o>",
+				toggle_style_key = "<leader>x",
 			})
 		end,
 	})
@@ -303,15 +303,32 @@ return packer.startup(function(use)
 	-- use({
 	-- 	"nvim-neorg/neorg-telescope",
 	-- })
+	use({
+		"nvim-orgmode/orgmode",
+		ft = { "org" },
+		config = function()
+			require("orgmode").setup({})
+		end,
+	})
 
+	use({
+		"lukas-reineke/headlines.nvim",
+		config = function()
+			require("headlines").setup({
+				-- org = {
+				-- 	headline_highlights = { "Headline1", "Headline2" },
+				-- },
+			})
+		end,
+	})
 	-- BUFFERLINE --------------------------------------------------
-	-- use({
-	-- 	"akinsho/bufferline.nvim",
-	-- 	after = "nvim-web-devicons",
-	-- 	config = function()
-	-- 		require("plugins.bufferline")
-	-- 	end,
-	-- })
+	use({
+		"akinsho/bufferline.nvim",
+		after = "nvim-web-devicons",
+		config = function()
+			require("plugins.bufferline")
+		end,
+	})
 
 	-- BUFFER DELETE --------------------------------------------------
 	use({
@@ -339,16 +356,20 @@ return packer.startup(function(use)
 	-- MAXIMIZER WINDOW -------------------------------------
 	use("szw/vim-maximizer")
 
+	-- GOOGLE CALENDAR -------------------------------------
+	use("itchyny/calendar.vim")
+
 	-- TABS -------------------------------------
-	use({
-		"nanozuki/tabby.nvim",
-		config = function()
-			require("tabby").setup({
-				-- tabline = require("tabby.presets").active_wins_at_tail,
-				tabline = require("tabby.presets").tab_only,
-			})
-		end,
-	})
+	-- use({
+	-- 	"nanozuki/tabby.nvim",
+	-- 	config = function()
+	-- 		require("tabby").setup({
+	-- 			-- tabline = require("tabby.presets").active_wins_at_tail,
+	-- 			tabline = require("tabby.presets").tab_only,
+	-- 		})
+	-- 		-- require('tabby.util').extract_nvim_hl(<highlight>)
+	-- 	end,
+	-- })
 
 	-- TELESCOPE MEDIA FILES --------------------------------
 	-- use "nvim-telescope/telescope-media-files.nvim"
