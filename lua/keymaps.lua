@@ -17,7 +17,6 @@ map("n", "<leader>k", "<cmd>Telescope buffers theme=ivy<cr>")
 map("n", "<leader>f", "<cmd>Telescope find_files theme=ivy<cr>")
 map("n", "<leader>l", "<cmd>Telescope live_grep theme=ivy<cr>")
 map("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy<cr>")
-map("n", "<leader>sp", "<cmd>Telescope colorscheme theme=ivy<cr>")
 map("n", "<leader>p", "<cmd>Telescope projects theme=ivy<cr>")
 map("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>")
 map("n", "<leader>:", "<cmd>Telescope commands theme=ivy<cr>")
@@ -41,9 +40,6 @@ map("n", "<c-t>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "ƒ", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "å", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 
--- <TOGGLE TRANSPARENCY>
-map("n", "<leader>;", "<cmd>TransparentToggle<cr>")
-
 -- AVOID UNPRACTICAL YANKING
 map("v", "p", '"_dP') --Pasting without yanking
 map("v", "P", '"_dP') --Pasting without yanking
@@ -54,6 +50,7 @@ map("n", "∆", "<cmd>resize +4<cr>") --resize window vertical
 map("n", "˚", "<cmd>resize -4<cr>") --resize window vertical
 map("n", "¬", "<cmd>vertical resize -4<cr>") --resize window horizontal
 map("n", "<leader>d", "<cmd>set hlsearch!<cr>") --highlights
+map("n", "<leader><leader>", "<c-w>=") --center windows
 
 -- WINDOW NAVIGATION
 map("n", "<c-h>", "<cmd>wincmd h<cr>") --move left window
@@ -79,26 +76,32 @@ map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --new tab
 
 map("n", "<c-m>", "<c-y>") --page scrolls up one line
 
--- HARD TO MAP
+-- VIM MAPPING
 vim.cmd([[
   inoremap <c-n> <cmd>:m .+1<cr>
   inoremap <c-p> <cmd>:m .-2<cr>
-  vnoremap <c-n> :m '>+1<cr>gv=gv
-  vnoremap <c-p> :m '<-2<cr>gv=gv
+  vnoremap <c-j> :m '>+1<cr>gv=gv
+  vnoremap <c-k> :m '<-2<cr>gv=gv
 
   nnoremap <leader>so :so %<cr>
 
+  " SESSIONS
   nnoremap <leader>sh :mksession! ~/sessions/
   nnoremap <leader>sj :source ~/sessions/
 
-  " NEORG
+  " <TRANSPARENCY>
+  nnoremap <leader>; :TransparentToggle
+
+  " <NEORG>
   nnoremap <leader>nw :Neorg workspace 
 
+  " <LUASNIP>
   snoremap <c-h> <BS>i
-
   nnoremap <leader>ss <CMD>LuaSnipUnlinkCurrent<CR>
 
+  " <TELESCOPE≥
   nnoremap <leader>sl :lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>
+  nnoremap <silent> <leader>sp :lua require("plugins.telescope").choose_colors()<cr>
 ]])
 
 -- TREESITTER UNIT

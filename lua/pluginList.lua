@@ -61,18 +61,37 @@ return packer.startup(function(use)
 	use("ellisonleao/gruvbox.nvim")
 	use("rebelot/kanagawa.nvim")
 	use("nxvu699134/vn-night.nvim")
-	use("ray-x/aurora")
 	use("folke/tokyonight.nvim")
 	use("marko-cerovac/material.nvim")
 	use("ishan9299/nvim-solarized-lua")
-	use("navarasu/onedark.nvim")
+	use({
+		"navarasu/onedark.nvim",
+		config = function()
+			require("onedark").setup({
+				toggle_style_key = "<s-o>",
+			})
+		end,
+	})
+	use({
+		"EdenEast/nightfox.nvim",
+		config = function()
+			require("nightfox").setup({
+				options = {
+					transparent = false, -- Disable setting background
+				},
+			})
+		end,
+	})
+	use("savq/melange")
+	use("theniceboy/nvim-deus")
+	use("Mofiqul/dracula.nvim")
 
 	-- TRANSPARENT NVIM --------------------------------
 	use({
 		"xiyaowong/nvim-transparent",
 		config = function()
 			require("transparent").setup({
-				enable = true,
+				enable = false,
 			})
 		end,
 	})
@@ -325,7 +344,8 @@ return packer.startup(function(use)
 		"nanozuki/tabby.nvim",
 		config = function()
 			require("tabby").setup({
-				tabline = require("tabby.presets").active_wins_at_tail,
+				-- tabline = require("tabby.presets").active_wins_at_tail,
+				tabline = require("tabby.presets").tab_only,
 			})
 		end,
 	})

@@ -1,13 +1,12 @@
 ﻿* Correct buffer navigation and window navigation eventually
 
-﻿DON'T SET ANYTHING WITH <leader> THAT IS IN `INSERT MODE`
+DON'T SET ANYTHING WITH <leader> THAT IS IN `INSERT MODE`
 TAB is not mappeable (ctrl+i)
 
 =========Available maps==========
 {BACKSPACE}  = FREE
 {CTRL + ;}   = FREE (?)
 {CTRL + /}   = FREE (?)
-{<Leader >x2}= FREE
 {<Leader >z} = FREE
 {<Leader >x} = FREE
 {<Leader >c} = FREE
@@ -95,8 +94,8 @@ PLUGIN MAPS INSERT MODE:
 [Ctrl + m] - autopairs ({[]})
 
 VIM MAPS VISUAL MODE:
-[Ctrl + n] - move current block bottom
-[Ctrl + p] - move current block top
+[Ctrl + j] - move current block bottom
+[Ctrl + k] - move current block top
 
 Check this list in help:
 [:help ins-special-keys]
@@ -114,6 +113,7 @@ Check this list in help:
 [<leader> + ww] = close all buffers and exit (not force)
 [<leader> + we] = Call CleanNoNameEmptyBuffers
 [<leader> + d]  = switch highlights
+[<leader> x 2]  = center windows
 [<leader> + h]* = <git hunk menu>
 [<leader> + e]  = <tree toggle>
 [<leader> + a]  = <Maximizer>
