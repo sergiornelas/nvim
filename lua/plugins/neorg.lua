@@ -23,9 +23,9 @@ neorg.setup({
 			},
 		},
 		["core.norg.esupports.metagen"] = { --module for generating metadata automatically
-			-- config = { -- Note that this table is optional and doesn't need to be provided
-			-- 	type = "none",
-			-- },
+			config = { -- Note that this table is optional and doesn't need to be provided
+				type = "none",
+			},
 		},
 		-- ["core.norg.concealer"] = {}, -- Allows for use of icons
 		-- ["core.gtd.base"] = {}, --Manages your tasks with Neorg using the Getting Things Done methology

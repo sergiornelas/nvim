@@ -3,10 +3,15 @@ vim.g.hardtime_default_on = 1
 vim.g.hardtime_maxcount = 6
 --vim.g.hardtime_timeout = 1000
 
--- GOOGLE CALENDAR
-vim.g.calendar_google_calendar = 1
-vim.g.calendar_google_task = 1
--- vim.g.calendar_frame = "default"
+-- INCREASE PYTHON PLUGINS LOADING
+vim.g.loaded_python_provider = 1
+vim.g.python_host_skip_check = 1
+vim.g.python_host_prog = "/usr/local/bin/python"
+vim.g.python3_host_skip_check = 1
+vim.g.python3_host_prog = "/usr/local/bin/python3"
+--
+-- VIM ROOTER SILENT WHEN SWITCHING TO DIFFERENT PROJECTS
+vim.g.rooter_silent_chdir = 1
 
 -- Highlight on yank
 vim.cmd([[
@@ -22,16 +27,14 @@ vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd("set nofoldenable") --helps with everything fold
 
--- Clean empty files
+-- Eliminate empty buffers
 vim.cmd([[
   function! CleanNoNameEmptyBuffers()
-  let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val) < 0 && (getbufline(v:val, 1, "$") == [""])')
-  if !empty(buffers)
-  exe 'bd '.join(buffers, ' ')
-  else
-  echo 'No buffer deleted'
-  endif
+    let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val) < 0 && (getbufline(v:val, 1, "$") == [""])')
+    if !empty(buffers)
+    exe 'bd '.join(buffers, ' ')
+    else
+    echo 'No buffer deleted'
+    endif
   endfunction
-
-  nnoremap <silent> ,C :call CleanNoNameEmptyBuffers()<CR>
 ]])

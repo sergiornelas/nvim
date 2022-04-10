@@ -59,10 +59,10 @@ M.choose_colors = function()
 	local sorters = require("telescope.sorters")
 	local dropdown = require("telescope.themes").get_dropdown()
 
-	function Enter(prompt_bufnr)
+	function SelectPersistColor(prompt_bufnr)
 		local selected = actions_state.get_selected_entry()
 		local cmd = "colorscheme " .. selected[1]
-		vim.cmd(cmd)
+		vim.cmd(cmd) --executes new color when c-j. Useful for selecting when filtering
 
 		-- selected colorscheme persists when you close neovim (sed mac os)
 		local job_cmd = "sed -i '' 's/.*colorscheme.*/" .. cmd .. "/' ~/.config/nvim/lua/colorscheme.lua"
@@ -90,7 +90,7 @@ M.choose_colors = function()
 		finder = finders.new_table(colors),
 		sorter = sorters.get_generic_fuzzy_sorter({}),
 		attach_mappings = function(prompt_bufnr, map)
-			map("i", "<C-j>", Enter)
+			map("i", "<C-j>", SelectPersistColor)
 			map("i", "<C-k>", Next_color)
 			map("i", "<C-l>", Prev_color)
 			return true

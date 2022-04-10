@@ -300,27 +300,7 @@ return packer.startup(function(use)
 		end,
 		requires = "nvim-lua/plenary.nvim",
 	})
-	-- use({
-	-- 	"nvim-neorg/neorg-telescope",
-	-- })
-	use({
-		"nvim-orgmode/orgmode",
-		ft = { "org" },
-		config = function()
-			require("orgmode").setup({})
-		end,
-	})
 
-	use({
-		"lukas-reineke/headlines.nvim",
-		config = function()
-			require("headlines").setup({
-				-- org = {
-				-- 	headline_highlights = { "Headline1", "Headline2" },
-				-- },
-			})
-		end,
-	})
 	-- BUFFERLINE --------------------------------------------------
 	use({
 		"akinsho/bufferline.nvim",
@@ -356,7 +336,7 @@ return packer.startup(function(use)
 	-- MAXIMIZER WINDOW -------------------------------------
 	use("szw/vim-maximizer")
 
-	-- GOOGLE CALENDAR -------------------------------------
+	-- GOOGLE CALENDAR/TASKS -------------------------------------
 	use("itchyny/calendar.vim")
 
 	-- TABS -------------------------------------
