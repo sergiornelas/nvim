@@ -26,8 +26,6 @@ local disabled_built_ins = {
 	"zipPlugin",
 }
 
-require("orgmode").setup_ts_grammar()
-
 for _, plugin in pairs(disabled_built_ins) do
 	vim.g["loaded_" .. plugin] = 1
 end
@@ -35,10 +33,11 @@ end
 -- load options, mappings, and plugins
 local modules = {
 	"config",
-	"options",
-	"keymaps",
+	"calendar",
 	"colorscheme",
+	"keymaps",
 	"pluginList",
+	"options",
 }
 
 for i = 1, #modules, 1 do
