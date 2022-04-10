@@ -29,16 +29,17 @@ map("n", "<leader>a", "<cmd>MaximizerToggle!<cr>")
 
 -- <DIFF VIEW GIT>
 map("n", "<leader>sd", "<cmd>DiffviewOpen<cr>")
-map("n", "<leader>sk", "<cmd>DiffviewFileHistory<cr>")
+map("n", "<leader>sf", "<cmd>DiffviewFileHistory<cr>")
 
 -- <BUFFER NAVIGATION>
--- map("n", "<c-n>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
--- map("n", "<c-p>", "<cmd>BufferLineCycleNext<cr>") --next buffer
-map("n", "<c-p>", "<cmd>bp<cr>") --buffer previous
-map("n", "<c-n>", "<cmd>bn<cr>") --buffer next
+map("n", "<c-n>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
+map("n", "<c-m>", "<cmd>BufferLineCycleNext<cr>") --next buffer
 map("n", "<c-t>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "ƒ", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "å", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
+
+-- <CALENDAR>
+map("n", "<leader>sh", "<cmd>Calendar<CR>") --move buffer tap to prev
 
 -- AVOID UNPRACTICAL YANKING
 map("v", "p", '"_dP') --Pasting without yanking
@@ -73,20 +74,17 @@ map("n", "<Leader>g", "gt") --next tab
 map("n", "<Leader>t", "gT") --prev tab
 map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
 map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --new tab
-
-map("n", "<c-m>", "<c-y>") --page scrolls up one line
+map("n", "<c-p>", "<c-y>") --page scrolls up one line
 
 -- VIM MAPPING
 vim.cmd([[
-  inoremap <c-n> <cmd>:m .+1<cr>
-  inoremap <c-p> <cmd>:m .-2<cr>
   vnoremap <c-j> :m '>+1<cr>gv=gv
   vnoremap <c-k> :m '<-2<cr>gv=gv
 
   nnoremap <leader>so :so %<cr>
 
   " SESSIONS
-  nnoremap <leader>sh :mksession! ~/sessions/
+  nnoremap <leader>wj :mksession! ~/sessions/
   nnoremap <leader>sj :source ~/sessions/
 
   " <TRANSPARENCY>
@@ -99,7 +97,7 @@ vim.cmd([[
   snoremap <c-h> <BS>i
   nnoremap <leader>ss <CMD>LuaSnipUnlinkCurrent<CR>
 
-  " <TELESCOPE≥
+  " <TELESCOPE>
   nnoremap <leader>sl :lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>
   nnoremap <silent> <leader>sp :lua require("plugins.telescope").choose_colors()<cr>
 ]])

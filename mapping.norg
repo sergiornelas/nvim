@@ -1,18 +1,22 @@
-﻿* Correct buffer navigation and window navigation eventually
-
-DON'T SET ANYTHING WITH <leader> THAT IS IN `INSERT MODE`
-TAB is not mappeable (ctrl+i)
+﻿DON'T SET ANYTHING WITH <leader> THAT IS IN `INSERT MODE`
+TAB is not mappeable (ctrl+i), until neovim 0.7
 
 =========Available maps==========
 {BACKSPACE}  = FREE
+{CTRL + ]}   = FREE
+{CTRL + [}   = FREE
+{CTRL + y}   = FREE (used for neorg links)
 {CTRL + ;}   = FREE (?)
 {CTRL + /}   = FREE (?)
+{<Leader >sk}= FREE
+{<Leader >sg}= FREE
 {<Leader >z} = FREE
-{<Leader >x} = FREE
+{<Leader >x} = FREE (used for one dark colorscheme, but mappeable)
 {<Leader >c} = FREE
 {<Leader >v} = FREE
 {<Leader >b} = FREE
 {<Leader >y} = FREE
+{<, >c}      = You can map comma + key
 {CTRL + BACKSPACE} = FREE (?)
 =================================
 
@@ -44,10 +48,10 @@ NO PLUGINS
 [ctrl + t] = close buffer
 [ctrl + h] = move window left
 [ctrl + l] = move window right
-[ctrl + n] = move window down
-[ctrl + p] = move window top
+[ctrl + j] = move window down
+[ctrl + k] = move window top
 [ctrl + c] x2 = close neovim
-[ctrl + m] = page scrolls up one line
+[ctrl + p] = page scrolls up one line
 [alt + h] = resize window
 [alt + j] = resize window
 [alt + k] = resize window
@@ -62,18 +66,16 @@ PLUGINS
 [ctrl + e] = cmp close items
 [ctrl + g] = terminal
 [ctrl + q] = termimal horizontal
-[ctrl + j] = bufferlinecycleprev,
-[ctrl + k] = bufferlinecyclenext
-[ctrl + y] = neorg follow link
+[ctrl + n] = bufferlinecycleprev,
+[ctrl + m] = bufferlinecyclenext
+[ctrl + y] = neorg follow link (mappeable)
 [alt + f]  = bufferlinemovenext
 [alt + a]  = bufferlinemoveprev
 [s]		     = Lightspeed
 [S]		     = Lightspeed
 
 ----------------------------------------------------------------------------------------
-VIM MAPS INSERT MODE:
-[Ctrl + n] - move current line bottom
-[Ctrl + p] - move current line top
+VIM KEYBINDS INSERT MODE:
 [Ctrl + h] - backpace
 [Ctrl + t] - move whole line to the RIGHT.
 [Ctrl + d] - move whole line to the LEFT.
@@ -88,14 +90,15 @@ VIM MAPS INSERT MODE:
 [Ctrl + a] - ?
 [Ctrl + e] - write character bellow cursor `(used for vsnip, close the menu)`
 [Ctrl + y] - write character above cursor `(mappeable)`
+[Ctrl + n] - word completion next matching word
+[Ctrl + p] - word completion previous matching word
 
 PLUGIN MAPS INSERT MODE:
-[Ctrl + l] - create link neorg
 [Ctrl + m] - autopairs ({[]})
 
 VIM MAPS VISUAL MODE:
-[Ctrl + j] - move current block bottom
-[Ctrl + k] - move current block top
+[Ctrl + j] - move current line/lineblock bottom
+[Ctrl + k] - move current line/lineblock top
 
 Check this list in help:
 [:help ins-special-keys]
@@ -129,8 +132,8 @@ Check this list in help:
 [<leader> + nw] = <neorg open workspace>
 [<leader> + ss] = <luasnipunlinkCurrent> (bug)
 [<leader> + sd] = <diffviewopen>
-[<leader> + sk] = <diffviewfilehistory>
-[<leader> + sh] = <save session>
+[<leader> + sf] = <diffviewfilehistory>
 [<leader> + sj] = <load session>
+[<leader> + wj] = <save session>
 [<leader> + ;]  = <ToggleTransparency>
-
+[<leader> + sh]  = <Calendar>
