@@ -99,11 +99,18 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
 	debug = false,
 	sources = {
-		diagnostics.eslint_d,
-		code_actions.eslint_d,
-		code_actions.gitsigns,
-		formatting.prettierd, --prettierd all files that can format
-		formatting.stylua,
+		diagnostics.eslint_d, --js, ts, jsx, tsx
+		diagnostics.tidy, --html (also has formatting)
+		diagnostics.jsonlint, --json
+		formatting.prettierd, --html, css, js, ts, jsx, tsx, json
+		formatting.stylua, --lua (also has range_formatting)
+		code_actions.eslint_d, --js, ts, jsx, tsx
+		code_actions.gitsigns, -- *
+		-- LSP status:
+		--  CSS diagnostics: cssls
+		--  Lua diagnostics: sumneko_lua (also has a weak formatting)
+		--  Python diagnostics: pyright
+
 		-- diagnostics.eslint_d.with({
 		-- 	filetypes = { "javascript" },
 		-- }),
