@@ -339,6 +339,11 @@ return packer.startup(function(use)
 	-- GOOGLE CALENDAR/TASKS -------------------------------------
 	use("itchyny/calendar.vim")
 
+	use({
+		"tzachar/cmp-tabnine",
+		run = "./install.sh",
+		requires = "hrsh7th/nvim-cmp",
+	})
 	-- TABS -------------------------------------
 	-- use({
 	-- 	"nanozuki/tabby.nvim",
