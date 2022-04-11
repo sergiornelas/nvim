@@ -8,8 +8,9 @@ TAB is not mappeable (ctrl+i), until neovim 0.7
 {CTRL + y}   = FREE (used for neorg links)
 {CTRL + ;}   = FREE (?)
 {CTRL + /}   = FREE (?)
-{<Leader >sk}= FREE
 {<Leader >sg}= FREE
+{<Leader >sk}= FREE
+{<Leader >:} = FREE
 {<Leader >z} = FREE
 {<Leader >x} = FREE (used for one dark colorscheme, but mappeable)
 {<Leader >c} = FREE
@@ -74,12 +75,15 @@ PLUGINS
 [s]		     = Lightspeed
 [S]		     = Lightspeed
 
+PLUGIN MAPS INSERT MODE:
+[Ctrl + m] - autopairs ({[]})
+
 ----------------------------------------------------------------------------------------
 VIM KEYBINDS INSERT MODE:
 [Ctrl + h] - backpace
 [Ctrl + t] - move whole line to the RIGHT.
 [Ctrl + d] - move whole line to the LEFT.
-[Ctrl + f] - move whole line at the corresponding BEGGING.
+[Ctrl + f] - move whole line at the corresponding TAB position.
 [Ctrl + j] - begin new line during insert mode (insert mode)
 [Ctrl + i] - equivalent as tab 
 [Ctrl + o] - you can insert one vim command, and then return to normal mode. (quite useless, mappeable)
@@ -92,9 +96,6 @@ VIM KEYBINDS INSERT MODE:
 [Ctrl + y] - write character above cursor `(mappeable)`
 [Ctrl + n] - word completion next matching word
 [Ctrl + p] - word completion previous matching word
-
-PLUGIN MAPS INSERT MODE:
-[Ctrl + m] - autopairs ({[]})
 
 VIM MAPS VISUAL MODE:
 [Ctrl + j] - move current line/lineblock bottom
@@ -125,10 +126,10 @@ Check this list in help:
 [<leader> + o]  = <telescope historial>
 [<leader> + sp] = <telescope colorscheme>
 [<leader> + l]  = <telescope livegrep>
-[<leader> + sl] = <telescope livegrep current buffers>
+[<leader> + sb] = <telescope livegrep current buffers>
 [<leader> + p]  = <telescope Projects>
 [<leader> + m]  = <telescope marks>
-[<leader> + :]  = <telescope commands>
+[<leader> + sl] = <telescope grep_string>
 [<leader> + nw] = <neorg open workspace>
 [<leader> + ss] = <luasnipunlinkCurrent> (bug)
 [<leader> + sd] = <diffviewopen>

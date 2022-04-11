@@ -333,17 +333,19 @@ return packer.startup(function(use)
 		commit = "7cb78de364267a17a8fff5b9712c64d13094a6af",
 	})
 
-	-- MAXIMIZER WINDOW -------------------------------------
+	-- MAXIMIZER WINDOW ----------------------------------
 	use("szw/vim-maximizer")
 
-	-- GOOGLE CALENDAR/TASKS -------------------------------------
+	-- GOOGLE CALENDAR/TASKS -----------------------------
 	use("itchyny/calendar.vim")
 
+	-- TAB NINE ------------------------------------------
 	use({
 		"tzachar/cmp-tabnine",
 		run = "./install.sh",
 		requires = "hrsh7th/nvim-cmp",
 	})
+
 	-- TABS -------------------------------------
 	-- use({
 	-- 	"nanozuki/tabby.nvim",

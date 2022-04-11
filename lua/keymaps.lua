@@ -19,7 +19,7 @@ map("n", "<leader>l", "<cmd>Telescope live_grep theme=ivy<cr>")
 map("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy<cr>")
 map("n", "<leader>p", "<cmd>Telescope projects theme=ivy<cr>")
 map("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>")
-map("n", "<leader>:", "<cmd>Telescope commands theme=ivy<cr>")
+map("n", "<leader>sl", "<cmd>Telescope grep_string theme=ivy<cr>")
 
 -- <NVIM TREE>
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
@@ -98,7 +98,7 @@ vim.cmd([[
   nnoremap <leader>ss <CMD>LuaSnipUnlinkCurrent<CR>
 
   " <TELESCOPE>
-  nnoremap <leader>sl :lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>
+  nnoremap <silent><leader>sb :lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>
   nnoremap <silent> <leader>sp :lua require("plugins.telescope").choose_colors()<cr>
 ]])
 

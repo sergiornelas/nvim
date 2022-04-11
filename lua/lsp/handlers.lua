@@ -85,6 +85,11 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+	-- HTML from vscode-html-language-server formats HTML files.
+	-- You could also disable Prettier on HTML files in null-ls.
+	if client.name == "html" then
+		client.resolved_capabilities.document_formatting = false
+	end
 	-- sumneko_lua has a weak formatter, so we installed stylua
 	if client.name == "sumneko_lua" then
 		client.resolved_capabilities.document_formatting = false

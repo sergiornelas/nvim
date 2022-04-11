@@ -69,22 +69,21 @@ end
 --  and set up the utilities and integrations from nvim-lsp-ts-utils.
 --  Prettier is behind the scenes active, so en client.resolved we deactivate
 --  because we use prettierd in null-ls.
-lspconfig.tsserver.setup({
+lspconfig.tsserver.setup({ --*
 	on_attach = function(client, bufnr)
+		-- tsserver weak formatting
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
-
 		lsp_highlight_document(client)
 
+		-- nvim-lsp-ts-utils:
 		local ts_utils = require("nvim-lsp-ts-utils")
 		ts_utils.setup({})
 		-- required to fix code action ranges and filter diagnostics
 		ts_utils.setup_client(client)
-
 		buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
 		buf_map(bufnr, "n", "gi", ":TSLspRenameFile<CR>")
 		buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
-
 		-- runs whenever we open a file that tsserver supports
 		on_attach(client, bufnr)
 	end,
@@ -99,17 +98,24 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
 	debug = false,
 	sources = {
-		diagnostics.eslint_d, --js, ts, jsx, tsx
-		diagnostics.tidy, --html (also has formatting)
-		diagnostics.jsonlint, --json
+		diagnostics.eslint_d.with({ --js, ts, jsx, tsx
+			filetypes = { "javascript", "javascriptreact" }, --(ts, tsx ommited)
+		}),
+		code_actions.eslint_d.with({ --js, ts, jsx, tsx
+			filetypes = { "javascript", "javascriptreact" }, --(ts, tsx ommited)
+		}),
 		formatting.prettierd, --html, css, js, ts, jsx, tsx, json
+		diagnostics.jsonlint, --json
+		diagnostics.tidy, --html (also has formatting)
 		formatting.stylua, --lua (also has range_formatting)
-		code_actions.eslint_d, --js, ts, jsx, tsx
 		code_actions.gitsigns, -- *
-		-- LSP status:
+		-- LSP status===============
+		--  JS, JSX, TS, TSX completions: tsserver*
+		--  TS, TSX diagnostics: tsserver*
+		--  HTML completions: html (formatting turned off for prettier)
+		--  CSS completions: cssls
 		--  CSS diagnostics: cssls
 		--  Lua diagnostics: sumneko_lua (also has a weak formatting)
-		--  Python diagnostics: pyright
 
 		-- diagnostics.eslint_d.with({
 		-- 	filetypes = { "javascript" },
