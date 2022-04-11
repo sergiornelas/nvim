@@ -9,6 +9,7 @@ TAB is not mappeable (ctrl+i), until neovim 0.7
 {CTRL + ;}   = FREE (?)
 {CTRL + /}   = FREE (?)
 {<Leader >sg}= FREE
+{<Leader >sh}= FREE
 {<Leader >sk}= FREE
 {<Leader >:} = FREE
 {<Leader >z} = FREE
@@ -46,17 +47,17 @@ VIM CTRLS (NORMAL MODE)
 ----------------------------------------------------------------------------------------
 ===MAPPED KEYS===
 NO PLUGINS
-[ctrl + t] = close buffer
 [ctrl + h] = move window left
 [ctrl + l] = move window right
 [ctrl + j] = move window down
 [ctrl + k] = move window top
-[ctrl + c] x2 = close neovim
+[ctrl + c] = close buffer
 [ctrl + p] = page scrolls up one line
 [alt + h] = resize window
 [alt + j] = resize window
 [alt + k] = resize window
 [alt + l] = resize window
+[ctrl + q]x2 = close neovim without save
 
 PLUGINS
 [ctrl + j] = select-Telescope-Element, select-CMP-Element
@@ -66,7 +67,7 @@ PLUGINS
 [ctrl + s] = Startup Time
 [ctrl + e] = cmp close items
 [ctrl + g] = terminal
-[ctrl + q] = termimal horizontal
+[ctrl + t] = open second terminal
 [ctrl + n] = bufferlinecycleprev,
 [ctrl + m] = bufferlinecyclenext
 [ctrl + y] = neorg follow link (mappeable)
@@ -77,6 +78,9 @@ PLUGINS
 
 PLUGIN MAPS INSERT MODE:
 [Ctrl + m] - autopairs ({[]})
+
+PLUGIN MAPS VISUAL MODE:
+[<leader> + L] - <telescope live_grep current selection>
 
 ----------------------------------------------------------------------------------------
 VIM KEYBINDS INSERT MODE:
@@ -137,4 +141,4 @@ Check this list in help:
 [<leader> + sj] = <load session>
 [<leader> + wj] = <save session>
 [<leader> + ;]  = <ToggleTransparency>
-[<leader> + sh]  = <Calendar>
+[<leader> + s;]  = <Calendar>

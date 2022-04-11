@@ -34,12 +34,12 @@ map("n", "<leader>sf", "<cmd>DiffviewFileHistory<cr>")
 -- <BUFFER NAVIGATION>
 map("n", "<c-n>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
 map("n", "<c-m>", "<cmd>BufferLineCycleNext<cr>") --next buffer
-map("n", "<c-t>", "<cmd>Bdelete<CR>") --close buffer without closing window.
+map("n", "<c-c>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "ƒ", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "å", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 
 -- <CALENDAR>
-map("n", "<leader>sh", "<cmd>Calendar<CR>") --move buffer tap to prev
+map("n", "<leader>s;", "<cmd>Calendar<CR>") --move buffer tap to prev
 
 -- AVOID UNPRACTICAL YANKING
 map("v", "p", '"_dP') --Pasting without yanking
@@ -63,7 +63,7 @@ map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window
 map("n", "<Leader>r", "<cmd>w<cr>") --save file
 map("n", "<Leader>q", "<cmd>q<cr>") --quit file
 map("n", "<Leader>ww", "<cmd>qa<cr>") --quit all files
-map("n", "<c-c><c-c>", "<cmd>qa!<cr>") --close nvim no restrictions
+map("n", "<c-q><c-q>", "<cmd>qa!<cr>") --close nvim no restrictions
 map("n", "<Leader>j", "zz") --center text
 map("n", "<Leader>u", "<cmd>tabclose<cr>") --close current tab
 map("n", "<c-s>", "<cmd>StartupTime<cr>") --close current tab
@@ -99,7 +99,8 @@ vim.cmd([[
 
   " <TELESCOPE>
   nnoremap <silent><leader>sb :lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>
-  nnoremap <silent> <leader>sp :lua require("plugins.telescope").choose_colors()<cr>
+  nnoremap <silent><leader>sp :lua require("plugins.telescope").choose_colors()<cr>
+  vnoremap <silent><leader>L "zy:Telescope live_grep default_text=<C-r>z<cr>
 ]])
 
 -- TREESITTER UNIT
