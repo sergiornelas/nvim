@@ -1,6 +1,7 @@
 ﻿DON'T SET ANYTHING WITH <leader> THAT IS IN `INSERT MODE`
-TAB is not mappeable (ctrl+i), until neovim 0.7
 
+Check this list in help:
+[:help ins-special-keys]
 =========Available maps==========
 {BACKSPACE}  = FREE
 {CTRL + ]}   = FREE
@@ -21,8 +22,8 @@ TAB is not mappeable (ctrl+i), until neovim 0.7
 {<, >c}      = You can map comma + key
 {CTRL + BACKSPACE} = FREE (?)
 =================================
-
-VIM CTRLS (NORMAL MODE)
+------------------------------------CTRL------------------------------------------------
+VIM KEYBINDS
 [Ctrl + y] - move screen up one line (without moving cursor)
 [Ctrl + e] - move screen down one line (without moving cursor)
 [Ctrl + u] - move back 1/2 a screen
@@ -44,8 +45,7 @@ VIM CTRLS (NORMAL MODE)
 [Ctrl + q] = square select again (mappeable)
 [ctrl + c] = gives info about how to exit vim `(mapped as exit)`
 
-----------------------------------------------------------------------------------------
-===MAPPED KEYS===
+===MAPPED KEYS=========================
 NO PLUGINS
 [ctrl + h] = move window left
 [ctrl + l] = move window right
@@ -71,18 +71,8 @@ PLUGINS
 [ctrl + n] = bufferlinecycleprev,
 [ctrl + m] = bufferlinecyclenext
 [ctrl + y] = neorg follow link (mappeable)
-[alt + f]  = bufferlinemovenext
-[alt + a]  = bufferlinemoveprev
-[s]		     = Lightspeed
-[S]		     = Lightspeed
 
-PLUGIN MAPS INSERT MODE:
-[Ctrl + m] - autopairs ({[]})
-
-PLUGIN MAPS VISUAL MODE:
-[<leader> + L] - <telescope live_grep current selection>
-
-----------------------------------------------------------------------------------------
+-----------------------------------CTRL INSERT MODE--------------------------------------
 VIM KEYBINDS INSERT MODE:
 [Ctrl + h] - backpace
 [Ctrl + t] - move whole line to the RIGHT.
@@ -101,14 +91,16 @@ VIM KEYBINDS INSERT MODE:
 [Ctrl + n] - word completion next matching word
 [Ctrl + p] - word completion previous matching word
 
+PLUGIN MAPS INSERT MODE:
+[Ctrl + m] - autopairs
+
+-----------------------------------CTRL VISUAL MODE-------------------------------------
 VIM MAPS VISUAL MODE:
 [Ctrl + j] - move current line/lineblock bottom
 [Ctrl + k] - move current line/lineblock top
+[Ctrl + p] - page scrolls up one line
 
-Check this list in help:
-[:help ins-special-keys]
-----------------------------------------------------------------------------------------
-
+-----------------------------------LEADER-----------------------------------------------
 <LEADER> (SPACE)
 [<leader> + r]  = :w
 [<leader> + q]  = :q
@@ -130,7 +122,7 @@ Check this list in help:
 [<leader> + o]  = <telescope historial>
 [<leader> + sp] = <telescope colorscheme>
 [<leader> + l]  = <telescope livegrep>
-[<leader> + sb] = <telescope livegrep current buffers>
+[<leader> + b] = <telescope livegrep current buffers>
 [<leader> + p]  = <telescope Projects>
 [<leader> + m]  = <telescope marks>
 [<leader> + sl] = <telescope grep_string>
@@ -140,5 +132,15 @@ Check this list in help:
 [<leader> + sf] = <diffviewfilehistory>
 [<leader> + sj] = <load session>
 [<leader> + wj] = <save session>
-[<leader> + ;]  = <ToggleTransparency>
-[<leader> + s;]  = <Calendar>
+[<leader> + s;]  = <ToggleTransparency>
+[<leader> + ;]  = <Calendar>
+
+PLUGIN MAPS VISUAL MODE:
+[<leader> + l] - <telescope live_grep current selection>
+[<leader> + f] - <telescope find_file current selection>
+
+OTHER KEYS
+[alt + f]  = bufferlinemovenext
+[alt + a]  = bufferlinemoveprev
+[s]		     = Lightspeed
+[S]		     = Lightspeed

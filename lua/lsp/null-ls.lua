@@ -95,13 +95,14 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
+-- YOU COULD DISABLE TSSERVER DIAGNOSTICS
 null_ls.setup({
 	debug = false,
 	sources = {
-		diagnostics.eslint_d.with({ --js, ts, jsx, tsx
+		diagnostics.eslint_d.with({ --js, ts, jsx, tsx (also has formatting)
 			filetypes = { "javascript", "javascriptreact" }, --(ts, tsx ommited)
 		}),
-		code_actions.eslint_d.with({ --js, ts, jsx, tsx
+		code_actions.eslint_d.with({ --js, ts, jsx, tsx (also has formatting)
 			filetypes = { "javascript", "javascriptreact" }, --(ts, tsx ommited)
 		}),
 		formatting.prettierd, --html, css, js, ts, jsx, tsx, json
@@ -111,7 +112,7 @@ null_ls.setup({
 		code_actions.gitsigns, -- *
 		-- LSP status===============
 		--  JS, JSX, TS, TSX completions: tsserver*
-		--  TS, TSX diagnostics: tsserver*
+		--  TS, TSX diagnostics: tsserver*, BUT LOOKS LIKE JS FILES ALSO APPLIES
 		--  HTML completions: html (formatting turned off for prettier)
 		--  CSS completions: cssls
 		--  CSS diagnostics: cssls

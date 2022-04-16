@@ -25,7 +25,7 @@ vim.opt.shortmess:append("c")
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
-vim.cmd("set nofoldenable") --helps with everything fold
+-- vim.cmd("set nofoldenable") --helps with everything fold
 
 -- Eliminate empty buffers
 vim.cmd([[

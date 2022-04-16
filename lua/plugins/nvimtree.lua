@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+vim.g.nvim_tree_respect_buf_cwd = 1
+
 nvim_tree.setup({
 	disable_netrw = true,
 	hijack_netrw = true,

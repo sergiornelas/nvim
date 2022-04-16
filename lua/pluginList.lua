@@ -85,6 +85,7 @@ return packer.startup(function(use)
 	use("savq/melange")
 	use("theniceboy/nvim-deus")
 	use("Mofiqul/dracula.nvim")
+	use("kwsp/halcyon-neovim")
 
 	-- TRANSPARENT NVIM --------------------------------
 	use({
@@ -271,9 +272,8 @@ return packer.startup(function(use)
 		"ahmedkhalf/project.nvim",
 		config = function()
 			require("project_nvim").setup({
-				manual_mode = true,
-				detection_methods = {},
-				patterns = {},
+				manual_mode = true, --responsible for bug when open new sessions with tabs
+				--still not working properly (15/04/22)
 			})
 		end,
 	})

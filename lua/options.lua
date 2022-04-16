@@ -33,6 +33,7 @@ local options = {
 	number = false, -- set numbered lines
 	cmdheight = 1, -- more space in the neovim command line for displaying messages
 	scrolloff = 2, -- is one of my fav
+	-- laststatus = 3,  --status line
 	-- guifont = "monospace:h17",            -- the font used in graphical neovim applications
 	-- titlestring = '%t',                   -- Title of window is the name of the file.
 	-- title = true,                         -- Activate titlestring behavi ur.

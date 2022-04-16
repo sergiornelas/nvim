@@ -4,7 +4,8 @@ if not present then
 	return
 end
 
-parser_config = parser_config.get_parser_configs()
+-- Install norg extensions?
+-- parser_config = parser_config.get_parser_configs()
 
 parser_config.norg = {
 	install_info = {

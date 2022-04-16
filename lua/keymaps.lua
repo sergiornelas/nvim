@@ -33,13 +33,13 @@ map("n", "<leader>sf", "<cmd>DiffviewFileHistory<cr>")
 
 -- <BUFFER NAVIGATION>
 map("n", "<c-n>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
-map("n", "<c-m>", "<cmd>BufferLineCycleNext<cr>") --next buffer
+map("n", "<cr>", "<cmd>BufferLineCycleNext<cr>") --next buffer
 map("n", "<c-c>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "ƒ", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "å", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 
 -- <CALENDAR>
-map("n", "<leader>s;", "<cmd>Calendar<CR>") --move buffer tap to prev
+map("n", "<leader>;", "<cmd>Calendar<CR>") --move buffer tap to prev
 
 -- AVOID UNPRACTICAL YANKING
 map("v", "p", '"_dP') --Pasting without yanking
@@ -75,6 +75,7 @@ map("n", "<Leader>t", "gT") --prev tab
 map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
 map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --new tab
 map("n", "<c-p>", "<c-y>") --page scrolls up one line
+map("v", "<c-p>", "<c-y>") --page scrolls up one line
 
 -- VIM MAPPING
 vim.cmd([[
@@ -88,7 +89,7 @@ vim.cmd([[
   nnoremap <leader>sj :source ~/sessions/
 
   " <TRANSPARENCY>
-  nnoremap <leader>; :TransparentToggle
+  nnoremap <leader>s; :TransparentToggle<CR>
 
   " <NEORG>
   nnoremap <leader>nw :Neorg workspace 
@@ -98,9 +99,10 @@ vim.cmd([[
   nnoremap <leader>ss <CMD>LuaSnipUnlinkCurrent<CR>
 
   " <TELESCOPE>
-  nnoremap <silent><leader>sb :lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>
   nnoremap <silent><leader>sp :lua require("plugins.telescope").choose_colors()<cr>
-  vnoremap <silent><leader>L "zy:Telescope live_grep default_text=<C-r>z<cr>
+  nnoremap <silent><leader>b :lua require('telescope.builtin').live_grep({grep_open_files=true}) print('Current Buffers')<CR>
+  vnoremap <silent><leader>l "zy:Telescope live_grep default_text=<C-r>z theme=ivy<cr>
+  vnoremap <silent><leader>f "zy:Telescope find_files default_text=<C-r>z<cr>
 ]])
 
 -- TREESITTER UNIT
