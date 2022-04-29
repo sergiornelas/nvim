@@ -4,6 +4,7 @@ vim.g.calendar_google_task = 1
 vim.g.calendar_first_day = "monday"
 vim.g.calendar_skip_task_clear_completed_confirm = 1
 vim.g.calendar_task_width = 100
+-- vim.g.calendar_exit = "qq"
 -- vim.g.calendar_skip_task_delete_confirm = 1
 -- vim.g.calendar_candidates = { "year", "clock" }
 -- vim.g.calendar_cyclic_view = 1

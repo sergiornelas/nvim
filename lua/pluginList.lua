@@ -327,12 +327,6 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- HARD MODE --------------------------------------------
-	use({
-		"takac/vim-hardtime",
-		commit = "7cb78de364267a17a8fff5b9712c64d13094a6af",
-	})
-
 	-- MAXIMIZER WINDOW ----------------------------------
 	use("szw/vim-maximizer")
 
@@ -346,6 +340,9 @@ return packer.startup(function(use)
 		requires = "hrsh7th/nvim-cmp",
 	})
 
+	use({
+		"David-Kunz/jester",
+	})
 	-- TABS -------------------------------------
 	-- use({
 	-- 	"nanozuki/tabby.nvim",

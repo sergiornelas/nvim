@@ -12,6 +12,7 @@ toggleterm.setup({
 		width = 100,
 		height = 40,
 	},
+	insert_mappings = false, --disables toggle term when you're on insert mode
 })
 
 vim.cmd([[
@@ -24,7 +25,6 @@ vim.cmd([[
   \ tnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 
   nnoremap <silent><c-g> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-  inoremap <silent><c-g> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 ]])
 
 -- local Terminal = require("toggleterm.terminal").Terminal

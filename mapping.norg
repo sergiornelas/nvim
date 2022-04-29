@@ -9,6 +9,10 @@ Check this list in help:
 {CTRL + y}   = FREE (used for neorg links)
 {CTRL + ;}   = FREE (?)
 {CTRL + /}   = FREE (?)
+{CTRL + h}   = FREE
+{CTRL + n}   = FREE
+{CTRL + m}   = FREE (?)
+{<Leader >k}= FREE
 {<Leader >sg}= FREE
 {<Leader >sh}= FREE
 {<Leader >sk}= FREE
@@ -33,7 +37,7 @@ VIM KEYBINDS
 [Ctrl + i] - go to newer position in jump list
 [Ctrl + o] - go to older position in jump list
 [Ctrl + ]] - jump to the tag under cursor
-[Ctrl + a] - increase number by 1 (tmux uses this)
+[Ctrl + a] - increase number by 1
 [Ctrl + x] - decrease number by 1
 [Ctrl + g] - :f (mappeable)
 [Ctrl + t] - tag stack (mapped as close buffer)
@@ -47,10 +51,6 @@ VIM KEYBINDS
 
 ===MAPPED KEYS=========================
 NO PLUGINS
-[ctrl + h] = move window left
-[ctrl + l] = move window right
-[ctrl + j] = move window down
-[ctrl + k] = move window top
 [ctrl + c] = close buffer
 [ctrl + p] = page scrolls up one line
 [alt + h] = resize window
@@ -58,9 +58,10 @@ NO PLUGINS
 [alt + k] = resize window
 [alt + l] = resize window
 [ctrl + q]x2 = close neovim without save
+[!]       = ^
 
 PLUGINS
-[ctrl + j] = select-Telescope-Element, select-CMP-Element
+[ctrl + j] = Telescope buferlist, select-Telescope-Element, select-CMP-Element
 [ctrl + k] = next Telescope-Element, next CMP-element, next-Snippet-Checkpoint
 [ctrl + l] = previous-Telescope-element, previous-CMP-element, previous-Snippet-Checkpoint 
 [ctrl + q] = quick fix (you could replace this)
@@ -68,8 +69,8 @@ PLUGINS
 [ctrl + e] = cmp close items
 [ctrl + g] = terminal
 [ctrl + t] = open second terminal
-[ctrl + n] = bufferlinecycleprev,
-[ctrl + m] = bufferlinecyclenext
+[ctrl + k] = bufferlinecycleprev,
+[ctrl + l] = bufferlinecyclenext
 [ctrl + y] = neorg follow link (mappeable)
 
 -----------------------------------CTRL INSERT MODE--------------------------------------
@@ -85,11 +86,14 @@ VIM KEYBINDS INSERT MODE:
 [Ctrl + r] - pasting in insert mode (registers)
 [Ctrl + k] - karate characters (`mappeable`)
 [Ctrl + u] - delete whole line
-[Ctrl + a] - ?
+[Ctrl + a] - Type the text you typed the last time
 [Ctrl + e] - write character bellow cursor `(used for vsnip, close the menu)`
 [Ctrl + y] - write character above cursor `(mappeable)`
 [Ctrl + n] - word completion next matching word
 [Ctrl + p] - word completion previous matching word
+
+VIM MAPPED KEYBINDS INSERT MODE:
+[Ctrl + g] - exit insert mode > goes end of the line > insert mode again
 
 PLUGIN MAPS INSERT MODE:
 [Ctrl + m] - autopairs
@@ -117,7 +121,6 @@ VIM MAPS VISUAL MODE:
 [<leader> + h]* = <git hunk menu>
 [<leader> + e]  = <tree toggle>
 [<leader> + a]  = <Maximizer>
-[<leader> + k]  = <telescope buffer list>
 [<leader> + f]  = <telescope find file>
 [<leader> + o]  = <telescope historial>
 [<leader> + sp] = <telescope colorscheme>
