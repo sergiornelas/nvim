@@ -1,4 +1,3 @@
--- Equivalent: <c-i> and <Tab>, <c-m> and <CR> (enter), <c-j> and <NL> (new line), <c-h> and backspace
 -- :help key-notation
 
 -- Helper function for clean mappings
@@ -35,8 +34,8 @@ map("n", "<leader>sf", "<cmd>DiffviewFileHistory<cr>")
 map("n", "<c-k>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
 map("n", "<c-l>", "<cmd>BufferLineCycleNext<cr>") --next buffer
 map("n", "<c-c>", "<cmd>Bdelete<CR>") --close buffer without closing window.
-map("n", "ƒ", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
-map("n", "å", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
+map("n", "®", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
+map("n", "∑", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 
 -- <CALENDAR>
 map("n", "<leader>;", "<cmd>Calendar<CR>") --move buffer tap to prev
@@ -46,21 +45,11 @@ map("v", "p", '"_dP') --Pasting without yanking
 map("v", "P", '"_dP') --Pasting without yanking
 
 -- RESIZE WINDOW
--- map("n", "˙", "<cmd>vertical resize +4<cr>") --resize window horizontal
-map("n", "<right>", "<cmd>vertical resize +4<cr>") --resize window horizontal
--- map("n", "∆", "<cmd>resize +4<cr>") --resize window vertical
-map("n", "<up>", "<cmd>resize +4<cr>") --resize window vertical
--- map("n", "˚", "<cmd>resize -4<cr>") --resize window vertical
-map("n", "<down>", "<cmd>resize -4<cr>") --resize window vertical
--- map("n", "¬", "<cmd>vertical resize -4<cr>") --resize window horizontal
-map("n", "<left>", "<cmd>vertical resize -4<cr>") --resize window horizontal
+map("n", "å", "<cmd>vertical resize +4<cr>") --resize window horizontal
+map("n", "∂", "<cmd>resize +4<cr>") --resize window vertical
+map("n", "ß", "<cmd>resize -4<cr>") --resize window vertical
+map("n", "ƒ", "<cmd>vertical resize -4<cr>") --resize window horizontal
 map("n", "<leader><leader>", "<c-w>=") --center windows
-
--- WINDOW NAVIGATION
--- map("n", "<c-h>", "<cmd>wincmd h<cr>") --move left window
--- map("n", "<c-j>", "<cmd>wincmd j<cr>") --move below window
--- map("n", "<c-k>", "<cmd>wincmd k<cr>") --move upper window
--- map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window
 
 -- UTILS
 map("n", "<leader>d", "<cmd>set hlsearch!<cr>") --highlights
@@ -80,22 +69,49 @@ map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
 map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --new tab
 map("n", "<c-p>", "<c-y>") --page scrolls up one line
 map("v", "<c-p>", "<c-y>") --page scrolls up one line
-map("n", "!", "^") --start of the line
-map("v", "!", "^") --start of the line
 map("i", "<c-g>", "<c-o>$") --insert mode goes end of the line and insert mode again
 
+-- REPLACE Y yanking to Q
 map("n", "y", "q") --replace q to y for start macro
 map("n", "q", "y") --replace y to q for yanking
-map("n", "qq", "yy") --replace y to q for yanking
 map("v", "y", "q") --replace q to y for start macro
 map("v", "q", "y") --replace y to q for yanking
--- map("v", "qq", "yy") --replace y to q for yanking
+map("n", "qq", "yy") --replace y to q for yanking
+map("v", "qq", "yy") --replace y to q for yanking
+
+-- COMMAND SUBSTITUTION
+map("n", "(", "^")
+map("n", "d(", "d^")
+map("n", "q(", "y^")
+map("v", "(", "^")
+map("n", ")", "#")
+map("n", "d)", "d#")
+map("n", "q)", "y#")
+map("v", ")", "#")
+map("n", "}", "$")
+map("n", "d}", "d$")
+map("n", "q}", "y$")
+map("v", "}", "$")
+map("n", "-", "}")
+map("n", "d-", "d}")
+map("n", "q-", "y}")
+map("v", "-", "}")
+map("n", "+", "=")
+map("n", "=", "%")
+map("n", "d=", "d%")
+map("n", "q=", "y%")
+map("v", "=", "%")
+map("n", "%", "(")
+map("n", "d%", "d(")
+map("n", "q%", "y(")
+map("v", "%", "(")
+map("n", "_", ")")
+map("n", "d_", "d)")
+map("n", "q_", "y)")
+map("v", "_", ")")
 
 -- VIM MAPPING
 vim.cmd([[
-
-  ino qq yy " map jj to escape key
-
   vnoremap <silent><c-j> :m '>+1<cr>gv=gv
   vnoremap <silent><c-k> :m '<-2<cr>gv=gv
 
@@ -132,3 +148,9 @@ vim.api.nvim_set_keymap(
 	':<c-u>lua require"treesitter-unit".select(true)<CR>',
 	{ noremap = true, silent = true }
 )
+
+-- WINDOW NAVIGATION
+-- map("n", "<c-h>", "<cmd>wincmd h<cr>") --move left window
+-- map("n", "<c-j>", "<cmd>wincmd j<cr>") --move below window
+-- map("n", "<c-k>", "<cmd>wincmd k<cr>") --move upper window
+-- map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window

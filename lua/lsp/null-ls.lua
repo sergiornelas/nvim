@@ -106,10 +106,10 @@ null_ls.setup({
 			filetypes = { "javascript", "javascriptreact" }, --(ts, tsx ommited)
 		}),
 		formatting.prettierd, --html, css, js, ts, jsx, tsx, json
-		diagnostics.jsonlint, --json
 		diagnostics.tidy, --html (also has formatting)
 		formatting.stylua, --lua (also has range_formatting)
 		code_actions.gitsigns, -- *
+		-- diagnostics.jsonlint, --json
 		-- LSP status===============
 		--  JS, JSX, TS, TSX completions: tsserver*
 		--  TS, TSX diagnostics: tsserver*, BUT LOOKS LIKE JS FILES ALSO APPLIES

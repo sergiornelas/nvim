@@ -95,6 +95,11 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	end
 
+	-- jsonls has a formatter, but we still prefer to use prettier_d
+	if client.name == "jsonls" then
+		client.resolved_capabilities.document_formatting = false
+	end
+
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 end
