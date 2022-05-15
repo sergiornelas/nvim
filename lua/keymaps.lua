@@ -12,11 +12,11 @@ end
 vim.g.mapleader = " " --Leader
 
 -- <TELESCOPE>
-map("n", "<c-j>", "<cmd>Telescope buffers theme=ivy<cr>")
-map("n", "<leader>f", "<cmd>Telescope find_files theme=ivy<cr>")
-map("n", "<leader>l", "<cmd>Telescope live_grep theme=ivy<cr>")
+map("n", "<leader>i", "<cmd>Telescope find_files theme=ivy<cr>")
 map("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy<cr>")
 map("n", "<leader>p", "<cmd>Telescope projects theme=ivy<cr>")
+map("n", "<leader>k", "<cmd>Telescope buffers theme=ivy<cr>")
+map("n", "<leader>l", "<cmd>Telescope live_grep theme=ivy<cr>")
 map("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>")
 map("n", "<leader>sl", "<cmd>Telescope grep_string theme=ivy<cr>")
 
@@ -44,6 +44,14 @@ map("n", "<leader>;", "<cmd>Calendar<CR>") --move buffer tap to prev
 map("v", "p", '"_dP') --Pasting without yanking
 map("v", "P", '"_dP') --Pasting without yanking
 
+-- NAVIGATION
+map("n", "<c-j>", "<c-e>") --page scrolls up one line
+map("n", "<c-e>", "<c-y>") --pending fullscreen
+map("n", "<c-p>", "<c-u>") --pending fullscreen
+map("n", "<c-v>", "<c-f>") --pending fullscreen
+map("n", "<c-a>", "<c-w>W") --page scrolls up one line
+map("n", "<c-f>", "<c-w>w") --page scrolls up one line
+
 -- RESIZE WINDOW
 map("n", "å", "<cmd>vertical resize +4<cr>") --resize window horizontal
 map("n", "∂", "<cmd>resize +4<cr>") --resize window vertical
@@ -53,7 +61,7 @@ map("n", "<leader><leader>", "<c-w>=") --center windows
 
 -- UTILS
 map("n", "<leader>d", "<cmd>set hlsearch!<cr>") --highlights
-map("n", "<Leader>r", "<cmd>w<cr>") --save file
+map("n", "<Leader>f", "<cmd>w<cr>") --save file
 map("n", "<Leader>q", "<cmd>q<cr>") --quit file
 map("n", "<Leader>ww", "<cmd>qa<cr>") --quit all files
 map("n", "<c-q><c-q>", "<cmd>qa!<cr>") --close nvim no restrictions
@@ -67,55 +75,92 @@ map("n", "<Leader>g", "gt") --next tab
 map("n", "<Leader>t", "gT") --prev tab
 map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
 map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --new tab
-map("n", "<c-p>", "<c-y>") --page scrolls up one line
-map("v", "<c-p>", "<c-y>") --page scrolls up one line
 map("i", "<c-g>", "<c-o>$") --insert mode goes end of the line and insert mode again
-
--- REPLACE Y yanking to Q
-map("n", "y", "q") --replace q to y for start macro
-map("n", "q", "y") --replace y to q for yanking
-map("v", "y", "q") --replace q to y for start macro
-map("v", "q", "y") --replace y to q for yanking
-map("n", "qq", "yy") --replace y to q for yanking
-map("v", "qq", "yy") --replace y to q for yanking
+map("n", "zl", "z3l") --zoom left x3
+map("n", "zh", "z3h") --zoom right x3
 
 -- COMMAND SUBSTITUTION
+-- Q
+map("n", "&", "#")
+map("v", "&", "#")
+map("n", "d&", "d#")
+map("n", "q&", "y#")
+-- W, E, R are the same
+-- T
+map("n", "*", "+")
+map("v", "*", "+")
+map("n", "d*", "d+")
+map("n", "q*", "y+")
+-- U
+map("n", "$", "-")
+map("v", "$", "-")
+map("n", "d$", "d-")
+map("n", "q$", "y-")
+-- I
+map("n", "^", "(")
+map("v", "^", "(")
+map("n", "d^", "d(")
+map("n", "q^", "y(")
+-- O in vim cmd
+-- A
+-- S, D are the same
 map("n", "(", "^")
+map("v", "(", "^")
 map("n", "d(", "d^")
 map("n", "q(", "y^")
-map("v", "(", "^")
-map("n", ")", "#")
-map("n", "d)", "d#")
-map("n", "q)", "y#")
-map("v", ")", "#")
-map("n", "}", "$")
-map("n", "d}", "d$")
-map("n", "q}", "y$")
-map("v", "}", "$")
+-- F
 map("n", "-", "}")
+map("v", "-", "}")
 map("n", "d-", "d}")
 map("n", "q-", "y}")
-map("v", "-", "}")
-map("n", "+", "=")
+-- G
+map("n", "+", "$")
+map("v", "+", "$")
+map("n", "d+", "d$")
+map("n", "q+", "y$")
+-- H
+map("n", "#", "=")
+map("n", "d#", "d=")
+map("n", "q#", "y=")
+-- J
 map("n", "=", "%")
+map("v", "=", "%")
 map("n", "d=", "d%")
 map("n", "q=", "y%")
-map("v", "=", "%")
-map("n", "%", "(")
-map("n", "d%", "d(")
-map("n", "q%", "y(")
-map("v", "%", "(")
-map("n", "_", ")")
-map("n", "d_", "d)")
-map("n", "q_", "y)")
-map("v", "_", ")")
+-- K
+map("n", "}", "&")
+-- Z
+map("n", "!", "|")
+map("v", "!", "|")
+map("n", "d!", "|")
+map("n", "d!", "|")
+-- C, V are the same
+-- B
+map("n", "%", "!")
+-- N is the same
+-- M
+map("n", "|", "*")
+map("v", "|", "*")
+map("n", "d|", "d*")
+-- map("n", "q|", "mzy0`z")
 
 -- VIM MAPPING
 vim.cmd([[
   vnoremap <silent><c-j> :m '>+1<cr>gv=gv
   vnoremap <silent><c-k> :m '<-2<cr>gv=gv
 
+  nnoremap q y
+  vnoremap q y
+  nnoremap Q y+
+  vnoremap Q y+
+  nnoremap qq yy
+  nnoremap y q
+
   nnoremap <leader>so :so %<cr>
+
+  " COMMAND SUBSTITUTION
+  nnoremap \ )
+  vnoremap \ )
 
   " SESSIONS
   nnoremap <leader>wj :mksession! ~/sessions/
@@ -148,9 +193,3 @@ vim.api.nvim_set_keymap(
 	':<c-u>lua require"treesitter-unit".select(true)<CR>',
 	{ noremap = true, silent = true }
 )
-
--- WINDOW NAVIGATION
--- map("n", "<c-h>", "<cmd>wincmd h<cr>") --move left window
--- map("n", "<c-j>", "<cmd>wincmd j<cr>") --move below window
--- map("n", "<c-k>", "<cmd>wincmd k<cr>") --move upper window
--- map("n", "<c-l>", "<cmd>wincmd l<cr>") --move right window

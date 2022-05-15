@@ -86,6 +86,12 @@ return packer.startup(function(use)
 	use("theniceboy/nvim-deus")
 	use("Mofiqul/dracula.nvim")
 	use("kwsp/halcyon-neovim")
+	use("sainnhe/everforest")
+	use("sainnhe/sonokai")
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 
 	-- TRANSPARENT NVIM --------------------------------
 	use({
@@ -322,7 +328,7 @@ return packer.startup(function(use)
 		config = function()
 			require("lightspeed").setup({
 				ignore_case = false,
-				exit_after_idle_msecs = { unlabeled = 1000, labeled = 600 },
+				-- exit_after_idle_msecs = { unlabeled = 1000, labeled = 600 },
 			})
 		end,
 	})
@@ -331,7 +337,7 @@ return packer.startup(function(use)
 	use("szw/vim-maximizer")
 
 	-- GOOGLE CALENDAR/TASKS -----------------------------
-	use("itchyny/calendar.vim")
+	-- use("itchyny/calendar.vim")
 
 	use({
 		"David-Kunz/jester",

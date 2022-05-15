@@ -7,12 +7,12 @@ Check this list in help:
 {CTRL + ]}   = FREE
 {CTRL + [}   = FREE
 {CTRL + y}   = FREE (used for neorg links)
-{CTRL + ;}   = FREE (?)
+{CTRL + ;}   = FREE Kitty
 {CTRL + /}   = FREE (?)
 {CTRL + h}   = FREE
 {CTRL + n}   = FREE
-{CTRL + m}   = FREE (?)
-{<Leader >k}= FREE
+{CTRL + u}   = FREE
+{CTRL + m}   = FREE kitty
 {<Leader >sg}= FREE
 {<Leader >sh}= FREE
 {<Leader >sk}= FREE
@@ -51,8 +51,8 @@ VIM KEYBINDS
 
 ===MAPPED KEYS=========================
 NO PLUGINS
-[ctrl + c] = close buffer
 [ctrl + p] = page scrolls up one line
+[ctrl + j] = page scrolls up half page
 [alt + h] = resize window
 [alt + j] = resize window
 [alt + k] = resize window
@@ -121,11 +121,12 @@ VIM MAPS VISUAL MODE:
 [<leader> + h]* = <git hunk menu>
 [<leader> + e]  = <tree toggle>
 [<leader> + a]  = <Maximizer>
+[<leader> + k]  = <telescope buffer list>
 [<leader> + f]  = <telescope find file>
 [<leader> + o]  = <telescope historial>
 [<leader> + sp] = <telescope colorscheme>
 [<leader> + l]  = <telescope livegrep>
-[<leader> + b] = <telescope livegrep current buffers>
+[<leader> + b] =  <telescope livegrep current buffers>
 [<leader> + p]  = <telescope Projects>
 [<leader> + m]  = <telescope marks>
 [<leader> + sl] = <telescope grep_string>
