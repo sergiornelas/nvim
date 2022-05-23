@@ -53,9 +53,9 @@ gitsigns.setup({
 		end
 
 		-- Navigation
-		map("n", "]c", function()
+		map("n", "cm", function()
 			if vim.wo.diff then
-				return "]c"
+				return "cm"
 			end
 			vim.schedule(function()
 				gs.next_hunk()
@@ -63,9 +63,9 @@ gitsigns.setup({
 			return "<Ignore>"
 		end, { expr = true })
 
-		map("n", "[c", function()
+		map("n", "cu", function()
 			if vim.wo.diff then
-				return "[c"
+				return "cu"
 			end
 			vim.schedule(function()
 				gs.prev_hunk()

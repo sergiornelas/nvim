@@ -22,6 +22,8 @@ vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 -- vim.cmd("set nofoldenable") --helps with everything fold
 
+vim.g.material_style = "deep ocean"
+
 -- Eliminate unnamed buffers
 vim.cmd([[
   function! CleanNoNameEmptyBuffers()

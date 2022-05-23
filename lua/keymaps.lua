@@ -23,6 +23,10 @@ map("n", "<leader>sl", "<cmd>Telescope grep_string theme=ivy<cr>")
 -- <NVIM TREE>
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
+-- <TOGGLE TERM>
+map("n", "<c-g>", "<cmd>ToggleTermToggleAll<cr>")
+map("t", "<c-g>", "<cmd>ToggleTermToggleAll<cr>")
+
 -- <MAXIMIZER>
 map("n", "<leader>a", "<cmd>MaximizerToggle!<cr>")
 
@@ -31,8 +35,8 @@ map("n", "<leader>sd", "<cmd>DiffviewOpen<cr>")
 map("n", "<leader>sf", "<cmd>DiffviewFileHistory<cr>")
 
 -- <BUFFER NAVIGATION>
-map("n", "<c-k>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
-map("n", "<c-l>", "<cmd>BufferLineCycleNext<cr>") --next buffer
+-- map("n", "<c-k>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
+-- map("n", "<c-l>", "<cmd>BufferLineCycleNext<cr>") --next buffer
 map("n", "<c-c>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "®", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "∑", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
@@ -40,17 +44,21 @@ map("n", "∑", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 -- <CALENDAR>
 map("n", "<leader>;", "<cmd>Calendar<CR>") --move buffer tap to prev
 
+-- <LSP>
+map("n", "du", "<cmd>LspDiagPrev<CR>") --move buffer tap to prev
+map("n", "dm", "<cmd>LspDiagNext<CR>") --move buffer tap to prev
+
 -- AVOID UNPRACTICAL YANKING
 map("v", "p", '"_dP') --Pasting without yanking
 map("v", "P", '"_dP') --Pasting without yanking
 
 -- NAVIGATION
 map("n", "<c-j>", "<c-e>") --page scrolls up one line
-map("n", "<c-e>", "<c-y>") --pending fullscreen
-map("n", "<c-p>", "<c-u>") --pending fullscreen
-map("n", "<c-v>", "<c-f>") --pending fullscreen
-map("n", "<c-a>", "<c-w>W") --page scrolls up one line
-map("n", "<c-f>", "<c-w>w") --page scrolls up one line
+map("n", "<c-e>", "<c-y>") --page scrolls down one line
+map("n", "<c-p>", "<c-u>") --page scrolls half page up
+map("n", "<c-v>", "<c-f>") --fullscreen
+map("n", "<c-a>", "<c-w>W") --navigate through windows
+map("n", "<c-f>", "<c-w>w") --navigate through windows
 
 -- RESIZE WINDOW
 map("n", "å", "<cmd>vertical resize +4<cr>") --resize window horizontal
@@ -62,22 +70,26 @@ map("n", "<leader><leader>", "<c-w>=") --center windows
 -- UTILS
 map("n", "<leader>d", "<cmd>set hlsearch!<cr>") --highlights
 map("n", "<Leader>f", "<cmd>w<cr>") --save file
-map("n", "<Leader>q", "<cmd>q<cr>") --quit file
-map("n", "<Leader>ww", "<cmd>qa<cr>") --quit all files
+map("n", "<Leader>q", "<cmd>q<cr>") --close window
+map("n", "<Leader>ww", "<cmd>qa<cr>") --quit all saved buffers and exit
 map("n", "<c-q><c-q>", "<cmd>qa!<cr>") --close nvim no restrictions
 map("n", "<Leader>j", "zz") --center text
 map("n", "<Leader>u", "<cmd>tabclose<cr>") --close current tab
-map("n", "<c-s>", "<cmd>StartupTime<cr>") --close current tab
+map("n", "<c-s>", "<cmd>StartupTime<cr>") --StartupTime
 map("n", "V", "vg_") --visual to the right
 map("n", "vv", "Vg_") --visual whole line
 map("n", "J", "mzJ`z") --cursor stay current position when J
 map("n", "<Leader>g", "gt") --next tab
 map("n", "<Leader>t", "gT") --prev tab
 map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
-map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --new tab
+map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --clean no name buf
 map("i", "<c-g>", "<c-o>$") --insert mode goes end of the line and insert mode again
 map("n", "zl", "z3l") --zoom left x3
 map("n", "zh", "z3h") --zoom right x3
+map("v", "zl", "z3l") --zoom left x3
+map("v", "zh", "z3h") --zoom right x3
+map("n", "d<leader>", "cc<esc>") --clear line without deleting line
+map("n", "<c-z>", "<leader>") --pending
 
 -- COMMAND SUBSTITUTION
 -- Q
@@ -97,31 +109,34 @@ map("v", "$", "-")
 map("n", "d$", "d-")
 map("n", "q$", "y-")
 -- I
-map("n", "^", "(")
-map("v", "^", "(")
-map("n", "d^", "d(")
-map("n", "q^", "y(")
--- O in vim cmd
+map("n", "#", "(")
+map("v", "#", "(")
+map("n", "d#", "d(")
+map("n", "q#", "y(")
+-- O
+map("n", "+", ")")
+map("v", "+", ")")
+map("n", "d+", "d)")
+map("n", "q+", "y)")
 -- A
--- S, D are the same
 map("n", "(", "^")
 map("v", "(", "^")
 map("n", "d(", "d^")
 map("n", "q(", "y^")
+-- S, D are the same
 -- F
 map("n", "-", "}")
 map("v", "-", "}")
 map("n", "d-", "d}")
 map("n", "q-", "y}")
 -- G
-map("n", "+", "$")
-map("v", "+", "$")
-map("n", "d+", "d$")
-map("n", "q+", "y$")
+map("n", "[", "$")
+map("v", "[", "$")
+map("n", "d[", "d$")
+map("n", "q[", "y$")
 -- H
-map("n", "#", "=")
-map("n", "d#", "d=")
-map("n", "q#", "y=")
+map("n", "]", "=")
+map("v", "]", "=")
 -- J
 map("n", "=", "%")
 map("v", "=", "%")
@@ -133,19 +148,26 @@ map("n", "}", "&")
 map("n", "!", "|")
 map("v", "!", "|")
 map("n", "d!", "|")
-map("n", "d!", "|")
+map("n", "q!", "|")
 -- C, V are the same
 -- B
 map("n", "%", "!")
--- N is the same
+-- N
+map("n", '"', "~")
+map("v", '"', "~")
+map("n", 'd"', "d~")
 -- M
-map("n", "|", "*")
-map("v", "|", "*")
-map("n", "d|", "d*")
--- map("n", "q|", "mzy0`z")
+-- """"
+map("n", '"', "*")
+map("v", '"', "*")
+map("n", 'd"', "d*")
+map("n", 'q"', "q*")
 
 -- VIM MAPPING
 vim.cmd([[
+  " tnoremap <jk> <C-\><C-n>
+  " tnoremap <esc> <C-\><C-n>
+
   vnoremap <silent><c-j> :m '>+1<cr>gv=gv
   vnoremap <silent><c-k> :m '<-2<cr>gv=gv
 
@@ -159,12 +181,12 @@ vim.cmd([[
   nnoremap <leader>so :so %<cr>
 
   " COMMAND SUBSTITUTION
-  nnoremap \ )
-  vnoremap \ )
+  " nnoremap \ )
+  " vnoremap \ )
 
   " SESSIONS
   nnoremap <leader>wj :mksession! ~/sessions/
-  nnoremap <leader>sj :source ~/sessions/
+  nnoremap <leader>ss :source ~/sessions/
 
   " <TRANSPARENCY>
   nnoremap <leader>s; :TransparentToggle<CR>
@@ -174,7 +196,7 @@ vim.cmd([[
 
   " <LUASNIP>
   snoremap <c-h> <BS>i
-  nnoremap <leader>ss <CMD>LuaSnipUnlinkCurrent<CR>
+  nnoremap <leader>sj <CMD>LuaSnipUnlinkCurrent<CR>
 
   " <TELESCOPE>
   nnoremap <silent><leader>sp :lua require("plugins.telescope").choose_colors()<cr>

@@ -64,11 +64,31 @@ return packer.startup(function(use)
 	use("folke/tokyonight.nvim")
 	use("marko-cerovac/material.nvim")
 	use("ishan9299/nvim-solarized-lua")
+	use("savq/melange")
+	use("Mofiqul/dracula.nvim")
+	use("sainnhe/everforest")
+	use("sainnhe/sonokai")
+	use("shaeinst/roshnivim-cs")
+	use("ray-x/aurora")
+	use("fenetikm/falcon")
+	use("yashguptaz/calvera-dark.nvim")
+	use("projekt0n/github-nvim-theme")
+	use("rose-pine/neovim")
+	use("olimorris/onedarkpro.nvim")
+	use("rmehri01/onenord.nvim")
+	use("tiagovla/tokyodark.nvim")
+	use("cpea2506/one_monokai.nvim")
+	use("sainnhe/edge")
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 	use({
 		"navarasu/onedark.nvim",
 		config = function()
 			require("onedark").setup({
 				toggle_style_key = "<leader>x",
+				style = "deep",
 			})
 		end,
 	})
@@ -81,16 +101,6 @@ return packer.startup(function(use)
 				},
 			})
 		end,
-	})
-	use("savq/melange")
-	use("theniceboy/nvim-deus")
-	use("Mofiqul/dracula.nvim")
-	use("kwsp/halcyon-neovim")
-	use("sainnhe/everforest")
-	use("sainnhe/sonokai")
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
 	})
 
 	-- TRANSPARENT NVIM --------------------------------
@@ -323,13 +333,20 @@ return packer.startup(function(use)
 	})
 
 	-- LIGHTSPEED -------------------------------------------
+	-- use({
+	-- 	"ggandor/lightspeed.nvim",
+	-- 	config = function()
+	-- 		require("lightspeed").setup({
+	-- 			ignore_case = false,
+	-- 			-- exit_after_idle_msecs = { unlabeled = 1000, labeled = 600 },
+	-- 		})
+	-- 	end,
+	-- })
+
 	use({
-		"ggandor/lightspeed.nvim",
+		"ggandor/leap.nvim",
 		config = function()
-			require("lightspeed").setup({
-				ignore_case = false,
-				-- exit_after_idle_msecs = { unlabeled = 1000, labeled = 600 },
-			})
+			require("plugins.leap")
 		end,
 	})
 
@@ -337,10 +354,30 @@ return packer.startup(function(use)
 	use("szw/vim-maximizer")
 
 	-- GOOGLE CALENDAR/TASKS -----------------------------
-	-- use("itchyny/calendar.vim")
+	use("itchyny/calendar.vim")
 
+	-- JEST TESTING -----------------------------
 	use({
 		"David-Kunz/jester",
+	})
+
+	-- BUFFER NAVIGATION -----------------------------
+	use({
+		"ghillb/cybu.nvim",
+		branch = "v1.x", -- won't receive breaking changes
+		-- branch = "main", -- timely updates
+		requires = { "kyazdani42/nvim-web-devicons" }, --optional
+		config = function()
+			local ok, cybu = pcall(require, "cybu")
+			if not ok then
+				return
+			end
+			cybu.setup({
+				display_time = 500, -- time the cybu window is displayed
+			})
+			vim.keymap.set("n", "<c-k>", "<Plug>(CybuPrev)")
+			vim.keymap.set("n", "<c-l>", "<Plug>(CybuNext)")
+		end,
 	})
 
 	-- -- TAB NINE ------------------------------------------

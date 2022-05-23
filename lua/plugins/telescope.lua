@@ -51,7 +51,6 @@ telescope.setup({
 
 -- TELESCOPE APPLY COLORSCHEME WITHOUT CLOSING THE PICKER
 local M = {}
-
 M.choose_colors = function()
 	local actions_state = require("telescope.actions.state")
 	local pickers = require("telescope.pickers")
