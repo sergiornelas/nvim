@@ -34,4 +34,4 @@ function Leap_bidirectional()
 end
 
 -- Map them to your preferred key, like:
-vim.keymap.set("n", "s", Leap_all_windows, { silent = true })
+vim.keymap.set("n", "s", Leap_bidirectional, { silent = true })

@@ -8,6 +8,8 @@ toggleterm.setup({
 	direction = "vertical",
 	size = vim.o.columns * 1,
 	insert_mappings = true, --disables toggle term when you're on insert mode
+	shading_factor = 3,
+	-- on_open = fun(t: Terminal)
 	-- persist_size = false,
 	-- float_opts = {
 	-- 	border = "single",
@@ -21,8 +23,12 @@ toggleterm.setup({
 function _G.set_terminal_keymaps()
 	local opts = { noremap = true }
 	vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-v>", [[<C-\><C-n><C-W>ja<c-h>]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-o>", [[<C-\><C-n><C-W>ka<c-h>]], opts)
+	-- vim.api.nvim_buf_set_keymap(0, "t", "<C-v>", [[<C-\><C-n><C-W>ja<c-h>]], opts)
+	-- vim.api.nvim_buf_set_keymap(0, "t", "<C-o>", [[<C-\><C-n><C-W>ka<c-h>]], opts)
+	-- vim.api.nvim_buf_set_keymap(0, "n", "<C-v>", [[<C-\><C-n><C-W>j]], opts)
+	-- vim.api.nvim_buf_set_keymap(0, "n", "<C-o>", [[<C-\><C-n><C-W>k]], opts)
+	vim.api.nvim_buf_set_keymap(0, "t", "<C-v>", [[<C-\><C-n><C-W>j]], opts)
+	vim.api.nvim_buf_set_keymap(0, "t", "<C-o>", [[<C-\><C-n><C-W>k]], opts)
 	vim.api.nvim_buf_set_keymap(0, "n", "<C-v>", [[<C-\><C-n><C-W>j]], opts)
 	vim.api.nvim_buf_set_keymap(0, "n", "<C-o>", [[<C-\><C-n><C-W>k]], opts)
 end

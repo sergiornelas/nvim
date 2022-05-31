@@ -15,8 +15,10 @@ telescope.setup({
 		mappings = {
 			i = {
 				["<esc>"] = actions.close,
-				["<C-k>"] = actions.move_selection_next,
-				["<C-l>"] = actions.move_selection_previous,
+				-- ["<C-k>"] = actions.move_selection_next,
+				-- ["<C-l>"] = actions.move_selection_previous,
+				["<C-f>"] = actions.move_selection_next,
+				["<C-d>"] = actions.move_selection_previous,
 				["<C-j>"] = actions.select_default,
 				["<C-n>"] = actions.cycle_history_next,
 				["<C-p>"] = actions.cycle_history_prev,
@@ -90,8 +92,11 @@ M.choose_colors = function()
 		sorter = sorters.get_generic_fuzzy_sorter({}),
 		attach_mappings = function(prompt_bufnr, map)
 			map("i", "<C-j>", SelectPersistColor)
-			map("i", "<C-k>", Next_color)
-			map("i", "<C-l>", Prev_color)
+			map("i", "<cr>", SelectPersistColor)
+			-- map("i", "<C-k>", Next_color)
+			-- map("i", "<C-l>", Prev_color)
+			map("i", "<C-f>", Next_color)
+			map("i", "<C-d>", Prev_color)
 			return true
 		end,
 	}
@@ -101,3 +106,17 @@ M.choose_colors = function()
 end
 
 return M
+
+-- For all of you out there who enjoy this music like myself…
+-- you should try Danheim and Heldom, if you have not discovered
+-- these artists already.
+-- Rúnfell
+-- Einar Selvik and Forndom.
+-- Gealdýr
+-- FUIMADANE
+-- Munknörr
+-- Runar and Undergang
+-- Eivor
+-- Osi and The Jupiter.
+-- Empty Moons
+-- Vevaki

@@ -304,6 +304,13 @@ return packer.startup(function(use)
 			require("plugins.lualine")
 		end,
 	})
+	-- GPS -----------------------------
+	use({
+		"SmiteshP/nvim-gps",
+		config = function()
+			require("nvim-gps").setup()
+		end,
+	})
 
 	-- NOTES -------------------------------------------------
 	use({
@@ -359,25 +366,6 @@ return packer.startup(function(use)
 	-- JEST TESTING -----------------------------
 	use({
 		"David-Kunz/jester",
-	})
-
-	-- BUFFER NAVIGATION -----------------------------
-	use({
-		"ghillb/cybu.nvim",
-		branch = "v1.x", -- won't receive breaking changes
-		-- branch = "main", -- timely updates
-		requires = { "kyazdani42/nvim-web-devicons" }, --optional
-		config = function()
-			local ok, cybu = pcall(require, "cybu")
-			if not ok then
-				return
-			end
-			cybu.setup({
-				display_time = 500, -- time the cybu window is displayed
-			})
-			vim.keymap.set("n", "<c-k>", "<Plug>(CybuPrev)")
-			vim.keymap.set("n", "<c-l>", "<Plug>(CybuNext)")
-		end,
 	})
 
 	-- -- TAB NINE ------------------------------------------

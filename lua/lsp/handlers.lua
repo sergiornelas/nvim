@@ -44,6 +44,9 @@ M.setup = function()
 	})
 end
 
+-- css
+require("lspconfig").cssls.setup({})
+
 local function lsp_highlight_document(client)
 	-- Set autocommands conditional on server_capabilities
 	if client.resolved_capabilities.document_highlight then

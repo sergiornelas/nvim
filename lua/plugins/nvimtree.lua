@@ -3,8 +3,6 @@ if not status_ok then
 	return
 end
 
-vim.g.nvim_tree_respect_buf_cwd = 1
-
 nvim_tree.setup({
 	disable_netrw = true,
 	hijack_netrw = true,
@@ -15,6 +13,7 @@ nvim_tree.setup({
 	hijack_cursor = true,
 	update_cwd = true, --IMPORTANT (true) FOR UPDATING FOLDER (big folders structure)
 	hijack_unnamed_buffer_when_opening = false,
+	respect_buf_cwd = true,
 	hijack_directories = {
 		enable = true,
 		auto_open = true,
@@ -24,8 +23,6 @@ nvim_tree.setup({
 		update_cwd = true, --change the folders on new project
 	},
 	view = {
-		width = 30,
-		height = 30,
 		hide_root_folder = false,
 		side = "left",
 		mappings = {

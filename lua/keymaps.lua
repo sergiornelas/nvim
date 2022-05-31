@@ -35,9 +35,9 @@ map("n", "<leader>sd", "<cmd>DiffviewOpen<cr>")
 map("n", "<leader>sf", "<cmd>DiffviewFileHistory<cr>")
 
 -- <BUFFER NAVIGATION>
--- map("n", "<c-k>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
--- map("n", "<c-l>", "<cmd>BufferLineCycleNext<cr>") --next buffer
-map("n", "<c-c>", "<cmd>Bdelete<CR>") --close buffer without closing window.
+map("n", "<c-d>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
+map("n", "<c-f>", "<cmd>BufferLineCycleNext<cr>") --next buffer
+map("n", "<c-h>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "®", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "∑", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 
@@ -54,11 +54,13 @@ map("v", "P", '"_dP') --Pasting without yanking
 
 -- NAVIGATION
 map("n", "<c-j>", "<c-e>") --page scrolls up one line
-map("n", "<c-e>", "<c-y>") --page scrolls down one line
+map("n", "<c-k>", "<c-y>") --page scrolls down one line
+map("n", "<c-e>", "<c-d>") --page scrolls half page up
 map("n", "<c-p>", "<c-u>") --page scrolls half page up
 map("n", "<c-v>", "<c-f>") --fullscreen
+map("n", "<c-u>", "<c-b>") --fullscreen
 map("n", "<c-a>", "<c-w>W") --navigate through windows
-map("n", "<c-f>", "<c-w>w") --navigate through windows
+map("n", "<c-l>", "<c-w>w") --navigate through windows
 
 -- RESIZE WINDOW
 map("n", "å", "<cmd>vertical resize +4<cr>") --resize window horizontal
@@ -84,10 +86,10 @@ map("n", "<Leader>t", "gT") --prev tab
 map("n", "<Leader>st", "<cmd>tabnew %<cr>") --new tab
 map("n", "<Leader>we", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --clean no name buf
 map("i", "<c-g>", "<c-o>$") --insert mode goes end of the line and insert mode again
-map("n", "zl", "z3l") --zoom left x3
-map("n", "zh", "z3h") --zoom right x3
-map("v", "zl", "z3l") --zoom left x3
-map("v", "zh", "z3h") --zoom right x3
+map("n", "zl", "z6l") --zoom left x3
+map("n", "zh", "z6h") --zoom right x3
+map("v", "zl", "z6l") --zoom left x3
+map("v", "zh", "z6h") --zoom right x3
 map("n", "d<leader>", "cc<esc>") --clear line without deleting line
 map("n", "<c-z>", "<leader>") --pending
 
@@ -183,6 +185,8 @@ vim.cmd([[
   " COMMAND SUBSTITUTION
   " nnoremap \ )
   " vnoremap \ )
+
+  nnoremap <silent> z. :<C-u>normal! zszH<CR>
 
   " SESSIONS
   nnoremap <leader>wj :mksession! ~/sessions/
