@@ -4,8 +4,9 @@ if not status_ok then
 end
 
 toggleterm.setup({
-	open_mapping = [[<c-t>]],
-	direction = "vertical",
+	-- open_mapping = [[<c-t>]],
+	-- direction = "vertical",
+	direction = "float",
 	size = vim.o.columns * 1,
 	insert_mappings = true, --disables toggle term when you're on insert mode
 	shading_factor = 3,

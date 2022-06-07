@@ -24,8 +24,8 @@ map("n", "<leader>sl", "<cmd>Telescope grep_string theme=ivy<cr>")
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
 -- <TOGGLE TERM>
-map("n", "<c-g>", "<cmd>ToggleTermToggleAll<cr>")
-map("t", "<c-g>", "<cmd>ToggleTermToggleAll<cr>")
+-- map("n", "<c-g>", "<cmd>ToggleTermToggleAll<cr>")
+-- map("t", "<c-g>", "<cmd>ToggleTermToggleAll<cr>")
 
 -- <MAXIMIZER>
 map("n", "<leader>a", "<cmd>MaximizerToggle!<cr>")
@@ -38,11 +38,12 @@ map("n", "<leader>sf", "<cmd>DiffviewFileHistory<cr>")
 map("n", "<c-d>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
 map("n", "<c-f>", "<cmd>BufferLineCycleNext<cr>") --next buffer
 map("n", "<c-h>", "<cmd>Bdelete<CR>") --close buffer without closing window.
+-- map("n", "<c-H>", "<cmd>Bdelete<CR><cmd>q<cr>") --close buffer and window
 map("n", "®", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "∑", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
 
 -- <CALENDAR>
-map("n", "<leader>;", "<cmd>Calendar<CR>") --move buffer tap to prev
+map("n", "<leader><cr>", "<cmd>Calendar<CR>") --move buffer tap to prev
 
 -- <LSP>
 map("n", "du", "<cmd>LspDiagPrev<CR>") --move buffer tap to prev
@@ -91,7 +92,7 @@ map("n", "zh", "z6h") --zoom right x3
 map("v", "zl", "z6l") --zoom left x3
 map("v", "zh", "z6h") --zoom right x3
 map("n", "d<leader>", "cc<esc>") --clear line without deleting line
-map("n", "<c-z>", "<leader>") --pending
+-- map("n", "<c-z>", "<leader>") --pending
 
 -- COMMAND SUBSTITUTION
 -- Q
@@ -99,27 +100,30 @@ map("n", "&", "#")
 map("v", "&", "#")
 map("n", "d&", "d#")
 map("n", "q&", "y#")
--- W, E, R are the same
+-- W, E are the same
+-- R
+map("n", "+", "@")
+map("v", "+", "@")
 -- T
 map("n", "*", "+")
 map("v", "*", "+")
 map("n", "d*", "d+")
 map("n", "q*", "y+")
 -- U
-map("n", "$", "-")
-map("v", "$", "-")
-map("n", "d$", "d-")
-map("n", "q$", "y-")
+map("n", "#", "-")
+map("v", "#", "-")
+map("n", "d#", "d-")
+map("n", "q#", "y-")
 -- I
-map("n", "#", "(")
-map("v", "#", "(")
-map("n", "d#", "d(")
-map("n", "q#", "y(")
+map("n", "$", "(")
+map("v", "$", "(")
+map("n", "d$", "d(")
+map("n", "q$", "y(")
 -- O
-map("n", "+", ")")
-map("v", "+", ")")
-map("n", "d+", "d)")
-map("n", "q+", "y)")
+map("n", "@", ")")
+map("v", "@", ")")
+map("n", "d@", "d)")
+map("n", "q@", "y)")
 -- A
 map("n", "(", "^")
 map("v", "(", "^")
@@ -155,15 +159,14 @@ map("n", "q!", "|")
 -- B
 map("n", "%", "!")
 -- N
-map("n", '"', "~")
-map("v", '"', "~")
-map("n", 'd"', "d~")
+map("n", "}", "~")
+map("v", "}", "~")
+map("n", "d}", "d~")
 -- M
--- """"
-map("n", '"', "*")
-map("v", '"', "*")
-map("n", 'd"', "d*")
-map("n", 'q"', "q*")
+map("n", ")", "*")
+map("v", ")", "*")
+map("n", "d)", "d*")
+map("n", "q)", "q*")
 
 -- VIM MAPPING
 vim.cmd([[

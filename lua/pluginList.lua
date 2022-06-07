@@ -362,11 +362,25 @@ return packer.startup(function(use)
 
 	-- GOOGLE CALENDAR/TASKS -----------------------------
 	use("itchyny/calendar.vim")
+	-- rm -rf ~/.cache/calendar.vim/google/
 
 	-- JEST TESTING -----------------------------
 	use({
 		"David-Kunz/jester",
 	})
+
+	-- use({
+	-- 	"chentoast/marks.nvim",
+	-- 	require("marks").setup({
+	-- 		mappings = {
+	-- 			set_next = "m,",
+	-- 			next = "m]",
+	-- 			preview = "m;",
+	-- 			set_bookmark0 = "m0",
+	-- 			prev = false, -- pass false to disable only this default mapping
+	-- 		},
+	-- 	}),
+	-- })
 
 	-- -- TAB NINE ------------------------------------------
 	-- use({
