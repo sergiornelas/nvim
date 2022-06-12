@@ -275,14 +275,6 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- TERMINAL ------------------------------------------------
-	use({
-		"akinsho/toggleterm.nvim",
-		config = function()
-			require("plugins.toggleterm")
-		end,
-	})
-
 	-- PROJECT --------------------------------------------------
 	use({
 		"ahmedkhalf/project.nvim",
@@ -340,6 +332,12 @@ return packer.startup(function(use)
 	})
 
 	-- LIGHTSPEED -------------------------------------------
+	use({
+		"ggandor/leap.nvim",
+		config = function()
+			require("plugins.leap")
+		end,
+	})
 	-- use({
 	-- 	"ggandor/lightspeed.nvim",
 	-- 	config = function()
@@ -349,13 +347,6 @@ return packer.startup(function(use)
 	-- 		})
 	-- 	end,
 	-- })
-
-	use({
-		"ggandor/leap.nvim",
-		config = function()
-			require("plugins.leap")
-		end,
-	})
 
 	-- MAXIMIZER WINDOW ----------------------------------
 	use("szw/vim-maximizer")
@@ -381,25 +372,12 @@ return packer.startup(function(use)
 	-- 		},
 	-- 	}),
 	-- })
-
 	-- -- TAB NINE ------------------------------------------
 	-- use({
 	--   "tzachar/cmp-tabnine",
 	--   run = "./install.sh",
 	--   requires = "hrsh7th/nvim-cmp",
 	-- })
-	-- TABS -------------------------------------
-	-- use({
-	-- 	"nanozuki/tabby.nvim",
-	-- 	config = function()
-	-- 		require("tabby").setup({
-	-- 			-- tabline = require("tabby.presets").active_wins_at_tail,
-	-- 			tabline = require("tabby.presets").tab_only,
-	-- 		})
-	-- 		-- require('tabby.util').extract_nvim_hl(<highlight>)
-	-- 	end,
-	-- })
-
 	-- TELESCOPE MEDIA FILES --------------------------------
 	-- use "nvim-telescope/telescope-media-files.nvim"
 	-- DETAILED INFO CMP ------------------------------------
