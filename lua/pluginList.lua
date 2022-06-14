@@ -49,6 +49,9 @@ return packer.startup(function(use)
 		"nathom/filetype.nvim",
 	})
 	use({
+		"tjdevries/lazy.nvim",
+	})
+	use({
 		"lewis6991/impatient.nvim",
 	})
 	use({
@@ -116,6 +119,7 @@ return packer.startup(function(use)
 	-- CMP ---------------------------------------------
 	use({
 		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
 		after = "friendly-snippets",
 		config = function()
 			require("plugins.cmp")
@@ -130,17 +134,13 @@ return packer.startup(function(use)
 		after = "nvim-cmp",
 	})
 	use({
-		"hrsh7th/cmp-cmdline",
-		after = "nvim-cmp",
-	})
-	use({
 		"saadparwaiz1/cmp_luasnip",
-		after = "LuaSnip",
+		after = "nvim-cmp",
 	})
 	-- LSP CMP
 	use({
 		"hrsh7th/cmp-nvim-lsp",
-		after = "nvim-lspconfig",
+		after = "nvim-cmp",
 	})
 	-- LUA CMP
 	use({
@@ -151,15 +151,19 @@ return packer.startup(function(use)
 	-- SNIPPETS ------------------------------------------
 	use({
 		"L3MON4D3/LuaSnip",
+		module = "luasnip",
+		wants = "friendly-snippets",
 	})
 	use({
 		"rafamadriz/friendly-snippets",
 		event = "InsertEnter",
+		opt = true,
 	})
 
 	-- LSP ----------------------------------------------
 	use({
 		"neovim/nvim-lspconfig",
+		event = "VimEnter",
 		after = "nvim-lsp-installer",
 		config = function()
 			require("lsp")
@@ -201,6 +205,8 @@ return packer.startup(function(use)
 	-- COMMENTS --------------------------------------------
 	use({
 		"numToStr/Comment.nvim",
+		module = { "Comment", "Comment.api" },
+		keys = { "gc", "gb", "g<", "g>" },
 		config = function()
 			require("plugins.others").comment()
 		end,
@@ -208,17 +214,21 @@ return packer.startup(function(use)
 	-- JSX COMMENTS
 	use({
 		"JoosepAlviste/nvim-ts-context-commentstring",
+		after = "nvim-treesitter",
 	})
 
 	-- AUTOTAG ---------------------------------------------
 	use({
 		"windwp/nvim-ts-autotag",
+		after = "nvim-treesitter",
 		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	})
 
 	-- TELESCOPE ------------------------------------------
 	use({
 		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
+		module = "telescope",
 		requires = {
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
@@ -234,6 +244,7 @@ return packer.startup(function(use)
 	-- NVIM TREE ------------------------------------------
 	use({
 		"kyazdani42/nvim-tree.lua",
+		cmd = { "NvimTreeToggle", "NvimTreeRefresh" },
 		config = function()
 			require("plugins.nvimtree")
 		end,
@@ -246,6 +257,7 @@ return packer.startup(function(use)
 	-- COLORIZER ------------------------------------------
 	use({
 		"norcalli/nvim-colorizer.lua",
+		event = { "BufRead", "BufNewFile" },
 		config = function()
 			require("plugins.others").colorizer()
 		end,
@@ -254,6 +266,7 @@ return packer.startup(function(use)
 	-- GIT SIGNS -------------------------------------------
 	use({
 		"lewis6991/gitsigns.nvim",
+		event = "BufEnter",
 		config = function()
 			require("plugins.gitsigns")
 		end,
@@ -270,6 +283,7 @@ return packer.startup(function(use)
 	-- AUTOPAIRS ---------------------------------------------
 	use({
 		"windwp/nvim-autopairs",
+		event = "InsertEnter",
 		config = function()
 			require("plugins.autopairs")
 		end,
@@ -359,6 +373,26 @@ return packer.startup(function(use)
 	use({
 		"David-Kunz/jester",
 	})
+
+	-- use({
+	-- 	"stevearc/aerial.nvim",
+	-- 	module = "aerial",
+	-- 	cmd = { "AerialToggle", "AerialOpen", "AerialInfo" },
+	-- 	config = function()
+	-- 		-- require("plugins.leap")
+	-- 		require("aerial").setup({})
+	-- 	end,
+	-- })
+
+	-- Session manager
+	-- ["Shatur/neovim-session-manager"] = {
+	--   module = "session_manager",
+	--   cmd = "SessionManager",
+	--   event = "BufWritePost",
+	--   config = function()
+	--     require "configs.session_manager"
+	--   end,
+	-- },
 
 	-- use({
 	-- 	"chentoast/marks.nvim",

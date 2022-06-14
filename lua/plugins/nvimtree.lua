@@ -6,13 +6,10 @@ end
 nvim_tree.setup({
 	disable_netrw = true,
 	hijack_netrw = true,
-	open_on_setup = false,
 	ignore_ft_on_setup = {},
-	auto_reload_on_write = true,
 	open_on_tab = false,
 	hijack_cursor = true,
 	update_cwd = true, --IMPORTANT (true) FOR UPDATING FOLDER (big folders structure)
-	hijack_unnamed_buffer_when_opening = false,
 	respect_buf_cwd = true,
 	hijack_directories = {
 		enable = true,
@@ -29,10 +26,13 @@ nvim_tree.setup({
 			custom_only = false,
 			list = {
 				{ key = { "l", "<CR>", "o" }, action = "edit" },
+				{ key = "q", action = "copy_path" },
+				{ key = "gj", action = "prev_git_item" },
+				{ key = "gk", action = "next_git_item" },
 			},
 		},
 		signcolumn = "yes",
-		-- auto_resize = true,
+		adaptive_size = true,
 	},
 	actions = {
 		change_dir = {
@@ -44,6 +44,15 @@ nvim_tree.setup({
 	},
 	git = {
 		ignore = false,
+	},
+	renderer = {
+		icons = {
+			glyphs = {
+				git = {
+					unstaged = "",
+				},
+			},
+		},
 	},
 	-- auto_close = false,
 })

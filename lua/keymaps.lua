@@ -87,6 +87,7 @@ map("v", "zl", "z6l") --zoom left
 map("v", "zh", "z6h") --zoom right
 map("n", "d<leader>", "cc<esc>") --clear line without deleting line
 map("i", "<c-o>", "<esc>O") --clear line without deleting line
+map("n", "<leader>c", "<c-g>") --clear line without deleting line
 
 -- VIM MAPPING
 vim.cmd([[
@@ -177,10 +178,10 @@ map("v", "%", ")")
 map("n", "d%", "d)")
 map("n", "q%", "y)")
 -- A
-map("n", "(", "^")
-map("v", "(", "^")
-map("n", "d(", "d^")
-map("n", "q(", "y^")
+map("n", "(", "*")
+map("v", "(", "*")
+map("n", "d(", "d*")
+map("n", "q(", "y*")
 -- S
 map("n", "{", "?")
 map("v", "{", "?")
@@ -212,10 +213,10 @@ map("n", "q=", "y%")
 -- K
 map("n", "}", "&")
 -- Z
-map("n", "!", "|")
-map("v", "!", "|")
-map("n", "d!", "|")
-map("n", "q!", "|")
+map("n", "!", "^")
+map("v", "!", "^")
+map("n", "d!", "^")
+map("n", "q!", "^")
 -- C, V are the same
 -- B
 map("n", "@", "!")
@@ -224,7 +225,7 @@ map("n", "}", "~")
 map("v", "}", "~")
 map("n", "d}", "d~")
 -- M
-map("n", ")", "*")
-map("v", ")", "*")
-map("n", "d)", "d*")
-map("n", "q)", "q*")
+map("n", ")", "|")
+map("v", ")", "|")
+map("n", "d)", "d|")
+map("n", "q)", "q|")

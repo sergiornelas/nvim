@@ -102,17 +102,3 @@ M.choose_colors = function()
 end
 
 return M
-
--- For all of you out there who enjoy this music like myself…
--- you should try Danheim and Heldom, if you have not discovered
--- these artists already.
--- Rúnfell
--- Einar Selvik and Forndom.
--- Gealdýr
--- FUIMADANE
--- Munknörr
--- Runar and Undergang
--- Eivor
--- Osi and The Jupiter.
--- Empty Moons
--- Vevaki
