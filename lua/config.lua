@@ -8,6 +8,9 @@ vim.g.python3_host_prog = "/usr/local/bin/python3"
 -- VIM ROOTER SILENT WHEN SWITCHING TO DIFFERENT PROJECTS
 vim.g.rooter_silent_chdir = 1
 
+-- HIGHLIGHT
+vim.g.cursorhold_updatetime = 100
+
 -- Highlight on yank
 vim.cmd([[
   augroup YankHighlight

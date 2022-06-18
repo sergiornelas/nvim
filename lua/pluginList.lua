@@ -227,8 +227,6 @@ return packer.startup(function(use)
 	-- TELESCOPE ------------------------------------------
 	use({
 		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
-		module = "telescope",
 		requires = {
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
@@ -373,6 +371,17 @@ return packer.startup(function(use)
 	use({
 		"David-Kunz/jester",
 	})
+
+	use({ "antoinemadec/FixCursorHold.nvim" })
+	-- use({ "RRethy/vim-illuminate" })
+	-- https://github.com/RRethy/vim-illuminate
+
+	-- use({ "sergiornelas/vim-tmux-navigator", commit = "9ca5bfe5bd274051b5dd796cc150348afc993b80" })
+
+	-- DAP -----------------------------
+	-- use("mfusseneger/nvim-dap")
+	-- use("rcarriga/nvim-dap-ui")
+	-- use("ravenxrz/DAPInstall.nvim")
 
 	-- use({
 	-- 	"stevearc/aerial.nvim",
