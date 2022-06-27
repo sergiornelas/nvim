@@ -369,7 +369,6 @@ return packer.startup(function(use)
 	})
 
 	-- RRethy/vim-illuminate
-
 	use({
 		"ghillb/cybu.nvim",
 		-- branch = "v1.x", -- won't receive breaking changes

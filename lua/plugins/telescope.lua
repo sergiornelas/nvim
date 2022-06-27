@@ -57,6 +57,7 @@ M.choose_colors = function()
 	local finders = require("telescope.finders")
 	local sorters = require("telescope.sorters")
 	local dropdown = require("telescope.themes").get_dropdown()
+	-- local dropdown = require("telescope.themes").get_dropdown({ winblend = 20 })
 
 	function SelectPersistColor(prompt_bufnr)
 		local selected = actions_state.get_selected_entry()

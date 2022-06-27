@@ -10,16 +10,16 @@ end
 vim.g.mapleader = " " --Leader
 
 -- <TELESCOPE>
-map("n", "<leader>i", "<cmd>Rooter | Telescope find_files theme=ivy<cr>")
-map("n", "<leader>l", "<cmd>Rooter | Telescope live_grep theme=ivy<cr>")
-map("n", "<leader>sl", "<cmd>Rooter | Telescope grep_string theme=ivy<cr>")
+map("n", "<leader>i", "<cmd>Telescope find_files theme=ivy<cr>")
+map("n", "<leader>l", "<cmd>Telescope live_grep theme=ivy<cr>")
+map("n", "<leader>sl", "<cmd>Telescope grep_string theme=ivy<cr>")
 map("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy<cr>")
-map("n", "<leader>p", "<cmd>Telescope project theme=dropdown<cr>")
-map("n", "<leader>k", "<cmd>Telescope buffers theme=ivy<cr>")
+map("n", "<leader>p", "<cmd>Telescope project theme=dropdown layout_config={width=0.16}<cr>")
+map("n", "<leader>k", "<cmd>Telescope buffers theme=dropdown<cr>")
 map("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>")
 
 -- <NVIM TREE>
-map("n", "<leader>e", "<cmd>Rooter | NvimTreeToggle <cr>")
+map("n", "<leader>e", "<cmd>NvimTreeToggle <cr>")
 
 -- <MAXIMIZER>
 map("n", "<leader>a", "<cmd>MaximizerToggle!<cr>")
@@ -51,8 +51,8 @@ map("n", "<c-f>", "<c-e>") --page scrolls down one line
 map("n", "<c-e>", "<c-y>") --page scrolls up one line
 map("n", "<c-v>", "<c-f>") --fullscreen
 map("n", "<c-p>", "<c-b>") --fullscreen
-map("n", "<c-a>", "<cmd>call PrevWindow() | Rooter<cr>") --navigate through windows
-map("n", "<c-q>", "<cmd>call NextWindow() | Rooter<cr>") --navigate through windows
+map("n", "<c-a>", "<c-w>w") --navigate through windows
+map("n", "<c-q>", "<c-w>W") --navigate through windows
 
 -- RESIZE WINDOW
 map("n", "å", "<cmd>vertical resize +4<cr>") --resize window horizontal
@@ -130,6 +130,7 @@ vim.cmd([[
   nnoremap <leader>sj <CMD>LuaSnipUnlinkCurrent<CR>
 
   "<TELESCOPE>
+  " nnoremap <silent><leader>sp :lua require("plugins.telescope").choose_colors()<cr>
   nnoremap <silent><leader>sp :lua require("plugins.telescope").choose_colors()<cr>
   nnoremap <silent><leader>b :lua require('telescope.builtin').live_grep({grep_open_files=true}) print('Current Buffers')<CR>
   vnoremap <silent><leader>l "zy:Telescope live_grep default_text=<C-r>z theme=ivy<cr>

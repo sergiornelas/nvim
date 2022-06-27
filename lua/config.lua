@@ -1,4 +1,4 @@
--- VIM ROOTER SILENT WHEN SWITCHING TO DIFFERENT PROJECTS
+-- VIM ROOTER
 vim.g.rooter_silent_chdir = 1
 vim.g.rooter_manual_only = 1
 
@@ -9,7 +9,7 @@ vim.g.cursorhold_updatetime = 100
 vim.g.gruvbox_baby_function_style = "NONE"
 vim.g.gruvbox_baby_keyword_style = "italic"
 vim.g.gruvbox_baby_telescope_theme = 1
-vim.g.gruvbox_baby_transparent_mode = 1
+vim.g.gruvbox_baby_transparent_mode = 0
 
 -- MATERIAL
 vim.g.material_style = "deep ocean"
@@ -40,15 +40,8 @@ vim.cmd([[
     endif
   endfunction
 
-  " Next/Prev windows
-  function! PrevWindow()
-    :exe "normal \<c-w>\w"
-  endfunction
-  function! NextWindow()
-    :exe "normal \<c-w>\W"
-  endfunction
-
-  " Avoids bug for opening sessions, only works on one nvimtree open
+  " Avoids crash when starting neovim with sessions
+  autocmd VimEnter * call timer_start(500, {-> execute("let g:rooter_manual_only = 0")})
   autocmd VimLeave * NvimTreeClose
 ]])
 
