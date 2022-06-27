@@ -1,34 +1,36 @@
--- INCREASE PYTHON PLUGINS LOADING
-vim.g.loaded_python_provider = 1
-vim.g.python_host_skip_check = 1
-vim.g.python_host_prog = "/usr/local/bin/python"
-vim.g.python3_host_skip_check = 1
-vim.g.python3_host_prog = "/usr/local/bin/python3"
-
 -- VIM ROOTER SILENT WHEN SWITCHING TO DIFFERENT PROJECTS
 vim.g.rooter_silent_chdir = 1
+vim.g.rooter_manual_only = 1
 
 -- HIGHLIGHT
 vim.g.cursorhold_updatetime = 100
 
--- Highlight on yank
-vim.cmd([[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]])
+-- GRUVBOX BABY
+vim.g.gruvbox_baby_function_style = "NONE"
+vim.g.gruvbox_baby_keyword_style = "italic"
+vim.g.gruvbox_baby_telescope_theme = 1
+vim.g.gruvbox_baby_transparent_mode = 1
 
+-- MATERIAL
+vim.g.material_style = "deep ocean"
+
+-- Sessions
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+
+-- Misc
 vim.opt.shortmess:append("c")
-
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 -- vim.cmd("set nofoldenable") --helps with everything fold
 
-vim.g.material_style = "deep ocean"
-
--- Eliminate unnamed buffers
 vim.cmd([[
+  " Highlight on yank
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  augroup end
+
+  " Eliminate unnamed buffers
   function! CleanNoNameEmptyBuffers()
     let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val) < 0 && (getbufline(v:val, 1, "$") == [""])')
     if !empty(buffers)
@@ -37,4 +39,22 @@ vim.cmd([[
     echo 'No buffer deleted'
     endif
   endfunction
+
+  " Next/Prev windows
+  function! PrevWindow()
+    :exe "normal \<c-w>\w"
+  endfunction
+  function! NextWindow()
+    :exe "normal \<c-w>\W"
+  endfunction
+
+  " Avoids bug for opening sessions, only works on one nvimtree open
+  autocmd VimLeave * NvimTreeClose
 ]])
+
+-- INCREASE PYTHON PLUGINS LOADING
+-- vim.g.loaded_python_provider = 1
+-- vim.g.python_host_skip_check = 1
+-- vim.g.python_host_prog = "/usr/local/bin/python"
+-- vim.g.python3_host_skip_check = 1
+-- vim.g.python3_host_prog = "/usr/local/bin/python3"

@@ -10,16 +10,16 @@ end
 vim.g.mapleader = " " --Leader
 
 -- <TELESCOPE>
-map("n", "<leader>i", "<cmd>Telescope find_files theme=ivy<cr>")
+map("n", "<leader>i", "<cmd>Rooter | Telescope find_files theme=ivy<cr>")
+map("n", "<leader>l", "<cmd>Rooter | Telescope live_grep theme=ivy<cr>")
+map("n", "<leader>sl", "<cmd>Rooter | Telescope grep_string theme=ivy<cr>")
 map("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy<cr>")
-map("n", "<leader>p", "<cmd>Telescope projects theme=ivy<cr>")
+map("n", "<leader>p", "<cmd>Telescope project theme=dropdown<cr>")
 map("n", "<leader>k", "<cmd>Telescope buffers theme=ivy<cr>")
-map("n", "<leader>l", "<cmd>Telescope live_grep theme=ivy<cr>")
 map("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>")
-map("n", "<leader>sl", "<cmd>Telescope grep_string theme=ivy<cr>")
 
 -- <NVIM TREE>
-map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+map("n", "<leader>e", "<cmd>Rooter | NvimTreeToggle <cr>")
 
 -- <MAXIMIZER>
 map("n", "<leader>a", "<cmd>MaximizerToggle!<cr>")
@@ -29,8 +29,8 @@ map("n", "<leader>sd", "<cmd>DiffviewOpen<cr>")
 map("n", "<leader>sf", "<cmd>DiffviewFileHistory %<cr>")
 
 -- <BUFFER NAVIGATION>
-map("n", "<c-e>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
-map("n", "<c-f>", "<cmd>BufferLineCycleNext<cr>") --next buffer
+-- map("n", "<c-j>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
+-- map("n", "<c-k>", "<cmd>BufferLineCycleNext<cr>") --next buffer
 map("n", "<c-h>", "<cmd>Bdelete<CR>") --close buffer without closing window.
 map("n", "®", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
 map("n", "∑", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
@@ -47,13 +47,12 @@ map("v", "p", '"_dP') --Pasting without yanking
 map("v", "P", '"_dP') --Pasting without yanking
 
 -- NAVIGATION
-map("n", "<c-j>", "<c-e>") --page scrolls up one line
-map("n", "<c-k>", "<c-y>") --page scrolls down one line
-map("n", "<c-p>", "<c-u>") --page scrolls half page up
+map("n", "<c-f>", "<c-e>") --page scrolls down one line
+map("n", "<c-e>", "<c-y>") --page scrolls up one line
 map("n", "<c-v>", "<c-f>") --fullscreen
-map("n", "<c-u>", "<c-b>") --fullscreen
-map("n", "<c-a>", "<c-w>W") --navigate through windows
-map("n", "<c-l>", "<c-w>w") --navigate through windows
+map("n", "<c-p>", "<c-b>") --fullscreen
+map("n", "<c-a>", "<cmd>call PrevWindow() | Rooter<cr>") --navigate through windows
+map("n", "<c-q>", "<cmd>call NextWindow() | Rooter<cr>") --navigate through windows
 
 -- RESIZE WINDOW
 map("n", "å", "<cmd>vertical resize +4<cr>") --resize window horizontal
@@ -68,7 +67,7 @@ map("n", "<Leader>f", "<cmd>w<cr>") --save file
 map("n", "<Leader>q", "<cmd>q<cr>") --close window
 map("n", "<Leader>Q", "<cmd>q!<cr>") --close window and file
 map("n", "<Leader>ww", "<cmd>qa<cr>") --quit all saved buffers and exit
-map("n", "<c-q><c-q>", "<cmd>qa!<cr>") --close nvim no restrictions
+map("n", "<c-c><c-c>", "<cmd>qa!<cr>") --close nvim no restrictions
 map("n", "<Leader>j", "zz") --center text
 map("n", "<Leader>u", "<cmd>tabclose<cr>") --close current tab
 map("n", "<c-s>", "<cmd>StartupTime<cr>") --StartupTime
@@ -108,6 +107,12 @@ vim.cmd([[
 
   "Center horizontal
   nnoremap <silent> z. :<C-u>normal! zszH<CR>
+
+  "Command Substitution
+  nnoremap \ [
+  nnoremap ^ ]
+  vnoremap \ [
+  vnoremap ^ ]
 
   "SESSIONS
   nnoremap <leader>wj :mksession! ~/sessions/
@@ -213,10 +218,10 @@ map("n", "q=", "y%")
 -- K
 map("n", "}", "&")
 -- Z
-map("n", "!", "^")
-map("v", "!", "^")
-map("n", "d!", "^")
-map("n", "q!", "^")
+map("n", "!", "|")
+map("v", "!", "|")
+map("n", "d!", "|")
+map("n", "q!", "|")
 -- C, V are the same
 -- B
 map("n", "@", "!")
@@ -225,7 +230,7 @@ map("n", "}", "~")
 map("v", "}", "~")
 map("n", "d}", "d~")
 -- M
-map("n", ")", "|")
-map("v", ")", "|")
-map("n", "d)", "d|")
-map("n", "q)", "q|")
+map("n", ")", "^")
+map("v", ")", "^")
+map("n", "d)", "d^")
+map("n", "q)", "q^")

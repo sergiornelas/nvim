@@ -16,7 +16,7 @@ lualine.setup({
 		globalstatus = true,
 	},
 	sections = {
-		lualine_a = { "mode" },
+		lualine_a = { "filename" },
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = {
 			{ gps.get_location, cond = gps.is_available },

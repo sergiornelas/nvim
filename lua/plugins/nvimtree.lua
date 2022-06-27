@@ -3,25 +3,38 @@ if not status_ok then
 	return
 end
 
+-- nvim_tree.setup()
 nvim_tree.setup({
 	disable_netrw = true,
-	hijack_netrw = true,
-	ignore_ft_on_setup = {},
-	open_on_tab = false,
 	hijack_cursor = true,
-	update_cwd = true, --IMPORTANT (true) FOR UPDATING FOLDER (big folders structure)
-	respect_buf_cwd = true,
-	hijack_directories = {
-		enable = true,
-		auto_open = true,
-	},
 	update_focused_file = {
 		enable = true, --cursor goes to the file
-		update_cwd = true, --change the folders on new project
+		update_root = false, --Update the root directory of the tree if the file is not under current root directory.
+		-- disabled because updates to current folder instead root .git
+	},
+	-- root_dirs = { ".git" }, -- Preferred root directories. Only relevant when `update_focused_file.update_root` is `true`
+	prefer_startup_root = false, --Prefer startup root directory when updating root directory of the tree. Only relevant when `update_focused_file.update_root` is `true`
+	sync_root_with_cwd = true, --Changes the tree root directory on `DirChanged` and refreshes the tree.
+	reload_on_bufenter = true, --Automatically reloads the tree on `BufEnter` nvim-tree.
+	respect_buf_cwd = true, --Will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
+	renderer = {
+		highlight_opened_files = "all",
+		icons = {
+			glyphs = {
+				git = {
+					unstaged = "",
+				},
+			},
+		},
+		indent_markers = {
+			enable = true,
+		},
 	},
 	view = {
 		hide_root_folder = false,
 		side = "left",
+		signcolumn = "yes",
+		adaptive_size = true,
 		mappings = {
 			custom_only = true,
 			list = {
@@ -29,7 +42,6 @@ nvim_tree.setup({
 				{ key = "q", action = "copy_path" },
 				{ key = "gk", action = "prev_git_item" },
 				{ key = "gj", action = "next_git_item" },
-				{ key = "<C-e>", action = "edit_in_place" },
 				{ key = "O", action = "edit_no_picker" },
 				{ key = { "<C-]>", "<2-RightMouse>" }, action = "cd" },
 				{ key = "<C-v>", action = "vsplit" },
@@ -65,31 +77,9 @@ nvim_tree.setup({
 				{ key = "S", action = "search_node" },
 				{ key = ".", action = "run_file_command" },
 				{ key = "g?", action = "toggle_help" },
+				-- { key = "<C-e>", action = "edit_in_place" },
 				-- { key = "<C-k>", action = "toggle_file_info" }
 			},
 		},
-		signcolumn = "yes",
-		adaptive_size = true,
 	},
-	actions = {
-		change_dir = {
-			global = false,
-		},
-		open_file = {
-			quit_on_open = false,
-		},
-	},
-	git = {
-		ignore = false,
-	},
-	renderer = {
-		icons = {
-			glyphs = {
-				git = {
-					unstaged = "",
-				},
-			},
-		},
-	},
-	-- auto_close = false,
 })

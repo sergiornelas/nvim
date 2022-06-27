@@ -16,12 +16,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost pluginList.lua source <afile> | PackerSync
-  augroup end
-]])
+-- vim.cmd([[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost pluginList.lua source <afile> | PackerSync
+--   augroup end
+-- ]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -62,6 +62,7 @@ return packer.startup(function(use)
 	-- COLORSCHEMES ---------------------------------------
 	use("lunarvim/darkplus.nvim")
 	use("ellisonleao/gruvbox.nvim")
+	use("luisiacc/gruvbox-baby")
 	use("rebelot/kanagawa.nvim")
 	use("nxvu699134/vn-night.nvim")
 	use("folke/tokyonight.nvim")
@@ -229,7 +230,6 @@ return packer.startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		requires = {
 			{
-				"nvim-telescope/telescope-fzf-native.nvim",
 				"nvim-lua/plenary.nvim",
 				run = "make",
 			},
@@ -242,14 +242,13 @@ return packer.startup(function(use)
 	-- NVIM TREE ------------------------------------------
 	use({
 		"kyazdani42/nvim-tree.lua",
-		cmd = { "NvimTreeToggle", "NvimTreeRefresh" },
+		cmd = { "NvimTreeToggle", "NvimTreeRefresh", "NvimTreeClose" },
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+		},
 		config = function()
 			require("plugins.nvimtree")
 		end,
-	})
-	-- DEVICONS
-	use({
-		"kyazdani42/nvim-web-devicons",
 	})
 
 	-- COLORIZER ------------------------------------------
@@ -288,15 +287,7 @@ return packer.startup(function(use)
 	})
 
 	-- PROJECT --------------------------------------------------
-	use({
-		"ahmedkhalf/project.nvim",
-		config = function()
-			require("project_nvim").setup({
-				manual_mode = true, --responsible for bug when open new sessions with tabs
-				--still not working properly (15/04/22)
-			})
-		end,
-	})
+	use("nvim-telescope/telescope-project.nvim")
 
 	-- ROOTER .GIT FOLDER (TRULY WORKS) -------------------------
 	use("airblade/vim-rooter")
@@ -329,13 +320,13 @@ return packer.startup(function(use)
 	})
 
 	-- BUFFERLINE --------------------------------------------------
-	use({
-		"akinsho/bufferline.nvim",
-		after = "nvim-web-devicons",
-		config = function()
-			require("plugins.bufferline")
-		end,
-	})
+	-- use({
+	-- 	"akinsho/bufferline.nvim",
+	-- 	after = "nvim-web-devicons",
+	-- 	config = function()
+	-- 		require("plugins.bufferline")
+	-- 	end,
+	-- })
 
 	-- BUFFER DELETE --------------------------------------------------
 	use({
@@ -367,22 +358,68 @@ return packer.startup(function(use)
 	use("itchyny/calendar.vim")
 	-- rm -rf ~/.cache/calendar.vim/google/
 
-	-- JEST TESTING -----------------------------
 	use({
-		"David-Kunz/jester",
+		"rmagatti/auto-session",
+		config = function()
+			require("auto-session").setup({
+				log_level = "info",
+				-- auto_session_suppress_dirs = { "~/", "~/Projects" },
+			})
+		end,
+	})
+
+	-- RRethy/vim-illuminate
+
+	use({
+		"ghillb/cybu.nvim",
+		-- branch = "v1.x", -- won't receive breaking changes
+		-- branch = "main", -- timely updates
+		-- requires = { "kyazdani42/nvim-web-devicons" }, --optional
+		config = function()
+			local ok, cybu = pcall(require, "cybu")
+			if not ok then
+				return
+			end
+			cybu.setup({
+				style = {
+					highlights = {
+						current_buffer = "rainbowcol7", -- current / selected buffer
+					},
+				},
+				behavior = { -- set behavior for different modes
+					mode = {
+						default = {
+							switch = "immediate", -- immediate, on_close
+							view = "paging", -- paging, rolling
+						},
+						last_used = {
+							switch = "immediate", -- immediate, on_close
+							view = "paging", -- paging, rolling
+						},
+					},
+				},
+			})
+			-- vim.keymap.set("n", "<c-k>", "<Plug>(CybuPrev)")
+			-- vim.keymap.set("n", "<c-j>", "<Plug>(CybuNext)")
+			-- vim.keymap.set({ "n", "v" }, "<c-k>", "<plug>(CybuLastusedPrev)")
+			-- vim.keymap.set({ "n", "v" }, "<c-j>", "<plug>(CybuLastusedNext)")
+			vim.keymap.set("n", "<c-k>", "<plug>(CybuLastusedPrev)")
+			vim.keymap.set("n", "<c-j>", "<plug>(CybuLastusedNext)")
+		end,
 	})
 
 	use({ "antoinemadec/FixCursorHold.nvim" })
 	-- use({ "RRethy/vim-illuminate" })
 	-- https://github.com/RRethy/vim-illuminate
 
-	-- use({ "sergiornelas/vim-tmux-navigator", commit = "9ca5bfe5bd274051b5dd796cc150348afc993b80" })
-
+	-- JEST TESTING -----------------------------
+	-- use({
+	-- 	"David-Kunz/jester",
+	-- })
 	-- DAP -----------------------------
 	-- use("mfusseneger/nvim-dap")
 	-- use("rcarriga/nvim-dap-ui")
 	-- use("ravenxrz/DAPInstall.nvim")
-
 	-- use({
 	-- 	"stevearc/aerial.nvim",
 	-- 	module = "aerial",
@@ -392,17 +429,6 @@ return packer.startup(function(use)
 	-- 		require("aerial").setup({})
 	-- 	end,
 	-- })
-
-	-- Session manager
-	-- ["Shatur/neovim-session-manager"] = {
-	--   module = "session_manager",
-	--   cmd = "SessionManager",
-	--   event = "BufWritePost",
-	--   config = function()
-	--     require "configs.session_manager"
-	--   end,
-	-- },
-
 	-- use({
 	-- 	"chentoast/marks.nvim",
 	-- 	require("marks").setup({

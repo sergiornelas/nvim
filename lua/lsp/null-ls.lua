@@ -9,7 +9,8 @@ end
 --=================={TSSERVER}=========================
 --  > npm install -g typescript typescript-language-server
 --  > npm install -g eslint_d
---  > npm install -g prettierd
+--  > npm install -g @fsouza/prettierd
+--  > brew install tidy-html5
 
 -- This plugin adds useful commands to organize and update imports, provides integration
 --  with null_ls to lint files with ESLint and format files with Prettier.
@@ -106,7 +107,7 @@ null_ls.setup({
 			filetypes = { "javascript", "javascriptreact" }, --(ts, tsx ommited)
 		}),
 		formatting.prettierd, --html, css, js, ts, jsx, tsx, json
-		diagnostics.tidy, --html (also has formatting)
+		-- diagnostics.tidy, --html (also has formatting)
 		formatting.stylua, --lua (also has range_formatting)
 		code_actions.gitsigns, -- *
 		-- diagnostics.jsonlint, --json

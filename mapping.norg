@@ -1,32 +1,4 @@
-﻿DON'T SET ANYTHING WITH <leader> THAT IS IN `INSERT MODE`
-
-Check this list in help:
-[:help ins-special-keys]
-=========Available maps==========
-{BACKSPACE}  = FREE
-{CTRL + ]}   = FREE
-{CTRL + [}   = FREE
-{CTRL + y}   = FREE (used for neorg links)
-{CTRL + ;}   = FREE Kitty
-{CTRL + /}   = FREE (?)
-{CTRL + h}   = FREE
-{CTRL + n}   = FREE
-{CTRL + u}   = FREE
-{CTRL + m}   = FREE kitty
-{<Leader >sg}= FREE
-{<Leader >sh}= FREE
-{<Leader >sk}= FREE
-{<Leader >:} = FREE
-{<Leader >z} = FREE
-{<Leader >x} = FREE (used for one dark colorscheme, but mappeable)
-{<Leader >c} = FREE
-{<Leader >v} = FREE
-{<Leader >b} = FREE
-{<Leader >y} = FREE
-{<, >c}      = You can map comma + key
-{CTRL + BACKSPACE} = FREE (?)
-=================================
-------------------------------------CTRL------------------------------------------------
+﻿------------------------------------CTRL------------------------------------------------
 VIM KEYBINDS
 [Ctrl + y] - move screen up one line (without moving cursor)
 [Ctrl + e] - move screen down one line (without moving cursor)
@@ -49,30 +21,6 @@ VIM KEYBINDS
 [Ctrl + q] = square select again (mappeable)
 [ctrl + c] = gives info about how to exit vim `(mapped as exit)`
 
-===MAPPED KEYS=========================
-NO PLUGINS
-[ctrl + p] = page scrolls up one line
-[ctrl + j] = page scrolls up half page
-[alt + h] = resize window
-[alt + j] = resize window
-[alt + k] = resize window
-[alt + l] = resize window
-[ctrl + q]x2 = close neovim without save
-[!]       = ^
-
-PLUGINS
-[ctrl + j] = Telescope buferlist, select-Telescope-Element, select-CMP-Element
-[ctrl + k] = next Telescope-Element, next CMP-element, next-Snippet-Checkpoint
-[ctrl + l] = previous-Telescope-element, previous-CMP-element, previous-Snippet-Checkpoint 
-[ctrl + q] = quick fix (you could replace this)
-[ctrl + s] = Startup Time
-[ctrl + e] = cmp close items
-[ctrl + g] = terminal
-[ctrl + t] = open second terminal
-[ctrl + k] = bufferlinecycleprev,
-[ctrl + l] = bufferlinecyclenext
-[ctrl + y] = neorg follow link (mappeable)
-
 -----------------------------------CTRL INSERT MODE--------------------------------------
 VIM KEYBINDS INSERT MODE:
 [Ctrl + h] - backpace
@@ -91,60 +39,3 @@ VIM KEYBINDS INSERT MODE:
 [Ctrl + y] - write character above cursor `(mappeable)`
 [Ctrl + n] - word completion next matching word
 [Ctrl + p] - word completion previous matching word
-
-VIM MAPPED KEYBINDS INSERT MODE:
-[Ctrl + g] - exit insert mode > goes end of the line > insert mode again
-
-PLUGIN MAPS INSERT MODE:
-[Ctrl + m] - autopairs
-
------------------------------------CTRL VISUAL MODE-------------------------------------
-VIM MAPS VISUAL MODE:
-[Ctrl + j] - move current line/lineblock bottom
-[Ctrl + k] - move current line/lineblock top
-[Ctrl + p] - page scrolls up one line
-
------------------------------------LEADER-----------------------------------------------
-<LEADER> (SPACE)
-[<leader> + r]  = :w
-[<leader> + q]  = :q
-[<leader> + so] = :so %
-[<leader> + u]  = close tab
-[<leader> + g]  = next tab
-[<leader> + t]  = prev tab
-[<leader> + st] = new tab
-[<leader> + j]  = zz
-[<leader> + ww] = close all buffers and exit (not force)
-[<leader> + we] = Call CleanNoNameEmptyBuffers
-[<leader> + d]  = switch highlights
-[<leader> x 2]  = center windows
-[<leader> + h]* = <git hunk menu>
-[<leader> + e]  = <tree toggle>
-[<leader> + a]  = <Maximizer>
-[<leader> + k]  = <telescope buffer list>
-[<leader> + f]  = <telescope find file>
-[<leader> + o]  = <telescope historial>
-[<leader> + sp] = <telescope colorscheme>
-[<leader> + l]  = <telescope livegrep>
-[<leader> + b] =  <telescope livegrep current buffers>
-[<leader> + p]  = <telescope Projects>
-[<leader> + m]  = <telescope marks>
-[<leader> + sl] = <telescope grep_string>
-[<leader> + nw] = <neorg open workspace>
-[<leader> + ss] = <luasnipunlinkCurrent> (bug)
-[<leader> + sd] = <diffviewopen>
-[<leader> + sf] = <diffviewfilehistory>
-[<leader> + sj] = <load session>
-[<leader> + wj] = <save session>
-[<leader> + s;]  = <ToggleTransparency>
-[<leader> + ;]  = <Calendar>
-
-PLUGIN MAPS VISUAL MODE:
-[<leader> + l] - <telescope live_grep current selection>
-[<leader> + f] - <telescope find_file current selection>
-
-OTHER KEYS
-[alt + f]  = bufferlinemovenext
-[alt + a]  = bufferlinemoveprev
-[s]		     = Lightspeed
-[S]		     = Lightspeed

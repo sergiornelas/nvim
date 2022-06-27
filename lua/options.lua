@@ -31,6 +31,7 @@ local options = {
 	cursorline = false, -- highlight the current line
 	number = false, -- set numbered lines
 	cmdheight = 1, -- more space in the neovim command line for displaying messages
+	-- autochdir = true,
 	-- scrolloff = 2, -- is one of my fav
 	-- laststatus = 3,  --status line
 	-- guifont = "monospace:h17",            -- the font used in graphical neovim applications
