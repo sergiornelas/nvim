@@ -2,6 +2,9 @@
 vim.g.rooter_silent_chdir = 1
 vim.g.rooter_manual_only = 1
 
+-- SESSIONS (curdir eliminated)
+vim.o.sessionoptions = "blank,buffers,folds,help,tabpages,winsize,winpos,terminal"
+
 -- HIGHLIGHT
 vim.g.cursorhold_updatetime = 100
 
@@ -14,14 +17,20 @@ vim.g.gruvbox_baby_transparent_mode = 0
 -- MATERIAL
 vim.g.material_style = "deep ocean"
 
--- Sessions
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
-
 -- Misc
 vim.opt.shortmess:append("c")
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
--- vim.cmd("set nofoldenable") --helps with everything fold
+
+-- Symbols
+vim.opt.listchars = {
+	-- eol = "↵",
+	tab = "│·",
+	extends = "⟩",
+	precedes = "⟨",
+	trail = "·",
+}
+vim.opt.list = true
 
 vim.cmd([[
   " Highlight on yank
@@ -40,8 +49,8 @@ vim.cmd([[
     endif
   endfunction
 
-  " Avoids crash when starting neovim with sessions
-  autocmd VimEnter * call timer_start(500, {-> execute("let g:rooter_manual_only = 0")})
+  " Avoid crashing when starts neovim with sessions
+  " autocmd VimEnter * call timer_start(500, {-> execute("let g:rooter_manual_only = 0")})
   autocmd VimLeave * NvimTreeClose
 ]])
 

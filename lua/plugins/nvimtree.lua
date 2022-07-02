@@ -3,7 +3,6 @@ if not status_ok then
 	return
 end
 
--- nvim_tree.setup()
 nvim_tree.setup({
 	disable_netrw = true,
 	hijack_cursor = true,
@@ -15,10 +14,10 @@ nvim_tree.setup({
 	-- root_dirs = { ".git" }, -- Preferred root directories. Only relevant when `update_focused_file.update_root` is `true`
 	prefer_startup_root = false, --Prefer startup root directory when updating root directory of the tree. Only relevant when `update_focused_file.update_root` is `true`
 	sync_root_with_cwd = true, --Changes the tree root directory on `DirChanged` and refreshes the tree.
-	reload_on_bufenter = true, --Automatically reloads the tree on `BufEnter` nvim-tree.
+	reload_on_bufenter = false, --Automatically reloads the tree on `BufEnter` nvim-tree.
 	respect_buf_cwd = true, --Will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
 	renderer = {
-		highlight_opened_files = "all",
+		highlight_opened_files = "icon",
 		icons = {
 			glyphs = {
 				git = {
@@ -27,7 +26,7 @@ nvim_tree.setup({
 			},
 		},
 		indent_markers = {
-			enable = true,
+			enable = false,
 		},
 	},
 	view = {
@@ -62,7 +61,7 @@ nvim_tree.setup({
 				{ key = "d", action = "remove" },
 				{ key = "D", action = "trash" },
 				{ key = "r", action = "rename" },
-				{ key = "<C-r>", action = "full_rename" },
+				{ key = "<C-a>", action = "full_rename" },
 				{ key = "x", action = "cut" },
 				{ key = "c", action = "copy" },
 				{ key = "p", action = "paste" },

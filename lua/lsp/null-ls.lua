@@ -55,12 +55,12 @@ local function lsp_highlight_document(client)
 	if client.resolved_capabilities.document_highlight then
 		vim.api.nvim_exec(
 			[[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]],
+        augroup lsp_document_highlight
+          autocmd! * <buffer>
+          autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+          autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+        augroup END
+      ]],
 			false
 		)
 	end
@@ -89,7 +89,9 @@ lspconfig.tsserver.setup({ --*
 		on_attach(client, bufnr)
 	end,
 })
-
+-- require('lspconfig').tsserver.setup({
+--   root_dir = require('lspconfig.util').root_pattern('.git')  --supposed to be faster
+-- })
 --=================={null_ls}===========================
 -- NULL (LSP ACTIONS USING PURE LUA, NO CONNECTION WITH A LSP SERVER, ALLOWS TYPES OF FORMAT AND DIFFERENT ACTIONS)
 local formatting = null_ls.builtins.formatting

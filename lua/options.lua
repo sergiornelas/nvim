@@ -31,6 +31,7 @@ local options = {
 	cursorline = false, -- highlight the current line
 	number = false, -- set numbered lines
 	cmdheight = 1, -- more space in the neovim command line for displaying messages
+	-- updatetime = 300, -- faster completion (4000ms default) USEFUL FOR FAST HIGHLIGHT, performance get low bc cursorhold is called frequently
 	-- autochdir = true,
 	-- scrolloff = 2, -- is one of my fav
 	-- laststatus = 3,  --status line

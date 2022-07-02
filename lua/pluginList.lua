@@ -16,12 +16,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.cmd([[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost pluginList.lua source <afile> | PackerSync
---   augroup end
--- ]])
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost pluginList.lua source <afile> | PackerSync
+  augroup end
+]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -61,7 +61,9 @@ return packer.startup(function(use)
 
 	-- COLORSCHEMES ---------------------------------------
 	use("lunarvim/darkplus.nvim")
-	use("ellisonleao/gruvbox.nvim")
+	use({
+		"sainnhe/gruvbox-material",
+	})
 	use("luisiacc/gruvbox-baby")
 	use("rebelot/kanagawa.nvim")
 	use("nxvu699134/vn-night.nvim")
@@ -164,8 +166,8 @@ return packer.startup(function(use)
 	-- LSP ----------------------------------------------
 	use({
 		"neovim/nvim-lspconfig",
-		event = "VimEnter",
-		after = "nvim-lsp-installer",
+		-- event = "VimEnter",
+		-- after = "nvim-lsp-installer",
 		config = function()
 			require("lsp")
 		end,
@@ -230,6 +232,7 @@ return packer.startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		requires = {
 			{
+				"nvim-telescope/telescope-live-grep-args.nvim",
 				"nvim-lua/plenary.nvim",
 				run = "make",
 			},
@@ -260,6 +263,16 @@ return packer.startup(function(use)
 		end,
 	})
 
+	use({
+		"ziontee113/color-picker.nvim",
+		cmd = { "PickColor", "PickColorInsert" },
+		config = function()
+			require("color-picker").setup({
+				["icons"] = { "ﱢ", "" },
+			})
+		end,
+	})
+
 	-- GIT SIGNS -------------------------------------------
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -287,10 +300,15 @@ return packer.startup(function(use)
 	})
 
 	-- PROJECT --------------------------------------------------
-	use("nvim-telescope/telescope-project.nvim")
-
-	-- ROOTER .GIT FOLDER (TRULY WORKS) -------------------------
-	use("airblade/vim-rooter")
+	use({
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup({
+				detection_methods = { "pattern", "lsp" },
+				patterns = { ".git" },
+			})
+		end,
+	})
 
 	-- LUALINE --------------------------------------------------
 	use({
@@ -310,9 +328,9 @@ return packer.startup(function(use)
 	-- NOTES -------------------------------------------------
 	use({
 		"nvim-neorg/neorg",
-		setup = vim.cmd("autocmd BufRead,BufNewFile *.norg setlocal filetype=norg"),
-		after = { "nvim-treesitter" }, -- you may also specify telescope
+		-- setup = vim.cmd("autocmd BufRead,BufNewFile *.norg setlocal filetype=norg"),
 		ft = "norg",
+		-- after = { "nvim-treesitter" }, -- you may also specify telescope
 		config = function()
 			require("plugins.neorg")
 		end,
@@ -358,12 +376,15 @@ return packer.startup(function(use)
 	use("itchyny/calendar.vim")
 	-- rm -rf ~/.cache/calendar.vim/google/
 
+	-- SESSIONS -----------------------------
 	use({
 		"rmagatti/auto-session",
 		config = function()
 			require("auto-session").setup({
 				log_level = "info",
-				-- auto_session_suppress_dirs = { "~/", "~/Projects" },
+				auto_session_use_git_branch = false,
+				auto_session_create_enabled = false,
+				-- auto_session_create_enabled = false,
 			})
 		end,
 	})
@@ -380,6 +401,7 @@ return packer.startup(function(use)
 				return
 			end
 			cybu.setup({
+				display_time = 300,
 				style = {
 					highlights = {
 						current_buffer = "rainbowcol7", -- current / selected buffer
@@ -398,13 +420,12 @@ return packer.startup(function(use)
 					},
 				},
 			})
-			-- vim.keymap.set("n", "<c-k>", "<Plug>(CybuPrev)")
-			-- vim.keymap.set("n", "<c-j>", "<Plug>(CybuNext)")
-			-- vim.keymap.set({ "n", "v" }, "<c-k>", "<plug>(CybuLastusedPrev)")
-			-- vim.keymap.set({ "n", "v" }, "<c-j>", "<plug>(CybuLastusedNext)")
-			vim.keymap.set("n", "<c-k>", "<plug>(CybuLastusedPrev)")
-			vim.keymap.set("n", "<c-j>", "<plug>(CybuLastusedNext)")
 		end,
+	})
+
+	use({
+		"smithbm2316/centerpad.nvim",
+		cmd = { "Centerpad" },
 	})
 
 	use({ "antoinemadec/FixCursorHold.nvim" })
@@ -419,6 +440,7 @@ return packer.startup(function(use)
 	-- use("mfusseneger/nvim-dap")
 	-- use("rcarriga/nvim-dap-ui")
 	-- use("ravenxrz/DAPInstall.nvim")
+	-- AERIAL -------------------------
 	-- use({
 	-- 	"stevearc/aerial.nvim",
 	-- 	module = "aerial",
@@ -428,6 +450,7 @@ return packer.startup(function(use)
 	-- 		require("aerial").setup({})
 	-- 	end,
 	-- })
+	-- MARKS -------------------------
 	-- use({
 	-- 	"chentoast/marks.nvim",
 	-- 	require("marks").setup({
@@ -446,8 +469,6 @@ return packer.startup(function(use)
 	--   run = "./install.sh",
 	--   requires = "hrsh7th/nvim-cmp",
 	-- })
-	-- TELESCOPE MEDIA FILES --------------------------------
-	-- use "nvim-telescope/telescope-media-files.nvim"
 	-- DETAILED INFO CMP ------------------------------------
 	-- use {
 	--    "ray-x/lsp_signature.nvim",
@@ -460,12 +481,6 @@ return packer.startup(function(use)
 	-- use {
 	--   "ray-x/cmp-treesitter",
 	--   after = "nvim-cmp",
-	-- }
-	-- COPILOT ----------------------------------------------
-	-- LSP (and copilot
-	-- use {
-	--    "github/copilot.vim",
-	--    event = "InsertEnter",
 	-- }
 	-- NEOGIT -----------------------------------------------
 	-- use {

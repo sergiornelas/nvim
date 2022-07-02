@@ -3,9 +3,12 @@ if not status_ok then
 	return
 end
 
-telescope.load_extension("project")
+telescope.load_extension("projects")
+telescope.load_extension("live_grep_args")
+-- https://www.mankier.com/1/rg
+-- https://github.com/nvim-telescope/telescope-live-grep-args.nvim
+
 local actions = require("telescope.actions")
--- telescope.load_extension('media_files')
 
 telescope.setup({
 	defaults = {
@@ -39,14 +42,6 @@ telescope.setup({
 			},
 		},
 	},
-	-- extensions = {
-	--   media_files = {
-	--     -- filetypes whitelist
-	--     -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-	--     filetypes = {"png", "webp", "jpg", "jpeg"},
-	--     find_cmd = "rg" -- find command (defaults to `fd`)
-	--   }
-	-- },
 })
 
 -- TELESCOPE APPLY COLORSCHEME WITHOUT CLOSING THE PICKER
