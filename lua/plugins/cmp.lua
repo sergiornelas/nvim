@@ -15,12 +15,12 @@ ls.config.set_config({
 
 -- ADD HTML, CSS (Styled components) AND JS SNIPPETS TO JAVASCRIPT/TYPESCRIPT/REACT files
 -- (filetype_set) in a js file: search javascriptreact-snippets, then all-snippets only (no javascript-snippets!).
-ls.filetype_set("javascript", { "javascriptreact" })
-ls.filetype_extend("javascript", { "html", "css" })
-ls.filetype_extend("javascriptreact", { "html", "css" })
-ls.filetype_set("typescript", { "typescriptreact" })
-ls.filetype_extend("typescript", { "html", "css" })
-ls.filetype_extend("typescriptreact", { "html", "css" })
+-- ls.filetype_set("javascript", { "javascriptreact" })
+-- ls.filetype_extend("javascript", { "html", "css" })
+-- ls.filetype_extend("javascriptreact", { "html", "css" })
+-- ls.filetype_set("typescript", { "typescriptreact" })
+-- ls.filetype_extend("typescript", { "html", "css" })
+-- ls.filetype_extend("typescriptreact", { "html", "css" })
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -87,7 +87,6 @@ cmp.setup({
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<C-j>"] = cmp.mapping.confirm({ select = true }),
-		["<cr>"] = cmp.mapping.confirm({ select = true }),
 		["<C-k>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -145,9 +144,8 @@ cmp.setup({
 		-- { name = "cmp_tabnine" },
 	},
 	window = {
-		documentation = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		},
+    completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,

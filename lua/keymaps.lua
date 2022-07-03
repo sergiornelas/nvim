@@ -1,93 +1,102 @@
--- Helper function for clean mappings
-local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+-- Shorten function name
+local keymap = vim.keymap.set
+-- Silent keymap option
+local opts = { silent = true }
 
-vim.g.mapleader = " " --Leader
+--Remap space as leader key
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
 
 -- <TELESCOPE>
-map("n", "<leader>i", "<cmd>Telescope find_files theme=ivy<cr>")
-map("n", "<leader>k", "<cmd>Telescope live_grep theme=ivy<cr>")
-map("n", "<leader>dl", "<cmd>Telescope grep_string theme=ivy<cr>")
-map("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy<cr>")
-map("n", "<leader>p", "<cmd>Telescope projects theme=ivy<cr>")
--- map("n", "<leader>p", "<cmd>Telescope project theme=dropdown layout_config={width=0.25}<cr>")
-map("n", "<leader>e", "<cmd>Telescope buffers theme=dropdown<cr>")
-map("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>")
+keymap("n", "<leader>i", "<cmd>Telescope find_files theme=ivy<CR>", opts)
+keymap("n", "<leader>k", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>Telescope grep_string theme=ivy<cr>", opts)
+keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy<cr>", opts)
+keymap("n", "<leader>p", "<cmd>Telescope projects theme=ivy<cr>", opts)
+-- keymap("n", "<leader>p", "<cmd>Telescope project theme=dropdown layout_config={width=0.25}<cr>")
+keymap("n", "<leader>e", "<cmd>Telescope buffers theme=dropdown<cr>", opts)
+keymap("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>", opts)
 
 -- <NVIM TREE>
-map("n", "<leader>r", "<cmd>NvimTreeToggle <cr>")
+keymap("n", "<leader>r", "<cmd>NvimTreeToggle <cr>", opts)
 
 -- <MAXIMIZER>
-map("n", "<leader>a", "<cmd>MaximizerToggle!<cr>")
+keymap("n", "<leader>a", "<cmd>MaximizerToggle!<cr>", opts)
 
 -- <DIFF VIEW GIT>
-map("n", "<leader>dd", "<cmd>DiffviewOpen<cr>")
-map("n", "<leader>df", "<cmd>DiffviewFileHistory %<cr>")
+keymap("n", "<leader>dd", "<cmd>DiffviewOpen<cr>", opts)
+keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<cr>", opts)
 
 -- <BUFFER NAVIGATION>
--- map("n", "<c-j>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
--- map("n", "<c-k>", "<cmd>BufferLineCycleNext<cr>") --next buffer
-map("n", "<c-h>", "<cmd>Bdelete<CR>") --close buffer without closing window.
-map("n", "®", "<cmd>BufferLineMoveNext<CR>") --move buffer tap to next
-map("n", "∑", "<cmd>BufferLineMovePrev<CR>") --move buffer tap to prev
+-- keymap("n", "<c-j>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
+-- keymap("n", "<c-k>", "<cmd>BufferLineCycleNext<cr>") --next buffer
+keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) --close buffer without closing window.
+keymap("n", "®", "<cmd>BufferLineMoveNext<CR>", opts) --move buffer tap to next
+keymap("n", "∑", "<cmd>BufferLineMovePrev<CR>", opts) --move buffer tap to prev
 
 -- <CALENDAR>
-map("n", "<leader>y", "<cmd>Calendar<CR>") --move buffer tap to prev
+keymap("n", "<leader>y", "<cmd>Calendar<CR>", opts) --move buffer tap to prev
 
 -- <LSP>
-map("n", "du", "<cmd>LspDiagPrev<CR>") --move buffer tap to prev
-map("n", "dm", "<cmd>LspDiagNext<CR>") --move buffer tap to prev
+-- keymap("n", "du", "<cmd>LspDiagPrev<CR>") --move buffer tap to prev
+-- keymap("n", "dm", "<cmd>LspDiagNext<CR>") --move buffer tap to prev
+
+-- CYBU BUFFER
+keymap("n", "<c-k>", "<plug>(CybuLastusedPrev)", opts)
+keymap("n", "<c-j>", "<plug>(CybuLastusedNext)", opts)
+
+-- COLOR PICKER
+keymap("n", "<C-c>", "<cmd>PickColor<cr>", opts)
+keymap("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
+
+-- CENTERPAD
+keymap("n", "<leader>z", "<cmd>Centerpad<cr>", opts)
 
 -- AVOID UNPRACTICAL YANKING
-map("v", "p", '"_dP') --Pasting without yanking
-map("v", "P", '"_dP') --Pasting without yanking
+keymap("v", "p", '"_dP', opts) --Pasting without yanking
+keymap("v", "P", '"_dP', opts) --Pasting without yanking
 
 -- NAVIGATION
-map("n", "<c-f>", "<c-e>") --page scrolls down one line
-map("n", "<c-e>", "<c-y>") --page scrolls up one line
-map("n", "<c-v>", "<c-f>") --fullscreen
-map("n", "<c-p>", "<c-b>") --fullscreen
-map("n", "<c-r>", "<c-w>w") --navigate through windows
-map("n", "<c-a>", "<c-w>W") --navigate through windows
+keymap("n", "<c-f>", "<c-e>", opts) --page scrolls down one line
+keymap("n", "<c-e>", "<c-y>", opts) --page scrolls up one line
+keymap("n", "<c-v>", "<c-f>", opts) --fullscreen
+keymap("n", "<c-p>", "<c-b>", opts) --fullscreen
+keymap("n", "<c-r>", "<c-w>w", opts) --navigate through windows
+keymap("n", "<c-a>", "<c-w>W", opts) --navigate through windows
 
 -- RESIZE WINDOW
-map("n", "å", "<cmd>vertical resize +4<cr>") --resize window horizontal
-map("n", "∂", "<cmd>resize +4<cr>") --resize window vertical
-map("n", "ß", "<cmd>resize -4<cr>") --resize window vertical
-map("n", "ƒ", "<cmd>vertical resize -4<cr>") --resize window horizontal
-map("n", "<leader><leader>", "<c-w>=") --center windows
+keymap("n", "å", "<cmd>vertical resize +4<cr>", opts) --resize window horizontal
+keymap("n", "∂", "<cmd>resize +4<cr>", opts) --resize window vertical
+keymap("n", "ß", "<cmd>resize -4<cr>", opts) --resize window vertical
+keymap("n", "ƒ", "<cmd>vertical resize -4<cr>", opts) --resize window horizontal
+keymap("n", "<leader><leader>", "<c-w>=", opts) --center windows
 
 -- UTILS
-map("n", "<c-q>", "<c-r>") --navigate through windows
-map("n", "<leader>w", "<cmd>set hlsearch!<cr>") --highlights
-map("n", "<Leader>f", "<cmd>w<cr>") --save file
-map("n", "<Leader>q", "<cmd>q<cr>") --close window
-map("n", "<Leader>Q", "<cmd>q!<cr>") --close window and file
-map("n", "<Leader>s", "<cmd>call CleanNoNameEmptyBuffers()<cr>") --clean no name buf
-map("n", "<Leader>j", "zz") --center text
-map("n", "<Leader>u", "<cmd>tabclose<cr>") --close current tab
-map("n", "<c-s>", "<cmd>StartupTime<cr>") --StartupTime
-map("n", "V", "vg_") --visual to the right
-map("n", "vv", "Vg_") --visual whole line
-map("n", "J", "mzJ`z") --cursor stay current position when J
-map("n", "<Leader>g", "gt") --next tab
-map("n", "<Leader>t", "gT") --prev tab
-map("n", "<Leader>dt", "<cmd>tabnew %<cr>") --new tab
-map("n", "<c-l>", "<c-v>") --block visual selection
-map("i", "<c-v>", "<c-o>$") --insert mode goes end of the line and insert mode again
-map("i", "<c-q>", "<c-t>") --tab line insert mode
-map("n", "zl", "z6l") --zoom left
-map("n", "zh", "z6h") --zoom right
-map("v", "zl", "z6l") --zoom left
-map("v", "zh", "z6h") --zoom right
-map("n", "d<leader>", "cc<esc>") --clear line without deleting line
-map("i", "<c-o>", "<esc>O") --clear line without deleting line
-map("n", "<leader>c", "<c-g>") --clear line without deleting line
+keymap("n", "<c-q>", "<c-r>", opts) --navigate through windows
+keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) --highlights
+keymap("n", "<Leader>f", "<cmd>w<cr>", opts) --save file
+keymap("n", "<Leader>q", "<cmd>q<cr>", opts) --close window
+keymap("n", "<Leader>Q", "<cmd>q!<cr>", opts) --close window and file
+keymap("n", "<Leader>s", "<cmd>call CleanNoNameEmptyBuffers()<cr>", opts) --clean no name buf
+keymap("n", "<Leader>j", "zz", opts) --center text
+keymap("n", "<Leader>u", "<cmd>tabclose<cr>", opts) --close current tab
+keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --StartupTime
+keymap("n", "V", "vg_", opts) --visual to the right
+keymap("n", "vv", "Vg_", opts) --visual whole line
+keymap("n", "J", "mzJ`z", opts) --cursor stay current position when J
+keymap("n", "<Leader>g", "gt", opts) --next tab
+keymap("n", "<Leader>t", "gT", opts) --prev tab
+keymap("n", "<Leader>dt", "<cmd>tabnew %<cr>", opts) --new tab
+keymap("n", "<c-l>", "<c-v>", opts) --block visual selection
+keymap("i", "<c-v>", "<c-o>$", opts) --insert mode goes end of the line and insert mode again
+keymap("i", "<c-q>", "<c-t>", opts) --tab line insert mode
+keymap("n", "zl", "z6l", opts) --zoom left
+keymap("n", "zh", "z6h", opts) --zoom right
+keymap("v", "zl", "z6l", opts) --zoom left
+keymap("v", "zh", "z6h", opts) --zoom right
+keymap("n", "d<leader>", "cc<esc>", opts) --clear line without deleting line
+keymap("i", "<c-o>", "<esc>O", opts) --clear line without deleting line
+keymap("n", "<leader>c", "<c-g>", opts) --clear line without deleting line
 
 -- VIM MAPPING
 vim.cmd([[
@@ -139,115 +148,103 @@ vim.cmd([[
 ]])
 
 -- TREESITTER UNIT
-vim.api.nvim_set_keymap("x", "ij", ':lua require"treesitter-unit".select()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("o", "ij", ':<c-u>lua require"treesitter-unit".select()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("x", "aj", ':lua require"treesitter-unit".select(true)<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap(
+keymap("x", "ij", ':lua require"treesitter-unit".select()<CR>', opts)
+keymap("o", "ij", ':<c-u>lua require"treesitter-unit".select()<CR>', opts)
+keymap("x", "aj", ':lua require"treesitter-unit".select(true)<CR>', opts)
+keymap(
 	"o",
 	"aj",
 	':<c-u>lua require"treesitter-unit".select(true)<CR>',
-	{ noremap = true, silent = true }
+	opts
 )
-
--- CYBU BUFFER
-vim.keymap.set("n", "<c-k>", "<plug>(CybuLastusedPrev)")
-vim.keymap.set("n", "<c-j>", "<plug>(CybuLastusedNext)")
-
--- COLOR PICKER
-local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<C-c>", "<cmd>PickColor<cr>", opts)
-vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
-
--- CENTERPAD
-vim.api.nvim_set_keymap("n", "<leader>z", "<cmd>Centerpad<cr>", { silent = true, noremap = true })
 
 -- COMMAND SUBSTITUTION
 -- Q
-map("n", "&", "#")
-map("v", "&", "#")
-map("n", "d&", "d#")
-map("n", "q&", "y#")
+keymap("n", "&", "#", opts)
+keymap("v", "&", "#", opts)
+keymap("n", "d&", "d#", opts)
+keymap("n", "q&", "y#", opts)
 -- W
-map("n", "?", ";")
-map("v", "?", ";")
-map("n", "d?", "d;")
-map("n", "q?", "y;")
+keymap("n", "?", ";", opts)
+keymap("v", "?", ";", opts)
+keymap("n", "d?", "d;", opts)
+keymap("n", "q?", "y;", opts)
 -- E is the same
 -- R
-map("n", "+", "@")
-map("v", "+", "@")
+keymap("n", "+", "@", opts)
+keymap("v", "+", "@", opts)
 -- T
-map("n", "*", "-")
-map("v", "*", "-")
-map("n", "d*", "d-")
-map("n", "q*", "y-")
+keymap("n", "*", "-", opts)
+keymap("v", "*", "-", opts)
+keymap("n", "d*", "d-", opts)
+keymap("n", "q*", "y-", opts)
 -- U
-map("n", "#", "+")
-map("v", "#", "+")
-map("n", "d#", "d+")
-map("n", "q#", "y+")
+keymap("n", "#", "+", opts)
+keymap("v", "#", "+", opts)
+keymap("n", "d#", "d+", opts)
+keymap("n", "q#", "y+", opts)
 -- I
-map("n", "$", "(")
-map("v", "$", "(")
-map("n", "d$", "d(")
-map("n", "q$", "y(")
+keymap("n", "$", "(", opts)
+keymap("v", "$", "(", opts)
+keymap("n", "d$", "d(", opts)
+keymap("n", "q$", "y(", opts)
 -- O
-map("n", "%", ")")
-map("v", "%", ")")
-map("n", "d%", "d)")
-map("n", "q%", "y)")
+keymap("n", "%", ")", opts)
+keymap("v", "%", ")", opts)
+keymap("n", "d%", "d)", opts)
+keymap("n", "q%", "y)", opts)
 -- A
-map("n", "(", "*")
-map("v", "(", "*")
-map("n", "d(", "d*")
-map("n", "q(", "y*")
+keymap("n", "(", "*", opts)
+keymap("v", "(", "*", opts)
+keymap("n", "d(", "d*", opts)
+keymap("n", "q(", "y*", opts)
 -- S
-map("n", "{", "?")
-map("v", "{", "?")
-map("n", "d{", "d?")
-map("n", "q{", "y?")
+keymap("n", "{", "?", opts)
+keymap("v", "{", "?", opts)
+keymap("n", "d{", "d?", opts)
+keymap("n", "q{", "y?", opts)
 -- D
-map("n", ";", "{")
-map("v", ";", "{")
-map("n", "d;", "d{")
-map("n", "q;", "y{")
+keymap("n", ";", "{", opts)
+keymap("v", ";", "{", opts)
+keymap("n", "d;", "d{", opts)
+keymap("n", "q;", "y{", opts)
 -- F
-map("n", "-", "}")
-map("v", "-", "}")
-map("n", "d-", "d}")
-map("n", "q-", "y}")
+keymap("n", "-", "}", opts)
+keymap("v", "-", "}", opts)
+keymap("n", "d-", "d}", opts)
+keymap("n", "q-", "y}", opts)
 -- G
-map("n", "[", "$")
-map("v", "[", "$")
-map("n", "d[", "d$")
-map("n", "q[", "y$")
+keymap("n", "[", "$", opts)
+keymap("v", "[", "$", opts)
+keymap("n", "d[", "d$", opts)
+keymap("n", "q[", "y$", opts)
 -- H
-map("n", "]", "=")
-map("v", "]", "=")
+keymap("n", "]", "=", opts)
+keymap("v", "]", "=", opts)
 -- J
-map("n", "=", "%")
-map("v", "=", "%")
-map("n", "d=", "d%")
-map("n", "q=", "y%")
+keymap("n", "=", "%", opts)
+keymap("v", "=", "%", opts)
+keymap("n", "d=", "d%", opts)
+keymap("n", "q=", "y%", opts)
 -- K
-map("n", "}", "&")
+keymap("n", "}", "&", opts)
 -- Z
-map("n", "!", "|")
-map("v", "!", "|")
-map("n", "d!", "|")
-map("n", "q!", "|")
+keymap("n", "!", "|", opts)
+keymap("v", "!", "|", opts)
+keymap("n", "d!", "|", opts)
+keymap("n", "q!", "|", opts)
 -- C, V are the same
 -- B
-map("n", "@", "!")
+keymap("n", "@", "!", opts)
 -- N
-map("n", "}", "~")
-map("v", "}", "~")
-map("n", "d}", "d~")
+keymap("n", "}", "~", opts)
+keymap("v", "}", "~", opts)
+keymap("n", "d}", "d~", opts)
 -- M
-map("n", ")", "^")
-map("v", ")", "^")
-map("n", "d)", "d^")
-map("n", "q)", "q^")
+keymap("n", ")", "^", opts)
+keymap("v", ")", "^", opts)
+keymap("n", "d)", "d^", opts)
+keymap("n", "q)", "q^", opts)
 
 -- ZZ Write current file if modified and close current window
 -- ZQ Quit without checking for changes (same as :q!)

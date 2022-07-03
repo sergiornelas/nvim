@@ -1,8 +1,9 @@
-local present, _ = pcall(require, "impatient")
-
-if not present then
-	return
+local status_ok, impatient = pcall(require, "impatient")
+if not status_ok then
+  return
 end
+
+impatient.enable_profile()
 
 --google calendar
 vim.cmd([[
@@ -31,16 +32,10 @@ for _, plugin in pairs(disabled_built_ins) do
 	vim.g["loaded_" .. plugin] = 1
 end
 
--- load options, mappings, and plugins
-local modules = {
-	"config",
-	"calendar",
-	"colorscheme",
-	"keymaps",
-	"pluginList",
-	"options",
-}
-
-for i = 1, #modules, 1 do
-	pcall(require, modules[i])
-end
+require "config"
+require "calendar"
+require "colorscheme"
+require "keymaps"
+require "pluginList"
+require "options"
+require "lsp.init"
