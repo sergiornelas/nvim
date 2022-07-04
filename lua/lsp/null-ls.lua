@@ -16,8 +16,13 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettierd,
 		formatting.stylua,
+		formatting.prettierd.with({
+			disabled_filetypes = {
+				-- using LSP jsonls
+				"json",
+			},
+		}),
 		diagnostics.eslint_d,
 		-- diagnostics.jsonlint, --json
 		-- LSP status===============

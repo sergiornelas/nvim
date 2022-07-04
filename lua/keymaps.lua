@@ -151,12 +151,7 @@ vim.cmd([[
 keymap("x", "ij", ':lua require"treesitter-unit".select()<CR>', opts)
 keymap("o", "ij", ':<c-u>lua require"treesitter-unit".select()<CR>', opts)
 keymap("x", "aj", ':lua require"treesitter-unit".select(true)<CR>', opts)
-keymap(
-	"o",
-	"aj",
-	':<c-u>lua require"treesitter-unit".select(true)<CR>',
-	opts
-)
+keymap("o", "aj", ':<c-u>lua require"treesitter-unit".select(true)<CR>', opts)
 
 -- COMMAND SUBSTITUTION
 -- Q

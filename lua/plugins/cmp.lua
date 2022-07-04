@@ -15,14 +15,14 @@ ls.config.set_config({
 
 -- ADD HTML, CSS (Styled components) AND JS SNIPPETS TO JAVASCRIPT/TYPESCRIPT/REACT files
 -- (filetype_set) in a js file: search javascriptreact-snippets, then all-snippets only (no javascript-snippets!).
--- ls.filetype_set("javascript", { "javascriptreact" })
--- ls.filetype_extend("javascript", { "html", "css" })
--- ls.filetype_extend("javascriptreact", { "html", "css" })
--- ls.filetype_set("typescript", { "typescriptreact" })
--- ls.filetype_extend("typescript", { "html", "css" })
--- ls.filetype_extend("typescriptreact", { "html", "css" })
+ls.filetype_set("javascript", { "javascriptreact" })
+ls.filetype_extend("javascript", { "html", "css" })
+ls.filetype_extend("javascriptreact", { "html", "css" })
+ls.filetype_set("typescript", { "typescriptreact" })
+ls.filetype_extend("typescript", { "html", "css" })
+ls.filetype_extend("typescriptreact", { "html", "css" })
 
-require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
 	local col = vim.fn.col(".") - 1
@@ -66,7 +66,6 @@ local source_mapping = {
 	buffer = "[Buffer]",
 	path = "[Path]",
 	neorg = "[Neorg]",
-	-- cmp_tabnine = "[TN]",
 }
 
 cmp.setup({
@@ -122,14 +121,8 @@ cmp.setup({
 			-- Kind icons
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 			vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
+			vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 } --THIS AVOIDS DUPLICATES!
 			local menu = source_mapping[entry.source.name]
-			-- Tab nine
-			-- if entry.source.name == "cmp_tabnine" then
-			-- 	if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-			-- 		menu = entry.completion_item.data.detail .. " " .. menu
-			-- 	end
-			-- 	vim_item.kind = ""
-			-- end
 			vim_item.menu = menu
 			return vim_item
 		end,
@@ -137,14 +130,13 @@ cmp.setup({
 	sources = {
 		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "neorg" },
-		{ name = "nvim_lua" },
-		-- { name = "cmp_tabnine" },
 	},
 	window = {
-    completion = cmp.config.window.bordered(),
+		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	},
 	confirm_opts = {
@@ -152,6 +144,6 @@ cmp.setup({
 		select = false,
 	},
 	experimental = {
-		ghost_text = false,
+		ghost_text = true,
 	},
 })

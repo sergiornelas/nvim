@@ -77,9 +77,19 @@ M.on_attach = function(client, bufnr)
 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
 	end
 
-	-- prettierd in null_ls
 	if client.name == "tsserver" then
+		-- prettierd in null_ls
 		client.resolved_capabilities.document_formatting = false
+
+		-- ts-utils
+		local ts_utils = require("nvim-lsp-ts-utils")
+		ts_utils.setup({})
+		ts_utils.setup_client(client)
+
+		local opts = { silent = true }
+		vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
+		vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", opts)
+		vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
 	end
 
 	-- stylua in null_ls

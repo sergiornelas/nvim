@@ -1,7 +1,7 @@
 return {
-  settings = {
-    typescript = {
-      filetypes = {'typescript'}
-    },
-  },
+	settings = {
+		typescript = {
+			filetypes = { "typescript" },
+		},
+	},
 }
