@@ -38,13 +38,17 @@ packer.init({
 	},
 })
 
+-- Sync without hanging after 70+ plugins
+packer.init({
+	max_jobs = 50,
+})
 return packer.startup(function(use)
-	-- HAVE PACKER MANAGE ITSELF -----------------------
+	-- HAVE PACKER MANAGE ITSELF ---------------------------------
 	use({
 		"wbthomason/packer.nvim",
 	})
 
-	-- STARTUP OPTIMIZATIONS ---------------------------
+	-- STARTUP OPTIMIZATIONS -------------------------------------
 	use({
 		"nathom/filetype.nvim",
 	})
@@ -59,7 +63,7 @@ return packer.startup(function(use)
 		cmd = "StartupTime",
 	})
 
-	-- COLORSCHEMES ---------------------------------------
+	-- COLORSCHEMES ----------------------------------------------
 	use("lunarvim/darkplus.nvim")
 	use({
 		"sainnhe/gruvbox-material",
@@ -92,34 +96,25 @@ return packer.startup(function(use)
 	use({
 		"navarasu/onedark.nvim",
 		config = function()
-			require("onedark").setup({
-				toggle_style_key = "<leader>x",
-				style = "deep",
-			})
+			require("plugins.onedark")
 		end,
 	})
 	use({
 		"EdenEast/nightfox.nvim",
 		config = function()
-			require("nightfox").setup({
-				options = {
-					transparent = false, -- Disable setting background
-				},
-			})
+			require("plugins.nightfox")
 		end,
 	})
 
-	-- TRANSPARENT NVIM --------------------------------
+	-- TRANSPARENT NVIM ------------------------------------------
 	use({
 		"xiyaowong/nvim-transparent",
 		config = function()
-			require("transparent").setup({
-				enable = false,
-			})
+			require("plugins.transparent")
 		end,
 	})
 
-	-- CMP ---------------------------------------------
+	-- CMP -------------------------------------------------------
 	use({
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -151,7 +146,7 @@ return packer.startup(function(use)
 		after = "nvim-cmp",
 	})
 
-	-- SNIPPETS ------------------------------------------
+	-- SNIPPETS --------------------------------------------------
 	use({
 		"L3MON4D3/LuaSnip",
 		module = "luasnip",
@@ -163,7 +158,7 @@ return packer.startup(function(use)
 		opt = true,
 	})
 
-	-- LSP ----------------------------------------------
+	-- LSP -------------------------------------------------------
 	use({
 		"neovim/nvim-lspconfig",
 		event = "VimEnter",
@@ -176,7 +171,7 @@ return packer.startup(function(use)
 		"williamboman/nvim-lsp-installer",
 	})
 
-	-- NULL-LS -------------------------------------------
+	-- NULL-LS ---------------------------------------------------
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
@@ -185,7 +180,10 @@ return packer.startup(function(use)
 		"jose-elias-alvarez/nvim-lsp-ts-utils",
 	})
 
-	-- TREESITTER -----------------------------------------
+	-- ILLUMINATE ------------------------------------------------
+	use({ "RRethy/vim-illuminate" })
+
+	-- TREESITTER ------------------------------------------------
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
@@ -193,38 +191,38 @@ return packer.startup(function(use)
 		end,
 		run = ":TSUpdate",
 	})
-	-- RAINBOW ---------------------------------------------
+	-- RAINBOW ---------------------------------------------------
 	use({
 		"p00f/nvim-ts-rainbow",
 		after = "nvim-treesitter",
 	})
 
-	-- TREESITTER UNIT ------------------------------------
+	-- TREESITTER UNIT -------------------------------------------
 	use({ "David-Kunz/treesitter-unit" })
 
-	-- COMMENTS --------------------------------------------
+	-- COMMENTS --------------------------------------------------
 	use({
 		"numToStr/Comment.nvim",
 		module = { "Comment", "Comment.api" },
 		keys = { "gc", "gb", "g<", "g>" },
 		config = function()
-			require("plugins.others").comment()
+			require("plugins.comment")
 		end,
 	})
-	-- JSX COMMENTS
+	-- JSX COMMENTS ----------------------------------------------
 	use({
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		after = "nvim-treesitter",
 	})
 
-	-- AUTOTAG ---------------------------------------------
+	-- AUTOTAG ---------------------------------------------------
 	use({
 		"windwp/nvim-ts-autotag",
 		after = "nvim-treesitter",
 		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	})
 
-	-- TELESCOPE ------------------------------------------
+	-- TELESCOPE -------------------------------------------------
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
@@ -239,7 +237,7 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- NVIM TREE ------------------------------------------
+	-- NVIM TREE -------------------------------------------------
 	use({
 		"kyazdani42/nvim-tree.lua",
 		cmd = { "NvimTreeToggle", "NvimTreeRefresh", "NvimTreeClose" },
@@ -251,26 +249,25 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- COLORIZER ------------------------------------------
+	-- COLORIZER -------------------------------------------------
 	use({
 		"norcalli/nvim-colorizer.lua",
 		event = { "BufRead", "BufNewFile" },
 		config = function()
-			require("plugins.others").colorizer()
+			require("plugins.colorizer")
 		end,
 	})
 
+	-- COLORPICKER -----------------------------------------------
 	use({
 		"ziontee113/color-picker.nvim",
 		cmd = { "PickColor", "PickColorInsert" },
 		config = function()
-			require("color-picker").setup({
-				["icons"] = { "ﱢ", "" },
-			})
+			require("plugins.color-picker")
 		end,
 	})
 
-	-- GIT SIGNS -------------------------------------------
+	-- GIT SIGNS -------------------------------------------------
 	use({
 		"lewis6991/gitsigns.nvim",
 		event = "BufEnter",
@@ -281,13 +278,13 @@ return packer.startup(function(use)
 	-- GIT DIFF --------------------------------------------------
 	use({
 		"sindrets/diffview.nvim",
-		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+		cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
 		config = function()
-			require("plugins.others").gitdiff()
+			require("plugins.gitdiff")
 		end,
 	})
 
-	-- AUTOPAIRS ---------------------------------------------
+	-- AUTOPAIRS -------------------------------------------------
 	use({
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
@@ -295,26 +292,22 @@ return packer.startup(function(use)
 			require("plugins.autopairs")
 		end,
 	})
-	-- kylechui/nvim-surround
-	-- PROJECT --------------------------------------------------
+	-- PROJECT ---------------------------------------------------
 	use({
 		"ahmedkhalf/project.nvim",
 		config = function()
-			require("project_nvim").setup({
-				detection_methods = { "pattern", "lsp" },
-				patterns = { ".git", "package.json" },
-			})
+			require("plugins.project")
 		end,
 	})
 
-	-- LUALINE --------------------------------------------------
+	-- LUALINE ---------------------------------------------------
 	use({
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			require("plugins.lualine")
 		end,
 	})
-	-- GPS -----------------------------
+	-- GPS -------------------------------------------------------
 	use({
 		"SmiteshP/nvim-gps",
 		config = function()
@@ -322,40 +315,61 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- NOTES -------------------------------------------------
+	-- NOTES -----------------------------------------------------
 	use({
 		"nvim-neorg/neorg",
-		-- setup = vim.cmd("autocmd BufRead,BufNewFile *.norg setlocal filetype=norg"),
-		ft = "norg",
-		-- after = { "nvim-treesitter" }, -- you may also specify telescope
 		config = function()
 			require("plugins.neorg")
 		end,
 		requires = "nvim-lua/plenary.nvim",
 	})
 
-	-- BUFFERLINE --------------------------------------------------
-	-- use({
-	-- 	"akinsho/bufferline.nvim",
-	-- 	after = "nvim-web-devicons",
-	-- 	config = function()
-	-- 		require("plugins.bufferline")
-	-- 	end,
-	-- })
-
-	-- BUFFER DELETE --------------------------------------------------
+	-- BUFFER DELETE ---------------------------------------------
 	use({
 		"famiu/bufdelete.nvim",
 		cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
 	})
 
-	-- LIGHTSPEED -------------------------------------------
+	-- LIGHTSPEED ------------------------------------------------
 	use({
 		"ggandor/leap.nvim",
 		config = function()
 			require("plugins.leap")
 		end,
 	})
+
+	-- MAXIMIZER WINDOW ------------------------------------------
+	use("szw/vim-maximizer")
+
+	-- GOOGLE CALENDAR/TASKS -------------------------------------
+	use("itchyny/calendar.vim")
+	-- rm -rf ~/.cache/calendar.vim/google/
+
+	-- SESSIONS --------------------------------------------------
+	use({
+		"rmagatti/auto-session",
+		config = function()
+			require("plugins.auto-session")
+		end,
+	})
+
+	-- BUFFER NAVIGATION -----------------------------------------
+	use({
+		"ghillb/cybu.nvim",
+		config = function()
+			require("plugins.cybu")
+		end,
+	})
+
+	-- CENTERPAD -------------------------------------------------
+	use({
+		"smithbm2316/centerpad.nvim",
+		cmd = { "Centerpad" },
+	})
+
+	-- NEW AUTOPAIRS ---------------------------------------------
+	-- kylechui/nvim-surround
+	-- LIGHTSPEED ------------------------------------------------
 	-- use({
 	-- 	"ggandor/lightspeed.nvim",
 	-- 	config = function()
@@ -365,79 +379,15 @@ return packer.startup(function(use)
 	-- 		})
 	-- 	end,
 	-- })
-
-	-- MAXIMIZER WINDOW ----------------------------------
-	use("szw/vim-maximizer")
-
-	-- GOOGLE CALENDAR/TASKS -----------------------------
-	use("itchyny/calendar.vim")
-	-- rm -rf ~/.cache/calendar.vim/google/
-
-	-- SESSIONS -----------------------------
-	use({
-		"rmagatti/auto-session",
-		config = function()
-			require("auto-session").setup({
-				log_level = "info",
-				auto_session_use_git_branch = false,
-				auto_session_create_enabled = false,
-				-- auto_session_create_enabled = false,
-			})
-		end,
-	})
-
-	use({
-		"ghillb/cybu.nvim",
-		-- branch = "v1.x", -- won't receive breaking changes
-		-- branch = "main", -- timely updates
-		-- requires = { "kyazdani42/nvim-web-devicons" }, --optional
-		config = function()
-			local ok, cybu = pcall(require, "cybu")
-			if not ok then
-				return
-			end
-			cybu.setup({
-				display_time = 400,
-				style = {
-					highlights = {
-						current_buffer = "rainbowcol7", -- current / selected buffer
-					},
-				},
-				behavior = { -- set behavior for different modes
-					mode = {
-						default = {
-							switch = "immediate", -- immediate, on_close
-							view = "paging", -- paging, rolling
-						},
-						last_used = {
-							switch = "immediate", -- immediate, on_close
-							view = "paging", -- paging, rolling
-						},
-					},
-				},
-			})
-		end,
-	})
-
-	use({
-		"smithbm2316/centerpad.nvim",
-		cmd = { "Centerpad" },
-	})
-
-	use({ "antoinemadec/FixCursorHold.nvim" })
-
-	use({ "RRethy/vim-illuminate" })
-
-	-- https://github.com/RRethy/vim-illuminate
-	-- JEST TESTING -----------------------------
+	-- JEST TESTING ----------------------------------------------
 	-- use({
 	-- 	"David-Kunz/jester",
 	-- })
-	-- DAP -----------------------------
+	-- DAP -------------------------------------------------------
 	-- use("mfusseneger/nvim-dap")
 	-- use("rcarriga/nvim-dap-ui")
 	-- use("ravenxrz/DAPInstall.nvim")
-	-- AERIAL -------------------------
+	-- AERIAL ----------------------------------------------------
 	-- use({
 	-- 	"stevearc/aerial.nvim",
 	-- 	module = "aerial",
@@ -447,7 +397,7 @@ return packer.startup(function(use)
 	-- 		require("aerial").setup({})
 	-- 	end,
 	-- })
-	-- MARKS -------------------------
+	-- MARKS -----------------------------------------------------
 	-- use({
 	-- 	"chentoast/marks.nvim",
 	-- 	require("marks").setup({
@@ -460,13 +410,13 @@ return packer.startup(function(use)
 	-- 		},
 	-- 	}),
 	-- })
-	-- -- TAB NINE ------------------------------------------
+	-- -- TAB NINE -----------------------------------------------
 	-- use({
 	--   "tzachar/cmp-tabnine",
 	--   run = "./install.sh",
 	--   requires = "hrsh7th/nvim-cmp",
 	-- })
-	-- DETAILED INFO CMP ------------------------------------
+	-- DETAILED INFO CMP -----------------------------------------
 	-- use {
 	--    "ray-x/lsp_signature.nvim",
 	--    after = "nvim-lspconfig",
@@ -474,12 +424,12 @@ return packer.startup(function(use)
 	--      require("plugins.others").signature()
 	--    end,
 	-- }
-	-- TREESITTER CMP ---------------------------------------
+	-- TREESITTER CMP --------------------------------------------
 	-- use {
 	--   "ray-x/cmp-treesitter",
 	--   after = "nvim-cmp",
 	-- }
-	-- NEOGIT -----------------------------------------------
+	-- NEOGIT ----------------------------------------------------
 	-- use {
 	--    "TimUntersberger/neogit",
 	--    cmd = {

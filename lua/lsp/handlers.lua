@@ -50,9 +50,10 @@ M.setup = function()
 	})
 end
 
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_buf_set_keymap
+
 local function lsp_keymaps(bufnr)
-	local opts = { noremap = true, silent = true }
-	local keymap = vim.api.nvim_buf_set_keymap
 	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -70,33 +71,39 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
--- require("modules.config.lsp.handlers").enable_format_on_save()
 M.on_attach = function(client, bufnr)
+	-- Add lsp keymaps
 	lsp_keymaps(bufnr)
+
+	-- Format on save
 	if client.resolved_capabilities.document_formatting then
 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
 	end
 
 	if client.name == "tsserver" then
-		-- prettierd in null_ls
+		-- Prettierd in null_ls
 		client.resolved_capabilities.document_formatting = false
 
-		-- ts-utils
+		-- Ts-utils
 		local ts_utils = require("nvim-lsp-ts-utils")
 		ts_utils.setup({})
 		ts_utils.setup_client(client)
-
-		local opts = { silent = true }
-		vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
-		vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", opts)
-		vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
+		keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
+		keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", opts)
+		keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
 	end
 
-	-- stylua in null_ls
+	-- Stylua in null_ls
 	if client.name == "sumneko_lua" then
 		client.resolved_capabilities.document_formatting = false
 	end
 
+	-- Prettierd in null_ls
+	if client.name == "html" then
+		client.resolved_capabilities.document_formatting = false
+	end
+
+	-- Highlight text
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
 		return

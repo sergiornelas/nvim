@@ -12,8 +12,7 @@ keymap("n", "<leader>i", "<cmd>Telescope find_files theme=ivy<CR>", opts)
 keymap("n", "<leader>k", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>Telescope grep_string theme=ivy<cr>", opts)
 keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy<cr>", opts)
-keymap("n", "<leader>p", "<cmd>Telescope projects theme=ivy<cr>", opts)
--- keymap("n", "<leader>p", "<cmd>Telescope project theme=dropdown layout_config={width=0.25}<cr>")
+keymap("n", "<leader>p", "<cmd>Telescope projects theme=dropdown<cr>", opts)
 keymap("n", "<leader>e", "<cmd>Telescope buffers theme=dropdown<cr>", opts)
 keymap("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>", opts)
 
@@ -28,8 +27,6 @@ keymap("n", "<leader>dd", "<cmd>DiffviewOpen<cr>", opts)
 keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<cr>", opts)
 
 -- <BUFFER NAVIGATION>
--- keymap("n", "<c-j>", "<cmd>BufferLineCyclePrev<cr>") --previous buffer
--- keymap("n", "<c-k>", "<cmd>BufferLineCycleNext<cr>") --next buffer
 keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) --close buffer without closing window.
 keymap("n", "®", "<cmd>BufferLineMoveNext<CR>", opts) --move buffer tap to next
 keymap("n", "∑", "<cmd>BufferLineMovePrev<CR>", opts) --move buffer tap to prev
@@ -37,19 +34,15 @@ keymap("n", "∑", "<cmd>BufferLineMovePrev<CR>", opts) --move buffer tap to pre
 -- <CALENDAR>
 keymap("n", "<leader>y", "<cmd>Calendar<CR>", opts) --move buffer tap to prev
 
--- <LSP>
--- keymap("n", "du", "<cmd>LspDiagPrev<CR>") --move buffer tap to prev
--- keymap("n", "dm", "<cmd>LspDiagNext<CR>") --move buffer tap to prev
-
--- CYBU BUFFER
+-- <CYBU BUFFER>
 keymap("n", "<c-k>", "<plug>(CybuLastusedPrev)", opts)
 keymap("n", "<c-j>", "<plug>(CybuLastusedNext)", opts)
 
--- COLOR PICKER
+-- <COLOR PICKER>
 keymap("n", "<C-c>", "<cmd>PickColor<cr>", opts)
 keymap("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
--- CENTERPAD
+-- <CENTERPAD>
 keymap("n", "<leader>z", "<cmd>Centerpad<cr>", opts)
 
 -- AVOID UNPRACTICAL YANKING
@@ -132,7 +125,7 @@ vim.cmd([[
   nnoremap <silent><leader><cr> :TransparentToggle<CR>
 
   "<NEORG>
-  nnoremap <leader>nw :Neorg workspace 
+  nnoremap <leader>nw :Neorg workspace
 
   "<LUASNIP>
   snoremap p p
@@ -214,8 +207,8 @@ keymap("v", "[", "$", opts)
 keymap("n", "d[", "d$", opts)
 keymap("n", "q[", "y$", opts)
 -- H
-keymap("n", "]", "=", opts)
-keymap("v", "]", "=", opts)
+keymap("n", "]", "==", opts)
+keymap("v", "]", "==", opts)
 -- J
 keymap("n", "=", "%", opts)
 keymap("v", "=", "%", opts)
@@ -240,9 +233,3 @@ keymap("n", ")", "^", opts)
 keymap("v", ")", "^", opts)
 keymap("n", "d)", "d^", opts)
 keymap("n", "q)", "q^", opts)
-
--- ZZ Write current file if modified and close current window
--- ZQ Quit without checking for changes (same as :q!)
-
--- qa Exit vim, unless there are some buffers which have been changed (leader ww)
--- qa! Exit vim, any changes are lost. (c-q c-q)

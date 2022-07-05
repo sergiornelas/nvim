@@ -1,6 +1,6 @@
 local status_ok, impatient = pcall(require, "impatient")
 if not status_ok then
-  return
+	return
 end
 
 impatient.enable_profile()
@@ -32,10 +32,9 @@ for _, plugin in pairs(disabled_built_ins) do
 	vim.g["loaded_" .. plugin] = 1
 end
 
-require "config"
-require "calendar"
-require "colorscheme"
-require "keymaps"
-require "pluginList"
-require "options"
--- require "lsp.init"
+require("config")
+require("options")
+require("keymaps")
+require("pluginList")
+require("colorscheme")
+require("calendar")

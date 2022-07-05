@@ -1,13 +1,3 @@
--- VIM ROOTER
-vim.g.rooter_silent_chdir = 1
-vim.g.rooter_manual_only = 1
-
--- SESSIONS (curdir eliminated)
-vim.o.sessionoptions = "blank,buffers,folds,help,tabpages,winsize,winpos,terminal"
-
--- HIGHLIGHT
-vim.g.cursorhold_updatetime = 100
-
 -- GRUVBOX BABY
 vim.g.gruvbox_baby_function_style = "NONE"
 vim.g.gruvbox_baby_keyword_style = "italic"
@@ -18,44 +8,28 @@ vim.g.gruvbox_baby_transparent_mode = 0
 vim.g.material_style = "deep ocean"
 
 -- ILLUMINATE
-vim.g.Illuminate_ftblacklist = {'NvimTree'}
+vim.g.Illuminate_ftblacklist = { "NvimTree" }
 -- vim.api.nvim_set_keymap('n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', {noremap=true})
 -- vim.api.nvim_set_keymap('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', {noremap=true})
 
--- CLOSE NVIMTREE ?
-vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
-
--- Symbols
+-- Symbols listchars
 vim.opt.listchars = {
-	-- eol = "↵",
-	tab = "│·",
-	extends = "⟩",
-	precedes = "⟨",
+	tab = "│ ",
+	extends = "→",
+	precedes = "←",
 	trail = "·",
+	nbsp = "␣",
+	-- eol = "¬",
 }
 vim.opt.list = true
 
--- Highlight Yanked Text
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-  callback = function()
-    vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
-  end,
-})
-
---- Fixes Autocomment
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  callback = function()
-    vim.cmd "set formatoptions-=cro"
-  end,
-})
-
 -- Set wrap and spell in markdown and gitcommit
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "gitcommit", "markdown" },
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
-  end,
+	pattern = { "gitcommit", "markdown" },
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.spell = true
+	end,
 })
 
 vim.cmd([[
@@ -64,6 +38,11 @@ vim.cmd([[
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
+
+  set showbreak=↪\
+
+  " Don't add the comment prefix when I hit enter or o/O on a comment line.
+  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
   " Eliminate unnamed buffers
   function! CleanNoNameEmptyBuffers()
@@ -77,6 +56,7 @@ vim.cmd([[
 
   " Avoid crashing when starts neovim with sessions
   " autocmd VimEnter * call timer_start(500, {-> execute("let g:rooter_manual_only = 0")})
+  " Add close DiffviewClose
   autocmd VimLeave * NvimTreeClose
 ]])
 

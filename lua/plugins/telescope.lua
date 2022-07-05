@@ -45,6 +45,7 @@ telescope.setup({
 })
 
 -- TELESCOPE APPLY COLORSCHEME WITHOUT CLOSING THE PICKER
+-- AND PERSIST COLOR TO THE NEXT SESSION
 local M = {}
 M.choose_colors = function()
 	local actions_state = require("telescope.actions.state")

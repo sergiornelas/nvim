@@ -19,27 +19,9 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.prettierd.with({
 			disabled_filetypes = {
-				-- using LSP jsonls
-				"json",
+				"json", -- using LSP jsonls
 			},
 		}),
 		diagnostics.eslint_d,
-		-- diagnostics.jsonlint, --json
-		-- LSP status===============
-		--  JS, JSX, TS, TSX completions: tsserver*
-		--  TS, TSX diagnostics: tsserver*, BUT LOOKS LIKE JS FILES ALSO APPLIES
-		--  HTML completions: html (formatting turned off for prettier)
-		--  CSS completions: cssls
-		--  CSS diagnostics: cssls
-		--  Lua diagnostics: sumneko_lua (also has a weak formatting)
-
-		-- diagnostics.eslint_d.with({
-		-- 	filetypes = { "javascript" },
-		-- }),
-		-- code_actions.eslint_d.with({
-		-- 	filetypes = { "javascript" },
-		-- }),
 	},
-	on_attach = require("lsp.handlers").on_attach,
-	-- capabilities = require("lsp.handlers").capabilities,
 })
