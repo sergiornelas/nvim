@@ -1,4 +1,4 @@
-﻿------------------------------------CTRL------------------------------------------------
+﻿------------------------------------CTRL----------------------------------------------------------------
 VIM KEYBINDS
 [Ctrl + y] - move screen up one line (without moving cursor)
 [Ctrl + e] - move screen down one line (without moving cursor)
@@ -21,7 +21,7 @@ VIM KEYBINDS
 [Ctrl + q] = square select again (mappeable)
 [ctrl + c] = gives info about how to exit vim `(mapped as exit)`
 
------------------------------------CTRL INSERT MODE--------------------------------------
+-----------------------------------CTRL INSERT MODE-----------------------------------------------------
 VIM KEYBINDS INSERT MODE:
 [Ctrl + h] - backpace
 [Ctrl + t] - move whole line to the RIGHT.

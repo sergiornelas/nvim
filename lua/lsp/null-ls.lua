@@ -1,9 +1,8 @@
 --=================={Installers}=========================
---  > npm install -g typescript typescript-language-server
 --  > npm install -g eslint_d
 --  > npm install -g @fsouza/prettierd
---  > brew install tidy-html5
 --  > brew install stylua
+--  > brew install tidy-html5
 
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
@@ -17,11 +16,9 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		formatting.stylua,
-		formatting.prettierd.with({
-			disabled_filetypes = {
-				"json", -- using LSP jsonls
-			},
-		}),
+		formatting.prettierd,
+		formatting.fish_indent,
 		diagnostics.eslint_d,
+		diagnostics.fish,
 	},
 })

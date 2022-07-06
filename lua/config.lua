@@ -1,16 +1,8 @@
--- GRUVBOX BABY
-vim.g.gruvbox_baby_function_style = "NONE"
-vim.g.gruvbox_baby_keyword_style = "italic"
-vim.g.gruvbox_baby_telescope_theme = 1
-vim.g.gruvbox_baby_transparent_mode = 0
-
--- MATERIAL
+-- <MATERIAL>
 vim.g.material_style = "deep ocean"
 
--- ILLUMINATE
+-- <ILLUMINATE>
 vim.g.Illuminate_ftblacklist = { "NvimTree" }
--- vim.api.nvim_set_keymap('n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', {noremap=true})
--- vim.api.nvim_set_keymap('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', {noremap=true})
 
 -- Symbols listchars
 vim.opt.listchars = {
@@ -25,7 +17,7 @@ vim.opt.list = true
 
 -- Set wrap and spell in markdown and gitcommit
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "gitcommit", "markdown" },
+	pattern = { "gitcommit", "markdown", "norg" },
 	callback = function()
 		vim.opt_local.wrap = true
 		vim.opt_local.spell = true
@@ -39,7 +31,8 @@ vim.cmd([[
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 
-  set showbreak=↪\
+  " wrap break
+  set showbreak=↪\ 
 
   " Don't add the comment prefix when I hit enter or o/O on a comment line.
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -56,7 +49,6 @@ vim.cmd([[
 
   " Avoid crashing when starts neovim with sessions
   " autocmd VimEnter * call timer_start(500, {-> execute("let g:rooter_manual_only = 0")})
-  " Add close DiffviewClose
   autocmd VimLeave * NvimTreeClose
 ]])
 

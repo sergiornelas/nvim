@@ -63,57 +63,6 @@ return packer.startup(function(use)
 		cmd = "StartupTime",
 	})
 
-	-- COLORSCHEMES ----------------------------------------------
-	use("lunarvim/darkplus.nvim")
-	use({
-		"sainnhe/gruvbox-material",
-	})
-	use("luisiacc/gruvbox-baby")
-	use("rebelot/kanagawa.nvim")
-	use("nxvu699134/vn-night.nvim")
-	use("folke/tokyonight.nvim")
-	use("marko-cerovac/material.nvim")
-	use("ishan9299/nvim-solarized-lua")
-	use("savq/melange")
-	use("Mofiqul/dracula.nvim")
-	use("sainnhe/everforest")
-	use("sainnhe/sonokai")
-	use("shaeinst/roshnivim-cs")
-	use("ray-x/aurora")
-	use("fenetikm/falcon")
-	use("yashguptaz/calvera-dark.nvim")
-	use("projekt0n/github-nvim-theme")
-	use("rose-pine/neovim")
-	use("olimorris/onedarkpro.nvim")
-	use("rmehri01/onenord.nvim")
-	use("tiagovla/tokyodark.nvim")
-	use("cpea2506/one_monokai.nvim")
-	use("sainnhe/edge")
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
-	})
-	use({
-		"navarasu/onedark.nvim",
-		config = function()
-			require("plugins.onedark")
-		end,
-	})
-	use({
-		"EdenEast/nightfox.nvim",
-		config = function()
-			require("plugins.nightfox")
-		end,
-	})
-
-	-- TRANSPARENT NVIM ------------------------------------------
-	use({
-		"xiyaowong/nvim-transparent",
-		config = function()
-			require("plugins.transparent")
-		end,
-	})
-
 	-- CMP -------------------------------------------------------
 	use({
 		"hrsh7th/nvim-cmp",
@@ -237,6 +186,14 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- PROJECT ---------------------------------------------------
+	use({
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("plugins.project")
+		end,
+	})
+
 	-- NVIM TREE -------------------------------------------------
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -267,6 +224,57 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- COLORSCHEMES ----------------------------------------------
+	use("lunarvim/darkplus.nvim")
+	use({
+		"sainnhe/gruvbox-material",
+	})
+	use("luisiacc/gruvbox-baby")
+	use("rebelot/kanagawa.nvim")
+	use("nxvu699134/vn-night.nvim")
+	use("folke/tokyonight.nvim")
+	use("marko-cerovac/material.nvim")
+	use("ishan9299/nvim-solarized-lua")
+	use("savq/melange")
+	use("Mofiqul/dracula.nvim")
+	use("sainnhe/everforest")
+	use("sainnhe/sonokai")
+	use("shaeinst/roshnivim-cs")
+	use("ray-x/aurora")
+	use("fenetikm/falcon")
+	use("yashguptaz/calvera-dark.nvim")
+	use("projekt0n/github-nvim-theme")
+	use("rose-pine/neovim")
+	use("olimorris/onedarkpro.nvim")
+	use("rmehri01/onenord.nvim")
+	use("tiagovla/tokyodark.nvim")
+	use("cpea2506/one_monokai.nvim")
+	use("sainnhe/edge")
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
+	use({
+		"navarasu/onedark.nvim",
+		config = function()
+			require("plugins.onedark")
+		end,
+	})
+	use({
+		"EdenEast/nightfox.nvim",
+		config = function()
+			require("plugins.nightfox")
+		end,
+	})
+
+	-- TRANSPARENT NVIM ------------------------------------------
+	use({
+		"xiyaowong/nvim-transparent",
+		config = function()
+			require("plugins.transparent")
+		end,
+	})
+
 	-- GIT SIGNS -------------------------------------------------
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -292,14 +300,6 @@ return packer.startup(function(use)
 			require("plugins.autopairs")
 		end,
 	})
-	-- PROJECT ---------------------------------------------------
-	use({
-		"ahmedkhalf/project.nvim",
-		config = function()
-			require("plugins.project")
-		end,
-	})
-
 	-- LUALINE ---------------------------------------------------
 	use({
 		"nvim-lualine/lualine.nvim",
