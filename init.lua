@@ -5,11 +5,6 @@ end
 
 impatient.enable_profile()
 
---google calendar
-vim.cmd([[
-  source ~/.cache/calendar.vim/credentials.vim
-]])
-
 --disable builtin plugins
 local disabled_built_ins = {
 	"2html_plugin",

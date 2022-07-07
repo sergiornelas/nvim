@@ -8,13 +8,21 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- <TELESCOPE>
-keymap("n", "<leader>i", "<cmd>Telescope find_files theme=ivy<CR>", opts)
-keymap("n", "<leader>k", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
-keymap("n", "<leader>dl", "<cmd>Telescope grep_string theme=ivy<cr>", opts)
-keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy<cr>", opts)
-keymap("n", "<leader>p", "<cmd>Telescope projects theme=dropdown<cr>", opts)
-keymap("n", "<leader>e", "<cmd>Telescope buffers theme=dropdown<cr>", opts)
-keymap("n", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>", opts)
+keymap("n", "<leader>i", "<cmd>Telescope find_files theme=ivy winblend=23<CR>", opts)
+keymap("n", "<leader>k", "<cmd>Telescope live_grep theme=ivy winblend=23<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>Telescope grep_string theme=ivy winblend=23<cr>", opts)
+keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy winblend=23<cr>", opts)
+keymap("n", "<leader>p", "<cmd>Telescope projects theme=dropdown winblend=23<cr>", opts)
+keymap("n", "<leader>e", "<cmd>Telescope buffers theme=dropdown winblend=23<cr>", opts)
+keymap("n", "<leader>m", "<cmd>Telescope marks theme=ivy winblend=23<cr>", opts)
+keymap("n", "<leader>dp", "<cmd>lua require('plugins.telescope').choose_colors()<cr>", opts)
+keymap(
+	"n",
+	"<leader>dg",
+	"<cmd>lua require'telescope.builtin'.symbols{ sources = {'emoji', 'kaomoji', 'gitmoji'} }<cr>",
+	opts
+)
+keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts)
 
 -- <NVIM TREE>
 keymap("n", "<leader>r", "<cmd>NvimTreeToggle <cr>", opts)
@@ -48,6 +56,9 @@ keymap("n", "<leader>y", "<cmd>Calendar<CR>", opts)
 -- <COLOR PICKER>
 keymap("n", "<C-c>", "<cmd>PickColor<cr>", opts)
 keymap("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
+
+-- <TRANSPARENCY>
+keymap("n", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info about current buffer
 
 -- AVOID UNPRACTICAL YANKING
 keymap("v", "p", '"_dP', opts) -- pasting without yanking
@@ -98,22 +109,13 @@ keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
 -- VIM MAPPING
 vim.cmd([[
   " <TELESCOPE>
-  nnoremap <silent><leader>dp :lua require("plugins.telescope").choose_colors()<cr>
   vnoremap <silent><leader>i "zy:Telescope find_files default_text=<C-r>z<cr>
   vnoremap <silent><leader>k "zy:Telescope live_grep default_text=<C-r>z theme=ivy<cr>
-  nnoremap <silent><leader>b :lua require('telescope.builtin').live_grep({grep_open_files=true}) print('Current Buffers')<CR>
-  " nnoremap <silent><leader>l :lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>
 
   " <LUASNIP>
   snoremap p p
   snoremap <c-h> <BS>i
   nnoremap <leader>da <CMD>LuaSnipUnlinkCurrent<CR>
-
-  " <TRANSPARENCY>
-  nnoremap <silent><leader><cr> :TransparentToggle<CR>
-
-  " <NEORG>
-  nnoremap <leader>nw :Neorg workspace
 
   " Move line/paragraph
   vnoremap <silent><c-j> :m '>+1<cr>gv=gv

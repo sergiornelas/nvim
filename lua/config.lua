@@ -1,3 +1,8 @@
+-- Google calendar
+vim.cmd([[
+  source ~/.cache/calendar.vim/credentials.vim
+]])
+
 -- <MATERIAL>
 vim.g.material_style = "deep ocean"
 
@@ -24,18 +29,35 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
-vim.cmd([[
-  " Highlight on yank
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
+-- Show yank line highlight
+local api = vim.api
 
+local yankGrp = api.nvim_create_augroup("YankHighlight", { clear = true })
+api.nvim_create_autocmd("TextYankPost", {
+	command = "silent! lua vim.highlight.on_yank()",
+	group = yankGrp,
+})
+
+-- Go to last location when opening a buffer
+api.nvim_create_autocmd(
+	"BufReadPost",
+	{ command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
+)
+
+-- Show cursor line only in active window
+local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
+api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = cursorGrp })
+api.nvim_create_autocmd(
+	{ "InsertEnter", "WinLeave" },
+	{ pattern = "*", command = "set nocursorline", group = cursorGrp }
+)
+
+vim.cmd([[
   " wrap break
   set showbreak=↪\ 
 
-  " Don't add the comment prefix when I hit enter or o/O on a comment line.
-  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+  " Avoids automatic comment when enter
+  au BufEnter * set fo-=c fo-=r fo-=o
 
   " Eliminate unnamed buffers
   function! CleanNoNameEmptyBuffers()

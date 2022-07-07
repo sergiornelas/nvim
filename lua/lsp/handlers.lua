@@ -72,12 +72,15 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-	-- Add lsp keymaps
+	-- Add LSP keymaps
 	lsp_keymaps(bufnr)
 
 	-- Format on save
 	if client.resolved_capabilities.document_formatting then
-		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+		vim.api.nvim_create_autocmd(
+			"BufWritePre",
+			{ pattern = "<buffer>", command = "lua vim.lsp.buf.formatting_sync()" }
+		)
 	end
 
 	if client.name == "tsserver" then

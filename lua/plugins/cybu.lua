@@ -3,7 +3,7 @@ if not ok then
 	return
 end
 cybu.setup({
-	display_time = 400,
+	display_time = 700,
 	style = {
 		highlights = {
 			current_buffer = "rainbowcol7", -- current / selected buffer

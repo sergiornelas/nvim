@@ -16,12 +16,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost pluginList.lua source <afile> | PackerSync
-  augroup end
-]])
+local group = vim.api.nvim_create_augroup("packer_user_config", { clear = true })
+vim.api.nvim_create_autocmd(
+	"BufWritePost",
+	{ pattern = "pluginList.lua", command = "source <afile> | PackerSync", group = group }
+)
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -110,8 +109,8 @@ return packer.startup(function(use)
 	-- LSP -------------------------------------------------------
 	use({
 		"neovim/nvim-lspconfig",
-		event = "VimEnter",
-		after = "nvim-lsp-installer",
+		--event = "VimEnter",
+		--after = "nvim-lsp-installer",
 		config = function()
 			require("lsp")
 		end,
@@ -152,8 +151,8 @@ return packer.startup(function(use)
 	-- COMMENTS --------------------------------------------------
 	use({
 		"numToStr/Comment.nvim",
-		module = { "Comment", "Comment.api" },
-		keys = { "gc", "gb", "g<", "g>" },
+		-- module = { "Comment", "Comment.api" },
+		-- keys = { "gc", "gb", "g<", "g>" },
 		config = function()
 			require("plugins.comment")
 		end,
@@ -176,15 +175,17 @@ return packer.startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		requires = {
 			{
-				"nvim-telescope/telescope-live-grep-args.nvim",
 				"nvim-lua/plenary.nvim",
-				run = "make",
 			},
 		},
+		run = "make",
 		config = function()
 			require("plugins.telescope")
 		end,
 	})
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({ "nvim-telescope/telescope-symbols.nvim" })
+	use({ "crispgm/telescope-heading.nvim" })
 
 	-- PROJECT ---------------------------------------------------
 	use({
@@ -321,7 +322,10 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins.neorg")
 		end,
-		requires = "nvim-lua/plenary.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			-- "nvim-neorg/neorg-telescope",
+		},
 	})
 
 	-- BUFFER DELETE ---------------------------------------------
