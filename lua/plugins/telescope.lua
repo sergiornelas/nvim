@@ -22,15 +22,14 @@ telescope.setup({
 				["<C-j>"] = actions.select_default,
 				["<C-n>"] = actions.cycle_history_next,
 				["<C-p>"] = actions.cycle_history_prev,
+				["<C-s>"] = actions.select_horizontal,
+				["<C-o>"] = actions.select_tab,
 			},
 		},
 	},
 	pickers = {
-		find_files = {
-			theme = "ivy",
-		},
-		live_grep = {
-			theme = "ivy",
+		colorscheme = {
+			enable_preview = true,
 		},
 		buffers = {
 			sort_lastused = false,
@@ -49,67 +48,11 @@ telescope.setup({
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			-- the default case_mode is "smart_case"
 		},
-    heading = {
-      treesitter = true,
-    },
+		heading = {
+			treesitter = true,
+		},
 	},
 })
-
--- TELESCOPE APPLY COLORSCHEME WITHOUT CLOSING THE PICKER
--- AND PERSIST COLOR TO THE NEXT SESSION
-local M = {}
-M.choose_colors = function()
-	local actions_state = require("telescope.actions.state")
-	local pickers = require("telescope.pickers")
-	local finders = require("telescope.finders")
-	local sorters = require("telescope.sorters")
-	local dropdown = require("telescope.themes").get_dropdown()
-	-- local dropdown = require("telescope.themes").get_dropdown({ winblend = 20 })
-
-	function SelectPersistColor(prompt_bufnr)
-		local selected = actions_state.get_selected_entry()
-		local cmd = "colorscheme " .. selected[1]
-		vim.cmd(cmd) --executes new color when c-j. Useful for selecting when filtering
-
-		-- selected colorscheme persists when you close neovim (sed mac os)
-		local job_cmd = "sed -i '' 's/.*colorscheme.*/" .. cmd .. "/' ~/.config/nvim/lua/colorscheme.lua"
-		vim.fn.jobstart(job_cmd)
-
-		actions.close(prompt_bufnr)
-	end
-
-	function Next_color(prompt_bufnr)
-		actions.move_selection_next(prompt_bufnr)
-		local selected = actions_state.get_selected_entry()
-		local cmd = "colorscheme " .. selected[1]
-		vim.cmd(cmd)
-	end
-
-	function Prev_color(prompt_bufnr)
-		actions.move_selection_previous(prompt_bufnr)
-		local selected = actions_state.get_selected_entry()
-		local cmd = "colorscheme " .. selected[1]
-		vim.cmd(cmd)
-	end
-
-	local colors = vim.fn.getcompletion("", "color")
-	local opts = {
-		finder = finders.new_table(colors),
-		sorter = sorters.get_generic_fuzzy_sorter({}),
-		attach_mappings = function(prompt_bufnr, map)
-			map("i", "<C-j>", SelectPersistColor)
-			map("i", "<cr>", SelectPersistColor)
-			map("i", "<C-k>", Next_color)
-			map("i", "<C-l>", Prev_color)
-			return true
-		end,
-	}
-
-	local colorsExecute = pickers.new(dropdown, opts)
-	colorsExecute:find()
-end
-
-return M
 
 -- Token  	       Match type           	          Description
 -- -------+-----------------------------+-----------------------------------

@@ -231,6 +231,7 @@ return packer.startup(function(use)
 		"sainnhe/gruvbox-material",
 	})
 	use("luisiacc/gruvbox-baby")
+	use({ "ellisonleao/gruvbox.nvim" })
 	use("rebelot/kanagawa.nvim")
 	use("nxvu699134/vn-night.nvim")
 	use("folke/tokyonight.nvim")

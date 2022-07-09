@@ -8,21 +8,21 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- <TELESCOPE>
-keymap("n", "<leader>i", "<cmd>Telescope find_files theme=ivy winblend=23<CR>", opts)
-keymap("n", "<leader>k", "<cmd>Telescope live_grep theme=ivy winblend=23<cr>", opts)
-keymap("n", "<leader>dl", "<cmd>Telescope grep_string theme=ivy winblend=23<cr>", opts)
-keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy winblend=23<cr>", opts)
-keymap("n", "<leader>p", "<cmd>Telescope projects theme=dropdown winblend=23<cr>", opts)
-keymap("n", "<leader>e", "<cmd>Telescope buffers theme=dropdown winblend=23<cr>", opts)
-keymap("n", "<leader>m", "<cmd>Telescope marks theme=ivy winblend=23<cr>", opts)
-keymap("n", "<leader>dp", "<cmd>lua require('plugins.telescope').choose_colors()<cr>", opts)
+keymap("n", "<leader>i", "<cmd>Telescope find_files theme=ivy winblend=28<CR>", opts)
+keymap("n", "<leader>k", "<cmd>Telescope live_grep theme=ivy winblend=28<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>Telescope grep_string theme=ivy winblend=28<cr>", opts)
+keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy winblend=28<cr>", opts)
+keymap("n", "<leader>p", "<cmd>Telescope projects theme=dropdown winblend=28<cr>", opts)
+keymap("n", "<leader>e", "<cmd>Telescope buffers theme=dropdown winblend=28<cr>", opts)
+keymap("n", "<leader>m", "<cmd>Telescope marks theme=ivy winblend=28<cr>", opts)
+keymap("n", "<leader>dp", "<cmd>Telescope colorscheme theme=ivy<cr>", opts)
+keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts)
 keymap(
 	"n",
 	"<leader>dg",
 	"<cmd>lua require'telescope.builtin'.symbols{ sources = {'emoji', 'kaomoji', 'gitmoji'} }<cr>",
 	opts
 )
-keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts)
 
 -- <NVIM TREE>
 keymap("n", "<leader>r", "<cmd>NvimTreeToggle <cr>", opts)
@@ -105,6 +105,7 @@ keymap("v", "zh", "z6h", opts) -- zoom right
 keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
 keymap("i", "<c-o>", "<esc>O", opts) -- go to upper line insert mode
 keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
+keymap("i", "<c-v>", "<c-r>*", opts) -- paste last reg
 
 -- VIM MAPPING
 vim.cmd([[

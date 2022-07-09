@@ -1,6 +1,7 @@
 -- Google calendar
 vim.cmd([[
   source ~/.cache/calendar.vim/credentials.vim
+  " autocmd VimEnter * :clearjumps
 ]])
 
 -- <MATERIAL>
@@ -29,9 +30,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
--- Show yank line highlight
 local api = vim.api
 
+-- Show yank line highlight
 local yankGrp = api.nvim_create_augroup("YankHighlight", { clear = true })
 api.nvim_create_autocmd("TextYankPost", {
 	command = "silent! lua vim.highlight.on_yank()",

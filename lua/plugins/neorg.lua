@@ -7,26 +7,26 @@ neorg.setup({
 	load = {
 		["core.defaults"] = {}, -- Load all the default modules
 		["core.keybinds"] = {
-			config = {
-				default_keybinds = false,
-				hook = function(keybinds)
-					keybinds.unmap("norg", "n", "<CR>")
-					keybinds.remap_event("norg", "n", "<C-Y>", "core.norg.esupports.hop.hop-link")
-				end,
-			},
+			-- 	config = {
+			-- 		default_keybinds = false,
+			-- 		hook = function(keybinds)
+			-- 			keybinds.unmap("norg", "n", "<CR>")
+			-- 			keybinds.remap_event("norg", "n", "<C-Y>", "core.norg.esupports.hop.hop-link")
+			-- 		end,
+			-- 	},
 		},
-		["core.norg.dirman"] = { --Managing directories full of .norg files
-			config = {
-				workspaces = {
-					notes = "~/notes",
-				},
-			},
-		},
-		["core.norg.esupports.metagen"] = { --module for generating metadata automatically
-			config = { -- Note that this table is optional and doesn't need to be provided
-				type = "none",
-			},
-		},
+		-- ["core.norg.dirman"] = { --Managing directories full of .norg files
+		-- 	config = {
+		-- 		workspaces = {
+		-- 			notes = "~/notes",
+		-- 		},
+		-- 	},
+		-- },
+		-- ["core.norg.esupports.metagen"] = { --module for generating metadata automatically
+		-- 	config = { -- Note that this table is optional and doesn't need to be provided
+		-- 		type = "none",
+		-- 	},
+		-- },
 		-- ["core.norg.concealer"] = {}, -- Allows for use of icons
 		-- ["core.gtd.base"] = {}, --Manages your tasks with Neorg using the Getting Things Done methology
 		-- ["core.integrations.telescope"] = {}, -- Enable telescope module

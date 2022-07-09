@@ -13,11 +13,11 @@ cybu.setup({
 		mode = {
 			default = {
 				switch = "immediate", -- immediate, on_close
-				view = "paging", -- paging, rolling
+				view = "rolling", -- paging, rolling
 			},
 			last_used = {
 				switch = "immediate", -- immediate, on_close
-				view = "paging", -- paging, rolling
+				view = "rolling", -- paging, rolling
 			},
 		},
 	},
