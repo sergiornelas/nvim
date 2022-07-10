@@ -1,9 +1,3 @@
--- Google calendar
-vim.cmd([[
-  source ~/.cache/calendar.vim/credentials.vim
-  " autocmd VimEnter * :clearjumps
-]])
-
 -- <MATERIAL>
 vim.g.material_style = "deep ocean"
 
@@ -54,6 +48,15 @@ api.nvim_create_autocmd(
 )
 
 vim.cmd([[
+  " Default colorscheme
+  colorscheme gruvbox
+
+  " Calendar
+  source ~/.cache/calendar.vim/credentials.vim
+
+  " Stop folding
+  autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99
+
   " wrap break
   set showbreak=↪\ 
 

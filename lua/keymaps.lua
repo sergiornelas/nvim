@@ -15,7 +15,7 @@ keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy winblend=28<cr>", op
 keymap("n", "<leader>p", "<cmd>Telescope projects theme=dropdown winblend=28<cr>", opts)
 keymap("n", "<leader>e", "<cmd>Telescope buffers theme=dropdown winblend=28<cr>", opts)
 keymap("n", "<leader>m", "<cmd>Telescope marks theme=ivy winblend=28<cr>", opts)
-keymap("n", "<leader>dp", "<cmd>Telescope colorscheme theme=ivy<cr>", opts)
+keymap("n", "<leader>dp", "<cmd>Telescope colorscheme theme=ivy winblend=28<cr>", opts)
 keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts)
 keymap(
 	"n",

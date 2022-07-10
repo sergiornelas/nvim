@@ -139,20 +139,25 @@ return packer.startup(function(use)
 		end,
 		run = ":TSUpdate",
 	})
+	-- TREESITTER UNIT -------------------------------------------
+	use({ "David-Kunz/treesitter-unit" })
+	-- TREESITTER CONTEXT ----------------------------------------
+	-- use({
+	-- 	"nvim-treesitter/nvim-treesitter-context",
+	-- 	config = function()
+	-- 		require("plugins.treesitter-ctx")
+	-- 	end,
+	-- })
+
 	-- RAINBOW ---------------------------------------------------
 	use({
 		"p00f/nvim-ts-rainbow",
 		after = "nvim-treesitter",
 	})
 
-	-- TREESITTER UNIT -------------------------------------------
-	use({ "David-Kunz/treesitter-unit" })
-
 	-- COMMENTS --------------------------------------------------
 	use({
 		"numToStr/Comment.nvim",
-		-- module = { "Comment", "Comment.api" },
-		-- keys = { "gc", "gb", "g<", "g>" },
 		config = function()
 			require("plugins.comment")
 		end,
@@ -210,7 +215,6 @@ return packer.startup(function(use)
 	-- COLORIZER -------------------------------------------------
 	use({
 		"norcalli/nvim-colorizer.lua",
-		event = { "BufRead", "BufNewFile" },
 		config = function()
 			require("plugins.colorizer")
 		end,
@@ -320,13 +324,14 @@ return packer.startup(function(use)
 	-- NOTES -----------------------------------------------------
 	use({
 		"nvim-neorg/neorg",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"max397574/neorg-contexts",
+			-- "nvim-neorg/neorg-telescope",
+		},
 		config = function()
 			require("plugins.neorg")
 		end,
-		requires = {
-			"nvim-lua/plenary.nvim",
-			-- "nvim-neorg/neorg-telescope",
-		},
 	})
 
 	-- BUFFER DELETE ---------------------------------------------

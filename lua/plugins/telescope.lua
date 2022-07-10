@@ -39,6 +39,14 @@ telescope.setup({
 				},
 			},
 		},
+		find_files = {
+			theme = "ivy",
+			winblend = 28,
+		},
+		live_grep = {
+			theme = "ivy",
+			winblend = 28,
+		},
 	},
 	extensions = {
 		fzf = {
