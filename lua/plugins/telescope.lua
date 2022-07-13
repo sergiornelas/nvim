@@ -10,20 +10,21 @@ telescope.load_extension("heading")
 local actions = require("telescope.actions")
 
 telescope.setup({
-	defaults = {
-		prompt_prefix = " ",
+  defaults = {
+    prompt_prefix = " ",
 		selection_caret = " ",
 		path_display = { "smart" },
 		mappings = {
 			i = {
-				["<esc>"] = actions.close,
-				["<C-k>"] = actions.move_selection_next,
-				["<C-l>"] = actions.move_selection_previous,
+				["<tab>"] = actions.move_selection_next,
+				["<C-o>"] = actions.move_selection_previous,
 				["<C-j>"] = actions.select_default,
 				["<C-n>"] = actions.cycle_history_next,
 				["<C-p>"] = actions.cycle_history_prev,
 				["<C-s>"] = actions.select_horizontal,
-				["<C-o>"] = actions.select_tab,
+				["<C-e>"] = actions.select_tab,
+        ["<C-a>"] = { "<esc>", type = "command" },
+        ["<esc>"] = actions.close,
 			},
 		},
 	},
@@ -41,11 +42,11 @@ telescope.setup({
 		},
 		find_files = {
 			theme = "ivy",
-			winblend = 28,
+			winblend = 10,
 		},
 		live_grep = {
 			theme = "ivy",
-			winblend = 28,
+			winblend = 10,
 		},
 	},
 	extensions = {

@@ -65,45 +65,45 @@ return packer.startup(function(use)
 	-- CMP -------------------------------------------------------
 	use({
 		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		after = "friendly-snippets",
+		-- event = "InsertEnter",
+		-- after = "friendly-snippets",
 		config = function()
 			require("plugins.cmp")
 		end,
 	})
 	use({
 		"hrsh7th/cmp-buffer",
-		after = "nvim-cmp",
+		-- after = "nvim-cmp",
 	})
 	use({
 		"hrsh7th/cmp-path",
-		after = "nvim-cmp",
+		-- after = "nvim-cmp",
 	})
 	use({
 		"saadparwaiz1/cmp_luasnip",
-		after = "nvim-cmp",
+		-- after = "nvim-cmp",
 	})
 	-- LSP CMP
 	use({
 		"hrsh7th/cmp-nvim-lsp",
-		after = "nvim-cmp",
+		-- after = "nvim-cmp",
 	})
 	-- LUA CMP
 	use({
 		"hrsh7th/cmp-nvim-lua",
-		after = "nvim-cmp",
+		-- after = "nvim-cmp",
 	})
 
 	-- SNIPPETS --------------------------------------------------
 	use({
 		"L3MON4D3/LuaSnip",
-		module = "luasnip",
-		wants = "friendly-snippets",
+		-- module = "luasnip",
+		-- wants = "friendly-snippets",
 	})
 	use({
 		"rafamadriz/friendly-snippets",
-		event = "InsertEnter",
-		opt = true,
+		-- event = "InsertEnter",
+		-- opt = true,
 	})
 
 	-- LSP -------------------------------------------------------
@@ -142,12 +142,12 @@ return packer.startup(function(use)
 	-- TREESITTER UNIT -------------------------------------------
 	use({ "David-Kunz/treesitter-unit" })
 	-- TREESITTER CONTEXT ----------------------------------------
-	-- use({
-	-- 	"nvim-treesitter/nvim-treesitter-context",
-	-- 	config = function()
-	-- 		require("plugins.treesitter-ctx")
-	-- 	end,
-	-- })
+	use({
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require("plugins.treesitter-ctx")
+		end,
+	})
 
 	-- RAINBOW ---------------------------------------------------
 	use({
@@ -231,11 +231,9 @@ return packer.startup(function(use)
 
 	-- COLORSCHEMES ----------------------------------------------
 	use("lunarvim/darkplus.nvim")
-	use({
-		"sainnhe/gruvbox-material",
-	})
+	use("morhetz/gruvbox")
+	use("sainnhe/gruvbox-material")
 	use("luisiacc/gruvbox-baby")
-	use({ "ellisonleao/gruvbox.nvim" })
 	use("rebelot/kanagawa.nvim")
 	use("nxvu699134/vn-night.nvim")
 	use("folke/tokyonight.nvim")
@@ -263,13 +261,13 @@ return packer.startup(function(use)
 	use({
 		"navarasu/onedark.nvim",
 		config = function()
-			require("plugins.onedark")
+			require("plugins.colorschemes").onedark()
 		end,
 	})
 	use({
 		"EdenEast/nightfox.nvim",
 		config = function()
-			require("plugins.nightfox")
+			require("plugins.colorschemes").nightfox()
 		end,
 	})
 
@@ -326,7 +324,7 @@ return packer.startup(function(use)
 		"nvim-neorg/neorg",
 		requires = {
 			"nvim-lua/plenary.nvim",
-			"max397574/neorg-contexts",
+			-- "max397574/neorg-contexts",
 			-- "nvim-neorg/neorg-telescope",
 		},
 		config = function()
@@ -377,6 +375,13 @@ return packer.startup(function(use)
 		cmd = { "Centerpad" },
 	})
 
+	-- use({
+	-- 	"ray-x/lsp_signature.nvim",
+	-- 	-- after = "nvim-lspconfig",
+	-- 	config = function()
+	-- 		require("lsp_signature").setup()
+	-- 	end,
+	-- })
 	-- NEW AUTOPAIRS ---------------------------------------------
 	-- kylechui/nvim-surround
 	-- LIGHTSPEED ------------------------------------------------

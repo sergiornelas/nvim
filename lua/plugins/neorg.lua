@@ -24,7 +24,7 @@ neorg.setup({
 			config = {
 				engine = "nvim-cmp",
 			},
-		}, -- Allows for use of icons
+		},
 		-- ["core.gtd.base"] = {}, --Manages your tasks with Neorg using the Getting Things Done methology
 		-- ["core.integrations.telescope"] = {}, -- Enable telescope module
 	},

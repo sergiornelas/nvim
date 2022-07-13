@@ -114,7 +114,12 @@ M.on_attach = function(client, bufnr)
 	if not status_ok then
 		return
 	end
-	illuminate.on_attach(client)
+
+	-- require("lsp_signature").on_attach() -- Note: add in lsp client on-attach
+
+	if vim.g.colors_name ~= "gruvbox-baby" then
+		illuminate.on_attach(client)
+	end
 end
 
 return M
