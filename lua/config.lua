@@ -1,33 +1,28 @@
-if vim.env.TERM == 'xterm-kitty' then
-  vim.cmd([[autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif]])
-  vim.cmd([[autocmd UILeave * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[<1u") | endif]])
-end
-
 -- <MATERIAL>
 vim.g.material_style = "deep ocean"
 
 -- <GRUVBOX BABY>
 vim.g.gruvbox_baby_transparent_mode = 0
 vim.g.gruvbox_baby_telescope_theme = 1
-vim.g.gruvbox_baby_highlights = {
-	-- Normal = { -- Responsible for strong window borders
-	-- 	fg = "#d5b018",
-	-- 	-- fg = "#83A598",
-	-- 	-- fg = "#E7D7AD",
-	-- },
-	Visual = {
-		fg = "#E7D7AD",
-		bg = "#653f43",
-	},
-	Search = {
-		fg = "#E7D7AD",
-		bg = "#653f43",
-	},
-	illuminatedWord = {
-		fg = "#c7baad",
-		bg = "#504945",
-	},
-}
+-- vim.g.gruvbox_baby_highlights = {
+-- 	-- Normal = { -- Responsible for strong window borders
+-- 	-- 	fg = "#d5b018",
+-- 	-- 	-- fg = "#83A598",
+-- 	-- 	-- fg = "#E7D7AD",
+-- 	-- },
+-- 	Visual = {
+-- 		fg = "#E7D7AD",
+-- 		bg = "#653f43",
+-- 	},
+-- 	Search = {
+-- 		fg = "#E7D7AD",
+-- 		bg = "#653f43",
+-- 	},
+-- 	illuminatedWord = {
+-- 		fg = "#c7baad",
+-- 		bg = "#504945",
+-- 	},
+-- }
 
 -- <ILLUMINATE>
 vim.g.Illuminate_ftblacklist = { "NvimTree" }
@@ -68,16 +63,17 @@ api.nvim_create_autocmd(
 )
 
 -- Show cursor line only in active window
-local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
-api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = cursorGrp })
-api.nvim_create_autocmd(
-	{ "InsertEnter", "WinLeave" },
-	{ pattern = "*", command = "set nocursorline", group = cursorGrp }
-)
+-- local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
+-- api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = cursorGrp })
+-- api.nvim_create_autocmd(
+-- 	{ "InsertEnter", "WinLeave" },
+-- 	{ pattern = "*", command = "set nocursorline", group = cursorGrp }
+-- )
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme gruvbox-baby
+  colorscheme solarized
+  " colorscheme gruvbox-baby
 
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim

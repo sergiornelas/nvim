@@ -35,12 +35,10 @@ packer.init({
 			return require("packer.util").float({ border = "rounded" })
 		end,
 	},
-})
-
--- Sync without hanging after 70+ plugins
-packer.init({
+	-- Sync without hanging after 70+ plugins
 	max_jobs = 50,
 })
+
 return packer.startup(function(use)
 	-- HAVE PACKER MANAGE ITSELF ---------------------------------
 	use({
@@ -142,12 +140,12 @@ return packer.startup(function(use)
 	-- TREESITTER UNIT -------------------------------------------
 	use({ "David-Kunz/treesitter-unit" })
 	-- TREESITTER CONTEXT ----------------------------------------
-	use({
-		"nvim-treesitter/nvim-treesitter-context",
-		config = function()
-			require("plugins.treesitter-ctx")
-		end,
-	})
+	-- use({
+	-- 	"nvim-treesitter/nvim-treesitter-context",
+	-- 	config = function()
+	-- 		require("plugins.treesitter-ctx")
+	-- 	end,
+	-- })
 
 	-- RAINBOW ---------------------------------------------------
 	use({
@@ -333,10 +331,10 @@ return packer.startup(function(use)
 	})
 
 	-- BUFFER DELETE ---------------------------------------------
-	use({
-		"famiu/bufdelete.nvim",
-		cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
-	})
+	-- use({
+	-- 	"famiu/bufdelete.nvim",
+	-- 	cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
+	-- })
 
 	-- LIGHTSPEED ------------------------------------------------
 	use({
@@ -367,12 +365,6 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins.cybu")
 		end,
-	})
-
-	-- CENTERPAD -------------------------------------------------
-	use({
-		"smithbm2316/centerpad.nvim",
-		cmd = { "Centerpad" },
 	})
 
 	-- use({

@@ -15,7 +15,7 @@ keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy winblend=10<cr>", op
 keymap("n", "<leader>p", "<cmd>Telescope projects theme=dropdown winblend=10<cr>", opts)
 keymap("n", "<leader>e", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>", opts)
 keymap("n", "<leader>m", "<cmd>Telescope marks theme=ivy winblend=10<cr>", opts)
-keymap("n", "<leader>dp", "<cmd>Telescope colorscheme theme=ivy winblend=10<cr>", opts)
+keymap("n", "<leader>dp", "<cmd>Telescope colorscheme theme=ivy<cr>", opts)
 keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts)
 keymap(
 	"n",
@@ -37,6 +37,9 @@ keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<cr>", opts)
 -- <CYBU BUFFER NAVIGATION>
 keymap("n", "<c-k>", "<plug>(CybuLastusedPrev)", opts)
 keymap("n", "<c-j>", "<plug>(CybuLastusedNext)", opts)
+
+keymap("n", "K", "<plug>(CybuPrev)", opts)
+keymap("n", "J", "<plug>(CybuNext)", opts)
 
 -- <BUFFER DELETE>
 keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) -- close buffer without closing window.
@@ -61,8 +64,8 @@ keymap("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 keymap("n", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info about current buffer
 
 -- AVOID UNPRACTICAL YANKING
-keymap("v", "p", '"_dP', opts) -- pasting without yanking
-keymap("v", "P", '"_dP', opts) -- pasting without yanking
+-- keymap("v", "p", '"_dP', opts) -- pasting without yanking
+-- keymap("v", "P", '"_dP', opts) -- pasting without yanking
 
 -- NAVIGATION
 keymap("n", "<c-f>", "<c-e>", opts) -- page scrolls down one line
@@ -101,7 +104,7 @@ keymap("n", "<Leader>t", "gT", opts) -- prev tab
 keymap("n", "<Leader>dt", "<cmd>tabnew %<cr>", opts) -- new tab
 keymap("n", "<Leader>u", "<cmd>tabclose<cr>", opts) -- close current tab
 keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) -- StartupTime
-keymap("n", "J", "mzJ`z", opts) -- cursor stay current position when J
+keymap("n", "S", "mzJ`z", opts) -- cursor stay current position when J
 keymap("n", "V", "vg_", opts) -- visual to the right
 keymap("n", "vv", "Vg_", opts) -- visual whole line
 keymap("n", "<c-l>", "<c-v>", opts) -- block visual selection

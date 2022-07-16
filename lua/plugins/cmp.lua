@@ -8,18 +8,12 @@ if not snip_status_ok then
 	return
 end
 
-ls.config.set_config({
-	history = true,
-	updateevents = "TextChanged,TextChangedI",
-})
-
--- ADD HTML, CSS (Styled components) AND JS SNIPPETS TO JAVASCRIPT/TYPESCRIPT/REACT files
--- (filetype_set) in a js file: search javascriptreact-snippets, then all-snippets only (no javascript-snippets!).
+-- Add HTML and CSS snippets to .js/.jsx/.ts/.tsx files
+-- Add React snippets to .js/.ts files
 ls.filetype_set("javascript", { "javascriptreact" })
 ls.filetype_extend("javascript", { "html", "css" })
 ls.filetype_extend("javascriptreact", { "html", "css" })
-ls.filetype_set("typescript", { "javascript", "typescriptreact" })
-ls.filetype_set("typescriptreact", { "javascript", "typescriptreact" })
+ls.filetype_set("typescript", { "typescriptreact" })
 ls.filetype_extend("typescript", { "html", "css" })
 ls.filetype_extend("typescriptreact", { "html", "css" })
 
@@ -90,8 +84,12 @@ cmp.setup({
 		["<tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			elseif ls.jumpable(-1) then
-				ls.jump(-1)
+			elseif ls.expandable() then
+				ls.expand()
+			elseif ls.expand_or_jumpable() then
+				ls.expand_or_jump()
+			elseif check_backspace() then
+				fallback()
 			else
 				fallback()
 			end
@@ -102,12 +100,8 @@ cmp.setup({
 		["<C-o>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
-			elseif ls.expandable() then
-				ls.expand()
-			elseif ls.expand_or_jumpable() then
-				ls.expand_or_jump()
-			elseif check_backspace() then
-				fallback()
+			elseif ls.jumpable(-1) then
+				ls.jump(-1)
 			else
 				fallback()
 			end

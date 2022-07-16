@@ -22,7 +22,7 @@ telescope.setup({
 				["<C-n>"] = actions.cycle_history_next,
 				["<C-p>"] = actions.cycle_history_prev,
 				["<C-s>"] = actions.select_horizontal,
-				["<C-e>"] = actions.select_tab,
+				["<C-k>"] = actions.select_tab,
         ["<C-a>"] = { "<esc>", type = "command" },
         ["<esc>"] = actions.close,
 			},
