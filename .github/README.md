@@ -10,7 +10,7 @@
 
 ## Showcase
 
-<img width="1450" alt="image" src="neodef.png">
+<img width="1450" height="2000" alt="image" src="neodef.png">
 <img width="1450" alt="image" src="calendar.png">
 
 ## Try out this config
