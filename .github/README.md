@@ -10,7 +10,8 @@
 
 ## Showcase
 
-<img width="2500" alt="image" src="neovimDefinitive.png">
+<img width="1450" alt="image" src="neovimmaster.png">
+<img width="1450" alt="image" src="calendar.png">
 
 ## Try out this config
 
