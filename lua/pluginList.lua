@@ -63,52 +63,39 @@ return packer.startup(function(use)
 	-- CMP -------------------------------------------------------
 	use({
 		"hrsh7th/nvim-cmp",
-		-- event = "InsertEnter",
-		-- after = "friendly-snippets",
 		config = function()
 			require("plugins.cmp")
 		end,
 	})
 	use({
 		"hrsh7th/cmp-buffer",
-		-- after = "nvim-cmp",
 	})
 	use({
 		"hrsh7th/cmp-path",
-		-- after = "nvim-cmp",
 	})
 	use({
 		"saadparwaiz1/cmp_luasnip",
-		-- after = "nvim-cmp",
 	})
 	-- LSP CMP
 	use({
 		"hrsh7th/cmp-nvim-lsp",
-		-- after = "nvim-cmp",
 	})
 	-- LUA CMP
 	use({
 		"hrsh7th/cmp-nvim-lua",
-		-- after = "nvim-cmp",
 	})
 
 	-- SNIPPETS --------------------------------------------------
 	use({
 		"L3MON4D3/LuaSnip",
-		-- module = "luasnip",
-		-- wants = "friendly-snippets",
 	})
 	use({
 		"rafamadriz/friendly-snippets",
-		-- event = "InsertEnter",
-		-- opt = true,
 	})
 
 	-- LSP -------------------------------------------------------
 	use({
 		"neovim/nvim-lspconfig",
-		--event = "VimEnter",
-		--after = "nvim-lsp-installer",
 		config = function()
 			require("lsp")
 		end,
@@ -140,12 +127,20 @@ return packer.startup(function(use)
 	-- TREESITTER UNIT -------------------------------------------
 	use({ "David-Kunz/treesitter-unit" })
 	-- TREESITTER CONTEXT ----------------------------------------
-	-- use({
-	-- 	"nvim-treesitter/nvim-treesitter-context",
-	-- 	config = function()
-	-- 		require("plugins.treesitter-ctx")
-	-- 	end,
-	-- })
+	use({
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require("plugins.treesitter-ctx")
+		end,
+	})
+	-- TREESITTER ARGUMENTS --------------------------------------
+	use({
+		"m-demare/hlargs.nvim",
+		config = function()
+			require("hlargs").setup()
+		end,
+		requires = { "nvim-treesitter/nvim-treesitter" },
+	})
 
 	-- RAINBOW ---------------------------------------------------
 	use({
@@ -329,12 +324,6 @@ return packer.startup(function(use)
 			require("plugins.neorg")
 		end,
 	})
-
-	-- BUFFER DELETE ---------------------------------------------
-	-- use({
-	-- 	"famiu/bufdelete.nvim",
-	-- 	cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
-	-- })
 
 	-- LIGHTSPEED ------------------------------------------------
 	use({

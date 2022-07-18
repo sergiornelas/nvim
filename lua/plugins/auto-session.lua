@@ -6,5 +6,5 @@ require("auto-session").setup({
 
 vim.o.sessionoptions = "buffers,folds,help,tabpages,winsize,winpos"
 -- curdir definitely no.
--- sesdir no works using obsession loading Session.vim in current directory, the "issue" continues.
+-- sesdir doesn't work using obsession loading Session.vim in current directory, the "issue" continues.
 -- omitting curdir or sesdir with Obsession not working as well.

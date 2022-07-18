@@ -11,10 +11,10 @@ M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
 M.setup = function()
 	local signs = {
-		{ name = "DiagnosticSignError", text = "" },
-		{ name = "DiagnosticSignWarn", text = "" },
-		{ name = "DiagnosticSignHint", text = "" },
-		{ name = "DiagnosticSignInfo", text = "" },
+		{ name = "DiagnosticSignError", text = "🔥" },
+		{ name = "DiagnosticSignWarn", text = "👀" },
+		{ name = "DiagnosticSignHint", text = "💡" },
+		{ name = "DiagnosticSignInfo", text = "ℹ️" },
 	}
 
 	for _, sign in ipairs(signs) do
@@ -75,14 +75,6 @@ M.on_attach = function(client, bufnr)
 	-- Add LSP keymaps
 	lsp_keymaps(bufnr)
 
-	-- Format on save
-	if client.resolved_capabilities.document_formatting then
-		vim.api.nvim_create_autocmd(
-			"BufWritePre",
-			{ pattern = "<buffer>", command = "lua vim.lsp.buf.formatting_sync()" }
-		)
-	end
-
 	if client.name == "tsserver" then
 		-- Prettierd in null_ls
 		client.resolved_capabilities.document_formatting = false
@@ -115,10 +107,18 @@ M.on_attach = function(client, bufnr)
 		return
 	end
 
+	if vim.g.colors_name ~= "gruvbox-baby" then
+		illuminate.on_attach(client)
+	end
+
 	-- require("lsp_signature").on_attach() -- Note: add in lsp client on-attach
 
-	-- if vim.g.colors_name ~= "gruvbox-baby" then
-  illuminate.on_attach(client)
+	-- Format on save (currently all clients formatting are handled by null_ls)
+	-- if client.resolved_capabilities.document_formatting then
+	--  vim.api.nvim_create_autocmd(
+	--    "BufWritePre",
+	--    { pattern = "<buffer>", command = "lua vim.lsp.buf.formatting_sync()" }
+	--  )
 	-- end
 end
 

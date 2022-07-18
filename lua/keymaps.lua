@@ -63,10 +63,6 @@ keymap("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 -- <TRANSPARENCY>
 keymap("n", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info about current buffer
 
--- AVOID UNPRACTICAL YANKING
--- keymap("v", "p", '"_dP', opts) -- pasting without yanking
--- keymap("v", "P", '"_dP', opts) -- pasting without yanking
-
 -- NAVIGATION
 keymap("n", "<c-f>", "<c-e>", opts) -- page scrolls down one line
 keymap("n", "<c-e>", "<c-y>", opts) -- page scrolls up one line

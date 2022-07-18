@@ -21,7 +21,8 @@ nvim_tree.setup({
 		icons = {
 			glyphs = {
 				git = {
-					unstaged = "",
+					unstaged = "🐻",
+					-- unstaged = "",
 				},
 			},
 		},
@@ -76,7 +77,7 @@ nvim_tree.setup({
 				{ key = ".", action = "run_file_command" },
 				{ key = "g?", action = "toggle_help" },
 				-- { key = "<C-k>", actionk= "toggle_file_info" },
-        -- { key = "<C-a>", action = "full_rename" },
+				-- { key = "<C-a>", action = "full_rename" },
 				-- { key = "<C-e>", action = "edit_in_place" },
 			},
 		},

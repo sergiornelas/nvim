@@ -3,26 +3,26 @@ vim.g.material_style = "deep ocean"
 
 -- <GRUVBOX BABY>
 vim.g.gruvbox_baby_transparent_mode = 0
-vim.g.gruvbox_baby_telescope_theme = 1
--- vim.g.gruvbox_baby_highlights = {
--- 	-- Normal = { -- Responsible for strong window borders
--- 	-- 	fg = "#d5b018",
--- 	-- 	-- fg = "#83A598",
--- 	-- 	-- fg = "#E7D7AD",
--- 	-- },
--- 	Visual = {
--- 		fg = "#E7D7AD",
--- 		bg = "#653f43",
--- 	},
--- 	Search = {
--- 		fg = "#E7D7AD",
--- 		bg = "#653f43",
--- 	},
--- 	illuminatedWord = {
--- 		fg = "#c7baad",
--- 		bg = "#504945",
--- 	},
--- }
+vim.g.gruvbox_baby_telescope_theme = 0
+vim.g.gruvbox_baby_highlights = {
+	Normal = {
+		fg = "#d5b018",
+		-- fg = "#83A598",
+		-- fg = "#689D6A",
+	},
+	Visual = {
+		fg = "#E7D7AD",
+		bg = "#653f43",
+	},
+	Search = {
+		fg = "#E7D7AD",
+		bg = "#653f43",
+	},
+	illuminatedWord = {
+		fg = "#c7baad",
+		bg = "#504945",
+	},
+}
 
 -- <ILLUMINATE>
 vim.g.Illuminate_ftblacklist = { "NvimTree" }
@@ -63,17 +63,16 @@ api.nvim_create_autocmd(
 )
 
 -- Show cursor line only in active window
--- local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
--- api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = cursorGrp })
--- api.nvim_create_autocmd(
--- 	{ "InsertEnter", "WinLeave" },
--- 	{ pattern = "*", command = "set nocursorline", group = cursorGrp }
--- )
+local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
+api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = cursorGrp })
+api.nvim_create_autocmd(
+	{ "InsertEnter", "WinLeave" },
+	{ pattern = "*", command = "set nocursorline", group = cursorGrp }
+)
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme solarized
-  " colorscheme gruvbox-baby
+  colorscheme gruvbox-baby
 
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim
@@ -97,7 +96,7 @@ vim.cmd([[
     endif
   endfunction
 
-  " Avoid crashing when starts neovim with sessions
+  " Avoid crashing when starts neovim with sessions (for reference)
   " autocmd VimEnter * call timer_start(500, {-> execute("let g:rooter_manual_only = 0")})
   autocmd VimLeave * NvimTreeClose
 ]])
