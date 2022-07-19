@@ -26,6 +26,7 @@ vim.g.gruvbox_baby_highlights = {
 
 -- <ILLUMINATE>
 vim.g.Illuminate_ftblacklist = { "NvimTree" }
+vim.g.Illuminate_delay = 310
 
 -- Symbols listchars
 vim.opt.listchars = {

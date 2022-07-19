@@ -42,7 +42,7 @@ keymap("n", "K", "<plug>(CybuPrev)", opts)
 keymap("n", "J", "<plug>(CybuNext)", opts)
 
 -- <BUFFER DELETE>
-keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) -- close buffer without closing window.
+keymap("n", "<c-h>", "<cmd>bd<CR>", opts) -- close buffer without closing window.
 
 -- <CENTERPAD>
 keymap("n", "<leader>z", "<cmd>Centerpad<cr>", opts)

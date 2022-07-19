@@ -126,27 +126,6 @@ return packer.startup(function(use)
 	})
 	-- TREESITTER UNIT -------------------------------------------
 	use({ "David-Kunz/treesitter-unit" })
-	-- TREESITTER CONTEXT ----------------------------------------
-	use({
-		"nvim-treesitter/nvim-treesitter-context",
-		config = function()
-			require("plugins.treesitter-ctx")
-		end,
-	})
-	-- TREESITTER ARGUMENTS --------------------------------------
-	use({
-		"m-demare/hlargs.nvim",
-		config = function()
-			require("hlargs").setup()
-		end,
-		requires = { "nvim-treesitter/nvim-treesitter" },
-	})
-
-	-- RAINBOW ---------------------------------------------------
-	use({
-		"p00f/nvim-ts-rainbow",
-		after = "nvim-treesitter",
-	})
 
 	-- COMMENTS --------------------------------------------------
 	use({
@@ -356,6 +335,28 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- REMOVED TREESITTER PLUGINS FOR GAIN FPS -------------------
+	-- RAINBOW ---------------------------------------------------
+	-- use({
+	-- 	"p00f/nvim-ts-rainbow",
+	-- 	commit = "837167f63445821c55e6eed9dbdac1b0b29afa92",
+	-- })
+	-- -- TREESITTER CONTEXT ------------------------------------- (slows fps)
+	-- use({
+	-- 	"nvim-treesitter/nvim-treesitter-context",
+	-- 	config = function()
+	-- 		require("plugins.treesitter-ctx")
+	-- 	end,
+	-- })
+	-- TREESITTER ARGUMENTS -------------------------------------- (potential slows)
+	-- use({
+	-- 	"m-demare/hlargs.nvim",
+	-- 	config = function()
+	-- 		require("hlargs").setup()
+	-- 	end,
+	-- 	requires = { "nvim-treesitter/nvim-treesitter" },
+	-- })
+	-- RAY X -----------------------------------------------------
 	-- use({
 	-- 	"ray-x/lsp_signature.nvim",
 	-- 	-- after = "nvim-lspconfig",
