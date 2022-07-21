@@ -44,8 +44,8 @@ keymap("n", "J", "<plug>(CybuNext)", opts)
 -- <BUFFER DELETE>
 keymap("n", "<c-h>", "<cmd>bd<CR>", opts) -- close buffer without closing window.
 
--- <CENTERPAD>
-keymap("n", "<leader>z", "<cmd>Centerpad<cr>", opts)
+-- <ZEN>
+keymap("n", "<leader>z", "<cmd>TZAtaraxis<cr>", opts)
 
 -- <TREESITTER UNIT>
 keymap("x", "ij", ':lua require"treesitter-unit".select()<CR>', opts)
@@ -110,46 +110,6 @@ keymap("v", "zl", "z6l", opts) -- zoom left
 keymap("v", "zh", "z6h", opts) -- zoom right
 keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
 keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
-
--- VIM MAPPING
-vim.cmd([[
-  " <TELESCOPE>
-  vnoremap <silent><leader>i "zy:Telescope find_files default_text=<C-r>z<cr>
-  vnoremap <silent><leader>k "zy:Telescope live_grep default_text=<C-r>z theme=ivy<cr>
-
-  " <LUASNIP>
-  snoremap p p
-  snoremap <c-h> <BS>i
-  nnoremap <leader>da <CMD>LuaSnipUnlinkCurrent<CR>
-
-  " Move line/paragraph
-  vnoremap <silent><c-j> :m '>+1<cr>gv=gv
-  vnoremap <silent><c-k> :m '<-2<cr>gv=gv
-
-  " Switching record macro and yank key
-  nnoremap q y
-  vnoremap q y
-  nnoremap Q y+
-  vnoremap Q y+
-  nnoremap qq yy
-  nnoremap y q
-
-  " Activate lua settings
-  nnoremap <leader>do :so %<cr>
-
-  " Center horizontal
-  nnoremap <silent> z. :<C-u>normal! zszH<CR>
-
-  " Sessions
-  nnoremap <leader>dj :mksession! ~/sessions/
-  nnoremap <leader>ds :source ~/sessions/
-
-  " Command Substitution
-  nnoremap \ [
-  nnoremap ^ ]
-  vnoremap \ [
-  vnoremap ^ ]
-]])
 
 -- COMMAND SUBSTITUTION
 -- Q
@@ -229,3 +189,50 @@ keymap("n", ")", "^", opts)
 keymap("v", ")", "^", opts)
 keymap("n", "d)", "d^", opts)
 keymap("n", "q)", "q^", opts)
+
+-- VIM MAPPING
+vim.cmd([[
+  " <TELESCOPE>
+  vnoremap <silent><leader>i "zy:Telescope find_files default_text=<C-r>z<cr>
+  vnoremap <silent><leader>k "zy:Telescope live_grep default_text=<C-r>z theme=ivy<cr>
+
+  " <LUASNIP>
+  snoremap p p
+  snoremap <c-h> <BS>i
+  nnoremap <leader>da <CMD>LuaSnipUnlinkCurrent<CR>
+
+  " Macro in visual mode
+  xnoremap { :<C-u>call ExecuteMacroOverVisualRange()<CR>
+  function! ExecuteMacroOverVisualRange()
+  echo "{".getcmdline()
+  execute ":'<,'>normal {".nr2char(getchar())
+  endfunction
+
+  " Move line/paragraph
+  vnoremap <silent><c-j> :m '>+1<cr>gv=gv
+  vnoremap <silent><c-k> :m '<-2<cr>gv=gv
+
+  " Switching record macro and yank key
+  nnoremap q y
+  vnoremap q y
+  nnoremap Q y+
+  vnoremap Q y+
+  nnoremap qq yy
+  nnoremap y q
+
+  " Activate lua settings
+  nnoremap <leader>do :so %<cr>
+
+  " Center horizontal
+  nnoremap <silent> z. :<C-u>normal! zszH<CR>
+
+  " Sessions
+  nnoremap <leader>dj :mksession! ~/sessions/
+  nnoremap <leader>ds :source ~/sessions/
+
+  " Command Substitution
+  nnoremap \ [
+  nnoremap ^ ]
+  vnoremap \ [
+  vnoremap ^ ]
+]])

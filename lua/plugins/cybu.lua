@@ -6,7 +6,7 @@ cybu.setup({
 	display_time = 750,
 	style = {
 		highlights = {
-			current_buffer = "rainbowcol7", -- current / selected buffer
+			current_buffer = "IncSearch",
 		},
 		padding = 2,
 	},

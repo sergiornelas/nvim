@@ -73,7 +73,7 @@ api.nvim_create_autocmd(
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme gruvbox-baby
+  colorscheme onenord
 
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim

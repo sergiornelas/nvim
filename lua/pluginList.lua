@@ -262,7 +262,6 @@ return packer.startup(function(use)
 	-- GIT DIFF --------------------------------------------------
 	use({
 		"sindrets/diffview.nvim",
-		cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
 		config = function()
 			require("plugins.gitdiff")
 		end,
@@ -334,6 +333,9 @@ return packer.startup(function(use)
 			require("plugins.cybu")
 		end,
 	})
+
+	-- ZEN -------------------------------------------------------
+	use("Pocco81/TrueZen.nvim")
 
 	-- REMOVED TREESITTER PLUGINS FOR GAIN FPS -------------------
 	-- RAINBOW ---------------------------------------------------
