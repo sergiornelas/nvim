@@ -11,6 +11,7 @@ neorg.setup({
 			config = {
 				workspaces = {
 					notes = "~/notes",
+					gtd = "~/notes/gtd",
 				},
 			},
 		},
@@ -25,7 +26,11 @@ neorg.setup({
 				engine = "nvim-cmp",
 			},
 		},
-		-- ["core.gtd.base"] = {}, --Manages your tasks with Neorg using the Getting Things Done methology
+		["core.gtd.base"] = {
+			config = {
+				workspace = "gtd",
+			},
+		}, --Manages your tasks with Neorg using the Getting Things Done methology
 		-- ["core.integrations.telescope"] = {}, -- Enable telescope module
 	},
 })

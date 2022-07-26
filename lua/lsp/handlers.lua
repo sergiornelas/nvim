@@ -52,6 +52,7 @@ end
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_buf_set_keymap
+local navic = require("nvim-navic")
 
 local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -107,19 +108,20 @@ M.on_attach = function(client, bufnr)
 		return
 	end
 
+	-- Navic
+	navic.attach(client, bufnr)
+
 	if vim.g.colors_name ~= "gruvbox-baby" then
 		illuminate.on_attach(client)
 	end
 
-	-- require("lsp_signature").on_attach() -- Note: add in lsp client on-attach
-
 	-- Format on save (currently all clients formatting are handled by null_ls)
-	-- if client.resolved_capabilities.document_formatting then
-	--  vim.api.nvim_create_autocmd(
-	--    "BufWritePre",
-	--    { pattern = "<buffer>", command = "lua vim.lsp.buf.formatting_sync()" }
-	--  )
-	-- end
+	if client.resolved_capabilities.document_formatting then
+		vim.api.nvim_create_autocmd(
+			"BufWritePre",
+			{ pattern = "<buffer>", command = "lua vim.lsp.buf.formatting_sync()" }
+		)
+	end
 end
 
 return M

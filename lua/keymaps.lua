@@ -17,15 +17,14 @@ keymap("n", "<leader>e", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>"
 keymap("n", "<leader>m", "<cmd>Telescope marks theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>dp", "<cmd>Telescope colorscheme theme=ivy<cr>", opts)
 keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts)
-keymap(
-	"n",
-	"<leader>dg",
-	"<cmd>lua require'telescope.builtin'.symbols{ sources = {'emoji', 'kaomoji', 'gitmoji'} }<cr>",
-	opts
-)
 
 -- <NVIM TREE>
 keymap("n", "<leader>r", "<cmd>NvimTreeToggle <cr>", opts)
+
+-- <NEORG GTD>
+keymap("n", "<leader>vv", "<cmd>Neorg gtd views<cr>", opts)
+keymap("n", "<leader>vj", "<cmd>Neorg gtd capture<cr>", opts)
+keymap("n", "<leader>ve", "<cmd>Neorg gtd edit<cr>", opts)
 
 -- <MAXIMIZER>
 keymap("n", "<leader>a", "<cmd>MaximizerToggle!<cr>", opts)

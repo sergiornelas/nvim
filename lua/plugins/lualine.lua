@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local gps = require("nvim-gps")
+local navic = require("nvim-navic")
 
 lualine.setup({
 	options = {
@@ -17,9 +17,9 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { "filename" },
-		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_b = { "diff", "diagnostics" },
 		lualine_c = {
-			{ gps.get_location, cond = gps.is_available },
+			{ navic.get_location, cond = navic.is_available },
 		},
 		lualine_x = { "filetype" },
 		lualine_y = { "progress" },

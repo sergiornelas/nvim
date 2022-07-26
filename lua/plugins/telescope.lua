@@ -10,8 +10,8 @@ telescope.load_extension("heading")
 local actions = require("telescope.actions")
 
 telescope.setup({
-  defaults = {
-    prompt_prefix = " ",
+	defaults = {
+		prompt_prefix = " ",
 		selection_caret = " ",
 		path_display = { "smart" },
 		mappings = {
@@ -23,8 +23,8 @@ telescope.setup({
 				["<C-p>"] = actions.cycle_history_prev,
 				["<C-s>"] = actions.select_horizontal,
 				["<C-k>"] = actions.select_tab,
-        ["<C-a>"] = { "<esc>", type = "command" },
-        ["<esc>"] = actions.close,
+				["<C-a>"] = { "<esc>", type = "command" },
+				["<esc>"] = actions.close,
 			},
 		},
 	},

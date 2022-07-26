@@ -2,27 +2,27 @@
 vim.g.material_style = "deep ocean"
 
 -- <GRUVBOX BABY>
-vim.g.gruvbox_baby_transparent_mode = 0
-vim.g.gruvbox_baby_telescope_theme = 0
-vim.g.gruvbox_baby_highlights = {
-	Normal = {
-		fg = "#d5b018",
-		-- fg = "#83A598",
-		-- fg = "#689D6A",
-	},
-	Visual = {
-		fg = "#E7D7AD",
-		bg = "#653f43",
-	},
-	Search = {
-		fg = "#E7D7AD",
-		bg = "#653f43",
-	},
-	illuminatedWord = {
-		fg = "#c7baad",
-		bg = "#504945",
-	},
-}
+-- vim.g.gruvbox_baby_transparent_mode = 0
+-- vim.g.gruvbox_baby_telescope_theme = 0
+-- vim.g.gruvbox_baby_highlights = {
+-- 	Normal = {
+-- 		fg = "#d5b018",
+-- 		-- fg = "#83A598",
+-- 		-- fg = "#689D6A",
+-- 	},
+-- 	Visual = {
+-- 		fg = "#E7D7AD",
+-- 		bg = "#653f43",
+-- 	},
+-- 	Search = {
+-- 		fg = "#E7D7AD",
+-- 		bg = "#653f43",
+-- 	},
+-- 	illuminatedWord = {
+-- 		fg = "#c7baad",
+-- 		bg = "#504945",
+-- 	},
+-- }
 
 -- <ILLUMINATE>
 vim.g.Illuminate_ftblacklist = { "NvimTree" }
@@ -101,10 +101,3 @@ vim.cmd([[
   " autocmd VimEnter * call timer_start(500, {-> execute("let g:rooter_manual_only = 0")})
   autocmd VimLeave * NvimTreeClose
 ]])
-
--- INCREASE PYTHON PLUGINS LOADING
--- vim.g.loaded_python_provider = 1
--- vim.g.python_host_skip_check = 1
--- vim.g.python_host_prog = "/usr/local/bin/python"
--- vim.g.python3_host_skip_check = 1
--- vim.g.python3_host_prog = "/usr/local/bin/python3"

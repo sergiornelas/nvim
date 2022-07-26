@@ -84,6 +84,10 @@ return packer.startup(function(use)
 	use({
 		"hrsh7th/cmp-nvim-lua",
 	})
+	-- EMOJI CMP
+	use({
+		"hrsh7th/cmp-emoji",
+	})
 
 	-- SNIPPETS --------------------------------------------------
 	use({
@@ -103,6 +107,8 @@ return packer.startup(function(use)
 	use({
 		"williamboman/nvim-lsp-installer",
 	})
+	-- use({ "williamboman/mason.nvim" })
+	-- use({ "williamboman/mason-lspconfig.nvim" })
 
 	-- NULL-LS ---------------------------------------------------
 	use({
@@ -161,7 +167,6 @@ return packer.startup(function(use)
 		end,
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({ "nvim-telescope/telescope-symbols.nvim" })
 	use({ "crispgm/telescope-heading.nvim" })
 
 	-- PROJECT ---------------------------------------------------
@@ -282,12 +287,10 @@ return packer.startup(function(use)
 			require("plugins.lualine")
 		end,
 	})
-	-- GPS -------------------------------------------------------
+	-- NAVIC -----------------------------------------------------
 	use({
-		"SmiteshP/nvim-gps",
-		config = function()
-			require("nvim-gps").setup()
-		end,
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
 	})
 
 	-- NOTES -----------------------------------------------------
@@ -302,6 +305,12 @@ return packer.startup(function(use)
 			require("plugins.neorg")
 		end,
 	})
+	-- GKEEP -----------------------------------------------------
+	-- use({
+	-- 	"stevearc/gkeep.nvim",
+	-- 	run = ":UpdateRemotePlugins",
+	-- 	-- cmd = { "GkeepEnter" },
+	-- })
 
 	-- LIGHTSPEED ------------------------------------------------
 	use({
@@ -336,6 +345,12 @@ return packer.startup(function(use)
 
 	-- ZEN -------------------------------------------------------
 	use("Pocco81/TrueZen.nvim")
+
+	use({
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
 
 	-- REMOVED TREESITTER PLUGINS FOR GAIN FPS -------------------
 	-- RAINBOW ---------------------------------------------------
