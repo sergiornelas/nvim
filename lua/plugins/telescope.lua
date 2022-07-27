@@ -5,7 +5,7 @@ end
 
 telescope.load_extension("projects")
 telescope.load_extension("fzf")
-telescope.load_extension("heading")
+-- telescope.load_extension("heading") --neorg
 
 local actions = require("telescope.actions")
 
@@ -47,6 +47,14 @@ telescope.setup({
 		live_grep = {
 			theme = "ivy",
 			winblend = 10,
+		},
+		git_status = {
+			mappings = {
+				i = {
+					["<tab>"] = actions.move_selection_next,
+					["<C-o>"] = actions.move_selection_previous,
+				},
+			},
 		},
 	},
 	extensions = {

@@ -13,10 +13,11 @@ keymap("n", "<leader>k", "<cmd>Telescope live_grep theme=ivy winblend=10<cr>", o
 keymap("n", "<leader>dk", "<cmd>Telescope grep_string theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope projects theme=dropdown winblend=10<cr>", opts)
-keymap("n", "<leader>e", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>", opts)
+keymap("n", "<leader>b", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>", opts)
 keymap("n", "<leader>m", "<cmd>Telescope marks theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>dp", "<cmd>Telescope colorscheme theme=ivy<cr>", opts)
-keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts)
+keymap("n", "<leader>dg", "<cmd>Telescope git_status theme=dropdown<cr>", opts)
+-- keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts) --neorg
 
 -- <NVIM TREE>
 keymap("n", "<leader>r", "<cmd>NvimTreeToggle <cr>", opts)
@@ -33,15 +34,19 @@ keymap("n", "<leader>a", "<cmd>MaximizerToggle!<cr>", opts)
 keymap("n", "<leader>dd", "<cmd>DiffviewOpen<cr>", opts)
 keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<cr>", opts)
 
--- <CYBU BUFFER NAVIGATION>
+-- <CYBU>
 keymap("n", "<c-k>", "<plug>(CybuLastusedPrev)", opts)
 keymap("n", "<c-j>", "<plug>(CybuLastusedNext)", opts)
 
-keymap("n", "K", "<plug>(CybuPrev)", opts)
-keymap("n", "J", "<plug>(CybuNext)", opts)
-
--- <BUFFER DELETE>
-keymap("n", "<c-h>", "<cmd>bd<CR>", opts) -- close buffer without closing window.
+-- <HARPOON>
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>e",
+	"<cmd>lua require('telescope').extensions.harpoon.marks(require('telescope.themes').get_dropdown{prompt_title='Harpoon'})<cr>",
+	opts
+)
+keymap("n", "K", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
+keymap("n", "J", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 
 -- <ZEN>
 keymap("n", "<leader>z", "<cmd>TZAtaraxis<cr>", opts)
@@ -87,6 +92,7 @@ keymap("i", "<c-v>", "<c-r>*", opts) -- paste last registered yank
 keymap("i", "<tab>", "<c-f>", opts) -- move line in the correspondng tab frame
 
 -- UTILS
+keymap("n", "<c-h>", "<cmd>bd<CR>", opts) --buffer delete
 keymap("n", "<c-q>", "<c-r>", opts) -- redo
 keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) -- highlights
 keymap("n", "<Leader>f", "<cmd>w<cr>", opts) -- save file
@@ -111,6 +117,18 @@ keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
 keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
 
 -- COMMAND SUBSTITUTION
+-- Decided to change vim default navigation keymaps because sometimes they are a pain in the ass.
+-- Writing layer with semicolon (;) is managed by Karabiner.
+
+-- WRITING            VIM EFFECT
+-- ------------------------------
+-- &?/+* #$%  \^      #?/{- +() []
+-- QWERT˙UIO  []      QWERT˙UIO []
+-- ({;-[]=|~          *@;}$=%&~
+-- ASDFGHJKL          ASDFGHJKL
+--  ! _`@})            | _`!~^
+--  Z˙CVBNM            Z˙CVBNM
+
 -- Q
 keymap("n", "&", "#", opts)
 keymap("v", "&", "#", opts)
@@ -225,13 +243,12 @@ vim.cmd([[
   " Center horizontal
   nnoremap <silent> z. :<C-u>normal! zszH<CR>
 
-  " Sessions
-  nnoremap <leader>dj :mksession! ~/sessions/
-  nnoremap <leader>ds :source ~/sessions/
-
   " Command Substitution
   nnoremap \ [
   nnoremap ^ ]
   vnoremap \ [
   vnoremap ^ ]
+
+  " Paste command mode
+  cnoremap <c-v> <c-r>*
 ]])
