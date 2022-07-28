@@ -32,10 +32,10 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 
-	-- if server == "tsserver" then
-	-- 	local sumneko_opts = require("lsp.settings.tsserver")
-	-- 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-	-- end
+	if server == "tsserver" then
+		local sumneko_opts = require("lsp.settings.tsserver")
+		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+	end
 
 	lspconfig[server].setup(opts)
 end

@@ -28,17 +28,6 @@ vim.g.material_style = "deep ocean"
 vim.g.Illuminate_ftblacklist = { "NvimTree" }
 vim.g.Illuminate_delay = 310
 
--- Symbols listchars
-vim.opt.listchars = {
-	tab = "│ ",
-	extends = "→",
-	precedes = "←",
-	trail = "·",
-	nbsp = "␣",
-	-- eol = "¬",
-}
-vim.opt.list = true
-
 -- Set wrap and spell in markdown and gitcommit
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "gitcommit", "markdown", "norg" },
@@ -101,3 +90,21 @@ vim.cmd([[
   " autocmd VimEnter * call timer_start(500, {-> execute("let g:rooter_manual_only = 0")})
   autocmd VimLeave * NvimTreeClose
 ]])
+
+-- PERF: add something to installer later
+-- HACK: aewf
+-- TODO: add something to installer later
+-- NOTE: add something to installer later
+-- FIX: add something to installer later
+-- WARNING: add something to installer later
+
+-- Symbols listchars
+-- vim.opt.listchars = {
+-- 	tab = "│ ",
+-- 	extends = "→",
+-- 	precedes = "←",
+-- 	trail = "·",
+-- 	nbsp = "␣",
+-- 	-- eol = "¬",
+-- }
+-- vim.opt.list = true

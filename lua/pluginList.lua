@@ -104,6 +104,7 @@ return packer.startup(function(use)
 			require("lsp")
 		end,
 	})
+	-- LSP INSTALLER----------------------------------------------
 	use({
 		"williamboman/nvim-lsp-installer",
 	})
@@ -359,6 +360,35 @@ return packer.startup(function(use)
 	-- ZEN -------------------------------------------------------
 	use("Pocco81/TrueZen.nvim")
 
+	-- TAB OUT ---------------------------------------------------
+	use({
+		"abecodes/tabout.nvim",
+		config = function()
+			require("plugins.tabout")
+		end,
+	})
+
+	-- REGISTERS -------------------------------------------------
+	use({ "tversteeg/registers.nvim" })
+
+	-- TODO-COMMENTS ---------------------------------------------
+	use({
+		"folke/todo-comments.nvim",
+		config = function()
+			require("todo-comments").setup()
+		end,
+	})
+
+	-- EYE-LINER -------------------------------------------------
+	use({
+		"jinh0/eyeliner.nvim",
+		config = function()
+			require("eyeliner").setup({
+				highlight_on_key = true,
+			})
+		end,
+	})
+
 	-- REMOVED TREESITTER PLUGINS FOR GAIN FPS -------------------
 	-- RAINBOW ---------------------------------------------------
 	-- use({
@@ -408,6 +438,9 @@ return packer.startup(function(use)
 	-- use("mfusseneger/nvim-dap")
 	-- use("rcarriga/nvim-dap-ui")
 	-- use("ravenxrz/DAPInstall.nvim")
+	-- DEBUGGING -------------------------------------------------
+	-- use "theHamsta/nvim-dap-virtual-text"
+	-- use "Pocco81/DAPInstall.nvim"
 	-- AERIAL ----------------------------------------------------
 	-- use({
 	-- 	"stevearc/aerial.nvim",
@@ -461,6 +494,18 @@ return packer.startup(function(use)
 	--       require "plugins.neogit"
 	--    end,
 	-- }
+	-- NEOGIT ----------------------------------------------------
+	-- INTERESTING PLUGINS ---------------------------------------
+	-- https://github.com/b0o/simrat39/symbols-outline.nvim
+	-- https://github.com/b0o/SchemaStore.nvim
+	-- use "nvim-treesitter/nvim-treesitter-textobjects"
+	-- folke/trouble.nvim
+	-- kevinhwang91/nvim-bqf
+	-- ruifm/gitlinker.nvim
+	-- mattn/webapi-vim
+	-- pwntester/octo.nvim
+	-- use({ "andymass/vim-matchup" })
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

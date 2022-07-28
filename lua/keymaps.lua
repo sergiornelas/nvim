@@ -13,10 +13,11 @@ keymap("n", "<leader>k", "<cmd>Telescope live_grep theme=ivy winblend=10<cr>", o
 keymap("n", "<leader>dk", "<cmd>Telescope grep_string theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope projects theme=dropdown winblend=10<cr>", opts)
-keymap("n", "<leader>b", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>", opts)
-keymap("n", "<leader>m", "<cmd>Telescope marks theme=ivy winblend=10<cr>", opts)
+keymap("n", "<leader>m", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>", opts)
+keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>dp", "<cmd>Telescope colorscheme theme=ivy<cr>", opts)
 keymap("n", "<leader>dg", "<cmd>Telescope git_status theme=dropdown<cr>", opts)
+keymap("n", "<leader>di", "<cmd>TodoTelescope theme=dropdown<cr>", opts)
 -- keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts) --neorg
 
 -- <NVIM TREE>
@@ -45,6 +46,7 @@ vim.api.nvim_set_keymap(
 	"<cmd>lua require('telescope').extensions.harpoon.marks(require('telescope.themes').get_dropdown{prompt_title='Harpoon'})<cr>",
 	opts
 )
+keymap("n", "mf", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
 keymap("n", "K", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
 keymap("n", "J", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 
@@ -120,8 +122,8 @@ keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
 -- Decided to change vim default navigation keymaps because sometimes they are a pain in the ass.
 -- Writing layer with semicolon (;) is managed by Karabiner.
 
--- WRITING            VIM EFFECT
--- ------------------------------
+--  WRITING            VIM EFFECT
+-- -------------------------------
 -- &?/+* #$%  \^      #?/{- +() []
 -- QWERT˙UIO  []      QWERT˙UIO []
 -- ({;-[]=|~          *@;}$=%&~
