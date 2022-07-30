@@ -108,7 +108,7 @@ M.on_attach = function(client, bufnr)
 		return
 	end
 
-	-- Navic
+	-- Navic (currently not working on css and html files)
 	navic.attach(client, bufnr)
 
 	if vim.g.colors_name ~= "gruvbox-baby" then

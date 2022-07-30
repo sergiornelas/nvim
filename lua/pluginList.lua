@@ -104,12 +104,10 @@ return packer.startup(function(use)
 			require("lsp")
 		end,
 	})
+
 	-- LSP INSTALLER----------------------------------------------
-	use({
-		"williamboman/nvim-lsp-installer",
-	})
-	-- use({ "williamboman/mason.nvim" })
-	-- use({ "williamboman/mason-lspconfig.nvim" })
+	use({ "williamboman/mason.nvim" })
+	use({ "williamboman/mason-lspconfig.nvim" })
 
 	-- NULL-LS ---------------------------------------------------
 	use({
@@ -118,6 +116,12 @@ return packer.startup(function(use)
 	})
 	use({
 		"jose-elias-alvarez/nvim-lsp-ts-utils",
+	})
+
+	-- NAVIC -----------------------------------------------------
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
 	})
 
 	-- ILLUMINATE ------------------------------------------------
@@ -294,11 +298,6 @@ return packer.startup(function(use)
 			require("plugins.lualine")
 		end,
 	})
-	-- NAVIC -----------------------------------------------------
-	use({
-		"SmiteshP/nvim-navic",
-		requires = "neovim/nvim-lspconfig",
-	})
 
 	-- NOTES -----------------------------------------------------
 	use({
@@ -312,12 +311,6 @@ return packer.startup(function(use)
 			require("plugins.neorg")
 		end,
 	})
-	-- GKEEP -----------------------------------------------------
-	-- use({
-	-- 	"stevearc/gkeep.nvim",
-	-- 	run = ":UpdateRemotePlugins",
-	-- 	-- cmd = { "GkeepEnter" },
-	-- })
 
 	-- LIGHTSPEED ------------------------------------------------
 	use({
@@ -357,8 +350,8 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- ZEN -------------------------------------------------------
-	use("Pocco81/TrueZen.nvim")
+	-- BUFFER DELETE ---------------------------------------------
+	use({ "famiu/bufdelete.nvim" })
 
 	-- TAB OUT ---------------------------------------------------
 	use({

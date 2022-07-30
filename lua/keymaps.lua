@@ -50,9 +50,6 @@ keymap("n", "mf", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
 keymap("n", "K", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
 keymap("n", "J", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 
--- <ZEN>
-keymap("n", "<leader>z", "<cmd>TZAtaraxis<cr>", opts)
-
 -- <TREESITTER UNIT>
 keymap("x", "ij", ':lua require"treesitter-unit".select()<CR>', opts)
 keymap("o", "ij", ':<c-u>lua require"treesitter-unit".select()<CR>', opts)
@@ -68,6 +65,9 @@ keymap("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
 -- <TRANSPARENCY>
 keymap("n", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info about current buffer
+
+-- <BUFFERDELETE>
+keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) --buffer delete
 
 -- NAVIGATION
 keymap("n", "<c-f>", "<c-e>", opts) -- page scrolls down one line
@@ -94,7 +94,6 @@ keymap("i", "<c-v>", "<c-r>*", opts) -- paste last registered yank
 keymap("i", "<tab>", "<c-f>", opts) -- move line in the correspondng tab frame
 
 -- UTILS
-keymap("n", "<c-h>", "<cmd>bd<CR>", opts) --buffer delete
 keymap("n", "<c-q>", "<c-r>", opts) -- redo
 keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) -- highlights
 keymap("n", "<Leader>f", "<cmd>w<cr>", opts) -- save file

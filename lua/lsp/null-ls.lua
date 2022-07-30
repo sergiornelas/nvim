@@ -1,9 +1,3 @@
---=================={Installers}=========================
---  > npm install -g eslint_d
---  > npm install -g @fsouza/prettierd
---  > brew install stylua
---  > brew install tidy-html5
-
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
 	return
