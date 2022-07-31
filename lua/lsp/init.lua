@@ -5,4 +5,5 @@ end
 
 require("lsp.mason")
 require("lsp.handlers").setup()
+require("lsp.lspsaga")
 require("lsp.null-ls")

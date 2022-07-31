@@ -62,7 +62,7 @@ api.nvim_create_autocmd(
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme onedark
+  colorscheme gruvbox
 
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim
@@ -75,16 +75,6 @@ vim.cmd([[
 
   " Avoids automatic comment when enter
   au BufEnter * set fo-=c fo-=r fo-=o
-
-  " Eliminate unnamed buffers
-  function! CleanNoNameEmptyBuffers()
-    let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val) < 0 && (getbufline(v:val, 1, "$") == [""])')
-    if !empty(buffers)
-    exe 'bd '.join(buffers, ' ')
-    else
-    echo 'No buffer deleted'
-    endif
-  endfunction
 
   " Avoid crashing when starts neovim with sessions (for reference)
   " autocmd VimEnter * call timer_start(500, {-> execute("let g:rooter_manual_only = 0")})

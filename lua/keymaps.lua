@@ -24,7 +24,7 @@ keymap("n", "<leader>di", "<cmd>TodoTelescope theme=dropdown<cr>", opts)
 keymap("n", "<leader>r", "<cmd>NvimTreeToggle <cr>", opts)
 
 -- <NEORG GTD>
-keymap("n", "<leader>vv", "<cmd>Neorg gtd views<cr>", opts)
+keymap("n", "<leader>s", "<cmd>Neorg gtd views<cr>", opts)
 keymap("n", "<leader>vj", "<cmd>Neorg gtd capture<cr>", opts)
 keymap("n", "<leader>ve", "<cmd>Neorg gtd edit<cr>", opts)
 
@@ -38,6 +38,8 @@ keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<cr>", opts)
 -- <CYBU>
 keymap("n", "<c-k>", "<plug>(CybuLastusedPrev)", opts)
 keymap("n", "<c-j>", "<plug>(CybuLastusedNext)", opts)
+keymap("n", "J", "<plug>(CybuPrev)", opts)
+keymap("n", "K", "<plug>(CybuNext)", opts)
 
 -- <HARPOON>
 vim.api.nvim_set_keymap(
@@ -47,8 +49,8 @@ vim.api.nvim_set_keymap(
 	opts
 )
 keymap("n", "mf", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
-keymap("n", "K", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
-keymap("n", "J", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
+-- keymap("n", "K", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
+-- keymap("n", "J", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 
 -- <TREESITTER UNIT>
 keymap("x", "ij", ':lua require"treesitter-unit".select()<CR>', opts)
@@ -99,7 +101,6 @@ keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) -- highlights
 keymap("n", "<Leader>f", "<cmd>w<cr>", opts) -- save file
 keymap("n", "<Leader>q", "<cmd>q<cr>", opts) -- close window
 keymap("n", "<Leader>Q", "<cmd>q!<cr>", opts) -- close window and file
-keymap("n", "<Leader>s", "<cmd>call CleanNoNameEmptyBuffers()<cr>", opts) -- clean no name buffers
 keymap("n", "<Leader>j", "zz", opts) -- center text
 keymap("n", "<Leader>g", "gt", opts) -- next tab
 keymap("n", "<Leader>t", "gT", opts) -- prev tab

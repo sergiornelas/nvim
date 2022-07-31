@@ -104,6 +104,12 @@ return packer.startup(function(use)
 			require("lsp")
 		end,
 	})
+	-- LSP SAGA --------------------------------------------------
+	use({
+		-- check this plugin again when winbar is available
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+	})
 
 	-- LSP INSTALLER----------------------------------------------
 	use({ "williamboman/mason.nvim" })
@@ -487,7 +493,6 @@ return packer.startup(function(use)
 	--       require "plugins.neogit"
 	--    end,
 	-- }
-	-- NEOGIT ----------------------------------------------------
 	-- INTERESTING PLUGINS ---------------------------------------
 	-- https://github.com/b0o/simrat39/symbols-outline.nvim
 	-- https://github.com/b0o/SchemaStore.nvim

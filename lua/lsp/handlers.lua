@@ -57,19 +57,12 @@ local navic = require("nvim-navic")
 local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	keymap(bufnr, "n", "<leader>lo", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+	keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 	keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-	keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
-	keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-	keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
-	keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
-	keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-	keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+	keymap(bufnr, "n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder<CR>", opts)
+	-- lspsaga handles: hover, references, show and jump diagnostics, code actions, rename and signature help.
 end
 
 M.on_attach = function(client, bufnr)
@@ -85,8 +78,8 @@ M.on_attach = function(client, bufnr)
 		ts_utils.setup({})
 		ts_utils.setup_client(client)
 		keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
-		keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", opts)
-		keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
+		keymap(bufnr, "n", "gR", ":TSLspRenameFile<CR>", opts)
+		keymap(bufnr, "n", "gI", ":TSLspImportAll<CR>", opts)
 	end
 
 	-- Stylua in null_ls
