@@ -55,31 +55,30 @@ local keymap = vim.api.nvim_buf_set_keymap
 local navic = require("nvim-navic")
 
 local function lsp_keymaps(bufnr)
-	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
-	keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	keymap(bufnr, "n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder<CR>", opts)
+	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+	keymap(bufnr, "n", "go", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	keymap(bufnr, "n", "g<cr>", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
+	keymap(bufnr, "n", "gI", "<cmd>LspInfo<cr>", opts)
+	keymap(bufnr, "n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+	keymap(bufnr, "n", "gw", "<cmd>lua vim.lsp.buf.add_workspace_folder<CR>", opts)
 	-- lspsaga handles: hover, references, show and jump diagnostics, code actions, rename and signature help.
+
+	-- Unused features:
+	-- local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	-- vim.keymap.set('n', 'gz', vim.lsp.buf.remove_workspace_folder, bufopts)
+	-- vim.keymap.set("n", "gz", function()
+	-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	-- end, bufopts)
+	-- vim.keymap.set("n", "gz", vim.lsp.buf.type_definition, bufopts)
 end
 
 M.on_attach = function(client, bufnr)
-	-- Add LSP keymaps
 	lsp_keymaps(bufnr)
 
+	-- Prettierd in null_ls
 	if client.name == "tsserver" then
-		-- Prettierd in null_ls
 		client.resolved_capabilities.document_formatting = false
-
-		-- Ts-utils
-		local ts_utils = require("nvim-lsp-ts-utils")
-		ts_utils.setup({})
-		ts_utils.setup_client(client)
-		keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
-		keymap(bufnr, "n", "gR", ":TSLspRenameFile<CR>", opts)
-		keymap(bufnr, "n", "gI", ":TSLspImportAll<CR>", opts)
 	end
 
 	-- Stylua in null_ls
@@ -109,12 +108,14 @@ M.on_attach = function(client, bufnr)
 	end
 
 	-- Format on save (currently all clients formatting are handled by null_ls)
-	if client.resolved_capabilities.document_formatting then
-		vim.api.nvim_create_autocmd(
-			"BufWritePre",
-			{ pattern = "<buffer>", command = "lua vim.lsp.buf.formatting_sync()" }
-		)
-	end
+	-- if client.resolved_capabilities.document_formatting then
+	-- 	vim.api.nvim_create_autocmd(
+	-- 		"BufWritePre",
+	-- 		{ pattern = "<buffer>", command = "lua vim.lsp.buf.formatting_sync()" }
+	-- 	)
+	-- end
+
+	-- require("lsp_signature").on_attach(signature_setup, bufnr) -- Note: add in lsp client on-attach
 end
 
 return M

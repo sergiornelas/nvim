@@ -120,9 +120,6 @@ return packer.startup(function(use)
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
-	use({
-		"jose-elias-alvarez/nvim-lsp-ts-utils",
-	})
 
 	-- NAVIC -----------------------------------------------------
 	use({
@@ -388,6 +385,14 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- AUTO-SAVE -------------------------------------------------
+	-- use({
+	-- 	"Pocco81/auto-save.nvim",
+	-- 	config = function()
+	-- 		require("auto-save").setup()
+	-- 	end,
+	-- })
+
 	-- REMOVED TREESITTER PLUGINS FOR GAIN FPS -------------------
 	-- RAINBOW ---------------------------------------------------
 	-- use({
@@ -410,13 +415,13 @@ return packer.startup(function(use)
 	-- 	requires = { "nvim-treesitter/nvim-treesitter" },
 	-- })
 	-- RAY X -----------------------------------------------------
-	-- use({
-	-- 	"ray-x/lsp_signature.nvim",
-	-- 	-- after = "nvim-lspconfig",
-	-- 	config = function()
-	-- 		require("lsp_signature").setup()
-	-- 	end,
-	-- })
+	use({
+		"ray-x/lsp_signature.nvim",
+		-- after = "nvim-lspconfig",
+		config = function()
+			require("lsp_signature").setup()
+		end,
+	})
 	-- NEW AUTOPAIRS ---------------------------------------------
 	-- kylechui/nvim-surround
 	-- LIGHTSPEED ------------------------------------------------

@@ -12,9 +12,7 @@ null_ls.setup({
 	sources = {
 		formatting.stylua,
 		formatting.prettierd,
-		formatting.fish_indent,
 		diagnostics.eslint_d,
-		diagnostics.fish,
 	},
 	-- format on save
 	on_attach = function(client, bufnr)
