@@ -9,12 +9,12 @@ vim.g.mapleader = " "
 
 -- <TELESCOPE>
 keymap("n", "<leader>i", "<cmd>Telescope find_files theme=ivy winblend=10<CR>", opts)
-keymap("n", "<leader>k", "<cmd>Telescope live_grep theme=ivy winblend=10<cr>", opts)
-keymap("n", "<leader>dk", "<cmd>Telescope grep_string theme=ivy winblend=10<cr>", opts)
+keymap("n", "<leader>l", "<cmd>Telescope live_grep theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope projects theme=dropdown winblend=10<cr>", opts)
 keymap("n", "<leader>m", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>", opts)
 keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy winblend=10<cr>", opts)
+keymap("n", "<leader>dk", "<cmd>Telescope grep_string theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>dp", "<cmd>Telescope colorscheme theme=ivy<cr>", opts)
 keymap("n", "<leader>dg", "<cmd>Telescope git_status theme=dropdown<cr>", opts)
 keymap("n", "<leader>di", "<cmd>TodoTelescope theme=dropdown<cr>", opts)

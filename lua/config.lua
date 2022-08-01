@@ -2,27 +2,25 @@
 vim.g.material_style = "deep ocean"
 
 -- <GRUVBOX BABY>
--- vim.g.gruvbox_baby_transparent_mode = 0
--- vim.g.gruvbox_baby_telescope_theme = 0
--- vim.g.gruvbox_baby_highlights = {
--- 	Normal = {
--- 		fg = "#d5b018",
--- 		-- fg = "#83A598",
--- 		-- fg = "#689D6A",
--- 	},
--- 	Visual = {
--- 		fg = "#E7D7AD",
--- 		bg = "#653f43",
--- 	},
--- 	Search = {
--- 		fg = "#E7D7AD",
--- 		bg = "#653f43",
--- 	},
--- 	illuminatedWord = {
--- 		fg = "#c7baad",
--- 		bg = "#504945",
--- 	},
--- }
+vim.g.gruvbox_baby_highlights = {
+	Normal = {
+		fg = "#d5b018",
+		-- fg = "#83A598",
+		-- fg = "#689D6A",
+	},
+	Visual = {
+		fg = "#E7D7AD",
+		bg = "#653f43",
+	},
+	Search = {
+		fg = "#E7D7AD",
+		bg = "#653f43",
+	},
+	illuminatedWord = {
+		fg = "#c7baad",
+		bg = "#504945",
+	},
+}
 
 -- <ILLUMINATE>
 vim.g.Illuminate_ftblacklist = { "NvimTree" }
@@ -62,7 +60,7 @@ api.nvim_create_autocmd(
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme zephyr
+  colorscheme gruvbox-baby
 
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim
@@ -70,17 +68,20 @@ vim.cmd([[
   " Stop folding
   autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99
 
-  " wrap break
+  " Wrap break
   set showbreak=↪\ 
 
-  " Avoids automatic comment when enter
+  " Stop automatic comment when enter in insert mode
   au BufEnter * set fo-=c fo-=r fo-=o
+
+  " Close nvimtree
+  autocmd VimLeave * NvimTreeClose
 
   " Avoid crashing when starts neovim with sessions (for reference)
   " autocmd VimEnter * call timer_start(500, {-> execute("let g:rooter_manual_only = 0")})
-  autocmd VimLeave * NvimTreeClose
 ]])
 
+-- Todo style for reference
 -- PERF: add something to installer later
 -- HACK: aewf
 -- TODO: add something to installer later
@@ -88,7 +89,7 @@ vim.cmd([[
 -- FIX: add something to installer later
 -- WARNING: add something to installer later
 
--- Symbols listchars
+-- Symbols listchars (for reference)
 -- vim.opt.listchars = {
 -- 	tab = "│ ",
 -- 	extends = "→",

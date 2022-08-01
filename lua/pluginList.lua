@@ -501,7 +501,6 @@ return packer.startup(function(use)
 	-- mattn/webapi-vim
 	-- pwntester/octo.nvim
 	-- use({ "andymass/vim-matchup" })
-
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

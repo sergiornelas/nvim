@@ -114,8 +114,6 @@ M.on_attach = function(client, bufnr)
 	-- 		{ pattern = "<buffer>", command = "lua vim.lsp.buf.formatting_sync()" }
 	-- 	)
 	-- end
-
-	-- require("lsp_signature").on_attach(signature_setup, bufnr) -- Note: add in lsp client on-attach
 end
 
 return M
