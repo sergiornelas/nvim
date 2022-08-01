@@ -104,29 +104,32 @@ return packer.startup(function(use)
 			require("lsp")
 		end,
 	})
+	-- LSP INSTALLER----------------------------------------------
+	use({ "williamboman/mason.nvim" })
+	use({ "williamboman/mason-lspconfig.nvim" })
+	-- NULL-LS ---------------------------------------------------
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
 	-- LSP SAGA --------------------------------------------------
 	use({
 		-- check this plugin again when winbar is available
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 	})
-
-	-- LSP INSTALLER----------------------------------------------
-	use({ "williamboman/mason.nvim" })
-	use({ "williamboman/mason-lspconfig.nvim" })
-
-	-- NULL-LS ---------------------------------------------------
+	-- SIGNATURE -------------------------------------------------
 	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			require("lsp_signature").setup()
+		end,
 	})
-
 	-- NAVIC -----------------------------------------------------
 	use({
 		"SmiteshP/nvim-navic",
 		requires = "neovim/nvim-lspconfig",
 	})
-
 	-- ILLUMINATE ------------------------------------------------
 	use({ "RRethy/vim-illuminate" })
 
@@ -176,12 +179,6 @@ return packer.startup(function(use)
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	-- use({ "crispgm/telescope-heading.nvim" }) --neorg
-	-- FZF
-	-- use({
-	-- 	"ibhagwan/fzf-lua",
-	-- 	-- optional for icon support
-	-- 	requires = { "kyazdani42/nvim-web-devicons" },
-	-- })
 
 	-- PROJECT ---------------------------------------------------
 	use({
@@ -260,6 +257,10 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins.colorschemes").nightfox()
 		end,
+	})
+	use({
+		"glepnir/zephyr-nvim",
+		requires = { "nvim-treesitter/nvim-treesitter", opt = true },
 	})
 
 	-- TRANSPARENT NVIM ------------------------------------------
@@ -414,14 +415,6 @@ return packer.startup(function(use)
 	-- 	end,
 	-- 	requires = { "nvim-treesitter/nvim-treesitter" },
 	-- })
-	-- RAY X -----------------------------------------------------
-	use({
-		"ray-x/lsp_signature.nvim",
-		-- after = "nvim-lspconfig",
-		config = function()
-			require("lsp_signature").setup()
-		end,
-	})
 	-- NEW AUTOPAIRS ---------------------------------------------
 	-- kylechui/nvim-surround
 	-- LIGHTSPEED ------------------------------------------------

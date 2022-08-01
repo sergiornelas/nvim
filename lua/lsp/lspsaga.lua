@@ -2,7 +2,7 @@ local saga = require("lspsaga")
 
 saga.init_lsp_saga({
 	border_style = "rounded",
-	diagnostic_header = { " 😡", "😬", " 👁️", " 🌝" },
+	diagnostic_header = { " 😡", " 😬", " 👁️", " 🌚" },
 	max_preview_lines = 30,
 	code_action_icon = "*",
 	code_action_lightbulb = {
@@ -18,11 +18,12 @@ saga.init_lsp_saga({
 		split = "<c-s>",
 		scroll_down = "<C-f>",
 		scroll_up = "<C-e>",
-		quit = "<leader>q",
+		quit = "<c-j>",
 	},
 	code_action_keys = {
-		quit = "<leader>q",
+		quit = "<c-j>",
 	},
+	rename_action_quit = "<c-j>",
 	definition_preview_icon = "🛰️ ",
 })
 

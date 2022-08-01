@@ -24,7 +24,7 @@ keymap("n", "<leader>di", "<cmd>TodoTelescope theme=dropdown<cr>", opts)
 keymap("n", "<leader>r", "<cmd>NvimTreeToggle <cr>", opts)
 
 -- <NEORG GTD>
-keymap("n", "<leader>s", "<cmd>Neorg gtd views<cr>", opts)
+keymap("n", "<leader>h", "<cmd>Neorg gtd views<cr>", opts)
 keymap("n", "<leader>vj", "<cmd>Neorg gtd capture<cr>", opts)
 keymap("n", "<leader>ve", "<cmd>Neorg gtd edit<cr>", opts)
 
@@ -49,8 +49,6 @@ vim.api.nvim_set_keymap(
 	opts
 )
 keymap("n", "mf", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
--- keymap("n", "K", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
--- keymap("n", "J", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 
 -- <TREESITTER UNIT>
 keymap("x", "ij", ':lua require"treesitter-unit".select()<CR>', opts)
