@@ -14,10 +14,10 @@ keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy winblend=10<cr>", op
 keymap("n", "<leader>p", "<cmd>Telescope projects theme=dropdown winblend=10<cr>", opts)
 keymap("n", "<leader>m", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>", opts)
 keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy winblend=10<cr>", opts)
-keymap("n", "<leader>dk", "<cmd>Telescope grep_string theme=ivy winblend=10<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>Telescope grep_string theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>dp", "<cmd>Telescope colorscheme theme=ivy<cr>", opts)
-keymap("n", "<leader>dg", "<cmd>Telescope git_status theme=dropdown<cr>", opts)
-keymap("n", "<leader>di", "<cmd>TodoTelescope theme=dropdown<cr>", opts)
+keymap("n", "<leader>di", "<cmd>Telescope git_status theme=dropdown<cr>", opts)
+-- keymap("n", "<leader>dg", "<cmd>TodoTelescope theme=dropdown<cr>", opts)
 -- keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts) --neorg
 
 -- <NVIM TREE>
@@ -32,8 +32,8 @@ keymap("n", "<leader>ve", "<cmd>Neorg gtd edit<cr>", opts)
 keymap("n", "<leader>a", "<cmd>MaximizerToggle!<cr>", opts)
 
 -- <DIFF VIEW GIT>
-keymap("n", "<leader>dd", "<cmd>DiffviewOpen<cr>", opts)
-keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<cr>", opts)
+keymap("n", "<leader>df", "<cmd>DiffviewOpen<cr>", opts)
+keymap("n", "<leader>dd", "<cmd>DiffviewFileHistory %<cr>", opts)
 
 -- <CYBU>
 keymap("n", "<c-k>", "<plug>(CybuLastusedPrev)", opts)
@@ -211,7 +211,7 @@ keymap("n", "q)", "q^", opts)
 vim.cmd([[
   " <TELESCOPE>
   vnoremap <silent><leader>i "zy:Telescope find_files default_text=<C-r>z<cr>
-  vnoremap <silent><leader>k "zy:Telescope live_grep default_text=<C-r>z theme=ivy<cr>
+  vnoremap <silent><leader>l "zy:Telescope live_grep default_text=<C-r>z theme=ivy<cr>
 
   " <LUASNIP>
   snoremap p p

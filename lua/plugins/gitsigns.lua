@@ -88,7 +88,7 @@ gitsigns.setup({
 		map("n", "<leader>kD", function()
 			gs.diffthis("~")
 		end)
-		map("n", "<leader>kg", gs.toggle_deleted)
+		map("n", "<leader>kf", gs.toggle_deleted)
 
 		-- Text object
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")

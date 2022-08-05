@@ -33,7 +33,7 @@ vim.keymap.set("n", "gi", "<cmd>Lspsaga lsp_finder<CR>", { silent = true, norema
 vim.keymap.set("n", "gp", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
 vim.keymap.set("n", "gh", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 vim.keymap.set("n", "gs", "<Cmd>Lspsaga signature_help<CR>", { silent = true, noremap = true })
-vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "gc", "<cmd>Lspsaga code_action<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true, noremap = true })
 vim.cmd([[
@@ -42,5 +42,5 @@ vim.cmd([[
 ]])
 
 -- LSP methods learned:
--- implementation, formatting, finder (def/ref), preview_definition, signature_help, code_action, rename
---       1              2             3                  4                 5              6          7
+-- finder (def/ref), preview_definition, signature_help, code_action, rename, implementation, formatting
+--        1                  2                 3              4          5          6              7

@@ -17,4 +17,18 @@ comment.setup({
 			location = location,
 		})
 	end,
+	toggler = {
+		line = "gn",
+	},
+	opleader = {
+		line = "ga",
+	},
+	extra = {
+		-- Add comment on the line above
+		above = "gaO",
+		-- Add comment on the line below
+		below = "gao",
+		---Add comment at the end of line
+		eol = "gaA",
+	},
 })

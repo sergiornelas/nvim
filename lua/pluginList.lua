@@ -40,25 +40,53 @@ packer.init({
 })
 
 return packer.startup(function(use)
-	-- HAVE PACKER MANAGE ITSELF ---------------------------------
+	-- PACKER ----------------------------------------------------
 	use({
 		"wbthomason/packer.nvim",
 	})
 
 	-- STARTUP OPTIMIZATIONS -------------------------------------
 	use({
-		"nathom/filetype.nvim",
+		"tweekmonster/startuptime.vim",
+		cmd = "StartupTime",
 	})
 	use({
-		"tjdevries/lazy.nvim",
+		"nathom/filetype.nvim",
 	})
 	use({
 		"lewis6991/impatient.nvim",
 	})
+
+	-- LSP -------------------------------------------------------
 	use({
-		"tweekmonster/startuptime.vim",
-		cmd = "StartupTime",
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("lsp")
+		end,
 	})
+	use({ "williamboman/mason.nvim" })
+	use({ "williamboman/mason-lspconfig.nvim" })
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		-- commit = "14ccbe682fb3060b70760468935dc306d67d876d",
+		-- check this plugin again when winbar is available
+	})
+	use({
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			require("lsp_signature").setup()
+		end,
+	})
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
+	})
+	use({ "RRethy/vim-illuminate" })
 
 	-- CMP -------------------------------------------------------
 	use({
@@ -66,6 +94,9 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins.cmp")
 		end,
+	})
+	use({
+		"hrsh7th/cmp-nvim-lsp",
 	})
 	use({
 		"hrsh7th/cmp-buffer",
@@ -76,15 +107,9 @@ return packer.startup(function(use)
 	use({
 		"saadparwaiz1/cmp_luasnip",
 	})
-	-- LSP CMP
-	use({
-		"hrsh7th/cmp-nvim-lsp",
-	})
-	-- LUA CMP
 	use({
 		"hrsh7th/cmp-nvim-lua",
 	})
-	-- EMOJI CMP
 	use({
 		"hrsh7th/cmp-emoji",
 	})
@@ -97,42 +122,6 @@ return packer.startup(function(use)
 		"rafamadriz/friendly-snippets",
 	})
 
-	-- LSP -------------------------------------------------------
-	use({
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("lsp")
-		end,
-	})
-	-- LSP INSTALLER----------------------------------------------
-	use({ "williamboman/mason.nvim" })
-	use({ "williamboman/mason-lspconfig.nvim" })
-	-- NULL-LS ---------------------------------------------------
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
-	})
-	-- LSP SAGA --------------------------------------------------
-	use({
-		-- check this plugin again when winbar is available
-		"glepnir/lspsaga.nvim",
-		branch = "main",
-	})
-	-- SIGNATURE -------------------------------------------------
-	use({
-		"ray-x/lsp_signature.nvim",
-		config = function()
-			require("lsp_signature").setup()
-		end,
-	})
-	-- NAVIC -----------------------------------------------------
-	use({
-		"SmiteshP/nvim-navic",
-		requires = "neovim/nvim-lspconfig",
-	})
-	-- ILLUMINATE ------------------------------------------------
-	use({ "RRethy/vim-illuminate" })
-
 	-- TREESITTER ------------------------------------------------
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -141,30 +130,9 @@ return packer.startup(function(use)
 		end,
 		run = ":TSUpdate",
 	})
-	-- TREESITTER UNIT -------------------------------------------
 	use({ "David-Kunz/treesitter-unit" })
 
-	-- COMMENTS --------------------------------------------------
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("plugins.comment")
-		end,
-	})
-	-- JSX COMMENTS ----------------------------------------------
-	use({
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		after = "nvim-treesitter",
-	})
-
-	-- AUTOTAG ---------------------------------------------------
-	use({
-		"windwp/nvim-ts-autotag",
-		after = "nvim-treesitter",
-		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-	})
-
-	-- TELESCOPE -------------------------------------------------
+	-- BUFFER NAVIGATION -----------------------------------------
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
@@ -179,16 +147,12 @@ return packer.startup(function(use)
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	-- use({ "crispgm/telescope-heading.nvim" }) --neorg
-
-	-- PROJECT ---------------------------------------------------
 	use({
 		"ahmedkhalf/project.nvim",
 		config = function()
 			require("plugins.project")
 		end,
 	})
-
-	-- NVIM TREE -------------------------------------------------
 	use({
 		"kyazdani42/nvim-tree.lua",
 		cmd = { "NvimTreeToggle", "NvimTreeRefresh", "NvimTreeClose" },
@@ -199,16 +163,128 @@ return packer.startup(function(use)
 			require("plugins.nvimtree")
 		end,
 	})
+	use({
+		"ThePrimeagen/harpoon",
+		config = function()
+			require("plugins.harpoon")
+		end,
+	})
+	use({
+		"ghillb/cybu.nvim",
+		config = function()
+			require("plugins.cybu")
+		end,
+	})
+	use({
+		"ggandor/leap.nvim",
+		config = function()
+			require("plugins.leap")
+		end,
+	})
+	use({
+		"xiyaowong/nvim-transparent",
+		config = function()
+			require("plugins.transparent")
+		end,
+	})
+	use("szw/vim-maximizer")
+	use({ "famiu/bufdelete.nvim" })
 
-	-- COLORIZER -------------------------------------------------
+	-- GIT -------------------------------------------------------
+	use({
+		"lewis6991/gitsigns.nvim",
+		event = "BufEnter",
+		config = function()
+			require("plugins.gitsigns")
+		end,
+	})
+	use({
+		"sindrets/diffview.nvim",
+		config = function()
+			require("plugins.gitdiff")
+		end,
+	})
+
+	-- COMMENTS --------------------------------------------------
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("plugins.comment")
+		end,
+	})
+	use({
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		after = "nvim-treesitter",
+	})
+
+	-- ENHANCERS -------------------------------------------------
+	use({
+		"rmagatti/auto-session",
+		config = function()
+			require("plugins.auto-session")
+		end,
+	})
+	use({
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("plugins.lualine")
+		end,
+	})
+	use({
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("plugins.autopairs")
+		end,
+	})
+	use({
+		"abecodes/tabout.nvim",
+		config = function()
+			require("plugins.tabout")
+		end,
+	})
+	use({
+		"jinh0/eyeliner.nvim",
+		config = function()
+			require("eyeliner").setup({
+				highlight_on_key = true,
+			})
+		end,
+	})
+	use({ "tversteeg/registers.nvim" })
+
+	-- NOTES -----------------------------------------------------
+	use({
+		"nvim-neorg/neorg",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			-- "max397574/neorg-contexts",
+			-- "nvim-neorg/neorg-telescope",
+		},
+		config = function()
+			require("plugins.neorg")
+		end,
+	})
+	use({
+		"itchyny/calendar.vim",
+		config = function()
+			require("plugins.calendar")
+		end,
+	})
+	-- rm -rf ~/.cache/calendar.vim/google/
+
+	-- FRONTEND DEVELOPMENT --------------------------------------
+	use({
+		"windwp/nvim-ts-autotag",
+		after = "nvim-treesitter",
+		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	})
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("plugins.colorizer")
 		end,
 	})
-
-	-- COLORPICKER -----------------------------------------------
 	use({
 		"ziontee113/color-picker.nvim",
 		cmd = { "PickColor", "PickColorInsert" },
@@ -263,129 +339,13 @@ return packer.startup(function(use)
 		requires = { "nvim-treesitter/nvim-treesitter", opt = true },
 	})
 
-	-- TRANSPARENT NVIM ------------------------------------------
-	use({
-		"xiyaowong/nvim-transparent",
-		config = function()
-			require("plugins.transparent")
-		end,
-	})
-
-	-- GIT SIGNS -------------------------------------------------
-	use({
-		"lewis6991/gitsigns.nvim",
-		event = "BufEnter",
-		config = function()
-			require("plugins.gitsigns")
-		end,
-	})
-	-- GIT DIFF --------------------------------------------------
-	use({
-		"sindrets/diffview.nvim",
-		config = function()
-			require("plugins.gitdiff")
-		end,
-	})
-
-	-- AUTOPAIRS -------------------------------------------------
-	use({
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = function()
-			require("plugins.autopairs")
-		end,
-	})
-	-- LUALINE ---------------------------------------------------
-	use({
-		"nvim-lualine/lualine.nvim",
-		config = function()
-			require("plugins.lualine")
-		end,
-	})
-
-	-- NOTES -----------------------------------------------------
-	use({
-		"nvim-neorg/neorg",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			-- "max397574/neorg-contexts",
-			-- "nvim-neorg/neorg-telescope",
-		},
-		config = function()
-			require("plugins.neorg")
-		end,
-	})
-
-	-- LIGHTSPEED ------------------------------------------------
-	use({
-		"ggandor/leap.nvim",
-		config = function()
-			require("plugins.leap")
-		end,
-	})
-
-	-- MAXIMIZER WINDOW ------------------------------------------
-	use("szw/vim-maximizer")
-
-	-- GOOGLE CALENDAR/TASKS -------------------------------------
-	use("itchyny/calendar.vim")
-	-- rm -rf ~/.cache/calendar.vim/google/
-
-	-- SESSIONS --------------------------------------------------
-	use({
-		"rmagatti/auto-session",
-		config = function()
-			require("plugins.auto-session")
-		end,
-	})
-
-	-- BUFFER NAVIGATION -----------------------------------------
-	use({
-		"ghillb/cybu.nvim",
-		config = function()
-			require("plugins.cybu")
-		end,
-	})
-	-- HARPOON ---------------------------------------------------
-	use({
-		"ThePrimeagen/harpoon",
-		config = function()
-			require("plugins.harpoon")
-		end,
-	})
-
-	-- BUFFER DELETE ---------------------------------------------
-	use({ "famiu/bufdelete.nvim" })
-
-	-- TAB OUT ---------------------------------------------------
-	use({
-		"abecodes/tabout.nvim",
-		config = function()
-			require("plugins.tabout")
-		end,
-	})
-
-	-- REGISTERS -------------------------------------------------
-	use({ "tversteeg/registers.nvim" })
-
 	-- TODO-COMMENTS ---------------------------------------------
-	use({
-		"folke/todo-comments.nvim",
-		config = function()
-			require("todo-comments").setup()
-		end,
-	})
-
-	-- EYE-LINER -------------------------------------------------
-	use({
-		"jinh0/eyeliner.nvim",
-		config = function()
-			require("eyeliner").setup({
-				highlight_on_key = true,
-			})
-		end,
-	})
-
+	--use({
+	--"folke/todo-comments.nvim",
+	--config = function()
+	--require("todo-comments").setup()
+	--end,
+	--})
 	-- AUTO-SAVE -------------------------------------------------
 	-- use({
 	-- 	"Pocco81/auto-save.nvim",
@@ -393,21 +353,19 @@ return packer.startup(function(use)
 	-- 		require("auto-save").setup()
 	-- 	end,
 	-- })
-
-	-- REMOVED TREESITTER PLUGINS FOR GAIN FPS -------------------
 	-- RAINBOW ---------------------------------------------------
 	-- use({
 	-- 	"p00f/nvim-ts-rainbow",
 	-- 	commit = "837167f63445821c55e6eed9dbdac1b0b29afa92",
 	-- })
-	-- -- TREESITTER CONTEXT ------------------------------------- (slows fps)
+	-- -- TREESITTER CONTEXT -------------------------------------
 	-- use({
 	-- 	"nvim-treesitter/nvim-treesitter-context",
 	-- 	config = function()
 	-- 		require("plugins.treesitter-ctx")
 	-- 	end,
 	-- })
-	-- TREESITTER ARGUMENTS -------------------------------------- (potential slows)
+	-- TREESITTER ARGUMENTS --------------------------------------
 	-- use({
 	-- 	"m-demare/hlargs.nvim",
 	-- 	config = function()

@@ -27,7 +27,7 @@ mason.setup()
 -- This plugin uses the lspconfig server names in the APIs it exposes,
 -- not mason.nvim package names (eslint_d, stylua).
 -- You have to install them manually with MasonInstall.
--- prettierd not working as expected installed via Mason, so it's installed in global
+-- Prettierd not working as expected installed via Mason, so it's installed in global
 mason_lspconfig.setup({
 	ensure_installed = servers,
 	automatic_installation = true,
