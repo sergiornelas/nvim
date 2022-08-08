@@ -52,27 +52,6 @@ gitsigns.setup({
 			vim.keymap.set(mode, l, r, opts)
 		end
 
-		-- Navigation
-		map("n", "gj", function()
-			if vim.wo.diff then
-				return "gj"
-			end
-			vim.schedule(function()
-				gs.next_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true })
-
-		map("n", "gk", function()
-			if vim.wo.diff then
-				return "gk"
-			end
-			vim.schedule(function()
-				gs.prev_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true })
-
 		-- Actions
 		map({ "n", "v" }, "<leader>ks", ":Gitsigns stage_hunk<CR>")
 		map({ "n", "v" }, "<leader>kr", ":Gitsigns reset_hunk<CR>")

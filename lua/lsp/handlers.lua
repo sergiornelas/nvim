@@ -92,15 +92,14 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	end
 
+	-- Navic (currently not working on css and html files)
+	navic.attach(client, bufnr)
+
 	-- Highlight text
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
 		return
 	end
-
-	-- Navic (currently not working on css and html files)
-	navic.attach(client, bufnr)
-
 	if vim.g.colors_name ~= "gruvbox-baby" then
 		illuminate.on_attach(client)
 	end

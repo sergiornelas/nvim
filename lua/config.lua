@@ -61,13 +61,13 @@ api.nvim_create_autocmd(
 vim.cmd([[
   " Default colorscheme
   " colorscheme gruvbox-baby
-  colorscheme aurora
+  colorscheme zephyr
 
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim
 
   " Stop folding
-  autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99
+  " autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99
 
   " Wrap break
   set showbreak=↪\ 
@@ -78,17 +78,10 @@ vim.cmd([[
   " Close nvimtree
   autocmd VimLeave * NvimTreeClose
 
-  " Avoid crashing when starts neovim with sessions (for reference)
-  " autocmd VimEnter * call timer_start(500, {-> execute("let g:rooter_manual_only = 0")})
+  " Unmap matchit conflicts
+  autocmd VimEnter * call timer_start(500, {-> execute("  unmap [%")})
+  autocmd VimEnter * call timer_start(510, {-> execute("  unmap ]%")})
 ]])
-
--- Todo style for reference
--- PERF: add something to installer later
--- HACK: aewf
--- TODO: add something to installer later
--- NOTE: add something to installer later
--- FIX: add something to installer later
--- WARNING: add something to installer later
 
 -- Symbols listchars (for reference)
 -- vim.opt.listchars = {

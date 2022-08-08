@@ -23,6 +23,10 @@ keymap("n", "<leader>di", "<cmd>Telescope git_status theme=dropdown<cr>", opts)
 -- <NVIM TREE>
 keymap("n", "<leader>r", "<cmd>NvimTreeToggle <cr>", opts)
 
+-- <GIT SIGNS>
+keymap("n", "gj", "<cmd>Gitsigns next_hunk<cr>^", opts)
+keymap("n", "gk", "<cmd>Gitsigns prev_hunk<cr>^", opts)
+
 -- <NEORG GTD>
 keymap("n", "<leader>h", "<cmd>Neorg gtd views<cr>", opts)
 keymap("n", "<leader>vj", "<cmd>Neorg gtd capture<cr>", opts)
@@ -32,8 +36,8 @@ keymap("n", "<leader>ve", "<cmd>Neorg gtd edit<cr>", opts)
 keymap("n", "<leader>a", "<cmd>MaximizerToggle!<cr>", opts)
 
 -- <DIFF VIEW GIT>
-keymap("n", "<leader>df", "<cmd>DiffviewOpen<cr>", opts)
-keymap("n", "<leader>dd", "<cmd>DiffviewFileHistory %<cr>", opts)
+keymap("n", "<leader>dj", "<cmd>DiffviewOpen<cr>", opts)
+keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<cr>", opts)
 
 -- <CYBU>
 keymap("n", "<c-k>", "<plug>(CybuLastusedPrev)", opts)
@@ -50,12 +54,6 @@ vim.api.nvim_set_keymap(
 )
 keymap("n", "mf", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
 
--- <TREESITTER UNIT>
-keymap("x", "ij", ':lua require"treesitter-unit".select()<CR>', opts)
-keymap("o", "ij", ':<c-u>lua require"treesitter-unit".select()<CR>', opts)
-keymap("x", "aj", ':lua require"treesitter-unit".select(true)<CR>', opts)
-keymap("o", "aj", ':<c-u>lua require"treesitter-unit".select(true)<CR>', opts)
-
 -- <CALENDAR>
 keymap("n", "<leader>y", "<cmd>Calendar<CR>", opts)
 
@@ -71,7 +69,9 @@ keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) --buffer delete
 
 -- NAVIGATION
 keymap("n", "<c-f>", "<c-e>", opts) -- page scrolls down one line
+keymap("v", "<c-f>", "<c-e>", opts) -- page scrolls down one line
 keymap("n", "<c-e>", "<c-y>", opts) -- page scrolls up one line
+keymap("v", "<c-e>", "<c-y>", opts) -- page scrolls up one line
 keymap("n", "<c-v>", "<c-f>", opts) -- fullscreen
 keymap("n", "<c-p>", "<c-b>", opts) -- fullscreen
 keymap("n", "<c-r>", "<c-w>w", opts) -- navigate through windows
@@ -95,6 +95,7 @@ keymap("i", "<tab>", "<c-f>", opts) -- move line in the correspondng tab frame
 
 -- UTILS
 keymap("n", "<c-q>", "<c-r>", opts) -- redo
+keymap("v", "<c-w>", "o", opts) -- o is used by treesitter-objects
 keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) -- highlights
 keymap("n", "<Leader>f", "<cmd>w<cr>", opts) -- save file
 keymap("n", "<Leader>q", "<cmd>q<cr>", opts) -- close window
@@ -109,6 +110,7 @@ keymap("n", "S", "mzJ`z", opts) -- cursor stay current position when J
 keymap("n", "V", "vg_", opts) -- visual to the right
 keymap("n", "vv", "Vg_", opts) -- visual whole line
 keymap("n", "<c-l>", "<c-v>", opts) -- block visual selection
+keymap("v", "<c-l>", "<c-v>", opts) -- block visual selection
 keymap("n", "zl", "z6l", opts) -- zoom left
 keymap("n", "zh", "z6h", opts) -- zoom right
 keymap("v", "zl", "z6l", opts) -- zoom left
@@ -183,10 +185,9 @@ keymap("n", "q[", "y$", opts)
 keymap("n", "]", "==", opts)
 keymap("v", "]", "==", opts)
 -- J
-keymap("n", "=", "%", opts)
-keymap("v", "=", "%", opts)
 keymap("n", "d=", "d%", opts)
 keymap("n", "q=", "y%", opts)
+keymap("n", "c=", "c%", opts)
 -- K
 keymap("n", "}", "&", opts)
 -- Z
@@ -217,6 +218,14 @@ vim.cmd([[
   snoremap p p
   snoremap <c-h> <BS>i
   nnoremap <leader>da <CMD>LuaSnipUnlinkCurrent<CR>
+
+  " <TREESITTER OBJECTS>
+  nnoremap <silent>\r :TSTextobjectGotoPreviousStart @block.outer<cr>
+  nnoremap <silent>\g :TSTextobjectGotoNextStart @block.outer<cr>
+
+  " MATCHIT (allows using % for <HTML>/<JSX> tags)
+  nnoremap = <Plug>(MatchitNormalForward)
+  vnoremap = <Plug>(MatchitVisualForward)
 
   " Macro in visual mode
   xnoremap { :<C-u>call ExecuteMacroOverVisualRange()<CR>

@@ -26,30 +26,60 @@ configs.setup({
 		disable = { "" }, -- list of language that will be disabled
 		additional_vim_regex_highlighting = false,
 	},
-	indent = { enable = true, disable = { "yaml" } },
+	indent = { enable = true },
 	textobjects = {
 		select = {
-			enable = true,
-			-- Automatically jump forward to textobj, similar to targets.vim
+			enable = true, -- Automatically jump forward to textobj, similar to targets.vim
 			lookahead = true,
+			keymaps = {
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+				["io"] = "@block.inner",
+				["ao"] = "@block.outer",
+			},
+		},
+		swap = {
+			enable = true,
+			swap_next = {
+				["<leader>K"] = "@parameter.inner",
+			},
+			swap_previous = {
+				["<leader>J"] = "@parameter.inner",
+			},
+		},
+		move = {
+			enable = true,
+			set_jumps = true, -- whether to set jumps in the jumplist
+			-- mappings are in keymaps.lua
 		},
 	},
-	autopairs = {
+	textsubjects = {
+		enable = true,
+		keymaps = {
+			["o"] = "textsubjects-smart",
+		},
+	},
+	autopairs = { --automatic ({[]})
 		enable = true,
 	},
-	autotag = {
+	autotag = { --HTML/JSX tags autorename
 		enable = true,
 	},
 	context_commentstring = { --JSX commments
 		enable = true,
 		enable_autocmd = false,
 	},
-	-- rainbow = {
-	-- 	enable = true,
-	-- 	extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-	-- 	max_file_lines = nil, -- Do not enable for files with more than n lines, int
-	-- 	-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-	-- },
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<c-y>",
+			node_incremental = "<tab>",
+			scope_incremental = "<c-c>",
+			node_decremental = "<c-o>",
+		},
+	},
 })
 
 -- NEORG --------------

@@ -130,7 +130,8 @@ return packer.startup(function(use)
 		end,
 		run = ":TSUpdate",
 	})
-	use({ "David-Kunz/treesitter-unit" })
+	use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+	use({ "RRethy/nvim-treesitter-textsubjects" })
 
 	-- BUFFER NAVIGATION -----------------------------------------
 	use({
@@ -205,23 +206,17 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- COMMENTS --------------------------------------------------
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("plugins.comment")
-		end,
-	})
-	use({
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		after = "nvim-treesitter",
-	})
-
 	-- ENHANCERS -------------------------------------------------
 	use({
 		"rmagatti/auto-session",
 		config = function()
 			require("plugins.auto-session")
+		end,
+	})
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("plugins.comment")
 		end,
 	})
 	use({
@@ -275,6 +270,10 @@ return packer.startup(function(use)
 
 	-- FRONTEND DEVELOPMENT --------------------------------------
 	use({
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		after = "nvim-treesitter",
+	})
+	use({
 		"windwp/nvim-ts-autotag",
 		after = "nvim-treesitter",
 		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
@@ -318,6 +317,7 @@ return packer.startup(function(use)
 	use("tiagovla/tokyodark.nvim")
 	use("cpea2506/one_monokai.nvim")
 	use("sainnhe/edge")
+	use("B4mbus/oxocarbon-lua.nvim")
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
@@ -340,25 +340,18 @@ return packer.startup(function(use)
 	})
 
 	-- TODO-COMMENTS ---------------------------------------------
-	--use({
-	--"folke/todo-comments.nvim",
-	--config = function()
-	--require("todo-comments").setup()
-	--end,
-	--})
-	-- AUTO-SAVE -------------------------------------------------
 	-- use({
-	-- 	"Pocco81/auto-save.nvim",
-	-- 	config = function()
-	-- 		require("auto-save").setup()
-	-- 	end,
+	--  "folke/todo-comments.nvim",
+	--  config = function()
+	--    require("todo-comments").setup()
+	--  end,
 	-- })
 	-- RAINBOW ---------------------------------------------------
 	-- use({
 	-- 	"p00f/nvim-ts-rainbow",
 	-- 	commit = "837167f63445821c55e6eed9dbdac1b0b29afa92",
 	-- })
-	-- -- TREESITTER CONTEXT -------------------------------------
+	-- TREESITTER CONTEXT -------------------------------------
 	-- use({
 	-- 	"nvim-treesitter/nvim-treesitter-context",
 	-- 	config = function()
@@ -419,25 +412,12 @@ return packer.startup(function(use)
 	-- 		},
 	-- 	}),
 	-- })
-	-- -- TAB NINE -----------------------------------------------
+	-- TAB NINE -----------------------------------------------
 	-- use({
 	--   "tzachar/cmp-tabnine",
 	--   run = "./install.sh",
 	--   requires = "hrsh7th/nvim-cmp",
 	-- })
-	-- DETAILED INFO CMP -----------------------------------------
-	-- use {
-	--    "ray-x/lsp_signature.nvim",
-	--    after = "nvim-lspconfig",
-	--    config = function()
-	--      require("plugins.others").signature()
-	--    end,
-	-- }
-	-- TREESITTER CMP --------------------------------------------
-	-- use {
-	--   "ray-x/cmp-treesitter",
-	--   after = "nvim-cmp",
-	-- }
 	-- NEOGIT ----------------------------------------------------
 	-- use {
 	--    "TimUntersberger/neogit",
@@ -450,15 +430,16 @@ return packer.startup(function(use)
 	--    end,
 	-- }
 	-- INTERESTING PLUGINS ---------------------------------------
-	-- https://github.com/b0o/simrat39/symbols-outline.nvim
-	-- https://github.com/b0o/SchemaStore.nvim
-	-- use "nvim-treesitter/nvim-treesitter-textobjects"
+	-- b0o/simrat39/symbols-outline.nvim
+	-- b0o/SchemaStore.nvim
+	-- nvim-treesitter/nvim-treesitter-textobjects
 	-- folke/trouble.nvim
 	-- kevinhwang91/nvim-bqf
 	-- ruifm/gitlinker.nvim
 	-- mattn/webapi-vim
 	-- pwntester/octo.nvim
-	-- use({ "andymass/vim-matchup" })
+	-- andymass/vim-matchup
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

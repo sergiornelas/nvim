@@ -19,7 +19,6 @@ local disabled_built_ins = {
 	"spellfile_plugin",
 	"zip",
 	"zipPlugin",
-	"matchit",
 }
 
 for _, plugin in pairs(disabled_built_ins) do
