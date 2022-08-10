@@ -38,3 +38,5 @@ vim.opt.fillchars.eob = " "
 vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
+vim.opt.ve = "block" --visual block no limits
+vim.opt.shell = "/bin/zsh" --even if you are using fish, some plugins run in bash

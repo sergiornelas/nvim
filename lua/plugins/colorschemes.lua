@@ -15,4 +15,10 @@ M.nightfox = function()
 	})
 end
 
+M.gruvbox = function()
+	require("gruvbox").setup({
+		contrast = "hard",
+	})
+end
+
 return M

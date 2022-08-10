@@ -27,6 +27,25 @@ configs.setup({
 		additional_vim_regex_highlighting = false,
 	},
 	indent = { enable = true },
+	autopairs = { --automatic ({[]})
+		enable = true,
+	},
+	autotag = { --HTML/JSX tags autorename
+		enable = true,
+	},
+	context_commentstring = { --JSX commments
+		enable = true,
+		enable_autocmd = false,
+	},
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<c-y>",
+			node_incremental = "<tab>",
+			scope_incremental = "<c-x>",
+			node_decremental = "<c-o>",
+		},
+	},
 	textobjects = {
 		select = {
 			enable = true, -- Automatically jump forward to textobj, similar to targets.vim
@@ -59,25 +78,6 @@ configs.setup({
 		enable = true,
 		keymaps = {
 			["o"] = "textsubjects-smart",
-		},
-	},
-	autopairs = { --automatic ({[]})
-		enable = true,
-	},
-	autotag = { --HTML/JSX tags autorename
-		enable = true,
-	},
-	context_commentstring = { --JSX commments
-		enable = true,
-		enable_autocmd = false,
-	},
-	incremental_selection = {
-		enable = true,
-		keymaps = {
-			init_selection = "<c-y>",
-			node_incremental = "<tab>",
-			scope_incremental = "<c-c>",
-			node_decremental = "<c-o>",
 		},
 	},
 })

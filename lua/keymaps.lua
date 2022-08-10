@@ -223,11 +223,11 @@ vim.cmd([[
   nnoremap <silent>\r :TSTextobjectGotoPreviousStart @block.outer<cr>
   nnoremap <silent>\g :TSTextobjectGotoNextStart @block.outer<cr>
 
-  " MATCHIT (allows using % for <HTML>/<JSX> tags)
+  " Matchit (allows using % for <HTML>/<JSX> tags)
   nnoremap = <Plug>(MatchitNormalForward)
   vnoremap = <Plug>(MatchitVisualForward)
 
-  " Macro in visual mode
+  " Macros in visual mode
   xnoremap { :<C-u>call ExecuteMacroOverVisualRange()<CR>
   function! ExecuteMacroOverVisualRange()
   echo "{".getcmdline()
@@ -238,7 +238,7 @@ vim.cmd([[
   vnoremap <silent><c-j> :m '>+1<cr>gv=gv
   vnoremap <silent><c-k> :m '<-2<cr>gv=gv
 
-  " Switching record macro and yank key
+  " Switch record macro and yank
   nnoremap q y
   vnoremap q y
   nnoremap Q y+
@@ -246,7 +246,7 @@ vim.cmd([[
   nnoremap qq yy
   nnoremap y q
 
-  " Activate lua settings
+  " Refresh lua settings
   nnoremap <leader>do :so %<cr>
 
   " Center horizontal

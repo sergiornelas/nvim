@@ -1,4 +1,6 @@
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+-- local coq = require("coq") -- add this
+
 if not lspconfig_status_ok then
 	return
 end
@@ -52,4 +54,5 @@ for _, server in pairs(servers) do
 	end
 
 	lspconfig[server].setup(opts)
+	-- lspconfig[server].setup(coq.lsp_ensure_capabilities(opts))
 end

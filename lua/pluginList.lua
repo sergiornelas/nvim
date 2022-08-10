@@ -41,21 +41,15 @@ packer.init({
 
 return packer.startup(function(use)
 	-- PACKER ----------------------------------------------------
-	use({
-		"wbthomason/packer.nvim",
-	})
+	use("wbthomason/packer.nvim")
 
 	-- STARTUP OPTIMIZATIONS -------------------------------------
 	use({
 		"tweekmonster/startuptime.vim",
 		cmd = "StartupTime",
 	})
-	use({
-		"nathom/filetype.nvim",
-	})
-	use({
-		"lewis6991/impatient.nvim",
-	})
+	use("nathom/filetype.nvim")
+	use("lewis6991/impatient.nvim")
 
 	-- LSP -------------------------------------------------------
 	use({
@@ -64,8 +58,8 @@ return packer.startup(function(use)
 			require("lsp")
 		end,
 	})
-	use({ "williamboman/mason.nvim" })
-	use({ "williamboman/mason-lspconfig.nvim" })
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
@@ -73,7 +67,6 @@ return packer.startup(function(use)
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
-		-- commit = "14ccbe682fb3060b70760468935dc306d67d876d",
 		-- check this plugin again when winbar is available
 	})
 	use({
@@ -86,7 +79,7 @@ return packer.startup(function(use)
 		"SmiteshP/nvim-navic",
 		requires = "neovim/nvim-lspconfig",
 	})
-	use({ "RRethy/vim-illuminate" })
+	use("RRethy/vim-illuminate")
 
 	-- CMP -------------------------------------------------------
 	use({
@@ -95,32 +88,21 @@ return packer.startup(function(use)
 			require("plugins.cmp")
 		end,
 	})
-	use({
-		"hrsh7th/cmp-nvim-lsp",
-	})
-	use({
-		"hrsh7th/cmp-buffer",
-	})
-	use({
-		"hrsh7th/cmp-path",
-	})
-	use({
-		"saadparwaiz1/cmp_luasnip",
-	})
-	use({
-		"hrsh7th/cmp-nvim-lua",
-	})
-	use({
-		"hrsh7th/cmp-emoji",
-	})
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+	use("saadparwaiz1/cmp_luasnip")
+	use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-emoji")
+	-- use("ms-jpq/coq_nvim")
 
 	-- SNIPPETS --------------------------------------------------
-	use({
-		"L3MON4D3/LuaSnip",
-	})
-	use({
-		"rafamadriz/friendly-snippets",
-	})
+	use("L3MON4D3/LuaSnip")
+	use("rafamadriz/friendly-snippets")
+	-- use({
+	-- 	"ms-jpq/coq.artifacts",
+	-- 	branch = "artifacts",
+	-- })
 
 	-- TREESITTER ------------------------------------------------
 	use({
@@ -130,8 +112,8 @@ return packer.startup(function(use)
 		end,
 		run = ":TSUpdate",
 	})
-	use({ "nvim-treesitter/nvim-treesitter-textobjects" })
-	use({ "RRethy/nvim-treesitter-textsubjects" })
+	use("nvim-treesitter/nvim-treesitter-textobjects")
+	use("RRethy/nvim-treesitter-textsubjects")
 
 	-- BUFFER NAVIGATION -----------------------------------------
 	use({
@@ -189,7 +171,7 @@ return packer.startup(function(use)
 		end,
 	})
 	use("szw/vim-maximizer")
-	use({ "famiu/bufdelete.nvim" })
+	use("famiu/bufdelete.nvim")
 
 	-- GIT -------------------------------------------------------
 	use({
@@ -209,6 +191,7 @@ return packer.startup(function(use)
 	-- ENHANCERS -------------------------------------------------
 	use({
 		"rmagatti/auto-session",
+		commit = "50f5f2eaa7ff825c7036dc3c9981ebae7584b48e",
 		config = function()
 			require("plugins.auto-session")
 		end,
@@ -246,7 +229,7 @@ return packer.startup(function(use)
 			})
 		end,
 	})
-	use({ "tversteeg/registers.nvim" })
+	use("tversteeg/registers.nvim")
 
 	-- NOTES -----------------------------------------------------
 	use({
@@ -279,7 +262,7 @@ return packer.startup(function(use)
 		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	})
 	use({
-		"norcalli/nvim-colorizer.lua",
+		"NvChad/nvim-colorizer.lua",
 		config = function()
 			require("plugins.colorizer")
 		end,
@@ -291,10 +274,19 @@ return packer.startup(function(use)
 			require("plugins.color-picker")
 		end,
 	})
+	use({
+		"bennypowers/nvim-regexplainer",
+		config = function()
+			require("plugins.regex")
+		end,
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+			"MunifTanjim/nui.nvim",
+		},
+	})
 
 	-- COLORSCHEMES ----------------------------------------------
 	use("lunarvim/darkplus.nvim")
-	use("morhetz/gruvbox")
 	use("sainnhe/gruvbox-material")
 	use("luisiacc/gruvbox-baby")
 	use("rebelot/kanagawa.nvim")
@@ -318,9 +310,12 @@ return packer.startup(function(use)
 	use("cpea2506/one_monokai.nvim")
 	use("sainnhe/edge")
 	use("B4mbus/oxocarbon-lua.nvim")
+	use("lmburns/kimbox")
 	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
+		"ellisonleao/gruvbox.nvim",
+		config = function()
+			require("plugins.colorschemes").gruvbox()
+		end,
 	})
 	use({
 		"navarasu/onedark.nvim",
@@ -339,106 +334,81 @@ return packer.startup(function(use)
 		requires = { "nvim-treesitter/nvim-treesitter", opt = true },
 	})
 
-	-- TODO-COMMENTS ---------------------------------------------
-	-- use({
-	--  "folke/todo-comments.nvim",
-	--  config = function()
-	--    require("todo-comments").setup()
-	--  end,
-	-- })
-	-- RAINBOW ---------------------------------------------------
-	-- use({
-	-- 	"p00f/nvim-ts-rainbow",
-	-- 	commit = "837167f63445821c55e6eed9dbdac1b0b29afa92",
-	-- })
-	-- TREESITTER CONTEXT -------------------------------------
-	-- use({
-	-- 	"nvim-treesitter/nvim-treesitter-context",
-	-- 	config = function()
-	-- 		require("plugins.treesitter-ctx")
-	-- 	end,
-	-- })
-	-- TREESITTER ARGUMENTS --------------------------------------
-	-- use({
-	-- 	"m-demare/hlargs.nvim",
-	-- 	config = function()
-	-- 		require("hlargs").setup()
-	-- 	end,
-	-- 	requires = { "nvim-treesitter/nvim-treesitter" },
-	-- })
-	-- NEW AUTOPAIRS ---------------------------------------------
-	-- kylechui/nvim-surround
-	-- LIGHTSPEED ------------------------------------------------
-	-- use({
-	-- 	"ggandor/lightspeed.nvim",
-	-- 	config = function()
-	-- 		require("lightspeed").setup({
-	-- 			ignore_case = false,
-	-- 			-- exit_after_idle_msecs = { unlabeled = 1000, labeled = 600 },
-	-- 		})
-	-- 	end,
-	-- })
-	-- JEST TESTING ----------------------------------------------
-	-- use({
-	-- 	"David-Kunz/jester",
-	-- })
+	-- GAME ------------------------------------------------------
+	use({
+		"seandewar/killersheep.nvim",
+		config = function()
+			require("killersheep").setup({
+				gore = true, -- Enables/disables blood and gore.
+				keymaps = {
+					move_left = "h", -- Keymap to move cannon to the left.
+					move_right = "l", -- Keymap to move cannon to the right.
+					shoot = "<Space>", -- Keymap to shoot the cannon.
+				},
+			})
+		end,
+	})
+
+	-- LSP -------------------------------------------------------
+	-- ray-x/navigator.lua --LSP hardcore
+	-- stevearc/aerial.nvim --left LSP Diagram menu
+	-- b0o/simrat39/symbols-outline.nvim --left LSP Diagram menu
+	-- folke/trouble.nvim --pretty diagnostics
+	-- kevinhwang91/nvim-bqf --quickfix
+	-- TREESITTER ------------------------------------------------
+	-- p00f/nvim-ts-rainbow
+	-- m-demare/hlargs.nvim
+	-- nvim-treesitter/nvim-treesitter-context
+	-- ziontee113/syntax-tree-surfer -- another navigator for treesitter (checkthis)
 	-- DAP -------------------------------------------------------
-	-- use("mfusseneger/nvim-dap")
-	-- use("rcarriga/nvim-dap-ui")
-	-- use("ravenxrz/DAPInstall.nvim")
+	-- mfusseneger/nvim-dap
+	-- sakhnik/nvim-gdb
+	-- rcarriga/nvim-dap-ui
+	-- ravenxrz/DAPInstall.nvim
 	-- DEBUGGING -------------------------------------------------
-	-- use "theHamsta/nvim-dap-virtual-text"
-	-- use "Pocco81/DAPInstall.nvim"
-	-- AERIAL ----------------------------------------------------
-	-- use({
-	-- 	"stevearc/aerial.nvim",
-	-- 	module = "aerial",
-	-- 	cmd = { "AerialToggle", "AerialOpen", "AerialInfo" },
-	-- 	config = function()
-	-- 		-- require("plugins.leap")
-	-- 		require("aerial").setup({})
-	-- 	end,
-	-- })
-	-- MARKS -----------------------------------------------------
-	-- use({
-	-- 	"chentoast/marks.nvim",
-	-- 	require("marks").setup({
-	-- 		mappings = {
-	-- 			set_next = "m,",
-	-- 			next = "m]",
-	-- 			preview = "m;",
-	-- 			set_bookmark0 = "m0",
-	-- 			prev = false, -- pass false to disable only this default mapping
-	-- 		},
-	-- 	}),
-	-- })
-	-- TAB NINE -----------------------------------------------
-	-- use({
-	--   "tzachar/cmp-tabnine",
-	--   run = "./install.sh",
-	--   requires = "hrsh7th/nvim-cmp",
-	-- })
-	-- NEOGIT ----------------------------------------------------
-	-- use {
-	--    "TimUntersberger/neogit",
-	--    cmd = {
-	--       "Neogit",
-	--       "Neogit commit",
-	--    },
-	--    config = function()
-	--       require "plugins.neogit"
-	--    end,
-	-- }
-	-- INTERESTING PLUGINS ---------------------------------------
-	-- b0o/simrat39/symbols-outline.nvim
-	-- b0o/SchemaStore.nvim
-	-- nvim-treesitter/nvim-treesitter-textobjects
-	-- folke/trouble.nvim
-	-- kevinhwang91/nvim-bqf
-	-- ruifm/gitlinker.nvim
-	-- mattn/webapi-vim
-	-- pwntester/octo.nvim
-	-- andymass/vim-matchup
+	-- David-Kunz/jester
+	-- klen/nvim-test
+	-- nvim-neotest/neotest
+	-- andythigpen/nvim-coverage
+	-- theHamsta/nvim-dap-virtual-text
+	-- Pocco81/DAPInstall.nvim
+	-- Weissle/persistent-breakpoints.nvim
+	-- GIT -------------------------------------------------------
+	-- TimUntersberger/neogit
+	-- ruifm/gitlinker.nvim --bitbucket
+	-- ruifm/gitlinker.nvim --add bitbucket
+	-- pwntester/octo.nvim --git PR
+	-- kdheepak/lazygit.nvim --lazygit
+	-- FRONTEND --------------------------------------------------
+	-- vuki656/package-info.nvim --node
+	-- b0o/SchemaStore.nvim --json schema
+	-- gennaro-tedesco/nvim-jqx -- json index
+	-- rest-nvim/rest.nvim --postman
+	-- MunifTanjim/prettier.nvim --prettier alternative
+	-- ARTIFICIAL INTELIGENCE ------------------------------------
+	-- tzachar/cmp-tabnine
+	-- jameshiew/nvim-magic
+	-- zbirenbaum/copilot-cmp
+	-- github/copilot.vim
+	-- SESSION ---------------------------------------------------
+	-- olimorris/persisted.nvim
+	-- Shatur/neovim-session-manager
+	-- jedrzejboczar/possession.nvim
+	-- UTILS -----------------------------------------------------
+	-- folke/todo-comments.nvim --pretty notes
+	-- tzachar/cmp-fuzzy-buffer --CMP
+	-- tzachar/cmp-fuzzy-path --CMP
+	-- kylechui/nvim-surround --autopairs alternative
+	-- ggandor/lightspeed.nvim --leap alternative
+	-- chentoast/marks.nvim --visual marks
+	-- rktjmp/lush.nvim --colorscheme creator
+	-- danymat/neogen --comments on files for documentation
+	-- edluffy/specs.nvim -- cool highlight cursor (has a bug c-w/c-w)
+	-- anuvyklack/pretty-fold.nvim --fold with percentages
+	-- p00f/cphelper.nvim --code challenges
+
+	-- Last time checked https://github.com/rockerBOO/awesome-neovim
+	-- (09/08/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

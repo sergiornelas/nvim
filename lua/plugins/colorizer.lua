@@ -4,7 +4,7 @@ if present then
 	colorizer.setup({ "*" }, {
 		RGB = true, -- #RGB hex codes
 		RRGGBB = true, -- #RRGGBB hex codes
-		names = true, -- "Name" codes like Blue
+		names = true, -- "Name" codes like blue
 		RRGGBBAA = true, -- #RRGGBBAA hex codes
 		rgb_fn = true, -- CSS rgb() and rgba() functions
 		hsl_fn = true, -- CSS hsl() and hsla() functions

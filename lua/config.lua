@@ -26,7 +26,7 @@ vim.g.gruvbox_baby_highlights = {
 vim.g.Illuminate_ftblacklist = { "NvimTree" }
 vim.g.Illuminate_delay = 310
 
--- Set wrap and spell in markdown and gitcommit
+-- Set wrap and spell in markdown, gitcommit and norg files
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "gitcommit", "markdown", "norg" },
 	callback = function()
@@ -61,13 +61,13 @@ api.nvim_create_autocmd(
 vim.cmd([[
   " Default colorscheme
   " colorscheme gruvbox-baby
-  colorscheme zephyr
+  colorscheme solarized
 
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim
 
   " Stop folding
-  " autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99
+  autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99
 
   " Wrap break
   set showbreak=↪\ 
@@ -79,9 +79,17 @@ vim.cmd([[
   autocmd VimLeave * NvimTreeClose
 
   " Unmap matchit conflicts
-  autocmd VimEnter * call timer_start(500, {-> execute("  unmap [%")})
-  autocmd VimEnter * call timer_start(510, {-> execute("  unmap ]%")})
+  autocmd VimEnter * call timer_start(500, {-> execute("unmap [%")})
+  autocmd VimEnter * call timer_start(510, {-> execute("unmap ]%")})
+  " autocmd VimEnter * call timer_start(1010, {-> execute("COQnow")})
 ]])
+
+-- Python plugins load faster
+vim.g.loaded_python_provider = 1
+vim.g.python_host_skip_check = 1
+vim.g.python_host_prog = "/usr/local/bin/python"
+vim.g.python3_host_skip_check = 1
+vim.g.python3_host_prog = "/usr/local/bin/python3"
 
 -- Symbols listchars (for reference)
 -- vim.opt.listchars = {
