@@ -68,10 +68,8 @@ keymap("n", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info ab
 keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) --buffer delete
 
 -- NAVIGATION
-keymap("n", "<c-f>", "<c-e>", opts) -- page scrolls down one line
-keymap("v", "<c-f>", "<c-e>", opts) -- page scrolls down one line
-keymap("n", "<c-e>", "<c-y>", opts) -- page scrolls up one line
-keymap("v", "<c-e>", "<c-y>", opts) -- page scrolls up one line
+keymap({ "n", "v" }, "<c-f>", "<c-e>", opts) -- page scrolls down one line
+keymap({ "n", "v" }, "<c-e>", "<c-y>", opts) -- page scrolls up one line
 keymap("n", "<c-v>", "<c-f>", opts) -- fullscreen
 keymap("n", "<c-p>", "<c-b>", opts) -- fullscreen
 keymap("n", "<c-r>", "<c-w>w", opts) -- navigate through windows
@@ -109,12 +107,9 @@ keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) -- StartupTime
 keymap("n", "S", "mzJ`z", opts) -- cursor stay current position when J
 keymap("n", "V", "vg_", opts) -- visual to the right
 keymap("n", "vv", "Vg_", opts) -- visual whole line
-keymap("n", "<c-l>", "<c-v>", opts) -- block visual selection
-keymap("v", "<c-l>", "<c-v>", opts) -- block visual selection
-keymap("n", "zl", "z6l", opts) -- zoom left
-keymap("n", "zh", "z6h", opts) -- zoom right
-keymap("v", "zl", "z6l", opts) -- zoom left
-keymap("v", "zh", "z6h", opts) -- zoom right
+keymap({ "n", "v" }, "<c-l>", "<c-v>", opts) -- block visual selection
+keymap({ "n", "v" }, "zl", "z6l", opts) -- zoom left
+keymap({ "n", "v" }, "zh", "z6h", opts) -- zoom right
 keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
 keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
 
@@ -132,58 +127,47 @@ keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
 --  Z˙CVBNM            Z˙CVBNM
 
 -- Q
-keymap("n", "&", "#", opts)
-keymap("v", "&", "#", opts)
+keymap({ "n", "v" }, "&", "#", opts)
 keymap("n", "d&", "d#", opts)
 keymap("n", "q&", "y#", opts)
 -- W, E are the same
 -- R
-keymap("n", "+", "{", opts)
-keymap("v", "+", "{", opts)
+keymap({ "n", "v" }, "+", "{", opts)
 keymap("n", "d+", "d{", opts)
 keymap("n", "q+", "y{", opts)
 -- T
-keymap("n", "*", "-", opts)
-keymap("v", "*", "-", opts)
+keymap({ "n", "v" }, "*", "-", opts)
 keymap("n", "d*", "d-", opts)
 keymap("n", "q*", "y-", opts)
 -- U
-keymap("n", "#", "+", opts)
-keymap("v", "#", "+", opts)
+keymap({ "n", "v" }, "#", "+", opts)
 keymap("n", "d#", "d+", opts)
 keymap("n", "q#", "y+", opts)
 -- I
-keymap("n", "$", "(", opts)
-keymap("v", "$", "(", opts)
+keymap({ "n", "v" }, "$", "(", opts)
 keymap("n", "d$", "d(", opts)
 keymap("n", "q$", "y(", opts)
 -- O
-keymap("n", "%", ")", opts)
-keymap("v", "%", ")", opts)
+keymap({ "n", "v" }, "%", ")", opts)
 keymap("n", "d%", "d)", opts)
 keymap("n", "q%", "y)", opts)
 -- A
-keymap("n", "(", "*", opts)
-keymap("v", "(", "*", opts)
+keymap({ "n", "v" }, "(", "*", opts)
 keymap("n", "d(", "d*", opts)
 keymap("n", "q(", "y*", opts)
 -- S
-keymap("n", "{", "@", opts)
-keymap("v", "{", "@", opts)
+keymap({ "n", "v" }, "{", "@", opts)
 -- D is the same
 -- F
-keymap("n", "-", "}", opts)
-keymap("v", "-", "}", opts)
+keymap({ "n", "v" }, "-", "}", opts)
 keymap("n", "d-", "d}", opts)
 keymap("n", "q-", "y}", opts)
 -- G
-keymap("n", "[", "$", opts)
-keymap("v", "[", "$", opts)
+keymap({ "n", "v" }, "[", "$", opts)
 keymap("n", "d[", "d$", opts)
 keymap("n", "q[", "y$", opts)
 -- H
-keymap("n", "]", "==", opts)
-keymap("v", "]", "==", opts)
+keymap({ "n", "v" }, "]", "==", opts)
 -- J
 keymap("n", "d=", "d%", opts)
 keymap("n", "q=", "y%", opts)
@@ -191,20 +175,17 @@ keymap("n", "c=", "c%", opts)
 -- K
 keymap("n", "}", "&", opts)
 -- Z
-keymap("n", "!", "|", opts)
-keymap("v", "!", "|", opts)
+keymap({ "n", "v" }, "!", "|", opts)
 keymap("n", "d!", "|", opts)
 keymap("n", "q!", "|", opts)
 -- C, V are the same
 -- B
 keymap("n", "@", "!", opts)
 -- N
-keymap("n", "}", "~", opts)
-keymap("v", "}", "~", opts)
+keymap({ "n", "v" }, "}", "~", opts)
 keymap("n", "d}", "d~", opts)
 -- M
-keymap("n", ")", "^", opts)
-keymap("v", ")", "^", opts)
+keymap({ "n", "v" }, ")", "^", opts)
 keymap("n", "d)", "d^", opts)
 keymap("n", "q)", "q^", opts)
 

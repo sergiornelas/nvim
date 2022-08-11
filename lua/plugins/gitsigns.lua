@@ -55,11 +55,11 @@ gitsigns.setup({
 		-- Actions
 		map({ "n", "v" }, "<leader>ks", ":Gitsigns stage_hunk<CR>")
 		map({ "n", "v" }, "<leader>kr", ":Gitsigns reset_hunk<CR>")
-		map("n", "<leader>kS", gs.stage_buffer)
+		map("n", "<leader>ke", gs.stage_buffer)
 		map("n", "<leader>ku", gs.undo_stage_hunk)
 		map("n", "<leader>kR", gs.reset_buffer)
 		map("n", "<leader>kj", gs.preview_hunk)
-		map("n", "<leader>kb", function()
+		map("n", "<leader>kf", function()
 			gs.blame_line({ full = true })
 		end)
 		map("n", "<leader>kk", gs.toggle_current_line_blame)
@@ -67,7 +67,7 @@ gitsigns.setup({
 		map("n", "<leader>kD", function()
 			gs.diffthis("~")
 		end)
-		map("n", "<leader>kf", gs.toggle_deleted)
+		map("n", "<leader>kw", gs.toggle_deleted)
 
 		-- Text object
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")

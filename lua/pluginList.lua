@@ -48,8 +48,10 @@ return packer.startup(function(use)
 		"tweekmonster/startuptime.vim",
 		cmd = "StartupTime",
 	})
-	use("nathom/filetype.nvim")
-	use("lewis6991/impatient.nvim")
+	use({
+		"nathom/filetype.nvim",
+		"lewis6991/impatient.nvim",
+	})
 
 	-- LSP -------------------------------------------------------
 	use({
@@ -58,8 +60,7 @@ return packer.startup(function(use)
 			require("lsp")
 		end,
 	})
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
+	use({ "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" })
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
@@ -88,17 +89,21 @@ return packer.startup(function(use)
 			require("plugins.cmp")
 		end,
 	})
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("saadparwaiz1/cmp_luasnip")
-	use("hrsh7th/cmp-nvim-lua")
-	use("hrsh7th/cmp-emoji")
+	use({
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"saadparwaiz1/cmp_luasnip",
+		"hrsh7th/cmp-nvim-lua",
+		"hrsh7th/cmp-emoji",
+	})
 	-- use("ms-jpq/coq_nvim")
 
 	-- SNIPPETS --------------------------------------------------
-	use("L3MON4D3/LuaSnip")
-	use("rafamadriz/friendly-snippets")
+	use({
+		"L3MON4D3/LuaSnip",
+		"rafamadriz/friendly-snippets",
+	})
 	-- use({
 	-- 	"ms-jpq/coq.artifacts",
 	-- 	branch = "artifacts",
@@ -112,8 +117,10 @@ return packer.startup(function(use)
 		end,
 		run = ":TSUpdate",
 	})
-	use("nvim-treesitter/nvim-treesitter-textobjects")
-	use("RRethy/nvim-treesitter-textsubjects")
+	use({
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		"RRethy/nvim-treesitter-textsubjects",
+	})
 
 	-- BUFFER NAVIGATION -----------------------------------------
 	use({
@@ -221,14 +228,14 @@ return packer.startup(function(use)
 			require("plugins.tabout")
 		end,
 	})
-	use({
-		"jinh0/eyeliner.nvim",
-		config = function()
-			require("eyeliner").setup({
-				highlight_on_key = true,
-			})
-		end,
-	})
+	-- use({
+	-- 	"jinh0/eyeliner.nvim",
+	-- 	config = function()
+	-- 		require("eyeliner").setup({
+	-- 			highlight_on_key = true,
+	-- 		})
+	-- 	end,
+	-- })
 	use("tversteeg/registers.nvim")
 
 	-- NOTES -----------------------------------------------------
@@ -274,43 +281,47 @@ return packer.startup(function(use)
 			require("plugins.color-picker")
 		end,
 	})
-	use({
-		"bennypowers/nvim-regexplainer",
-		config = function()
-			require("plugins.regex")
-		end,
-		requires = {
-			"nvim-treesitter/nvim-treesitter",
-			"MunifTanjim/nui.nvim",
-		},
-	})
+	-- use({
+	-- 	"bennypowers/nvim-regexplainer",
+	-- 	config = function()
+	-- 		require("plugins.regex")
+	-- 	end,
+	-- 	requires = {
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		"MunifTanjim/nui.nvim",
+	-- 	},
+	-- 	ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	-- })
 
 	-- COLORSCHEMES ----------------------------------------------
-	use("lunarvim/darkplus.nvim")
-	use("sainnhe/gruvbox-material")
-	use("luisiacc/gruvbox-baby")
-	use("rebelot/kanagawa.nvim")
-	use("nxvu699134/vn-night.nvim")
-	use("folke/tokyonight.nvim")
-	use("marko-cerovac/material.nvim")
-	use("ishan9299/nvim-solarized-lua")
-	use("savq/melange")
-	use("Mofiqul/dracula.nvim")
-	use("sainnhe/everforest")
-	use("sainnhe/sonokai")
-	use("shaeinst/roshnivim-cs")
-	use("ray-x/aurora")
-	use("fenetikm/falcon")
-	use("yashguptaz/calvera-dark.nvim")
-	use("projekt0n/github-nvim-theme")
-	use("rose-pine/neovim")
-	use("olimorris/onedarkpro.nvim")
-	use("rmehri01/onenord.nvim")
-	use("tiagovla/tokyodark.nvim")
-	use("cpea2506/one_monokai.nvim")
-	use("sainnhe/edge")
-	use("B4mbus/oxocarbon-lua.nvim")
-	use("lmburns/kimbox")
+	use({
+		"lunarvim/darkplus.nvim",
+		"sainnhe/gruvbox-material",
+		"luisiacc/gruvbox-baby",
+		"rebelot/kanagawa.nvim",
+		"nxvu699134/vn-night.nvim",
+		"folke/tokyonight.nvim",
+		"marko-cerovac/material.nvim",
+		"ishan9299/nvim-solarized-lua",
+		"savq/melange",
+		"Mofiqul/dracula.nvim",
+		"sainnhe/everforest",
+		"sainnhe/sonokai",
+		"shaeinst/roshnivim-cs",
+		"ray-x/aurora",
+		"fenetikm/falcon",
+		"yashguptaz/calvera-dark.nvim",
+		"projekt0n/github-nvim-theme",
+		"rose-pine/neovim",
+		"olimorris/onedarkpro.nvim",
+		"rmehri01/onenord.nvim",
+		"tiagovla/tokyodark.nvim",
+		"cpea2506/one_monokai.nvim",
+		"sainnhe/edge",
+		"B4mbus/oxocarbon-lua.nvim",
+		"lmburns/kimbox",
+		"glepnir/zephyr-nvim",
+	})
 	use({
 		"ellisonleao/gruvbox.nvim",
 		config = function()
@@ -329,83 +340,110 @@ return packer.startup(function(use)
 			require("plugins.colorschemes").nightfox()
 		end,
 	})
-	use({
-		"glepnir/zephyr-nvim",
-		requires = { "nvim-treesitter/nvim-treesitter", opt = true },
-	})
 
 	-- GAME ------------------------------------------------------
-	use({
-		"seandewar/killersheep.nvim",
-		config = function()
-			require("killersheep").setup({
-				gore = true, -- Enables/disables blood and gore.
-				keymaps = {
-					move_left = "h", -- Keymap to move cannon to the left.
-					move_right = "l", -- Keymap to move cannon to the right.
-					shoot = "<Space>", -- Keymap to shoot the cannon.
-				},
-			})
-		end,
-	})
+	-- use({
+	-- 	"seandewar/killersheep.nvim",
+	-- 	config = function()
+	-- 		require("killersheep").setup({
+	-- 			gore = true, -- Enables/disables blood and gore.
+	-- 			keymaps = {
+	-- 				move_left = "h", -- Keymap to move cannon to the left.
+	-- 				move_right = "l", -- Keymap to move cannon to the right.
+	-- 				shoot = "<Space>", -- Keymap to shoot the cannon.
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- })
 
+	-- use({
+	-- 	"0x100101/lab.nvim",
+	-- 	-- run = "cd js && npm ci",
+	-- 	requires = { "nvim-lua/plenary.nvim" },
+	-- 	opt = true,
+	-- 	ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	-- 	cmd = { "Lab code run", "Lab code stop" },
+	-- 	config = function()
+	-- 		require("lab").setup({
+	-- 			code_runner = {
+	-- 				enabled = true,
+	-- 			},
+	-- 			quick_data = {
+	-- 				enabled = false,
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- })
+
+	-- INTERESTING PLUGINS =======================================
 	-- LSP -------------------------------------------------------
-	-- ray-x/navigator.lua --LSP hardcore
-	-- stevearc/aerial.nvim --left LSP Diagram menu
-	-- b0o/simrat39/symbols-outline.nvim --left LSP Diagram menu
-	-- folke/trouble.nvim --pretty diagnostics
-	-- kevinhwang91/nvim-bqf --quickfix
+	-- ray-x/navigator.lua                         -- LSP hardcore
+	-- stevearc/aerial.nvim               -- left LSP Diagram menu
+	-- b0o/simrat39/symbols-outline.nvim  -- left LSP Diagram menu
+	-- folke/trouble.nvim                    -- pretty diagnostics
+	-- kevinhwang91/nvim-bqf                           -- quickfix
+
 	-- TREESITTER ------------------------------------------------
-	-- p00f/nvim-ts-rainbow
-	-- m-demare/hlargs.nvim
-	-- nvim-treesitter/nvim-treesitter-context
-	-- ziontee113/syntax-tree-surfer -- another navigator for treesitter (checkthis)
-	-- DAP -------------------------------------------------------
+	-- ziontee113/syntax-tree-surfer   -- navigator for treesitter (checkthis)
+	-- drybalka/tree-climber.nvim      -- supposedly better than the upper one
+	-- p00f/nvim-ts-rainbow                        -- ({[]}) color
+	-- m-demare/hlargs.nvim                     -- arguments color
+	-- nvim-treesitter/nvim-treesitter-context -- context head bar
+
+	-- DEBUGGING -------------------------------------------------
 	-- mfusseneger/nvim-dap
 	-- sakhnik/nvim-gdb
 	-- rcarriga/nvim-dap-ui
+	-- Pocco81/DAPInstall.nvim
+	-- Weissle/persistent-breakpoints.nvim
+	-- theHamsta/nvim-dap-virtual-text
 	-- ravenxrz/DAPInstall.nvim
-	-- DEBUGGING -------------------------------------------------
+
+	-- TESTING ---------------------------------------------------
 	-- David-Kunz/jester
 	-- klen/nvim-test
 	-- nvim-neotest/neotest
 	-- andythigpen/nvim-coverage
-	-- theHamsta/nvim-dap-virtual-text
-	-- Pocco81/DAPInstall.nvim
-	-- Weissle/persistent-breakpoints.nvim
+
 	-- GIT -------------------------------------------------------
-	-- TimUntersberger/neogit
-	-- ruifm/gitlinker.nvim --bitbucket
-	-- ruifm/gitlinker.nvim --add bitbucket
-	-- pwntester/octo.nvim --git PR
-	-- kdheepak/lazygit.nvim --lazygit
+	-- TimUntersberger/neogit                             -- magit
+	-- ruifm/gitlinker.nvim                       -- add bitbucket
+	-- pwntester/octo.nvim                               -- git PR
+	-- kdheepak/lazygit.nvim                            -- lazygit
+
 	-- FRONTEND --------------------------------------------------
-	-- vuki656/package-info.nvim --node
-	-- b0o/SchemaStore.nvim --json schema
-	-- gennaro-tedesco/nvim-jqx -- json index
-	-- rest-nvim/rest.nvim --postman
-	-- MunifTanjim/prettier.nvim --prettier alternative
+	-- vuki656/package-info.nvim                           -- node
+	-- b0o/SchemaStore.nvim                         -- json schema
+	-- gennaro-tedesco/nvim-jqx                      -- json index
+	-- rest-nvim/rest.nvim                              -- postman
+	-- NTBBloodbath/rest.nvim                           -- postman
+	-- MunifTanjim/prettier.nvim           -- prettier alternative
+
 	-- ARTIFICIAL INTELIGENCE ------------------------------------
 	-- tzachar/cmp-tabnine
 	-- jameshiew/nvim-magic
 	-- zbirenbaum/copilot-cmp
 	-- github/copilot.vim
+
 	-- SESSION ---------------------------------------------------
 	-- olimorris/persisted.nvim
 	-- Shatur/neovim-session-manager
 	-- jedrzejboczar/possession.nvim
+	-- rmagatti/session-lens             -- auto-session telescope
+
 	-- UTILS -----------------------------------------------------
-	-- folke/todo-comments.nvim --pretty notes
-	-- tzachar/cmp-fuzzy-buffer --CMP
-	-- tzachar/cmp-fuzzy-path --CMP
-	-- kylechui/nvim-surround --autopairs alternative
-	-- ggandor/lightspeed.nvim --leap alternative
-	-- chentoast/marks.nvim --visual marks
-	-- rktjmp/lush.nvim --colorscheme creator
-	-- danymat/neogen --comments on files for documentation
-	-- edluffy/specs.nvim -- cool highlight cursor (has a bug c-w/c-w)
-	-- anuvyklack/pretty-fold.nvim --fold with percentages
-	-- p00f/cphelper.nvim --code challenges
+	-- folke/todo-comments.nvim                    -- pretty notes
+	-- tzachar/cmp-fuzzy-buffer                             -- CMP
+	-- tzachar/cmp-fuzzy-path                               -- CMP
+	-- kylechui/nvim-surround             -- autopairs alternative
+	-- ggandor/lightspeed.nvim                 -- leap alternative
+	-- chentoast/marks.nvim                        -- visual marks
+	-- rktjmp/lush.nvim                     -- colorscheme creator
+	-- danymat/neogen       -- comments on files for documentation
+	-- edluffy/specs.nvim     -- cool highlight cursor (has a bug)
+	-- anuvyklack/pretty-fold.nvim        -- fold with percentages
+	-- p00f/cphelper.nvim                       -- code challenges
+	-- xeluxee/competitest.nvim                 -- code challenges
 
 	-- Last time checked https://github.com/rockerBOO/awesome-neovim
 	-- (09/08/22)
