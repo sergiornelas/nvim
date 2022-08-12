@@ -75,6 +75,7 @@ return packer.startup(function(use)
 		config = function()
 			require("lsp_signature").setup()
 		end,
+		wants = "neovim/nvim-lspconfig",
 	})
 	use({
 		"SmiteshP/nvim-navic",
@@ -85,6 +86,7 @@ return packer.startup(function(use)
 	-- CMP -------------------------------------------------------
 	use({
 		"hrsh7th/nvim-cmp",
+		-- event = "InsertEnter",
 		config = function()
 			require("plugins.cmp")
 		end,
@@ -94,32 +96,32 @@ return packer.startup(function(use)
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"saadparwaiz1/cmp_luasnip",
-		"hrsh7th/cmp-nvim-lua",
 		"hrsh7th/cmp-emoji",
+		after = "nvim-cmp",
 	})
-	-- use("ms-jpq/coq_nvim")
 
 	-- SNIPPETS --------------------------------------------------
 	use({
 		"L3MON4D3/LuaSnip",
+		wants = "rafamadriz/friendly-snippets",
+	})
+	use({
 		"rafamadriz/friendly-snippets",
 	})
-	-- use({
-	-- 	"ms-jpq/coq.artifacts",
-	-- 	branch = "artifacts",
-	-- })
 
 	-- TREESITTER ------------------------------------------------
 	use({
 		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
 		config = function()
 			require("plugins.treesitter")
 		end,
-		run = ":TSUpdate",
 	})
 	use({
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"RRethy/nvim-treesitter-textsubjects",
+		"drybalka/tree-climber.nvim",
+		after = "nvim-treesitter/nvim-treesitter",
 	})
 
 	-- BUFFER NAVIGATION -----------------------------------------
@@ -158,18 +160,21 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins.harpoon")
 		end,
+		event = "BufEnter",
 	})
 	use({
 		"ghillb/cybu.nvim",
 		config = function()
 			require("plugins.cybu")
 		end,
+		event = "BufAdd",
 	})
 	use({
 		"ggandor/leap.nvim",
 		config = function()
 			require("plugins.leap")
 		end,
+		keys = "s",
 	})
 	use({
 		"xiyaowong/nvim-transparent",
@@ -177,12 +182,13 @@ return packer.startup(function(use)
 			require("plugins.transparent")
 		end,
 	})
-	use("szw/vim-maximizer")
-	use("famiu/bufdelete.nvim")
+	use({ "szw/vim-maximizer", event = "WinEnter" })
+	use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
 
 	-- GIT -------------------------------------------------------
 	use({
 		"lewis6991/gitsigns.nvim",
+		ft = "gitcommit",
 		event = "BufEnter",
 		config = function()
 			require("plugins.gitsigns")
@@ -193,6 +199,7 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins.gitdiff")
 		end,
+		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
 	})
 
 	-- ENHANCERS -------------------------------------------------
@@ -208,6 +215,7 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins.comment")
 		end,
+		after = "nvim-treesitter",
 	})
 	use({
 		"nvim-lualine/lualine.nvim",
@@ -217,26 +225,19 @@ return packer.startup(function(use)
 	})
 	use({
 		"windwp/nvim-autopairs",
-		event = "InsertEnter",
+		after = "nvim-cmp",
 		config = function()
 			require("plugins.autopairs")
 		end,
 	})
 	use({
 		"abecodes/tabout.nvim",
+		event = "InsertEnter",
 		config = function()
 			require("plugins.tabout")
 		end,
 	})
-	-- use({
-	-- 	"jinh0/eyeliner.nvim",
-	-- 	config = function()
-	-- 		require("eyeliner").setup({
-	-- 			highlight_on_key = true,
-	-- 		})
-	-- 	end,
-	-- })
-	use("tversteeg/registers.nvim")
+	use({ "tversteeg/registers.nvim", event = "InsertEnter" })
 
 	-- NOTES -----------------------------------------------------
 	use({
@@ -255,13 +256,13 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins.calendar")
 		end,
+		cmd = "Calendar",
 	})
 	-- rm -rf ~/.cache/calendar.vim/google/
 
 	-- FRONTEND DEVELOPMENT --------------------------------------
 	use({
 		"JoosepAlviste/nvim-ts-context-commentstring",
-		after = "nvim-treesitter",
 	})
 	use({
 		"windwp/nvim-ts-autotag",
@@ -281,17 +282,6 @@ return packer.startup(function(use)
 			require("plugins.color-picker")
 		end,
 	})
-	-- use({
-	-- 	"bennypowers/nvim-regexplainer",
-	-- 	config = function()
-	-- 		require("plugins.regex")
-	-- 	end,
-	-- 	requires = {
-	-- 		"nvim-treesitter/nvim-treesitter",
-	-- 		"MunifTanjim/nui.nvim",
-	-- 	},
-	-- 	ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-	-- })
 
 	-- COLORSCHEMES ----------------------------------------------
 	use({
@@ -341,6 +331,18 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- CODE WARS -------------------------------------------------
+	-- run = "cd js && npm ci" at lab plugin dir
+	use({
+		"0x100101/lab.nvim",
+		opt = true,
+		cmd = { "Lab code run", "Lab code stop" },
+		config = function()
+			require("plugins.lab")
+		end,
+	})
+	use({ "metakirby5/codi.vim" })
+
 	-- GAME ------------------------------------------------------
 	-- use({
 	-- 	"seandewar/killersheep.nvim",
@@ -351,25 +353,6 @@ return packer.startup(function(use)
 	-- 				move_left = "h", -- Keymap to move cannon to the left.
 	-- 				move_right = "l", -- Keymap to move cannon to the right.
 	-- 				shoot = "<Space>", -- Keymap to shoot the cannon.
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- })
-
-	-- use({
-	-- 	"0x100101/lab.nvim",
-	-- 	-- run = "cd js && npm ci",
-	-- 	requires = { "nvim-lua/plenary.nvim" },
-	-- 	opt = true,
-	-- 	ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-	-- 	cmd = { "Lab code run", "Lab code stop" },
-	-- 	config = function()
-	-- 		require("lab").setup({
-	-- 			code_runner = {
-	-- 				enabled = true,
-	-- 			},
-	-- 			quick_data = {
-	-- 				enabled = false,
 	-- 			},
 	-- 		})
 	-- 	end,
@@ -404,6 +387,8 @@ return packer.startup(function(use)
 	-- klen/nvim-test
 	-- nvim-neotest/neotest
 	-- andythigpen/nvim-coverage
+	-- is0n/jaq-nvim                      -- terminal test results
+	-- EthanJWright/vs-tasks.nvim         -- terminal test results
 
 	-- GIT -------------------------------------------------------
 	-- TimUntersberger/neogit                             -- magit

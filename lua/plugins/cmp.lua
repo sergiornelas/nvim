@@ -60,7 +60,6 @@ local source_mapping = {
 	buffer = "[Buffer]",
 	path = "[Path]",
 	neorg = "[Neorg]",
-	nvim_lua = "[NVIM_LUA]",
 	emoji = "[Emoji]",
 }
 
@@ -130,7 +129,6 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "neorg" },
 		{ name = "emoji" },
-		{ name = "nvim_lua" },
 	},
 	window = {
 		completion = cmp.config.window.bordered(),
