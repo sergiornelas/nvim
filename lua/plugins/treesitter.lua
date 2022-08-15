@@ -46,34 +46,6 @@ configs.setup({
 			node_decremental = "<c-o>",
 		},
 	},
-	textobjects = {
-		select = {
-			enable = true, -- Automatically jump forward to textobj, similar to targets.vim
-			lookahead = true,
-			keymaps = {
-				["af"] = "@function.outer",
-				["if"] = "@function.inner",
-				["ac"] = "@class.outer",
-				["ic"] = "@class.inner",
-				["io"] = "@block.inner",
-				["ao"] = "@block.outer",
-			},
-		},
-		swap = {
-			enable = true,
-			swap_next = {
-				["<leader>K"] = "@parameter.inner",
-			},
-			swap_previous = {
-				["<leader>J"] = "@parameter.inner",
-			},
-		},
-		move = {
-			enable = true,
-			set_jumps = true, -- whether to set jumps in the jumplist
-			-- mappings are in keymaps.lua
-		},
-	},
 	textsubjects = {
 		enable = true,
 		keymaps = {

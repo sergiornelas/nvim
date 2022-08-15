@@ -10,12 +10,12 @@ vim.g.mapleader = " "
 -- <TELESCOPE>
 keymap("n", "<leader>i", "<cmd>Telescope find_files theme=ivy winblend=10<CR>", opts)
 keymap("n", "<leader>l", "<cmd>Telescope live_grep theme=ivy winblend=10<cr>", opts)
-keymap("n", "<leader>o", "<cmd>Telescope oldfiles theme=ivy winblend=10<cr>", opts)
-keymap("n", "<leader>p", "<cmd>Telescope projects theme=dropdown winblend=10<cr>", opts)
-keymap("n", "<leader>m", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>", opts)
+keymap("n", "<leader>o", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>", opts)
+keymap("n", "<leader>p", "<cmd>Telescope oldfiles theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy winblend=10<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>Telescope grep_string theme=ivy winblend=10<cr>", opts)
-keymap("n", "<leader>dp", "<cmd>Telescope colorscheme theme=ivy<cr>", opts)
+keymap("n", "<leader>dp", "<cmd>Telescope projects theme=dropdown winblend=10<cr>", opts)
+keymap("n", "<leader>dd", "<cmd>Telescope colorscheme theme=ivy<cr>", opts)
 keymap("n", "<leader>di", "<cmd>Telescope git_status theme=dropdown<cr>", opts)
 -- keymap("n", "<leader>dg", "<cmd>TodoTelescope theme=dropdown<cr>", opts)
 -- keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts) --neorg
@@ -40,19 +40,15 @@ keymap("n", "<leader>dj", "<cmd>DiffviewOpen<cr>", opts)
 keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<cr>", opts)
 
 -- <CYBU>
--- keymap("n", "<c-k>", "<plug>(CybuLastusedPrev)", opts)
--- keymap("n", "<c-j>", "<plug>(CybuLastusedNext)", opts)
--- keymap("n", "J", "<plug>(CybuPrev)", opts)
--- keymap("n", "K", "<plug>(CybuNext)", opts)
+keymap("n", "<c-j>", "<plug>(CybuLastusedNext)", opts)
+keymap("n", "<c-k>", "<plug>(CybuLastusedPrev)", opts)
 
-local keyopts = { noremap = true, silent = true }
-vim.keymap.set({ "n", "v", "o" }, "H", require("tree-climber").goto_parent, keyopts)
-vim.keymap.set({ "n", "v", "o" }, "L", require("tree-climber").goto_child, keyopts)
-vim.keymap.set({ "n", "v", "o" }, "J", require("tree-climber").goto_next, keyopts)
-vim.keymap.set({ "n", "v", "o" }, "K", require("tree-climber").goto_prev, keyopts)
-vim.keymap.set({ "v", "o" }, "in", require("tree-climber").select_node, keyopts)
-vim.keymap.set("n", "<c-k>", require("tree-climber").swap_prev, keyopts)
-vim.keymap.set("n", "<c-j>", require("tree-climber").swap_next, keyopts)
+-- <TREE-CLIMBER>
+keymap({ "n", "v", "o" }, "J", "^<cmd>lua require('tree-climber').goto_next()<cr>", opts)
+keymap({ "n", "v", "o" }, "K", "^<cmd>lua require('tree-climber').goto_prev()<cr>", opts)
+keymap({ "v", "o" }, "in", "<cmd>lua require('tree-climber').select_node()<cr>", opts)
+keymap("n", "#", "<cmd>lua require('tree-climber').swap_prev()<cr>", opts)
+keymap("n", "*", "<cmd>lua require('tree-climber').swap_next()<cr>", opts)
 
 -- <HARPOON>
 vim.api.nvim_set_keymap(
@@ -80,7 +76,7 @@ keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) --buffer delete
 keymap({ "n", "v" }, "<c-f>", "<c-e>", opts) -- page scrolls down one line
 keymap({ "n", "v" }, "<c-e>", "<c-y>", opts) -- page scrolls up one line
 keymap("n", "<c-v>", "<c-f>", opts) -- fullscreen
-keymap("n", "<c-p>", "<c-b>", opts) -- fullscreen
+--[[ keymap("n", "<c-p>", "<c-b>", opts) -- fullscreen ]]
 keymap("n", "<c-r>", "<c-w>w", opts) -- navigate through windows
 keymap("n", "<c-a>", "<c-w>W", opts) -- navigate through windows
 
@@ -115,7 +111,7 @@ keymap("n", "<Leader>u", "<cmd>tabclose<cr>", opts) -- close current tab
 keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) -- StartupTime
 keymap("n", "S", "mzJ`z", opts) -- cursor stay current position when J
 keymap("n", "V", "vg_", opts) -- visual to the right
-keymap("n", "vv", "Vg_", opts) -- visual whole line
+keymap("n", "vv", "Vg_^", opts) -- visual whole line
 keymap({ "n", "v" }, "<c-l>", "<c-v>", opts) -- block visual selection
 keymap({ "n", "v" }, "zl", "z6l", opts) -- zoom left
 keymap({ "n", "v" }, "zh", "z6h", opts) -- zoom right
@@ -128,7 +124,7 @@ keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
 
 --  WRITING            VIM EFFECT
 -- -------------------------------
--- &?/+* #$%  \^      #?/{- +() []
+-- &?/+* #$%  \^      #?/{   () []
 -- QWERT˙UIO  []      QWERT˙UIO []
 -- ({;-[]=|~          *@;}$=%&~
 -- ASDFGHJKL          ASDFGHJKL
@@ -144,14 +140,8 @@ keymap("n", "q&", "y#", opts)
 keymap({ "n", "v" }, "+", "{", opts)
 keymap("n", "d+", "d{", opts)
 keymap("n", "q+", "y{", opts)
--- T
-keymap({ "n", "v" }, "*", "-", opts)
-keymap("n", "d*", "d-", opts)
-keymap("n", "q*", "y-", opts)
--- U
-keymap({ "n", "v" }, "#", "+", opts)
-keymap("n", "d#", "d+", opts)
-keymap("n", "q#", "y+", opts)
+-- T is used by Tree-climber
+-- U is used by Tree-climber
 -- I
 keymap({ "n", "v" }, "$", "(", opts)
 keymap("n", "d$", "d(", opts)
@@ -209,9 +199,8 @@ vim.cmd([[
   snoremap <c-h> <BS>i
   nnoremap <leader>da <CMD>LuaSnipUnlinkCurrent<CR>
 
-  " <TREESITTER OBJECTS>
-  nnoremap <silent>\r :TSTextobjectGotoPreviousStart @block.outer<cr>
-  nnoremap <silent>\g :TSTextobjectGotoNextStart @block.outer<cr>
+  " <TREE-CLIMBER
+  nnoremap \r ^<cmd>lua require('tree-climber').goto_parent()<cr>^
 
   " Matchit (allows using % for <HTML>/<JSX> tags)
   nnoremap = <Plug>(MatchitNormalForward)

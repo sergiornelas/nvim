@@ -6,9 +6,10 @@ cybu.setup({
 	display_time = 750,
 	position = {
 		relative_to = "win",
-		anchor = "bottomright",
-		vertical_offset = "30",
-		horizontal_offset = "5",
+		anchor = "bottomcenter",
+		vertical_offset = "40", --desktop
+		-- vertical_offset = "30", --laptop
+		-- horizontal_offset = "15",
 		max_win_height = 7,
 		max_win_width = 0.3,
 	},
@@ -32,3 +33,7 @@ cybu.setup({
 		},
 	},
 })
+
+-- topleft, topcenter, topright,
+-- centerleft, center, centerright,
+-- bottomleft, bottomcenter, bottomright

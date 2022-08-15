@@ -1,8 +1,11 @@
+local g = vim.g
+local opt = vim.opt
+
 -- <MATERIAL>
-vim.g.material_style = "deep ocean"
+g.material_style = "deep ocean"
 
 -- <GRUVBOX BABY>
-vim.g.gruvbox_baby_highlights = {
+g.gruvbox_baby_highlights = {
 	Normal = {
 		fg = "#d5b018",
 		-- fg = "#83A598",
@@ -23,15 +26,15 @@ vim.g.gruvbox_baby_highlights = {
 }
 
 -- <ILLUMINATE>
-vim.g.Illuminate_ftblacklist = { "NvimTree" }
-vim.g.Illuminate_delay = 310
+g.Illuminate_ftblacklist = { "NvimTree" }
+g.Illuminate_delay = 310
 
 -- Set wrap and spell in markdown, gitcommit and norg files
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "gitcommit", "markdown", "norg" },
 	callback = function()
-		vim.opt_local.wrap = true
-		vim.opt_local.spell = true
+		opt.wrap = true
+		opt.spell = true
 	end,
 })
 
@@ -60,39 +63,31 @@ api.nvim_create_autocmd(
 
 vim.cmd([[
   " Default colorscheme
-  " colorscheme gruvbox-baby
-  colorscheme terafox
-
+  colorscheme NeoSolarized
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim
-
   " Stop folding
   autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99
-
-  " Wrap break
+  " Wrap break icon
   set showbreak=↪\ 
-
   " Stop automatic comment when enter in insert mode
   au BufEnter * set fo-=c fo-=r fo-=o
-
   " Close nvimtree
   autocmd VimLeave * NvimTreeClose
-
   " Unmap matchit conflicts
   autocmd VimEnter * call timer_start(500, {-> execute("unmap [%")})
   autocmd VimEnter * call timer_start(510, {-> execute("unmap ]%")})
-  " autocmd VimEnter * call timer_start(1010, {-> execute("COQnow")})
 ]])
 
 -- Python plugins load faster
-vim.g.loaded_python_provider = 1
-vim.g.python_host_skip_check = 1
-vim.g.python_host_prog = "/usr/local/bin/python"
-vim.g.python3_host_skip_check = 1
-vim.g.python3_host_prog = "/usr/local/bin/python3"
+g.loaded_python_provider = 1
+g.python_host_skip_check = 1
+g.python_host_prog = "/usr/local/bin/python"
+g.python3_host_skip_check = 1
+g.python3_host_prog = "/usr/local/bin/python3"
 
 -- Symbols listchars (for reference)
--- vim.opt.listchars = {
+-- opt.listchars = {
 -- 	tab = "│ ",
 -- 	extends = "→",
 -- 	precedes = "←",
@@ -100,4 +95,4 @@ vim.g.python3_host_prog = "/usr/local/bin/python3"
 -- 	nbsp = "␣",
 -- 	-- eol = "¬",
 -- }
--- vim.opt.list = true
+-- opt.list = true
