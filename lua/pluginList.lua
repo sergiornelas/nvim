@@ -118,11 +118,11 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-		"RRethy/nvim-treesitter-textsubjects",
 		"drybalka/tree-climber.nvim",
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		"p00f/nvim-ts-Rainbow",
 		after = "nvim-treesitter/nvim-treesitter",
 	})
-	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- BUFFER/NAVIGATION -----------------------------------------
 	use({
@@ -185,7 +185,7 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins.leap")
 		end,
-		keys = "s",
+		keys = "<cr>",
 	})
 	use({
 		"xiyaowong/nvim-transparent",
@@ -219,7 +219,6 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins.comment")
 		end,
-		commit = "fe9bbdbcd2f1b85cc8fccead68122873d94f8397",
 	})
 	use({
 		"windwp/nvim-autopairs",
@@ -236,6 +235,14 @@ return packer.startup(function(use)
 		end,
 	})
 	use({ "tversteeg/registers.nvim", event = "InsertEnter" })
+
+	-- MINI MODULES ----------------------------------------------
+	use({
+		"echasnovski/mini.nvim",
+		config = function()
+			require("plugins.mini")
+		end,
+	})
 
 	-- NOTES -----------------------------------------------------
 	use({
@@ -304,8 +311,6 @@ return packer.startup(function(use)
 		"sainnhe/edge",
 		"B4mbus/oxocarbon-lua.nvim",
 		"lmburns/kimbox",
-		"glepnir/zephyr-nvim",
-		"Everblush/everblush.nvim",
 	})
 	use({
 		"ellisonleao/gruvbox.nvim",
@@ -356,8 +361,8 @@ return packer.startup(function(use)
 	-- INTERESTING PLUGINS =======================================
 	-- LSP -------------------------------------------------------
 	-- ray-x/navigator.lua                            LSP hardcore
-	-- stevearc/aerial.nvim                  left LSP Diagram menu
-	-- b0o/simrat39/symbols-outline.nvim     left LSP Diagram menu
+	-- stevearc/aerial.nvim                       LSP Diagram menu
+	-- b0o/simrat39/symbols-outline.nvim     LSP Diagram menu (jsx)
 	-- folke/trouble.nvim                       pretty diagnostics
 	-- kevinhwang91/nvim-bqf                              quickfix
 
@@ -378,6 +383,7 @@ return packer.startup(function(use)
 	-- klen/nvim-test
 	-- nvim-neotest/neotest
 	-- andythigpen/nvim-coverage
+	-- mini.test
 	-- is0n/jaq-nvim                         terminal test results
 	-- EthanJWright/vs-tasks.nvim            terminal test results
 	-- stevearc/overseer.nvim               ttr (exe cmds on save)
@@ -409,7 +415,7 @@ return packer.startup(function(use)
 	-- folke/todo-comments.nvim                       pretty notes
 	-- tzachar/cmp-fuzzy-buffer                                CMP
 	-- tzachar/cmp-fuzzy-path                                  CMP
-	-- kylechui/nvim-surround                autopairs alternative
+	-- kylechui/nvim-surround   bug visual all line, too much maps
 	-- ggandor/lightspeed.nvim                    leap alternative
 	-- chentoast/marks.nvim                           visual marks
 	-- rktjmp/lush.nvim                        colorscheme creator
@@ -420,9 +426,10 @@ return packer.startup(function(use)
 	-- xeluxee/competitest.nvim                    code challenges
 	-- wellle/targets.vim                              new motions
 	-- MattesGroeger/vim-bookmarks                           marks
+	-- ThePrimeagen/refactoring.nvim                   refactoring
 
 	-- Last time checked Awesome and This-week-in-neovim
-	-- (15/08/22)
+	-- (16/08/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

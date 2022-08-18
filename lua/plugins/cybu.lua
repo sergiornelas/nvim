@@ -3,15 +3,14 @@ if not ok then
 	return
 end
 cybu.setup({
-	display_time = 750,
+	display_time = 1150,
 	position = {
 		relative_to = "win",
-		anchor = "bottomcenter",
-		vertical_offset = "40", --desktop
-		-- vertical_offset = "30", --laptop
-		-- horizontal_offset = "15",
+		anchor = "topright",
 		max_win_height = 7,
 		max_win_width = 0.3,
+		-- vertical_offset = "40",
+		-- horizontal_offset = "15",
 	},
 	style = {
 		border = "none",

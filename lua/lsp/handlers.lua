@@ -1,7 +1,17 @@
 local M = {}
 
+local status_illuminate_ok, illuminate = pcall(require, "illuminate")
+if not status_illuminate_ok then
+	return
+end
+
 local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_cmp_ok then
+	return
+end
+
+local status_navic_ok, navic = pcall(require, "nvim-navic")
+if not status_navic_ok then
 	return
 end
 
@@ -52,7 +62,6 @@ end
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_buf_set_keymap
-local navic = require("nvim-navic")
 
 local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -93,13 +102,11 @@ M.on_attach = function(client, bufnr)
 	end
 
 	-- Navic (currently not working on css and html files)
-	navic.attach(client, bufnr)
+	if client.name ~= "html" and client.name ~= "cssls" then
+		navic.attach(client, bufnr)
+	end
 
 	-- Highlight text
-	local status_ok, illuminate = pcall(require, "illuminate")
-	if not status_ok then
-		return
-	end
 	if vim.g.colors_name ~= "gruvbox-baby" then
 		illuminate.on_attach(client)
 	end

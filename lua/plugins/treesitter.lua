@@ -17,7 +17,7 @@ configs.setup({
 		"json",
 		"markdown",
 		"norg",
-	}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	},
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	auto_install = true,
 	ignore_install = { "" }, -- List of parsers to ignore installing
@@ -33,6 +33,11 @@ configs.setup({
 	autotag = { --HTML/JSX tags autorename
 		enable = true,
 	},
+	rainbow = { --colorfull parenthesis, HTML/JSX tags
+		enable = true,
+		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+		max_file_lines = nil, -- Do not enable for files with more than n lines, int
+	},
 	context_commentstring = { --JSX commments
 		enable = true,
 		enable_autocmd = false,
@@ -44,12 +49,6 @@ configs.setup({
 			node_incremental = "<tab>",
 			scope_incremental = "<c-x>",
 			node_decremental = "<c-o>",
-		},
-	},
-	textsubjects = {
-		enable = true,
-		keymaps = {
-			["o"] = "textsubjects-smart",
 		},
 	},
 })

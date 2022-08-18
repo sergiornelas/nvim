@@ -46,7 +46,6 @@ keymap("n", "<c-k>", "<plug>(CybuLastusedPrev)", opts)
 -- <TREE-CLIMBER>
 keymap({ "n", "v", "o" }, "J", "^<cmd>lua require('tree-climber').goto_next()<cr>", opts)
 keymap({ "n", "v", "o" }, "K", "^<cmd>lua require('tree-climber').goto_prev()<cr>", opts)
-keymap({ "v", "o" }, "in", "<cmd>lua require('tree-climber').select_node()<cr>", opts)
 keymap("n", "#", "<cmd>lua require('tree-climber').swap_prev()<cr>", opts)
 keymap("n", "*", "<cmd>lua require('tree-climber').swap_next()<cr>", opts)
 
@@ -76,7 +75,7 @@ keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) --buffer delete
 keymap({ "n", "v" }, "<c-f>", "<c-e>", opts) -- page scrolls down one line
 keymap({ "n", "v" }, "<c-e>", "<c-y>", opts) -- page scrolls up one line
 keymap("n", "<c-v>", "<c-f>", opts) -- fullscreen
---[[ keymap("n", "<c-p>", "<c-b>", opts) -- fullscreen ]]
+keymap("n", "<c-p>", "<c-b>", opts) -- fullscreen
 keymap("n", "<c-r>", "<c-w>w", opts) -- navigate through windows
 keymap("n", "<c-a>", "<c-w>W", opts) -- navigate through windows
 
@@ -103,7 +102,7 @@ keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) -- highlights
 keymap("n", "<Leader>f", "<cmd>w<cr>", opts) -- save file
 keymap("n", "<Leader>q", "<cmd>q<cr>", opts) -- close window
 keymap("n", "<Leader>Q", "<cmd>q!<cr>", opts) -- close window and file
-keymap("n", "<Leader>j", "zz", opts) -- center text
+keymap({ "n", "v" }, "<Leader>j", "zz", opts) -- center text
 keymap("n", "<Leader>g", "gt", opts) -- next tab
 keymap("n", "<Leader>t", "gT", opts) -- prev tab
 keymap("n", "<Leader>dt", "<cmd>tabnew %<cr>", opts) -- new tab
@@ -125,10 +124,10 @@ keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
 --  WRITING            VIM EFFECT
 -- -------------------------------
 -- &?/+* #$%  \^      #?/{   () []
--- QWERT˙UIO  []      QWERT˙UIO []
--- ({;-[]=|~          *@;}$=%&~
+-- QWERT˙UIO  []      QWER˙˙˙IO []
+-- ({;-[]=|~          ^@*}$=%&~
 -- ASDFGHJKL          ASDFGHJKL
---  ! _`@})            | _`!~^
+--  ! _`@})            | _`!~;
 --  Z˙CVBNM            Z˙CVBNM
 
 -- Q
@@ -151,12 +150,15 @@ keymap({ "n", "v" }, "%", ")", opts)
 keymap("n", "d%", "d)", opts)
 keymap("n", "q%", "y)", opts)
 -- A
-keymap({ "n", "v" }, "(", "*", opts)
-keymap("n", "d(", "d*", opts)
-keymap("n", "q(", "y*", opts)
+keymap({ "n", "v" }, "(", "^", opts)
+keymap("n", "d(", "d^", opts)
+keymap("n", "q(", "y^", opts)
 -- S
 keymap({ "n", "v" }, "{", "@", opts)
--- D is the same
+-- D
+keymap({ "n", "v" }, ";", "*", opts)
+keymap("n", "d;", "d*", opts)
+keymap("n", "q;", "y*", opts)
 -- F
 keymap({ "n", "v" }, "-", "}", opts)
 keymap("n", "d-", "d}", opts)
@@ -184,9 +186,9 @@ keymap("n", "@", "!", opts)
 keymap({ "n", "v" }, "}", "~", opts)
 keymap("n", "d}", "d~", opts)
 -- M
-keymap({ "n", "v" }, ")", "^", opts)
-keymap("n", "d)", "d^", opts)
-keymap("n", "q)", "q^", opts)
+keymap({ "n", "v" }, ")", ";", opts)
+keymap("n", "d)", "d;", opts)
+keymap("n", "q)", "q;", opts)
 
 -- VIM MAPPING
 vim.cmd([[
@@ -198,9 +200,6 @@ vim.cmd([[
   snoremap p p
   snoremap <c-h> <BS>i
   nnoremap <leader>da <CMD>LuaSnipUnlinkCurrent<CR>
-
-  " <TREE-CLIMBER
-  nnoremap \r ^<cmd>lua require('tree-climber').goto_parent()<cr>^
 
   " Matchit (allows using % for <HTML>/<JSX> tags)
   nnoremap = <Plug>(MatchitNormalForward)
