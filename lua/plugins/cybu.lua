@@ -3,7 +3,7 @@ if not ok then
 	return
 end
 cybu.setup({
-	display_time = 1150,
+	display_time = 550,
 	position = {
 		relative_to = "win",
 		anchor = "topright",

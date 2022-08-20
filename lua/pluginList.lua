@@ -81,6 +81,12 @@ return packer.startup(function(use)
 		"SmiteshP/nvim-navic",
 		requires = "neovim/nvim-lspconfig",
 	})
+	use({
+		"lvimuser/lsp-inlayhints.nvim",
+		config = function()
+			require("lsp-inlayhints").setup()
+		end,
+	})
 	use("RRethy/vim-illuminate")
 
 	-- CMP -------------------------------------------------------
@@ -311,6 +317,7 @@ return packer.startup(function(use)
 		"sainnhe/edge",
 		"B4mbus/oxocarbon-lua.nvim",
 		"lmburns/kimbox",
+		"ray-x/starry.nvim",
 	})
 	use({
 		"ellisonleao/gruvbox.nvim",

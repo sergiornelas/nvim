@@ -8,14 +8,22 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- <TELESCOPE>
-keymap("n", "<leader>i", "<cmd>Telescope find_files theme=ivy winblend=10<CR>", opts)
-keymap("n", "<leader>l", "<cmd>Telescope live_grep theme=ivy winblend=10<cr>", opts)
+-- keymap("n", "<leader>i", "<cmd>Telescope find_files theme=ivy winblend=10<CR>", opts)
+-- keymap("n", "<leader>i", "<cmd>Telescope find_files<CR>", opts)
+keymap(
+	"n",
+	"<leader>i",
+	"<cmd>lua require('telescope.builtin').find_files({layout_strategy='flex', layout_config={horizontal={width=0.80, preview_width=85}, vertical={width=0.8, preview_height=17}}})<CR>",
+	opts
+)
+-- keymap("n", "<leader>i", "<cmd>lua require('telescope.builtin').find_files({layout_strategy='flex'})<CR>", opts)
+keymap("n", "<leader>l", "<cmd>Telescope live_grep theme=dropdown winblend=10<cr>", opts)
 keymap("n", "<leader>o", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>", opts)
-keymap("n", "<leader>p", "<cmd>Telescope oldfiles theme=ivy winblend=10<cr>", opts)
-keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy winblend=10<cr>", opts)
-keymap("n", "<leader>dl", "<cmd>Telescope grep_string theme=ivy winblend=10<cr>", opts)
+keymap("n", "<leader>p", "<cmd>Telescope oldfiles theme=dropdown winblend=10<cr>", opts)
+keymap("n", "<leader>b", "<cmd>Telescope marks theme=dropdown winblend=10<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>Telescope grep_string theme=dropdown winblend=10<cr>", opts)
 keymap("n", "<leader>dp", "<cmd>Telescope projects theme=dropdown winblend=10<cr>", opts)
-keymap("n", "<leader>dd", "<cmd>Telescope colorscheme theme=ivy<cr>", opts)
+keymap("n", "<leader>dd", "<cmd>Telescope colorscheme theme=dropdown<cr>", opts)
 keymap("n", "<leader>di", "<cmd>Telescope git_status theme=dropdown<cr>", opts)
 -- keymap("n", "<leader>dg", "<cmd>TodoTelescope theme=dropdown<cr>", opts)
 -- keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts) --neorg
@@ -123,78 +131,91 @@ keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
 
 --  WRITING            VIM EFFECT
 -- -------------------------------
--- &?/+* #$%  \^      #?/{   () []
--- QWERT˙UIO  []      QWER˙˙˙IO []
--- ({;-[]=|~          ^@*}$=%&~
+-- &?/+* #$%  \^      #?/{   () \^
+-- QWERT˙UIO          QWER˙˙˙IO
+-- ({;-[]=|~          ^;*}$=%&~
 -- ASDFGHJKL          ASDFGHJKL
---  ! _`@})            | _`!~;
+--  ! _`@})            | _`!~@
 --  Z˙CVBNM            Z˙CVBNM
 
+-- +-[] missing vim effect
+-- ~ is available for mapping vim effect (~ repeated in L, ^ is unmaped)
+-- \ is already mapped for move through diagnostics and go to head element
+
 -- Q
-keymap({ "n", "v" }, "&", "#", opts)
+keymap({ "n", "x" }, "&", "#", opts)
 keymap("n", "d&", "d#", opts)
 keymap("n", "q&", "y#", opts)
+keymap("n", "c&", "c#", opts)
 -- W, E are the same
 -- R
-keymap({ "n", "v" }, "+", "{", opts)
+keymap({ "n", "x" }, "+", "{", opts)
 keymap("n", "d+", "d{", opts)
 keymap("n", "q+", "y{", opts)
+keymap("n", "c+", "c{", opts)
 -- T is used by Tree-climber
 -- U is used by Tree-climber
 -- I
-keymap({ "n", "v" }, "$", "(", opts)
+keymap({ "n", "x" }, "$", "(", opts)
 keymap("n", "d$", "d(", opts)
 keymap("n", "q$", "y(", opts)
+keymap("n", "c$", "c(", opts)
 -- O
-keymap({ "n", "v" }, "%", ")", opts)
+keymap({ "n", "x" }, "%", ")", opts)
 keymap("n", "d%", "d)", opts)
 keymap("n", "q%", "y)", opts)
+keymap("n", "c%", "c)", opts)
 -- A
-keymap({ "n", "v" }, "(", "^", opts)
+keymap({ "n", "x" }, "(", "^", opts)
 keymap("n", "d(", "d^", opts)
 keymap("n", "q(", "y^", opts)
+keymap("n", "c(", "c^", opts)
 -- S
-keymap({ "n", "v" }, "{", "@", opts)
+keymap({ "n", "x" }, "{", ";", opts)
+keymap("n", "d{", "d;", opts)
+keymap("n", "q{", "q;", opts)
+keymap("n", "c{", "c;", opts)
 -- D
-keymap({ "n", "v" }, ";", "*", opts)
+keymap({ "n", "x" }, ";", "*", opts)
 keymap("n", "d;", "d*", opts)
 keymap("n", "q;", "y*", opts)
+keymap("n", "c;", "c*", opts)
 -- F
-keymap({ "n", "v" }, "-", "}", opts)
+keymap({ "n", "x" }, "-", "}", opts)
 keymap("n", "d-", "d}", opts)
 keymap("n", "q-", "y}", opts)
+keymap("n", "c-", "c}", opts)
 -- G
-keymap({ "n", "v" }, "[", "$", opts)
+keymap({ "n", "x" }, "[", "$", opts)
 keymap("n", "d[", "d$", opts)
 keymap("n", "q[", "y$", opts)
+keymap("n", "c[", "c$", opts)
 -- H
-keymap({ "n", "v" }, "]", "==", opts)
--- J
+keymap({ "n", "x" }, "]", "==", opts)
+-- J {n,x} already mapped by matchit
 keymap("n", "d=", "d%", opts)
 keymap("n", "q=", "y%", opts)
 keymap("n", "c=", "c%", opts)
 -- K
-keymap("n", "}", "&", opts)
--- Z
-keymap({ "n", "v" }, "!", "|", opts)
-keymap("n", "d!", "|", opts)
-keymap("n", "q!", "|", opts)
+keymap({ "n", "v" }, "|", "&", opts)
+-- L is the same
+-- Z (q not working)
+keymap({ "n", "x" }, "!", "|", opts)
+keymap("n", "d!", "d|", opts)
+keymap("n", "c!", "c|", opts)
 -- C, V are the same
 -- B
 keymap("n", "@", "!", opts)
 -- N
-keymap({ "n", "v" }, "}", "~", opts)
-keymap("n", "d}", "d~", opts)
+keymap({ "n", "x" }, "}", "~", opts)
 -- M
-keymap({ "n", "v" }, ")", ";", opts)
-keymap("n", "d)", "d;", opts)
-keymap("n", "q)", "q;", opts)
+keymap({ "n", "x" }, ")", "@", opts)
 
 -- VIM MAPPING
 vim.cmd([[
   " <TELESCOPE>
   vnoremap <silent><leader>i "zy:Telescope find_files default_text=<C-r>z<cr>
-  vnoremap <silent><leader>l "zy:Telescope live_grep default_text=<C-r>z theme=ivy<cr>
+  vnoremap <silent><leader>l "zy:Telescope live_grep default_text=<C-r>z theme=dropdown<cr>
 
   " <LUASNIP>
   snoremap p p
@@ -206,10 +227,10 @@ vim.cmd([[
   vnoremap = <Plug>(MatchitVisualForward)
 
   " Macros in visual mode
-  xnoremap { :<C-u>call ExecuteMacroOverVisualRange()<CR>
+  xnoremap ) :<C-u>call ExecuteMacroOverVisualRange()<CR>
   function! ExecuteMacroOverVisualRange()
-  echo "{".getcmdline()
-  execute ":'<,'>normal {".nr2char(getchar())
+  echo ")".getcmdline()
+  execute ":'<,'>normal )".nr2char(getchar())
   endfunction
 
   " Move line/paragraph
@@ -219,8 +240,7 @@ vim.cmd([[
   " Switch record macro and yank
   nnoremap q y
   vnoremap q y
-  nnoremap Q y+
-  vnoremap Q y+
+  nnoremap Q y$
   nnoremap qq yy
   nnoremap y q
 
@@ -229,12 +249,6 @@ vim.cmd([[
 
   " Center horizontal
   nnoremap <silent> z. :<C-u>normal! zszH<CR>
-
-  " Command Substitution
-  nnoremap \ [
-  nnoremap ^ ]
-  vnoremap \ [
-  vnoremap ^ ]
 
   " Paste command mode
   cnoremap <c-v> <c-r>*

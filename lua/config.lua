@@ -1,34 +1,6 @@
 local g = vim.g
 local opt = vim.opt
 
--- <MATERIAL>
-g.material_style = "deep ocean"
-
--- <GRUVBOX BABY>
-g.gruvbox_baby_highlights = {
-	Normal = {
-		fg = "#d5b018",
-		-- fg = "#83A598",
-		-- fg = "#689D6A",
-	},
-	Visual = {
-		fg = "#E7D7AD",
-		bg = "#653f43",
-	},
-	Search = {
-		fg = "#E7D7AD",
-		bg = "#653f43",
-	},
-	illuminatedWord = {
-		fg = "#c7baad",
-		bg = "#504945",
-	},
-}
-
--- <ILLUMINATE>
-g.Illuminate_ftblacklist = { "NvimTree" }
-g.Illuminate_delay = 310
-
 -- Set wrap and spell in markdown, gitcommit and norg files
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "gitcommit", "markdown", "norg" },
@@ -63,7 +35,7 @@ api.nvim_create_autocmd(
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme carbonfox
+  colorscheme emerald
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim
   " Stop folding

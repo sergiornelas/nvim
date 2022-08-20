@@ -18,6 +18,7 @@ indent.setup({
 		animation = require("mini.indentscope").gen_animation("none"),
 	},
 	mappings = {
+		object_scope = "ij",
 		object_scope_with_border = "o",
 		goto_top = "\\r",
 		goto_bottom = "",
@@ -53,4 +54,8 @@ ai.setup({
 		goto_left = "g[",
 		goto_right = "g]",
 	},
+	-- no support for javascript (needs textobjects installed):
+	-- custom_textobjects = {
+	-- 	F = require("mini.ai").gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
+	-- },
 })

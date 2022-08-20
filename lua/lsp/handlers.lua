@@ -1,10 +1,5 @@
 local M = {}
 
-local status_illuminate_ok, illuminate = pcall(require, "illuminate")
-if not status_illuminate_ok then
-	return
-end
-
 local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_cmp_ok then
 	return
@@ -84,31 +79,24 @@ end
 
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
+	-- Prettierd and Stylua in null_ls
+	if
+		client.name == "tsserver"
+		or client.name == "jsonls"
+		or client.name == "html"
+		or client.name == "sumneko_lua"
+	then
+		client.resolved_capabilities.document_formatting = false
+	end
 
-	-- Prettierd in null_ls
+	-- Inlay hints
 	if client.name == "tsserver" then
-		client.resolved_capabilities.document_formatting = false
-	end
-	if client.name == "jsonls" then
-		client.resolved_capabilities.document_formatting = false
-	end
-	if client.name == "html" then
-		client.resolved_capabilities.document_formatting = false
-	end
-
-	-- Stylua in null_ls
-	if client.name == "sumneko_lua" then
-		client.resolved_capabilities.document_formatting = false
+		require("lsp-inlayhints").on_attach(bufnr, client)
 	end
 
 	-- Navic (currently not working on css and html files)
 	if client.name ~= "html" and client.name ~= "cssls" then
 		navic.attach(client, bufnr)
-	end
-
-	-- Highlight text
-	if vim.g.colors_name ~= "gruvbox-baby" then
-		illuminate.on_attach(client)
 	end
 
 	-- Format on save (currently all clients formatting are handled by null_ls)

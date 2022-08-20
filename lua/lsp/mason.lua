@@ -1,5 +1,4 @@
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
--- local coq = require("coq") -- add this
 
 if not lspconfig_status_ok then
 	return
@@ -42,16 +41,10 @@ for _, server in pairs(servers) do
 		capabilities = require("lsp.handlers").capabilities,
 	}
 
-	if server == "sumneko_lua" then
-		local sumneko_opts = require("lsp.settings.sumneko_lua")
-		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-	end
-
-	if server == "tsserver" then
-		local tsserver_opts = require("lsp.settings.tsserver")
-		opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+	local require_ok, conf_opts = pcall(require, "lsp.settings." .. server)
+	if require_ok then
+		opts = vim.tbl_deep_extend("force", conf_opts, opts)
 	end
 
 	lspconfig[server].setup(opts)
-	-- lspconfig[server].setup(coq.lsp_ensure_capabilities(opts))
 end
