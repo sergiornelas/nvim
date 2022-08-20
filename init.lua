@@ -40,4 +40,4 @@ end
 require("config")
 require("options")
 require("keymaps")
-require("pluginList")
+require("plugins")

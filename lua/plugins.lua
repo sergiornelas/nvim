@@ -19,7 +19,7 @@ end
 local group = vim.api.nvim_create_augroup("packer_user_config", { clear = true })
 vim.api.nvim_create_autocmd(
 	"BufWritePost",
-	{ pattern = "pluginList.lua", command = "source <afile> | PackerSync", group = group }
+	{ pattern = "plugins.lua", command = "source <afile> | PackerSync", group = group }
 )
 
 -- Use a protected call so we don't error out on first use
@@ -94,7 +94,7 @@ return packer.startup(function(use)
 		"hrsh7th/nvim-cmp",
 		-- event = "InsertEnter",
 		config = function()
-			require("plugins.cmp")
+			require("plugins-config.cmp")
 		end,
 	})
 	use({
@@ -120,7 +120,7 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		config = function()
-			require("plugins.treesitter")
+			require("plugins-config.treesitter")
 		end,
 	})
 	use({
@@ -140,7 +140,7 @@ return packer.startup(function(use)
 		},
 		run = "make",
 		config = function()
-			require("plugins.telescope")
+			require("plugins-config.telescope")
 		end,
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
@@ -148,13 +148,13 @@ return packer.startup(function(use)
 	use({
 		"ahmedkhalf/project.nvim",
 		config = function()
-			require("plugins.project")
+			require("plugins-config.project")
 		end,
 	})
 	use({
 		"rmagatti/auto-session",
 		config = function()
-			require("plugins.auto-session")
+			require("plugins-config.auto-session")
 		end,
 	})
 	use({
@@ -164,39 +164,39 @@ return packer.startup(function(use)
 			"kyazdani42/nvim-web-devicons",
 		},
 		config = function()
-			require("plugins.nvimtree")
+			require("plugins-config.nvimtree")
 		end,
 	})
 	use({
 		"nvim-lualine/lualine.nvim",
 		config = function()
-			require("plugins.lualine")
+			require("plugins-config.lualine")
 		end,
 	})
 	use({
 		"ThePrimeagen/harpoon",
 		config = function()
-			require("plugins.harpoon")
+			require("plugins-config.harpoon")
 		end,
 		event = "BufEnter",
 	})
 	use({
 		"ghillb/cybu.nvim",
 		config = function()
-			require("plugins.cybu")
+			require("plugins-config.cybu")
 		end,
 	})
 	use({
 		"ggandor/leap.nvim",
 		config = function()
-			require("plugins.leap")
+			require("plugins-config.leap")
 		end,
 		keys = "<cr>",
 	})
 	use({
 		"xiyaowong/nvim-transparent",
 		config = function()
-			require("plugins.transparent")
+			require("plugins-config.transparent")
 		end,
 	})
 	use({ "szw/vim-maximizer", event = "WinEnter" })
@@ -208,13 +208,13 @@ return packer.startup(function(use)
 		ft = "gitcommit",
 		event = "BufEnter",
 		config = function()
-			require("plugins.gitsigns")
+			require("plugins-config.gitsigns")
 		end,
 	})
 	use({
 		"sindrets/diffview.nvim",
 		config = function()
-			require("plugins.gitdiff")
+			require("plugins-config.gitdiff")
 		end,
 		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
 	})
@@ -223,21 +223,21 @@ return packer.startup(function(use)
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
-			require("plugins.comment")
+			require("plugins-config.comment")
 		end,
 	})
 	use({
 		"windwp/nvim-autopairs",
 		after = "nvim-cmp",
 		config = function()
-			require("plugins.autopairs")
+			require("plugins-config.autopairs")
 		end,
 	})
 	use({
 		"abecodes/tabout.nvim",
 		event = "InsertEnter",
 		config = function()
-			require("plugins.tabout")
+			require("plugins-config.tabout")
 		end,
 	})
 	use({ "tversteeg/registers.nvim", event = "InsertEnter" })
@@ -246,7 +246,7 @@ return packer.startup(function(use)
 	use({
 		"echasnovski/mini.nvim",
 		config = function()
-			require("plugins.mini")
+			require("plugins-config.mini")
 		end,
 	})
 
@@ -259,13 +259,13 @@ return packer.startup(function(use)
 			-- "nvim-neorg/neorg-telescope",
 		},
 		config = function()
-			require("plugins.neorg")
+			require("plugins-config.neorg")
 		end,
 	})
 	use({
 		"itchyny/calendar.vim",
 		config = function()
-			require("plugins.calendar")
+			require("plugins-config.calendar")
 		end,
 		cmd = "Calendar",
 	})
@@ -280,14 +280,14 @@ return packer.startup(function(use)
 	use({
 		"NvChad/nvim-colorizer.lua",
 		config = function()
-			require("plugins.colorizer")
+			require("plugins-config.colorizer")
 		end,
 	})
 	use({
 		"ziontee113/color-picker.nvim",
 		cmd = { "PickColor", "PickColorInsert" },
 		config = function()
-			require("plugins.color-picker")
+			require("plugins-config.color-picker")
 		end,
 	})
 
@@ -306,7 +306,7 @@ return packer.startup(function(use)
 		"sainnhe/everforest",
 		"sainnhe/sonokai",
 		"shaeinst/roshnivim-cs",
-		"ray-x/aurora",
+		-- "ray-x/aurora",
 		"fenetikm/falcon",
 		"yashguptaz/calvera-dark.nvim",
 		"rose-pine/neovim",
@@ -322,19 +322,19 @@ return packer.startup(function(use)
 	use({
 		"ellisonleao/gruvbox.nvim",
 		config = function()
-			require("plugins.colorschemes").gruvbox()
+			require("plugins-config.colorschemes").gruvbox()
 		end,
 	})
 	use({
 		"navarasu/onedark.nvim",
 		config = function()
-			require("plugins.colorschemes").onedark()
+			require("plugins-config.colorschemes").onedark()
 		end,
 	})
 	use({
 		"EdenEast/nightfox.nvim",
 		config = function()
-			require("plugins.colorschemes").nightfox()
+			require("plugins-config.colorschemes").nightfox()
 		end,
 	})
 
@@ -345,7 +345,7 @@ return packer.startup(function(use)
 		opt = true,
 		cmd = { "Lab code run", "Lab code stop" },
 		config = function()
-			require("plugins.lab")
+			require("plugins-config.lab")
 		end,
 	})
 	use({ "metakirby5/codi.vim" })

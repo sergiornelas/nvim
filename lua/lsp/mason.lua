@@ -15,15 +15,13 @@ if not mason_lspconfig_status_ok then
 end
 
 local servers = {
-	"bashls",
-	"cssls",
-	"html",
-	"jsonls",
 	"sumneko_lua",
 	"tsserver",
+	"jsonls",
+	"cssls",
+	"html",
+	"bashls",
 }
-
-mason.setup()
 
 -- This plugin uses the lspconfig server names in the APIs it exposes,
 -- not mason.nvim package names (eslint_d, prettierd, stylua).
@@ -32,6 +30,7 @@ mason_lspconfig.setup({
 	ensure_installed = servers,
 	automatic_installation = true,
 })
+mason.setup()
 
 local opts = {}
 

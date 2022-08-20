@@ -79,7 +79,7 @@ end
 
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
-	-- Prettierd and Stylua in null_ls
+	-- Prettierd and Stylua active in null_ls
 	if
 		client.name == "tsserver"
 		or client.name == "jsonls"
@@ -99,7 +99,7 @@ M.on_attach = function(client, bufnr)
 		navic.attach(client, bufnr)
 	end
 
-	-- Format on save (currently all clients formatting are handled by null_ls)
+	-- Format on save. All formatting clients are handled by null_ls
 	-- if client.resolved_capabilities.document_formatting then
 	-- 	vim.api.nvim_create_autocmd(
 	-- 		"BufWritePre",

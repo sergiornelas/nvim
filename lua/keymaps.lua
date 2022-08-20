@@ -16,7 +16,6 @@ keymap(
 	"<cmd>lua require('telescope.builtin').find_files({layout_strategy='flex', layout_config={horizontal={width=0.80, preview_width=85}, vertical={width=0.8, preview_height=17}}})<CR>",
 	opts
 )
--- keymap("n", "<leader>i", "<cmd>lua require('telescope.builtin').find_files({layout_strategy='flex'})<CR>", opts)
 keymap("n", "<leader>l", "<cmd>Telescope live_grep theme=dropdown winblend=10<cr>", opts)
 keymap("n", "<leader>o", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope oldfiles theme=dropdown winblend=10<cr>", opts)
@@ -139,7 +138,7 @@ keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
 --  Z˙CVBNM            Z˙CVBNM
 
 -- +-[] missing vim effect
--- ~ is available for mapping vim effect (~ repeated in L, ^ is unmaped)
+-- ~^ are available for mapping (~ repeated in N)
 -- \ is already mapped for move through diagnostics and go to head element
 
 -- Q
@@ -147,13 +146,14 @@ keymap({ "n", "x" }, "&", "#", opts)
 keymap("n", "d&", "d#", opts)
 keymap("n", "q&", "y#", opts)
 keymap("n", "c&", "c#", opts)
--- W, E are the same
+-- W, E no changes
 -- R
 keymap({ "n", "x" }, "+", "{", opts)
 keymap("n", "d+", "d{", opts)
 keymap("n", "q+", "y{", opts)
 keymap("n", "c+", "c{", opts)
 -- T is used by Tree-climber
+-- Y not used
 -- U is used by Tree-climber
 -- I
 keymap({ "n", "x" }, "$", "(", opts)
@@ -198,12 +198,13 @@ keymap("n", "q=", "y%", opts)
 keymap("n", "c=", "c%", opts)
 -- K
 keymap({ "n", "v" }, "|", "&", opts)
--- L is the same
+-- L no changes
 -- Z (q not working)
 keymap({ "n", "x" }, "!", "|", opts)
 keymap("n", "d!", "d|", opts)
 keymap("n", "c!", "c|", opts)
--- C, V are the same
+-- X not used
+-- C, V no changes
 -- B
 keymap("n", "@", "!", opts)
 -- N
