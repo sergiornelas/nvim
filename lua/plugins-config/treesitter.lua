@@ -5,18 +5,18 @@ end
 
 configs.setup({
 	ensure_installed = {
-		"bash",
-		"html",
-		"css",
-		"scss",
-		"javascript",
-		"typescript",
-		"tsx",
-		"vim",
 		"lua",
+		"typescript",
+		"javascript",
+		"tsx",
 		"json",
+		"scss",
+		"css",
+		"html",
 		"markdown",
 		"norg",
+		"vim",
+		"bash",
 	},
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	auto_install = true,

@@ -8,42 +8,32 @@ telescope.load_extension("fzf")
 -- telescope.load_extension("heading") --neorg
 
 local actions = require("telescope.actions")
--- defaults = {
---     layout_strategy = 'flex',
---     scroll_strategy = 'cycle',
---     winblend = 0,
---     layout_defaults = {
---       horizontal = {
---         width_padding = 0.1,
---         height_padding = 0.1,
---         preview_width = 0.6,
---         -- mirror = false,
---       },
---       vertical = {
---         width_padding = 0.05,
---         height_padding = 1,
---         preview_height = 0.5,
---         -- mirror = true,
---       }
---     },
---     file_ignore_patterns = { 'tags' },
---   }
+
 telescope.setup({
 	defaults = {
-		-- layout_strategy = "flex",
-		-- layout_config = {
-		-- 	-- Telescope find_files hidden=true layout_config={"prompt_position":"top"}`
-		-- 	horizontal = {
-		-- 		width = 0.67,
-		-- 		preview_width = 53,
-		-- 	},
-		-- 	vertical = {
-		-- 		-- width = 0.67,
-		-- 		-- preview_width = 53,
-		-- 		-- preview_height = 0.5,
-		-- 		-- mirror = true,
-		-- 	},
-		-- },
+		layout_strategy = "flex",
+		sorting_strategy = "ascending", --important
+		winblend = 12,
+		results_title = "",
+		borderchars = { "-", "╎", "-", "╎", "╭", "╮", "╯", "╰" },
+		layout_config = {
+			horizontal = {
+				width = 130,
+				height = 25,
+				preview_width = 60,
+			},
+			vertical = {
+				width = 73,
+				height = 37,
+			},
+		},
+		-- previewer = false
+		-- mirror = true,
+		-- prompt_position = "top",
+		-- preview_cutoff = 120,
+		-- height = 0.60, (percentages)
+		-- width = { 0.52, max = 0.52, min = 0.52 },
+		-- initial_mode = "insert",
 		prompt_prefix = " ",
 		selection_caret = " ",
 		path_display = { "smart" },
@@ -73,14 +63,6 @@ telescope.setup({
 				},
 			},
 		},
-		-- find_files = {
-		-- 	theme = "dropdown",
-		-- 	winblend = 10,
-		-- },
-		-- live_grep = {
-		-- 	theme = "dropdown",
-		-- 	winblend = 10,
-		-- },
 		git_status = {
 			mappings = {
 				i = {
