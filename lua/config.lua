@@ -35,7 +35,7 @@ api.nvim_create_autocmd(
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme palenight
+  colorscheme NeoSolarized
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim
   " Stop folding

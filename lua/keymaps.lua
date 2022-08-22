@@ -8,24 +8,25 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- <TELESCOPE>
--- keymap("n", "<leader>i", "<cmd>Telescope find_files theme=ivy winblend=10<CR>", opts)
--- keymap("n", "<leader>i", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<leader>i", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
+keymap("n", "<leader>p", "<cmd>Telescope oldfiles<cr>", opts)
+keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>Telescope grep_string<cr>", opts)
+keymap("n", "<leader>dp", "<cmd>Telescope projects theme=dropdown <cr>", opts)
+keymap("n", "<leader>di", "<cmd>Telescope git_status<cr>", opts)
 keymap(
 	"n",
-	"<leader>i",
-	"<cmd>lua require('telescope.builtin').find_files({layout_strategy='flex', layout_config={horizontal={width=0.80, preview_width=85}, vertical={width=0.8, preview_height=17}}})<CR>",
+	"<leader>dd",
+	":lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown{ previewer = false, winblend=0, layout_config={width=30}})<cr>",
 	opts
 )
-keymap("n", "<leader>l", "<cmd>Telescope live_grep theme=dropdown winblend=10<cr>", opts)
-keymap("n", "<leader>o", "<cmd>Telescope buffers theme=dropdown winblend=10<cr>", opts)
-keymap("n", "<leader>p", "<cmd>Telescope oldfiles theme=dropdown winblend=10<cr>", opts)
-keymap("n", "<leader>b", "<cmd>Telescope marks theme=dropdown winblend=10<cr>", opts)
-keymap("n", "<leader>dl", "<cmd>Telescope grep_string theme=dropdown winblend=10<cr>", opts)
-keymap("n", "<leader>dp", "<cmd>Telescope projects theme=dropdown winblend=10<cr>", opts)
-keymap("n", "<leader>dd", "<cmd>Telescope colorscheme theme=dropdown<cr>", opts)
-keymap("n", "<leader>di", "<cmd>Telescope git_status theme=dropdown<cr>", opts)
 -- keymap("n", "<leader>dg", "<cmd>TodoTelescope theme=dropdown<cr>", opts)
 -- keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts) --neorg
+
+-- <INLAY HINTS>
+keymap("n", "<leader>dh", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
 -- <NVIM TREE>
 keymap("n", "<leader>r", "<cmd>NvimTreeToggle <cr>", opts)
@@ -57,10 +58,10 @@ keymap("n", "#", "<cmd>lua require('tree-climber').swap_prev()<cr>", opts)
 keymap("n", "*", "<cmd>lua require('tree-climber').swap_next()<cr>", opts)
 
 -- <HARPOON>
-vim.api.nvim_set_keymap(
+keymap(
 	"n",
 	"<leader>e",
-	"<cmd>lua require('telescope').extensions.harpoon.marks(require('telescope.themes').get_dropdown{prompt_title='Harpoon'})<cr>",
+	"<cmd>lua require('telescope').extensions.harpoon.marks({layout_strategy='vertical', prompt_title='~< Hookshot >~', layout_config={height=36, preview_height=20}})<cr>",
 	opts
 )
 keymap("n", "mf", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
@@ -214,10 +215,6 @@ keymap({ "n", "x" }, ")", "@", opts)
 
 -- VIM MAPPING
 vim.cmd([[
-  " <TELESCOPE>
-  vnoremap <silent><leader>i "zy:Telescope find_files default_text=<C-r>z<cr>
-  vnoremap <silent><leader>l "zy:Telescope live_grep default_text=<C-r>z theme=dropdown<cr>
-
   " <LUASNIP>
   snoremap p p
   snoremap <c-h> <BS>i
