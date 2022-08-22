@@ -240,7 +240,7 @@ vim.cmd([[
   vnoremap q y
   nnoremap Q y$
   nnoremap qq yy
-  nnoremap y q
+  nnoremap <cr> q
 
   " Refresh lua settings
   nnoremap <leader>do :so %<cr>

@@ -27,16 +27,16 @@ indent.setup({
 
 surround.setup({
 	mappings = {
-		add = "sj",
-		delete = "si",
-		replace = "so",
-		find = "sf",
-		find_left = "sF",
-		highlight = "sh",
-		update_n_lines = "sn",
+		add = "me",
+		delete = "mw",
+		replace = "mr",
+		find = "mt",
+		find_left = "mT",
+		highlight = "mq",
+		update_n_lines = "",
 	},
 })
--- free: ds, dq, dr, do, dm, dp, dc, du
+-- free for reference: ds, dq, dr, do, dm, dp, dc, du (already used by mini_indent)
 
 ai.setup({
 	mappings = {

@@ -191,7 +191,7 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins-config.leap")
 		end,
-		keys = "<cr>",
+		keys = "s",
 	})
 	use({
 		"xiyaowong/nvim-transparent",

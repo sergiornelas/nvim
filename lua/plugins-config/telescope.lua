@@ -11,11 +11,10 @@ local actions = require("telescope.actions")
 
 telescope.setup({
 	defaults = {
-		layout_strategy = "flex",
+		layout_strategy = "flex", --toggle between horizontal/vertical
 		sorting_strategy = "ascending", --important
 		winblend = 12,
 		results_title = "",
-		borderchars = { "-", "╎", "-", "╎", "╭", "╮", "╯", "╰" },
 		layout_config = {
 			horizontal = {
 				width = 130,
