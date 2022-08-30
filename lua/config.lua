@@ -1,8 +1,9 @@
 local g = vim.g
 local opt = vim.opt
+local api = vim.api
 
 -- Set wrap and spell in markdown, gitcommit and norg files
-vim.api.nvim_create_autocmd({ "FileType" }, {
+api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "gitcommit", "markdown", "norg" },
 	callback = function()
 		opt.wrap = true
@@ -10,13 +11,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
-local api = vim.api
-
 -- Show yank line highlight
-local yankGrp = api.nvim_create_augroup("YankHighlight", { clear = true })
+local highlight_group = api.nvim_create_augroup("YankHighlight", { clear = true })
 api.nvim_create_autocmd("TextYankPost", {
-	command = "silent! lua vim.highlight.on_yank()",
-	group = yankGrp,
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
 })
 
 -- Go to last location when opening a buffer
@@ -35,7 +37,7 @@ api.nvim_create_autocmd(
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme mariana
+  colorscheme dracula_blood
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim
   " Stop folding
@@ -50,6 +52,14 @@ vim.cmd([[
   autocmd VimEnter * call timer_start(500, {-> execute("unmap [%")})
   autocmd VimEnter * call timer_start(510, {-> execute("unmap ]%")})
 ]])
+
+-- vim.cmd([[
+--   let gitroot = system("git rev-parse --show-toplevel 2>/dev/null | xargs echo -n")
+--   if gitroot != ""
+--     let histfile=gitroot . "/.history.shada"
+--     execute 'set shadafile=' . histfile
+--   endif
+-- ]])
 
 -- Python plugins load faster
 g.loaded_python_provider = 1

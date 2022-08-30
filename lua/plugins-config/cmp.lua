@@ -81,7 +81,7 @@ cmp.setup({
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<C-j>"] = cmp.mapping.confirm({ select = true }),
-		["<tab>"] = cmp.mapping(function(fallback)
+		["<C-i>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif ls.expandable() then

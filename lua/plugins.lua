@@ -68,6 +68,7 @@ return packer.startup(function(use)
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
+		commit = "6cd69077b3ce81101a091e48c5b2c42d46e135b6",
 		-- check this plugin again when winbar is available
 	})
 	use({
@@ -92,7 +93,6 @@ return packer.startup(function(use)
 	-- CMP -------------------------------------------------------
 	use({
 		"hrsh7th/nvim-cmp",
-		-- event = "InsertEnter",
 		config = function()
 			require("plugins-config.cmp")
 		end,
@@ -127,6 +127,7 @@ return packer.startup(function(use)
 		"drybalka/tree-climber.nvim",
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		"p00f/nvim-ts-Rainbow",
+		"nvim-treesitter/nvim-treesitter-textobjects",
 		after = "nvim-treesitter/nvim-treesitter",
 	})
 
@@ -155,6 +156,13 @@ return packer.startup(function(use)
 		"rmagatti/auto-session",
 		config = function()
 			require("plugins-config.auto-session")
+		end,
+	})
+	use({
+		"rmagatti/session-lens",
+		requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+		config = function()
+			require("plugins-config.session-lens")
 		end,
 	})
 	use({
@@ -258,6 +266,7 @@ return packer.startup(function(use)
 			-- "max397574/neorg-contexts",
 			-- "nvim-neorg/neorg-telescope",
 		},
+		commit = "f2d5ecdd2ef472152f5ccd352bbc324109174a2f",
 		config = function()
 			require("plugins-config.neorg")
 		end,
@@ -270,6 +279,12 @@ return packer.startup(function(use)
 		cmd = "Calendar",
 	})
 	-- rm -rf ~/.cache/calendar.vim/google/
+	-- use({
+	-- 	"phaazon/mind.nvim",
+	-- 	config = function()
+	-- 		require("mind").setup()
+	-- 	end,
+	-- })
 
 	-- FRONTEND DEVELOPMENT --------------------------------------
 	use({
@@ -306,7 +321,7 @@ return packer.startup(function(use)
 		"sainnhe/everforest",
 		"sainnhe/sonokai",
 		"shaeinst/roshnivim-cs",
-		-- "ray-x/aurora",
+		"ray-x/aurora",
 		"fenetikm/falcon",
 		"yashguptaz/calvera-dark.nvim",
 		"rose-pine/neovim",
@@ -411,6 +426,7 @@ return packer.startup(function(use)
 	-- NTBBloodbath/rest.nvim                              postman
 	-- mattn/webapi-vim                                  postman ?
 	-- MunifTanjim/prettier.nvim              prettier alternative
+	-- numToStr/prettierrc.nvim               prettier alternative
 
 	-- ARTIFICIAL INTELIGENCE ------------------------------------
 	-- tzachar/cmp-tabnine
@@ -434,9 +450,12 @@ return packer.startup(function(use)
 	-- wellle/targets.vim                              new motions
 	-- MattesGroeger/vim-bookmarks                           marks
 	-- ThePrimeagen/refactoring.nvim                   refactoring
+	-- nvim-colortils/colortils.nvim                   colorpicker
+	-- smartpde/neoscopes   light project magagement (interesting)
+	-- vigoux/notifier.nvim                show message lsp loaded
 
 	-- Last time checked Awesome and This-week-in-neovim
-	-- (16/08/22)
+	-- (29/08/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

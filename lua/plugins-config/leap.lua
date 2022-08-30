@@ -11,9 +11,9 @@ require("leap").setup({
 	special_keys = {
 		repeat_search = "<enter>",
 		next_match = "<enter>",
-		prev_match = "<tab>",
+		prev_match = "<c-i>",
 		next_group = "<space>",
-		prev_group = "<tab>",
+		prev_group = "<c-i>",
 		eol = "<space>",
 	},
 })

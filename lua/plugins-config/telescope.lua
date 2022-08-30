@@ -5,6 +5,7 @@ end
 
 telescope.load_extension("projects")
 telescope.load_extension("fzf")
+telescope.load_extension("session-lens")
 -- telescope.load_extension("heading") --neorg
 
 local actions = require("telescope.actions")
@@ -38,7 +39,7 @@ telescope.setup({
 		path_display = { "smart" },
 		mappings = {
 			i = {
-				["<tab>"] = actions.move_selection_next,
+				["<C-i>"] = actions.move_selection_next,
 				["<C-o>"] = actions.move_selection_previous,
 				["<C-j>"] = actions.select_default,
 				["<C-n>"] = actions.cycle_history_next,
@@ -52,7 +53,7 @@ telescope.setup({
 	},
 	pickers = {
 		colorscheme = {
-			enable_preview = true,
+			enable_preview = false, --some colorschemes break
 		},
 		buffers = {
 			sort_lastused = false,
@@ -65,7 +66,7 @@ telescope.setup({
 		git_status = {
 			mappings = {
 				i = {
-					["<tab>"] = actions.move_selection_next,
+					["<C-i>"] = actions.move_selection_next,
 					["<C-o>"] = actions.move_selection_previous,
 				},
 			},

@@ -35,6 +35,15 @@ nvim_tree.setup({
 		side = "left",
 		signcolumn = "yes",
 		adaptive_size = true,
+		float = {
+			enable = true,
+			open_win_config = {
+				relative = "cursor",
+				border = "shadow",
+				height = 33,
+				col = 4,
+			},
+		},
 		mappings = {
 			custom_only = true,
 			list = {
@@ -51,7 +60,7 @@ nvim_tree.setup({
 				{ key = ">", action = "next_sibling" },
 				{ key = "P", action = "parent_node" },
 				{ key = "<BS>", action = "close_node" },
-				{ key = "<Tab>", action = "preview" },
+				{ key = "<c-i>", action = "preview" },
 				{ key = "K", action = "first_sibling" },
 				{ key = "J", action = "last_sibling" },
 				{ key = "I", action = "toggle_git_ignored" },

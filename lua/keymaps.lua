@@ -22,8 +22,10 @@ keymap(
 	":lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown{ previewer = false, winblend=0, layout_config={width=30}})<cr>",
 	opts
 )
--- keymap("n", "<leader>dg", "<cmd>TodoTelescope theme=dropdown<cr>", opts)
 -- keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts) --neorg
+
+-- <SESSION LENS>
+keymap("n", "dp", "<cmd>SearchSession<cr>", opts)
 
 -- <INLAY HINTS>
 keymap("n", "<leader>dh", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
@@ -67,7 +69,7 @@ keymap(
 keymap("n", "mf", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
 
 -- <CALENDAR>
-keymap("n", "<leader>y", "<cmd>Calendar<CR>", opts)
+keymap("n", "y", "<cmd>Calendar<CR>", opts)
 
 -- <COLOR PICKER>
 keymap("n", "<C-c>", "<cmd>PickColor<cr>", opts)
@@ -81,11 +83,11 @@ keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) --buffer delete
 
 -- NAVIGATION
 keymap({ "n", "v" }, "<c-f>", "<c-e>", opts) -- page scrolls down one line
-keymap({ "n", "v" }, "<c-e>", "<c-y>", opts) -- page scrolls up one line
-keymap("n", "<c-v>", "<c-f>", opts) -- fullscreen
-keymap("n", "<c-p>", "<c-b>", opts) -- fullscreen
-keymap("n", "<c-r>", "<c-w>w", opts) -- navigate through windows
-keymap("n", "<c-a>", "<c-w>W", opts) -- navigate through windows
+keymap({ "n", "v" }, "<c-e>", "<c-y>", opts) --   page scrolls up one line
+keymap("n", "<c-v>", "<c-f>", opts) --                          fullscreen
+keymap("n", "<c-p>", "<c-b>", opts) --                          fullscreen
+keymap("n", "<c-r>", "<c-w>w", opts) --           navigate through windows
+keymap("n", "<c-a>", "<c-w>W", opts) --           navigate through windows
 
 -- RESIZE WINDOW
 keymap("n", "å", "<cmd>vertical resize +4<cr>", opts)
@@ -94,42 +96,45 @@ keymap("n", "ß", "<cmd>resize -4<cr>", opts)
 keymap("n", "ƒ", "<cmd>vertical resize -4<cr>", opts)
 keymap("n", "<leader><leader>", "<c-w>=", opts) -- center windows
 
+-- DEALING WITH WORD WRAP
+keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
 -- INSERT MODE
+keymap("i", "<c-f>", "<c-i>", opts) --                                         tab
 keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode again
-keymap("i", "<c-f>", "<c-i>", opts) -- tab
-keymap("i", "<c-k>", "<c-d>", opts) -- move whole line left
-keymap("i", "<c-l>", "<c-t>", opts) -- move whole line right
-keymap("i", "<c-o>", "<esc>O", opts) -- go to upper line insert mode
-keymap("i", "<c-v>", "<c-r>*", opts) -- paste last registered yank
-keymap("i", "<tab>", "<c-f>", opts) -- move line in the correspondng tab frame
+keymap("i", "<c-k>", "<c-d>", opts) --                        move whole line left
+keymap("i", "<c-l>", "<c-t>", opts) --                       move whole line right
+keymap("i", "<c-o>", "<esc>O", opts) --               go to upper line insert mode
+keymap("i", "<c-v>", "<c-r>*", opts) --                 paste last registered yank
+keymap("i", "<c-i>", "<c-f>", opts) --     move line in the correspondng tab frame
 
 -- UTILS
-keymap("n", "<c-q>", "<c-r>", opts) -- redo
-keymap("v", "<c-w>", "o", opts) -- o is used by treesitter-objects
-keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) -- highlights
-keymap("n", "<Leader>f", "<cmd>w<cr>", opts) -- save file
-keymap("n", "<Leader>q", "<cmd>q<cr>", opts) -- close window
-keymap("n", "<Leader>Q", "<cmd>q!<cr>", opts) -- close window and file
-keymap({ "n", "v" }, "<Leader>j", "zz", opts) -- center text
-keymap("n", "<Leader>g", "gt", opts) -- next tab
-keymap("n", "<Leader>t", "gT", opts) -- prev tab
-keymap("n", "<Leader>dt", "<cmd>tabnew %<cr>", opts) -- new tab
-keymap("n", "<Leader>u", "<cmd>tabclose<cr>", opts) -- close current tab
-keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) -- StartupTime
-keymap("n", "S", "mzJ`z", opts) -- cursor stay current position when J
-keymap("n", "V", "vg_", opts) -- visual to the right
-keymap("n", "vv", "Vg_^", opts) -- visual whole line
-keymap({ "n", "v" }, "<c-l>", "<c-v>", opts) -- block visual selection
-keymap({ "n", "v" }, "zl", "z6l", opts) -- zoom left
-keymap({ "n", "v" }, "zh", "z6h", opts) -- zoom right
+keymap("n", "<c-q>", "<c-r>", opts) --                                    redo
+keymap("v", "<c-w>", "o", opts) --             o is used by treesitter-objects
+keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) --         highlights
+keymap("n", "<Leader>f", "<cmd>w<cr>", opts) --                      save file
+keymap("n", "<Leader>q", "<cmd>q<cr>", opts) --                   close window
+keymap("n", "<Leader>Q", "<cmd>q!<cr>", opts) --         close window and file
+keymap({ "n", "v" }, "<Leader>j", "zz", opts) --                   center text
+keymap("n", "<Leader>g", "gt", opts) --                               next tab
+keymap("n", "<Leader>t", "gT", opts) --                               prev tab
+keymap("n", "<Leader>dt", "<cmd>tabnew %<cr>", opts) --                new tab
+keymap("n", "<Leader>u", "<cmd>tabclose<cr>", opts) --       close current tab
+keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --              StartupTime
+keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
+keymap("n", "V", "vg_", opts) --                           visual to the right
+keymap("n", "vv", "Vg_^", opts) --                           visual whole line
+keymap({ "n", "v" }, "<c-l>", "<c-v>", opts) --         block visual selection
+keymap({ "n", "v" }, "zl", "z6l", opts) --                           zoom left
+keymap({ "n", "v" }, "zh", "z6h", opts) --                          zoom right
 keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
-keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
+keymap("n", "<leader>c", "<c-g>", opts) --     gives info about current buffer
 
 -- COMMAND SUBSTITUTION
 -- Decided to change vim default navigation keymaps because sometimes they are a pain in the ass.
 -- Writing layer with semicolon (;) is managed by Karabiner.
-
---  WRITING            VIM EFFECT
+--  WRITING           VIM EFFECT
 -- -------------------------------
 -- &?/+* #$%  \^      #?/{   () \^
 -- QWERT˙UIO          QWER˙˙˙IO
@@ -140,78 +145,33 @@ keymap("n", "<leader>c", "<c-g>", opts) -- gives info about current buffer
 
 -- +-[] missing vim effect
 -- ~^ are available for mapping (~ repeated in N)
+-- T and U are already mapped by Treesitter climber
 -- \ is already mapped for move through diagnostics and go to head element
+keymap("", "&", "#", opts) --  Q
+keymap("", "+", "{", opts) --  R
+keymap("", "$", "(", opts) --  I
+keymap("", "%", ")", opts) --  O
+keymap("", "(", "^", opts) --  A
+keymap("", "{", ";", opts) --  S
+keymap("", ";", "*", opts) --  D
+keymap("", "-", "}", opts) --  F
+keymap("", "[", "$", opts) --  G
+keymap("", "]", "==", opts) -- H
+keymap("", "|", "&", opts) --  K
+keymap("o", "=", "<Plug>(MatchitOperationForward)", opts) -- J
+keymap("n", "=", "<Plug>(MatchitNormalForward)", opts) --    J
+keymap("x", "=", "<Plug>(MatchitVisualForward)", opts) --    J
+keymap("", "!", "|", opts) --  Z
+keymap("", "@", "!", opts) --  B
+keymap("", "}", "~", opts) --  N
+keymap("", ")", "@", opts) --  M
 
--- Q
-keymap({ "n", "x" }, "&", "#", opts)
-keymap("n", "d&", "d#", opts)
-keymap("n", "q&", "y#", opts)
-keymap("n", "c&", "c#", opts)
--- W, E no changes
--- R
-keymap({ "n", "x" }, "+", "{", opts)
-keymap("n", "d+", "d{", opts)
-keymap("n", "q+", "y{", opts)
-keymap("n", "c+", "c{", opts)
--- T is used by Tree-climber
--- Y not used
--- U is used by Tree-climber
--- I
-keymap({ "n", "x" }, "$", "(", opts)
-keymap("n", "d$", "d(", opts)
-keymap("n", "q$", "y(", opts)
-keymap("n", "c$", "c(", opts)
--- O
-keymap({ "n", "x" }, "%", ")", opts)
-keymap("n", "d%", "d)", opts)
-keymap("n", "q%", "y)", opts)
-keymap("n", "c%", "c)", opts)
--- A
-keymap({ "n", "x" }, "(", "^", opts)
-keymap("n", "d(", "d^", opts)
-keymap("n", "q(", "y^", opts)
-keymap("n", "c(", "c^", opts)
--- S
-keymap({ "n", "x" }, "{", ";", opts)
-keymap("n", "d{", "d;", opts)
-keymap("n", "q{", "q;", opts)
-keymap("n", "c{", "c;", opts)
--- D
-keymap({ "n", "x" }, ";", "*", opts)
-keymap("n", "d;", "d*", opts)
-keymap("n", "q;", "y*", opts)
-keymap("n", "c;", "c*", opts)
--- F
-keymap({ "n", "x" }, "-", "}", opts)
-keymap("n", "d-", "d}", opts)
-keymap("n", "q-", "y}", opts)
-keymap("n", "c-", "c}", opts)
--- G
-keymap({ "n", "x" }, "[", "$", opts)
-keymap("n", "d[", "d$", opts)
-keymap("n", "q[", "y$", opts)
-keymap("n", "c[", "c$", opts)
--- H
-keymap({ "n", "x" }, "]", "==", opts)
--- J {n,x} already mapped by matchit
-keymap("n", "d=", "d%", opts)
-keymap("n", "q=", "y%", opts)
-keymap("n", "c=", "c%", opts)
--- K
-keymap({ "n", "v" }, "|", "&", opts)
--- L no changes
--- Z (q not working)
-keymap({ "n", "x" }, "!", "|", opts)
-keymap("n", "d!", "d|", opts)
-keymap("n", "c!", "c|", opts)
--- X not used
--- C, V no changes
--- B
-keymap("n", "@", "!", opts)
--- N
-keymap({ "n", "x" }, "}", "~", opts)
--- M
-keymap({ "n", "x" }, ")", "@", opts)
+-- D maps
+-- available: ds, dq, dr, du, dm, dp, dc, do
+-- already used: dp, dm, do (mini_indent have effect on 'do'),
+
+-- <c-leader> is free!
+-- you can map <c-J/K/I/O>
 
 -- VIM MAPPING
 vim.cmd([[
@@ -220,9 +180,10 @@ vim.cmd([[
   snoremap <c-h> <BS>i
   nnoremap <leader>da <CMD>LuaSnipUnlinkCurrent<CR>
 
-  " Matchit (allows using % for <HTML>/<JSX> tags)
-  nnoremap = <Plug>(MatchitNormalForward)
-  vnoremap = <Plug>(MatchitVisualForward)
+  " Switch record macro and yank
+  noremap q y
+  nnoremap Q y$
+  nnoremap dm q
 
   " Macros in visual mode
   xnoremap ) :<C-u>call ExecuteMacroOverVisualRange()<CR>
@@ -234,13 +195,6 @@ vim.cmd([[
   " Move line/paragraph
   vnoremap <silent><c-j> :m '>+1<cr>gv=gv
   vnoremap <silent><c-k> :m '<-2<cr>gv=gv
-
-  " Switch record macro and yank
-  nnoremap q y
-  vnoremap q y
-  nnoremap Q y$
-  nnoremap qq yy
-  nnoremap <cr> q
 
   " Refresh lua settings
   nnoremap <leader>do :so %<cr>
