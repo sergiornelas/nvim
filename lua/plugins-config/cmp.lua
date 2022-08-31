@@ -8,6 +8,10 @@ if not snip_status_ok then
 	return
 end
 
+ls.setup({
+	history = false,
+})
+
 -- Add HTML and CSS snippets to .js/.jsx/.ts/.tsx files
 -- Add React snippets to .js/.ts files
 ls.filetype_set("javascript", { "javascriptreact" })

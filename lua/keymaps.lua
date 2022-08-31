@@ -22,7 +22,6 @@ keymap(
 	":lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown{ previewer = false, winblend=0, layout_config={width=30}})<cr>",
 	opts
 )
--- keymap("n", "<leader>dh", "<cmd>Telescope heading theme=dropdown<cr>", opts) --neorg
 
 -- <SESSION LENS>
 keymap("n", "dp", "<cmd>SearchSession<cr>", opts)
@@ -82,10 +81,10 @@ keymap("n", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info ab
 keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) --buffer delete
 
 -- NAVIGATION
-keymap({ "n", "v" }, "<c-f>", "<c-e>", opts) -- page scrolls down one line
-keymap({ "n", "v" }, "<c-e>", "<c-y>", opts) --   page scrolls up one line
-keymap("n", "<c-v>", "<c-f>", opts) --                          fullscreen
-keymap("n", "<c-p>", "<c-b>", opts) --                          fullscreen
+keymap({ "n", "x" }, "<c-f>", "<c-e>", opts) -- page scrolls down one line
+keymap({ "n", "x" }, "<c-e>", "<c-y>", opts) --   page scrolls up one line
+keymap({ "n", "x" }, "<c-v>", "<c-f>", opts) --                 fullscreen
+keymap({ "n", "x" }, "<c-p>", "<c-b>", opts) --                 fullscreen
 keymap("n", "<c-r>", "<c-w>w", opts) --           navigate through windows
 keymap("n", "<c-a>", "<c-w>W", opts) --           navigate through windows
 
@@ -97,8 +96,8 @@ keymap("n", "ƒ", "<cmd>vertical resize -4<cr>", opts)
 keymap("n", "<leader><leader>", "<c-w>=", opts) -- center windows
 
 -- DEALING WITH WORD WRAP
-keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+keymap("", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+keymap("", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- INSERT MODE
 keymap("i", "<c-f>", "<c-i>", opts) --                                         tab
@@ -108,6 +107,16 @@ keymap("i", "<c-l>", "<c-t>", opts) --                       move whole line rig
 keymap("i", "<c-o>", "<esc>O", opts) --               go to upper line insert mode
 keymap("i", "<c-v>", "<c-r>*", opts) --                 paste last registered yank
 keymap("i", "<c-i>", "<c-f>", opts) --     move line in the correspondng tab frame
+
+-- SWITCH RECORD MACRO AND YANK
+keymap("", "q", "y", opts)
+keymap("n", "Q", "y$", opts)
+keymap("n", "dm", "q", opts)
+keymap("n", "!!", "@@", opts)
+
+-- MOVE LINE/PARAGRAPH
+keymap("x", "<c-j>", ":m '>+1<CR>gv=gv", opts)
+keymap("x", "<c-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- UTILS
 keymap("n", "<c-q>", "<c-r>", opts) --                                    redo
@@ -121,7 +130,7 @@ keymap("n", "<Leader>g", "gt", opts) --                               next tab
 keymap("n", "<Leader>t", "gT", opts) --                               prev tab
 keymap("n", "<Leader>dt", "<cmd>tabnew %<cr>", opts) --                new tab
 keymap("n", "<Leader>u", "<cmd>tabclose<cr>", opts) --       close current tab
-keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --              StartupTime
+keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --              startupTime
 keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
 keymap("n", "V", "vg_", opts) --                           visual to the right
 keymap("n", "vv", "Vg_^", opts) --                           visual whole line
@@ -130,78 +139,11 @@ keymap({ "n", "v" }, "zl", "z6l", opts) --                           zoom left
 keymap({ "n", "v" }, "zh", "z6h", opts) --                          zoom right
 keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
 keymap("n", "<leader>c", "<c-g>", opts) --     gives info about current buffer
-
--- COMMAND SUBSTITUTION
--- Decided to change vim default navigation keymaps because sometimes they are a pain in the ass.
--- Writing layer with semicolon (;) is managed by Karabiner.
---  WRITING           VIM EFFECT
--- -------------------------------
--- &?/+* #$%  \^      #?/{   () \^
--- QWERT˙UIO          QWER˙˙˙IO
--- ({;-[]=|~          ^;*}$=%&~
--- ASDFGHJKL          ASDFGHJKL
---  ! _`@})            | _`!~@
---  Z˙CVBNM            Z˙CVBNM
-
--- +-[] missing vim effect
--- ~^ are available for mapping (~ repeated in N)
--- T and U are already mapped by Treesitter climber
--- \ is already mapped for move through diagnostics and go to head element
-keymap("", "&", "#", opts) --  Q
-keymap("", "+", "{", opts) --  R
-keymap("", "$", "(", opts) --  I
-keymap("", "%", ")", opts) --  O
-keymap("", "(", "^", opts) --  A
-keymap("", "{", ";", opts) --  S
-keymap("", ";", "*", opts) --  D
-keymap("", "-", "}", opts) --  F
-keymap("", "[", "$", opts) --  G
-keymap("", "]", "==", opts) -- H
-keymap("", "|", "&", opts) --  K
-keymap("o", "=", "<Plug>(MatchitOperationForward)", opts) -- J
-keymap("n", "=", "<Plug>(MatchitNormalForward)", opts) --    J
-keymap("x", "=", "<Plug>(MatchitVisualForward)", opts) --    J
-keymap("", "!", "|", opts) --  Z
-keymap("", "@", "!", opts) --  B
-keymap("", "}", "~", opts) --  N
-keymap("", ")", "@", opts) --  M
+keymap("s", "<c-h>", "<BS>i", opts) --                luasnip delete selection
+keymap("n", "<leader>do", ":so %<cr>", opts) --           refresh lua settings
+keymap("n", "z.", ":<C-u>normal! zszH<cr>", opts) --         center horizontal
 
 -- D maps
 -- available: ds, dq, dr, du, dm, dp, dc, do
 -- already used: dp, dm, do (mini_indent have effect on 'do'),
-
--- <c-leader> is free!
--- you can map <c-J/K/I/O>
-
--- VIM MAPPING
-vim.cmd([[
-  " <LUASNIP>
-  snoremap p p
-  snoremap <c-h> <BS>i
-  nnoremap <leader>da <CMD>LuaSnipUnlinkCurrent<CR>
-
-  " Switch record macro and yank
-  noremap q y
-  nnoremap Q y$
-  nnoremap dm q
-
-  " Macros in visual mode
-  xnoremap ) :<C-u>call ExecuteMacroOverVisualRange()<CR>
-  function! ExecuteMacroOverVisualRange()
-  echo ")".getcmdline()
-  execute ":'<,'>normal )".nr2char(getchar())
-  endfunction
-
-  " Move line/paragraph
-  vnoremap <silent><c-j> :m '>+1<cr>gv=gv
-  vnoremap <silent><c-k> :m '<-2<cr>gv=gv
-
-  " Refresh lua settings
-  nnoremap <leader>do :so %<cr>
-
-  " Center horizontal
-  nnoremap <silent> z. :<C-u>normal! zszH<CR>
-
-  " Paste command mode
-  cnoremap <c-v> <c-r>*
-]])
+-- <c-leader> is mapeable

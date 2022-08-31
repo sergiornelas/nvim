@@ -37,22 +37,46 @@ api.nvim_create_autocmd(
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme dracula_blood
+  colorscheme abscs
+
+  " Macros in visual mode
+  xnoremap ! :<C-u>call ExecuteMacroOverVisualRange()<CR>
+  function! ExecuteMacroOverVisualRange()
+    echo "!".getcmdline()
+    execute ":'<,'>normal !".nr2char(getchar())
+  endfunction
+
+  " Paste command mode
+  cnoremap <c-v> <c-r>*
+
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim
+
   " Stop folding
   autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99
+
   " Wrap break icon
   set showbreak=↪\ 
+
   " Stop automatic comment when enter in insert mode
   au BufEnter * set fo-=c fo-=r fo-=o
+
   " Close nvimtree
   autocmd VimLeave * NvimTreeClose
+
   " Unmap matchit conflicts
-  autocmd VimEnter * call timer_start(500, {-> execute("unmap [%")})
-  autocmd VimEnter * call timer_start(510, {-> execute("unmap ]%")})
+  autocmd VimEnter * call timer_start(10, {-> execute("unmap [%")})
+  autocmd VimEnter * call timer_start(15, {-> execute("unmap ]%")})
 ]])
 
+-- Python plugins load faster
+g.loaded_python_provider = 1
+g.python_host_skip_check = 1
+g.python_host_prog = "/usr/local/bin/python"
+g.python3_host_skip_check = 1
+g.python3_host_prog = "/usr/local/bin/python3"
+
+-- Buffer list specific on folder project
 -- vim.cmd([[
 --   let gitroot = system("git rev-parse --show-toplevel 2>/dev/null | xargs echo -n")
 --   if gitroot != ""
@@ -61,12 +85,10 @@ vim.cmd([[
 --   endif
 -- ]])
 
--- Python plugins load faster
-g.loaded_python_provider = 1
-g.python_host_skip_check = 1
-g.python_host_prog = "/usr/local/bin/python"
-g.python3_host_skip_check = 1
-g.python3_host_prog = "/usr/local/bin/python3"
+-- execute <esc>O command (for reference)
+-- vim.cmd([[
+--   :normal O
+-- ]])
 
 -- Symbols listchars (for reference)
 -- opt.listchars = {

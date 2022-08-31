@@ -384,7 +384,7 @@ return packer.startup(function(use)
 	-- LSP -------------------------------------------------------
 	-- ray-x/navigator.lua                            LSP hardcore
 	-- stevearc/aerial.nvim                       LSP Diagram menu
-	-- b0o/simrat39/symbols-outline.nvim     LSP Diagram menu (jsx)
+	-- b0o/simrat39/symbols-outline.nvim    LSP Diagram menu (jsx)
 	-- folke/trouble.nvim                       pretty diagnostics
 	-- kevinhwang91/nvim-bqf                              quickfix
 
