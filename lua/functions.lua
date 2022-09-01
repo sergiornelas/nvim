@@ -37,7 +37,7 @@ api.nvim_create_autocmd(
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme abscs
+  colorscheme one_monokai
 
   " Macros in visual mode
   xnoremap ! :<C-u>call ExecuteMacroOverVisualRange()<CR>

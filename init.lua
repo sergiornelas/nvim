@@ -1,9 +1,5 @@
-local status_ok, impatient = pcall(require, "impatient")
-if not status_ok then
-	return
-end
-
-impatient.enable_profile()
+-- Performance
+pcall(require, "impatient")
 
 local disabled_built_ins = {
 	"2html_plugin",

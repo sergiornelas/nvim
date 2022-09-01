@@ -22,4 +22,4 @@ function Leap_bidirectional()
 	require("leap").leap({ target_windows = { vim.api.nvim_get_current_win() } })
 end
 
-vim.keymap.set({ "n", "v" }, "s", Leap_bidirectional, { silent = true })
+vim.keymap.set({ "n", "x", "o" }, "s", Leap_bidirectional, { silent = true })

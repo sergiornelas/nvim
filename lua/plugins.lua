@@ -39,6 +39,7 @@ packer.init({
 	max_jobs = 50,
 })
 
+-- Run :LuaCacheClear each week
 return packer.startup(function(use)
 	-- PACKER ----------------------------------------------------
 	use("wbthomason/packer.nvim")
@@ -49,7 +50,7 @@ return packer.startup(function(use)
 		cmd = "StartupTime",
 	})
 	use({
-		"nathom/filetype.nvim",
+		"nathom/filetype.nvim", --0.8 will not be necessary anymore
 		"lewis6991/impatient.nvim",
 	})
 
@@ -57,19 +58,37 @@ return packer.startup(function(use)
 	use({
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("lsp")
+			require("lsp.handlers").setup()
 		end,
 	})
-	use({ "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" })
+	use({
+		"williamboman/mason.nvim",
+		config = function()
+			require("lsp.mason")
+		end,
+	})
+	use("williamboman/mason-lspconfig.nvim")
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("lsp.null-ls")
+		end,
 	})
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 		commit = "6cd69077b3ce81101a091e48c5b2c42d46e135b6",
 		-- check this plugin again when winbar is available
+		config = function()
+			require("plugins-config.lspsaga")
+		end,
+	})
+	use({
+		"RRethy/vim-illuminate",
+		config = function()
+			require("plugins-config.illuminate")
+		end,
 	})
 	use({
 		"ray-x/lsp_signature.nvim",
@@ -79,16 +98,15 @@ return packer.startup(function(use)
 		wants = "neovim/nvim-lspconfig",
 	})
 	use({
-		"SmiteshP/nvim-navic",
-		requires = "neovim/nvim-lspconfig",
-	})
-	use({
 		"lvimuser/lsp-inlayhints.nvim",
 		config = function()
 			require("lsp-inlayhints").setup()
 		end,
 	})
-	use("RRethy/vim-illuminate")
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
+	})
 
 	-- CMP -------------------------------------------------------
 	use({
@@ -199,7 +217,6 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins-config.leap")
 		end,
-		keys = "s",
 	})
 	use({
 		"xiyaowong/nvim-transparent",
