@@ -53,7 +53,7 @@ telescope.setup({
 	},
 	pickers = {
 		colorscheme = {
-			enable_preview = false, --some colorschemes break
+			enable_preview = true, --some colorschemes break
 		},
 		buffers = {
 			sort_lastused = false,

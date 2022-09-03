@@ -4,5 +4,5 @@ if not status_ok then
 end
 
 tabout.setup({
-	tabkey = "<c-a>",
+	tabkey = "<c-d>",
 })

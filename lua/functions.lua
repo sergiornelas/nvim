@@ -37,7 +37,7 @@ api.nvim_create_autocmd(
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme one_monokai
+  colorscheme palenight
 
   " Macros in visual mode
   xnoremap ! :<C-u>call ExecuteMacroOverVisualRange()<CR>
@@ -56,7 +56,7 @@ vim.cmd([[
   autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99
 
   " Wrap break icon
-  set showbreak=↪\ 
+  set showbreak=↪\
 
   " Stop automatic comment when enter in insert mode
   au BufEnter * set fo-=c fo-=r fo-=o

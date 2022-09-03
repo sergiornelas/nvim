@@ -85,12 +85,6 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-		"RRethy/vim-illuminate",
-		config = function()
-			require("plugins-config.illuminate")
-		end,
-	})
-	use({
 		"ray-x/lsp_signature.nvim",
 		config = function()
 			require("lsp_signature").setup()
@@ -106,7 +100,16 @@ return packer.startup(function(use)
 	use({
 		"SmiteshP/nvim-navic",
 		requires = "neovim/nvim-lspconfig",
+		config = function()
+			require("plugins-config.navic")
+		end,
 	})
+	-- use({
+	-- 	"RRethy/vim-illuminate",
+	-- 	config = function()
+	-- 		require("plugins-config.illuminate")
+	-- 	end,
+	-- })
 
 	-- CMP -------------------------------------------------------
 	use({
@@ -399,11 +402,11 @@ return packer.startup(function(use)
 
 	-- INTERESTING PLUGINS =======================================
 	-- LSP -------------------------------------------------------
-	-- ray-x/navigator.lua                            LSP hardcore
-	-- stevearc/aerial.nvim                       LSP Diagram menu
 	-- b0o/simrat39/symbols-outline.nvim    LSP Diagram menu (jsx)
 	-- folke/trouble.nvim                       pretty diagnostics
 	-- kevinhwang91/nvim-bqf                              quickfix
+	-- ray-x/navigator.lua                            LSP hardcore
+	-- stevearc/aerial.nvim                       LSP Diagram menu
 
 	-- TREESITTER ------------------------------------------------
 	-- ziontee113/syntax-tree-surfer    TS navigator (no jsx, tsx)
@@ -430,10 +433,10 @@ return packer.startup(function(use)
 
 	-- GIT -------------------------------------------------------
 	-- TimUntersberger/neogit                                magit
-	-- ruifm/gitlinker.nvim                          add bitbucket
-	-- pwntester/octo.nvim                                  git PR
-	-- kdheepak/lazygit.nvim                               lazygit
 	-- akinsho/git-conflict.nvim                         conflicts
+	-- kdheepak/lazygit.nvim                               lazygit
+	-- pwntester/octo.nvim                                  git PR
+	-- ruifm/gitlinker.nvim                          add bitbucket
 
 	-- FRONTEND --------------------------------------------------
 	-- vuki656/package-info.nvim                              node
@@ -446,30 +449,30 @@ return packer.startup(function(use)
 	-- numToStr/prettierrc.nvim               prettier alternative
 
 	-- ARTIFICIAL INTELIGENCE ------------------------------------
-	-- tzachar/cmp-tabnine
-	-- jameshiew/nvim-magic
-	-- zbirenbaum/copilot-cmp
 	-- github/copilot.vim
+	-- jameshiew/nvim-magic
+	-- tzachar/cmp-tabnine
+	-- zbirenbaum/copilot-cmp
 
 	-- UTILS -----------------------------------------------------
-	-- folke/todo-comments.nvim                       pretty notes
-	-- tzachar/cmp-fuzzy-buffer                                CMP
-	-- tzachar/cmp-fuzzy-path                                  CMP
-	-- kylechui/nvim-surround   bug visual all line, too much maps
-	-- ggandor/lightspeed.nvim                    leap alternative
-	-- chentoast/marks.nvim                           visual marks
-	-- rktjmp/lush.nvim                        colorscheme creator
-	-- danymat/neogen          comments on files for documentation
-	-- edluffy/specs.nvim        cool highlight cursor (has a bug)
-	-- anuvyklack/pretty-fold.nvim           fold with percentages
-	-- p00f/cphelper.nvim                          code challenges
-	-- xeluxee/competitest.nvim                    code challenges
-	-- wellle/targets.vim                              new motions
 	-- MattesGroeger/vim-bookmarks                           marks
 	-- ThePrimeagen/refactoring.nvim                   refactoring
+	-- anuvyklack/pretty-fold.nvim           fold with percentages
+	-- chentoast/marks.nvim                           visual marks
+	-- danymat/neogen          comments on files for documentation
+	-- edluffy/specs.nvim        cool highlight cursor (has a bug)
+	-- folke/todo-comments.nvim                       pretty notes
+	-- ggandor/lightspeed.nvim                    leap alternative
+	-- kylechui/nvim-surround   bug visual all line, too much maps
 	-- nvim-colortils/colortils.nvim                   colorpicker
+	-- p00f/cphelper.nvim                          code challenges
+	-- rktjmp/lush.nvim                        colorscheme creator
 	-- smartpde/neoscopes   light project magagement (interesting)
+	-- tzachar/cmp-fuzzy-buffer                                CMP
+	-- tzachar/cmp-fuzzy-path                                  CMP
 	-- vigoux/notifier.nvim                show message lsp loaded
+	-- wellle/targets.vim                              new motions
+	-- xeluxee/competitest.nvim                    code challenges
 
 	-- Last time checked Awesome and This-week-in-neovim
 	-- (29/08/22)

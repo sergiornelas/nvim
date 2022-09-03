@@ -58,6 +58,21 @@ end
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_buf_set_keymap
 
+local function lsp_highlight_document(client)
+	if client.resolved_capabilities.document_highlight then
+		vim.api.nvim_exec(
+			[[
+		    augroup lsp_document_highlight
+		      autocmd! * <buffer>
+		      autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+		      autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+		    augroup END
+		  ]],
+			false
+		)
+	end
+end
+
 local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -65,8 +80,9 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "g<cr>", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 	keymap(bufnr, "n", "gI", "<cmd>LspInfo<cr>", opts)
 	keymap(bufnr, "n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	keymap(bufnr, "n", "gw", "<cmd>lua vim.lsp.buf.add_workspace_folder<CR>", opts)
-	-- lspsaga handles: hover, references, show and jump diagnostics, code actions, rename and signature help.
+	keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+	keymap(bufnr, "n", "gw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+	-- lspsaga handles: hover, references, show and jump diagnostics, code actions, and rename.
 
 	-- Unused features:
 	-- local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -88,6 +104,9 @@ M.on_attach = function(client, bufnr)
 	then
 		client.resolved_capabilities.document_formatting = false
 	end
+
+	-- Classic highlight
+	lsp_highlight_document(client)
 
 	-- Inlay hints
 	if client.name == "tsserver" then

@@ -16,12 +16,7 @@ keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>Telescope grep_string<cr>", opts)
 keymap("n", "<leader>dp", "<cmd>Telescope projects theme=dropdown <cr>", opts)
 keymap("n", "<leader>di", "<cmd>Telescope git_status<cr>", opts)
-keymap(
-	"n",
-	"<leader>dd",
-	":lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown{ previewer = false, winblend=0, layout_config={width=30}})<cr>",
-	opts
-)
+keymap("n", "<leader>dd", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
 
 -- <TREE-CLIMBER>
 keymap({ "n", "v", "o" }, "J", "^<cmd>lua require('tree-climber').goto_next()<cr>", opts)
@@ -114,7 +109,6 @@ keymap("x", "<c-w>", "o", opts) --     o is used by treesitter-objects
 keymap("", "q", "y", opts)
 keymap("n", "Q", "y$", opts)
 keymap("n", "dm", "q", opts)
-keymap("n", "!!", "@@", opts)
 
 -- TABS
 keymap("n", "<Leader>dt", "<cmd>tabnew %<cr>", opts) --  new tab
@@ -132,23 +126,32 @@ keymap("n", "z.", ":<C-u>normal! zszH<cr>", opts) -- center horizontal
 keymap("x", "<c-j>", ":m '>+1<CR>gv=gv", opts)
 keymap("x", "<c-k>", ":m '<-2<CR>gv=gv", opts)
 
+-- SWITCH JUMPS
+keymap("", "<c-o>", "<c-i>", opts)
+keymap("", "<c-i>", "<c-o>", opts)
+
 -- DEALING WITH WORD WRAP
 keymap("", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 keymap("", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- UTILS
 keymap("n", "<c-q>", "<c-r>", opts) --                                    redo
+keymap("n", "<leader>da", "<cmd>LuaSnipUnlinkCurrent<cr>", opts) --    luasnip
 keymap("n", "<Leader>f", "<cmd>w<cr>", opts) --                      save file
 keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) --         highlights
 keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --              startupTime
 keymap("n", "<Leader>q", "<cmd>q<cr>", opts) --                   close window
 keymap("n", "<leader>do", ":so %<cr>", opts) --           refresh lua settings
 keymap("n", "<Leader>Q", "<cmd>q!<cr>", opts) --         close window and file
+keymap("", "\\w", "`.") --                             go to last changed line
 keymap("s", "<c-h>", "<BS>i", opts) --                luasnip delete selection
 keymap("n", "<leader>c", "<c-g>", opts) --     gives info about current buffer
 keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
 keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
 
--- D maps
--- available: ds, dq, dr, du, dm, dp, dc, do
+-- D maps available:
+-- ds, dq, dr, du, dm, dp, dc, do
 -- already used: dp, dm, do (mini_indent have effect on 'do'),
+
+-- <C-> insert mode maps available:
+-- q, i, p, a, s, z, x, b, n, m
