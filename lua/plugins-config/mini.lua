@@ -13,6 +13,9 @@ if not ok_ai then
 	return
 end
 
+local surround_input = require("mini.surround").gen_spec.input.treesitter
+local ai_input = require("mini.ai").gen_spec.treesitter
+
 indent.setup({
 	draw = {
 		animation = require("mini.indentscope").gen_animation("none"),
@@ -26,6 +29,18 @@ indent.setup({
 })
 
 surround.setup({
+	mappings = {
+		add = "me",
+		delete = "mw",
+		replace = "mt",
+		find = "mr",
+		find_left = "mR",
+		highlight = "mq",
+		update_n_lines = "",
+		suffix_last = "l",
+		suffix_next = "n",
+	},
+	n_lines = 1000,
 	custom_surroundings = {
 		["("] = { output = { left = "(", right = ")" } },
 		[")"] = { output = { left = "( ", right = " )" } },
@@ -33,16 +48,10 @@ surround.setup({
 		["}"] = { output = { left = "{ ", right = " }" } },
 		["["] = { output = { left = "[", right = "]" } },
 		["]"] = { output = { left = "[ ", right = " ]" } },
+		F = { input = surround_input({ outer = "@function.outer", inner = "@function.inner" }) },
+		c = { input = surround_input({ outer = "@conditional.outer", inner = "@conditional.inner" }) },
 	},
-	mappings = {
-		add = "me",
-		delete = "mw",
-		replace = "mr",
-		find = "mt",
-		find_left = "mT",
-		highlight = "mq",
-		update_n_lines = "",
-	},
+	search_method = "cover_or_next",
 })
 
 ai.setup({
@@ -59,8 +68,8 @@ ai.setup({
 		goto_left = "g[",
 		goto_right = "g]",
 	},
-	-- no support for javascript (needs textobjects installed):
 	custom_textobjects = {
-		F = require("mini.ai").gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
+		F = ai_input({ a = "@function.outer", i = "@function.inner" }),
+		c = ai_input({ a = "@conditional.outer", i = "@conditional.inner" }),
 	},
 })

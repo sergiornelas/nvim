@@ -2,20 +2,23 @@ local ok, cybu = pcall(require, "cybu")
 if not ok then
 	return
 end
+
 cybu.setup({
-	display_time = 550,
+	display_time = 1200,
 	position = {
 		relative_to = "win",
-		anchor = "topright",
+		anchor = "bottomright",
 		max_win_height = 7,
-		max_win_width = 0.3,
-		-- vertical_offset = "40",
-		-- horizontal_offset = "15",
+		max_win_width = 0.4,
+		vertical_offset = "30",
+		horizontal_offset = "13",
 	},
 	style = {
+		path = "tail",
 		border = "none",
 		highlights = {
-			current_buffer = "IncSearch",
+			current_buffer = "Visual",
+			-- background = "MatchParen",
 		},
 		hide_buffer_id = true,
 	},

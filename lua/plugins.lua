@@ -145,10 +145,11 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-		"drybalka/tree-climber.nvim",
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		"p00f/nvim-ts-Rainbow",
 		"nvim-treesitter/nvim-treesitter-textobjects",
+		"nvim-treesitter/nvim-treesitter-context",
+		"drybalka/tree-climber.nvim",
+		"p00f/nvim-ts-Rainbow",
+		"JoosepAlviste/nvim-ts-context-commentstring",
 		after = "nvim-treesitter/nvim-treesitter",
 	})
 
@@ -409,7 +410,7 @@ return packer.startup(function(use)
 	-- stevearc/aerial.nvim                       LSP Diagram menu
 
 	-- TREESITTER ------------------------------------------------
-	-- ziontee113/syntax-tree-surfer    TS navigator (no jsx, tsx)
+	-- ziontee113/syntax-tree-surfer                  TS navigator
 
 	-- DEBUGGING -------------------------------------------------
 	-- mfusseneger/nvim-dap

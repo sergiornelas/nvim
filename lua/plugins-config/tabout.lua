@@ -5,4 +5,6 @@ end
 
 tabout.setup({
 	tabkey = "<c-d>",
+	backwards_tabkey = "<c-a>",
+	act_as_tab = false,
 })

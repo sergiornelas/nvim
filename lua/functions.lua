@@ -37,7 +37,7 @@ api.nvim_create_autocmd(
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme palenight
+  colorscheme sonokai
 
   " Macros in visual mode
   xnoremap ! :<C-u>call ExecuteMacroOverVisualRange()<CR>
@@ -61,8 +61,9 @@ vim.cmd([[
   " Stop automatic comment when enter in insert mode
   au BufEnter * set fo-=c fo-=r fo-=o
 
-  " Close nvimtree
+  " Close nvimtree and TSContext
   autocmd VimLeave * NvimTreeClose
+  autocmd VimLeave * TSContextDisable
 
   " Unmap matchit conflicts
   autocmd VimEnter * call timer_start(10, {-> execute("unmap [%")})

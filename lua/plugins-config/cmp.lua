@@ -8,14 +8,14 @@ if not snip_status_ok then
 	return
 end
 
--- Add HTML and CSS snippets to .js/.jsx/.ts/.tsx files
 -- Add React snippets to .js/.ts files
+-- Add HTML and CSS snippets to .js/.jsx/.ts/.tsx files
+ls.filetype_set("javascript", { "javascriptreact" })
+ls.filetype_set("typescript", { "typescriptreact" })
 ls.filetype_extend("javascript", { "html", "css" })
 ls.filetype_extend("javascriptreact", { "html", "css" })
 ls.filetype_extend("typescript", { "html", "css" })
 ls.filetype_extend("typescriptreact", { "html", "css" })
-ls.filetype_set("javascript", { "javascriptreact" })
-ls.filetype_set("typescript", { "typescriptreact" })
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -25,31 +25,31 @@ local has_words_before = function()
 end
 
 local kind_icons = {
-	Text = "",
-	Method = "m",
-	Function = "",
-	Constructor = "",
-	Field = "",
-	Variable = "",
 	Class = "",
+	Color = "",
+	Constant = "",
+	Constructor = "",
+	Enum = "",
+	EnumMember = "",
+	Event = "",
+	Field = "",
+	File = "",
+	Folder = "",
+	Function = "",
 	Interface = "",
+	Keyword = "",
+	Method = "m",
 	Module = "",
+	Operator = "",
 	Property = "",
+	Reference = "",
+	Snippet = "",
+	Struct = "",
+	Text = "",
+	TypeParameter = "",
 	Unit = "",
 	Value = "",
-	Enum = "",
-	Keyword = "",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
-	Folder = "",
-	EnumMember = "",
-	Constant = "",
-	Struct = "",
-	Event = "",
-	Operator = "",
-	TypeParameter = "",
+	Variable = "",
 }
 
 local source_mapping = {

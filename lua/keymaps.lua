@@ -51,8 +51,8 @@ keymap("n", "<leader>dj", "<cmd>DiffviewOpen<cr>", opts)
 keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<cr>", opts)
 
 -- <CYBU>
-keymap("n", "<c-j>", "<plug>(CybuLastusedNext)", opts)
-keymap("n", "<c-k>", "<plug>(CybuLastusedPrev)", opts)
+keymap("n", "<c-j>", "<plug>(CybuNext)", opts)
+keymap("n", "<c-k>", "<plug>(CybuPrev)", opts)
 
 -- <SESSION LENS>
 keymap("n", "dp", "<cmd>SearchSession<cr>", opts)
