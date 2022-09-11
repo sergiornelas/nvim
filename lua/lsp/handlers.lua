@@ -76,8 +76,8 @@ end
 local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	keymap(bufnr, "n", "go", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	keymap(bufnr, "n", "g<cr>", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
+	keymap(bufnr, "n", "gp", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	keymap(bufnr, "n", "g<leader>", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 	keymap(bufnr, "n", "gI", "<cmd>LspInfo<cr>", opts)
 	keymap(bufnr, "n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 	keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
@@ -109,7 +109,7 @@ M.on_attach = function(client, bufnr)
 	lsp_highlight_document(client)
 
 	-- Inlay hints
-	if client.name == "tsserver" then
+	if client.name == "tsserver" or client.name == "sumneko_lua" then
 		require("lsp-inlayhints").on_attach(client, bufnr)
 	end
 

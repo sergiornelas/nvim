@@ -22,7 +22,6 @@ nvim_tree.setup({
 			glyphs = {
 				git = {
 					unstaged = "🐻",
-					-- unstaged = "",
 				},
 			},
 		},

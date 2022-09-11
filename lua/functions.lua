@@ -1,15 +1,15 @@
 local g = vim.g
-local opt = vim.opt
+-- local opt = vim.opt
 local api = vim.api
 
 -- Set wrap and spell in markdown, gitcommit and norg files
-api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "gitcommit", "markdown", "norg" },
-	callback = function()
-		opt.wrap = true
-		opt.spell = true
-	end,
-})
+-- api.nvim_create_autocmd({ "FileType" }, {
+-- 	pattern = { "gitcommit", "markdown", "norg" },
+-- 	callback = function()
+-- 		opt.wrap = true
+-- 		opt.spell = true
+-- 	end,
+-- })
 
 -- Show yank line highlight
 local highlight_group = api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -37,7 +37,7 @@ api.nvim_create_autocmd(
 
 vim.cmd([[
   " Default colorscheme
-  colorscheme sonokai
+  colorscheme kimbox
 
   " Macros in visual mode
   xnoremap ! :<C-u>call ExecuteMacroOverVisualRange()<CR>
@@ -64,6 +64,25 @@ vim.cmd([[
   " Close nvimtree and TSContext
   autocmd VimLeave * NvimTreeClose
   autocmd VimLeave * TSContextDisable
+
+  " Exit terminal
+  :tnoremap <Esc> <C-\><C-n>
+
+  " Eliminate terminal buffers when enter neovim
+  function! DeleteBufferByExtension(strExt)
+     let s:bufNr = bufnr("$")
+     while s:bufNr > 0
+         if buflisted(s:bufNr)
+             if (matchstr(bufname(s:bufNr), "/".a:strExt."$") == "/".a:strExt )
+                if getbufvar(s:bufNr, '&modified') == 0
+                   execute "bd ".s:bufNr
+                endif
+             endif
+         endif
+         let s:bufNr = s:bufNr-1
+     endwhile
+  endfunction
+  autocmd VimEnter * call timer_start(7, {-> execute("call DeleteBufferByExtension('fish')")})
 
   " Unmap matchit conflicts
   autocmd VimEnter * call timer_start(10, {-> execute("unmap [%")})

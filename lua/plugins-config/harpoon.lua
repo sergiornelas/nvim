@@ -10,6 +10,8 @@ end
 
 harpoon.setup({
 	global_settings = {
+		enter_on_sendcmd = true,
+		tmux_autoclose_windows = true,
 		mark_branch = false, -- set marks specific to each git branch inside git repository
 	},
 })

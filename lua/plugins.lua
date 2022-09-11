@@ -78,7 +78,6 @@ return packer.startup(function(use)
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
-		commit = "6cd69077b3ce81101a091e48c5b2c42d46e135b6",
 		-- check this plugin again when winbar is available
 		config = function()
 			require("plugins-config.lspsaga")
@@ -217,6 +216,12 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
+		"kwkarlwang/bufjump.nvim",
+		config = function()
+			require("plugins-config.bufjump")
+		end,
+	})
+	use({
 		"ggandor/leap.nvim",
 		config = function()
 			require("plugins-config.leap")
@@ -300,12 +305,6 @@ return packer.startup(function(use)
 		cmd = "Calendar",
 	})
 	-- rm -rf ~/.cache/calendar.vim/google/
-	-- use({
-	-- 	"phaazon/mind.nvim",
-	-- 	config = function()
-	-- 		require("mind").setup()
-	-- 	end,
-	-- })
 
 	-- FRONTEND DEVELOPMENT --------------------------------------
 	use({
@@ -326,34 +325,48 @@ return packer.startup(function(use)
 			require("plugins-config.color-picker")
 		end,
 	})
+	-- use({
+	--   "ray-x/web-tools.nvim",
+	-- config = function()
+	-- 	require("web-tools").setup()
+	-- end,
+	-- })
 
 	-- COLORSCHEMES ----------------------------------------------
 	use({
-		"lunarvim/darkplus.nvim",
-		"sainnhe/gruvbox-material",
-		"luisiacc/gruvbox-baby",
-		"rebelot/kanagawa.nvim",
-		"nxvu699134/vn-night.nvim",
-		"folke/tokyonight.nvim",
-		"marko-cerovac/material.nvim",
-		"Tsuzat/NeoSolarized.nvim",
-		"savq/melange",
-		"Mofiqul/dracula.nvim",
-		"sainnhe/everforest",
-		"sainnhe/sonokai",
-		"shaeinst/roshnivim-cs",
-		"ray-x/aurora",
-		"fenetikm/falcon",
-		"yashguptaz/calvera-dark.nvim",
-		"rose-pine/neovim",
-		"olimorris/onedarkpro.nvim",
-		"rmehri01/onenord.nvim",
-		"tiagovla/tokyodark.nvim",
-		"cpea2506/one_monokai.nvim",
-		"sainnhe/edge",
 		"B4mbus/oxocarbon-lua.nvim",
+		"Mofiqul/dracula.nvim",
+		"Tsuzat/NeoSolarized.nvim",
+		"cpea2506/one_monokai.nvim",
+		"fenetikm/falcon",
+		"folke/tokyonight.nvim",
+		"katawful/kat.nvim",
 		"lmburns/kimbox",
+		"luisiacc/gruvbox-baby",
+		"lunarvim/darkplus.nvim",
+		"marko-cerovac/material.nvim",
+		"nxvu699134/vn-night.nvim",
+		"olimorris/onedarkpro.nvim",
+		"ray-x/aurora",
 		"ray-x/starry.nvim",
+		"rebelot/kanagawa.nvim",
+		"rmehri01/onenord.nvim",
+		"rose-pine/neovim",
+		"sainnhe/edge",
+		"sainnhe/everforest",
+		"sainnhe/gruvbox-material",
+		"sainnhe/sonokai",
+		"sam4llis/nvim-tundra",
+		"savq/melange",
+		"shaeinst/roshnivim-cs",
+		"tiagovla/tokyodark.nvim",
+		"yashguptaz/calvera-dark.nvim",
+	})
+	use({
+		"EdenEast/nightfox.nvim",
+		config = function()
+			require("plugins-config.colorschemes").nightfox()
+		end,
 	})
 	use({
 		"ellisonleao/gruvbox.nvim",
@@ -365,12 +378,6 @@ return packer.startup(function(use)
 		"navarasu/onedark.nvim",
 		config = function()
 			require("plugins-config.colorschemes").onedark()
-		end,
-	})
-	use({
-		"EdenEast/nightfox.nvim",
-		config = function()
-			require("plugins-config.colorschemes").nightfox()
 		end,
 	})
 
@@ -474,9 +481,11 @@ return packer.startup(function(use)
 	-- vigoux/notifier.nvim                show message lsp loaded
 	-- wellle/targets.vim                              new motions
 	-- xeluxee/competitest.nvim                    code challenges
+	-- potamides/pantran.nvim                    google translator
+	-- phaazon/mind.nvim                                  note app
 
 	-- Last time checked Awesome and This-week-in-neovim
-	-- (29/08/22)
+	-- (05/09/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

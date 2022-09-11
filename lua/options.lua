@@ -18,7 +18,6 @@ vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
 vim.opt.pumheight = 10 -- pop up menu height
 vim.opt.ruler = false
 vim.opt.scrolloff = 0 -- is one of my fav
-vim.opt.shell = "/bin/zsh" --even if you are using fish, some plugins run in bash
 vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
 vim.opt.shortmess:append("c")
 vim.opt.showcmd = false

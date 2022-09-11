@@ -18,9 +18,18 @@ keymap("n", "<leader>dp", "<cmd>Telescope projects theme=dropdown <cr>", opts)
 keymap("n", "<leader>di", "<cmd>Telescope git_status<cr>", opts)
 keymap("n", "<leader>dd", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
 
+-- <HARPOON>
+keymap("n", "m<leader>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
+keymap("n", "mm", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
+keymap("n", "mf", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", opts)
+keymap("n", "me", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
+keymap("n", "mw", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", opts)
+keymap("n", "ma", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", opts)
+keymap("n", "mq", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", opts)
+keymap("n", "mg", "<cmd>lua require('harpoon.term').gotoTerminal(1)<cr>", opts)
+keymap("n", "mt", "<cmd>lua require('harpoon.term').gotoTerminal(2)<cr>", opts)
+
 -- <TREE-CLIMBER>
-keymap({ "n", "v", "o" }, "J", "^<cmd>lua require('tree-climber').goto_next()<cr>", opts)
-keymap({ "n", "v", "o" }, "K", "^<cmd>lua require('tree-climber').goto_prev()<cr>", opts)
 keymap("n", "#", "<cmd>lua require('tree-climber').swap_prev()<cr>", opts)
 keymap("n", "*", "<cmd>lua require('tree-climber').swap_next()<cr>", opts)
 
@@ -29,14 +38,9 @@ keymap("n", "<leader>h", "<cmd>Neorg gtd views<cr>", opts)
 keymap("n", "<leader>vj", "<cmd>Neorg gtd capture<cr>", opts)
 keymap("n", "<leader>ve", "<cmd>Neorg gtd edit<cr>", opts)
 
--- <HARPOON>
-keymap(
-	"n",
-	"<leader>e",
-	"<cmd>lua require('telescope').extensions.harpoon.marks({layout_strategy='vertical', prompt_title='~< Hookshot >~', layout_config={height=36, preview_height=20}})<cr>",
-	opts
-)
-keymap("n", "mf", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
+keymap("n", "mz", "<cmd>lua require('harpoon.term').sendCommand(1, 'ls -La<cr>')", opts)
+keymap("n", "mx", "<cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<cr>", opts)
+keymap("n", "mc", "<cmd>lua require('harpoon.term').sendCommand(1, 1)<cr>", opts)
 
 -- <COLOR PICKER>
 keymap("n", "<C-c>", "<cmd>PickColor<cr>", opts)
@@ -96,7 +100,7 @@ keymap("i", "<c-k>", "<c-d>", opts) --                        move whole line le
 keymap("i", "<c-l>", "<c-t>", opts) --                       move whole line right
 keymap("i", "<c-v>", "<c-r>*", opts) --                 paste last registered yank
 keymap("i", "<c-o>", "<esc>O", opts) --               go to upper line insert mode
-keymap("i", "<c-i>", "<c-f>", opts) --     move line in the correspondng tab frame
+keymap("i", "<c-i>", "<c-f>", opts) --    move line in the corresponding tab frame
 keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode again
 
 -- VISUAL MODE
@@ -108,7 +112,7 @@ keymap("x", "<c-w>", "o", opts) --     o is used by treesitter-objects
 -- SWITCH RECORD MACRO AND YANK
 keymap("", "q", "y", opts)
 keymap("n", "Q", "y$", opts)
-keymap("n", "dm", "q", opts)
+keymap("n", "<tab>", "q", opts)
 
 -- TABS
 keymap("n", "<Leader>dt", "<cmd>tabnew %<cr>", opts) --  new tab
@@ -150,8 +154,20 @@ keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
 keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
 
 -- D maps available:
--- ds, dq, dr, du, dm, dp, dc, do
--- already used: dp, dm, do (mini_indent have effect on 'do'),
+-- q, r, y, u
+-- s, <cr>
+-- z, x, c, n, m
+-- already used: p, o (mini_indent have effect on 'do'),
 
--- <C-> insert mode maps available:
+-- G maps available:
+-- q, w, r, t, y, u, o (implementation remapeable)
+-- <cr>
+-- z, x
+
+-- <C- > maps available
+-- q (ugly redo), y, p (possibly unnecesary)
+-- s (unnecesary), <cr>
+-- z, x, v (possibly unnecesary), b, n, m?
+
+-- <C- > insert mode maps available:
 -- q, i, p, a, s, z, x, b, n, m
