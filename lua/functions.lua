@@ -1,23 +1,20 @@
 local g = vim.g
--- local opt = vim.opt
 local api = vim.api
+local group = vim.api.nvim_create_augroup("group", { clear = true })
 
--- Set wrap and spell in markdown, gitcommit and norg files
--- api.nvim_create_autocmd({ "FileType" }, {
--- 	pattern = { "gitcommit", "markdown", "norg" },
--- 	callback = function()
--- 		opt.wrap = true
--- 		opt.spell = true
--- 	end,
--- })
+-- Set wrap on specific files
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "norg", "markdown", "gitcommit" },
+	command = "setlocal wrap",
+	group = group,
+})
 
 -- Show yank line highlight
-local highlight_group = api.nvim_create_augroup("YankHighlight", { clear = true })
 api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank()
 	end,
-	group = highlight_group,
+	group = group,
 	pattern = "*",
 })
 
@@ -28,17 +25,21 @@ api.nvim_create_autocmd(
 )
 
 -- Show cursor line only in active window
-local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
-api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = cursorGrp })
-api.nvim_create_autocmd(
-	{ "InsertEnter", "WinLeave" },
-	{ pattern = "*", command = "set nocursorline", group = cursorGrp }
-)
+api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = group })
+api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = group })
+
+-- Set last color scheme selected, gruvbox by default if no color schemes found
+local theme = require("last-color").recall() or "gruvbox"
+vim.cmd(("colorscheme %s"):format(theme))
+
+-- Python plugins load faster
+g.loaded_python_provider = 1
+g.python_host_skip_check = 1
+g.python_host_prog = "/usr/local/bin/python"
+g.python3_host_skip_check = 1
+g.python3_host_prog = "/usr/local/bin/python3"
 
 vim.cmd([[
-  " Default colorscheme
-  colorscheme kimbox
-
   " Macros in visual mode
   xnoremap ! :<C-u>call ExecuteMacroOverVisualRange()<CR>
   function! ExecuteMacroOverVisualRange()
@@ -48,6 +49,8 @@ vim.cmd([[
 
   " Paste command mode
   cnoremap <c-v> <c-r>*
+  " Exit terminal
+  :tnoremap <Esc> <C-\><C-n>
 
   " Calendar
   source ~/.cache/calendar.vim/credentials.vim
@@ -56,7 +59,7 @@ vim.cmd([[
   autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99
 
   " Wrap break icon
-  set showbreak=↪\
+  set showbreak=↪\ 
 
   " Stop automatic comment when enter in insert mode
   au BufEnter * set fo-=c fo-=r fo-=o
@@ -65,49 +68,34 @@ vim.cmd([[
   autocmd VimLeave * NvimTreeClose
   autocmd VimLeave * TSContextDisable
 
-  " Exit terminal
-  :tnoremap <Esc> <C-\><C-n>
-
-  " Eliminate terminal buffers when enter neovim
-  function! DeleteBufferByExtension(strExt)
-     let s:bufNr = bufnr("$")
-     while s:bufNr > 0
-         if buflisted(s:bufNr)
-             if (matchstr(bufname(s:bufNr), "/".a:strExt."$") == "/".a:strExt )
-                if getbufvar(s:bufNr, '&modified') == 0
-                   execute "bd ".s:bufNr
-                endif
-             endif
-         endif
-         let s:bufNr = s:bufNr-1
-     endwhile
-  endfunction
-  autocmd VimEnter * call timer_start(7, {-> execute("call DeleteBufferByExtension('fish')")})
-
   " Unmap matchit conflicts
   autocmd VimEnter * call timer_start(10, {-> execute("unmap [%")})
   autocmd VimEnter * call timer_start(15, {-> execute("unmap ]%")})
+
+  " Eliminate terminal buffers when enter neovim
+  " function! DeleteBufferByExtension(strExt)
+  "    let s:bufNr = bufnr("$")
+  "    while s:bufNr > 0
+  "        if buflisted(s:bufNr)
+  "            if (matchstr(bufname(s:bufNr), "/".a:strExt."$") == "/".a:strExt )
+  "               if getbufvar(s:bufNr, '&modified') == 0
+  "                  execute "bd ".s:bufNr
+  "               endif
+  "            endif
+  "        endif
+  "        let s:bufNr = s:bufNr-1
+  "    endwhile
+  " endfunction
+  " autocmd VimEnter * call timer_start(7, {-> execute("call DeleteBufferByExtension('fish')")})
 ]])
 
--- Python plugins load faster
-g.loaded_python_provider = 1
-g.python_host_skip_check = 1
-g.python_host_prog = "/usr/local/bin/python"
-g.python3_host_skip_check = 1
-g.python3_host_prog = "/usr/local/bin/python3"
-
--- Buffer list specific on folder project
+-- Jump list specific on folder project
 -- vim.cmd([[
 --   let gitroot = system("git rev-parse --show-toplevel 2>/dev/null | xargs echo -n")
 --   if gitroot != ""
 --     let histfile=gitroot . "/.history.shada"
 --     execute 'set shadafile=' . histfile
 --   endif
--- ]])
-
--- execute <esc>O command (for reference)
--- vim.cmd([[
---   :normal O
 -- ]])
 
 -- Symbols listchars (for reference)
@@ -120,3 +108,8 @@ g.python3_host_prog = "/usr/local/bin/python3"
 -- 	-- eol = "¬",
 -- }
 -- opt.list = true
+
+-- execute <esc>O command (for reference)
+-- vim.cmd([[
+--   :normal O
+-- ]])

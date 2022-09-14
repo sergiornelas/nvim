@@ -2,7 +2,7 @@ local saga = require("lspsaga")
 
 saga.init_lsp_saga({
 	border_style = "bold",
-	diagnostic_header = { " 😡", " 😬", " 👁️", " 🌚" },
+	diagnostic_header = { " 😡 ", " 😬 ", " 👁️ ", " 🌚 " },
 	move_in_saga = { prev = "<C-o>", next = "<C-i>" },
 	max_preview_lines = 30,
 	code_action_icon = "*",
@@ -14,7 +14,7 @@ saga.init_lsp_saga({
 		ref = "🐤 ",
 	},
 	finder_action_keys = {
-		open = "<-j>",
+		open = "<c-j>",
 		vsplit = "<c-v>",
 		split = "<c-s>",
 		tabe = "<c-k>",

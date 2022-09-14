@@ -8,6 +8,7 @@ vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.fillchars.eob = " "
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
+-- vim.opt.spell = true -- spell --activate this on nvim 0.8
 vim.opt.hlsearch = false -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true -- ignore case in search patterns
 vim.opt.iskeyword:append("-")

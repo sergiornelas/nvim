@@ -84,13 +84,6 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-		"ray-x/lsp_signature.nvim",
-		config = function()
-			require("lsp_signature").setup()
-		end,
-		wants = "neovim/nvim-lspconfig",
-	})
-	use({
 		"lvimuser/lsp-inlayhints.nvim",
 		config = function()
 			require("lsp-inlayhints").setup()
@@ -103,6 +96,13 @@ return packer.startup(function(use)
 			require("plugins-config.navic")
 		end,
 	})
+	-- use({
+	--  "ray-x/lsp_signature.nvim",
+	--  config = function()
+	--    require("lsp_signature").setup()
+	--  end,
+	--  wants = "neovim/nvim-lspconfig",
+	-- })
 	-- use({
 	-- 	"RRethy/vim-illuminate",
 	-- 	config = function()
@@ -333,6 +333,7 @@ return packer.startup(function(use)
 	-- })
 
 	-- COLORSCHEMES ----------------------------------------------
+	use({ "raddari/last-color.nvim" })
 	use({
 		"B4mbus/oxocarbon-lua.nvim",
 		"Mofiqul/dracula.nvim",
@@ -383,15 +384,15 @@ return packer.startup(function(use)
 
 	-- CODE WARS -------------------------------------------------
 	-- run = "cd js && npm ci" at lab plugin dir
-	use({
-		"0x100101/lab.nvim",
-		opt = true,
-		cmd = { "Lab code run", "Lab code stop" },
-		config = function()
-			require("plugins-config.lab")
-		end,
-	})
-	use({ "metakirby5/codi.vim" })
+	-- use({
+	-- 	"0x100101/lab.nvim",
+	-- 	opt = true,
+	-- 	cmd = { "Lab code run", "Lab code stop" },
+	-- 	config = function()
+	-- 		require("plugins-config.lab")
+	-- 	end,
+	-- })
+	-- use({ "metakirby5/codi.vim" })
 
 	-- GAME ------------------------------------------------------
 	-- use({
@@ -483,9 +484,10 @@ return packer.startup(function(use)
 	-- xeluxee/competitest.nvim                    code challenges
 	-- potamides/pantran.nvim                    google translator
 	-- phaazon/mind.nvim                                  note app
+	-- jghauser/kitty-runner.nvim         kitty commands from nvim
 
 	-- Last time checked Awesome and This-week-in-neovim
-	-- (05/09/22)
+	-- (12/09/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

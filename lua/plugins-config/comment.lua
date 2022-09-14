@@ -28,9 +28,9 @@ comment.setup({
 	},
 	extra = {
 		-- Add comment on the line above
-		above = "gaO",
+		above = "gaM",
 		-- Add comment on the line below
-		below = "gao",
+		below = "gam",
 		---Add comment at the end of line
 		eol = "gaA",
 	},

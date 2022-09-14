@@ -73,7 +73,7 @@ indent.setup({
 		animation = require("mini.indentscope").gen_animation("none"),
 	},
 	mappings = {
-		object_scope = "ij",
+		object_scope = "p",
 		object_scope_with_border = "o",
 		goto_top = "\\r",
 		goto_bottom = "",

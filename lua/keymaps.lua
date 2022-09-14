@@ -19,7 +19,7 @@ keymap("n", "<leader>di", "<cmd>Telescope git_status<cr>", opts)
 keymap("n", "<leader>dd", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
 
 -- <HARPOON>
-keymap("n", "m<leader>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
+keymap("n", "<leader>e", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
 keymap("n", "mm", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
 keymap("n", "mf", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", opts)
 keymap("n", "me", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
@@ -59,7 +59,7 @@ keymap("n", "<c-j>", "<plug>(CybuNext)", opts)
 keymap("n", "<c-k>", "<plug>(CybuPrev)", opts)
 
 -- <SESSION LENS>
-keymap("n", "dp", "<cmd>SearchSession<cr>", opts)
+keymap("n", "dp", "<cmd>w<cr> | <cmd>SearchSession<cr>", opts)
 
 -- <INLAY HINTS>
 keymap("n", "<leader>dh", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
@@ -149,6 +149,7 @@ keymap("n", "<leader>do", ":so %<cr>", opts) --           refresh lua settings
 keymap("n", "<Leader>Q", "<cmd>q!<cr>", opts) --         close window and file
 keymap("", "\\w", "`.") --                             go to last changed line
 keymap("s", "<c-h>", "<BS>i", opts) --                luasnip delete selection
+keymap("s", "q", "q", opts) --                      luasnip not copy selection
 keymap("n", "<leader>c", "<c-g>", opts) --     gives info about current buffer
 keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
 keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
