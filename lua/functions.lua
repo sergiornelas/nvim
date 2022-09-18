@@ -3,7 +3,7 @@ local api = vim.api
 local group = vim.api.nvim_create_augroup("group", { clear = true })
 
 -- Set wrap on specific files
-vim.api.nvim_create_autocmd("FileType", {
+api.nvim_create_autocmd("FileType", {
 	pattern = { "norg", "markdown", "gitcommit" },
 	command = "setlocal wrap",
 	group = group,

@@ -11,26 +11,34 @@ neorg.setup({
 			config = {
 				workspaces = {
 					notes = "~/notes",
-					gtd = "~/notes/gtd",
+					-- gtd = "~/notes/gtd",
 				},
 			},
 		},
-		["core.norg.qol.toc"] = { -- Index
+		["core.keybinds"] = {
 			config = {
-				default_toc_mode = "split",
-				toc_split_placement = "right",
+				default_keybinds = false,
+				hook = function(keybinds)
+					keybinds.remap_event("norg", "n", "gu", "core.norg.esupports.hop.hop-link")
+				end,
 			},
 		},
-		["core.norg.completion"] = { --Extra cmp options
+		["core.norg.completion"] = { --Extra cmp options,
 			config = {
 				engine = "nvim-cmp",
 			},
 		},
-		["core.gtd.base"] = {
-			config = {
-				workspace = "gtd",
-			},
-		}, --Manages your tasks with Neorg using the Getting Things Done methology
+		-- ["core.gtd.base"] = {,
+		-- 	config = {
+		-- 		workspace = "gtd",
+		-- 	}
+		-- },
+		-- ["core.norg.qol.toc"] = { -- Index,
+		-- 	config = {
+		-- 		default_toc_mode = "split",
+		-- 		toc_split_placement = "right",
+		-- 	},
+		-- },
 		-- ["core.integrations.telescope"] = {}, -- Enable telescope module
 	},
 })

@@ -76,12 +76,12 @@ end
 local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	keymap(bufnr, "n", "gp", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	keymap(bufnr, "n", "g<leader>", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
-	keymap(bufnr, "n", "gI", "<cmd>LspInfo<cr>", opts)
-	keymap(bufnr, "n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+	keymap(bufnr, "n", "gL", "<cmd>LspInfo<cr>", opts)
+	keymap(bufnr, "n", "gQ", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 	keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	keymap(bufnr, "n", "gw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+	keymap(bufnr, "n", "gW", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
 	-- lspsaga handles: hover, references, show and jump diagnostics, code actions, and rename.
 
 	-- Unused features:

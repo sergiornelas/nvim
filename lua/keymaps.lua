@@ -33,45 +33,38 @@ keymap("n", "mt", "<cmd>lua require('harpoon.term').gotoTerminal(2)<cr>", opts)
 keymap("n", "#", "<cmd>lua require('tree-climber').swap_prev()<cr>", opts)
 keymap("n", "*", "<cmd>lua require('tree-climber').swap_next()<cr>", opts)
 
--- <NEORG GTD>
-keymap("n", "<leader>h", "<cmd>Neorg gtd views<cr>", opts)
-keymap("n", "<leader>vj", "<cmd>Neorg gtd capture<cr>", opts)
-keymap("n", "<leader>ve", "<cmd>Neorg gtd edit<cr>", opts)
-
-keymap("n", "mz", "<cmd>lua require('harpoon.term').sendCommand(1, 'ls -La<cr>')", opts)
-keymap("n", "mx", "<cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<cr>", opts)
-keymap("n", "mc", "<cmd>lua require('harpoon.term').sendCommand(1, 1)<cr>", opts)
-
 -- <COLOR PICKER>
-keymap("n", "<C-c>", "<cmd>PickColor<cr>", opts)
-keymap("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
+keymap("n", "<C-c>", "<cmd>CccPick<cr>", opts)
+keymap("i", "<C-c>", "<Plug>(ccc-insert)<cr>", opts)
 
 -- <GIT SIGNS>
-keymap("n", "gj", "<cmd>Gitsigns next_hunk<cr>^", opts)
-keymap("n", "gk", "<cmd>Gitsigns prev_hunk<cr>^", opts)
+keymap("n", "gi", "<cmd>Gitsigns next_hunk<cr>^", opts)
+keymap("n", "go", "<cmd>Gitsigns prev_hunk<cr>^", opts)
 
 -- <DIFF VIEW GIT>
-keymap("n", "<leader>dj", "<cmd>DiffviewOpen<cr>", opts)
+keymap("n", "<leader>h", "<cmd>DiffviewOpen<cr>", opts)
 keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<cr>", opts)
+keymap("n", "<leader>dh", "<cmd>DiffviewFileHistory<cr>", opts)
+
+-- <LUA SNIP>
+keymap("s", "<c-h>", "<BS>i", opts)
+keymap("s", "q", "q", opts)
 
 -- <CYBU>
 keymap("n", "<c-j>", "<plug>(CybuNext)", opts)
 keymap("n", "<c-k>", "<plug>(CybuPrev)", opts)
 
 -- <SESSION LENS>
-keymap("n", "dp", "<cmd>w<cr> | <cmd>SearchSession<cr>", opts)
+keymap("n", "g<cr>", "<cmd>w<cr> | <cmd>SearchSession<cr>", opts)
 
 -- <INLAY HINTS>
-keymap("n", "<leader>dh", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
+keymap("n", "<leader>m", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
 -- <NVIM TREE>
 keymap("n", "<leader>r", "<cmd>NvimTreeToggle <cr>", opts)
 
 -- <MAXIMIZER>
 keymap("n", "<leader>a", "<cmd>MaximizerToggle!<cr>", opts)
-
--- <CALENDAR>
-keymap("n", "y", "<cmd>Calendar<CR>", opts)
 
 -- <TRANSPARENCY>
 keymap("n", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info about current buffer
@@ -115,15 +108,15 @@ keymap("n", "Q", "y$", opts)
 keymap("n", "<tab>", "q", opts)
 
 -- TABS
-keymap("n", "<Leader>dt", "<cmd>tabnew %<cr>", opts) --  new tab
-keymap("n", "<Leader>g", "gt", opts) --                 next tab
+keymap("n", "<Leader>u", "<cmd>tabnew %<cr>", opts) --   new tab
 keymap("n", "<Leader>t", "gT", opts) --                 prev tab
-keymap("n", "<Leader>u", "<cmd>tabclose<cr>", opts) -- close tab
+keymap("n", "<Leader>g", "gt", opts) --                 next tab
+keymap("n", "<Leader>v", "<cmd>tabclose<cr>", opts) -- close tab
 
 -- Z MOVEMENTS
 keymap({ "n", "v" }, "zl", "z6l", opts) --                   zoom left
 keymap({ "n", "v" }, "zh", "z6h", opts) --                  zoom right
-keymap({ "n", "v" }, "<Leader>j", "zz", opts) --           center text
+keymap({ "n", "v" }, "gj", "zz", opts) --                  center text
 keymap("n", "z.", ":<C-u>normal! zszH<cr>", opts) -- center horizontal
 
 -- MOVE LINE/PARAGRAPH
@@ -140,7 +133,6 @@ keymap("", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- UTILS
 keymap("n", "<c-q>", "<c-r>", opts) --                                    redo
-keymap("n", "<leader>da", "<cmd>LuaSnipUnlinkCurrent<cr>", opts) --    luasnip
 keymap("n", "<Leader>f", "<cmd>w<cr>", opts) --                      save file
 keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) --         highlights
 keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --              startupTime
@@ -148,22 +140,25 @@ keymap("n", "<Leader>q", "<cmd>q<cr>", opts) --                   close window
 keymap("n", "<leader>do", ":so %<cr>", opts) --           refresh lua settings
 keymap("n", "<Leader>Q", "<cmd>q!<cr>", opts) --         close window and file
 keymap("", "\\w", "`.") --                             go to last changed line
-keymap("s", "<c-h>", "<BS>i", opts) --                luasnip delete selection
-keymap("s", "q", "q", opts) --                      luasnip not copy selection
 keymap("n", "<leader>c", "<c-g>", opts) --     gives info about current buffer
 keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
 keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
 
 -- D maps available:
--- q, r, y, u
+-- q, r, y, u, p
 -- s, <cr>
 -- z, x, c, n, m
 -- already used: p, o (mini_indent have effect on 'do'),
 
 -- G maps available:
--- q, w, r, t, y, u, o (implementation remapeable)
--- <cr>
+-- q, w, t, y, u
 -- z, x
+
+-- <leader> maps available
+-- y
+-- s
+-- z, n
+-- combinations with d, k
 
 -- <C- > maps available
 -- q (ugly redo), y, p (possibly unnecesary)

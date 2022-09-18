@@ -26,11 +26,11 @@ saga.init_lsp_saga({
 	rename_action_quit = "<esc>",
 })
 
-vim.keymap.set("n", "gi", "<cmd>Lspsaga lsp_finder<CR>", { silent = true, noremap = true }) --definition and reference
+vim.keymap.set("n", "gk", "<cmd>Lspsaga lsp_finder<CR>", { silent = true, noremap = true }) --definition and reference
 vim.keymap.set("n", "gc", "<cmd>Lspsaga code_action<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "gh", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true, noremap = true })
-vim.keymap.set("n", "go", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+vim.keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 vim.keymap.set("n", "\\e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "\\f", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true, noremap = true })

@@ -166,7 +166,6 @@ return packer.startup(function(use)
 		end,
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	-- use({ "crispgm/telescope-heading.nvim" }) --neorg
 	use({
 		"ahmedkhalf/project.nvim",
 		config = function()
@@ -297,14 +296,6 @@ return packer.startup(function(use)
 			require("plugins-config.neorg")
 		end,
 	})
-	use({
-		"itchyny/calendar.vim",
-		config = function()
-			require("plugins-config.calendar")
-		end,
-		cmd = "Calendar",
-	})
-	-- rm -rf ~/.cache/calendar.vim/google/
 
 	-- FRONTEND DEVELOPMENT --------------------------------------
 	use({
@@ -318,13 +309,7 @@ return packer.startup(function(use)
 			require("plugins-config.colorizer")
 		end,
 	})
-	use({
-		"ziontee113/color-picker.nvim",
-		cmd = { "PickColor", "PickColorInsert" },
-		config = function()
-			require("plugins-config.color-picker")
-		end,
-	})
+	use("uga-rosa/ccc.nvim")
 	-- use({
 	--   "ray-x/web-tools.nvim",
 	-- config = function()
@@ -333,7 +318,7 @@ return packer.startup(function(use)
 	-- })
 
 	-- COLORSCHEMES ----------------------------------------------
-	use({ "raddari/last-color.nvim" })
+	use("raddari/last-color.nvim")
 	use({
 		"B4mbus/oxocarbon-lua.nvim",
 		"Mofiqul/dracula.nvim",
@@ -349,7 +334,6 @@ return packer.startup(function(use)
 		"nxvu699134/vn-night.nvim",
 		"olimorris/onedarkpro.nvim",
 		"ray-x/aurora",
-		"ray-x/starry.nvim",
 		"rebelot/kanagawa.nvim",
 		"rmehri01/onenord.nvim",
 		"rose-pine/neovim",
