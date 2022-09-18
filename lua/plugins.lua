@@ -186,6 +186,10 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
+		"nvim-telescope/telescope-frecency.nvim",
+		requires = { "kkharji/sqlite.lua" },
+	})
+	use({
 		"kyazdani42/nvim-tree.lua",
 		cmd = { "NvimTreeToggle", "NvimTreeRefresh", "NvimTreeClose" },
 		requires = {

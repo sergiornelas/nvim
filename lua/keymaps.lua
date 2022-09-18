@@ -9,17 +9,17 @@ vim.g.mapleader = " "
 
 -- <TELESCOPE>
 keymap("n", "<leader>i", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
-keymap("n", "<leader>p", "<cmd>Telescope oldfiles<cr>", opts)
-keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy<cr>", opts)
-keymap("n", "<leader>m", "<cmd>Telescope git_status<cr>", opts)
+keymap("n", "<leader>p", "<cmd>Telescope frecency<cr>", opts)
+keymap("n", "<leader>u", "<cmd>Telescope git_status<cr>", opts)
+keymap("n", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
+keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("n", "<leader>d", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
 keymap("n", "<leader>kp", "<cmd>Telescope projects theme=dropdown <cr>", opts)
 
 -- <HARPOON>
-keymap("n", "<leader>e", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
+keymap("n", "<leader>h", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
 keymap("n", "mm", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
 keymap("n", "mf", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", opts)
 keymap("n", "me", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
@@ -42,7 +42,7 @@ keymap("n", "gi", "<cmd>Gitsigns next_hunk<cr>^", opts)
 keymap("n", "go", "<cmd>Gitsigns prev_hunk<cr>^", opts)
 
 -- <DIFF VIEW GIT>
-keymap("n", "<leader>h", "<cmd>DiffviewOpen<cr>", opts)
+keymap("n", "<leader>v", "<cmd>DiffviewOpen<cr>", opts)
 keymap("n", "<leader>kf", "<cmd>DiffviewFileHistory %<cr>", opts)
 keymap("n", "<leader>kg", "<cmd>DiffviewFileHistory<cr>", opts)
 
@@ -58,10 +58,10 @@ keymap("n", "<c-k>", "<plug>(CybuPrev)", opts)
 keymap("n", "g<cr>", "<cmd>w<cr> | <cmd>SearchSession<cr>", opts)
 
 -- <INLAY HINTS>
-keymap("n", "<leader>n", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
+keymap("n", "<leader>m", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
 -- <NVIM TREE>
-keymap("n", "<leader>r", "<cmd>NvimTreeToggle <cr>", opts)
+keymap("n", "<leader>g", "<cmd>NvimTreeToggle <cr>", opts)
 
 -- <MAXIMIZER>
 keymap("n", "<leader>a", "<cmd>MaximizerToggle!<cr>", opts)
@@ -108,10 +108,10 @@ keymap("n", "Q", "y$", opts)
 keymap("n", "<tab>", "q", opts)
 
 -- TABS
-keymap("n", "<Leader>u", "<cmd>tabnew %<cr>", opts) --   new tab
-keymap("n", "<Leader>t", "gT", opts) --                 prev tab
-keymap("n", "<Leader>g", "gt", opts) --                 next tab
-keymap("n", "<Leader>v", "<cmd>tabclose<cr>", opts) -- close tab
+keymap("n", "<Leader>n", "<cmd>tabnew %<cr>", opts) --   new tab
+keymap("n", "<Leader>e", "gt", opts) --                 next tab
+keymap("n", "<Leader>r", "gT", opts) --                 prev tab
+keymap("n", "<Leader>t", "<cmd>tabclose<cr>", opts) -- close tab
 
 -- Z MOVEMENTS
 keymap({ "n", "v" }, "zl", "z6l", opts) --                   zoom left

@@ -6,7 +6,7 @@ end
 telescope.load_extension("projects")
 telescope.load_extension("fzf")
 telescope.load_extension("session-lens")
--- telescope.load_extension("heading") --neorg
+telescope.load_extension("frecency")
 
 local actions = require("telescope.actions")
 
@@ -80,8 +80,9 @@ telescope.setup({
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			-- the default case_mode is "smart_case"
 		},
-		heading = {
-			treesitter = true,
+		frecency = {
+			show_scores = true,
+			ignore_patterns = { "*.git/*", "*/tmp/*" },
 		},
 	},
 })
