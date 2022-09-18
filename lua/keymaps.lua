@@ -15,8 +15,7 @@ keymap("n", "<leader>u", "<cmd>Telescope git_status<cr>", opts)
 keymap("n", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy<cr>", opts)
-keymap("n", "<leader>d", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
-keymap("n", "<leader>kp", "<cmd>Telescope projects theme=dropdown <cr>", opts)
+keymap("n", "<leader>dj", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
 
 -- <HARPOON>
 keymap("n", "<leader>h", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
@@ -64,7 +63,7 @@ keymap("n", "<leader>m", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts
 keymap("n", "<leader>g", "<cmd>NvimTreeToggle <cr>", opts)
 
 -- <MAXIMIZER>
-keymap("n", "<leader>a", "<cmd>MaximizerToggle!<cr>", opts)
+keymap("n", "v<leader>", "<cmd>MaximizerToggle!<cr>", opts)
 
 -- <TRANSPARENCY>
 keymap("n", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info about current buffer
@@ -108,10 +107,10 @@ keymap("n", "Q", "y$", opts)
 keymap("n", "<tab>", "q", opts)
 
 -- TABS
-keymap("n", "<Leader>n", "<cmd>tabnew %<cr>", opts) --   new tab
-keymap("n", "<Leader>e", "gt", opts) --                 next tab
-keymap("n", "<Leader>r", "gT", opts) --                 prev tab
-keymap("n", "<Leader>t", "<cmd>tabclose<cr>", opts) -- close tab
+keymap("n", "<leader>n", "<cmd>tabnew %<cr>", opts) --   new tab
+keymap("n", "<leader>e", "gt", opts) --                 next tab
+keymap("n", "<leader>r", "gT", opts) --                 prev tab
+keymap("n", "<leader>t", "<cmd>tabclose<cr>", opts) -- close tab
 
 -- Z MOVEMENTS
 keymap({ "n", "v" }, "zl", "z6l", opts) --                   zoom left
@@ -127,21 +126,28 @@ keymap("x", "<c-k>", ":m '<-2<CR>gv=gv", opts)
 keymap("", "<c-o>", "<c-i>", opts)
 keymap("", "<c-i>", "<c-o>", opts)
 
+-- SWITCH BACKGROUND COLOR
+keymap("n", "<leader>di", "<cmd>set background=dark<cr>", opts)
+keymap("n", "<leader>do", "<cmd>set background=light<cr>", opts)
+
 -- DEALING WITH WORD WRAP
 keymap("", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 keymap("", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- UTILS
 keymap("n", "<c-q>", "<c-r>", opts) --                                    redo
-keymap("n", "<Leader>f", "<cmd>w<cr>", opts) --                      save file
+keymap("n", "<leader>f", "<cmd>w<cr>", opts) --                      save file
 keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) --         highlights
 keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --              startupTime
-keymap("n", "<Leader>q", "<cmd>q<cr>", opts) --                   close window
-keymap("n", "<Leader>Q", "<cmd>q!<cr>", opts) --         close window and file
+keymap("n", "<leader>q", "<cmd>q<cr>", opts) --                   close window
+keymap("n", "<leader>a", "<cmd>set nu!<cr>", opts) --        toggle set number
+keymap("n", "<leader>Q", "<cmd>q!<cr>", opts) --         close window and file
 keymap("", "\\w", "`.") --                             go to last changed line
 keymap("n", "<leader>c", "<c-g>", opts) --     gives info about current buffer
 keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
 keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
+
+-- Free: y
 
 -- D maps available:
 -- q, r, y, u, p
@@ -155,11 +161,12 @@ keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
 
 -- <leader> maps available
 -- y
--- z
--- combinations with d (currently only used for colorscheme), k
+-- z, x
+-- combinations with: d, k
+-- Reverse available: q, <cr>, z, c
 
 -- <C- > maps available
--- q (ugly redo), y, p (possibly unnecesary)
+-- q (ugly), y, p (possibly unnecesary)
 -- s (unnecesary), <cr>
 -- z, x, v (possibly unnecesary), b, n, m?
 

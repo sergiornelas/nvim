@@ -2,7 +2,6 @@ local M = {}
 
 M.onedark = function()
 	require("onedark").setup({
-		toggle_style_key = "<leader>x",
 		style = "deep",
 	})
 end

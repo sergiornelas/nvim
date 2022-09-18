@@ -167,12 +167,6 @@ return packer.startup(function(use)
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({
-		"ahmedkhalf/project.nvim",
-		config = function()
-			require("plugins-config.project")
-		end,
-	})
-	use({
 		"rmagatti/auto-session",
 		config = function()
 			require("plugins-config.auto-session")
@@ -314,12 +308,6 @@ return packer.startup(function(use)
 		end,
 	})
 	use("uga-rosa/ccc.nvim")
-	-- use({
-	--   "ray-x/web-tools.nvim",
-	-- config = function()
-	-- 	require("web-tools").setup()
-	-- end,
-	-- })
 
 	-- COLORSCHEMES ----------------------------------------------
 	use("raddari/last-color.nvim")
@@ -444,12 +432,13 @@ return packer.startup(function(use)
 	-- mattn/webapi-vim                                  postman ?
 	-- MunifTanjim/prettier.nvim              prettier alternative
 	-- numToStr/prettierrc.nvim               prettier alternative
+	-- ray-x/web-tools.nvim               live server for html/css
 
 	-- ARTIFICIAL INTELIGENCE ------------------------------------
 	-- github/copilot.vim
+	-- zbirenbaum/copilot-cmp
 	-- jameshiew/nvim-magic
 	-- tzachar/cmp-tabnine
-	-- zbirenbaum/copilot-cmp
 
 	-- UTILS -----------------------------------------------------
 	-- MattesGroeger/vim-bookmarks                           marks
