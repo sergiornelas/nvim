@@ -40,7 +40,7 @@ g.python3_host_skip_check = 1
 g.python3_host_prog = "/usr/local/bin/python3"
 
 vim.cmd([[
-  " Macros in visual mode
+  " Execute macros in visual mode
   xnoremap ! :<C-u>call ExecuteMacroOverVisualRange()<CR>
   function! ExecuteMacroOverVisualRange()
     echo "!".getcmdline()
@@ -51,9 +51,6 @@ vim.cmd([[
   cnoremap <c-v> <c-r>*
   " Exit terminal
   :tnoremap <Esc> <C-\><C-n>
-
-  " Calendar
-  source ~/.cache/calendar.vim/credentials.vim
 
   " Stop folding
   autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99

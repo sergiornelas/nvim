@@ -59,7 +59,7 @@ gitsigns.setup({
 		map("n", "<leader>ku", gs.undo_stage_hunk)
 		map("n", "<leader>kR", gs.reset_buffer)
 		map("n", "<leader>j", gs.preview_hunk)
-		map("n", "<leader>kf", function()
+		map("n", "<leader>kj", function()
 			gs.blame_line({ full = true })
 		end)
 		map("n", "<leader>kk", gs.toggle_current_line_blame)

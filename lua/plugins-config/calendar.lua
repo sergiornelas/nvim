@@ -7,6 +7,8 @@ vim.g.calendar_task_width = 100
 vim.g.calendar_task_delete = 0
 
 vim.cmd([[
+  source ~/.cache/calendar.vim/credentials.vim
+
   augroup calendar-mappings
     autocmd!
     autocmd FileType calendar nmap <buffer> V <Plug>(calendar_visual)

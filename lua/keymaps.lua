@@ -13,10 +13,10 @@ keymap("n", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy<cr>", opts)
-keymap("n", "<leader>dl", "<cmd>Telescope grep_string<cr>", opts)
-keymap("n", "<leader>dp", "<cmd>Telescope projects theme=dropdown <cr>", opts)
-keymap("n", "<leader>di", "<cmd>Telescope git_status<cr>", opts)
-keymap("n", "<leader>dd", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
+keymap("n", "<leader>m", "<cmd>Telescope git_status<cr>", opts)
+keymap("n", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
+keymap("n", "<leader>d", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
+keymap("n", "<leader>kp", "<cmd>Telescope projects theme=dropdown <cr>", opts)
 
 -- <HARPOON>
 keymap("n", "<leader>e", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
@@ -43,10 +43,10 @@ keymap("n", "go", "<cmd>Gitsigns prev_hunk<cr>^", opts)
 
 -- <DIFF VIEW GIT>
 keymap("n", "<leader>h", "<cmd>DiffviewOpen<cr>", opts)
-keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<cr>", opts)
-keymap("n", "<leader>dh", "<cmd>DiffviewFileHistory<cr>", opts)
+keymap("n", "<leader>kf", "<cmd>DiffviewFileHistory %<cr>", opts)
+keymap("n", "<leader>kg", "<cmd>DiffviewFileHistory<cr>", opts)
 
--- <LUA SNIP>
+-- <LUASNIP>
 keymap("s", "<c-h>", "<BS>i", opts)
 keymap("s", "q", "q", opts)
 
@@ -58,7 +58,7 @@ keymap("n", "<c-k>", "<plug>(CybuPrev)", opts)
 keymap("n", "g<cr>", "<cmd>w<cr> | <cmd>SearchSession<cr>", opts)
 
 -- <INLAY HINTS>
-keymap("n", "<leader>m", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
+keymap("n", "<leader>n", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
 -- <NVIM TREE>
 keymap("n", "<leader>r", "<cmd>NvimTreeToggle <cr>", opts)
@@ -137,7 +137,6 @@ keymap("n", "<Leader>f", "<cmd>w<cr>", opts) --                      save file
 keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) --         highlights
 keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --              startupTime
 keymap("n", "<Leader>q", "<cmd>q<cr>", opts) --                   close window
-keymap("n", "<leader>do", ":so %<cr>", opts) --           refresh lua settings
 keymap("n", "<Leader>Q", "<cmd>q!<cr>", opts) --         close window and file
 keymap("", "\\w", "`.") --                             go to last changed line
 keymap("n", "<leader>c", "<c-g>", opts) --     gives info about current buffer
@@ -156,9 +155,8 @@ keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
 
 -- <leader> maps available
 -- y
--- s
--- z, n
--- combinations with d, k
+-- z
+-- combinations with d (currently only used for colorscheme), k
 
 -- <C- > maps available
 -- q (ugly redo), y, p (possibly unnecesary)
