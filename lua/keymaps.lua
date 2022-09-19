@@ -54,7 +54,7 @@ keymap("n", "<c-j>", "<plug>(CybuNext)", opts)
 keymap("n", "<c-k>", "<plug>(CybuPrev)", opts)
 
 -- <SESSION LENS>
-keymap("n", "g<cr>", "<cmd>w<cr> | <cmd>SearchSession<cr>", opts)
+keymap("n", "g<cr>", "<cmd>SearchSession<cr>", opts)
 
 -- <INLAY HINTS>
 keymap("n", "<leader>m", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
@@ -63,7 +63,7 @@ keymap("n", "<leader>m", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts
 keymap("n", "<leader>g", "<cmd>NvimTreeToggle <cr>", opts)
 
 -- <MAXIMIZER>
-keymap("n", "v<leader>", "<cmd>MaximizerToggle!<cr>", opts)
+keymap("n", "v<leader>", "<cmd>WindowsMaximaze<cr>", opts)
 
 -- <TRANSPARENCY>
 keymap("n", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info about current buffer

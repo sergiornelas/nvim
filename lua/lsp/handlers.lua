@@ -58,18 +58,22 @@ end
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_buf_set_keymap
 
-local function lsp_highlight_document(client)
-	if client.resolved_capabilities.document_highlight then
-		vim.api.nvim_exec(
-			[[
-		    augroup lsp_document_highlight
-		      autocmd! * <buffer>
-		      autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-		      autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-		    augroup END
-		  ]],
-			false
-		)
+local function lsp_highlight_document(client, bufnr)
+	if client.server_capabilities.documentHighlightProvider then
+		vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+		vim.api.nvim_clear_autocmds({ buffer = bufnr, group = "lsp_document_highlight" })
+		vim.api.nvim_create_autocmd("CursorHold", {
+			callback = vim.lsp.buf.document_highlight,
+			buffer = bufnr,
+			group = "lsp_document_highlight",
+			desc = "Document Highlight",
+		})
+		vim.api.nvim_create_autocmd("CursorMoved", {
+			callback = vim.lsp.buf.clear_references,
+			buffer = bufnr,
+			group = "lsp_document_highlight",
+			desc = "Clear All the References",
+		})
 	end
 end
 
@@ -77,7 +81,7 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	keymap(bufnr, "n", "g<leader>", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
+	keymap(bufnr, "n", "g<leader>", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
 	keymap(bufnr, "n", "gL", "<cmd>LspInfo<cr>", opts)
 	keymap(bufnr, "n", "gQ", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 	keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
@@ -102,11 +106,11 @@ M.on_attach = function(client, bufnr)
 		or client.name == "html"
 		or client.name == "sumneko_lua"
 	then
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.document_formatting = false
 	end
 
-	-- Classic highlight
-	lsp_highlight_document(client)
+	-- LSP highlight
+	lsp_highlight_document(client, bufnr)
 
 	-- Inlay hints
 	if client.name == "tsserver" or client.name == "sumneko_lua" then
@@ -119,7 +123,7 @@ M.on_attach = function(client, bufnr)
 	end
 
 	-- Format on save. All formatting clients are handled by null_ls
-	-- if client.resolved_capabilities.document_formatting then
+	-- if client.server_capabilities.document_formatting then
 	-- 	vim.api.nvim_create_autocmd(
 	-- 		"BufWritePre",
 	-- 		{ pattern = "<buffer>", command = "lua vim.lsp.buf.formatting_sync()" }

@@ -28,6 +28,7 @@ neorg.setup({
 				engine = "nvim-cmp",
 			},
 		},
+		-- ["external.context"] = {},
 		-- ["core.gtd.base"] = {,
 		-- 	config = {
 		-- 		workspace = "gtd",

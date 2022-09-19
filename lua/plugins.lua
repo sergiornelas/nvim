@@ -50,7 +50,7 @@ return packer.startup(function(use)
 		cmd = "StartupTime",
 	})
 	use({
-		"nathom/filetype.nvim", --0.8 will not be necessary anymore
+		"nathom/filetype.nvim",
 		"lewis6991/impatient.nvim",
 	})
 
@@ -174,7 +174,6 @@ return packer.startup(function(use)
 	})
 	use({
 		"rmagatti/session-lens",
-		requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
 		config = function()
 			require("plugins-config.session-lens")
 		end,
@@ -230,7 +229,15 @@ return packer.startup(function(use)
 			require("plugins-config.transparent")
 		end,
 	})
-	use({ "szw/vim-maximizer", event = "WinEnter" })
+	use({
+		"anuvyklack/windows.nvim",
+		requires = {
+			"anuvyklack/middleclass",
+		},
+		config = function()
+			require("windows").setup()
+		end,
+	})
 	use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
 
 	-- GIT -------------------------------------------------------
@@ -289,7 +296,6 @@ return packer.startup(function(use)
 			-- "max397574/neorg-contexts",
 			-- "nvim-neorg/neorg-telescope",
 		},
-		commit = "f2d5ecdd2ef472152f5ccd352bbc324109174a2f",
 		config = function()
 			require("plugins-config.neorg")
 		end,
@@ -433,6 +439,7 @@ return packer.startup(function(use)
 	-- MunifTanjim/prettier.nvim              prettier alternative
 	-- numToStr/prettierrc.nvim               prettier alternative
 	-- ray-x/web-tools.nvim               live server for html/css
+	-- Azeirah/nvim-redux                          Redux telescope
 
 	-- ARTIFICIAL INTELIGENCE ------------------------------------
 	-- github/copilot.vim

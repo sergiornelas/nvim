@@ -5,7 +5,7 @@ local group = vim.api.nvim_create_augroup("group", { clear = true })
 -- Set wrap on specific files
 api.nvim_create_autocmd("FileType", {
 	pattern = { "norg", "markdown", "gitcommit" },
-	command = "setlocal wrap",
+	command = "setlocal wrap | setlocal spell", --spell not working
 	group = group,
 })
 
@@ -64,6 +64,9 @@ vim.cmd([[
   " Close nvimtree and TSContext
   autocmd VimLeave * NvimTreeClose
   autocmd VimLeave * TSContextDisable
+
+  " Session bug since 0.8 (*.vim files)
+  autocmd VimLeave * call timer_start(20, {-> execute("!rm /Users/sergioornelas/.local/share/nvim/sessions/*x.vim")})
 
   " Unmap matchit conflicts
   autocmd VimEnter * call timer_start(10, {-> execute("unmap [%")})

@@ -20,6 +20,13 @@ saga.init_lsp_saga({
 		tabe = "<c-k>",
 		quit = "<esc>",
 	},
+	definition_action_keys = {
+		edit = "<c-j>",
+		vsplit = "<c-v>",
+		split = "<c-s>",
+		tabe = "<c-k>",
+		quit = "<esc>",
+	},
 	code_action_keys = {
 		quit = "<esc>",
 	},
