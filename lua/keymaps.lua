@@ -153,7 +153,6 @@ keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
 -- q, r, y, u, p
 -- s, <cr>
 -- z, x, c, n, m
--- already used: p, o (mini_indent have effect on 'do'),
 
 -- G maps available:
 -- q, w, t, y, u

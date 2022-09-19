@@ -4,7 +4,7 @@ if not session_status_ok then
 end
 
 session_lens.setup({
-	prompt_title = "🪐 Teleport (save file) 🪐",
 	path_display = { "shorten" },
+	prompt_title = "~~| Teleport |~~",
 	layout_config = { width = 40 },
 })
