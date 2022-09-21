@@ -63,7 +63,7 @@ keymap("n", "<leader>m", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts
 keymap("n", "<leader>g", "<cmd>NvimTreeToggle <cr>", opts)
 
 -- <MAXIMIZER>
-keymap("n", "v<leader>", "<cmd>WindowsMaximaze<cr>", opts)
+keymap("n", "v<leader>", "<cmd>WindowsMaximize<cr>", opts)
 
 -- <TRANSPARENCY>
 keymap("n", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info about current buffer
@@ -72,12 +72,15 @@ keymap("n", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info ab
 keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) --buffer delete
 
 -- NAVIGATION
+keymap("n", "<leader>q", "<cmd>q<cr>", opts) --                 close window
+keymap("n", "<leader>Q", "<cmd>q!<cr>", opts) --     close window and buffer
+keymap("n", "<c-v>", "<c-^>", opts) --                  toggle recent window
 keymap("n", "<c-r>", "<c-w>w", opts) --                 navigate next window
 keymap("n", "<c-a>", "<c-w>W", opts) --             navigate previous window
 keymap({ "n", "x" }, "<c-e>", "<c-y>", opts) --     page scrolls up one line
 keymap({ "n", "x" }, "<c-f>", "<c-e>", opts) --   page scrolls down one line
 keymap({ "n", "x" }, "<c-p>", "<c-b>", opts) --   page scrolls up fullscreen
-keymap({ "n", "x" }, "<c-v>", "<c-f>", opts) -- page scrolls down fullscreen
+keymap({ "n", "x" }, "<c-b>", "<c-f>", opts) -- page scrolls down fullscreen
 
 -- RESIZE WINDOW
 keymap("n", "ƒ", "<cmd>vertical resize +4<cr>", opts)
@@ -138,10 +141,9 @@ keymap("", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 keymap("n", "<c-q>", "<c-r>", opts) --                                    redo
 keymap("n", "<leader>f", "<cmd>w<cr>", opts) --                      save file
 keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) --         highlights
-keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --              startupTime
-keymap("n", "<leader>q", "<cmd>q<cr>", opts) --                   close window
+keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --            start up time
 keymap("n", "<leader>a", "<cmd>set nu!<cr>", opts) --        toggle set number
-keymap("n", "<leader>Q", "<cmd>q!<cr>", opts) --         close window and file
+keymap("n", "<c-z>", "<cmd>echo 'careful'<cr>", opts) -- avoids closing neovim
 keymap("", "\\w", "`.") --                             go to last changed line
 keymap("n", "<leader>c", "<c-g>", opts) --     gives info about current buffer
 keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
@@ -155,19 +157,19 @@ keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
 -- z, x, c, n, m
 
 -- G maps available:
--- q, w, t, y, u
+-- q, w, t, y
 -- z, x
 
 -- <leader> maps available
 -- y
 -- z, x
 -- combinations with: d, k
--- Reverse available: q, <cr>, z, c
+-- Reverse available: q, z, c
 
 -- <C- > maps available
--- q (ugly), y, p (possibly unnecesary)
+-- y
 -- s (unnecesary), <cr>
--- z, x, v (possibly unnecesary), b, n, m?
+-- z, x, n, m?
 
 -- <C- > insert mode maps available:
--- q, i, p, a, s, z, x, b, n, m
+-- q, p, s, z, x, b, n, m

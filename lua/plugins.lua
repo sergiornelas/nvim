@@ -293,8 +293,6 @@ return packer.startup(function(use)
 		"nvim-neorg/neorg",
 		requires = {
 			"nvim-lua/plenary.nvim",
-			-- "max397574/neorg-contexts",
-			-- "nvim-neorg/neorg-telescope",
 		},
 		config = function()
 			require("plugins-config.neorg")
@@ -440,6 +438,7 @@ return packer.startup(function(use)
 	-- numToStr/prettierrc.nvim               prettier alternative
 	-- ray-x/web-tools.nvim               live server for html/css
 	-- Azeirah/nvim-redux                          Redux telescope
+	-- AckslD/nvim-FeMaco.lua                 css server for js/ts
 
 	-- ARTIFICIAL INTELIGENCE ------------------------------------
 	-- github/copilot.vim
@@ -469,9 +468,10 @@ return packer.startup(function(use)
 	-- potamides/pantran.nvim                    google translator
 	-- phaazon/mind.nvim                                  note app
 	-- jghauser/kitty-runner.nvim         kitty commands from nvim
+	-- Chaitanyabsprip/present.nvim       power point presentation
 
 	-- Last time checked Awesome and This-week-in-neovim
-	-- (12/09/22)
+	-- (19/09/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

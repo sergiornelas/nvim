@@ -4,7 +4,7 @@ if not ok then
 end
 
 cybu.setup({
-	display_time = 1200,
+	display_time = 700,
 	position = {
 		relative_to = "win",
 		anchor = "bottomright",

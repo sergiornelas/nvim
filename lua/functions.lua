@@ -2,7 +2,7 @@ local g = vim.g
 local api = vim.api
 local group = vim.api.nvim_create_augroup("group", { clear = true })
 
--- Set wrap on specific files
+-- Set wrap and spell on specific file types
 api.nvim_create_autocmd("FileType", {
 	pattern = { "norg", "markdown", "gitcommit" },
 	command = "setlocal wrap | setlocal spell", --spell not working
@@ -28,7 +28,7 @@ api.nvim_create_autocmd(
 api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = group })
 api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = group })
 
--- Set last color scheme selected, gruvbox by default if no color schemes found
+-- Set last color scheme selected, gruvbox by default if no colorschemes found
 local theme = require("last-color").recall() or "gruvbox"
 vim.cmd(("colorscheme %s"):format(theme))
 
