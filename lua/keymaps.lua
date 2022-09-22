@@ -8,12 +8,12 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- <TELESCOPE>
+keymap("n", "<leader>u", "<cmd>Telescope frecency<cr>", opts)
 keymap("n", "<leader>i", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
-keymap("n", "<leader>p", "<cmd>Telescope frecency<cr>", opts)
-keymap("n", "<leader>u", "<cmd>Telescope git_status<cr>", opts)
 keymap("n", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
+keymap("n", "<leader>a", "<cmd>Telescope git_status<cr>", opts)
 keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("n", "<leader>dj", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
 
@@ -102,6 +102,7 @@ keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode aga
 keymap("n", "vv", "Vg_^", opts) --                   visual whole line
 keymap("n", "V", "vg_", opts) --                   visual to the right
 keymap({ "n", "x" }, "<c-l>", "<c-v>", opts) -- block visual selection
+keymap("x", "<leader>p", '"_dP', opts) --     paste and don't register
 keymap("x", "<c-w>", "o", opts) --     o is used by treesitter-objects
 
 -- SWITCH RECORD MACRO AND YANK
@@ -142,8 +143,11 @@ keymap("n", "<c-q>", "<c-r>", opts) --                                    redo
 keymap("n", "<leader>f", "<cmd>w<cr>", opts) --                      save file
 keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) --         highlights
 keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --            start up time
-keymap("n", "<leader>a", "<cmd>set nu!<cr>", opts) --        toggle set number
-keymap("n", "<c-z>", "<cmd>echo 'careful'<cr>", opts) -- avoids closing neovim
+keymap("", "<c-x>", "<c-a>") --                                increase number
+keymap("", "g<c-x>", "g<c-a>") --                              increase column
+keymap("", "<c-z>", "<c-x>") --                                decrease number
+keymap("", "g<c-z>", "g<c-x>") --                              decrease column
+keymap("n", "<leader>z", "<cmd>set nu!<cr>", opts) --        toggle set number
 keymap("", "\\w", "`.") --                             go to last changed line
 keymap("n", "<leader>c", "<c-g>", opts) --     gives info about current buffer
 keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
@@ -157,19 +161,19 @@ keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
 -- z, x, c, n, m
 
 -- G maps available:
--- q, w, t, y
+-- q, w, y
 -- z, x
 
 -- <leader> maps available
 -- y
--- z, x
+-- x
 -- combinations with: d, k
 -- Reverse available: q, z, c
 
 -- <C- > maps available
 -- y
 -- s (unnecesary), <cr>
--- z, x, n, m?
+-- n, m?
 
 -- <C- > insert mode maps available:
 -- q, p, s, z, x, b, n, m

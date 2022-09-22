@@ -47,7 +47,7 @@ configs.setup({
 		keymaps = {
 			init_selection = "<c-y>",
 			node_incremental = "<c-i>",
-			scope_incremental = "<c-x>",
+			scope_incremental = "<c-c>",
 			node_decremental = "<c-o>",
 		},
 	},

@@ -51,6 +51,8 @@ vim.cmd([[
   cnoremap <c-v> <c-r>*
   " Exit terminal
   :tnoremap <Esc> <C-\><C-n>
+  " Magic multicursor
+  xnoremap gt :s/\(\w.*\)/
 
   " Stop folding
   autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99

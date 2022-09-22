@@ -16,7 +16,7 @@ autosession.setup({
 	log_level = "error",
 	auto_session_create_enabled = false,
 	auto_session_use_git_branch = false,
-	pre_save_cmds = { _G.close_all_floating_wins, "TSContextDisable", "w" },
+	pre_save_cmds = { _G.close_all_floating_wins, "TSContextDisable" },
 	-- save_extra_cmds
 	-- post_save_cmds
 	-- pre_restore_cmds

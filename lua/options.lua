@@ -23,7 +23,7 @@ vim.opt.shell = "/bin/zsh" --        even if you are using fish, some plugins ru
 vim.opt.shiftwidth = 2 --            the number of spaces inserted for each indentation
 vim.opt.shortmess:append("c")
 vim.opt.showcmd = false
-vim.opt.showmode = false --          we don't need to see things like -- INSERT -- anymore
+vim.opt.showmode = false --          we don't need to see things like --INSERT-- anymore
 vim.opt.showtabline = 0 --           always show tabs
 vim.opt.sidescrolloff = 8
 vim.opt.signcolumn = "yes" --        always show the sign column, otherwise it would shift the text each time
@@ -37,7 +37,6 @@ vim.opt.termguicolors = true --      set term gui colors (most terminals support
 vim.opt.timeoutlen = 1000 --         time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.undofile = true --           enable persistent undo
 vim.opt.updatetime = 200 --          faster completion (4000ms default)
-vim.opt.ve = "block" --              visual block no limits
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.winminwidth = 7 --           window maximizer minwidth
 vim.opt.winwidth = 7 --              window maximizer width

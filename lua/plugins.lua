@@ -361,6 +361,12 @@ return packer.startup(function(use)
 			require("plugins-config.colorschemes").onedark()
 		end,
 	})
+	-- use({
+	-- 	"ofirgall/ofirkai.nvim",
+	-- 	config = function()
+	-- 		require("ofirkai").setup()
+	-- 	end,
+	-- })
 
 	-- CODE WARS -------------------------------------------------
 	-- run = "cd js && npm ci" at lab plugin dir
