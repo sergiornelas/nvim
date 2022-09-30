@@ -6,15 +6,7 @@ end
 neorg.setup({
 	load = {
 		["core.defaults"] = {},
-		["core.norg.concealer"] = {}, -- Icons
-		["core.norg.dirman"] = { --Managing directories full of .norg files
-			config = {
-				workspaces = {
-					notes = "~/notes",
-					-- gtd = "~/notes/gtd",
-				},
-			},
-		},
+		["core.norg.concealer"] = {}, -- icons
 		["core.keybinds"] = {
 			config = {
 				default_keybinds = false,
@@ -23,11 +15,19 @@ neorg.setup({
 				end,
 			},
 		},
-		["core.norg.completion"] = { --Extra cmp options,
+		["core.norg.completion"] = { -- extra cmp options,
 			config = {
 				engine = "nvim-cmp",
 			},
 		},
+		-- ["core.norg.dirman"] = { --Managing directories full of .norg files
+		--     config = {
+		--       workspaces = {
+		--         notes = "~/notes",
+		--         -- gtd = "~/notes/gtd",
+		--       },
+		--     },
+		--   },
 		-- ["external.context"] = {},
 		-- ["core.gtd.base"] = {,
 		-- 	config = {

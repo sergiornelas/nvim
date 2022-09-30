@@ -13,7 +13,7 @@ nvim_tree.setup({
 	},
 	-- root_dirs = { ".git" }, -- Preferred root directories. Only relevant when `update_focused_file.update_root` is `true`
 	prefer_startup_root = false, --Prefer startup root directory when updating root directory of the tree. Only relevant when `update_focused_file.update_root` is `true`
-	sync_root_with_cwd = true, --Changes the tree root directory on `DirChanged` and refreshes the tree.
+	sync_root_with_cwd = false, --Changes the tree root directory on `DirChanged` and refreshes the tree.
 	reload_on_bufenter = false, --Automatically reloads the tree on `BufEnter` nvim-tree.
 	respect_buf_cwd = true, --Will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
 	renderer = {

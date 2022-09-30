@@ -12,8 +12,8 @@ keymap("n", "<leader>u", "<cmd>Telescope frecency<cr>", opts)
 keymap("n", "<leader>i", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("n", "<leader>a", "<cmd>Telescope git_status<cr>", opts)
+keymap("n", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("n", "<leader>b", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("n", "<leader>dj", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
 
@@ -64,12 +64,16 @@ keymap("n", "<leader>g", "<cmd>NvimTreeToggle <cr>", opts)
 
 -- <MAXIMIZER>
 keymap("n", "v<leader>", "<cmd>WindowsMaximize<cr>", opts)
+keymap("n", "<c-w>z", "<cmd>WindowsToggleAutowidth<cr>", opts)
 
 -- <TRANSPARENCY>
 keymap("n", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info about current buffer
 
 -- <BUFFERDELETE>
 keymap("n", "<c-h>", "<cmd>Bdelete<CR>", opts) --buffer delete
+
+-- <MINI>
+keymap("n", "<leader>df", ":lua require('mini.trailspace').trim()<cr>", opts)
 
 -- NAVIGATION
 keymap("n", "<leader>q", "<cmd>q<cr>", opts) --                 close window
@@ -142,7 +146,7 @@ keymap("", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 keymap("n", "<c-q>", "<c-r>", opts) --                                    redo
 keymap("n", "<leader>f", "<cmd>w<cr>", opts) --                      save file
 keymap("n", "<leader>w", "<cmd>set hlsearch!<CR>", opts) --         highlights
-keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --            start up time
+-- keymap("n", "<c-s>", "<cmd>StartupTime<cr>", opts) --            start up time
 keymap("", "<c-x>", "<c-a>") --                                increase number
 keymap("", "g<c-x>", "g<c-a>") --                              increase column
 keymap("", "<c-z>", "<c-x>") --                                decrease number

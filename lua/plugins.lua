@@ -45,10 +45,10 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- STARTUP OPTIMIZATIONS -------------------------------------
-	use({
-		"tweekmonster/startuptime.vim",
-		cmd = "StartupTime",
-	})
+	-- use({
+	-- 	"tweekmonster/startuptime.vim",
+	-- 	cmd = "StartupTime",
+	-- })
 	use({
 		"nathom/filetype.nvim",
 		"lewis6991/impatient.nvim",
@@ -78,7 +78,6 @@ return packer.startup(function(use)
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
-		-- check this plugin again when winbar is available
 		config = function()
 			require("plugins-config.lspsaga")
 		end,
@@ -131,9 +130,7 @@ return packer.startup(function(use)
 		"L3MON4D3/LuaSnip",
 		wants = "rafamadriz/friendly-snippets",
 	})
-	use({
-		"rafamadriz/friendly-snippets",
-	})
+	use("rafamadriz/friendly-snippets")
 
 	-- TREESITTER ------------------------------------------------
 	use({
@@ -155,11 +152,6 @@ return packer.startup(function(use)
 	-- BUFFER/NAVIGATION -----------------------------------------
 	use({
 		"nvim-telescope/telescope.nvim",
-		requires = {
-			{
-				"nvim-lua/plenary.nvim",
-			},
-		},
 		run = "make",
 		config = function()
 			require("plugins-config.telescope")
@@ -231,9 +223,7 @@ return packer.startup(function(use)
 	})
 	use({
 		"anuvyklack/windows.nvim",
-		requires = {
-			"anuvyklack/middleclass",
-		},
+		requires = "anuvyklack/middleclass",
 		config = function()
 			require("windows").setup()
 		end,
@@ -254,7 +244,6 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins-config.gitdiff")
 		end,
-		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
 	})
 
 	-- EDITING ---------------------------------------------------
@@ -279,6 +268,14 @@ return packer.startup(function(use)
 		end,
 	})
 	use({ "tversteeg/registers.nvim", event = "InsertEnter" })
+	use({
+		"ja-ford/delaytrain.nvim",
+		config = function()
+			require("delaytrain").setup({
+				grace_period = 3,
+			})
+		end,
+	})
 
 	-- MINI MODULES ----------------------------------------------
 	use({
@@ -291,9 +288,6 @@ return packer.startup(function(use)
 	-- NOTES -----------------------------------------------------
 	use({
 		"nvim-neorg/neorg",
-		requires = {
-			"nvim-lua/plenary.nvim",
-		},
 		config = function()
 			require("plugins-config.neorg")
 		end,
@@ -319,6 +313,7 @@ return packer.startup(function(use)
 		"B4mbus/oxocarbon-lua.nvim",
 		"Mofiqul/dracula.nvim",
 		"Tsuzat/NeoSolarized.nvim",
+		"catppuccin/nvim",
 		"cpea2506/one_monokai.nvim",
 		"fenetikm/falcon",
 		"folke/tokyonight.nvim",
@@ -328,6 +323,7 @@ return packer.startup(function(use)
 		"lunarvim/darkplus.nvim",
 		"marko-cerovac/material.nvim",
 		"nxvu699134/vn-night.nvim",
+		"ofirgall/ofirkai.nvim",
 		"olimorris/onedarkpro.nvim",
 		"ray-x/aurora",
 		"rebelot/kanagawa.nvim",
@@ -361,12 +357,6 @@ return packer.startup(function(use)
 			require("plugins-config.colorschemes").onedark()
 		end,
 	})
-	-- use({
-	-- 	"ofirgall/ofirkai.nvim",
-	-- 	config = function()
-	-- 		require("ofirkai").setup()
-	-- 	end,
-	-- })
 
 	-- CODE WARS -------------------------------------------------
 	-- run = "cd js && npm ci" at lab plugin dir
@@ -414,6 +404,7 @@ return packer.startup(function(use)
 	-- Weissle/persistent-breakpoints.nvim
 	-- theHamsta/nvim-dap-virtual-text
 	-- ravenxrz/DAPInstall.nvim
+	-- Lommix/godot.nvim
 
 	-- TESTING ---------------------------------------------------
 	-- David-Kunz/jester
@@ -477,7 +468,7 @@ return packer.startup(function(use)
 	-- Chaitanyabsprip/present.nvim       power point presentation
 
 	-- Last time checked Awesome and This-week-in-neovim
-	-- (19/09/22)
+	-- (26/09/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

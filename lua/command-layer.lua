@@ -3,14 +3,14 @@
 -- Writing layer uses semicolon (;), it's managed by Karabiner:
 -- https://github.com/sergiornelas/MacOS-Dotfiles/blob/main/karabiner/karabiner.json#L74-L535
 
---  WRITING           VIM EFFECT
--- -------------------------------
--- &?/+* #$% \^       #?/{   () \^
--- QWERT˙UIO          QWER˙˙˙IO
---  );(-[]=|~          ^;*}$=%&~
---  ASDFGHJKL          ASDFGHJKL
---   ! _{@`}            @ _`!~|
---   Z˙CVBNM            Z˙CVBNM
+--  WRITING       VIM EFFECT
+-- ---------------------------
+-- &?/+* #$% \^   #?/{   () \^
+-- QWERT˙UIO      QWER˙˙˙IO
+--  );(-[]=|~      ^;*}$|%&~
+--  ASDFGHJKL      ASDFGHJKL
+--   ! _{@`}        @ _`!~=
+--   Z˙CVBNM        Z˙CVBNM
 
 -- +]-[ missing vim effect
 -- ~^ are available for mapping (~ repeated in N)
@@ -30,9 +30,8 @@ keymap("", "(", "*") --                                     D
 keymap("", "-", ":keepjumps norm! '}'<CR>", opts) --        F
 keymap("x", "-", ":<c-u>keepjumps norm! gv}'<CR>", opts) -- F
 keymap("", "[", "$") --                                     G
-keymap("", "]", "=") --                                     H
-keymap("", "]<space>", "==") --                             H
-keymap("o", "=", "<PlugitOperationForward)") --             J
+keymap("", "]", "|") --                                     H
+keymap("o", "=", "<Plug>(MatchitOperationForward)") --      J
 keymap("n", "=", "<Plug>(MatchitNormalForward)") --         J
 keymap("x", "=", "<Plug>(MatchitVisualForward)") --         J
 keymap("", "|", "&") --                                     K
@@ -42,4 +41,4 @@ keymap("", "{", "`") --                                     V
 keymap("", "{{", "``") --                                   VV
 keymap("", "@", "!") --                                     B
 keymap("", "`", "~") --                                     N
-keymap("", "}", "|") --                                     M
+keymap("", "}", "=") --                                     M

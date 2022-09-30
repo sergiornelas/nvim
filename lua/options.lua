@@ -4,7 +4,6 @@ vim.opt.cmdheight = 1 --             more space in the neovim command line for d
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0 --          so that `` is visible in markdown files
 vim.opt.cursorline = true --         highlight the current line
-vim.opt.equalalways = false --       window maximizer not always equal
 vim.opt.expandtab = true --          convert tabs to spaces
 vim.opt.fileencoding = "utf-8" --    the encoding written to a file
 vim.opt.fillchars.eob = " "
@@ -38,7 +37,5 @@ vim.opt.timeoutlen = 1000 --         time to wait for a mapped sequence to compl
 vim.opt.undofile = true --           enable persistent undo
 vim.opt.updatetime = 200 --          faster completion (4000ms default)
 vim.opt.whichwrap:append("<,>,[,],h,l")
-vim.opt.winminwidth = 7 --           window maximizer minwidth
-vim.opt.winwidth = 7 --              window maximizer width
 vim.opt.wrap = false --              display lines as one long line
 vim.opt.writebackup = false --       if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
