@@ -104,7 +104,6 @@ keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode aga
 
 -- VISUAL MODE
 keymap("n", "vv", "Vg_^", opts) --                   visual whole line
-keymap("n", "V", "vg_", opts) --                   visual to the right
 keymap({ "n", "x" }, "<c-l>", "<c-v>", opts) -- block visual selection
 keymap("x", "<leader>p", '"_dP', opts) --     paste and don't register
 keymap("x", "<c-w>", "o", opts) --     o is used by treesitter-objects
@@ -138,10 +137,6 @@ keymap("", "<c-i>", "<c-o>", opts)
 keymap("n", "<leader>di", "<cmd>set background=dark<cr>", opts)
 keymap("n", "<leader>do", "<cmd>set background=light<cr>", opts)
 
--- DEALING WITH WORD WRAP
-keymap("", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
-keymap("", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
-
 -- UTILS
 keymap("n", "<c-q>", "<c-r>", opts) --                                    redo
 keymap("n", "<leader>f", "<cmd>w<cr>", opts) --                      save file
@@ -151,6 +146,7 @@ keymap("", "<c-x>", "<c-a>") --                                increase number
 keymap("", "g<c-x>", "g<c-a>") --                              increase column
 keymap("", "<c-z>", "<c-x>") --                                decrease number
 keymap("", "g<c-z>", "g<c-x>") --                              decrease column
+keymap("n", "<leader>dw", "<cmd>set wrap!<cr>", opts) --       toggle set wrap
 keymap("n", "<leader>z", "<cmd>set nu!<cr>", opts) --        toggle set number
 keymap("", "\\w", "`.") --                             go to last changed line
 keymap("n", "<leader>c", "<c-g>", opts) --     gives info about current buffer

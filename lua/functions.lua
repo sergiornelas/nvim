@@ -30,7 +30,7 @@ api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command 
 
 -- Set last color scheme selected, gruvbox by default if no colorschemes found
 local theme = require("last-color").recall() or "gruvbox"
-vim.cmd(("colorscheme %s"):format(theme))
+vim.api.nvim_exec(("colorscheme %s"):format(theme), false)
 
 -- Python plugins load faster
 g.loaded_python_provider = 1
@@ -39,7 +39,8 @@ g.python_host_prog = "/usr/local/bin/python"
 g.python3_host_skip_check = 1
 g.python3_host_prog = "/usr/local/bin/python3"
 
-vim.cmd([[
+vim.api.nvim_exec(
+	[[
   " Execute macros in visual mode
   xnoremap ! :<C-u>call ExecuteMacroOverVisualRange()<CR>
   function! ExecuteMacroOverVisualRange()
@@ -86,16 +87,9 @@ vim.cmd([[
   "    endwhile
   " endfunction
   " autocmd VimEnter * call timer_start(7, {-> execute("call DeleteBufferByExtension('fish')")})
-]])
-
--- Jump list specific on folder project
--- vim.cmd([[
---   let gitroot = system("git rev-parse --show-toplevel 2>/dev/null | xargs echo -n")
---   if gitroot != ""
---     let histfile=gitroot . "/.history.shada"
---     execute 'set shadafile=' . histfile
---   endif
--- ]])
+]],
+	false
+)
 
 -- Symbols listchars (for reference)
 -- opt.listchars = {
@@ -109,6 +103,6 @@ vim.cmd([[
 -- opt.list = true
 
 -- execute <esc>O command (for reference)
--- vim.cmd([[
+-- vim.api.nvim_exec([[
 --   :normal O
 -- ]])

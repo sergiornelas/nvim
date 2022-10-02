@@ -1,6 +1,6 @@
 vim.opt.backup = false --            creates a backup file
+vim.opt.ch = 0 --                    command height
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 1 --             more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0 --          so that `` is visible in markdown files
 vim.opt.cursorline = true --         highlight the current line
@@ -11,8 +11,8 @@ vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applicati
 vim.opt.hlsearch = false --          highlight all matches on previous search pattern
 vim.opt.ignorecase = true --         ignore case in search patterns
 vim.opt.iskeyword:append("-")
-vim.opt.laststatus = 3
-vim.opt.mouse = "a" --               allow the mouse to be used in neovim
+vim.opt.ls = 2 --                    last status
+vim.opt.mouse = "" --                allow the mouse to be used in neovim
 vim.opt.number = false --            set numbered lines
 vim.opt.numberwidth = 4 --           set number column width to 2 {default 4}
 vim.opt.pumheight = 10 --            pop up menu height

@@ -31,6 +31,9 @@ saga.init_lsp_saga({
 		quit = "<esc>",
 	},
 	rename_action_quit = "<esc>",
+	symbol_in_winbar = {
+		enable = false,
+	},
 })
 
 vim.keymap.set("n", "gk", "<cmd>Lspsaga lsp_finder<CR>", { silent = true, noremap = true }) --definition and reference

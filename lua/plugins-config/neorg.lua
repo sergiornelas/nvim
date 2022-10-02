@@ -5,21 +5,21 @@ end
 
 neorg.setup({
 	load = {
-		["core.defaults"] = {},
 		["core.norg.concealer"] = {}, -- icons
-		["core.keybinds"] = {
-			config = {
-				default_keybinds = false,
-				hook = function(keybinds)
-					keybinds.remap_event("norg", "n", "gu", "core.norg.esupports.hop.hop-link")
-				end,
-			},
-		},
-		["core.norg.completion"] = { -- extra cmp options,
-			config = {
-				engine = "nvim-cmp",
-			},
-		},
+		-- ["core.defaults"] = {},
+		-- ["core.keybinds"] = {
+		-- 	config = {
+		-- 		default_keybinds = false,
+		-- 		hook = function(keybinds)
+		-- 			keybinds.remap_event("norg", "n", "gu", "core.norg.esupports.hop.hop-link")
+		-- 		end,
+		-- 	},
+		-- },
+		-- ["core.norg.completion"] = { -- extra cmp options,
+		-- 	config = {
+		-- 		engine = "nvim-cmp",
+		-- 	},
+		-- },
 		-- ["core.norg.dirman"] = { --Managing directories full of .norg files
 		--     config = {
 		--       workspaces = {

@@ -17,12 +17,12 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { "filename" },
-		lualine_b = {},
+		lualine_b = { "diagnostics" },
 		lualine_c = {
 			{ navic.get_location, cond = navic.is_available },
 		},
 		lualine_x = {},
-		lualine_y = { "diff", "diagnostics" },
+		lualine_y = { "diff" },
 		lualine_z = {},
 	},
 	tabline = {},

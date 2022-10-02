@@ -1,7 +1,8 @@
 local present, colorizer = pcall(require, "colorizer")
 
 if present then
-	colorizer.setup({ "*" }, {
+	colorizer.setup({
+		filetypes = { "*" },
 		names = false, -- "Name" codes like blue
 		RGB = true, -- #RGB hex codes
 		RRGGBB = true, -- #RRGGBB hex codes

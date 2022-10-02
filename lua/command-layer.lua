@@ -1,6 +1,6 @@
 -- COMMAND SUBSTITUTION
--- Decided to change vim default navigation keymaps because sometimes they are a pain in the ass.
--- Writing layer uses semicolon (;), it's managed by Karabiner:
+-- Decided to change vim default navigation keymaps because sometimes they are a pain in
+-- the ass. Writing layer uses semicolon (;), it's managed by Karabiner:
 -- https://github.com/sergiornelas/MacOS-Dotfiles/blob/main/karabiner/karabiner.json#L74-L535
 
 --  WRITING       VIM EFFECT
@@ -20,13 +20,15 @@
 local keymap = vim.keymap.set
 local opts = { silent = true }
 
-keymap("", "&", "#") --                                     Q
+keymap("n", "&", "#") --                                    Q
+keymap("x", "&", 'y?\\V<C-R>"<CR>') --                      Q
 keymap("", "+", ":keepjumps norm! '{'<CR>", opts) --        R
 keymap("x", "+", ":<c-u>keepjumps norm! gv{'<CR>", opts) -- R
 keymap("", "$", "(") --                                     I
 keymap("", "%", ")") --                                     O
 keymap("", ")", "^") --                                     A
-keymap("", "(", "*") --                                     D
+keymap("n", "(", "*") --                                    D
+keymap("x", "(", 'y/\\V<C-R>"<CR>') --                      D
 keymap("", "-", ":keepjumps norm! '}'<CR>", opts) --        F
 keymap("x", "-", ":<c-u>keepjumps norm! gv}'<CR>", opts) -- F
 keymap("", "[", "$") --                                     G
