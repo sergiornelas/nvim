@@ -267,7 +267,13 @@ return packer.startup(function(use)
 			require("plugins-config.tabout")
 		end,
 	})
-	use({ "tversteeg/registers.nvim", event = "InsertEnter" })
+	use({
+		"tversteeg/registers.nvim",
+		event = "InsertEnter",
+		config = function()
+			require("plugins-config.registers")
+		end,
+	})
 	use({
 		"ja-ford/delaytrain.nvim",
 		config = function()
@@ -309,6 +315,7 @@ return packer.startup(function(use)
 
 	-- COLORSCHEMES ----------------------------------------------
 	use("raddari/last-color.nvim")
+	use("rktjmp/lush.nvim")
 	use({
 		"B4mbus/oxocarbon-lua.nvim",
 		"Mofiqul/dracula.nvim",
@@ -317,10 +324,14 @@ return packer.startup(function(use)
 		"cpea2506/one_monokai.nvim",
 		"fenetikm/falcon",
 		"folke/tokyonight.nvim",
+		"kartikp10/noctis.nvim",
 		"katawful/kat.nvim",
 		"lmburns/kimbox",
 		"luisiacc/gruvbox-baby",
+		"lunarvim/Onedarker.nvim",
 		"lunarvim/darkplus.nvim",
+		"lunarvim/horizon.nvim",
+		"lunarvim/synthwave84.nvim",
 		"marko-cerovac/material.nvim",
 		"nxvu699134/vn-night.nvim",
 		"ofirgall/ofirkai.nvim",
@@ -466,9 +477,10 @@ return packer.startup(function(use)
 	-- phaazon/mind.nvim                                  note app
 	-- jghauser/kitty-runner.nvim         kitty commands from nvim
 	-- Chaitanyabsprip/present.nvim       power point presentation
+	-- charludo/projectmgr.nvim            switch between projects
 
 	-- Last time checked Awesome and This-week-in-neovim
-	-- (26/09/22)
+	-- (03/10/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

@@ -58,6 +58,7 @@ nvim_tree.setup({
 				{ key = "<", action = "prev_sibling" },
 				{ key = ">", action = "next_sibling" },
 				{ key = "P", action = "parent_node" },
+				{ key = "<esc>", action = "close" },
 				{ key = "<BS>", action = "close_node" },
 				{ key = "<c-i>", action = "preview" },
 				{ key = "K", action = "first_sibling" },

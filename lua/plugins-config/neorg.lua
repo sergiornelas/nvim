@@ -5,16 +5,22 @@ end
 
 neorg.setup({
 	load = {
-		["core.norg.concealer"] = {}, -- icons
+		["core.norg.concealer"] = {}, -- using icons instead of text
+		["core.norg.esupports.hop"] = {},
+		["core.highlights"] = {},
+		["core.mode"] = {},
+		["core.keybinds"] = {
+			config = {
+				default_keybinds = false,
+				hook = function(keybinds)
+					keybinds.remap_event("norg", "n", "gu", "core.norg.esupports.hop.hop-link")
+				end,
+			},
+		},
+		["core.neorgcmd"] = {},
+		["core.integrations.treesitter"] = {}, -- integrate TreeSitter into Neorg
+		["core.norg.esupports.indent"] = {}, -- indent Neorg documents
 		-- ["core.defaults"] = {},
-		-- ["core.keybinds"] = {
-		-- 	config = {
-		-- 		default_keybinds = false,
-		-- 		hook = function(keybinds)
-		-- 			keybinds.remap_event("norg", "n", "gu", "core.norg.esupports.hop.hop-link")
-		-- 		end,
-		-- 	},
-		-- },
 		-- ["core.norg.completion"] = { -- extra cmp options,
 		-- 	config = {
 		-- 		engine = "nvim-cmp",

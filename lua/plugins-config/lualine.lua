@@ -23,7 +23,7 @@ lualine.setup({
 		},
 		lualine_x = {},
 		lualine_y = { "diff" },
-		lualine_z = {},
+		lualine_z = { "progress" },
 	},
 	tabline = {},
 	extensions = {},

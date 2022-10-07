@@ -15,6 +15,7 @@ configs.setup({
 		"html",
 		"markdown",
 		"norg",
+		"norg_meta",
 		"vim",
 		"bash",
 	},

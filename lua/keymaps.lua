@@ -25,8 +25,7 @@ keymap("n", "me", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
 keymap("n", "mw", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", opts)
 keymap("n", "ma", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", opts)
 keymap("n", "mq", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", opts)
-keymap("n", "mg", "<cmd>lua require('harpoon.term').gotoTerminal(1)<cr>", opts)
-keymap("n", "mt", "<cmd>lua require('harpoon.term').gotoTerminal(2)<cr>", opts)
+keymap("n", "mt", "<cmd>lua require('harpoon.term').gotoTerminal(1)<cr>", opts)
 
 -- <TREE-CLIMBER>
 keymap("n", "#", "<cmd>lua require('tree-climber').swap_prev()<cr>", opts)
@@ -54,7 +53,7 @@ keymap("n", "<c-j>", "<plug>(CybuNext)", opts)
 keymap("n", "<c-k>", "<plug>(CybuPrev)", opts)
 
 -- <SESSION LENS>
-keymap("n", "g<cr>", "<cmd>SearchSession<cr>", opts)
+keymap("n", "mg", "<cmd>SearchSession<cr>", opts)
 
 -- <INLAY HINTS>
 keymap("n", "<leader>m", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
@@ -114,7 +113,7 @@ keymap("n", "Q", "y$", opts)
 keymap("n", "<tab>", "q", opts)
 
 -- TABS
-keymap("n", "<leader>n", "<cmd>tabnew %<cr>", opts) --   new tab
+keymap("n", "<leader>n", "<c-w>T", opts) --              new tab
 keymap("n", "<leader>e", "gt", opts) --                 next tab
 keymap("n", "<leader>r", "gT", opts) --                 prev tab
 keymap("n", "<leader>t", "<cmd>tabclose<cr>", opts) -- close tab
@@ -162,6 +161,7 @@ keymap("n", "S", "mzJ`z", opts) --         cursor stay current position when J
 
 -- G maps available:
 -- q, w, y
+-- <cr>
 -- z, x
 
 -- <leader> maps available
