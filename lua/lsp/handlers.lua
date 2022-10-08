@@ -78,14 +78,14 @@ local function lsp_highlight_document(client, bufnr)
 end
 
 local function lsp_keymaps(bufnr)
-	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	keymap(bufnr, "n", "g<leader>", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
-	keymap(bufnr, "n", "gL", "<cmd>LspInfo<cr>", opts)
-	keymap(bufnr, "n", "gQ", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	keymap(bufnr, "n", "gW", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+	keymap(bufnr, "", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	keymap(bufnr, "", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+	keymap(bufnr, "", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	keymap(bufnr, "", "g<leader>", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
+	keymap(bufnr, "", "gL", "<cmd>LspInfo<cr>", opts)
+	keymap(bufnr, "", "gQ", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+	keymap(bufnr, "", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+	keymap(bufnr, "", "gW", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
 	-- lspsaga handles: hover, references, show and jump diagnostics, code actions, and rename.
 
 	-- Unused features:

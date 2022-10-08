@@ -198,12 +198,6 @@ return packer.startup(function(use)
 		event = "BufEnter",
 	})
 	use({
-		"ghillb/cybu.nvim",
-		config = function()
-			require("plugins-config.cybu")
-		end,
-	})
-	use({
 		"kwkarlwang/bufjump.nvim",
 		config = function()
 			require("plugins-config.bufjump")
@@ -274,14 +268,6 @@ return packer.startup(function(use)
 			require("plugins-config.registers")
 		end,
 	})
-	use({
-		"ja-ford/delaytrain.nvim",
-		config = function()
-			require("delaytrain").setup({
-				grace_period = 3,
-			})
-		end,
-	})
 
 	-- MINI MODULES ----------------------------------------------
 	use({
@@ -311,7 +297,12 @@ return packer.startup(function(use)
 			require("plugins-config.colorizer")
 		end,
 	})
-	use("uga-rosa/ccc.nvim")
+	use({
+		"uga-rosa/ccc.nvim",
+		config = function()
+			require("ccc").setup()
+		end,
+	})
 
 	-- COLORSCHEMES ----------------------------------------------
 	use("raddari/last-color.nvim")
