@@ -1,7 +1,7 @@
 -- Shorten function name
 local keymap = vim.keymap.set
 -- Silent keymap option
-local opts = { silent = true }
+local opts = { noremap = true, silent = true }
 
 -- Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -46,6 +46,10 @@ keymap("n", "<c-w>z", "<cmd>WindowsToggleAutowidth<cr>", opts)
 keymap("", "#", "<cmd>lua require('tree-climber').swap_prev()<cr>", opts)
 keymap("", "*", "<cmd>lua require('tree-climber').swap_next()<cr>", opts)
 
+-- <HLSLENS>
+keymap("n", "n", "<cmd>execute('normal! ' . v:count1 . 'n')<cr><cmd>lua require('hlslens').start()<CR>", opts)
+keymap("n", "N", "<cmd>execute('normal! ' . v:count1 . 'N')<cr><cmd>lua require('hlslens').start()<CR>", opts)
+
 -- <LUASNIP>
 keymap("s", "<c-h>", "<BS>i", opts)
 keymap("s", "q", "q", opts)
@@ -67,7 +71,7 @@ keymap("", "<leader>m", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 keymap("", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info about current buffer
 
 -- <BUFFERDELETE>
-keymap("", "<c-h>", "<cmd>Bdelete<CR>", opts) --buffer delete
+keymap("", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
 
 -- <MINI>
 keymap("", "<leader>df", ":lua require('mini.trailspace').trim()<cr>", opts)
@@ -123,8 +127,8 @@ keymap("", "gj", "zz", opts) --                           center text
 keymap("", "z.", ":<C-u>normal! zszH<cr>", opts) -- center horizontal
 
 -- MOVE LINE/PARAGRAPH
-keymap("x", "<c-j>", ":m '>+1<CR>gv=gv", opts)
-keymap("x", "<c-k>", ":m '<-2<CR>gv=gv", opts)
+keymap("x", "<c-j>", ":m '>+1<cr>gv=gv", opts)
+keymap("x", "<c-k>", ":m '<-2<cr>gv=gv", opts)
 
 -- SWITCH JUMPS
 keymap("n", "<c-o>", "<c-i>", opts)

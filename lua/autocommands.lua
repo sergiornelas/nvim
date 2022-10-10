@@ -1,12 +1,14 @@
 local g = vim.g
 local api = vim.api
-local group = vim.api.nvim_create_augroup("group", { clear = true })
+local group = api.nvim_create_augroup("group", { clear = true })
 
 -- Set wrap and spell on specific file types
 api.nvim_create_autocmd("FileType", {
 	pattern = { "norg", "markdown", "gitcommit" },
-	command = "setlocal wrap | setlocal spell", --spell not working
-	group = group,
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.spell = true
+	end,
 })
 
 -- Show yank line highlight
@@ -14,8 +16,6 @@ api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank()
 	end,
-	group = group,
-	pattern = "*",
 })
 
 -- Go to last location when opening a buffer
@@ -30,7 +30,28 @@ api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command 
 
 -- Set last color scheme selected, gruvbox by default if no colorschemes found
 local theme = require("last-color").recall() or "gruvbox"
-vim.api.nvim_exec(("colorscheme %s"):format(theme), false)
+api.nvim_exec(("colorscheme %s"):format(theme), false)
+
+-- Toggle command height 1 when recording macro
+api.nvim_create_autocmd("RecordingEnter", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.ch = 1
+	end,
+})
+api.nvim_create_autocmd("RecordingLeave", {
+	pattern = "*",
+	callback = function()
+		local timer = vim.loop.new_timer()
+		timer:start(
+			50,
+			0,
+			vim.schedule_wrap(function()
+				vim.opt_local.ch = 0
+			end)
+		)
+	end,
+})
 
 -- Python plugins load faster
 g.loaded_python_provider = 1
@@ -39,7 +60,7 @@ g.python_host_prog = "/usr/local/bin/python"
 g.python3_host_skip_check = 1
 g.python3_host_prog = "/usr/local/bin/python3"
 
-vim.api.nvim_exec(
+api.nvim_exec(
 	[[
   " Execute macros in visual mode
   xnoremap ! :<C-u>call ExecuteMacroOverVisualRange()<CR>
@@ -64,29 +85,9 @@ vim.api.nvim_exec(
   " Stop automatic comment when enter in insert mode
   au BufEnter * set fo-=c fo-=r fo-=o
 
-  " Close nvimtree and TSContext
-  autocmd VimLeave * NvimTreeClose
-  autocmd VimLeave * TSContextDisable
-
   " Unmap matchit conflicts
   autocmd VimEnter * call timer_start(10, {-> execute("unmap [%")})
   autocmd VimEnter * call timer_start(15, {-> execute("unmap ]%")})
-
-  " Eliminate terminal buffers when enter neovim
-  " function! DeleteBufferByExtension(strExt)
-  "    let s:bufNr = bufnr("$")
-  "    while s:bufNr > 0
-  "        if buflisted(s:bufNr)
-  "            if (matchstr(bufname(s:bufNr), "/".a:strExt."$") == "/".a:strExt )
-  "               if getbufvar(s:bufNr, '&modified') == 0
-  "                  execute "bd ".s:bufNr
-  "               endif
-  "            endif
-  "        endif
-  "        let s:bufNr = s:bufNr-1
-  "    endwhile
-  " endfunction
-  " autocmd VimEnter * call timer_start(7, {-> execute("call DeleteBufferByExtension('fish')")})
 ]],
 	false
 )
@@ -106,3 +107,22 @@ vim.api.nvim_exec(
 -- vim.api.nvim_exec([[
 --   :normal O
 -- ]])
+
+-- Execute command when vim leave (for reference)
+-- autocmd VimLeave * TSContextDisable
+
+-- Eliminate terminal buffers when enter neovim (for reference)
+-- function! DeleteBufferByExtension(strExt)
+--    let s:bufNr = bufnr("$")
+--    while s:bufNr > 0
+--        if buflisted(s:bufNr)
+--            if (matchstr(bufname(s:bufNr), "/".a:strExt."$") == "/".a:strExt )
+--               if getbufvar(s:bufNr, '&modified') == 0
+--                  execute "bd ".s:bufNr
+--               endif
+--            endif
+--        endif
+--        let s:bufNr = s:bufNr-1
+--    endwhile
+-- endfunction
+-- autocmd VimEnter * call timer_start(7, {-> execute("call DeleteBufferByExtension('fish')")})

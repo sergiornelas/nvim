@@ -33,8 +33,8 @@ for _, plugin in pairs(disabled_built_ins) do
 	vim.g["loaded_" .. plugin] = 1
 end
 
-require("command-layer")
-require("functions")
-require("options")
+require("autocommands")
+require("keymap-layer")
 require("keymaps")
+require("options")
 require("plugins")

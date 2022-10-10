@@ -37,6 +37,9 @@ packer.init({
 	},
 	-- Sync without hanging after 70+ plugins
 	max_jobs = 50,
+	git = {
+		clone_timeout = 300, -- Timeout, in seconds, for git clones
+	},
 })
 
 -- Run :LuaCacheClear each week
@@ -58,7 +61,7 @@ return packer.startup(function(use)
 	use({
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("lsp.handlers").setup()
+			require("lsp.lsp").setup()
 		end,
 	})
 	use({
@@ -207,6 +210,12 @@ return packer.startup(function(use)
 		"ggandor/leap.nvim",
 		config = function()
 			require("plugins-config.leap")
+		end,
+	})
+	use({
+		"kevinhwang91/nvim-hlslens",
+		config = function()
+			require("plugins-config.hlslens")
 		end,
 	})
 	use({

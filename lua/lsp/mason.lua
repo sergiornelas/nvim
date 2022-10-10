@@ -36,9 +36,11 @@ local opts = {}
 
 for _, server in pairs(servers) do
 	opts = {
-		on_attach = require("lsp.handlers").on_attach,
-		capabilities = require("lsp.handlers").capabilities,
+		on_attach = require("lsp.lsp").on_attach,
+		capabilities = require("lsp.lsp").capabilities,
 	}
+
+	server = vim.split(server, "@")[1]
 
 	local require_ok, conf_opts = pcall(require, "lsp.settings." .. server)
 	if require_ok then

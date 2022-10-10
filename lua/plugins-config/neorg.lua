@@ -13,7 +13,7 @@ neorg.setup({
 			config = {
 				default_keybinds = false,
 				hook = function(keybinds)
-					keybinds.remap_event("norg", "n", "gu", "core.norg.esupports.hop.hop-link")
+					keybinds.remap_event("norg", "", "gu", "core.norg.esupports.hop.hop-link")
 				end,
 			},
 		},

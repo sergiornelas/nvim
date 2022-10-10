@@ -54,7 +54,7 @@ telescope.setup({
 			enable_preview = true, --some colorschemes break
 		},
 		buffers = {
-			sort_lastused = false,
+			sort_lastused = true,
 			mappings = {
 				i = {
 					["<c-f>"] = actions.delete_buffer,
