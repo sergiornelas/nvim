@@ -1,11 +1,9 @@
--- Shorten function name
-local keymap = vim.keymap.set
--- Silent keymap option
-local opts = { noremap = true, silent = true }
-
 -- Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
+-- Shorten keymap function
+local keymap = vim.keymap.set
+-- Default keymap options
+local opts = { noremap = true, silent = true }
 
 -- <HARPOON>
 keymap("", "<leader>h", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
@@ -45,10 +43,6 @@ keymap("n", "<c-w>z", "<cmd>WindowsToggleAutowidth<cr>", opts)
 -- <TREE-CLIMBER>
 keymap("", "#", "<cmd>lua require('tree-climber').swap_prev()<cr>", opts)
 keymap("", "*", "<cmd>lua require('tree-climber').swap_next()<cr>", opts)
-
--- <HLSLENS>
-keymap("n", "n", "<cmd>execute('normal! ' . v:count1 . 'n')<cr><cmd>lua require('hlslens').start()<CR>", opts)
-keymap("n", "N", "<cmd>execute('normal! ' . v:count1 . 'N')<cr><cmd>lua require('hlslens').start()<CR>", opts)
 
 -- <LUASNIP>
 keymap("s", "<c-h>", "<BS>i", opts)
@@ -108,6 +102,7 @@ keymap("n", "vv", "Vg_^", opts) --               visual whole line
 keymap("", "<c-l>", "<c-v>", opts) --       block visual selection
 keymap("x", "<leader>p", '"_dP', opts) -- paste and don't register
 keymap("x", "<c-w>", "o", opts) -- o is used by treesitter-objects
+keymap("x", "!f", ":norm! @f<cr>", opts) --          execute macro
 
 -- TABS
 keymap("", "<leader>n", "<c-w>T", opts) --              new tab

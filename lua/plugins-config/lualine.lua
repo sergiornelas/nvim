@@ -16,14 +16,14 @@ lualine.setup({
 		globalstatus = true,
 	},
 	sections = {
-		lualine_a = { "filename" },
-		lualine_b = { "diagnostics" },
+		lualine_a = {},
+		lualine_b = { "diff", "diagnostics" },
 		lualine_c = {
 			{ navic.get_location, cond = navic.is_available },
 		},
 		lualine_x = {},
-		lualine_y = { "diff" },
-		lualine_z = { "progress" },
+		lualine_y = { "progress" },
+		lualine_z = {},
 	},
 	tabline = {},
 	extensions = {},

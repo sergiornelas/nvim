@@ -213,9 +213,9 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-		"kevinhwang91/nvim-hlslens",
+		"b0o/incline.nvim",
 		config = function()
-			require("plugins-config.hlslens")
+			require("plugins-config.incline")
 		end,
 	})
 	use({
@@ -478,9 +478,10 @@ return packer.startup(function(use)
 	-- jghauser/kitty-runner.nvim         kitty commands from nvim
 	-- Chaitanyabsprip/present.nvim       power point presentation
 	-- charludo/projectmgr.nvim            switch between projects
+	-- smjonas/live-command.nvim                      live command
 
 	-- Last time checked Awesome and This-week-in-neovim
-	-- (03/10/22)
+	-- (11/10/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
