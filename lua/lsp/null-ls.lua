@@ -3,18 +3,23 @@ if not null_ls_status_ok then
 	return
 end
 
-local formatting = null_ls.builtins.formatting
-local diagnostics = null_ls.builtins.diagnostics
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local diagnostics = null_ls.builtins.diagnostics
+local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.stylua,
-		formatting.prettierd,
 		diagnostics.eslint_d,
+		diagnostics.tidy,
+		formatting.prettierd,
+		formatting.stylua,
+		-- formatting.prettier.with {
+		--       extra_filetypes = { "toml", "solidity" },
+		--       extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+		--     },
 	},
-	-- format on save
+	-- format on save:
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })

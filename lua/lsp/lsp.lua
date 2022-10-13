@@ -5,6 +5,11 @@ if not status_cmp_ok then
 	return
 end
 
+local inlayhints_ok, inlay = pcall(require, "lsp-inlayhints")
+if not inlayhints_ok then
+	return
+end
+
 local status_navic_ok, navic = pcall(require, "nvim-navic")
 if not status_navic_ok then
 	return
@@ -81,13 +86,11 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	keymap(bufnr, "", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	keymap(bufnr, "", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	keymap(bufnr, "", "g<leader>", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
+	keymap(bufnr, "", "g<leader>", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", opts)
 	keymap(bufnr, "", "gL", "<cmd>LspInfo<cr>", opts)
 	keymap(bufnr, "", "gQ", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 	keymap(bufnr, "", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	keymap(bufnr, "", "gW", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
-	-- lspsaga handles: hover, references, show and jump diagnostics, code actions, and rename.
-
 	-- Unused features:
 	-- local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	-- vim.keymap.set('n', 'gz', vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -98,37 +101,15 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-	lsp_keymaps(bufnr)
-	-- Prettierd and Stylua active in null_ls
-	if
-		client.name == "tsserver"
-		or client.name == "jsonls"
-		or client.name == "html"
-		or client.name == "sumneko_lua"
-	then
-		client.server_capabilities.document_formatting = false
+	lsp_keymaps(bufnr) -- LSP keymaps
+	lsp_highlight_document(client, bufnr) -- LSP highlight objects
+	navic.attach(client, bufnr) -- Objects on status bar
+	if client.name == "tsserver" then
+		-- Inlay hints
+		inlay.on_attach(client, bufnr)
+		-- Formatting disabled for performance (maybe) and prettierd is active in null-ls
+		client.server_capabilities.documentFormattingProvider = false
 	end
-
-	-- LSP highlight
-	lsp_highlight_document(client, bufnr)
-
-	-- Inlay hints
-	if client.name == "tsserver" or client.name == "sumneko_lua" then
-		require("lsp-inlayhints").on_attach(client, bufnr)
-	end
-
-	-- Navic (currently not working on css and html files)
-	if client.name ~= "html" and client.name ~= "cssls" then
-		navic.attach(client, bufnr)
-	end
-
-	-- Format on save. All formatting clients are handled by null_ls
-	-- if client.server_capabilities.document_formatting then
-	-- 	vim.api.nvim_create_autocmd(
-	-- 		"BufWritePre",
-	-- 		{ pattern = "<buffer>", command = "lua vim.lsp.buf.formatting_sync()" }
-	-- 	)
-	-- end
 end
 
 return M

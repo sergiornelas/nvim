@@ -15,12 +15,12 @@ if not mason_lspconfig_status_ok then
 end
 
 local servers = {
-	"sumneko_lua",
-	"tsserver",
-	"jsonls",
+	"bashls",
 	"cssls",
 	"html",
-	"bashls",
+	"jsonls",
+	"sumneko_lua",
+	"tsserver",
 }
 
 -- This plugin uses the lspconfig server names in the APIs it exposes,

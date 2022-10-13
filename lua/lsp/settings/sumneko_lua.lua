@@ -5,7 +5,7 @@ return {
 				version = "LuaJIT",
 			},
 			format = {
-				enable = false, --not applying
+				enable = false,
 			},
 			diagnostics = {
 				globals = { "vim" },

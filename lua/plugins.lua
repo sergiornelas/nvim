@@ -461,23 +461,23 @@ return packer.startup(function(use)
 	-- chentoast/marks.nvim                           visual marks
 	-- danymat/neogen          comments on files for documentation
 	-- edluffy/specs.nvim        cool highlight cursor (has a bug)
-	-- folke/todo-comments.nvim                       pretty notes
 	-- ggandor/lightspeed.nvim                    leap alternative
 	-- kylechui/nvim-surround   bug visual all line, too much maps
 	-- nvim-colortils/colortils.nvim                   colorpicker
 	-- p00f/cphelper.nvim                          code challenges
 	-- rktjmp/lush.nvim                        colorscheme creator
 	-- smartpde/neoscopes   light project magagement (interesting)
+	-- charludo/projectmgr.nvim            switch between projects
+	-- phaazon/mind.nvim                                  note app
+	-- folke/todo-comments.nvim                       pretty notes
 	-- tzachar/cmp-fuzzy-buffer                                CMP
 	-- tzachar/cmp-fuzzy-path                                  CMP
 	-- vigoux/notifier.nvim                show message lsp loaded
 	-- wellle/targets.vim                              new motions
 	-- xeluxee/competitest.nvim                    code challenges
 	-- potamides/pantran.nvim                    google translator
-	-- phaazon/mind.nvim                                  note app
 	-- jghauser/kitty-runner.nvim         kitty commands from nvim
 	-- Chaitanyabsprip/present.nvim       power point presentation
-	-- charludo/projectmgr.nvim            switch between projects
 	-- smjonas/live-command.nvim                      live command
 
 	-- Last time checked Awesome and This-week-in-neovim
