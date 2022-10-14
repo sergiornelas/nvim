@@ -1,6 +1,9 @@
-local saga = require("lspsaga")
+local lspsaga_ok, lspsaga = pcall(require, "lspsaga")
+if not lspsaga_ok then
+	return
+end
 
-saga.init_lsp_saga({
+lspsaga.init_lsp_saga({
 	border_style = "bold",
 	diagnostic_header = { " 😡 ", " 😬 ", " 👁️ ", " 🌚 " },
 	move_in_saga = { prev = "<C-o>", next = "<C-i>" },

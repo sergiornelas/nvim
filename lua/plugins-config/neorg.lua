@@ -1,5 +1,11 @@
-local status_ok, neorg = pcall(require, "neorg")
-if not status_ok then
+local neorg_ok, neorg = pcall(require, "neorg")
+if not neorg_ok then
+	return
+end
+
+-- maybe I have to update this for session bug
+local parsers_ok, parsers = pcall(require, "nvim-treesitter.parsers")
+if not parsers_ok then
 	return
 end
 
@@ -49,3 +55,11 @@ neorg.setup({
 		-- ["core.integrations.telescope"] = {}, -- Enable telescope module
 	},
 })
+
+parsers.norg = {
+	install_info = {
+		url = "https://github.com/nvim-neorg/tree-sitter-norg",
+		files = { "src/parser.c", "src/scanner.cc" },
+		branch = "main",
+	},
+}

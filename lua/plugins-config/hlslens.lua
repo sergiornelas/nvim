@@ -1,5 +1,5 @@
-local hlslens_status_ok, hlslens = pcall(require, "hlslens")
-if not hlslens_status_ok then
+local hlslens_ok, hlslens = pcall(require, "hlslens")
+if not hlslens_ok then
 	return
 end
 

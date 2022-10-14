@@ -1,26 +1,24 @@
-local ok_ai, ai = pcall(require, "mini.ai")
-if not ok_ai then
+local ai_ok, ai = pcall(require, "mini.ai")
+if not ai_ok then
 	return
 end
 
-local ok_surround, surround = pcall(require, "mini.surround")
-if not ok_surround then
+local surround_ok, surround = pcall(require, "mini.surround")
+if not surround_ok then
 	return
 end
 
-local ok_indent, indent = pcall(require, "mini.indentscope")
-if not ok_indent then
+local indentscope_ok, indentscope = pcall(require, "mini.indentscope")
+if not indentscope_ok then
 	return
 end
 
-local ok_trailspace, trailspace = pcall(require, "mini.trailspace")
-if not ok_trailspace then
+local trailspace_ok, trailspace = pcall(require, "mini.trailspace")
+if not trailspace_ok then
 	return
 end
 
-local surround_input = require("mini.surround").gen_spec.input.treesitter
-local ai_input = require("mini.ai").gen_spec.treesitter
-
+local ai_input = ai.gen_spec.treesitter
 ai.setup({
 	mappings = {
 		-- Main textobject prefixes
@@ -42,6 +40,7 @@ ai.setup({
 })
 
 -- remember this mappings apply to visual mode as well, so you can't map them with 'd'
+local surround_input = surround.gen_spec.input.treesitter
 surround.setup({
 	mappings = {
 		add = "sj",
@@ -68,9 +67,9 @@ surround.setup({
 	search_method = "cover_or_next",
 })
 
-indent.setup({
+indentscope.setup({
 	draw = {
-		animation = require("mini.indentscope").gen_animation("none"),
+		animation = indentscope.gen_animation("none"),
 	},
 	mappings = {
 		object_scope = "ij",

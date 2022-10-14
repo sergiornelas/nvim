@@ -1,5 +1,5 @@
-local autosession_status_ok, autosession = pcall(require, "auto-session")
-if not autosession_status_ok then
+local auto_session_ok, auto_session = pcall(require, "auto-session")
+if not auto_session_ok then
 	return
 end
 
@@ -14,7 +14,7 @@ end
 
 -- TODO
 -- you could add neorg here, and this could fix the problem
-autosession.setup({
+auto_session.setup({
 	log_level = "error",
 	auto_session_create_enabled = false,
 	auto_session_use_git_branch = false,

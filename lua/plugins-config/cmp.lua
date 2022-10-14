@@ -1,21 +1,21 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
+local cmp_ok, cmp = pcall(require, "cmp")
+if not cmp_ok then
 	return
 end
 
-local snip_status_ok, ls = pcall(require, "luasnip")
-if not snip_status_ok then
+local luasnip_ok, luasnip = pcall(require, "luasnip")
+if not luasnip_ok then
 	return
 end
 
 -- Add React snippets to .js/.ts files
 -- Add HTML and CSS snippets to .js/.jsx/.ts/.tsx files
-ls.filetype_set("javascript", { "javascriptreact" })
-ls.filetype_set("typescript", { "typescriptreact" })
-ls.filetype_extend("javascript", { "html", "css" })
-ls.filetype_extend("javascriptreact", { "html", "css" })
-ls.filetype_extend("typescript", { "html", "css" })
-ls.filetype_extend("typescriptreact", { "html", "css" })
+luasnip.filetype_set("javascript", { "javascriptreact" })
+luasnip.filetype_set("typescript", { "typescriptreact" })
+luasnip.filetype_extend("javascript", { "html", "css" })
+luasnip.filetype_extend("javascriptreact", { "html", "css" })
+luasnip.filetype_extend("typescript", { "html", "css" })
+luasnip.filetype_extend("typescriptreact", { "html", "css" })
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -24,7 +24,7 @@ local has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-ls.setup({
+luasnip.setup({
 	history = false,
 	region_check_events = "CursorMoved",
 })
@@ -69,7 +69,7 @@ local source_mapping = {
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			ls.lsp_expand(args.body) -- For `luasnip` users.
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	window = {
@@ -88,8 +88,8 @@ cmp.setup({
 		["<C-i>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			elseif ls.expand_or_jumpable() then
-				ls.expand_or_jump()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
 			elseif has_words_before() then
 				cmp.complete()
 			else
@@ -99,8 +99,8 @@ cmp.setup({
 		["<C-o>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
-			elseif ls.jumpable(-1) then
-				ls.jump(-1)
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
 			else
 				fallback()
 			end

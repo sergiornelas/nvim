@@ -1,13 +1,28 @@
+local onedark_ok, onedark = pcall(require, "onedark")
+if not onedark_ok then
+	return
+end
+
+local nightfox_ok, nightfox = pcall(require, "nightfox")
+if not nightfox_ok then
+	return
+end
+
+local gruvbox_ok, gruvbox = pcall(require, "gruvbox")
+if not gruvbox_ok then
+	return
+end
+
 local M = {}
 
 M.onedark = function()
-	require("onedark").setup({
+	onedark.setup({
 		style = "deep",
 	})
 end
 
 M.nightfox = function()
-	require("nightfox").setup({
+	nightfox.setup({
 		options = {
 			transparent = false, -- Disable setting background
 		},
@@ -15,7 +30,7 @@ M.nightfox = function()
 end
 
 M.gruvbox = function()
-	require("gruvbox").setup({
+	gruvbox.setup({
 		contrast = "hard",
 	})
 end

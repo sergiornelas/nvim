@@ -1,9 +1,12 @@
-local status_ok, lualine = pcall(require, "lualine")
-if not status_ok then
+local lualine_ok, lualine = pcall(require, "lualine")
+if not lualine_ok then
 	return
 end
 
-local navic = require("nvim-navic")
+local nvim_navic_ok, nvim_navic = pcall(require, "nvim-navic")
+if not nvim_navic_ok then
+	return
+end
 
 lualine.setup({
 	options = {
@@ -19,7 +22,7 @@ lualine.setup({
 		lualine_a = {},
 		lualine_b = { "diff", "diagnostics" },
 		lualine_c = {
-			{ navic.get_location, cond = navic.is_available },
+			{ nvim_navic.get_location, cond = nvim_navic.is_available },
 		},
 		lualine_x = {},
 		lualine_y = { "progress" },

@@ -1,5 +1,5 @@
-local registers_status_ok, registers = pcall(require, "registers")
-if not registers_status_ok then
+local registers_ok, registers = pcall(require, "registers")
+if not registers_ok then
 	return
 end
 

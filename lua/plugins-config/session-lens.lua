@@ -1,5 +1,5 @@
-local session_status_ok, session_lens = pcall(require, "session-lens")
-if not session_status_ok then
+local session_lens_ok, session_lens = pcall(require, "session-lens")
+if not session_lens_ok then
 	return
 end
 

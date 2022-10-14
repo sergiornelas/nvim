@@ -1,5 +1,5 @@
-local status_ok, tabout = pcall(require, "tabout")
-if not status_ok then
+local tabout_ok, tabout = pcall(require, "tabout")
+if not tabout_ok then
 	return
 end
 

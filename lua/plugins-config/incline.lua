@@ -1,5 +1,5 @@
-local status_ok, incline = pcall(require, "incline")
-if not status_ok then
+local incline_ok, incline = pcall(require, "incline")
+if not incline_ok then
 	return
 end
 

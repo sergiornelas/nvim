@@ -1,10 +1,9 @@
-local present, _ = pcall(require, "leap")
-
-if not present then
+local leap_ok, leap = pcall(require, "leap")
+if not leap_ok then
 	return
 end
 
-require("leap").setup({
+leap.setup({
 	case_sensitive = false,
 	-- safe_labels = { . . . },
 	-- labels = { . . . },

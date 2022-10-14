@@ -1,11 +1,11 @@
-local status_ok, diff = pcall(require, "diffview")
-if not status_ok then
+local diffview_ok, diffview = pcall(require, "diffview")
+if not diffview_ok then
 	return
 end
 
 local actions = require("diffview.actions")
 
-diff.setup({
+diffview.setup({
 	key_bindings = {
 		view = {
 			["<c-i>"] = actions.select_next_entry,

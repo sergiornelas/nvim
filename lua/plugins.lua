@@ -23,8 +23,8 @@ vim.api.nvim_create_autocmd(
 )
 
 -- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
+local packer_ok, packer = pcall(require, "packer")
+if not packer_ok then
 	return
 end
 
@@ -145,11 +145,14 @@ return packer.startup(function(use)
 	})
 	use({
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		"nvim-treesitter/nvim-treesitter-context",
 		"drybalka/tree-climber.nvim",
 		"p00f/nvim-ts-Rainbow",
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		after = "nvim-treesitter/nvim-treesitter",
+	})
+	use({
+		"nvim-treesitter/nvim-treesitter-context",
+		commit = "c46a8a0a60412a8fe43aa6bd3a01845c46de6bf2",
 	})
 
 	-- BUFFER/NAVIGATION -----------------------------------------
@@ -211,6 +214,7 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins-config.leap")
 		end,
+		commit = "ef9d34620fa52d1c144fb41f838eea7bb06e61f9",
 	})
 	use({
 		"b0o/incline.nvim",

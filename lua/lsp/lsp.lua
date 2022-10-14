@@ -1,17 +1,17 @@
 local M = {}
 
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
+local nvim_navic_ok, nvim_navic = pcall(require, "nvim-navic")
+if not nvim_navic_ok then
 	return
 end
 
-local inlayhints_ok, inlay = pcall(require, "lsp-inlayhints")
-if not inlayhints_ok then
+local lsp_inlayhints_ok, lsp_inlayhints = pcall(require, "lsp-inlayhints")
+if not lsp_inlayhints_ok then
 	return
 end
 
-local status_navic_ok, navic = pcall(require, "nvim-navic")
-if not status_navic_ok then
+local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_nvim_lsp_ok then
 	return
 end
 
@@ -19,9 +19,9 @@ end
 M.setup = function()
 	local signs = {
 		{ name = "DiagnosticSignError", text = "🔥" },
-		{ name = "DiagnosticSignWarn", text = "👀" },
 		{ name = "DiagnosticSignHint", text = "💡" },
 		{ name = "DiagnosticSignInfo", text = "ℹ️" },
+		{ name = "DiagnosticSignWarn", text = "👀" },
 	}
 	for _, sign in ipairs(signs) do
 		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
@@ -86,22 +86,21 @@ local function lsp_highlight_document(client, bufnr)
 	end
 end
 
--- LSP capabilities
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
-
 -- LSP attach all features
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr) -- LSP keymaps
 	lsp_highlight_document(client, bufnr) -- LSP highlight objects
-	navic.attach(client, bufnr) -- Objects on status bar
+	nvim_navic.attach(client, bufnr) -- Objects on status bar
 	if client.name == "tsserver" then
-		-- Inlay hints
-		inlay.on_attach(client, bufnr) -- requires Typescript 4.4+
-		-- Formatting disabled for performance (maybe) and prettierd is active in null-ls
+		lsp_inlayhints.on_attach(client, bufnr) -- Inlay hints (requires Typescript 4.4+)
+		-- Formatting disabled for performance (maybe) and prettierd is active in null-ls:
 		client.server_capabilities.documentFormattingProvider = false
 	end
 end
+
+-- LSP capabilities
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
 return M

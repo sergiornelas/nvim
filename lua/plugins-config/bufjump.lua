@@ -1,5 +1,5 @@
-local bufjump_status_ok, bufjump = pcall(require, "bufjump")
-if not bufjump_status_ok then
+local bufjump_ok, bufjump = pcall(require, "bufjump")
+if not bufjump_ok then
 	return
 end
 

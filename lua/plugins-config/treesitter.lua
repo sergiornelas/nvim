@@ -1,5 +1,5 @@
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
+local configs_ok, configs = pcall(require, "nvim-treesitter.configs")
+if not configs_ok then
 	return
 end
 
@@ -53,17 +53,3 @@ configs.setup({
 		},
 	},
 })
-
--- NEORG --------------
-local present, parser_config = pcall(require, "nvim-treesitter.parsers")
-if not present then
-	return
-end
-
-parser_config.norg = {
-	install_info = {
-		url = "https://github.com/nvim-neorg/tree-sitter-norg",
-		files = { "src/parser.c", "src/scanner.cc" },
-		branch = "main",
-	},
-}

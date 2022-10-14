@@ -1,13 +1,13 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
+local telescope_ok, telescope = pcall(require, "telescope")
+if not telescope_ok then
 	return
 end
 
-telescope.load_extension("fzf")
 telescope.load_extension("frecency")
+telescope.load_extension("fzf")
+telescope.load_extension("harpoon")
 
 local actions = require("telescope.actions")
-
 telescope.setup({
 	defaults = {
 		layout_strategy = "flex", --toggle between horizontal/vertical
