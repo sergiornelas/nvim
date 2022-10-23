@@ -19,7 +19,7 @@ lualine.setup({
 		globalstatus = true,
 	},
 	sections = {
-		lualine_a = {},
+		lualine_a = { "searchcount" },
 		lualine_b = { "diff", "diagnostics" },
 		lualine_c = {
 			{ nvim_navic.get_location, cond = nvim_navic.is_available },

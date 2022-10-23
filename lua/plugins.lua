@@ -34,6 +34,9 @@ packer.init({
 		open_fn = function()
 			return require("packer.util").float({ border = "rounded" })
 		end,
+		keybindings = {
+			quit = "<c-j>",
+		},
 	},
 	-- Sync without hanging after 70+ plugins
 	max_jobs = 50,
@@ -42,16 +45,12 @@ packer.init({
 	},
 })
 
--- Run :LuaCacheClear each week
+-- Run :LuaCacheClear and eliminate main.shada each two weeks
 return packer.startup(function(use)
 	-- PACKER ----------------------------------------------------
 	use("wbthomason/packer.nvim")
 
 	-- STARTUP OPTIMIZATIONS -------------------------------------
-	-- use({
-	-- 	"tweekmonster/startuptime.vim",
-	-- 	cmd = "StartupTime",
-	-- })
 	use({
 		"nathom/filetype.nvim",
 		"lewis6991/impatient.nvim",
@@ -98,19 +97,6 @@ return packer.startup(function(use)
 			require("plugins-config.navic")
 		end,
 	})
-	-- use({
-	--  "ray-x/lsp_signature.nvim",
-	--  config = function()
-	--    require("lsp_signature").setup()
-	--  end,
-	--  wants = "neovim/nvim-lspconfig",
-	-- })
-	-- use({
-	-- 	"RRethy/vim-illuminate",
-	-- 	config = function()
-	-- 		require("plugins-config.illuminate")
-	-- 	end,
-	-- })
 
 	-- CMP -------------------------------------------------------
 	use({
@@ -138,7 +124,6 @@ return packer.startup(function(use)
 	-- TREESITTER ------------------------------------------------
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
 		config = function()
 			require("plugins-config.treesitter")
 		end,
@@ -217,6 +202,12 @@ return packer.startup(function(use)
 		commit = "ef9d34620fa52d1c144fb41f838eea7bb06e61f9",
 	})
 	use({
+		"petertriho/nvim-scrollbar",
+		config = function()
+			require("plugins-config.nvim-scrollbar")
+		end,
+	})
+	use({
 		"b0o/incline.nvim",
 		config = function()
 			require("plugins-config.incline")
@@ -265,6 +256,12 @@ return packer.startup(function(use)
 		after = "nvim-cmp",
 		config = function()
 			require("plugins-config.autopairs")
+		end,
+	})
+	use({
+		"nat-418/boole.nvim",
+		config = function()
+			require("plugins-config.boole")
 		end,
 	})
 	use({
@@ -410,6 +407,7 @@ return packer.startup(function(use)
 
 	-- TREESITTER ------------------------------------------------
 	-- ziontee113/syntax-tree-surfer                  TS navigator
+	-- ziontee113/neo-minimap                    TS custom minimap
 
 	-- DEBUGGING -------------------------------------------------
 	-- mfusseneger/nvim-dap
@@ -483,9 +481,11 @@ return packer.startup(function(use)
 	-- jghauser/kitty-runner.nvim         kitty commands from nvim
 	-- Chaitanyabsprip/present.nvim       power point presentation
 	-- smjonas/live-command.nvim                      live command
+	-- /kiran94/s3edit.nvim                                 aws s3
+	-- jrop/mongo.nvim                                     mongodb
 
 	-- Last time checked Awesome and This-week-in-neovim
-	-- (11/10/22)
+	-- (17/10/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

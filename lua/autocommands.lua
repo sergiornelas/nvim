@@ -32,6 +32,27 @@ api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command 
 local theme = require("last-color").recall() or "gruvbox"
 api.nvim_exec(("colorscheme %s"):format(theme), false)
 
+-- Toggle command height 1 when recording macro (for future)
+api.nvim_create_autocmd("RecordingEnter", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.ch = 1
+	end,
+})
+api.nvim_create_autocmd("RecordingLeave", {
+	pattern = "*",
+	callback = function()
+		local timer = vim.loop.new_timer()
+		timer:start(
+			50,
+			0,
+			vim.schedule_wrap(function()
+				vim.opt_local.ch = 0
+			end)
+		)
+	end,
+})
+
 -- Python plugins load faster
 g.loaded_python_provider = 1
 g.python_host_skip_check = 1
@@ -58,8 +79,8 @@ api.nvim_exec(
   au BufEnter * set fo-=c fo-=r fo-=o
 
   " Unmap matchit conflicts
-  autocmd VimEnter * call timer_start(10, {-> execute("unmap [%")})
-  autocmd VimEnter * call timer_start(15, {-> execute("unmap ]%")})
+  autocmd VimEnter * execute("unmap [%")
+  autocmd VimEnter * execute("unmap ]%")
 ]],
 	false
 )
@@ -83,26 +104,8 @@ api.nvim_exec(
 -- Execute command when vim leave (for reference)
 -- autocmd VimLeave * TSContextDisable
 
--- Toggle command height 1 when recording macro (for future
--- api.nvim_create_autocmd("RecordingEnter", {
--- 	pattern = "*",
--- 	callback = function()
--- 		vim.opt_local.ch = 1
--- 	end,
--- })
--- api.nvim_create_autocmd("RecordingLeave", {
--- 	pattern = "*",
--- 	callback = function()
--- 		local timer = vim.loop.new_timer()
--- 		timer:start(
--- 			50,
--- 			0,
--- 			vim.schedule_wrap(function()
--- 				vim.opt_local.ch = 0
--- 			end)
--- 		)
--- 	end,
--- })
+-- Execute command when VimEnter and after some miliseconds
+-- autocmd VimEnter * call timer_start(10, {-> execute("unmap [%")})
 
 -- Eliminate terminal buffers when enter neovim (for reference)
 -- function! DeleteBufferByExtension(strExt)

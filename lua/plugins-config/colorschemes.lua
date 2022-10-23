@@ -33,6 +33,7 @@ M.gruvbox = function()
 	gruvbox.setup({
 		contrast = "hard",
 	})
+	vim.api.nvim_exec([[set background=dark]], false)
 end
 
 return M

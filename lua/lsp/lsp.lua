@@ -49,14 +49,14 @@ end
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_buf_set_keymap
 local function lsp_keymaps(bufnr)
-	keymap(bufnr, "", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	keymap(bufnr, "", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	keymap(bufnr, "", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	keymap(bufnr, "", "g<leader>", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", opts)
-	keymap(bufnr, "", "gL", "<cmd>LspInfo<cr>", opts)
-	keymap(bufnr, "", "gQ", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	keymap(bufnr, "", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	keymap(bufnr, "", "gW", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	keymap(bufnr, "n", "g<leader>", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", opts)
+	keymap(bufnr, "n", "gL", "<cmd>LspInfo<cr>", opts)
+	keymap(bufnr, "n", "gQ", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+	keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+	keymap(bufnr, "n", "gW", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
 	-- Unused features:
 	-- local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	-- vim.keymap.set('n', 'gz', vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -89,7 +89,7 @@ end
 -- LSP attach all features
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr) -- LSP keymaps
-	lsp_highlight_document(client, bufnr) -- LSP highlight objects
+	lsp_highlight_document(client, bufnr) -- LSP highlight current object
 	nvim_navic.attach(client, bufnr) -- Objects on status bar
 	if client.name == "tsserver" then
 		lsp_inlayhints.on_attach(client, bufnr) -- Inlay hints (requires Typescript 4.4+)
@@ -99,8 +99,6 @@ M.on_attach = function(client, bufnr)
 end
 
 -- LSP capabilities
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities()
 
 return M

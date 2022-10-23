@@ -37,13 +37,17 @@ lspsaga.init_lsp_saga({
 	symbol_in_winbar = {
 		enable = false,
 	},
+	show_outline = {
+		jump_key = "<c-j>",
+	},
 })
 
-vim.keymap.set("", "gk", "<cmd>Lspsaga lsp_finder<CR>", { silent = true, noremap = true })
-vim.keymap.set("", "gc", "<cmd>Lspsaga code_action<CR>", { silent = true, noremap = true })
-vim.keymap.set("", "gh", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-vim.keymap.set("", "gr", "<cmd>Lspsaga rename<CR>", { silent = true, noremap = true })
-vim.keymap.set("", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true, noremap = true })
-vim.keymap.set("", "gp", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-vim.keymap.set("", "\\e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true, noremap = true })
-vim.keymap.set("", "\\f", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true, noremap = true })
+vim.keymap.set({ "n", "x" }, "gk", "<cmd>Lspsaga lsp_finder<CR>", { silent = true, noremap = true })
+vim.keymap.set({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<CR>", { silent = true, noremap = true })
+vim.keymap.set({ "n", "x" }, "gh", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+vim.keymap.set({ "n", "x" }, "gr", "<cmd>Lspsaga rename<CR>", { silent = true, noremap = true })
+vim.keymap.set({ "n", "x" }, "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true, noremap = true })
+vim.keymap.set({ "n", "x" }, "gp", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+vim.keymap.set({ "n", "x" }, "\\e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true, noremap = true })
+vim.keymap.set({ "n", "x" }, "\\f", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true, noremap = true })
+vim.keymap.set({ "n", "x" }, "gz", "<cmd>LSoutlineToggle<CR>", { silent = true, noremap = true })
