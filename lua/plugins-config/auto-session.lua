@@ -23,6 +23,7 @@ auto_session.setup({
 	-- post_save_cmds
 	-- pre_restore_cmds
 	post_restore_cmds = { "TSContextEnable", "lua require('incline').enable()" },
+	-- post_restore_cmds = { "TSContextEnable", "lua require('incline').enable()", "normal <cr>" },
 	-- pre_delete_cmds
 	-- post_delete_cmds
 })

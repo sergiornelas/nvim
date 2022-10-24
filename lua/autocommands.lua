@@ -32,7 +32,7 @@ api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command 
 local theme = require("last-color").recall() or "gruvbox"
 api.nvim_exec(("colorscheme %s"):format(theme), false)
 
--- Toggle command height 1 when recording macro (for future)
+-- Toggle command height when recording macro
 api.nvim_create_autocmd("RecordingEnter", {
 	pattern = "*",
 	callback = function()
@@ -85,7 +85,7 @@ api.nvim_exec(
 	false
 )
 
--- Symbols listchars (for reference)
+-- Symbols listchars
 -- opt.listchars = {
 -- 	tab = "│ ",
 -- 	extends = "→",
@@ -96,18 +96,18 @@ api.nvim_exec(
 -- }
 -- opt.list = true
 
--- execute <esc>O command (for reference)
+-- execute <esc>O command
 -- vim.api.nvim_exec([[
 --   :normal O
 -- ]])
 
--- Execute command when vim leave (for reference)
+-- Execute command when vim leave
 -- autocmd VimLeave * TSContextDisable
 
 -- Execute command when VimEnter and after some miliseconds
 -- autocmd VimEnter * call timer_start(10, {-> execute("unmap [%")})
 
--- Eliminate terminal buffers when enter neovim (for reference)
+-- Eliminate terminal buffers when enter neovim
 -- function! DeleteBufferByExtension(strExt)
 --    let s:bufNr = bufnr("$")
 --    while s:bufNr > 0

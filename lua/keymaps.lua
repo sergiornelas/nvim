@@ -108,8 +108,8 @@ keymap("", "<leader>t", "<cmd>tabclose<cr>", opts) -- close tab
 
 -- SWITCH RECORD MACRO AND YANK
 keymap("", "q", "y", opts)
-keymap("", "Q", "y$", opts)
 keymap("n", "<tab>", "q", opts)
+keymap({ "n", "x" }, "Q", "y$", opts)
 
 -- LUA SNIP CONFLICTS
 keymap("s", "<c-h>", "<BS>i", opts)
@@ -136,19 +136,19 @@ keymap("", "<leader>di", "<cmd>set background=dark<cr>", opts)
 keymap("", "<leader>do", "<cmd>set background=light<cr>", opts)
 
 -- UTILS
-keymap("n", "<c-q>", "<c-r>", opts) --                                    redo
-keymap("", "<leader>f", "<cmd>w<cr>", opts) --                       save file
-keymap("", "<leader>w", "<cmd>set hlsearch!<cr>", opts) --          highlights
-keymap("", "<c-x>", "<c-a>") --                                increase number
-keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                    increase column
-keymap("", "<c-z>", "<c-x>") --                                decrease number
-keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                    decrease column
-keymap("", "<leader>dw", "<cmd>set wrap!<cr>", opts) --        toggle set wrap
-keymap("", "<leader>z", "<cmd>set nu!<cr>", opts) --         toggle set number
-keymap("", "\\w", "`.") --                             go to last changed line
-keymap("", "<leader>c", "<c-g>", opts) --      gives info about current buffer
-keymap("n", "d<leader>", "cc<esc>", opts) -- clear line without deleting break
-keymap("", "S", "mzJ`z", opts) --          cursor stay current position when J
+keymap("n", "<c-q>", "<c-r>", opts) --                                     redo
+keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
+keymap("", "<leader>w", "<cmd>set hlsearch!<cr>", opts) --           highlights
+keymap("", "<c-x>", "<c-a>") --                                 increase number
+keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
+keymap("", "<c-z>", "<c-x>") --                                 decrease number
+keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
+keymap("", "<leader>dw", "<cmd>set wrap!<cr>", opts) --         toggle set wrap
+keymap("", "<leader>z", "<cmd>set nu!<cr>", opts) --          toggle set number
+keymap("", "\\w", "`.") --                              go to last changed line
+keymap("", "<leader>c", "<c-g>", opts) --       gives info about current buffer
+keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
+keymap({ "n", "x" }, "S", "mzJ`z", opts) -- cursor stay current position when J
 
 -- Free: y
 

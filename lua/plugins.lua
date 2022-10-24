@@ -51,10 +51,7 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- STARTUP OPTIMIZATIONS -------------------------------------
-	use({
-		"nathom/filetype.nvim",
-		"lewis6991/impatient.nvim",
-	})
+	use("lewis6991/impatient.nvim")
 
 	-- LSP -------------------------------------------------------
 	use({
@@ -329,14 +326,12 @@ return packer.startup(function(use)
 		"katawful/kat.nvim",
 		"lmburns/kimbox",
 		"luisiacc/gruvbox-baby",
-		"lunarvim/Onedarker.nvim",
 		"lunarvim/darkplus.nvim",
 		"lunarvim/horizon.nvim",
 		"lunarvim/synthwave84.nvim",
 		"marko-cerovac/material.nvim",
 		"nxvu699134/vn-night.nvim",
 		"ofirgall/ofirkai.nvim",
-		"olimorris/onedarkpro.nvim",
 		"ray-x/aurora",
 		"rebelot/kanagawa.nvim",
 		"rmehri01/onenord.nvim",
@@ -472,6 +467,7 @@ return packer.startup(function(use)
 	-- charludo/projectmgr.nvim            switch between projects
 	-- phaazon/mind.nvim                                  note app
 	-- folke/todo-comments.nvim                       pretty notes
+	-- Ostralyan/scribe.nvim                 telescope quick notes
 	-- tzachar/cmp-fuzzy-buffer                                CMP
 	-- tzachar/cmp-fuzzy-path                                  CMP
 	-- vigoux/notifier.nvim                show message lsp loaded
@@ -485,7 +481,7 @@ return packer.startup(function(use)
 	-- jrop/mongo.nvim                                     mongodb
 
 	-- Last time checked Awesome and This-week-in-neovim
-	-- (17/10/22)
+	-- (24/10/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
