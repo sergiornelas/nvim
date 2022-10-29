@@ -23,6 +23,10 @@ nvim_tree.setup({
 				git = {
 					unstaged = "🐻",
 				},
+				folder = {
+					arrow_closed = "",
+					arrow_open = "",
+				},
 			},
 		},
 		indent_markers = {

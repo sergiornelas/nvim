@@ -224,6 +224,12 @@ return packer.startup(function(use)
 		end,
 	})
 	use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
+	use({
+		"ziontee113/neo-minimap",
+		config = function()
+			require("plugins-config.neo")
+		end,
+	})
 
 	-- GIT -------------------------------------------------------
 	use({
@@ -324,6 +330,7 @@ return packer.startup(function(use)
 		"folke/tokyonight.nvim",
 		"kartikp10/noctis.nvim",
 		"katawful/kat.nvim",
+		"kvrohit/mellow.nvim",
 		"lmburns/kimbox",
 		"luisiacc/gruvbox-baby",
 		"lunarvim/darkplus.nvim",
@@ -479,6 +486,7 @@ return packer.startup(function(use)
 	-- smjonas/live-command.nvim                      live command
 	-- /kiran94/s3edit.nvim                                 aws s3
 	-- jrop/mongo.nvim                                     mongodb
+	-- cbochs/grapple.nvim                               harpoon 2
 
 	-- Last time checked Awesome and This-week-in-neovim
 	-- (24/10/22)
