@@ -74,6 +74,7 @@ return packer.startup(function(use)
 			require("lsp.null-ls")
 		end,
 	})
+	use("jose-elias-alvarez/typescript.nvim")
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
@@ -108,6 +109,7 @@ return packer.startup(function(use)
 		"hrsh7th/cmp-path",
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-emoji",
+		"onsails/lspkind.nvim",
 		after = "nvim-cmp",
 	})
 
@@ -196,8 +198,9 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins-config.leap")
 		end,
-		commit = "ef9d34620fa52d1c144fb41f838eea7bb06e61f9",
 	})
+	use("ggandor/leap-spooky.nvim")
+	use("ggandor/flit.nvim")
 	use({
 		"petertriho/nvim-scrollbar",
 		config = function()
@@ -259,6 +262,13 @@ return packer.startup(function(use)
 		after = "nvim-cmp",
 		config = function()
 			require("plugins-config.autopairs")
+		end,
+	})
+	use({
+		"kylechui/nvim-surround",
+		tag = "*",
+		config = function()
+			require("plugins-config.nvim-surround")
 		end,
 	})
 	use({
@@ -465,7 +475,6 @@ return packer.startup(function(use)
 	-- chentoast/marks.nvim                           visual marks
 	-- danymat/neogen          comments on files for documentation
 	-- edluffy/specs.nvim        cool highlight cursor (has a bug)
-	-- ggandor/lightspeed.nvim                    leap alternative
 	-- kylechui/nvim-surround   bug visual all line, too much maps
 	-- nvim-colortils/colortils.nvim                   colorpicker
 	-- p00f/cphelper.nvim                          code challenges

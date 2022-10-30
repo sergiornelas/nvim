@@ -3,11 +3,6 @@ if not ai_ok then
 	return
 end
 
-local surround_ok, surround = pcall(require, "mini.surround")
-if not surround_ok then
-	return
-end
-
 local indentscope_ok, indentscope = pcall(require, "mini.indentscope")
 if not indentscope_ok then
 	return
@@ -37,34 +32,6 @@ ai.setup({
 		F = ai_input({ a = "@function.outer", i = "@function.inner" }),
 		c = ai_input({ a = "@conditional.outer", i = "@conditional.inner" }),
 	},
-})
-
--- remember this mappings apply to visual mode as well, so you can't map them with 'd'
-local surround_input = surround.gen_spec.input.treesitter
-surround.setup({
-	mappings = {
-		add = "sj",
-		delete = "si",
-		replace = "so",
-		find = "sf",
-		find_left = "sF",
-		highlight = "sh",
-		update_n_lines = "",
-		suffix_last = "l",
-		suffix_next = "n",
-	},
-	n_lines = 1000,
-	custom_surroundings = {
-		["("] = { output = { left = "(", right = ")" } },
-		[")"] = { output = { left = "( ", right = " )" } },
-		["{"] = { output = { left = "{", right = "}" } },
-		["}"] = { output = { left = "{ ", right = " }" } },
-		["["] = { output = { left = "[", right = "]" } },
-		["]"] = { output = { left = "[ ", right = " ]" } },
-		F = { input = surround_input({ outer = "@function.outer", inner = "@function.inner" }) },
-		c = { input = surround_input({ outer = "@conditional.outer", inner = "@conditional.inner" }) },
-	},
-	search_method = "cover_or_next",
 })
 
 indentscope.setup({

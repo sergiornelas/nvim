@@ -146,33 +146,40 @@ keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>dw", "<cmd>set wrap!<cr>", opts) --         toggle set wrap
 keymap("", "<leader>z", "<cmd>set nu!<cr>", opts) --          toggle set number
 keymap("", "\\w", "`.") --                              go to last changed line
-keymap("", "<c-m>", "<cr>", opts) --              enter for lsp diagnostic list
 keymap("", "<leader>c", "<c-g>", opts) --       gives info about current buffer
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
-keymap({ "n", "x" }, "S", "mzJ`z", opts) -- cursor stay current position when J
+keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
--- Free: y
+-- Shift char available:
+-- Y
 
 -- D maps available:
 -- q, r, y, u, p
--- s, <cr>
--- z, x, c, n, m
+-- <cr>
+-- z, x, c, n
+
+-- C maps available:
+-- q, r, y, u, p
+-- d, g, <cr>
+-- z, m
 
 -- G maps available:
 -- y
 -- <cr>
 -- x
 
--- <leader> maps available
+-- <leader> maps available:
 -- y
 -- x
 -- combinations with: d, k
 -- Reverse available: q, z, c
 
--- <C- > maps available
+-- <C-> maps available:
 -- y
--- s (unnecesary), <cr>
--- n
+-- s <cr>
+-- n, m
 
--- <C- > insert mode maps available:
--- q, p, s, z, x, b, n, m
+-- <C-> insert mode maps available:
+-- q, p
+-- s
+-- z, b, n, m

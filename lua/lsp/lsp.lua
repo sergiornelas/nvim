@@ -21,7 +21,7 @@ M.setup = function()
 		{ name = "DiagnosticSignError", text = "🔥" },
 		{ name = "DiagnosticSignHint", text = "💡" },
 		{ name = "DiagnosticSignInfo", text = "ℹ️" },
-		{ name = "DiagnosticSignWarn", text = "👀" },
+		{ name = "DiagnosticSignWarn", text = "⚠️" },
 	}
 	for _, sign in ipairs(signs) do
 		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
@@ -48,6 +48,12 @@ end
 -- LSP keymaps
 local keymap = vim.keymap.set
 keymap("n", "gq", vim.diagnostic.setloclist, { noremap = true, silent = true })
+keymap("n", "<leader>dA", ":TypescriptAddMissingImports<CR>")
+keymap("n", "<leader>dO", ":TypescriptOrganizeImports<CR>")
+keymap("n", "<leader>dU", ":TypescriptRemoveUnused<CR>")
+keymap("n", "<leader>dF", ":TypescriptFixAll<CR>")
+keymap("n", "<leader>dR", ":TypescriptRenameFile<CR>")
+keymap("n", "<leader>dg", ":TypescriptGoToSourceDefinition<CR>") -- Typescript 4.7+
 
 local function lsp_keymaps(bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -55,10 +61,10 @@ local function lsp_keymaps(bufnr)
 	keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
 	keymap("n", "gd", vim.lsp.buf.definition, bufopts)
 	keymap("n", "gI", vim.lsp.buf.implementation, bufopts)
-	keymap("n", "gs", vim.lsp.buf.signature_help, bufopts)
+	keymap("n", "gS", vim.lsp.buf.signature_help, bufopts)
 	keymap("n", "gA", vim.lsp.buf.add_workspace_folder, bufopts)
 	keymap("n", "gR", vim.lsp.buf.remove_workspace_folder, bufopts)
-	keymap("n", "gZ", function()
+	keymap("n", "gW", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, bufopts)
 	keymap("n", "gt", vim.lsp.buf.type_definition, bufopts)
@@ -95,7 +101,7 @@ M.on_attach = function(client, bufnr)
 	nvim_navic.attach(client, bufnr) -- Objects on status bar
 
 	if client.name == "tsserver" then
-		lsp_inlayhints.on_attach(client, bufnr) -- Inlay hints (requires Typescript 4.4+)
+		lsp_inlayhints.on_attach(client, bufnr) -- Inlay hints (Typescript 4.4+)
 		-- Formatting disabled for performance (maybe) and prettierd is active in null-ls:
 		client.server_capabilities.documentFormattingProvider = false
 	end

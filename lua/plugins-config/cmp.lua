@@ -8,8 +8,13 @@ if not luasnip_ok then
 	return
 end
 
--- Add React snippets to .js/.ts files
--- Add HTML and CSS snippets to .js/.jsx/.ts/.tsx files
+local lspkind_ok, lspkind = pcall(require, "lspkind")
+if not lspkind_ok then
+	return
+end
+
+-- Add React snippets to js|ts files
+-- Add HTML and CSS snippets to js|jsx|ts|tsx files
 luasnip.filetype_set("javascript", { "javascriptreact" })
 luasnip.filetype_set("typescript", { "typescriptreact" })
 luasnip.filetype_extend("javascript", { "html", "css" })
@@ -28,43 +33,6 @@ luasnip.setup({
 	history = false,
 	region_check_events = "CursorMoved",
 })
-
-local kind_icons = {
-	Class = "",
-	Color = "",
-	Constant = "",
-	Constructor = "",
-	Enum = "",
-	EnumMember = "",
-	Event = "",
-	Field = "",
-	File = "",
-	Folder = "",
-	Function = "",
-	Interface = "",
-	Keyword = "",
-	Method = "m",
-	Module = "",
-	Operator = "",
-	Property = "",
-	Reference = "",
-	Snippet = "",
-	Struct = "",
-	Text = "",
-	TypeParameter = "",
-	Unit = "",
-	Value = "",
-	Variable = "",
-}
-
-local source_mapping = {
-	nvim_lsp = "[LSP]",
-	luasnip = "[Snippet]",
-	buffer = "[Buffer]",
-	path = "[Path]",
-	neorg = "[Neorg]",
-	emoji = "[Emoji]",
-}
 
 cmp.setup({
 	snippet = {
@@ -115,15 +83,15 @@ cmp.setup({
 		{ name = "emoji" },
 	},
 	formatting = {
-		format = function(entry, vim_item)
-			-- vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 } -- avoids duplicates
-			-- Kind icons
-			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-			vim_item.abbr = string.sub(vim_item.abbr, 1, 22)
-			local menu = source_mapping[entry.source.name]
-			vim_item.menu = menu
-			return vim_item
-		end,
+		format = lspkind.cmp_format({
+			maxwidth = 19,
+			ellipsis_char = "...",
+			-- avoids duplicate results
+			-- before = function(entry, vim_item)
+			-- vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
+			-- return vim_item
+			-- end,
+		}),
 	},
 	experimental = {
 		ghost_text = true,

@@ -13,8 +13,12 @@ if not lspconfig_ok then
 	return
 end
 
+local typescript_ok, typescript = pcall(require, "typescript")
+if not typescript_ok then
+	return
+end
+
 local servers = {
-	"bashls",
 	"cssls",
 	"html",
 	"jsonls",
@@ -42,5 +46,12 @@ for _, server in pairs(servers) do
 	if server_opts_ok then
 		opts = vim.tbl_deep_extend("force", server_opts, opts)
 	end
-	lspconfig[server].setup(opts)
+
+	if server == "tsserver" then
+		typescript.setup({
+			server = opts,
+		})
+	else
+		lspconfig[server].setup(opts)
+	end
 end
