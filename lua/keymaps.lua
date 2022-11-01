@@ -66,6 +66,9 @@ keymap("", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
 -- <MINI>
 keymap("", "<leader>df", ":lua require('mini.trailspace').trim()<cr>", opts)
 
+-- <ZIPPY>
+keymap("", "<leader>dc", "<cmd>lua require('zippy').insert_print()<CR>", opts)
+
 -- NAVIGATION
 keymap("", "<leader>q", "<cmd>q<cr>", opts) --             close window
 keymap("", "<leader>Q", "<cmd>q!<cr>", opts) -- close window and buffer

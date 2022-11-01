@@ -98,12 +98,14 @@ end
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr) -- LSP keymaps
 	lsp_highlight_document(client, bufnr) -- LSP highlight current object
-	nvim_navic.attach(client, bufnr) -- Objects on status bar
-
+	if client.name ~= "eslint" then
+		nvim_navic.attach(client, bufnr) -- Objects on status bar
+	end
 	if client.name == "tsserver" then
 		lsp_inlayhints.on_attach(client, bufnr) -- Inlay hints (Typescript 4.4+)
 		-- Formatting disabled for performance (maybe) and prettierd is active in null-ls:
 		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
 	end
 end
 

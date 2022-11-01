@@ -53,9 +53,9 @@ gitsigns.setup({
 		end
 
 		-- Actions
-		map({ "n", "v" }, "<leader>ks", ":Gitsigns stage_hunk<CR>")
+		map({ "n", "v" }, "<leader>kw", ":Gitsigns stage_hunk<CR>")
 		map({ "n", "v" }, "<leader>kr", ":Gitsigns reset_hunk<CR>")
-		map("n", "<leader>kww", gs.stage_buffer)
+		map("n", "<leader>kW", gs.stage_buffer)
 		map("n", "<leader>ku", gs.undo_stage_hunk)
 		map("n", "<leader>kR", gs.reset_buffer)
 		map("n", "<leader>j", gs.preview_hunk)

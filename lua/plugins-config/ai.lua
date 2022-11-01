@@ -3,16 +3,6 @@ if not ai_ok then
 	return
 end
 
-local indentscope_ok, indentscope = pcall(require, "mini.indentscope")
-if not indentscope_ok then
-	return
-end
-
-local trailspace_ok, trailspace = pcall(require, "mini.trailspace")
-if not trailspace_ok then
-	return
-end
-
 local ai_input = ai.gen_spec.treesitter
 ai.setup({
 	mappings = {
@@ -33,17 +23,3 @@ ai.setup({
 		c = ai_input({ a = "@conditional.outer", i = "@conditional.inner" }),
 	},
 })
-
-indentscope.setup({
-	draw = {
-		animation = indentscope.gen_animation("none"),
-	},
-	mappings = {
-		object_scope = "ij",
-		object_scope_with_border = "o",
-		goto_top = "\\r",
-		goto_bottom = "",
-	},
-})
-
-trailspace.setup()

@@ -85,7 +85,7 @@ return packer.startup(function(use)
 	use({
 		"lvimuser/lsp-inlayhints.nvim",
 		config = function()
-			require("lsp-inlayhints").setup()
+			require("plugins-config.inlayhints")
 		end,
 	})
 	use({
@@ -149,6 +149,10 @@ return packer.startup(function(use)
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({
+		"nvim-telescope/telescope-frecency.nvim",
+		requires = { "kkharji/sqlite.lua" },
+	})
+	use({
 		"rmagatti/auto-session",
 		config = function()
 			require("plugins-config.auto-session")
@@ -159,10 +163,6 @@ return packer.startup(function(use)
 		config = function()
 			require("plugins-config.session-lens")
 		end,
-	})
-	use({
-		"nvim-telescope/telescope-frecency.nvim",
-		requires = { "kkharji/sqlite.lua" },
 	})
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -223,7 +223,7 @@ return packer.startup(function(use)
 		"anuvyklack/windows.nvim",
 		requires = "anuvyklack/middleclass",
 		config = function()
-			require("windows").setup()
+			require("plugins-config.windows")
 		end,
 	})
 	use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
@@ -291,12 +291,30 @@ return packer.startup(function(use)
 			require("plugins-config.registers")
 		end,
 	})
+	use({
+		"narutoxy/dim.lua",
+		config = function()
+			require("plugins-config.dim")
+		end,
+	})
 
 	-- MINI MODULES ----------------------------------------------
 	use({
-		"echasnovski/mini.nvim",
+		"echasnovski/mini.ai",
 		config = function()
-			require("plugins-config.mini")
+			require("plugins-config.ai")
+		end,
+	})
+	use({
+		"echasnovski/mini.indentscope",
+		config = function()
+			require("plugins-config.indentscope")
+		end,
+	})
+	use({
+		"echasnovski/mini.trailspace",
+		config = function()
+			require("plugins-config.trailspace")
 		end,
 	})
 
@@ -323,9 +341,10 @@ return packer.startup(function(use)
 	use({
 		"uga-rosa/ccc.nvim",
 		config = function()
-			require("ccc").setup()
+			require("plugins-config.ccc")
 		end,
 	})
+	use("PatschD/zippy.nvim")
 
 	-- COLORSCHEMES ----------------------------------------------
 	use("raddari/last-color.nvim")
@@ -434,6 +453,7 @@ return packer.startup(function(use)
 	-- TESTING ---------------------------------------------------
 	-- David-Kunz/jester
 	-- klen/nvim-test
+	-- rcarriga/neotest
 	-- nvim-neotest/neotest
 	-- andythigpen/nvim-coverage
 	-- mini.test
@@ -443,6 +463,7 @@ return packer.startup(function(use)
 	-- andythigpen/nvim-coverage                          coverage
 
 	-- GIT -------------------------------------------------------
+	-- tpope/vim-fugitive                              most robust
 	-- TimUntersberger/neogit                                magit
 	-- akinsho/git-conflict.nvim                         conflicts
 	-- kdheepak/lazygit.nvim                               lazygit
@@ -459,7 +480,7 @@ return packer.startup(function(use)
 	-- MunifTanjim/prettier.nvim              prettier alternative
 	-- numToStr/prettierrc.nvim               prettier alternative
 	-- ray-x/web-tools.nvim               live server for html/css
-	-- Azeirah/nvim-redux                          Redux telescope
+	-- Azeirah/nvim-redux                          redux telescope
 	-- AckslD/nvim-FeMaco.lua                 css server for js/ts
 
 	-- ARTIFICIAL INTELIGENCE ------------------------------------
@@ -475,10 +496,7 @@ return packer.startup(function(use)
 	-- chentoast/marks.nvim                           visual marks
 	-- danymat/neogen          comments on files for documentation
 	-- edluffy/specs.nvim        cool highlight cursor (has a bug)
-	-- kylechui/nvim-surround   bug visual all line, too much maps
-	-- nvim-colortils/colortils.nvim                   colorpicker
 	-- p00f/cphelper.nvim                          code challenges
-	-- rktjmp/lush.nvim                        colorscheme creator
 	-- smartpde/neoscopes   light project magagement (interesting)
 	-- charludo/projectmgr.nvim            switch between projects
 	-- phaazon/mind.nvim                                  note app
@@ -487,7 +505,6 @@ return packer.startup(function(use)
 	-- tzachar/cmp-fuzzy-buffer                                CMP
 	-- tzachar/cmp-fuzzy-path                                  CMP
 	-- vigoux/notifier.nvim                show message lsp loaded
-	-- wellle/targets.vim                              new motions
 	-- xeluxee/competitest.nvim                    code challenges
 	-- potamides/pantran.nvim                    google translator
 	-- jghauser/kitty-runner.nvim         kitty commands from nvim
@@ -495,10 +512,13 @@ return packer.startup(function(use)
 	-- smjonas/live-command.nvim                      live command
 	-- /kiran94/s3edit.nvim                                 aws s3
 	-- jrop/mongo.nvim                                     mongodb
-	-- cbochs/grapple.nvim                               harpoon 2
+	-- cbochs/grapple.nvim             harpoon 2 (wait for mature)
+	-- folke/noice.nvim                           bunch of pop ups
+	-- Weissle/easy-action       leap and return (wait for mature)
 
 	-- Last time checked Awesome and This-week-in-neovim
-	-- (24/10/22)
+	-- Check the same day as the last one in order to make sure of not forget a plugin
+	-- (31/10/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
