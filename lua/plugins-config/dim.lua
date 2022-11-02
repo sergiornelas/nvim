@@ -3,6 +3,4 @@ if not dim_ok then
 	return
 end
 
-dim.setup({
-	enable = true,
-})
+dim.setup()

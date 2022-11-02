@@ -20,11 +20,11 @@ end
 
 local servers = {
 	"cssls",
+	"eslint",
 	"html",
 	"jsonls",
 	"sumneko_lua",
 	"tsserver",
-	"eslint",
 }
 
 mason.setup()
@@ -39,8 +39,8 @@ mason_lspconfig.setup({
 local opts = {}
 for _, server in pairs(servers) do
 	opts = {
-		on_attach = require("lsp.lsp").on_attach,
-		capabilities = require("lsp.lsp").capabilities,
+		on_attach = require("lsp.lsp-handlers").on_attach,
+		capabilities = require("lsp.lsp-handlers").capabilities,
 		-- root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "gulpfile.js", "node_modules"),
 	}
 	server = vim.split(server, "@")[1]

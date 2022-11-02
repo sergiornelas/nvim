@@ -3,6 +3,4 @@ if not ccc_ok then
 	return
 end
 
-ccc.setup({
-	enable = true,
-})
+ccc.setup()

@@ -3,6 +3,4 @@ if not windows_ok then
 	return
 end
 
-windows.setup({
-	enable = true,
-})
+windows.setup()

@@ -57,7 +57,7 @@ return packer.startup(function(use)
 	use({
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("lsp.lsp").setup()
+			require("lsp.lsp-configs").setup()
 		end,
 	})
 	use({
@@ -129,14 +129,11 @@ return packer.startup(function(use)
 	})
 	use({
 		"nvim-treesitter/nvim-treesitter-textobjects",
+		"nvim-treesitter/nvim-treesitter-context",
 		"drybalka/tree-climber.nvim",
 		"p00f/nvim-ts-Rainbow",
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		after = "nvim-treesitter/nvim-treesitter",
-	})
-	use({
-		"nvim-treesitter/nvim-treesitter-context",
-		commit = "c46a8a0a60412a8fe43aa6bd3a01845c46de6bf2",
 	})
 
 	-- BUFFER/NAVIGATION -----------------------------------------

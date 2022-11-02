@@ -3,6 +3,4 @@ if not lsp_inlayhints_ok then
 	return
 end
 
-lsp_inlayhints.setup({
-	enable = true,
-})
+lsp_inlayhints.setup()

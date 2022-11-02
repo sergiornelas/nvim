@@ -26,6 +26,7 @@ neorg.setup({
 		["core.neorgcmd"] = {},
 		["core.integrations.treesitter"] = {}, -- integrate TreeSitter into Neorg
 		["core.norg.esupports.indent"] = {}, -- indent Neorg documents
+		-- ["external.context"] = {},
 		-- ["core.defaults"] = {},
 		-- ["core.norg.completion"] = { -- extra cmp options,
 		-- 	config = {
@@ -40,7 +41,6 @@ neorg.setup({
 		--       },
 		--     },
 		--   },
-		-- ["external.context"] = {},
 		-- ["core.gtd.base"] = {,
 		-- 	config = {
 		-- 		workspace = "gtd",
