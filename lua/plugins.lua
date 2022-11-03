@@ -90,7 +90,6 @@ return packer.startup(function(use)
 	})
 	use({
 		"SmiteshP/nvim-navic",
-		requires = "neovim/nvim-lspconfig",
 		config = function()
 			require("plugins-config.navic")
 		end,
@@ -136,7 +135,7 @@ return packer.startup(function(use)
 		after = "nvim-treesitter/nvim-treesitter",
 	})
 
-	-- BUFFER/NAVIGATION -----------------------------------------
+	-- NAVIGATION ------------------------------------------------
 	use({
 		"nvim-telescope/telescope.nvim",
 		run = "make",
@@ -196,8 +195,8 @@ return packer.startup(function(use)
 			require("plugins-config.leap")
 		end,
 	})
-	use("ggandor/leap-spooky.nvim")
 	use("ggandor/flit.nvim")
+	use("ggandor/leap-spooky.nvim")
 	use({
 		"petertriho/nvim-scrollbar",
 		config = function()
@@ -231,27 +230,17 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- GIT -------------------------------------------------------
-	use({
-		"lewis6991/gitsigns.nvim",
-		ft = "gitcommit",
-		event = "BufEnter",
-		config = function()
-			require("plugins-config.gitsigns")
-		end,
-	})
-	use({
-		"sindrets/diffview.nvim",
-		config = function()
-			require("plugins-config.gitdiff")
-		end,
-	})
-
 	-- EDITING ---------------------------------------------------
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
 			require("plugins-config.comment")
+		end,
+	})
+	use({
+		"echasnovski/mini.indentscope",
+		config = function()
+			require("plugins-config.indentscope")
 		end,
 	})
 	use({
@@ -275,6 +264,18 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
+		"echasnovski/mini.trailspace",
+		config = function()
+			require("plugins-config.trailspace")
+		end,
+	})
+	use({
+		"narutoxy/dim.lua",
+		config = function()
+			require("plugins-config.dim")
+		end,
+	})
+	use({
 		"abecodes/tabout.nvim",
 		event = "InsertEnter",
 		config = function()
@@ -288,38 +289,20 @@ return packer.startup(function(use)
 			require("plugins-config.registers")
 		end,
 	})
-	use({
-		"narutoxy/dim.lua",
-		config = function()
-			require("plugins-config.dim")
-		end,
-	})
 
-	-- MINI MODULES ----------------------------------------------
+	-- GIT -------------------------------------------------------
 	use({
-		"echasnovski/mini.ai",
+		"lewis6991/gitsigns.nvim",
+		ft = "gitcommit",
+		event = "BufEnter",
 		config = function()
-			require("plugins-config.ai")
+			require("plugins-config.gitsigns")
 		end,
 	})
 	use({
-		"echasnovski/mini.indentscope",
+		"sindrets/diffview.nvim",
 		config = function()
-			require("plugins-config.indentscope")
-		end,
-	})
-	use({
-		"echasnovski/mini.trailspace",
-		config = function()
-			require("plugins-config.trailspace")
-		end,
-	})
-
-	-- NOTES -----------------------------------------------------
-	use({
-		"nvim-neorg/neorg",
-		config = function()
-			require("plugins-config.neorg")
+			require("plugins-config.gitdiff")
 		end,
 	})
 
@@ -398,6 +381,14 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- NOTES -----------------------------------------------------
+	use({
+		"nvim-neorg/neorg",
+		config = function()
+			require("plugins-config.neorg")
+		end,
+	})
+
 	-- CODE WARS -------------------------------------------------
 	-- run = "cd js && npm ci" at lab plugin dir
 	-- use({
@@ -435,7 +426,6 @@ return packer.startup(function(use)
 
 	-- TREESITTER ------------------------------------------------
 	-- ziontee113/syntax-tree-surfer                  TS navigator
-	-- ziontee113/neo-minimap                    TS custom minimap
 
 	-- DEBUGGING -------------------------------------------------
 	-- mfusseneger/nvim-dap

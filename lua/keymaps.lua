@@ -148,7 +148,7 @@ keymap("", "<c-z>", "<c-x>") --                                 decrease number
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>dw", "<cmd>set wrap!<cr>", opts) --         toggle set wrap
 keymap("", "<leader>z", "<cmd>set nu!<cr>", opts) --          toggle set number
-keymap("", "\\w", "`.") --                              go to last changed line
+keymap("", "\\<leader>", "`.") --                       go to last changed line
 keymap("", "<leader>c", "<c-g>", opts) --       gives info about current buffer
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
 keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
@@ -186,3 +186,8 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- q, p
 -- s
 -- z, b, n, m
+
+-- \ maps available
+-- y, u, i, o, p
+-- h, k, l
+-- z, x, b, n

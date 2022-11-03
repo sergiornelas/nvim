@@ -52,4 +52,39 @@ configs.setup({
 			node_decremental = "<c-o>",
 		},
 	},
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true,
+			keymaps = {
+				["af"] = "@call.outer",
+				["if"] = "@call.inner",
+				["aF"] = "@function.outer",
+				["iF"] = "@function.inner",
+				["ac"] = "@conditional.outer",
+				["ic"] = "@conditional.inner",
+				["aP"] = "@parameter.outer",
+				["iP"] = "@parameter.inner",
+				["aC"] = "@class.outer",
+				["iC"] = "@class.inner",
+			},
+			include_surrounding_whitespace = true,
+		},
+		move = {
+			enable = true,
+			set_jumps = true,
+			goto_next_start = {
+				["\\d"] = "@call.outer",
+				["\\s"] = "@function.outer",
+				["\\a"] = "@conditional.outer",
+				["\\v"] = "@parameter.outer",
+			},
+			goto_previous_start = {
+				["\\e"] = "@call.outer",
+				["\\w"] = "@function.outer",
+				["\\q"] = "@conditional.outer",
+				["\\c"] = "@parameter.outer",
+			},
+		},
+	},
 })
