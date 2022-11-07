@@ -1,10 +1,7 @@
 local lualine_ok, lualine = pcall(require, "lualine")
-if not lualine_ok then
-	return
-end
-
 local nvim_navic_ok, nvim_navic = pcall(require, "nvim-navic")
-if not nvim_navic_ok then
+
+if not lualine_ok or not nvim_navic_ok then
 	return
 end
 

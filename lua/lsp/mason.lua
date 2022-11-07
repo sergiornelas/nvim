@@ -1,20 +1,7 @@
 local mason_ok, mason = pcall(require, "mason")
-if not mason_ok then
-	return
-end
-
 local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_ok then
-	return
-end
 
-local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_ok then
-	return
-end
-
-local typescript_ok, typescript = pcall(require, "typescript")
-if not typescript_ok then
+if not mason_ok or not mason_lspconfig_ok then
 	return
 end
 
@@ -35,25 +22,3 @@ mason_lspconfig.setup({
 	ensure_installed = servers,
 	automatic_installation = true,
 })
-
-local opts = {}
-for _, server in pairs(servers) do
-	opts = {
-		on_attach = require("lsp.lsp-handlers").on_attach,
-		capabilities = require("lsp.lsp-handlers").capabilities,
-		-- root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "gulpfile.js", "node_modules"),
-	}
-	server = vim.split(server, "@")[1]
-	local server_opts_ok, server_opts = pcall(require, "lsp.settings." .. server)
-	if server_opts_ok then
-		opts = vim.tbl_deep_extend("force", server_opts, opts)
-	end
-
-	if server == "tsserver" then
-		typescript.setup({
-			server = opts,
-		})
-	else
-		lspconfig[server].setup(opts)
-	end
-end

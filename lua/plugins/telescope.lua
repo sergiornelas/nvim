@@ -3,7 +3,6 @@ if not telescope_ok then
 	return
 end
 
-telescope.load_extension("frecency")
 telescope.load_extension("fzf")
 
 local actions = require("telescope.actions")

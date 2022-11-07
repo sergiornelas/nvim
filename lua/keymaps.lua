@@ -18,7 +18,7 @@ keymap("n", "<c-k>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
 keymap({ "n", "x" }, "mt", "<cmd>lua require('harpoon.term').gotoTerminal(1)<cr>", opts)
 
 -- <TELESCOPE>
-keymap("", "<leader>u", "<cmd>Telescope frecency<cr>", opts)
+keymap("", "<leader>u", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("", "<leader>i", "<cmd>Telescope find_files<cr>", opts)
 keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
 keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
@@ -27,10 +27,18 @@ keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("", "<leader>b", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
 
+-- <TYPERSCRIPT>
+keymap("n", "<leader>vI", "<cmd>TypescriptAddMissingImports<cr>", opts)
+keymap("n", "<leader>vO", "<cmd>TypescriptOrganizeImports<cr>", opts)
+keymap("n", "<leader>vU", "<cmd>TypescriptRemoveUnused<cr>", opts)
+keymap("n", "<leader>vF", "<cmd>TypescriptFixAll<cr>", opts)
+keymap("n", "<leader>vR", "<cmd>TypescriptRenameFile<cr>", opts)
+keymap("n", "<leader>vd", "<cmd>TypescriptGoToSourceDefinition<cr>", opts) -- Typescript 4.7+
+
 -- <DIFF VIEW GIT>
-keymap("", "<leader>v", "<cmd>DiffviewOpen<cr>", opts)
-keymap("", "<leader>kf", "<cmd>DiffviewFileHistory %<cr>", opts)
-keymap("", "<leader>kg", "<cmd>DiffviewFileHistory<cr>", opts)
+keymap("", "<leader>d", "<cmd>DiffviewOpen<cr>", opts)
+keymap("", "<leader>jf", "<cmd>DiffviewFileHistory %<cr>", opts)
+keymap("", "<leader>jg", "<cmd>DiffviewFileHistory<cr>", opts)
 
 -- <GIT SIGNS>
 keymap({ "n", "x" }, "gi", "<cmd>Gitsigns next_hunk<cr>^", opts)
@@ -64,10 +72,10 @@ keymap("", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info abo
 keymap("", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
 
 -- <MINI>
-keymap("", "<leader>df", ":lua require('mini.trailspace').trim()<cr>", opts)
+keymap("", "<leader>va", ":lua require('mini.trailspace').trim()<cr>", opts)
 
 -- <ZIPPY>
-keymap("", "<leader>dc", "<cmd>lua require('zippy').insert_print()<CR>", opts)
+keymap("", "<leader>vz", "<cmd>lua require('zippy').insert_print()<CR>", opts)
 
 -- NAVIGATION
 keymap("", "<leader>q", "<cmd>q<cr>", opts) --             close window
@@ -135,8 +143,8 @@ keymap("n", "<c-o>", "<c-i>", opts)
 keymap("n", "<c-i>", "<c-o>", opts)
 
 -- SWITCH BACKGROUND COLOR
-keymap("", "<leader>di", "<cmd>set background=dark<cr>", opts)
-keymap("", "<leader>do", "<cmd>set background=light<cr>", opts)
+keymap("", "<leader>vi", "<cmd>set background=dark<cr>", opts)
+keymap("", "<leader>vo", "<cmd>set background=light<cr>", opts)
 
 -- UTILS
 keymap("n", "<c-q>", "<c-r>", opts) --                                     redo
@@ -146,7 +154,7 @@ keymap("", "<c-x>", "<c-a>") --                                 increase number
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap("", "<c-z>", "<c-x>") --                                 decrease number
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
-keymap("", "<leader>dw", "<cmd>set wrap!<cr>", opts) --         toggle set wrap
+keymap("", "<leader>vw", "<cmd>set wrap!<cr>", opts) --         toggle set wrap
 keymap("", "<leader>z", "<cmd>set nu!<cr>", opts) --          toggle set number
 keymap("", "\\<leader>", "`.") --                       go to last changed line
 keymap("", "<leader>c", "<c-g>", opts) --       gives info about current buffer
@@ -174,7 +182,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader> maps available:
 -- y
 -- x
--- combinations with: d, k
+-- combinations with: v, j
 -- Reverse available: q, z, c
 
 -- <C-> maps available:

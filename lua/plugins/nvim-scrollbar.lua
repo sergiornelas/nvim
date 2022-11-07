@@ -5,6 +5,6 @@ end
 
 scrollbar.setup({
 	handlers = {
-		search = false, -- Requires hlslens to be loaded, will run require("scrollbar.handlers.search").setup() for you
+		search = false,
 	},
 })

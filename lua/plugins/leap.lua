@@ -1,15 +1,8 @@
 local leap_ok, leap = pcall(require, "leap")
-if not leap_ok then
-	return
-end
-
 local flit_ok, flit = pcall(require, "flit")
-if not flit_ok then
-	return
-end
-
 local leap_spooky_ok, leap_spooky = pcall(require, "leap-spooky")
-if not leap_spooky_ok then
+
+if not leap_ok or not flit_ok or not leap_spooky_ok then
 	return
 end
 
