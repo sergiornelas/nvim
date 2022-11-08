@@ -1,5 +1,5 @@
 vim.opt.backup = false --            creates a backup file
-vim.opt.ch = 0 --                    command height, 0 is still buggy (move selected block, prettier save line, etc)
+vim.opt.ch = 0 --                    command height
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0 --          so that `` is visible in markdown files

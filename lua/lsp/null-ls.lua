@@ -13,10 +13,10 @@ null_ls.setup({
 		diagnostics.tidy,
 		formatting.prettierd,
 		formatting.stylua,
-		-- formatting.prettier.with {
-		--       extra_filetypes = { "toml", "solidity" },
-		--       extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-		--     },
+		-- formatting.prettier.with({
+		-- 	extra_filetypes = { "toml", "solidity" },
+		-- 	extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+		-- }),
 	},
 	-- format on save:
 	on_attach = function(current_client, bufnr)

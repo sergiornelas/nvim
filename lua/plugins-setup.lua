@@ -335,6 +335,7 @@ return packer.startup(function(use)
 	use({
 		"B4mbus/oxocarbon-lua.nvim",
 		"Mofiqul/dracula.nvim",
+		"Shatur/neovim-ayu",
 		"Tsuzat/NeoSolarized.nvim",
 		"catppuccin/nvim",
 		"cpea2506/one_monokai.nvim",
@@ -504,12 +505,13 @@ return packer.startup(function(use)
 	-- /kiran94/s3edit.nvim                                 aws s3
 	-- jrop/mongo.nvim                                     mongodb
 	-- cbochs/grapple.nvim             harpoon 2 (wait for mature)
+	-- cbochs/portal.nvim                       c-o / c-i enhanced
 	-- folke/noice.nvim                           bunch of pop ups
 	-- Weissle/easy-action       leap and return (wait for mature)
 
 	-- Last time checked Awesome and This-week-in-neovim
 	-- Check the same day as the last one in order to make sure of not forget a plugin
-	-- (31/10/22)
+	-- (07/11/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

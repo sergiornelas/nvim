@@ -41,22 +41,3 @@ lspsaga.init_lsp_saga({
 		jump_key = "<c-j>",
 	},
 })
-
-local keymap = vim.keymap.set
-
-keymap("n", "gk", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<CR>", { silent = true })
-keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
-keymap("n", "gp", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
-keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
-keymap("n", "\\r", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-keymap("n", "\\f", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-keymap("n", "\\t", function()
-	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
-keymap("n", "\\g", function()
-	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
-keymap("n", "gz", "<cmd>LSoutlineToggle<CR>", { silent = true })
-keymap("n", "gh", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
