@@ -135,7 +135,6 @@ return packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"nvim-treesitter/nvim-treesitter-context",
-		"drybalka/tree-climber.nvim",
 		"p00f/nvim-ts-Rainbow",
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		after = "nvim-treesitter/nvim-treesitter",
@@ -260,7 +259,7 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-		"nat-418/boole.nvim",
+		"https://github.com/nat-418/boole.nvim",
 		config = function()
 			require("plugins.boole")
 		end,
@@ -328,6 +327,7 @@ return packer.startup(function(use)
 		end,
 	})
 	use("PatschD/zippy.nvim")
+	use("Oldenborg/vim-px-to-rem")
 
 	-- COLORSCHEMES ----------------------------------------------
 	use("raddari/last-color.nvim")

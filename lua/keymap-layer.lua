@@ -5,17 +5,17 @@
 
 --  WRITING       VIM EFFECT
 -- ---------------------------
--- &?/+* #$% \^   #?/{   () \^
--- QWERT˙UIO      QWER˙˙˙IO
+-- &?/+* #$% \^   #?/{  #() \^
+-- QWERT˙UIO      QWER˙˙UIO
 --  );(-[]=|~      ^;*}$|%&~
 --  ASDFGHJKL      ASDFGHJKL
---   ! _{@`}        @ _`!~=
---   Z˙CVBNM        Z˙CVBNM
+--   ! _{@`}        @ _`! =
+--   Z˙CVBNM        Z˙CVB˙M
 
 -- +]-[ missing vim effect.
--- ~^ are available for mapping (~ repeated in N).
--- T and U are already mapped by Treesitter climber.
--- \ is already mapped for move through diagnostics and go to head element.
+-- #^ are available for mapping
+-- T and N are mapped by Illuminate
+-- \ is already mapped by multiple plugins
 
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
@@ -42,5 +42,4 @@ keymap("n", "!!", "@@") --                                  ZZ
 keymap("", "{", "`") --                                     V
 keymap("", "{{", "``") --                                   VV
 keymap("", "@", "!") --                                     B
-keymap("", "`", "~") --                                     N
 keymap("", "}", "=") --                                     M

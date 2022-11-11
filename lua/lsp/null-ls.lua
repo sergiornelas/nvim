@@ -1,5 +1,7 @@
 local null_ls_ok, null_ls = pcall(require, "null-ls")
-if not null_ls_ok then
+local typescript_ext_ok, typescript_ext = pcall(require, "typescript.extensions.null-ls.code-actions")
+
+if not null_ls_ok or not typescript_ext_ok then
 	return
 end
 
@@ -17,6 +19,7 @@ null_ls.setup({
 		-- 	extra_filetypes = { "toml", "solidity" },
 		-- 	extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		-- }),
+		typescript_ext,
 	},
 	-- format on save:
 	on_attach = function(current_client, bufnr)

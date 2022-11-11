@@ -40,4 +40,7 @@ lspsaga.init_lsp_saga({
 	show_outline = {
 		jump_key = "<c-j>",
 	},
+	server_filetype_map = {
+		typescript = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	},
 })

@@ -7,13 +7,9 @@ end
 neorg.setup({
 	load = {
 		-- ["core.defaults"] = {},
+		["core.autocommands"] = {},
 		["core.norg.esupports.hop"] = {},
-		["core.highlights"] = {},
-		["core.mode"] = {},
-		["core.neorgcmd"] = {},
-		["core.integrations.treesitter"] = {}, -- integrate Treesitter into neorg
-		["core.norg.esupports.indent"] = {}, -- indent Neorg documents
-		["core.norg.concealer"] = {}, -- cool icons
+		["core.norg.esupports.metagen"] = {},
 		["core.keybinds"] = {
 			config = {
 				default_keybinds = false,
@@ -22,6 +18,18 @@ neorg.setup({
 				end,
 			},
 		},
+		-- ["core.norg.news"] = {},
+		-- ["core.norg.qol.toc"] = {},
+		-- ["core.norg.qol.todo_items"] = {},
+		-- ["core.syntax"] = {}, -- breaks
+		-- ["core.tangle"] = {},
+		["core.norg.esupports.indent"] = {},
+		-- ["core.norg.journal"] = {},
+		["core.integrations.treesitter"] = {},
+		-- ["core.neorgcmd"] = {},
+		-- ["core.mode"] = {},
+		-- Complementary:
+		["core.norg.concealer"] = {}, -- cool icons
 		["core.norg.completion"] = { -- extra cmp options,
 			config = {
 				engine = "nvim-cmp",

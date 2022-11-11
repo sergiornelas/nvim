@@ -16,13 +16,13 @@ lualine.setup({
 		globalstatus = true,
 	},
 	sections = {
-		lualine_a = { "searchcount" },
+		lualine_a = { "searchcount", "tabs" },
 		lualine_b = { "diff", "diagnostics" },
 		lualine_c = {
 			{ nvim_navic.get_location, cond = nvim_navic.is_available },
 		},
 		lualine_x = {},
-		lualine_y = { "progress" },
+		lualine_y = { "location", "progress" },
 		lualine_z = {},
 	},
 	tabline = {},

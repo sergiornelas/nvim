@@ -13,6 +13,6 @@ neodim.setup({
 	hide = {
 		virtual_text = true,
 		signs = true,
-		underline = true,
+		underline = false,
 	},
 })

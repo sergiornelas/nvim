@@ -58,21 +58,21 @@ keymap("", "<leader>d", "<cmd>DiffviewOpen<cr>", opts)
 keymap("", "<leader>jf", "<cmd>DiffviewFileHistory %<cr>", opts)
 keymap("", "<leader>jg", "<cmd>DiffviewFileHistory<cr>", opts)
 
--- <Git signs>
-keymap({ "n", "x" }, "gi", "<cmd>Gitsigns next_hunk<cr>^", opts)
-keymap({ "n", "x" }, "go", "<cmd>Gitsigns prev_hunk<cr>^", opts)
-
 -- <Windows>
 keymap("n", "v<leader>", "<cmd>WindowsMaximize<cr>", opts)
 keymap("n", "<c-w>z", "<cmd>WindowsToggleAutowidth<cr>", opts)
 
--- <Tree-climber>
-keymap("", "#", "<cmd>lua require('tree-climber').swap_prev()<cr>", opts)
-keymap("", "*", "<cmd>lua require('tree-climber').swap_next()<cr>", opts)
+-- <Illuminate>
+keymap("", "`", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
+keymap("", "*", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", opts)
 
 -- <Color picker>
 keymap("n", "<C-c>", "<cmd>CccPick<cr>", opts)
 keymap("i", "<C-c>", "<Plug>(ccc-insert)<cr>", opts)
+
+-- <Px-Rem>
+keymap("", "<leader>vp", "<cmd>Px!<cr>", opts)
+keymap("", "<leader>vr", "<cmd>Rem!<cr>", opts)
 
 -- <Session lens>
 keymap({ "n", "x" }, "mg", "<cmd>SearchSession<cr>", opts)
@@ -90,7 +90,7 @@ keymap("", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info abo
 keymap("", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
 
 -- <Mini trailspace>
-keymap("", "<leader>va", ":lua require('mini.trailspace').trim()<cr>", opts)
+keymap("", "<leader>va", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
 
 -- <Zippy>
 keymap("", "<leader>vz", "<cmd>lua require('zippy').insert_print()<CR>", opts)
@@ -130,11 +130,11 @@ keymap("i", "<c-i>", "<c-f>", opts) --    move line in the corresponding tab fra
 keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode again
 
 -- Visual mode
-keymap("n", "vv", "Vg_^", opts) --               visual whole line
-keymap("", "<c-l>", "<c-v>", opts) --       block visual selection
-keymap("x", "<leader>p", '"_dP', opts) -- paste and don't register
-keymap("x", "<c-w>", "o", opts) -- o is used by treesitter-objects
-keymap("x", "!f", ":norm! @f<cr>", opts) -- execute multiple macro
+keymap("n", "vv", "Vg_^", opts) --                   visual whole line
+keymap("", "<c-l>", "<c-v>", opts) --           block visual selection
+keymap("x", "<leader>p", '"_dP', opts) --     paste and don't register
+keymap("x", "<c-w>", "o", opts) --     o is used by treesitter-objects
+keymap("x", "!f", "<cmd>norm! @f<cr>", opts) -- execute multiple macro
 
 -- Tabs
 keymap("", "<leader>n", "<c-w>T", opts) --              new tab
@@ -154,9 +154,9 @@ keymap("s", "#", "#", opts)
 keymap("s", "*", "*", opts)
 
 -- Z movements
-keymap({ "n", "x" }, "zl", "z9l", opts) --                            zoom left
-keymap({ "n", "x" }, "zh", "z9h", opts) --                           zoom right
-keymap({ "n", "x" }, "gj", "zz", opts) --                           center text
+keymap({ "n", "x" }, "zl", "z9l", opts) --                                zoom left
+keymap({ "n", "x" }, "zh", "z9h", opts) --                               zoom right
+keymap({ "n", "x" }, "gj", "zz", opts) --                               center text
 keymap({ "n", "x" }, "z.", ":<C-u>normal! zszH<cr>", opts) -- center horizontal
 
 -- Don't yank on delete char
@@ -181,9 +181,7 @@ keymap("", "<leader>vo", "<cmd>set background=light<cr>", opts)
 keymap("n", "<c-q>", "<c-r>", opts) --                                     redo
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
 keymap("", "<leader>w", "<cmd>set hlsearch!<cr>", opts) --           highlights
-keymap("", "<c-x>", "<c-a>") --                                 increase number
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
-keymap("", "<c-z>", "<c-x>") --                                 decrease number
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>vw", "<cmd>set wrap!<cr>", opts) --         toggle set wrap
 keymap("", "<leader>z", "<cmd>set nu!<cr>", opts) --          toggle set number
