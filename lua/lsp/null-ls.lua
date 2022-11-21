@@ -15,11 +15,11 @@ null_ls.setup({
 		diagnostics.tidy,
 		formatting.prettierd,
 		formatting.stylua,
+		typescript_ext,
 		-- formatting.prettier.with({
 		-- 	extra_filetypes = { "toml", "solidity" },
 		-- 	extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		-- }),
-		typescript_ext,
 	},
 	-- format on save:
 	on_attach = function(current_client, bufnr)

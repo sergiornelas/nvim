@@ -1,22 +1,11 @@
 local leap_ok, leap = pcall(require, "leap")
-local flit_ok, flit = pcall(require, "flit")
 local leap_spooky_ok, leap_spooky = pcall(require, "leap-spooky")
 
-if not leap_ok or not flit_ok or not leap_spooky_ok then
+if not leap_ok or not leap_spooky_ok then
 	return
 end
 
 leap.add_default_mappings()
-
-flit.setup({
-	keys = { f = "f", F = "F", t = "t", T = "T" },
-	-- A string like "nv", "nvo", "o", etc.
-	labeled_modes = "v",
-	multiline = true,
-	-- Like `leap`s similar argument (call-specific overrides).
-	-- E.g.: opts = { equivalence_classes = {} }
-	opts = {},
-})
 
 leap_spooky.setup({
 	affixes = {

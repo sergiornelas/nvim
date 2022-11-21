@@ -31,17 +31,19 @@ keymap("n", "<leader>vF", "<cmd>TypescriptFixAll<cr>", opts)
 keymap("n", "<leader>vR", "<cmd>TypescriptRenameFile<cr>", opts)
 keymap("n", "<leader>vd", "<cmd>TypescriptGoToSourceDefinition<cr>", opts) -- Typescript 4.7+
 
--- <Harpoon>
-keymap("", "<leader>h", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
-keymap({ "n", "x" }, "mm", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
-keymap({ "n", "x" }, "mf", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", opts)
-keymap({ "n", "x" }, "me", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
-keymap({ "n", "x" }, "mw", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", opts)
-keymap({ "n", "x" }, "ma", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", opts)
-keymap({ "n", "x" }, "mq", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", opts)
-keymap("n", "<c-j>", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
-keymap("n", "<c-k>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
-keymap({ "n", "x" }, "mt", "<cmd>lua require('harpoon.term').gotoTerminal(1)<cr>", opts)
+-- <Grapple>
+keymap("", "<leader>k", "<cmd>lua require('grapple').popup_tags()<cr>", opts)
+keymap("", "mm", "<cmd>lua require('grapple').toggle()<cr>", opts)
+keymap("", "mf", "<cmd>lua require('grapple').select({key=1})<cr>", opts)
+keymap("", "me", "<cmd>lua require('grapple').select({key=2})<cr>", opts)
+keymap("", "mw", "<cmd>lua require('grapple').select({key=3})<cr>", opts)
+keymap("", "ma", "<cmd>lua require('grapple').select({key=4})<cr>", opts)
+keymap("", "mr", "<cmd>lua require('grapple').select({key=5})<cr>", opts)
+keymap("", "mt", "<cmd>lua require('grapple').select({key=6})<cr>", opts)
+keymap("", "mq", ":lua require('grapple').tag({ key = '", { noremap = true })
+keymap("n", "<c-j>", "<cmd>lua require('grapple').cycle_backward()<cr>", opts)
+keymap("n", "<c-k>", "<cmd>lua require('grapple').cycle_forward()<cr>", opts)
+-- keymap("", "<leader>vh", "<cmd>lua require('grapple').popup_tags('global')<cr>", opts)
 
 -- <Telescope>
 keymap("", "<leader>u", "<cmd>Telescope oldfiles<cr>", opts)
@@ -65,6 +67,10 @@ keymap("n", "<c-w>z", "<cmd>WindowsToggleAutowidth<cr>", opts)
 -- <Illuminate>
 keymap("", "`", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
 keymap("", "*", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", opts)
+
+-- <Hlslens>
+keymap("n", "n", "<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>", opts)
+keymap("n", "N", "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>", opts)
 
 -- <Color picker>
 keymap("n", "<C-c>", "<cmd>CccPick<cr>", opts)
@@ -118,7 +124,7 @@ keymap("", "ƒ", "<cmd>vertical resize +4<cr>", opts)
 keymap("", "∂", "<cmd>resize +4<cr>", opts)
 keymap("", "ß", "<cmd>resize -4<cr>", opts)
 keymap("", "å", "<cmd>vertical resize -4<cr>", opts)
-keymap("", "<leader><leader>", "<c-w>=", opts) -- center windows
+keymap("", "<leader><leader>", "<c-w>=", opts)
 
 -- Insert mode
 keymap("i", "<c-f>", "<c-i>", opts) --                                         tab
@@ -130,11 +136,11 @@ keymap("i", "<c-i>", "<c-f>", opts) --    move line in the corresponding tab fra
 keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode again
 
 -- Visual mode
-keymap("n", "vv", "Vg_^", opts) --                   visual whole line
-keymap("", "<c-l>", "<c-v>", opts) --           block visual selection
-keymap("x", "<leader>p", '"_dP', opts) --     paste and don't register
-keymap("x", "<c-w>", "o", opts) --     o is used by treesitter-objects
-keymap("x", "!f", "<cmd>norm! @f<cr>", opts) -- execute multiple macro
+keymap("n", "vv", "Vg_^", opts) --                                     visual whole line
+keymap("", "<c-l>", "<c-v>", opts) --                             block visual selection
+keymap("x", "<leader>p", '"_dP', opts) --                       paste and don't register
+keymap("x", "<c-w>", "o", opts) --                       o is used by treesitter-objects
+keymap("x", "!", '":norm !" . getcharstr() . "<cr>"', { expr = true }) -- multiple macro
 
 -- Tabs
 keymap("", "<leader>n", "<c-w>T", opts) --              new tab
@@ -154,9 +160,9 @@ keymap("s", "#", "#", opts)
 keymap("s", "*", "*", opts)
 
 -- Z movements
-keymap({ "n", "x" }, "zl", "z9l", opts) --                                zoom left
-keymap({ "n", "x" }, "zh", "z9h", opts) --                               zoom right
-keymap({ "n", "x" }, "gj", "zz", opts) --                               center text
+keymap({ "n", "x" }, "zl", "z9l", opts) --                            zoom left
+keymap({ "n", "x" }, "zh", "z9h", opts) --                           zoom right
+keymap({ "n", "x" }, "gj", "zz", opts) --                           center text
 keymap({ "n", "x" }, "z.", ":<C-u>normal! zszH<cr>", opts) -- center horizontal
 
 -- Don't yank on delete char
@@ -166,8 +172,8 @@ keymap("v", "x", '"_x', opts)
 keymap("v", "X", '"_X', opts)
 
 -- Move line/paragraph
-keymap("x", "<c-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<c-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "<c-j>", ":move '>+1<cr>gv-gv", opts)
+keymap("x", "<c-k>", ":move '<-2<cr>gv-gv", opts)
 
 -- Switch jumps
 keymap("n", "<c-o>", "<c-i>", opts)
@@ -196,7 +202,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- D maps available:
 -- q, r, y, u, p
 -- <cr>
--- z, x, c, n
+-- z, x, c
 
 -- C maps available:
 -- q, r, y, u, p
@@ -209,6 +215,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- <leader> maps available:
 -- y
+-- h
 -- x
 -- combinations with: v, j
 -- Reverse available: q, z, c

@@ -9,16 +9,18 @@ end
 local keymap = vim.keymap.set
 keymap("n", "gq", vim.diagnostic.setloclist, { noremap = true, silent = true })
 
-local keymaps = function(bufnr, client)
+local keymaps = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
 	if client.name == "tsserver" or client.name == "sumneko_lua" then
 		keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
 		keymap("n", "gd", vim.lsp.buf.definition, bufopts)
 		keymap("n", "gI", vim.lsp.buf.implementation, bufopts)
 		keymap("n", "gS", vim.lsp.buf.signature_help, bufopts)
-		keymap("n", "gt", vim.lsp.buf.type_definition, bufopts)
+		keymap("n", "gT", vim.lsp.buf.type_definition, bufopts)
 	end
+
 	keymap("n", "gA", vim.lsp.buf.add_workspace_folder, bufopts)
 	keymap("n", "gR", vim.lsp.buf.remove_workspace_folder, bufopts)
 	keymap("n", "gW", function()
@@ -33,7 +35,7 @@ end
 local M = {}
 
 M.on_attach = function(client, bufnr)
-	keymaps(bufnr, client)
+	keymaps(client, bufnr)
 	nvim_navic.attach(client, bufnr)
 	if client.name == "tsserver" then
 		lsp_inlayhints.on_attach(client, bufnr) -- Typescript 4.4+

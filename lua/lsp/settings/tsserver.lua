@@ -1,5 +1,4 @@
 -- https://github.com/typescript-language-server/typescript-language-server
--- return {
 local M = {}
 
 M.settings = {

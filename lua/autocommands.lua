@@ -64,8 +64,10 @@ api.nvim_exec(
 	[[
   " Paste command mode
   cnoremap <c-v> <c-r>*
+
   " Exit terminal
   :tnoremap <Esc> <C-\><C-n>
+
   " Magic multicursor
   xnoremap gt :s/\(\w.*\)/
 

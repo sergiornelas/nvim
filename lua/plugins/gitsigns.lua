@@ -79,7 +79,7 @@ gitsigns.setup({
 		map("n", "<leader>jW", gs.stage_buffer)
 		map("n", "<leader>ju", gs.undo_stage_hunk)
 		map("n", "<leader>jR", gs.reset_buffer)
-		map("n", "<leader>k", gs.preview_hunk)
+		map("n", "<leader>w", gs.preview_hunk)
 		map("n", "<leader>jj", function()
 			gs.blame_line({ full = true })
 		end)

@@ -6,28 +6,15 @@ end
 
 neorg.setup({
 	load = {
-		-- ["core.defaults"] = {},
-		["core.autocommands"] = {},
-		["core.norg.esupports.hop"] = {},
-		["core.norg.esupports.metagen"] = {},
+		["core.defaults"] = {},
 		["core.keybinds"] = {
 			config = {
 				default_keybinds = false,
 				hook = function(keybinds)
-					keybinds.remap_event("norg", "", "gu", "core.norg.esupports.hop.hop-link")
+					keybinds.remap_event("norg", "", "gd", "core.norg.esupports.hop.hop-link")
 				end,
 			},
 		},
-		-- ["core.norg.news"] = {},
-		-- ["core.norg.qol.toc"] = {},
-		-- ["core.norg.qol.todo_items"] = {},
-		-- ["core.syntax"] = {}, -- breaks
-		-- ["core.tangle"] = {},
-		["core.norg.esupports.indent"] = {},
-		-- ["core.norg.journal"] = {},
-		["core.integrations.treesitter"] = {},
-		-- ["core.neorgcmd"] = {},
-		-- ["core.mode"] = {},
 		-- Complementary:
 		["core.norg.concealer"] = {}, -- cool icons
 		["core.norg.completion"] = { -- extra cmp options,

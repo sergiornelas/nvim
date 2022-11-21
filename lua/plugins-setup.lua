@@ -178,11 +178,10 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-		"ThePrimeagen/harpoon",
+		"cbochs/grapple.nvim",
 		config = function()
-			require("plugins.harpoon")
+			require("plugins.grapple")
 		end,
-		event = "BufEnter",
 	})
 	use({
 		"kwkarlwang/bufjump.nvim",
@@ -196,12 +195,18 @@ return packer.startup(function(use)
 			require("plugins.leap")
 		end,
 	})
-	use("ggandor/flit.nvim")
 	use("ggandor/leap-spooky.nvim")
+	use("rhysd/clever-f.vim")
 	use({
 		"petertriho/nvim-scrollbar",
 		config = function()
 			require("plugins.nvim-scrollbar")
+		end,
+	})
+	use({
+		"kevinhwang91/nvim-hlslens",
+		config = function()
+			require("plugins.hlslens")
 		end,
 	})
 	use({
@@ -304,7 +309,7 @@ return packer.startup(function(use)
 	use({
 		"sindrets/diffview.nvim",
 		config = function()
-			require("plugins.gitdiff")
+			require("plugins.diffview")
 		end,
 	})
 
@@ -504,14 +509,15 @@ return packer.startup(function(use)
 	-- smjonas/live-command.nvim                      live command
 	-- /kiran94/s3edit.nvim                                 aws s3
 	-- jrop/mongo.nvim                                     mongodb
-	-- cbochs/grapple.nvim             harpoon 2 (wait for mature)
 	-- cbochs/portal.nvim                       c-o / c-i enhanced
 	-- folke/noice.nvim                           bunch of pop ups
 	-- Weissle/easy-action       leap and return (wait for mature)
+	-- DaikyXendo/nvim-tree.lua      nvim tree with material icons
+	-- folke/styler.nvim     colorscheme by file (no transparency)
 
 	-- Last time checked Awesome and This-week-in-neovim
 	-- Check the same day as the last one in order to make sure of not forget a plugin
-	-- (07/11/22)
+	-- (14/11/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
