@@ -6,22 +6,22 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- <LSP Saga>
-keymap("n", "gk", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<CR>", { silent = true })
-keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
-keymap("n", "gp", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
-keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
-keymap("n", "\\r", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-keymap("n", "\\f", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+keymap("n", "gk", "<cmd>Lspsaga lsp_finder<cr>", { silent = true })
+keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<cr>", { silent = true })
+keymap("n", "gr", "<cmd>Lspsaga rename<cr>", { silent = true })
+keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>", { silent = true })
+keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>", { silent = true })
+keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<cr>", { silent = true })
+keymap("n", "\\r", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { silent = true })
+keymap("n", "\\f", "<cmd>Lspsaga diagnostic_jump_next<cr>", { silent = true })
 keymap("n", "\\t", function()
 	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 keymap("n", "\\g", function()
 	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
-keymap("n", "gz", "<cmd>LSoutlineToggle<CR>", { silent = true })
-keymap("n", "gh", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+keymap("n", "gz", "<cmd>LSoutlineToggle<cr>", { silent = true })
+keymap("n", "gh", "<cmd>Lspsaga hover_doc<cr>", { silent = true })
 
 -- <Typerscript>
 keymap("n", "<leader>vI", "<cmd>TypescriptAddMissingImports<cr>", opts)
@@ -32,7 +32,7 @@ keymap("n", "<leader>vR", "<cmd>TypescriptRenameFile<cr>", opts)
 keymap("n", "<leader>vd", "<cmd>TypescriptGoToSourceDefinition<cr>", opts) -- Typescript 4.7+
 
 -- <Grapple>
-keymap("", "<leader>k", "<cmd>lua require('grapple').popup_tags()<cr>", opts)
+keymap("", "mv", "<cmd>lua require('grapple').popup_tags()<cr>", opts)
 keymap("", "mm", "<cmd>lua require('grapple').toggle()<cr>", opts)
 keymap("", "mf", "<cmd>lua require('grapple').select({key=1})<cr>", opts)
 keymap("", "me", "<cmd>lua require('grapple').select({key=2})<cr>", opts)
@@ -69,12 +69,12 @@ keymap("", "`", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", 
 keymap("", "*", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", opts)
 
 -- <Hlslens>
-keymap("n", "n", "<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>", opts)
-keymap("n", "N", "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>", opts)
+keymap("n", "n", "<cmd>execute('normal! ' . v:count1 . 'n')<cr><cmd>lua require('hlslens').start()<cr>", opts)
+keymap("n", "N", "<cmd>execute('normal! ' . v:count1 . 'N')<cr><cmd>lua require('hlslens').start()<cr>", opts)
 
 -- <Color picker>
-keymap("n", "<C-c>", "<cmd>CccPick<cr>", opts)
-keymap("i", "<C-c>", "<Plug>(ccc-insert)<cr>", opts)
+keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
+keymap("i", "<c-c>", "<Plug>(ccc-insert)<cr>", opts)
 
 -- <Px-Rem>
 keymap("", "<leader>vp", "<cmd>Px!<cr>", opts)
@@ -99,13 +99,16 @@ keymap("", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
 keymap("", "<leader>va", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
 
 -- <Zippy>
-keymap("", "<leader>vz", "<cmd>lua require('zippy').insert_print()<CR>", opts)
+keymap("", "<leader>vz", "<cmd>lua require('zippy').insert_print()<cr>", opts)
+
+-- <Swap-split>
+keymap("", "<leader>vs", "<cmd>SwapSplit<cr>", opts)
 
 -- Open links under cursor in browser
 if vim.fn.has("macunix") == 1 then
-	keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<CR>", opts)
+	keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<cr>", opts)
 else
-	keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", opts)
+	keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<cr>", opts)
 end
 
 -- Navigation
@@ -163,7 +166,7 @@ keymap("s", "*", "*", opts)
 keymap({ "n", "x" }, "zl", "z9l", opts) --                            zoom left
 keymap({ "n", "x" }, "zh", "z9h", opts) --                           zoom right
 keymap({ "n", "x" }, "gj", "zz", opts) --                           center text
-keymap({ "n", "x" }, "z.", ":<C-u>normal! zszH<cr>", opts) -- center horizontal
+keymap({ "n", "x" }, "z.", ":<c-u>normal! zszH<cr>", opts) -- center horizontal
 
 -- Don't yank on delete char
 keymap("n", "x", '"_x', opts)
@@ -200,9 +203,9 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- Y
 
 -- D maps available:
--- q, r, y, u, p
+-- r, y
 -- <cr>
--- z, x, c
+-- x, c
 
 -- C maps available:
 -- q, r, y, u, p
@@ -215,8 +218,9 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- <leader> maps available:
 -- y
--- h
+-- h, k
 -- x
+-- caps chars
 -- combinations with: v, j
 -- Reverse available: q, z, c
 

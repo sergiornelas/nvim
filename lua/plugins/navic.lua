@@ -4,36 +4,36 @@ if not nvim_navic_ok then
 end
 
 nvim_navic.setup({
-	highlight = true,
-	separator = " ",
 	icons = {
 		File = " ",
 		Module = " ",
 		Namespace = " ",
-		Package = " ",
+		Package = " ",
 		Class = " ",
-		Method = " ",
-		Property = " ",
-		Field = " ",
+		Method = " ",
+		Property = " ",
+		Field = " ",
 		Constructor = " ",
-		Enum = "了 ",
-		Interface = " ",
+		Enum = "練",
+		Interface = "練",
 		Function = " ",
-		Variable = " ",
-		Constant = " ",
+		Variable = " ",
+		Constant = " ",
 		String = " ",
 		Number = " ",
-		Boolean = " ",
-		Array = " ",
-		Object = " ",
+		Boolean = "◩ ",
+		Array = " ",
+		Object = " ",
 		Key = " ",
-		Null = " ",
+		Null = "ﳠ ",
 		EnumMember = " ",
 		Struct = " ",
-		Event = " ",
+		Event = " ",
 		Operator = " ",
 		TypeParameter = " ",
 	},
+	highlight = true,
+	separator = " ",
 })
 
 local set_hl = vim.api.nvim_set_hl
@@ -49,31 +49,31 @@ local colors = {
 	teal = "#1abc9c",
 }
 
-set_hl(0, "NavicIconsArray", { default = true, fg = colors.blue })
-set_hl(0, "NavicIconsBoolean", { default = true, fg = colors.orange })
-set_hl(0, "NavicIconsClass", { default = true, fg = colors.violet })
-set_hl(0, "NavicIconsConstant", { default = true, fg = colors.cyan })
-set_hl(0, "NavicIconsConstructor", { default = true, fg = colors.blue })
-set_hl(0, "NavicIconsEnum", { default = true, fg = colors.green })
-set_hl(0, "NavicIconsEnumMember", { default = true, fg = colors.green })
-set_hl(0, "NavicIconsEvent", { default = true, fg = colors.violet })
-set_hl(0, "NavicIconsField", { default = true, fg = colors.teal })
-set_hl(0, "NavicIconsFile", { default = true, fg = colors.fg })
-set_hl(0, "NavicIconsFunction", { default = true, fg = colors.violet })
-set_hl(0, "NavicIconsInterface", { default = true, fg = colors.orange })
-set_hl(0, "NavicIconsKey", { default = true, fg = colors.red })
-set_hl(0, "NavicIconsMethod", { default = true, fg = colors.violet })
-set_hl(0, "NavicIconsModule", { default = true, fg = colors.blue })
-set_hl(0, "NavicIconsNamespace", { default = true, fg = colors.orange })
-set_hl(0, "NavicIconsNull", { default = true, fg = colors.red })
-set_hl(0, "NavicIconsNumber", { default = true, fg = colors.green })
-set_hl(0, "NavicIconsObject", { default = true, fg = colors.orange })
-set_hl(0, "NavicIconsOperator", { default = true, fg = colors.green })
-set_hl(0, "NavicIconsPackage", { default = true, fg = colors.violet })
-set_hl(0, "NavicIconsProperty", { default = true, fg = colors.cyan })
-set_hl(0, "NavicIconsString", { default = true, fg = colors.green })
-set_hl(0, "NavicIconsStruct", { default = true, fg = colors.violet })
-set_hl(0, "NavicIconsTypeParameter", { default = true, fg = colors.green })
-set_hl(0, "NavicIconsVariable", { default = true, fg = colors.blue })
-set_hl(0, "NavicSeparator", { default = true, fg = "red" })
-set_hl(0, "NavicText", { default = true, fg = "#B9AB96" })
+set_hl(0, "NavicIconsArray", { fg = colors.blue })
+set_hl(0, "NavicIconsBoolean", { fg = colors.orange })
+set_hl(0, "NavicIconsClass", { fg = colors.violet })
+set_hl(0, "NavicIconsConstant", { fg = colors.cyan })
+set_hl(0, "NavicIconsConstructor", { fg = colors.blue })
+set_hl(0, "NavicIconsEnum", { fg = colors.green })
+set_hl(0, "NavicIconsEnumMember", { fg = colors.green })
+set_hl(0, "NavicIconsEvent", { fg = colors.violet })
+set_hl(0, "NavicIconsField", { fg = colors.teal })
+set_hl(0, "NavicIconsFile", { fg = colors.fg })
+set_hl(0, "NavicIconsFunction", { fg = colors.violet })
+set_hl(0, "NavicIconsInterface", { fg = colors.orange })
+set_hl(0, "NavicIconsKey", { fg = colors.red })
+set_hl(0, "NavicIconsMethod", { fg = colors.violet })
+set_hl(0, "NavicIconsModule", { fg = colors.blue })
+set_hl(0, "NavicIconsNamespace", { fg = colors.orange })
+set_hl(0, "NavicIconsNull", { fg = colors.red })
+set_hl(0, "NavicIconsNumber", { fg = colors.green })
+set_hl(0, "NavicIconsObject", { fg = colors.orange })
+set_hl(0, "NavicIconsOperator", { fg = colors.green })
+set_hl(0, "NavicIconsPackage", { fg = colors.violet })
+set_hl(0, "NavicIconsProperty", { fg = colors.cyan })
+set_hl(0, "NavicIconsString", { fg = colors.green })
+set_hl(0, "NavicIconsStruct", { fg = colors.violet })
+set_hl(0, "NavicIconsTypeParameter", { fg = colors.green })
+set_hl(0, "NavicIconsVariable", { fg = colors.blue })
+set_hl(0, "NavicSeparator", { fg = "red" })
+set_hl(0, "NavicText", { fg = "#B9AB96" })

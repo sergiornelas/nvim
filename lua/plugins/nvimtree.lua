@@ -50,7 +50,7 @@ nvim_tree.setup({
 		mappings = {
 			custom_only = true,
 			list = {
-				{ key = { "l", "<CR>", "o" }, action = "edit" },
+				{ key = { "l", "<cr>", "o" }, action = "edit" },
 				{ key = "q", action = "copy_path" },
 				{ key = "gk", action = "prev_git_item" },
 				{ key = "gj", action = "next_git_item" },

@@ -139,6 +139,12 @@ return packer.startup(function(use)
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		after = "nvim-treesitter/nvim-treesitter",
 	})
+	use({
+		"folke/paint.nvim",
+		config = function()
+			require("plugins.paint")
+		end,
+	})
 
 	-- NAVIGATION ------------------------------------------------
 	use({
@@ -190,6 +196,26 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
+		"anuvyklack/windows.nvim",
+		requires = "anuvyklack/middleclass",
+		config = function()
+			require("plugins.windows")
+		end,
+	})
+	use({
+		"xorid/swap-split.nvim",
+		config = function()
+			require("plugins.swap-split")
+		end,
+	})
+	use({
+		"xiyaowong/nvim-transparent",
+		config = function()
+			require("plugins.transparent")
+		end,
+	})
+	use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
+	use({
 		"ggandor/leap.nvim",
 		config = function()
 			require("plugins.leap")
@@ -215,20 +241,6 @@ return packer.startup(function(use)
 			require("plugins.incline")
 		end,
 	})
-	use({
-		"xiyaowong/nvim-transparent",
-		config = function()
-			require("plugins.transparent")
-		end,
-	})
-	use({
-		"anuvyklack/windows.nvim",
-		requires = "anuvyklack/middleclass",
-		config = function()
-			require("plugins.windows")
-		end,
-	})
-	use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
 	use({
 		"ziontee113/neo-minimap",
 		config = function()
@@ -496,6 +508,7 @@ return packer.startup(function(use)
 	-- p00f/cphelper.nvim                          code challenges
 	-- smartpde/neoscopes   light project magagement (interesting)
 	-- charludo/projectmgr.nvim            switch between projects
+	-- GnikDroy/projections.nvim                   project/session
 	-- phaazon/mind.nvim                                  note app
 	-- folke/todo-comments.nvim                       pretty notes
 	-- Ostralyan/scribe.nvim                 telescope quick notes
@@ -514,10 +527,12 @@ return packer.startup(function(use)
 	-- Weissle/easy-action       leap and return (wait for mature)
 	-- DaikyXendo/nvim-tree.lua      nvim tree with material icons
 	-- folke/styler.nvim     colorscheme by file (no transparency)
+	-- folke/neoconf.nvim   global/project-local lsp settings live
+	-- joechrisellis/lsp-format-modifications.nvim   format edited
 
 	-- Last time checked Awesome and This-week-in-neovim
 	-- Check the same day as the last one in order to make sure of not forget a plugin
-	-- (14/11/22)
+	-- (22/11/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

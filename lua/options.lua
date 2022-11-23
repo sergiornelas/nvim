@@ -8,7 +8,7 @@ vim.opt.expandtab = true --          convert tabs to spaces
 vim.opt.fileencoding = "utf-8" --    the encoding written to a file
 vim.opt.fillchars.eob = " " --       show empty lines at the end of a buffer as ` ` (default `~`)
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
-vim.opt.hlsearch = false --          highlight all matches on previous search pattern
+vim.opt.hlsearch = true --           highlight all matches on previous search pattern
 vim.opt.ignorecase = true --         ignore case in search patterns
 vim.opt.iskeyword:append("-") --     treats words with `-` as single words
 vim.opt.ls = 0 --                    using 3 only the last window will always have a status line

@@ -70,6 +70,17 @@ configs.setup({
 			},
 			include_surrounding_whitespace = true,
 		},
+		swap = {
+			enable = true,
+			swap_next = {
+				["dp"] = "@parameter.inner",
+				["dz"] = "@function.outer",
+			},
+			swap_previous = {
+				["du"] = "@parameter.inner",
+				["dq"] = "@function.outer",
+			},
+		},
 		move = {
 			enable = true,
 			set_jumps = true,
