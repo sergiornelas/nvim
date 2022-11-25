@@ -1,8 +1,5 @@
--- Remap space as leader key
 vim.g.mapleader = " "
--- Shorten keymap function
 local keymap = vim.keymap.set
--- Default keymap options
 local opts = { noremap = true, silent = true }
 
 -- <LSP Saga>
@@ -50,7 +47,7 @@ keymap("", "<leader>u", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("", "<leader>i", "<cmd>Telescope find_files<cr>", opts)
 keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
 keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
-keymap("", "<leader>a", "<cmd>Telescope git_status<cr>", opts)
+keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
 keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("", "<leader>b", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
@@ -87,7 +84,7 @@ keymap({ "n", "x" }, "mg", "<cmd>SearchSession<cr>", opts)
 keymap("", "<leader>g", "<cmd>NvimTreeToggle <cr>", opts)
 
 -- <Inlay hints>
-keymap("", "<leader>m", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
+keymap("", "<leader>h", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
 -- <Transparency>
 keymap("", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info about current buffer
@@ -103,6 +100,9 @@ keymap("", "<leader>vz", "<cmd>lua require('zippy').insert_print()<cr>", opts)
 
 -- <Swap-split>
 keymap("", "<leader>vs", "<cmd>SwapSplit<cr>", opts)
+
+-- <Fsread>
+keymap("", "<leader>vf", "<cmd>FSToggle<cr>", opts)
 
 -- Open links under cursor in browser
 if vim.fn.has("macunix") == 1 then
@@ -163,16 +163,14 @@ keymap("s", "#", "#", opts)
 keymap("s", "*", "*", opts)
 
 -- Z movements
-keymap({ "n", "x" }, "zl", "z9l", opts) --                            zoom left
-keymap({ "n", "x" }, "zh", "z9h", opts) --                           zoom right
+keymap({ "n", "x" }, "zl", "z25l", opts) --                           zoom left
+keymap({ "n", "x" }, "zh", "z25h", opts) --                          zoom right
 keymap({ "n", "x" }, "gj", "zz", opts) --                           center text
 keymap({ "n", "x" }, "z.", ":<c-u>normal! zszH<cr>", opts) -- center horizontal
 
 -- Don't yank on delete char
-keymap("n", "x", '"_x', opts)
-keymap("n", "X", '"_X', opts)
-keymap("v", "x", '"_x', opts)
-keymap("v", "X", '"_X', opts)
+keymap({ "n", "v" }, "x", '"_x', opts)
+keymap({ "n", "v" }, "X", '"_X', opts)
 
 -- Move line/paragraph
 keymap("x", "<c-j>", ":move '>+1<cr>gv-gv", opts)
@@ -189,13 +187,13 @@ keymap("", "<leader>vo", "<cmd>set background=light<cr>", opts)
 -- Utils
 keymap("n", "<c-q>", "<c-r>", opts) --                                     redo
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
-keymap("", "<leader>w", "<cmd>set hlsearch!<cr>", opts) --           highlights
+keymap("", "<leader>a", "<cmd>set hlsearch!<cr>", opts) --           highlights
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
-keymap("", "<leader>vw", "<cmd>set wrap!<cr>", opts) --         toggle set wrap
+keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
+keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
 keymap("", "<leader>z", "<cmd>set nu!<cr>", opts) --          toggle set number
 keymap("", "\\<leader>", "`.") --                       go to last changed line
-keymap("", "<leader>c", "<c-g>", opts) --       gives info about current buffer
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
 keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
@@ -218,11 +216,10 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- <leader> maps available:
 -- y
--- h, k
--- x
+-- x, c, m
 -- caps chars
--- combinations with: v, j
--- Reverse available: q, z, c
+-- combinations with: j, v
+-- Reverse available: z, c
 
 -- <C-> maps available:
 -- y

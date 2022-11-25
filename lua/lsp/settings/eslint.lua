@@ -26,6 +26,12 @@ M.settings = {
 	workingDirectory = {
 		mode = "location",
 	},
+	-- experimental = {
+	-- 	useFlatConfig = false,
+	-- },
+	-- problems = {
+	-- 	shortenToSingleLine = false,
+	-- },
 }
 
 return M

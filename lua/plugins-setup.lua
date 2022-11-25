@@ -410,6 +410,7 @@ return packer.startup(function(use)
 			require("plugins.neorg")
 		end,
 	})
+	use("nullchilly/fsread.nvim")
 
 	-- CODE WARS -------------------------------------------------
 	-- run = "cd js && npm ci" at lab plugin dir
@@ -529,6 +530,7 @@ return packer.startup(function(use)
 	-- folke/styler.nvim     colorscheme by file (no transparency)
 	-- folke/neoconf.nvim   global/project-local lsp settings live
 	-- joechrisellis/lsp-format-modifications.nvim   format edited
+	-- DNLHC/glance.nvim                              new lsp saga
 
 	-- Last time checked Awesome and This-week-in-neovim
 	-- Check the same day as the last one in order to make sure of not forget a plugin
