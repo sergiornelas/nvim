@@ -39,7 +39,7 @@ nvim_tree.setup({
 		signcolumn = "yes",
 		adaptive_size = true,
 		float = {
-			enable = true,
+			enable = false,
 			open_win_config = {
 				relative = "cursor",
 				border = "shadow",

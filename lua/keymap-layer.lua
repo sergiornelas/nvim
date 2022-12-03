@@ -27,7 +27,7 @@ keymap("x", "+", ":<c-u>keepjumps norm! gv{'<cr>", opts) --    R
 keymap("", "$", "(") --                                        I
 keymap("", "%", ")") --                                        O
 keymap("", ")", "^") --                                        A
-keymap("", ";", "~") --                                        S
+keymap("", ";", "=") --                                        S
 keymap("", "(", "*<cmd>lua require('hlslens').start()<cr>") -- D
 keymap("x", "(", 'y/\\V<c-r>"<cr>') --                         D
 keymap("", "-", ":keepjumps norm! '}'<cr>", opts) --           F
@@ -43,4 +43,4 @@ keymap("n", "!!", "@@") --                                     ZZ
 keymap("", "{", "`") --                                        V
 keymap("", "{{", "``") --                                      VV
 keymap("", "@", "!") --                                        B
-keymap("", "}", "=") --                                        M
+keymap("", "}", "~") --                                        M

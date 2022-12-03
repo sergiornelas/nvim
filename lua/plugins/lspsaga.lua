@@ -33,7 +33,9 @@ lspsaga.init_lsp_saga({
 	code_action_keys = {
 		quit = "<esc>",
 	},
+	hover_action_quit = "<esc>",
 	rename_action_quit = "<esc>",
+	rename_in_select = false,
 	symbol_in_winbar = {
 		enable = false,
 	},

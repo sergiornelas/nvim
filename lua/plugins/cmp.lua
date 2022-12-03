@@ -38,15 +38,15 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 	mapping = {
-		["<C-u>"] = cmp.mapping.scroll_docs(-4),
-		["<C-d>"] = cmp.mapping.scroll_docs(4),
-		["<C-f>"] = cmp.mapping({
+		["<c-u>"] = cmp.mapping.scroll_docs(-4),
+		["<c-d>"] = cmp.mapping.scroll_docs(4),
+		["<c-f>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
 		-- Accept currently selected item. If none selected, `select` first item.
-		["<C-j>"] = cmp.mapping.confirm({ select = true }),
-		["<C-i>"] = cmp.mapping(function(fallback)
+		["<c-j>"] = cmp.mapping.confirm({ select = true }),
+		["<c-i>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
@@ -57,7 +57,7 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-		["<C-o>"] = cmp.mapping(function(fallback)
+		["<c-o>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
 			elseif luasnip.jumpable(-1) then

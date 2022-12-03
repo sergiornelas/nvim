@@ -7,6 +7,7 @@ end
 
 leap.add_default_mappings()
 
+-- TODO: M visual mode
 leap_spooky.setup({
 	affixes = {
 		-- These will generate mappings for all native text objects, like:

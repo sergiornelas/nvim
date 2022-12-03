@@ -185,6 +185,7 @@ return packer.startup(function(use)
 	})
 	use({
 		"cbochs/grapple.nvim",
+		commit = "3b76f8bf7b83bd602d10560308aca0dc85512c5c",
 		config = function()
 			require("plugins.grapple")
 		end,
@@ -345,6 +346,7 @@ return packer.startup(function(use)
 	})
 	use("PatschD/zippy.nvim")
 	use("Oldenborg/vim-px-to-rem")
+	use("marilari88/twoslash-queries.nvim")
 
 	-- COLORSCHEMES ----------------------------------------------
 	use("raddari/last-color.nvim")
@@ -411,6 +413,9 @@ return packer.startup(function(use)
 		end,
 	})
 	use("nullchilly/fsread.nvim")
+
+	-- MISC ------------------------------------------------------
+	use("eandrju/cellular-automaton.nvim")
 
 	-- CODE WARS -------------------------------------------------
 	-- run = "cd js && npm ci" at lab plugin dir
@@ -531,10 +536,11 @@ return packer.startup(function(use)
 	-- folke/neoconf.nvim   global/project-local lsp settings live
 	-- joechrisellis/lsp-format-modifications.nvim   format edited
 	-- DNLHC/glance.nvim                              new lsp saga
+	-- tamton-aquib/zone.nvim                            wallpaper
 
 	-- Last time checked Awesome and This-week-in-neovim
 	-- Check the same day as the last one in order to make sure of not forget a plugin
-	-- (22/11/22)
+	-- (28/11/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

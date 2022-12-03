@@ -104,6 +104,12 @@ keymap("", "<leader>vs", "<cmd>SwapSplit<cr>", opts)
 -- <Fsread>
 keymap("", "<leader>vf", "<cmd>FSToggle<cr>", opts)
 
+-- <Cellular-automaton>
+keymap("", "<leader>vi", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
+
+-- <Twoslash-queries>
+keymap("", "<leader>vq", "<cmd>InspectTwoslashQueries<cr>", opts)
+
 -- Open links under cursor in browser
 if vim.fn.has("macunix") == 1 then
 	keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<cr>", opts)
@@ -180,14 +186,11 @@ keymap("x", "<c-k>", ":move '<-2<cr>gv-gv", opts)
 keymap("n", "<c-o>", "<c-i>", opts)
 keymap("n", "<c-i>", "<c-o>", opts)
 
--- Switch background color
-keymap("", "<leader>vi", "<cmd>set background=dark<cr>", opts)
-keymap("", "<leader>vo", "<cmd>set background=light<cr>", opts)
-
 -- Utils
 keymap("n", "<c-q>", "<c-r>", opts) --                                     redo
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
 keymap("", "<leader>a", "<cmd>set hlsearch!<cr>", opts) --           highlights
+keymap("", "<c-s>", "<cmd>PackerSync<cr>", opts) --              update plugins
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
