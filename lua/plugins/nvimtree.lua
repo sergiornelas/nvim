@@ -33,6 +33,11 @@ nvim_tree.setup({
 			enable = false,
 		},
 	},
+	actions = {
+		open_file = {
+			quit_on_open = true,
+		},
+	},
 	view = {
 		hide_root_folder = false,
 		side = "left",

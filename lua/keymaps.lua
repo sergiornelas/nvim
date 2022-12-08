@@ -105,10 +105,13 @@ keymap("", "<leader>vs", "<cmd>SwapSplit<cr>", opts)
 keymap("", "<leader>vf", "<cmd>FSToggle<cr>", opts)
 
 -- <Cellular-automaton>
-keymap("", "<leader>vi", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
+keymap("", "<c-s>", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
 
 -- <Twoslash-queries>
 keymap("", "<leader>vq", "<cmd>InspectTwoslashQueries<cr>", opts)
+
+-- <TreeSJ>
+keymap("", "<leader>vj", "<cmd>TSJToggle<cr>", opts)
 
 -- Open links under cursor in browser
 if vim.fn.has("macunix") == 1 then
@@ -123,6 +126,8 @@ keymap("", "<leader>Q", "<cmd>q!<cr>", opts) -- close window and buffer
 keymap("", "<c-v>", "<c-^>", opts) --              toggle recent window
 keymap("", "<c-r>", "<c-w>w", opts) --             navigate next window
 keymap("", "<c-a>", "<c-w>W", opts) --         navigate previous window
+keymap("n", "<c-d>", "<c-d>zz", opts) --       scrolls down half buffer
+keymap("n", "<c-u>", "<c-u>zz", opts) --       scrolls down half buffer
 keymap("", "<c-e>", "<c-y>", opts) --          page scrolls up one line
 keymap("", "<c-f>", "<c-e>", opts) --        page scrolls down one line
 keymap("", "<c-p>", "<c-b>", opts) --        page scrolls up fullscreen
@@ -190,7 +195,7 @@ keymap("n", "<c-i>", "<c-o>", opts)
 keymap("n", "<c-q>", "<c-r>", opts) --                                     redo
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
 keymap("", "<leader>a", "<cmd>set hlsearch!<cr>", opts) --           highlights
-keymap("", "<c-s>", "<cmd>PackerSync<cr>", opts) --              update plugins
+-- keymap("", "<c-s>", "<cmd>PackerSync<cr>", opts) --           update plugins
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
@@ -227,7 +232,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <C-> maps available:
 -- y
 -- s <cr>
--- n, m
+-- n
 
 -- <C-> insert mode maps available:
 -- q, p

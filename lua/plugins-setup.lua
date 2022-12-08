@@ -145,6 +145,12 @@ return packer.startup(function(use)
 			require("plugins.paint")
 		end,
 	})
+	use({
+		"Wansmer/treesj",
+		config = function()
+			require("plugins.treesj")
+		end,
+	})
 
 	-- NAVIGATION ------------------------------------------------
 	use({
@@ -321,6 +327,7 @@ return packer.startup(function(use)
 	})
 	use({
 		"sindrets/diffview.nvim",
+		commit = "bd6c0c2df6c00a72342f631a58e1ea28549b6ac8",
 		config = function()
 			require("plugins.diffview")
 		end,
@@ -363,7 +370,6 @@ return packer.startup(function(use)
 		"kartikp10/noctis.nvim",
 		"katawful/kat.nvim",
 		"kvrohit/mellow.nvim",
-		"lmburns/kimbox",
 		"luisiacc/gruvbox-baby",
 		"lunarvim/darkplus.nvim",
 		"lunarvim/horizon.nvim",
@@ -389,6 +395,12 @@ return packer.startup(function(use)
 		"ellisonleao/gruvbox.nvim",
 		config = function()
 			require("plugins.colorschemes.gruvbox")
+		end,
+	})
+	use({
+		"lmburns/kimbox",
+		config = function()
+			require("plugins.colorschemes.kimbox")
 		end,
 	})
 	use({
@@ -532,15 +544,17 @@ return packer.startup(function(use)
 	-- folke/noice.nvim                           bunch of pop ups
 	-- Weissle/easy-action       leap and return (wait for mature)
 	-- DaikyXendo/nvim-tree.lua      nvim tree with material icons
-	-- folke/styler.nvim     colorscheme by file (no transparency)
+	-- folke/styler.nvim           colorscheme by file (bug c-w w)
 	-- folke/neoconf.nvim   global/project-local lsp settings live
 	-- joechrisellis/lsp-format-modifications.nvim   format edited
-	-- DNLHC/glance.nvim                              new lsp saga
 	-- tamton-aquib/zone.nvim                            wallpaper
+	-- smjonas/inc-rename.nvim                          lsp rename
+	-- DNLHC/glance.nvim                               lsp def/ref
+	-- kosayoda/nvim-lightbulb                     lsp code action
 
 	-- Last time checked Awesome and This-week-in-neovim
 	-- Check the same day as the last one in order to make sure of not forget a plugin
-	-- (28/11/22)
+	-- (05/12/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

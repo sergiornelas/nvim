@@ -29,6 +29,9 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
+					-- if vim.bo.filetype == "typescriptreact" or vim.bo.filetype == "typescript" then
+					-- 	vim.cmd("TypescriptOrganizeImports!")
+					-- end
 					vim.lsp.buf.format({
 						bufnr = bufnr,
 						filter = function(client)

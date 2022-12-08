@@ -3,8 +3,6 @@ if not telescope_ok then
 	return
 end
 
-telescope.load_extension("fzf")
-
 local actions = require("telescope.actions")
 telescope.setup({
 	defaults = {
@@ -82,6 +80,8 @@ telescope.setup({
 		},
 	},
 })
+
+telescope.load_extension("fzf")
 
 -- Token  	       Match type           	          Description
 -- -------+-----------------------------+-----------------------------------
