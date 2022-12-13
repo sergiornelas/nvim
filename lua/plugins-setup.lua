@@ -140,6 +140,12 @@ return packer.startup(function(use)
 		after = "nvim-treesitter/nvim-treesitter",
 	})
 	use({
+		"m-demare/hlargs.nvim",
+		config = function()
+			require("hlargs").setup()
+		end,
+	})
+	use({
 		"folke/paint.nvim",
 		config = function()
 			require("plugins.paint")
@@ -175,7 +181,6 @@ return packer.startup(function(use)
 	})
 	use({
 		"kyazdani42/nvim-tree.lua",
-		cmd = { "NvimTreeToggle", "NvimTreeRefresh", "NvimTreeClose" },
 		requires = {
 			"kyazdani42/nvim-web-devicons",
 		},
@@ -191,7 +196,6 @@ return packer.startup(function(use)
 	})
 	use({
 		"cbochs/grapple.nvim",
-		commit = "3b76f8bf7b83bd602d10560308aca0dc85512c5c",
 		config = function()
 			require("plugins.grapple")
 		end,
@@ -327,7 +331,6 @@ return packer.startup(function(use)
 	})
 	use({
 		"sindrets/diffview.nvim",
-		commit = "bd6c0c2df6c00a72342f631a58e1ea28549b6ac8",
 		config = function()
 			require("plugins.diffview")
 		end,
@@ -354,42 +357,30 @@ return packer.startup(function(use)
 	use("PatschD/zippy.nvim")
 	use("Oldenborg/vim-px-to-rem")
 	use("marilari88/twoslash-queries.nvim")
+	use({
+		"ellisonleao/dotenv.nvim",
+		config = function()
+			require("dotenv").setup()
+		end,
+	})
 
 	-- COLORSCHEMES ----------------------------------------------
 	use("raddari/last-color.nvim")
-	use("rktjmp/lush.nvim")
 	use({
 		"B4mbus/oxocarbon-lua.nvim",
-		"Mofiqul/dracula.nvim",
 		"Shatur/neovim-ayu",
-		"Tsuzat/NeoSolarized.nvim",
 		"catppuccin/nvim",
 		"cpea2506/one_monokai.nvim",
-		"fenetikm/falcon",
 		"folke/tokyonight.nvim",
-		"kartikp10/noctis.nvim",
 		"katawful/kat.nvim",
-		"kvrohit/mellow.nvim",
 		"luisiacc/gruvbox-baby",
-		"lunarvim/darkplus.nvim",
-		"lunarvim/horizon.nvim",
-		"lunarvim/synthwave84.nvim",
-		"marko-cerovac/material.nvim",
-		"nxvu699134/vn-night.nvim",
-		"ofirgall/ofirkai.nvim",
-		"ray-x/aurora",
 		"rebelot/kanagawa.nvim",
-		"rmehri01/onenord.nvim",
 		"rose-pine/neovim",
 		"sainnhe/edge",
-		"sainnhe/everforest",
 		"sainnhe/gruvbox-material",
 		"sainnhe/sonokai",
 		"sam4llis/nvim-tundra",
-		"savq/melange",
-		"shaeinst/roshnivim-cs",
 		"tiagovla/tokyodark.nvim",
-		"yashguptaz/calvera-dark.nvim",
 	})
 	use({
 		"ellisonleao/gruvbox.nvim",
@@ -428,133 +419,6 @@ return packer.startup(function(use)
 
 	-- MISC ------------------------------------------------------
 	use("eandrju/cellular-automaton.nvim")
-
-	-- CODE WARS -------------------------------------------------
-	-- run = "cd js && npm ci" at lab plugin dir
-	-- use({
-	-- 	"0x100101/lab.nvim",
-	-- 	opt = true,
-	-- 	cmd = { "Lab code run", "Lab code stop" },
-	-- 	config = function()
-	-- 		require("plugins.lab")
-	-- 	end,
-	-- })
-	-- use({ "metakirby5/codi.vim" })
-
-	-- GAME ------------------------------------------------------
-	-- use({
-	-- 	"seandewar/killersheep.nvim",
-	-- 	config = function()
-	-- 		require("killersheep").setup({
-	-- 			gore = true, -- Enables/disables blood and gore.
-	-- 			keymaps = {
-	-- 				move_left = "h", -- Keymap to move cannon to the left.
-	-- 				move_right = "l", -- Keymap to move cannon to the right.
-	-- 				shoot = "<Space>", -- Keymap to shoot the cannon.
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- })
-
-	-- INTERESTING PLUGINS =======================================
-	-- LSP -------------------------------------------------------
-	-- b0o/simrat39/symbols-outline.nvim    LSP Diagram menu (jsx)
-	-- folke/trouble.nvim                       pretty diagnostics
-	-- kevinhwang91/nvim-bqf                              quickfix
-	-- ray-x/navigator.lua                            LSP hardcore
-	-- stevearc/aerial.nvim                       LSP Diagram menu
-
-	-- TREESITTER ------------------------------------------------
-	-- ziontee113/syntax-tree-surfer                  TS navigator
-
-	-- DEBUGGING -------------------------------------------------
-	-- mfusseneger/nvim-dap
-	-- sakhnik/nvim-gdb
-	-- rcarriga/nvim-dap-ui
-	-- Pocco81/DAPInstall.nvim
-	-- Weissle/persistent-breakpoints.nvim
-	-- theHamsta/nvim-dap-virtual-text
-	-- ravenxrz/DAPInstall.nvim
-	-- Lommix/godot.nvim
-
-	-- TESTING ---------------------------------------------------
-	-- David-Kunz/jester
-	-- klen/nvim-test
-	-- rcarriga/neotest
-	-- nvim-neotest/neotest
-	-- andythigpen/nvim-coverage
-	-- mini.test
-	-- is0n/jaq-nvim                         terminal test results
-	-- EthanJWright/vs-tasks.nvim            terminal test results
-	-- stevearc/overseer.nvim               ttr (exe cmds on save)
-	-- andythigpen/nvim-coverage                          coverage
-
-	-- GIT -------------------------------------------------------
-	-- tpope/vim-fugitive                              most robust
-	-- TimUntersberger/neogit                                magit
-	-- akinsho/git-conflict.nvim                         conflicts
-	-- kdheepak/lazygit.nvim                               lazygit
-	-- pwntester/octo.nvim                                  git PR
-	-- ruifm/gitlinker.nvim                          add bitbucket
-
-	-- FRONTEND --------------------------------------------------
-	-- vuki656/package-info.nvim                              node
-	-- b0o/SchemaStore.nvim                            json schema
-	-- gennaro-tedesco/nvim-jqx                         json index
-	-- rest-nvim/rest.nvim                                 postman
-	-- NTBBloodbath/rest.nvim                              postman
-	-- mattn/webapi-vim                                  postman ?
-	-- MunifTanjim/prettier.nvim              prettier alternative
-	-- numToStr/prettierrc.nvim               prettier alternative
-	-- ray-x/web-tools.nvim               live server for html/css
-	-- Azeirah/nvim-redux                          redux telescope
-	-- AckslD/nvim-FeMaco.lua                 css server for js/ts
-
-	-- ARTIFICIAL INTELIGENCE ------------------------------------
-	-- github/copilot.vim
-	-- zbirenbaum/copilot-cmp
-	-- jameshiew/nvim-magic
-	-- tzachar/cmp-tabnine
-
-	-- UTILS -----------------------------------------------------
-	-- MattesGroeger/vim-bookmarks                           marks
-	-- ThePrimeagen/refactoring.nvim                   refactoring
-	-- anuvyklack/pretty-fold.nvim           fold with percentages
-	-- chentoast/marks.nvim                           visual marks
-	-- danymat/neogen          comments on files for documentation
-	-- edluffy/specs.nvim        cool highlight cursor (has a bug)
-	-- p00f/cphelper.nvim                          code challenges
-	-- smartpde/neoscopes   light project magagement (interesting)
-	-- charludo/projectmgr.nvim            switch between projects
-	-- GnikDroy/projections.nvim                   project/session
-	-- phaazon/mind.nvim                                  note app
-	-- folke/todo-comments.nvim                       pretty notes
-	-- Ostralyan/scribe.nvim                 telescope quick notes
-	-- tzachar/cmp-fuzzy-buffer                                CMP
-	-- tzachar/cmp-fuzzy-path                                  CMP
-	-- vigoux/notifier.nvim                show message lsp loaded
-	-- xeluxee/competitest.nvim                    code challenges
-	-- potamides/pantran.nvim                    google translator
-	-- jghauser/kitty-runner.nvim         kitty commands from nvim
-	-- Chaitanyabsprip/present.nvim       power point presentation
-	-- smjonas/live-command.nvim                      live command
-	-- /kiran94/s3edit.nvim                                 aws s3
-	-- jrop/mongo.nvim                                     mongodb
-	-- cbochs/portal.nvim                       c-o / c-i enhanced
-	-- folke/noice.nvim                           bunch of pop ups
-	-- Weissle/easy-action       leap and return (wait for mature)
-	-- DaikyXendo/nvim-tree.lua      nvim tree with material icons
-	-- folke/styler.nvim           colorscheme by file (bug c-w w)
-	-- folke/neoconf.nvim   global/project-local lsp settings live
-	-- joechrisellis/lsp-format-modifications.nvim   format edited
-	-- tamton-aquib/zone.nvim                            wallpaper
-	-- smjonas/inc-rename.nvim                          lsp rename
-	-- DNLHC/glance.nvim                               lsp def/ref
-	-- kosayoda/nvim-lightbulb                     lsp code action
-
-	-- Last time checked Awesome and This-week-in-neovim
-	-- Check the same day as the last one in order to make sure of not forget a plugin
-	-- (05/12/22)
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

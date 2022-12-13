@@ -27,10 +27,15 @@ lualine.setup({
 		},
 		lualine_x = {},
 		lualine_y = { "diagnostics", "diff" },
-		lualine_z = { {
-			grapple.key,
-			cond = grapple.exists,
-		} },
+		lualine_z = {
+			{
+				function()
+					local key = grapple.key()
+					return "[" .. key .. "]"
+				end,
+				cond = grapple.exists,
+			},
+		},
 	},
 	tabline = {},
 	extensions = {},

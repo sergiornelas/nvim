@@ -5,7 +5,7 @@ end
 
 indentscope.setup({
 	draw = {
-		animation = indentscope.gen_animation("none"),
+		animation = indentscope.gen_animation.none(),
 	},
 	mappings = {
 		object_scope = "ij",

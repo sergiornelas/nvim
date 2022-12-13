@@ -39,10 +39,11 @@ nvim_tree.setup({
 		},
 	},
 	view = {
+		adaptive_size = true,
+		centralize_selection = true,
 		hide_root_folder = false,
 		side = "left",
 		signcolumn = "yes",
-		adaptive_size = true,
 		float = {
 			enable = false,
 			open_win_config = {

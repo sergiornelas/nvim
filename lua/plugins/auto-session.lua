@@ -12,8 +12,6 @@ function _G.close_all_floating_wins()
 	end
 end
 
--- TODO
--- you could add neorg here, and this could fix the problem (maybe toggling concelear)
 auto_session.setup({
 	log_level = "error",
 	auto_session_create_enabled = false,

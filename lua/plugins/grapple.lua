@@ -4,9 +4,9 @@ if not grapple_ok then
 end
 
 grapple.setup({
-	scope = "directory",
+	scope = "git",
 	popup_options = {
-		width = 40,
-		height = 7,
+		width = 48,
+		height = 8,
 	},
 })
