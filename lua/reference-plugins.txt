@@ -13,6 +13,7 @@ vigoux/notifier.nvim                show message lsp loaded
 
 TREESITTER ------------------------------------------------
 ziontee113/syntax-tree-surfer                  TS navigator
+ziontee113/neo-minimap             Navigate between queries
 
 DEBUGGING -------------------------------------------------
 mfusseneger/nvim-dap

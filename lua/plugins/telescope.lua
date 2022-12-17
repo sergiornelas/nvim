@@ -13,12 +13,12 @@ telescope.setup({
 		layout_config = {
 			horizontal = {
 				width = 130,
-				height = 25,
-				preview_width = 60,
+				height = 30,
+				preview_width = 70,
 			},
 			vertical = {
-				width = 73,
-				height = 37,
+				width = 80,
+				height = 41,
 			},
 		},
 		-- previewer = false

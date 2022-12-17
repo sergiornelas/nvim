@@ -1,18 +1,10 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.api.nvim_exec([[packadd packer.nvim]], false)
+-- Install packer
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local is_bootstrap = false
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+	is_bootstrap = true
+	vim.fn.execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+	vim.cmd([[packadd packer.nvim]])
 end
 
 local packer_ok, packer = pcall(require, "packer")
@@ -29,19 +21,18 @@ packer.init({
 			quit = "<c-j>",
 		},
 	},
-	-- Sync without hanging after 70+ plugins
-	max_jobs = 50,
+	max_jobs = 50, -- Sync without hanging after 70+ plugins
 	git = {
 		clone_timeout = 300, -- Timeout, in seconds, for git clones
 	},
 })
 
 -- Run :LuaCacheClear and eliminate main.shada each two weeks
-return packer.startup(function(use)
-	-- PACKER ----------------------------------------------------
+packer.startup(function(use)
+	-- Packer ----------------------------------------------------
 	use("wbthomason/packer.nvim")
 
-	-- STARTUP OPTIMIZATIONS -------------------------------------
+	-- Startup optimizations -------------------------------------
 	use("lewis6991/impatient.nvim")
 
 	-- LSP -------------------------------------------------------
@@ -53,19 +44,18 @@ return packer.startup(function(use)
 	})
 	use({
 		"williamboman/mason.nvim",
+		requires = { "williamboman/mason-lspconfig.nvim" },
 		config = function()
 			require("lsp.mason")
 		end,
 	})
-	use("williamboman/mason-lspconfig.nvim")
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
+		requires = { "jose-elias-alvarez/typescript.nvim", "nvim-lua/plenary.nvim" },
 		config = function()
 			require("lsp.null-ls")
 		end,
 	})
-	use("jose-elias-alvarez/typescript.nvim")
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
@@ -95,40 +85,37 @@ return packer.startup(function(use)
 	-- CMP -------------------------------------------------------
 	use({
 		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-emoji",
+			"onsails/lspkind.nvim",
+			"saadparwaiz1/cmp_luasnip",
+		},
 		config = function()
 			require("plugins.cmp")
 		end,
 	})
-	use({
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"saadparwaiz1/cmp_luasnip",
-		"hrsh7th/cmp-emoji",
-		"onsails/lspkind.nvim",
-		after = "nvim-cmp",
-	})
 
-	-- SNIPPETS --------------------------------------------------
+	-- Snippets --------------------------------------------------
 	use({
 		"L3MON4D3/LuaSnip",
-		wants = "rafamadriz/friendly-snippets",
+		requires = "rafamadriz/friendly-snippets",
 	})
-	use("rafamadriz/friendly-snippets")
 
-	-- TREESITTER ------------------------------------------------
+	-- Treesitter ------------------------------------------------
 	use({
 		"nvim-treesitter/nvim-treesitter",
+		requires = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"nvim-treesitter/nvim-treesitter-context",
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			"p00f/nvim-ts-Rainbow",
+		},
 		config = function()
 			require("plugins.treesitter")
 		end,
-	})
-	use({
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		"nvim-treesitter/nvim-treesitter-context",
-		"p00f/nvim-ts-Rainbow",
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		after = "nvim-treesitter/nvim-treesitter",
 	})
 	use({
 		"m-demare/hlargs.nvim",
@@ -149,7 +136,7 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- NAVIGATION ------------------------------------------------
+	-- Navigation ------------------------------------------------
 	use({
 		"nvim-telescope/telescope.nvim",
 		run = "make",
@@ -219,11 +206,11 @@ return packer.startup(function(use)
 	use({ "famiu/bufdelete.nvim", cmd = "Bdelete" })
 	use({
 		"ggandor/leap.nvim",
+		requires = { "ggandor/leap-spooky.nvim" },
 		config = function()
 			require("plugins.leap")
 		end,
 	})
-	use("ggandor/leap-spooky.nvim")
 	use("rhysd/clever-f.vim")
 	use({
 		"petertriho/nvim-scrollbar",
@@ -237,14 +224,8 @@ return packer.startup(function(use)
 			require("plugins.incline")
 		end,
 	})
-	use({
-		"ziontee113/neo-minimap",
-		config = function()
-			require("plugins.neo")
-		end,
-	})
 
-	-- EDITING ---------------------------------------------------
+	-- Editing ---------------------------------------------------
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
@@ -305,7 +286,7 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- GIT -------------------------------------------------------
+	-- Git -------------------------------------------------------
 	use({
 		"lewis6991/gitsigns.nvim",
 		ft = "gitcommit",
@@ -321,7 +302,7 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- FRONTEND DEVELOPMENT --------------------------------------
+	-- Frontend development --------------------------------------
 	use({
 		"windwp/nvim-ts-autotag",
 		after = "nvim-treesitter",
@@ -349,7 +330,7 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- COLORSCHEMES ----------------------------------------------
+	-- Colorschemes ----------------------------------------------
 	use("raddari/last-color.nvim")
 	use({
 		"B4mbus/oxocarbon-lua.nvim",
@@ -392,7 +373,7 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- NOTES -----------------------------------------------------
+	-- Notes -----------------------------------------------------
 	use({
 		"nvim-neorg/neorg",
 		tag = "*",
@@ -402,10 +383,10 @@ return packer.startup(function(use)
 	})
 	use("nullchilly/fsread.nvim")
 
-	-- MISC ------------------------------------------------------
+	-- Misc ------------------------------------------------------
 	use("eandrju/cellular-automaton.nvim")
 
-	if PACKER_BOOTSTRAP then
+	if is_bootstrap then
 		require("packer").sync()
 	end
 end)
