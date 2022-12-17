@@ -2,6 +2,12 @@ local g = vim.g
 local api = vim.api
 local group = api.nvim_create_augroup("group", { clear = true })
 
+-- Reloads neovim whenever you save the plugins.lua file
+api.nvim_create_autocmd(
+	"BufWritePost",
+	{ pattern = "plugins-setup.lua", command = "source <afile> | PackerSync", group = group }
+)
+
 -- Set wrap and spell on specific file types
 api.nvim_create_autocmd("FileType", {
 	pattern = { "norg", "markdown", "gitcommit" },
@@ -28,10 +34,6 @@ api.nvim_create_autocmd(
 api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = group })
 api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = group })
 
--- Set last color scheme selected, gruvbox by default if no colorschemes found
-local theme = require("last-color").recall() or "gruvbox"
-api.nvim_exec(("colorscheme %s"):format(theme), false)
-
 -- Toggle command height when recording macro
 api.nvim_create_autocmd("RecordingEnter", {
 	pattern = "*",
@@ -53,12 +55,9 @@ api.nvim_create_autocmd("RecordingLeave", {
 	end,
 })
 
--- Python plugins load faster
-g.loaded_python_provider = 1
-g.python_host_skip_check = 1
-g.python_host_prog = "/usr/local/bin/python"
-g.python3_host_skip_check = 1
-g.python3_host_prog = "/usr/local/bin/python3"
+-- Set last color scheme selected, gruvbox by default if no colorschemes found
+local theme = require("last-color").recall() or "gruvbox"
+api.nvim_exec(("colorscheme %s"):format(theme), false)
 
 api.nvim_exec(
 	[[
@@ -86,6 +85,13 @@ api.nvim_exec(
 ]],
 	false
 )
+
+-- Python plugins load faster
+g.loaded_python_provider = 1
+g.python_host_skip_check = 1
+g.python_host_prog = "/usr/local/bin/python"
+g.python3_host_skip_check = 1
+g.python3_host_prog = "/usr/local/bin/python3"
 
 -- Symbols listchars
 -- opt.listchars = {

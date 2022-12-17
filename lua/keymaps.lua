@@ -65,10 +65,6 @@ keymap("n", "<c-w>z", "<cmd>WindowsToggleAutowidth<cr>", opts)
 keymap("", "`", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
 keymap("", "*", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", opts)
 
--- <Hlslens>
-keymap("n", "n", "<cmd>execute('normal! ' . v:count1 . 'n')<cr><cmd>lua require('hlslens').start()<cr>", opts)
-keymap("n", "N", "<cmd>execute('normal! ' . v:count1 . 'N')<cr><cmd>lua require('hlslens').start()<cr>", opts)
-
 -- <Color picker>
 keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
 keymap("i", "<c-c>", "<Plug>(ccc-insert)<cr>", opts)
@@ -208,6 +204,8 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- Shift char available:
 -- Y
 
+-- <esc> is free
+
 -- D maps available:
 -- r, y
 -- <cr>
@@ -225,6 +223,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader> maps available:
 -- y
 -- x, c, m
+-- <esc>
 -- caps chars
 -- combinations with: j, v
 -- Reverse available: z, c

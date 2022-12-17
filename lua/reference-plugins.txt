@@ -1,31 +1,3 @@
-CODE WARS -------------------------------------------------
-run = "cd js && npm ci" at lab plugin dir
-use({
-	"0x100101/lab.nvim",
-	opt = true,
-	cmd = { "Lab code run", "Lab code stop" },
-	config = function()
-		require("plugins.lab")
-	end,
-})
-use({ "metakirby5/codi.vim" })
-
-GAME ------------------------------------------------------
-use({
-	"seandewar/killersheep.nvim",
-	config = function()
-		require("killersheep").setup({
-			gore = true, -- Enables/disables blood and gore.
-			keymaps = {
-				move_left = "h", -- Keymap to move cannon to the left.
-				move_right = "l", -- Keymap to move cannon to the right.
-				shoot = "<Space>", -- Keymap to shoot the cannon.
-			},
-		})
-	end,
-})
-
-INTERESTING PLUGINS =======================================
 LSP -------------------------------------------------------
 b0o/simrat39/symbols-outline.nvim    LSP Diagram menu (jsx)
 folke/trouble.nvim                       pretty diagnostics
@@ -84,39 +56,44 @@ MunifTanjim/prettier.nvim              prettier alternative
 numToStr/prettierrc.nvim               prettier alternative
 ray-x/web-tools.nvim               live server for html/css
 Azeirah/nvim-redux                          redux telescope
-AckslD/nvim-FeMaco.lua                 css server for js/ts
 
 ARTIFICIAL INTELIGENCE ------------------------------------
 github/copilot.vim
 zbirenbaum/copilot-cmp
 jameshiew/nvim-magic
 tzachar/cmp-tabnine
+jackMort/ChatGPT.nvim                               ChatGPT
+
+COMPETITIVE CODING ----------------------------------------
+run = "cd js && npm ci" at lab plugin dir
+0x100101/lab.nvim                     show output in buffer
+metakirby5/codi.vim                   show output in buffer
+p00f/cphelper.nvim                          code challenges
+xeluxee/competitest.nvim                    code challenges
 
 UTILS -----------------------------------------------------
+tzachar/cmp-fuzzy-buffer                                CMP
+tzachar/cmp-fuzzy-path                                  CMP
 MattesGroeger/vim-bookmarks                           marks
 ThePrimeagen/refactoring.nvim                   refactoring
 anuvyklack/pretty-fold.nvim           fold with percentages
 chentoast/marks.nvim                           visual marks
 danymat/neogen          comments on files for documentation
 edluffy/specs.nvim        cool highlight cursor (has a bug)
-p00f/cphelper.nvim                          code challenges
 smartpde/neoscopes   light project magagement (interesting)
 charludo/projectmgr.nvim            switch between projects
+seandewar/killersheep.nvim                       sheep game
 GnikDroy/projections.nvim                   project/session
 nyngwang/fzf-lua-projections.nvim manage your GnikDroy sess
 phaazon/mind.nvim                                  note app
 folke/todo-comments.nvim                       pretty notes
 Ostralyan/scribe.nvim                 telescope quick notes
-tzachar/cmp-fuzzy-buffer                                CMP
-tzachar/cmp-fuzzy-path                                  CMP
-xeluxee/competitest.nvim                    code challenges
 potamides/pantran.nvim                    google translator
 jghauser/kitty-runner.nvim         kitty commands from nvim
 Chaitanyabsprip/present.nvim       power point presentation
 smjonas/live-command.nvim                      live command
 cbochs/portal.nvim                       c-o / c-i enhanced
 folke/noice.nvim                           bunch of pop ups
-Weissle/easy-action       leap and return (wait for mature)
 DaikyXendo/nvim-tree.lua      nvim tree with material icons
 folke/styler.nvim           colorscheme by file (bug c-w w)
 tamton-aquib/zone.nvim                            wallpaper

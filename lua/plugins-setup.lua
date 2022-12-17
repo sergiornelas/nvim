@@ -15,20 +15,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.api.nvim_exec([[packadd packer.nvim]], false)
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-local group = vim.api.nvim_create_augroup("packer_user_config", { clear = true })
-vim.api.nvim_create_autocmd(
-	"BufWritePost",
-	{ pattern = "plugins-setup.lua", command = "source <afile> | PackerSync", group = group }
-)
-
--- Use a protected call so we don't error out on first use
 local packer_ok, packer = pcall(require, "packer")
 if not packer_ok then
 	return
 end
 
--- Have packer use a popup window
 packer.init({
 	display = {
 		open_fn = function()
@@ -238,12 +229,6 @@ return packer.startup(function(use)
 		"petertriho/nvim-scrollbar",
 		config = function()
 			require("plugins.nvim-scrollbar")
-		end,
-	})
-	use({
-		"kevinhwang91/nvim-hlslens",
-		config = function()
-			require("plugins.hlslens")
 		end,
 	})
 	use({

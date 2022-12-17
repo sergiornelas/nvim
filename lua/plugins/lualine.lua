@@ -21,7 +21,7 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { "tabs" },
-		lualine_b = { "location" },
+		lualine_b = { "searchcount", "location" },
 		lualine_c = {
 			{ nvim_navic.get_location, cond = nvim_navic.is_available },
 		},

@@ -8,7 +8,7 @@ vim.opt.expandtab = true --          convert tabs to spaces
 vim.opt.fileencoding = "utf-8" --    the encoding written to a file
 vim.opt.fillchars.eob = " " --       show empty lines at the end of a buffer as ` ` (default `~`)
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
-vim.opt.hlsearch = true --           highlight all matches on previous search pattern
+vim.opt.hlsearch = false --           highlight all matches on previous search pattern
 vim.opt.ignorecase = true --         ignore case in search patterns
 vim.opt.iskeyword:append("-") --     treats words with `-` as single words
 vim.opt.ls = 0 --                    using 3 only the last window will always have a status line
@@ -25,7 +25,7 @@ vim.opt.showcmd = false --           hide (partial) command in the last line of 
 vim.opt.showmode = false --          we don't need to see things like --INSERT-- anymore
 vim.opt.showtabline = 0 --           always show tabs
 vim.opt.sidescrolloff = 8 --         minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
-vim.opt.signcolumn = "auto" --        always show the sign column, otherwise it would shift the text each time
+vim.opt.signcolumn = "auto" --       always show the sign column, otherwise it would shift the text each time
 vim.opt.smartcase = true --          smart case
 vim.opt.smartindent = true --        make indenting smarter again
 vim.opt.splitbelow = true --         force all horizontal splits to go below current window

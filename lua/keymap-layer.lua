@@ -20,7 +20,7 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap("", "&", "#<cmd>lua require('hlslens').start()<cr>") -- Q
+keymap("", "&", "#") --                                        Q
 keymap("x", "&", 'y?\\V<c-r>"<cr>') --                         Q
 keymap("", "+", ":keepjumps norm! '{'<cr>", opts) --           R
 keymap("x", "+", ":<c-u>keepjumps norm! gv{'<cr>", opts) --    R
@@ -28,7 +28,7 @@ keymap("", "$", "(") --                                        I
 keymap("", "%", ")") --                                        O
 keymap("", ")", "^") --                                        A
 keymap("", ";", "=") --                                        S
-keymap("", "(", "*<cmd>lua require('hlslens').start()<cr>") -- D
+keymap("", "(", "*") --                                        D
 keymap("x", "(", 'y/\\V<c-r>"<cr>') --                         D
 keymap("", "-", ":keepjumps norm! '}'<cr>", opts) --           F
 keymap("x", "-", ":<c-u>keepjumps norm! gv}'<cr>", opts) --    F
