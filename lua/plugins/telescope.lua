@@ -12,7 +12,7 @@ telescope.setup({
 		results_title = "",
 		layout_config = {
 			horizontal = {
-				width = 130,
+				width = 150,
 				height = 30,
 				preview_width = 70,
 			},

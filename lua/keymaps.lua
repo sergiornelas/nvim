@@ -187,6 +187,10 @@ keymap("x", "<c-k>", ":move '<-2<cr>gv-gv", opts)
 keymap("n", "<c-o>", "<c-i>", opts)
 keymap("n", "<c-i>", "<c-o>", opts)
 
+-- Switch middle cursor
+keymap("n", "gm", "gM", opts)
+keymap("n", "gM", "gm", opts)
+
 -- Utils
 keymap("n", "<c-q>", "<c-r>", opts) --                                     redo
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
@@ -242,3 +246,10 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- y, u, i, o, p
 -- h, k, l
 -- z, x, b, n
+
+-- === List of not really used plugins:
+-- treesj (align arrays objects)                      leader vj
+-- zippy (automatic comments)                         leader vz
+-- twoslash queries (typescript detailed info /?)     leader vq
+-- fsread (better reading)                            leader vf
+-- dotenv (refresh dotenv?)

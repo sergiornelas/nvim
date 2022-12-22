@@ -1,7 +1,7 @@
 local null_ls_ok, null_ls = pcall(require, "null-ls")
-local typescript_ext_ok, typescript_ext = pcall(require, "typescript.extensions.null-ls.code-actions")
+-- local typescript_ext_ok, typescript_ext = pcall(require, "typescript.extensions.null-ls.code-actions")
 
-if not null_ls_ok or not typescript_ext_ok then
+if not null_ls_ok then
 	return
 end
 
@@ -15,7 +15,7 @@ null_ls.setup({
 		diagnostics.tidy,
 		formatting.prettierd,
 		formatting.stylua,
-		typescript_ext,
+		-- typescript_ext,
 		-- formatting.prettier.with({
 		-- 	extra_filetypes = { "toml", "solidity" },
 		-- 	extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },

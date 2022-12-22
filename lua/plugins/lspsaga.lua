@@ -8,9 +8,8 @@ lspsaga.init_lsp_saga({
 	diagnostic_header = { " 😡 ", " 😬 ", " 👁️ ", " 🌚 " },
 	move_in_saga = { prev = "<C-o>", next = "<C-i>" },
 	max_preview_lines = 30,
-	code_action_icon = "*",
 	code_action_lightbulb = {
-		enable = false,
+		enable = true,
 	},
 	finder_icons = {
 		def = "🐔 ",
@@ -32,6 +31,7 @@ lspsaga.init_lsp_saga({
 	},
 	code_action_keys = {
 		quit = "<esc>",
+		exec = "<c-j>",
 	},
 	hover_action_quit = "<esc>",
 	rename_action_quit = "<esc>",
