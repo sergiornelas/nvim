@@ -34,9 +34,10 @@ keymap("", "-", ":keepjumps norm! '}'<cr>", opts) --           F
 keymap("x", "-", ":<c-u>keepjumps norm! gv}'<cr>", opts) --    F
 keymap("", "[", "$") --                                        G
 keymap("", "]", "|") --                                        H
-keymap("n", "=", "<Plug>(MatchitNormalForward)") --            J
-keymap("o", "=", "<Plug>(MatchitOperationForward)") --         J
-keymap("x", "=", "<Plug>(MatchitVisualForward)") --            J
+-- keymap("n", "=", "<Plug>(MatchitNormalForward)") --            J
+-- keymap("o", "=", "<Plug>(MatchitOperationForward)") --         J
+-- keymap("x", "=", "<Plug>(MatchitVisualForward)") --            J
+keymap("", "=", "%") --                                        J
 keymap("", "|", "&") --                                        K
 keymap("", "!", "@") --                                        Z
 keymap("n", "!!", "@@") --                                     ZZ
@@ -44,3 +45,75 @@ keymap("", "{", "`") --                                        V
 keymap("", "{{", "``") --                                      VV
 keymap("", "@", "!") --                                        B
 keymap("", "}", "~") --                                        M
+
+-- gi/go will be free
+-- ==============================
+-- Current status:
+-- next/prev block jump  RF done
+-- search word           EW done
+-- beginning/end of line GA done
+
+-- next/prev git         TN
+-- next/prev illuminate  DV
+-- next/prev word        UB
+
+-- mark                  M
+-- format                Q
+
+-- Free:
+-- SH
+
+-- *****
+-- QWERT˙U
+--  ***** *
+--  ASDFGHJ
+--   *  * *
+--   Z˙˙VBNM
+
+-- Previous status ==============
+-- next/prev block jump  RF done
+-- search word           EW done
+-- beginning/end of line GA done
+-- next/prev git         gi/go
+-- next/prev illuminate  TN
+-- next/prev word        QD
+-- mark                  V
+-- format                S
+
+-- Free:
+-- UHBM
+
+-- *****
+-- QWERT˙U
+--  ***** *
+--  ASDFGHJ
+--   *  * *
+--   Z˙˙VBNM
+
+-- Disadvantages of gi/go for git difference line:
+-- gi-gi-gi-gi / go-go-go-go
+-- sometimes you insert 'g'
+
+-- Previous status enhanced =====
+-- next/prev block jump  RF done
+-- search word           EW done
+-- beginning/end of line GA done
+-- next/prev git         gi/go
+-- next/prev illuminate  QD
+-- next/prev word        TN
+-- mark                  V
+-- format                S
+
+-- Free:
+-- UHBM
+
+-- *****
+-- QWERT˙U
+--  ***** *
+--  ASDFGHJ
+--   *  * *
+--   Z˙˙VBNM
+
+-- Disadvantages of gi/go for git difference line:
+-- gi-gi-gi-gi / go-go-go-go
+-- sometimes you insert 'g'

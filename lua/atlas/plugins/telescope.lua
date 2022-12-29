@@ -6,19 +6,24 @@ end
 local actions = require("telescope.actions")
 telescope.setup({
 	defaults = {
-		layout_strategy = "flex", --toggle between horizontal/vertical
+		layout_strategy = "vertical", --horizontal/vertical/flex
 		sorting_strategy = "ascending", --important
 		winblend = 12,
 		results_title = "",
 		layout_config = {
+			-- horizontal = {
+			-- 	width = 160,
+			-- 	height = 50,
+			-- 	preview_width = 80,
+			-- },
 			horizontal = {
-				width = 150,
-				height = 30,
-				preview_width = 70,
+				width = 80,
+				height = 20,
+				preview_width = 40,
 			},
 			vertical = {
-				width = 80,
-				height = 41,
+				width = 87,
+				height = 47,
 			},
 		},
 		-- previewer = false
@@ -73,10 +78,6 @@ telescope.setup({
 			override_file_sorter = true, -- override the file sorter
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			-- the default case_mode is "smart_case"
-		},
-		frecency = {
-			show_scores = true,
-			ignore_patterns = { "*.git/*", "*/tmp/*" },
 		},
 	},
 })

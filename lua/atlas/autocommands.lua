@@ -2,12 +2,6 @@ local g = vim.g
 local api = vim.api
 local group = api.nvim_create_augroup("group", { clear = true })
 
--- Reloads neovim whenever you save the plugins.lua file
-api.nvim_create_autocmd(
-	"BufWritePost",
-	{ pattern = "plugins-setup.lua", command = "source <afile> | PackerSync", group = group }
-)
-
 -- Set wrap and spell on specific file types
 api.nvim_create_autocmd("FileType", {
 	pattern = { "norg", "markdown", "gitcommit" },
@@ -55,10 +49,6 @@ api.nvim_create_autocmd("RecordingLeave", {
 	end,
 })
 
--- Set last color scheme selected, gruvbox by default if no colorschemes found
-local theme = require("last-color").recall() or "gruvbox"
-api.nvim_exec(("colorscheme %s"):format(theme), false)
-
 api.nvim_exec(
 	[[
   " Paste command mode
@@ -78,10 +68,6 @@ api.nvim_exec(
 
   " Stop automatic comment when enter in insert mode
   au BufEnter * set fo-=c fo-=r fo-=o
-
-  " Unmap matchit conflicts
-  autocmd VimEnter * execute("unmap [%")
-  autocmd VimEnter * execute("unmap ]%")
 ]],
 	false
 )

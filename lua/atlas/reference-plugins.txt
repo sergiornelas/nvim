@@ -28,6 +28,7 @@ Lommix/godot.nvim
 TESTING ---------------------------------------------------
 David-Kunz/jester
 klen/nvim-test
+janko-m/vim-test
 rcarriga/neotest
 nvim-neotest/neotest
 andythigpen/nvim-coverage
@@ -44,6 +45,7 @@ akinsho/git-conflict.nvim                         conflicts
 kdheepak/lazygit.nvim                               lazygit
 pwntester/octo.nvim                                  git PR
 ruifm/gitlinker.nvim                          add bitbucket
+ray-x/forgit.nvim                              git commands
 
 FRONTEND --------------------------------------------------
 vuki656/package-info.nvim                              node
@@ -65,6 +67,7 @@ jameshiew/nvim-magic
 tzachar/cmp-tabnine
 jackMort/ChatGPT.nvim                               ChatGPT
 aduros/ai.vim                                openAI and GPT
+dense-analysis/neural           OpenAI and GPT-3 completion
 
 COMPETITIVE CODING ----------------------------------------
 run = "cd js && npm ci" at lab plugin dir
@@ -103,7 +106,8 @@ debugloop/telescope-undo.nvim                telescope undo
 nyngwang/NeoTerm.lua      attach a terminal for each buffer
 chrisgrieser/nvim-recorder  macros easier (wait for visual)
 desdic/telescope-rooter.nvim  rooter when telescope (error)
+rareitems/printer.nvim   add console.logs (wait for mature)
 
 Last time checked Awesome and This-week-in-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-(19/12/22)
+(27/12/22)

@@ -69,6 +69,9 @@ keymap("", "*", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", 
 keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
 keymap("i", "<c-c>", "<Plug>(ccc-insert)<cr>", opts)
 
+-- <Lazy>
+keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
+
 -- <Px-Rem>
 keymap("", "<leader>vp", "<cmd>Px!<cr>", opts)
 keymap("", "<leader>vr", "<cmd>Rem!<cr>", opts)
@@ -149,7 +152,6 @@ keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode aga
 keymap("n", "vv", "Vg_^", opts) --                                     visual whole line
 keymap("", "<c-l>", "<c-v>", opts) --                             block visual selection
 keymap("x", "<leader>p", '"_dP', opts) --                       paste and don't register
-keymap("x", "<c-w>", "o", opts) --                       o is used by treesitter-objects
 keymap("x", "!", '":norm !" . getcharstr() . "<cr>"', { expr = true }) -- multiple macro
 
 -- Tabs
@@ -192,10 +194,10 @@ keymap("n", "gm", "gM", opts)
 keymap("n", "gM", "gm", opts)
 
 -- Utils
-keymap("n", "<c-q>", "<c-r>", opts) --                                     redo
+keymap("n", "U", "<c-r>", opts) --                                         redo
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
 keymap("", "<leader>a", "<cmd>set hlsearch!<cr>", opts) --           highlights
--- keymap("", "<c-s>", "<cmd>PackerSync<cr>", opts) --           update plugins
+keymap("n", "<c-q><c-q>", "<cmd>qa<cr>", opts) --                   exit neovim
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
@@ -253,3 +255,13 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- twoslash queries (typescript detailed info /?)     leader vq
 -- fsread (better reading)                            leader vf
 -- dotenv (refresh dotenv?)
+
+-- Pendings migration mac ==========
+-- Spacebar icons
+-- Karabiner grave_sign... to left_shift
+-- fixate maximum resolution or default (with use you'll realize)
+
+-- Pending neovim ==================
+-- remap some semicolon layer maps
+-- lazy packer
+-- unmap M in visual mode

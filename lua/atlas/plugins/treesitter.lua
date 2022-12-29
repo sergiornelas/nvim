@@ -42,14 +42,14 @@ configs.setup({
 	},
 	context_commentstring = { --JSX commments
 		enable = true,
-		enable_autocmd = false,
+		-- enable_autocmd = false,
 	},
 	incremental_selection = {
 		enable = true,
 		keymaps = {
 			init_selection = "<c-y>",
-			node_incremental = "<c-i>",
 			scope_incremental = "<c-c>",
+			node_incremental = "<c-i>",
 			node_decremental = "<c-o>",
 		},
 	},

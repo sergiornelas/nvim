@@ -2,9 +2,9 @@ local nvim_navic_ok, nvim_navic = pcall(require, "nvim-navic")
 local lsp_inlayhints_ok, lsp_inlayhints = pcall(require, "lsp-inlayhints")
 local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 
-if not nvim_navic_ok or not lsp_inlayhints_ok or not cmp_nvim_lsp_ok then
-	return
-end
+-- if not nvim_navic_ok or not lsp_inlayhints_ok or not cmp_nvim_lsp_ok then
+-- 	return
+-- end
 
 local keymap = vim.keymap.set
 keymap("n", "gq", vim.diagnostic.setloclist, { noremap = true, silent = true })

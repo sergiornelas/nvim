@@ -5,14 +5,14 @@ if not lspconfig_ok or not typescript_ok then
 	return
 end
 
-local on_attach = require("lsp.handlers").on_attach
-local capabilities = require("lsp.handlers").capabilities
+local on_attach = require("atlas.lsp.handlers").on_attach
+local capabilities = require("atlas.lsp.handlers").capabilities
 
 typescript.setup({
 	server = {
 		on_attach = on_attach,
 		capabilities = capabilities,
-		settings = require("lsp.settings.tsserver").settings,
+		settings = require("atlas.lsp.settings.tsserver").settings,
 		-- root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "node_modules"),
 	},
 })
@@ -22,7 +22,7 @@ lspconfig.eslint.setup({
 		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	end,
 	capabilities = capabilities,
-	settings = require("lsp.settings.eslint").settings,
+	settings = require("atlas.lsp.settings.eslint").settings,
 })
 
 lspconfig.cssls.setup({
@@ -33,7 +33,7 @@ lspconfig.cssls.setup({
 lspconfig.sumneko_lua.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	settings = require("lsp.settings.sumneko_lua").settings,
+	settings = require("atlas.lsp.settings.sumneko_lua").settings,
 })
 
 for _, server in ipairs({ "html", "jsonls" }) do
