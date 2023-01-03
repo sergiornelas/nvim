@@ -42,7 +42,7 @@ configs.setup({
 	},
 	context_commentstring = { --JSX commments
 		enable = true,
-		-- enable_autocmd = false,
+		enable_autocmd = false,
 	},
 	incremental_selection = {
 		enable = true,

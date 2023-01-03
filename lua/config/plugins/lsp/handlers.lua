@@ -42,7 +42,7 @@ M.on_attach = function(client, bufnr)
 		lsp_inlayhints.on_attach(client, bufnr) -- Typescript 4.4+
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
-		require("twoslash-queries").attach(client, bufnr)
+		-- require("twoslash-queries").attach(client, bufnr)
 	end
 end
 

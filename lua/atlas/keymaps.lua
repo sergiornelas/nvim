@@ -262,6 +262,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- fixate maximum resolution or default (with use you'll realize)
 
 -- Pending neovim ==================
+-- lazy packer structure plugins and check all features
 -- remap some semicolon layer maps
--- lazy packer
+-- telescope measures
 -- unmap M in visual mode

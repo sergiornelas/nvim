@@ -1,0 +1,77 @@
+MULTIPLE PLUGINS ONE FILE:
+return {
+  { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
+  {
+        "mfussenegger/nvim-treehopper",
+            keys = { { "m", mode = { "o", "x" } } },
+                config = function()
+                      vim.cmd([[
+                        omap     <silent> m :<C-U>lua require('tsht').nodes()<CR>
+                        xnoremap <silent> m :lua require('tsht').nodes()<CR>
+                      ]])
+                end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = "BufReadPost",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+    ...
+  }
+}
+
+======================================================================
+RETURN STRAIGHT
+return {
+  'someplugin',
+  config = {
+    ...
+  }
+}
+
+======================================================================
+CONF FUN
+config = function()
+...
+end
+
+======================================================================
+CONFIG JUST OBJ
+config = {
+...
+}
+
+======================================================================
+JUST TRUE
+config = true, --run require("neorg").setup()
+
+======================================================================
+LOCAL M & FUNCTION M.config()
+local M = {
+  "someplugin"
+  someEvent
+}
+function M.config()
+  vim.o.winwidth = 5
+  vim.o.winminwidth = 5
+  vim.o.equalalways = false
+  require("windows").setup({
+    animation = {
+      enable = false,
+      duration = 150,
+    },
+  })
+end
+return M
+
+======================================================================
+LOCAL M STRAIGHT
+local M = {
+    "someplugin",
+    config = {
+        ....
+    }
+}
+return M
