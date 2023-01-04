@@ -10,15 +10,15 @@ function M.config()
 		return
 	end
 
-	require("config.plugins.lsp.diagnostics").setup()
-	local on_attach = require("config.plugins.lsp.handlers").on_attach
-	local capabilities = require("config.plugins.lsp.handlers").capabilities
+	require("plugins.lsp.diagnostics").setup()
+	local on_attach = require("plugins.lsp.handlers").on_attach
+	local capabilities = require("plugins.lsp.handlers").capabilities
 
 	typescript.setup({
 		server = {
 			on_attach = on_attach,
 			capabilities = capabilities,
-			settings = require("config.plugins.lsp.settings.tsserver").settings,
+			settings = require("plugins.lsp.settings.tsserver").settings,
 			-- root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "node_modules"),
 		},
 	})
@@ -28,7 +28,7 @@ function M.config()
 			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 		end,
 		capabilities = capabilities,
-		settings = require("config.plugins.lsp.settings.eslint").settings,
+		settings = require("plugins.lsp.settings.eslint").settings,
 	})
 
 	lspconfig.cssls.setup({
@@ -39,7 +39,7 @@ function M.config()
 	lspconfig.sumneko_lua.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
-		settings = require("config.plugins.lsp.settings.sumneko_lua").settings,
+		settings = require("plugins.lsp.settings.sumneko_lua").settings,
 	})
 
 	for _, server in ipairs({ "html", "jsonls" }) do

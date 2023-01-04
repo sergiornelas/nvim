@@ -1,6 +1,7 @@
 local M = {
 	"ggandor/leap.nvim",
 	dependencies = { "ggandor/leap-spooky.nvim" },
+	keys = { "s", "S" },
 }
 
 function M.config()

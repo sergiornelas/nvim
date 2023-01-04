@@ -1,5 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
+	event = "InsertEnter",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
@@ -103,7 +104,7 @@ return {
 		})
 
 		-- Autopairs
-		-- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-		-- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 	end,
 }

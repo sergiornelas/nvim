@@ -4,12 +4,11 @@ local M = {
 
 function M.config()
 	local lualine_ok, lualine = pcall(require, "lualine")
-	local nvim_navic_ok, nvim_navic = pcall(require, "nvim-navic")
-	local grapple_ok, grapple = pcall(require, "grapple")
-
-	if not lualine_ok or not nvim_navic_ok or not grapple_ok then
+	if not lualine_ok then
 		return
 	end
+
+	local navic = require("nvim-navic")
 
 	lualine.setup({
 		options = {
@@ -28,17 +27,23 @@ function M.config()
 			lualine_a = { "tabs" },
 			lualine_b = { "searchcount", "location" },
 			lualine_c = {
-				{ nvim_navic.get_location, cond = nvim_navic.is_available },
+				{ navic.get_location, cond = navic.is_available },
 			},
-			lualine_x = {},
+			lualine_x = {
+				{
+					require("lazy.status").updates,
+					cond = require("lazy.status").has_updates,
+					color = { fg = "#ff9e64" },
+				},
+			},
 			lualine_y = { "diagnostics", "diff" },
 			lualine_z = {
 				{
 					function()
-						local key = grapple.key()
+						local key = require("grapple").key()
 						return "[" .. key .. "]"
 					end,
-					cond = grapple.exists,
+					cond = require("grapple").exists,
 				},
 			},
 		},

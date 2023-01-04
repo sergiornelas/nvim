@@ -13,4 +13,5 @@ function M.config()
 		backward = "J",
 	})
 end
+
 return M

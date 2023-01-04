@@ -3,6 +3,9 @@ local M = {
 	dependencies = {
 		"kyazdani42/nvim-web-devicons",
 	},
+	keys = {
+		{ "<leader>g", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree" },
+	},
 }
 
 function M.config()

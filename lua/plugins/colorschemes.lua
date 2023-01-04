@@ -7,7 +7,6 @@ return {
 		end,
 	},
 	{
-
 		"B4mbus/oxocarbon-lua.nvim",
 		"EdenEast/nightfox.nvim",
 		"Shatur/neovim-ayu",

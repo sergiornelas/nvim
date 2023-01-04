@@ -5,18 +5,26 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
 		lazypath,
 	})
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("config.plugins", {
+require("lazy").setup({
+	spec = {
+		{ import = "plugins" },
+	},
 	defaults = {
 		lazy = false,
 	},
 	checker = {
-		enabled = false,
+		enabled = true,
+		notify = false,
 		frequency = 3600, -- check for updates every hour
+	},
+	ui = {
+		browser = "Brave",
 	},
 	performance = {
 		rtp = {
