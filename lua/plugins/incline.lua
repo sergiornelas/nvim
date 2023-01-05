@@ -1,5 +1,6 @@
 local M = {
 	"b0o/incline.nvim",
+	event = "BufReadPre",
 }
 
 function M.config()

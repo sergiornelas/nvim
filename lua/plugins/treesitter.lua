@@ -1,11 +1,9 @@
 local M = {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	--event = "BufReadPost",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"nvim-treesitter/nvim-treesitter-context",
-		"JoosepAlviste/nvim-ts-context-commentstring",
 		"p00f/nvim-ts-Rainbow",
 	},
 }
@@ -27,7 +25,6 @@ function M.config()
 			"lua",
 			"markdown",
 			"norg",
-			-- "norg_meta",
 			"scss",
 			"tsx",
 			"typescript",

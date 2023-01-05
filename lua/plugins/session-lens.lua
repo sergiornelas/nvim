@@ -1,6 +1,7 @@
 local M = {
 	"rmagatti/session-lens",
 	dependencies = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+	cmd = "SearchSession",
 }
 
 function M.config()

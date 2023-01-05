@@ -1,5 +1,6 @@
 local M = {
 	"petertriho/nvim-scrollbar",
+	event = "BufReadPost",
 }
 
 function M.config()
@@ -14,6 +15,7 @@ function M.config()
 			gitsigns = true, --requires gitsigns
 			-- search = false, --requires hlslens
 		},
+		excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify", "NvimTree" },
 	})
 end
 

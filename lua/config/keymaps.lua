@@ -67,7 +67,6 @@ keymap("", "*", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", 
 
 -- <Color picker>
 keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
-keymap("i", "<c-c>", "<Plug>(ccc-insert)<cr>", opts)
 
 -- <Lazy>
 keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
@@ -105,9 +104,6 @@ keymap("", "<leader>vf", "<cmd>FSToggle<cr>", opts)
 
 -- <Cellular-automaton>
 keymap("", "<c-s>", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
-
--- <Twoslash-queries>
-keymap("", "<leader>vq", "<cmd>InspectTwoslashQueries<cr>", opts)
 
 -- <TreeSJ>
 keymap("", "<leader>vj", "<cmd>TSJToggle<cr>", opts)
@@ -197,7 +193,7 @@ keymap("n", "gM", "gm", opts)
 keymap("n", "U", "<c-r>", opts) --                                         redo
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
 keymap("", "<leader>a", "<cmd>set hlsearch!<cr>", opts) --           highlights
-keymap("n", "<c-q><c-q>", "<cmd>qa<cr>", opts) --                   exit neovim
+keymap("n", "<c-q>", "<cmd>qa<cr>", opts) --                        exit neovim
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
@@ -252,12 +248,9 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- === List of not really used plugins:
 -- treesj (align arrays objects)                      leader vj
 -- zippy (automatic comments)                         leader vz
--- twoslash queries (typescript detailed info /?)     leader vq
 -- fsread (better reading)                            leader vf
--- dotenv (refresh dotenv?)
 
 -- Pendings migration mac ==========
--- Spacebar icons
 -- Karabiner grave_sign... to left_shift
 -- fixate maximum resolution or default (with use you'll realize)
 

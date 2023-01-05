@@ -18,7 +18,7 @@ api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- Go to last location when opening a buffer
+-- Jump to the last place you’ve visited in a file before exiting
 api.nvim_create_autocmd(
 	"BufReadPost",
 	{ command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }

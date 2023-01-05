@@ -1,5 +1,9 @@
 local M = {
 	"kwkarlwang/bufjump.nvim",
+	keys = {
+		"K",
+		"J",
+	},
 }
 
 function M.config()

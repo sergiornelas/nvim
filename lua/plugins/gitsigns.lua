@@ -1,7 +1,7 @@
 local M = {
 	"lewis6991/gitsigns.nvim",
 	ft = "gitcommit",
-	event = "BufEnter",
+	event = "BufReadPre",
 }
 
 function M.config()

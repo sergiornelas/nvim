@@ -1,6 +1,7 @@
 local M = {
 	"kylechui/nvim-surround",
 	version = "*",
+	event = "InsertEnter",
 }
 
 function M.config()

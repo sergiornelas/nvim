@@ -1,5 +1,5 @@
 LSP -------------------------------------------------------
-b0o/simrat39/symbols-outline.nvim    LSP Diagram menu (jsx)
+simrat39/symbols-outline.nvim        LSP Diagram menu (jsx)
 folke/trouble.nvim                       pretty diagnostics
 kevinhwang91/nvim-bqf                              quickfix
 ray-x/navigator.lua                            LSP hardcore
@@ -14,6 +14,7 @@ vigoux/notifier.nvim                show message lsp loaded
 TREESITTER ------------------------------------------------
 ziontee113/syntax-tree-surfer                  TS navigator
 ziontee113/neo-minimap             Navigate between queries
+cshuaimin/ssr.nvim            structural search and replace
 
 DEBUGGING -------------------------------------------------
 mfusseneger/nvim-dap
@@ -107,7 +108,10 @@ nyngwang/NeoTerm.lua      attach a terminal for each buffer
 chrisgrieser/nvim-recorder  macros easier (wait for visual)
 desdic/telescope-rooter.nvim  rooter when telescope (error)
 rareitems/printer.nvim   add console.logs (wait for mature)
+roobert/search-replace.nvim       UI for search and replace
+princejoogie/chafa.nvim                      images and svg
+axkirillov/easypick.nvim  telescope with arbitrary commands
 
 Last time checked Awesome and This-week-in-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-(27/12/22)
+(04/01/23)
