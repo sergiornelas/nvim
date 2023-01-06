@@ -15,12 +15,18 @@ return {
 	},
 	-- Treesitter
 	{
+		"nvim-treesitter/nvim-treesitter-context",
+		event = "BufReadPre",
+		config = true,
+	},
+	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	},
 	{
 		"m-demare/hlargs.nvim",
 		config = true,
+		event = "BufReadPost",
 	},
 	{
 		"Wansmer/treesj",
@@ -43,6 +49,7 @@ return {
 	},
 	{
 		"xiyaowong/nvim-transparent",
+		lazy = false,
 		config = {
 			enable = true,
 		},
@@ -65,18 +72,13 @@ return {
 		},
 	},
 	{
-		"EtiamNullam/deferred-clipboard.nvim",
-		config = {
-			lazy = true,
-		},
-	},
-	{
 		"tversteeg/registers.nvim",
 		event = "InsertEnter",
 		config = true,
 	},
 	{
 		"chrisgrieser/nvim-various-textobjs",
+		event = "BufReadPost",
 		config = {
 			useDefaultKeymaps = true,
 		},
@@ -92,8 +94,28 @@ return {
 		config = true,
 		cmd = "CccPick",
 	},
-	"PatschD/zippy.nvim",
-	"Oldenborg/vim-px-to-rem",
+	{
+		"PatschD/zippy.nvim",
+		keys = {
+			{
+				"<leader>vz",
+				"<cmd>lua require('zippy').insert_print()<cr>",
+			},
+		},
+	},
+	{
+		"Oldenborg/vim-px-to-rem",
+		keys = {
+			{
+				"<leader>vp",
+				"<cmd>Px!<cr>",
+			},
+			{
+				"<leader>vr",
+				"<cmd>Rem!<cr>",
+			},
+		},
+	},
 	-- Notes
 	{ "nullchilly/fsread.nvim", ft = "norg" },
 	-- Misc

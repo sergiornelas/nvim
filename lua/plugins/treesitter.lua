@@ -1,9 +1,9 @@
 local M = {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	event = "BufReadPost",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		"nvim-treesitter/nvim-treesitter-context",
 		"p00f/nvim-ts-Rainbow",
 	},
 }

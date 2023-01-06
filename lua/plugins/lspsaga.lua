@@ -1,6 +1,7 @@
 local M = {
 	"glepnir/lspsaga.nvim",
 	branch = "main",
+	event = "BufReadPre",
 }
 
 function M.config()

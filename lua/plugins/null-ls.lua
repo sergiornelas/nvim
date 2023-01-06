@@ -1,6 +1,7 @@
 local M = {
 	"jose-elias-alvarez/null-ls.nvim",
-	dependencies = { "jose-elias-alvarez/typescript.nvim", "nvim-lua/plenary.nvim" },
+	event = "BufReadPre",
+	dependencies = { "mason.nvim", "jose-elias-alvarez/typescript.nvim" },
 }
 
 function M.config()

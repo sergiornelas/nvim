@@ -1,12 +1,6 @@
 return {
 	"numToStr/Comment.nvim",
-	keys = {
-		"gn",
-		"ga",
-		"gaM",
-		"gam",
-		"gaA",
-	},
+	event = "VeryLazy",
 	config = function()
 		local comment_ok, comment = pcall(require, "Comment")
 		if not comment_ok then

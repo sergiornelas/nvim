@@ -12,16 +12,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	spec = {
-		{ import = "plugins" },
-	},
+	spec = "plugins",
 	defaults = {
-		lazy = false,
+		lazy = true,
 	},
 	checker = {
 		enabled = true,
 		notify = false,
-		frequency = 3600, -- check for updates every hour
+		frequency = 1800, -- check for updates every half hour
 	},
 	ui = {
 		browser = "Brave",

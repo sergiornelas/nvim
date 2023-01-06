@@ -8,6 +8,8 @@ local lazy_map = {
 return {
 	{
 		"raddari/last-color.nvim",
+		lazy = false,
+		priority = 1000,
 		config = function()
 			local theme = require("last-color").recall() or "gruvbox"
 			vim.api.nvim_exec(("colorscheme %s"):format(theme), false)

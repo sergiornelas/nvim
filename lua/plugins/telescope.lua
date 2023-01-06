@@ -1,5 +1,6 @@
 local M = {
 	"nvim-telescope/telescope.nvim",
+	cmd = "Telescope",
 	build = "make",
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },

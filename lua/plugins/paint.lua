@@ -1,5 +1,6 @@
 local M = {
 	"folke/paint.nvim",
+	event = "BufReadPost",
 }
 
 function M.config()

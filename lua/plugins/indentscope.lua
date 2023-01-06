@@ -1,5 +1,6 @@
 return {
 	"echasnovski/mini.indentscope",
+	event = "BufReadPre",
 	config = function()
 		local indentscope_ok, indentscope = pcall(require, "mini.indentscope")
 		if not indentscope_ok then

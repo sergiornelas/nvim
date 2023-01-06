@@ -1,6 +1,6 @@
 local M = {
 	"sindrets/diffview.nvim",
-	cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+	cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewFileHistory" },
 }
 
 function M.config()

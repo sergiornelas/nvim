@@ -1,6 +1,5 @@
 local M = {
 	"nvim-neorg/neorg",
-	version = "*",
 	ft = "norg",
 	-- run = ":Neorg sync-parsers", -- This is the important bit
 }

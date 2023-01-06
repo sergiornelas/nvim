@@ -1,5 +1,6 @@
 vim.opt.backup = false --            creates a backup file
 vim.opt.ch = 0 --                    command height
+vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0 --          so that `` is visible in markdown files
 vim.opt.cursorline = true --         highlight the current line
@@ -24,7 +25,7 @@ vim.opt.showcmd = false --           hide (partial) command in the last line of 
 vim.opt.showmode = false --          we don't need to see things like --INSERT-- anymore
 vim.opt.showtabline = 0 --           always show tabs
 vim.opt.sidescrolloff = 8 --         minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
-vim.opt.signcolumn = "auto" --       always show the sign column, otherwise it would shift the text each time
+vim.opt.signcolumn = "yes" --       always show the sign column, otherwise it would shift the text each time
 vim.opt.smartcase = true --          smart case
 vim.opt.smartindent = true --        make indenting smarter again
 vim.opt.splitbelow = true --         force all horizontal splits to go below current window
