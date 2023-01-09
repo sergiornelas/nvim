@@ -30,7 +30,7 @@ return {
 	},
 	{
 		"Wansmer/treesj",
-		config = {
+		opts = {
 			use_default_keymaps = false,
 		},
 		cmd = "TSJToggle",
@@ -50,17 +50,32 @@ return {
 	{
 		"xiyaowong/nvim-transparent",
 		lazy = false,
-		config = {
+		opts = {
 			enable = true,
 		},
 	},
 	{ "famiu/bufdelete.nvim", cmd = "Bdelete" },
-	{ "rhysd/clever-f.vim", keys = {
-		"f",
-		"F",
-		"t",
-		"T",
-	} },
+	{
+		"rhysd/clever-f.vim",
+		keys = {
+			{
+				"f",
+				mode = { "n", "x" },
+			},
+			{
+				"F",
+				mode = { "n", "x" },
+			},
+			{
+				"t",
+				mode = { "n", "x" },
+			},
+			{
+				"T",
+				mode = { "n", "x" },
+			},
+		},
+	},
 	-- Editing
 	{
 		"echasnovski/mini.trailspace",
@@ -75,13 +90,6 @@ return {
 		"tversteeg/registers.nvim",
 		event = "InsertEnter",
 		config = true,
-	},
-	{
-		"chrisgrieser/nvim-various-textobjs",
-		event = "BufReadPost",
-		config = {
-			useDefaultKeymaps = true,
-		},
 	},
 	-- Frontend Development
 	{

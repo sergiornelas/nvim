@@ -58,11 +58,11 @@ keymap("", "<leader>jf", "<cmd>DiffviewFileHistory %<cr>", opts)
 keymap("", "<leader>jg", "<cmd>DiffviewFileHistory<cr>", opts)
 
 -- <Windows>
-keymap("n", "v<leader>", "<cmd>WindowsMaximize<cr>", opts)
+keymap("n", "<c-w><c-e>", "<cmd>WindowsMaximize<cr>", opts)
 keymap("n", "<c-w>z", "<cmd>WindowsToggleAutowidth<cr>", opts)
 
 -- <Illuminate>
-keymap("", "`", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
+keymap("", "}", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
 keymap("", "*", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", opts)
 
 -- <Color picker>
@@ -97,7 +97,7 @@ keymap("", "<leader>va", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
 keymap("", "<leader>vz", "<cmd>lua require('zippy').insert_print()<cr>", opts)
 
 -- <Swap-split>
-keymap("", "<leader>vs", "<cmd>SwapSplit<cr>", opts)
+keymap("", "<c-w><c-j>", "<cmd>SwapSplit<cr>", opts)
 
 -- <Fsread>
 keymap("", "<leader>vf", "<cmd>FSToggle<cr>", opts)
@@ -133,7 +133,6 @@ keymap("", "ƒ", "<cmd>vertical resize +4<cr>", opts)
 keymap("", "∂", "<cmd>resize +4<cr>", opts)
 keymap("", "ß", "<cmd>resize -4<cr>", opts)
 keymap("", "å", "<cmd>vertical resize -4<cr>", opts)
-keymap("", "<leader><leader>", "<c-w>=", opts)
 
 -- Insert mode
 keymap("i", "<c-f>", "<c-i>", opts) --                                         tab
@@ -144,21 +143,18 @@ keymap("i", "<c-o>", "<esc>O", opts) --               go to upper line insert mo
 keymap("i", "<c-i>", "<c-f>", opts) --    move line in the corresponding tab frame
 keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode again
 
--- Visual mode
-keymap("n", "vv", "Vg_^", opts) --                                     visual whole line
-keymap("", "<c-l>", "<c-v>", opts) --                             block visual selection
-keymap("x", "<leader>p", '"_dP', opts) --                       paste and don't register
-keymap("x", "!", '":norm !" . getcharstr() . "<cr>"', { expr = true }) -- multiple macro
-
 -- Tabs
 keymap("", "<leader>n", "<c-w>T", opts) --              new tab
 keymap("", "<leader>e", "gt", opts) --                 next tab
 keymap("", "<leader>r", "gT", opts) --                 prev tab
 keymap("", "<leader>t", "<cmd>tabclose<cr>", opts) -- close tab
 
+-- Visual mode
+keymap("", "<c-l>", "<c-v>", opts) --                             block visual selection
+keymap("x", "<leader>p", '"_dP', opts) --                       paste and don't register
+
 -- Switch record macro and yank
 keymap("", "q", "y", opts)
-keymap("n", "<tab>", "q", opts)
 keymap({ "n", "x" }, "Q", "y$", opts)
 
 -- Lua snip conflicts
@@ -199,7 +195,7 @@ keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
 keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
 keymap("", "<leader>z", "<cmd>set nu!<cr>", opts) --          toggle set number
-keymap("", "\\<leader>", "`.") --                       go to last changed line
+keymap("", "]", "`.") --                                go to last changed line
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
 keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
@@ -225,6 +221,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader> maps available:
 -- y
 -- x, c, m
+-- <leader>
 -- <esc>
 -- caps chars
 -- combinations with: j, v
@@ -235,6 +232,12 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- s <cr>
 -- n
 
+-- <C-W>_ maps available:
+-- T (first window), I (definition), O (delete all), F (file), N (new empty buffer)
+-- W, Y, U, P
+-- A, D, G, H, K, L
+-- Z, X, C, B, M
+
 -- <C-> insert mode maps available:
 -- q, p
 -- s
@@ -244,18 +247,14 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- y, u, i, o, p
 -- h, k, l
 -- z, x, b, n
+-- <leader>
 
 -- === List of not really used plugins:
 -- treesj (align arrays objects)                      leader vj
 -- zippy (automatic comments)                         leader vz
 -- fsread (better reading)                            leader vf
 
--- Pendings migration mac ==========
--- Karabiner grave_sign... to left_shift
--- fixate maximum resolution or default (with use you'll realize)
-
 -- Pending neovim ==================
--- lazy packer structure plugins and check all features
--- remap some semicolon layer maps
--- telescope measures
--- unmap M in visual mode
+-- destroy misc.lua
+-- alt-tab apply q effect, wait for consolidation
+-- rr o(change|delete) mode

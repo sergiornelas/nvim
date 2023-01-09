@@ -88,7 +88,7 @@ return {
 	{
 		"lmburns/kimbox",
 		keys = lazy_map,
-		config = {
+		opts = {
 			toggle_style_key = "<leader>%",
 			allow_italic = true,
 			allow_underline = true,
@@ -98,7 +98,7 @@ return {
 	{
 		"navarasu/onedark.nvim",
 		keys = lazy_map,
-		config = {
+		opts = {
 			style = "deep",
 		},
 	},

@@ -1,7 +1,7 @@
 local M = {
 	"ggandor/leap.nvim",
 	dependencies = { "ggandor/leap-spooky.nvim" },
-	keys = { "s", "S" },
+	keys = { { "s", mode = { "n", "x" } }, { "S", mode = { "n", "x" } } },
 }
 
 function M.config()
@@ -14,7 +14,6 @@ function M.config()
 
 	leap.add_default_mappings()
 
-	-- TODO: M visual mode
 	leap_spooky.setup({
 		affixes = {
 			-- These will generate mappings for all native text objects, like:

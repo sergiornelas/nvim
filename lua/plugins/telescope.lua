@@ -21,19 +21,9 @@ function M.config()
 			winblend = 12,
 			results_title = "",
 			layout_config = {
-				-- horizontal = {
-				-- 	width = 160,
-				-- 	height = 50,
-				-- 	preview_width = 80,
-				-- },
-				horizontal = {
-					width = 80,
-					height = 20,
-					preview_width = 40,
-				},
 				vertical = {
-					width = 87,
-					height = 47,
+					width = 96,
+					height = 54,
 				},
 			},
 			-- previewer = false
