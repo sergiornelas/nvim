@@ -22,8 +22,8 @@ function M.config()
 			results_title = "",
 			layout_config = {
 				vertical = {
-					width = 96,
-					height = 54,
+					width = 83,
+					height = 48,
 				},
 			},
 			-- previewer = false

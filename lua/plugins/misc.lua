@@ -37,6 +37,13 @@ return {
 	},
 	-- Navigation
 	{
+		"ggandor/leap.nvim",
+		keys = { { "s", mode = { "n", "x" } }, { "S", mode = { "n", "x" } } },
+		config = function()
+			require("leap").add_default_mappings()
+		end,
+	},
+	{
 		"anuvyklack/windows.nvim",
 		dependencies = "anuvyklack/middleclass",
 		event = "WinNew",

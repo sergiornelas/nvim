@@ -4,7 +4,7 @@ local M = {
 	event = "BufReadPost",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		"p00f/nvim-ts-Rainbow",
+		"mrjones2014/nvim-ts-Rainbow",
 	},
 }
 

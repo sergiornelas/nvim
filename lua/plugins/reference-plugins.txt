@@ -60,6 +60,7 @@ MunifTanjim/prettier.nvim              prettier alternative
 numToStr/prettierrc.nvim               prettier alternative
 ray-x/web-tools.nvim               live server for html/css
 Azeirah/nvim-redux                          redux telescope
+barrett-ruth/import-cost.nvim        cost memory of imports
 
 ARTIFICIAL INTELIGENCE ------------------------------------
 github/copilot.vim
@@ -111,7 +112,8 @@ rareitems/printer.nvim   add console.logs (wait for mature)
 roobert/search-replace.nvim       UI for search and replace
 princejoogie/chafa.nvim                      images and svg
 axkirillov/easypick.nvim  telescope with arbitrary commands
+asiryk/auto-hlsearch.nvim hlsearch auto (autocommands file)
 
 Last time checked Awesome and This-week-in-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-(04/01/23)
+(10/01/23)

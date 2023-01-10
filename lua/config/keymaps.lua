@@ -255,6 +255,8 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- fsread (better reading)                            leader vf
 
 -- Pending neovim ==================
+-- try to apply cmd in terminal/neovim, do you really need to map it?
+-- ssh nextiva not working again
 -- destroy misc.lua
--- alt-tab apply q effect, wait for consolidation
--- rr o(change|delete) mode
+-- alt-tab apply q effect in karabiner or wait for consolidation with vimim c
+-- make some files private in a repository
