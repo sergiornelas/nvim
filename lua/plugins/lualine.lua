@@ -26,7 +26,7 @@ function M.config()
 		},
 		sections = {
 			lualine_a = { "tabs" },
-			lualine_b = { "searchcount", "location" },
+			lualine_b = { "searchcount", "location", { require("recorder").recordingStatus } },
 			lualine_c = {
 				{ navic.get_location, cond = navic.is_available },
 			},

@@ -5,44 +5,41 @@
 
 --  WRITING       VIM EFFECT
 -- ---------------------------
--- &?/+* #$% \^   q?/{  #)( \^
--- QWERT˙UIO      QWER˙˙UIO
+-- &?/+* #$% \^   ˙?/{˙ #)( \^
+-- QWERT˙UIO˙     QWERT˙UIO˙
 --  (;)-[]=|~      ^=*}$˙%&~
 --  ASDFGHJKL      ASDFGHJKL
---   ! _{@}`        @ _`! ~
---   Z˙CVBNM        Z˙CVB˙M
+--   ! _{@}`        ! _`˙˙~
+--   Z˙CVBNM        Z˙CVBNM
 
 -- Y,P,X are ignored by the writing layer, difficult to type.
--- T/N mapped for illuminate.
--- H is mapped for go to last changed line
--- M/L,^ are free for vim effect.
--- \ is already mapped by multiple plugins
+-- T/N are mapped for illuminate.
+-- Q/B are mapped for nvim-recorder
+-- H is mapped for CellularAutomaton
+-- Z,M/L,^ are free for vim effect.
+-- \ is already mapped by multiple plugins and actions
 -- +-][| missing mapped vim effect.
 
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap("", "&", "q", opts) --                                             Q
-keymap("", "+", ":keepjumps norm! '{'<cr>", opts) --                      R
-keymap("x", "+", ":<c-u>keepjumps norm! gv{'<cr>", opts) --               R
-keymap("", "$", ")") --                                                   I
-keymap("", "%", "(") --                                                   O
-keymap("", "(", "^") --                                                   A
-keymap("", ";", "=") --                                                   S
-keymap("", ")", "*") --                                                   D
-keymap("x", ")", 'y/\\V<c-r>"<cr>') --                                    D
-keymap("", "-", ":keepjumps norm! '}'<cr>", opts) --                      F
-keymap("x", "-", ":<c-u>keepjumps norm! gv}'<cr>", opts) --               F
-keymap("", "[", "$") --                                                   G
-keymap("", "=", "%") --                                                   J
-keymap("", "|", "&") --                                                   K
-keymap("", "!", "@") --                                                   Z
-keymap("x", "!", '":norm !" . getcharstr() . "<cr>"', { expr = true }) -- Z
-keymap("", "!!", "@@") --                                                 ZZ
-keymap("", "{", "`") --                                                   V
-keymap("", "{{", "``") --                                                 VV
-keymap("", "@", "!") --                                                   B
-keymap("", "`", "~") --                                                   M
+keymap("", "+", ":keepjumps norm! '{'<cr>", opts) --        R
+keymap("x", "+", ":<c-u>keepjumps norm! gv{'<cr>", opts) -- R
+keymap("x", "#", 'y?\\V<c-r>"<cr><cmd>AutoHlsearch<cr>') -- U
+keymap("", "$", ")") --                                     I
+keymap("", "%", "(") --                                     O
+keymap("", "(", "^") --                                     A
+keymap("", ";", "=") --                                     S
+keymap("", ")", "*<cmd>AutoHlsearch<cr>") --                D
+keymap("x", ")", 'y/\\V<c-r>"<cr><cmd>AutoHlsearch<cr>') -- D
+keymap("", "-", ":keepjumps norm! '}'<cr>", opts) --        F
+keymap("x", "-", ":<c-u>keepjumps norm! gv}'<cr>", opts) -- F
+keymap("", "[", "$") --                                     G
+keymap("", "=", "%") --                                     J
+keymap("", "|", "&") --                                     K
+keymap("", "{", "`") --                                     V
+keymap("", "{{", "``") --                                   VV
+keymap("", "`", "~") --                                     M
 
 -- NOTES
 -- gi/go for git hunk navigation it's quite confortable.

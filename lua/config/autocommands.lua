@@ -28,40 +28,6 @@ api.nvim_create_autocmd(
 api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = group })
 api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = group })
 
--- Toggle command height when recording macro
-api.nvim_create_autocmd("RecordingEnter", {
-	pattern = "*",
-	callback = function()
-		vim.opt_local.ch = 1
-	end,
-})
-api.nvim_create_autocmd("RecordingLeave", {
-	pattern = "*",
-	callback = function()
-		local timer = vim.loop.new_timer()
-		timer:start(
-			50,
-			0,
-			vim.schedule_wrap(function()
-				vim.opt_local.ch = 0
-			end)
-		)
-	end,
-})
-
--- Disable hlsearch automatically when your search done and enable on next search
-local ns = vim.api.nvim_create_namespace("toggle_hlsearch")
-local function toggle_hlsearch(char)
-	if vim.fn.mode() == "n" then
-		local keys = { "<CR>", "n", "N", "*", "#", "?", "/" }
-		local new_hlsearch = vim.tbl_contains(keys, vim.fn.keytrans(char))
-		if vim.opt.hlsearch:get() ~= new_hlsearch then
-			vim.opt.hlsearch = new_hlsearch
-		end
-	end
-end
-vim.on_key(toggle_hlsearch, ns)
-
 api.nvim_exec(
 	[[
   " Paste command mode

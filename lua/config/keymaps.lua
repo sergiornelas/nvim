@@ -59,7 +59,7 @@ keymap("", "<leader>jg", "<cmd>DiffviewFileHistory<cr>", opts)
 
 -- <Windows>
 keymap("n", "<c-w><c-e>", "<cmd>WindowsMaximize<cr>", opts)
-keymap("n", "<c-w>z", "<cmd>WindowsToggleAutowidth<cr>", opts)
+keymap("n", "<c-w><c-q>", "<cmd>WindowsToggleAutowidth<cr>", opts)
 
 -- <Illuminate>
 keymap("", "}", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
@@ -94,7 +94,7 @@ keymap("", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
 keymap("", "<leader>va", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
 
 -- <Zippy>
-keymap("", "<leader>vz", "<cmd>lua require('zippy').insert_print()<cr>", opts)
+keymap("", "<leader>z", "<cmd>lua require('zippy').insert_print()<cr>", opts)
 
 -- <Swap-split>
 keymap("", "<c-w><c-j>", "<cmd>SwapSplit<cr>", opts)
@@ -103,7 +103,7 @@ keymap("", "<c-w><c-j>", "<cmd>SwapSplit<cr>", opts)
 keymap("", "<leader>vf", "<cmd>FSToggle<cr>", opts)
 
 -- <Cellular-automaton>
-keymap("", "<c-s>", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
+keymap("", "]", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
 
 -- <TreeSJ>
 keymap("", "<leader>vj", "<cmd>TSJToggle<cr>", opts)
@@ -120,9 +120,9 @@ keymap("", "<leader>q", "<cmd>q<cr>", opts) --             close window
 keymap("", "<leader>Q", "<cmd>q!<cr>", opts) -- close window and buffer
 keymap("", "<c-v>", "<c-^>", opts) --              toggle recent window
 keymap("", "<c-r>", "<c-w>w", opts) --             navigate next window
-keymap("", "<c-a>", "<c-w>W", opts) --         navigate previous window
+keymap("n", "<c-u>", "<c-u>zz", opts) --         scrolls up half buffer
 keymap("n", "<c-d>", "<c-d>zz", opts) --       scrolls down half buffer
-keymap("n", "<c-u>", "<c-u>zz", opts) --       scrolls down half buffer
+keymap("", "<c-a>", "<c-w>W", opts) --         navigate previous window
 keymap("", "<c-e>", "<c-y>", opts) --          page scrolls up one line
 keymap("", "<c-f>", "<c-e>", opts) --        page scrolls down one line
 keymap("", "<c-p>", "<c-b>", opts) --        page scrolls up fullscreen
@@ -144,14 +144,13 @@ keymap("i", "<c-i>", "<c-f>", opts) --    move line in the corresponding tab fra
 keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode again
 
 -- Tabs
-keymap("", "<leader>n", "<c-w>T", opts) --              new tab
 keymap("", "<leader>e", "gt", opts) --                 next tab
 keymap("", "<leader>r", "gT", opts) --                 prev tab
 keymap("", "<leader>t", "<cmd>tabclose<cr>", opts) -- close tab
 
 -- Visual mode
-keymap("", "<c-l>", "<c-v>", opts) --                             block visual selection
-keymap("x", "<leader>p", '"_dP', opts) --                       paste and don't register
+keymap("", "<c-l>", "<c-v>", opts) --       block visual selection
+keymap("x", "<leader>p", '"_dP', opts) -- paste and don't register
 
 -- Switch record macro and yank
 keymap("", "q", "y", opts)
@@ -194,8 +193,8 @@ keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
 keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
-keymap("", "<leader>z", "<cmd>set nu!<cr>", opts) --          toggle set number
-keymap("", "]", "`.") --                                go to last changed line
+keymap("", "<leader>n", "<cmd>set nu!<cr>", opts) --          toggle set number
+keymap("", "\\<leader>", "`.") --                       go to last changed line
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
 keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
@@ -210,7 +209,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- x, c
 
 -- C maps available:
--- q, r, y, u, p
+-- r, y, u, p
 -- d, g, <cr>
 -- z, m
 
@@ -229,14 +228,14 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- <C-> maps available:
 -- y
--- s <cr>
+-- <cr>
 -- n
 
 -- <C-W>_ maps available:
--- T (first window), I (definition), O (delete all), F (file), N (new empty buffer)
--- W, Y, U, P
--- A, D, G, H, K, L
--- Z, X, C, B, M
+-- t (first window), i (definition), o (delete all), f (file), n (new empty buffer)
+-- w, y, u, p
+-- a, d, g, h, k, l
+-- z, x, c, b, m
 
 -- <C-> insert mode maps available:
 -- q, p
@@ -247,16 +246,58 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- y, u, i, o, p
 -- h, k, l
 -- z, x, b, n
--- <leader>
+
+-- q maps available
+-- yank + key
+
+-- Used but mappeable
+-- <leader>n ~ set number
+-- <leader>z ~ zippy
+-- <leader>m ~ telescope mark
+-- <leader>a ~ highlights (wait for plugin use)
 
 -- === List of not really used plugins:
--- treesj (align arrays objects)                      leader vj
--- zippy (automatic comments)                         leader vz
--- fsread (better reading)                            leader vf
+-- treesj (align arrays objects) leader vj
+-- zippy (automatic comments)    leader z
+-- fsread (better reading)       leader vf
 
 -- Pending neovim ==================
+-- lsp and snippets not loading ?
+-- kill lsp saga
+-- destroy misc.lua
+
 -- try to apply cmd in terminal/neovim, do you really need to map it?
 -- ssh nextiva not working again
--- destroy misc.lua
--- alt-tab apply q effect in karabiner or wait for consolidation with vimim c
 -- make some files private in a repository
+
+-- cmd
+-- q -> close
+-- h -> hide
+
+-- ctrl
+-- q -> *
+-- h -> delete
+
+-- seguro cada annio    3500 / 12 = 291.6
+-- verifiacion annio     500 / 12 =  41.6
+-- refrendo cada annio   701 / 12 =  58.4
+-- mantenimiento 6 meses 850 /  6 = 141.6
+-- ---------------------------------------
+--                                  533.2
+--  lo que no estaria invirtiendo = 900
+-----------------------------------------
+-- ------------------------------   1433 mensuales
+-- ------------------------------  29500 gano
+-- ------------------------------ ------
+----------------------------------  4.8%
+-- anio  precio   km
+-- 2017 205,000 50,200
+-- 165
+
+-- $280  al dia
+-- $5600 al mes (llendo al trabajo lunes-viernes)
+--  13 km ida al trabajo, 13 de regreso
+
+-- consumo 5.1l/100km
+-- precio gas 21.87
+-- carro
