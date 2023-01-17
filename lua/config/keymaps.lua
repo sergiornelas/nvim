@@ -3,22 +3,24 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- <LSP Saga>
-keymap("n", "gk", "<cmd>Lspsaga lsp_finder<cr>", { silent = true })
-keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<cr>", { silent = true })
-keymap("n", "gr", "<cmd>Lspsaga rename<cr>", { silent = true })
-keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>", { silent = true })
-keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>", { silent = true })
-keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<cr>", { silent = true })
-keymap("n", "\\r", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { silent = true })
-keymap("n", "\\f", "<cmd>Lspsaga diagnostic_jump_next<cr>", { silent = true })
+keymap("n", "gk", "<cmd>Lspsaga lsp_finder<cr>")
+keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<cr>")
+keymap("n", "gr", "<cmd>Lspsaga rename<cr>")
+keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>")
+keymap("n", "gd", "<cmd>Lspsaga goto_definition<cr>")
+keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>")
+keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<cr>")
+keymap("n", "gB", "<cmd>Lspsaga show_buf_diagnostics<CR>")
+keymap("n", "\\r", "<cmd>Lspsaga diagnostic_jump_prev<cr>")
+keymap("n", "\\f", "<cmd>Lspsaga diagnostic_jump_next<cr>")
 keymap("n", "\\t", function()
 	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
+end)
 keymap("n", "\\g", function()
 	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
-keymap("n", "gz", "<cmd>LSoutlineToggle<cr>", { silent = true })
-keymap("n", "gh", "<cmd>Lspsaga hover_doc<cr>", { silent = true })
+end)
+keymap("n", "gz", "<cmd>Lspsaga outline<cr>")
+keymap("n", "gh", "<cmd>Lspsaga hover_doc<cr>")
 
 -- <Typerscript>
 keymap("n", "<leader>vI", "<cmd>TypescriptAddMissingImports<cr>", opts)
@@ -204,9 +206,9 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <esc> is free
 
 -- D maps available:
--- r, y
+-- q, r, y
 -- <cr>
--- x, c
+-- z, x, c
 
 -- C maps available:
 -- r, y, u, p
@@ -262,9 +264,9 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- fsread (better reading)       leader vf
 
 -- Pending neovim ==================
--- lsp and snippets not loading ?
 -- kill lsp saga
 -- destroy misc.lua
+-- lsp and snippets not loading ?
 
 -- try to apply cmd in terminal/neovim, do you really need to map it?
 -- ssh nextiva not working again
@@ -301,3 +303,5 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- consumo 5.1l/100km
 -- precio gas 21.87
 -- carro
+
+-- r visual mode

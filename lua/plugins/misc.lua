@@ -35,6 +35,17 @@ return {
 		},
 		cmd = "TSJToggle",
 	},
+	{
+		"Wansmer/sibling-swap.nvim",
+		requires = { "nvim-treesitter" },
+		config = true,
+		keys = {
+			"<c-,>",
+			"<c-.>",
+			"<leader>,",
+			"<leader>.",
+		},
+	},
 	-- Editing
 	{
 		"echasnovski/mini.trailspace",

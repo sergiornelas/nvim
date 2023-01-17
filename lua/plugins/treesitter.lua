@@ -84,12 +84,10 @@ function M.config()
 			swap = {
 				enable = true,
 				swap_next = {
-					["dp"] = "@parameter.inner",
-					["dz"] = "@function.outer",
+					["du"] = "@function.outer",
 				},
 				swap_previous = {
-					["du"] = "@parameter.inner",
-					["dq"] = "@function.outer",
+					["dp"] = "@function.outer",
 				},
 			},
 			move = {
