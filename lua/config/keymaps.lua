@@ -7,7 +7,7 @@ keymap("n", "gk", "<cmd>Lspsaga lsp_finder<cr>")
 keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<cr>")
 keymap("n", "gr", "<cmd>Lspsaga rename<cr>")
 keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>")
-keymap("n", "gd", "<cmd>Lspsaga goto_definition<cr>")
+-- keymap("n", "gd", "<cmd>Lspsaga goto_definition<cr>")
 keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>")
 keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<cr>")
 keymap("n", "gB", "<cmd>Lspsaga show_buf_diagnostics<CR>")
@@ -203,7 +203,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- Shift char available:
 -- Y
 
--- <esc> is free
+-- <tab> and <esc> are free
 
 -- D maps available:
 -- q, r, y

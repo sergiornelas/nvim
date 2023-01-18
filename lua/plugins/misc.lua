@@ -68,4 +68,10 @@ return {
 		"eandrju/cellular-automaton.nvim",
 		cmd = "CellularAutomaton",
 	},
+	-- {
+	-- 	"rmagatti/goto-preview",
+	-- 	config = function()
+	-- 		require("goto-preview").setup({})
+	-- 	end,
+	-- },
 }

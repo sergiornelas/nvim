@@ -1,6 +1,7 @@
 local M = {
 	"glepnir/lspsaga.nvim",
 	cmd = "Lspsaga",
+	commit = "b7b4777369b441341b2dcd45c738ea4167c11c9e",
 }
 
 function M.config()
@@ -9,38 +10,47 @@ function M.config()
 		return
 	end
 
-	lspsaga.setup({
-		scroll_preview = {
-			scroll_down = "<C-d>",
-			scroll_up = "<C-u>",
+	lspsaga.init_lsp_saga({
+		border_style = "bold",
+		diagnostic_header = { " 😡 ", " 😬 ", " 👁️ ", " 🌚 " },
+		move_in_saga = { prev = "<C-o>", next = "<C-i>" },
+		max_preview_lines = 30,
+		code_action_lightbulb = {
+			enable = true,
 		},
-		finder = {
-			vsplit = "v",
-			split = "s",
+		finder_icons = {
+			def = "🐔 ",
+			ref = "🐤 ",
 		},
-		definition = {
-			edit = "<C-c>o",
-			vsplit = "<C-c>v",
-			split = "<C-c>s",
+		finder_action_keys = {
+			open = "<c-j>",
+			vsplit = "<c-v>",
+			split = "<c-s>",
+			tabe = "<c-k>",
 			quit = "<esc>",
-			close = "q",
 		},
-		code_action = {
-			keys = {
-				quit = "<esc>",
-			},
-		},
-		diagnostic = {
-			keys = {
-				quit = "<esc>",
-			},
-		},
-		rename = {
+		definition_action_keys = {
+			edit = "<c-j>",
+			vsplit = "<c-v>",
+			split = "<c-s>",
+			tabe = "<c-k>",
 			quit = "<esc>",
-			in_select = false,
 		},
+		code_action_keys = {
+			quit = "<esc>",
+			exec = "<c-j>",
+		},
+		hover_action_quit = "<esc>",
+		rename_action_quit = "<esc>",
+		rename_in_select = false,
 		symbol_in_winbar = {
 			enable = false,
+		},
+		show_outline = {
+			jump_key = "<c-j>",
+		},
+		server_filetype_map = {
+			typescript = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 		},
 	})
 end
