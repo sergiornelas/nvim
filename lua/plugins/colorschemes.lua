@@ -70,6 +70,7 @@ return {
 	{
 		"sam4llis/nvim-tundra",
 		keys = lazy_map,
+		config = true,
 	},
 	{
 		"tiagovla/tokyodark.nvim",
@@ -101,5 +102,9 @@ return {
 		opts = {
 			style = "deep",
 		},
+	},
+	{
+		"AlexvZyl/nordic.nvim",
+		keys = lazy_map,
 	},
 }

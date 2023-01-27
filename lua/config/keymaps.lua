@@ -266,10 +266,8 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- Pending neovim ==================
 -- kill lsp saga
 -- destroy misc.lua
+-- clean reference-plugins.txt
 -- lsp and snippets not loading ?
-
--- try to apply cmd in terminal/neovim, do you really need to map it?
--- ssh nextiva not working again
 -- make some files private in a repository
 
 -- cmd
