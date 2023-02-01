@@ -6,8 +6,8 @@ local opts = { noremap = true, silent = true }
 keymap("n", "gk", "<cmd>Lspsaga lsp_finder<cr>")
 keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<cr>")
 keymap("n", "gr", "<cmd>Lspsaga rename<cr>")
+keymap("n", "gR", "<cmd>Lspsaga rename ++project<CR>")
 keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>")
--- keymap("n", "gd", "<cmd>Lspsaga goto_definition<cr>")
 keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>")
 keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<cr>")
 keymap("n", "gB", "<cmd>Lspsaga show_buf_diagnostics<CR>")
@@ -21,6 +21,8 @@ keymap("n", "\\g", function()
 end)
 keymap("n", "gz", "<cmd>Lspsaga outline<cr>")
 keymap("n", "gh", "<cmd>Lspsaga hover_doc<cr>")
+keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<cr>")
+keymap({ "n", "t" }, "<c-space>", "<cmd>Lspsaga term_toggle<CR>")
 
 -- <Typerscript>
 keymap("n", "<leader>vI", "<cmd>TypescriptAddMissingImports<cr>", opts)
@@ -81,7 +83,7 @@ keymap("", "<leader>vr", "<cmd>Rem!<cr>", opts)
 keymap({ "n", "x" }, "mg", "<cmd>SearchSession<cr>", opts)
 
 -- <Nvim tree>
-keymap("", "<leader>g", "<cmd>NvimTreeToggle <cr>", opts)
+keymap("", "<leader>g", "<cmd>NvimTreeToggle<cr>", opts)
 
 -- <Inlay hints>
 keymap("", "<leader>h", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
@@ -100,9 +102,6 @@ keymap("", "<leader>z", "<cmd>lua require('zippy').insert_print()<cr>", opts)
 
 -- <Swap-split>
 keymap("", "<c-w><c-j>", "<cmd>SwapSplit<cr>", opts)
-
--- <Fsread>
-keymap("", "<leader>vf", "<cmd>FSToggle<cr>", opts)
 
 -- <Cellular-automaton>
 keymap("", "]", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
@@ -256,50 +255,3 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader>n ~ set number
 -- <leader>z ~ zippy
 -- <leader>m ~ telescope mark
--- <leader>a ~ highlights (wait for plugin use)
-
--- === List of not really used plugins:
--- treesj (align arrays objects) leader vj
--- zippy (automatic comments)    leader z
--- fsread (better reading)       leader vf
-
--- Pending neovim ==================
--- kill lsp saga
--- destroy misc.lua
--- clean reference-plugins.txt
--- lsp and snippets not loading ?
--- make some files private in a repository
-
--- cmd
--- q -> close
--- h -> hide
-
--- ctrl
--- q -> *
--- h -> delete
-
--- seguro cada annio    3500 / 12 = 291.6
--- verifiacion annio     500 / 12 =  41.6
--- refrendo cada annio   701 / 12 =  58.4
--- mantenimiento 6 meses 850 /  6 = 141.6
--- ---------------------------------------
---                                  533.2
---  lo que no estaria invirtiendo = 900
------------------------------------------
--- ------------------------------   1433 mensuales
--- ------------------------------  29500 gano
--- ------------------------------ ------
-----------------------------------  4.8%
--- anio  precio   km
--- 2017 205,000 50,200
--- 165
-
--- $280  al dia
--- $5600 al mes (llendo al trabajo lunes-viernes)
---  13 km ida al trabajo, 13 de regreso
-
--- consumo 5.1l/100km
--- precio gas 21.87
--- carro
-
--- r visual mode

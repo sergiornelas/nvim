@@ -23,7 +23,7 @@ local keymaps = function(client, bufnr)
 	end
 
 	keymap("n", "gA", vim.lsp.buf.add_workspace_folder, bufopts)
-	keymap("n", "gR", vim.lsp.buf.remove_workspace_folder, bufopts)
+	keymap("n", "gF", vim.lsp.buf.remove_workspace_folder, bufopts)
 	keymap("n", "gW", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, bufopts)

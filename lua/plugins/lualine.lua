@@ -10,6 +10,7 @@ function M.config()
 	end
 
 	local navic = require("nvim-navic")
+	local wpm = require("wpm")
 
 	lualine.setup({
 		options = {
@@ -36,6 +37,7 @@ function M.config()
 					cond = require("lazy.status").has_updates,
 					color = { fg = "#ff9e64" },
 				},
+				wpm.historic_graph,
 			},
 			lualine_y = { "diagnostics", "diff" },
 			lualine_z = {

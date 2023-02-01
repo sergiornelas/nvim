@@ -37,7 +37,7 @@ return {
 	},
 	{
 		"Wansmer/sibling-swap.nvim",
-		requires = { "nvim-treesitter" },
+		dependencies = { "nvim-treesitter" },
 		config = true,
 		keys = {
 			"<c-,>",
@@ -61,8 +61,13 @@ return {
 		event = "InsertEnter",
 		config = true,
 	},
-	-- Notes
-	{ "nullchilly/fsread.nvim", ft = "norg" },
+	{
+		"jcdickinson/wpm.nvim",
+		event = "BufReadPost",
+		config = function()
+			require("wpm").setup({})
+		end,
+	},
 	-- Misc
 	{
 		"eandrju/cellular-automaton.nvim",
