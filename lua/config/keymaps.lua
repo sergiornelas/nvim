@@ -109,6 +109,9 @@ keymap("", "]", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
 -- <TreeSJ>
 keymap("", "<leader>vj", "<cmd>TSJToggle<cr>", opts)
 
+-- <Neorg toc>
+keymap("", "gN", "<cmd>Neorg toc<cr>", opts)
+
 -- Open links under cursor in browser
 if vim.fn.has("macunix") == 1 then
 	keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<cr>", opts)
@@ -228,9 +231,9 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- Reverse available: z, c
 
 -- <C-> maps available:
--- y
+-- y, p
 -- <cr>
--- n
+-- b, n
 
 -- <C-W>_ maps available:
 -- t (first window), i (definition), o (delete all), f (file), n (new empty buffer)

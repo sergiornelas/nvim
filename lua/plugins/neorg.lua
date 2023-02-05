@@ -1,6 +1,7 @@
 local M = {
 	"nvim-neorg/neorg",
 	ft = "norg",
+	build = ":Neorg sync-parsers",
 	-- run = ":Neorg sync-parsers", -- This is the important bit
 }
 
@@ -29,6 +30,12 @@ function M.config()
 					engine = "nvim-cmp",
 				},
 			},
+			["core.norg.qol.toc"] = { -- Index,
+				config = {
+					default_toc_mode = "split",
+					toc_split_placement = "right",
+				},
+			},
 			-- ["external.context"] = {},
 			-- ["core.integrations.telescope"] = {}, -- Enable telescope module
 			-- ["core.norg.dirman"] = { --Managing directories full of .norg files
@@ -43,12 +50,6 @@ function M.config()
 			-- 	config = {
 			-- 		workspace = "gtd",
 			-- 	}
-			-- },
-			-- ["core.norg.qol.toc"] = { -- Index,
-			-- 	config = {
-			-- 		default_toc_mode = "split",
-			-- 		toc_split_placement = "right",
-			-- 	},
 			-- },
 		},
 	})

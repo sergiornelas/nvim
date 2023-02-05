@@ -121,6 +121,7 @@ Check the same day as the last one in order to make sure of not forget a plugin
 
 Pending neovim ==================
 kill lsp saga
+trailspace not working on ts files
 destroy misc.lua
 clean reference-plugins.txt
 lsp and snippets not loading ?
