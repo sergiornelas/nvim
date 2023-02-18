@@ -4,6 +4,10 @@ local M = {
 	dependencies = {
 		"mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		{
+			"lvimuser/lsp-inlayhints.nvim",
+			config = true,
+		},
 	},
 }
 
@@ -41,7 +45,7 @@ function M.config()
 		capabilities = capabilities,
 	})
 
-	lspconfig.sumneko_lua.setup({
+	lspconfig.lua_ls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 		settings = require("plugins.lsp.settings.sumneko_lua").settings,

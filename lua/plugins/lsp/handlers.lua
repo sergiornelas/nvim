@@ -13,7 +13,7 @@ local keymaps = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-	if client.name == "tsserver" or client.name == "sumneko_lua" then
+	if client.name == "tsserver" or client.name == "lua_ls" then
 		keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
 		keymap("n", "gd", vim.lsp.buf.definition, bufopts)
 		-- keymap("n", "gd", "<cmd>TypescriptGoToSourceDefinition<cr>", bufopts)

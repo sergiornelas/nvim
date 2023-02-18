@@ -16,7 +16,7 @@ function M.config()
 		"eslint",
 		"html",
 		"jsonls",
-		"sumneko_lua",
+		"lua_ls",
 		"tsserver",
 	}
 

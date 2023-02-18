@@ -52,6 +52,7 @@ function M.config()
 	keymap({ "o", "x" }, "iD", function()
 		textobjs.doubleSquareBrackets(true)
 	end)
+
 	keymap({ "o", "x" }, "aD", function()
 		textobjs.doubleSquareBrackets(false)
 	end)
@@ -60,7 +61,7 @@ function M.config()
 		textobjs.column()
 	end)
 
-	keymap({ "o", "x" }, "r", function()
+	keymap({ "o", "x" }, "ar", function()
 		textobjs.restOfParagraph()
 	end)
 

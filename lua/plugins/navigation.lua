@@ -46,4 +46,17 @@ return {
 			},
 		},
 	},
+	{
+		"kwkarlwang/bufjump.nvim",
+		-- keys = {
+		--  "K",
+		--  "J",
+		-- },
+		config = function()
+			require("bufjump").setup({
+				-- 	forward = "K",
+				-- 	backward = "J",
+			})
+		end,
+	},
 }

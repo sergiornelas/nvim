@@ -2,7 +2,6 @@ local M = {
 	"nvim-neorg/neorg",
 	ft = "norg",
 	build = ":Neorg sync-parsers",
-	-- run = ":Neorg sync-parsers", -- This is the important bit
 }
 
 function M.config()

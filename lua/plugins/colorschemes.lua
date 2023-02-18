@@ -107,4 +107,8 @@ return {
 		"AlexvZyl/nordic.nvim",
 		keys = lazy_map,
 	},
+	{
+		"arturgoms/moonbow.nvim",
+		keys = lazy_map,
+	},
 }

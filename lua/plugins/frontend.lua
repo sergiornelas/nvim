@@ -13,7 +13,7 @@ return {
 		"PatschD/zippy.nvim",
 		keys = {
 			{
-				"<leader>vz",
+				"<leader>z",
 				"<cmd>lua require('zippy').insert_print()<cr>",
 			},
 		},

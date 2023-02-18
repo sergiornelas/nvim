@@ -11,6 +11,7 @@ DNLHC/glance.nvim                               lsp def/ref
 kosayoda/nvim-lightbulb                     lsp code action
 vigoux/notifier.nvim                show message lsp loaded
 jinzhongjia/LspUI.nvim                            saga mini
+tzachar/local-highlight.nvim       word illuminate (mature)
 
 TREESITTER ------------------------------------------------
 ziontee113/syntax-tree-surfer                  TS navigator
@@ -118,12 +119,8 @@ LeonHeidelbach/trailblazer.nvim        visual mark (mature)
 
 Last time checked Awesome and This-week-in-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-(06/02/23)
+(16/02/23)
 
 Pending neovim ==================
-kill lsp saga
-trailspace not working on ts files
-destroy misc.lua
 clean reference-plugins.txt
-lsp and snippets not loading ?
-r visual mode
+norg youtube video and restructure using workspaces

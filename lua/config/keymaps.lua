@@ -2,8 +2,11 @@ vim.g.mapleader = " "
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- <Bufferline>
+keymap("", "J", "<cmd>BufferLineCyclePrev<cr>", opts)
+keymap("", "K", "<cmd>BufferLineCycleNext<cr>", opts)
+
 -- <LSP Saga>
-keymap("n", "gk", "<cmd>Lspsaga lsp_finder<cr>")
 keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<cr>")
 keymap("n", "gr", "<cmd>Lspsaga rename<cr>")
 keymap("n", "gR", "<cmd>Lspsaga rename ++project<CR>")
@@ -14,15 +17,16 @@ keymap("n", "gB", "<cmd>Lspsaga show_buf_diagnostics<CR>")
 keymap("n", "\\r", "<cmd>Lspsaga diagnostic_jump_prev<cr>")
 keymap("n", "\\f", "<cmd>Lspsaga diagnostic_jump_next<cr>")
 keymap("n", "\\t", function()
-	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end)
 keymap("n", "\\g", function()
-	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
 end)
 keymap("n", "gz", "<cmd>Lspsaga outline<cr>")
 keymap("n", "gh", "<cmd>Lspsaga hover_doc<cr>")
 keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<cr>")
-keymap({ "n", "t" }, "<c-space>", "<cmd>Lspsaga term_toggle<CR>")
+-- keymap("n", "gk", "<cmd>Lspsaga lsp_finder<cr>")
+-- keymap({ "n", "t" }, "<c-space>", "<cmd>Lspsaga term_toggle<cr>")
 
 -- <Typerscript>
 keymap("n", "<leader>vI", "<cmd>TypescriptAddMissingImports<cr>", opts)
@@ -81,6 +85,9 @@ keymap("", "<leader>vr", "<cmd>Rem!<cr>", opts)
 
 -- <Session lens>
 keymap({ "n", "x" }, "mg", "<cmd>SearchSession<cr>", opts)
+
+-- <Glance>
+keymap("n", "gk", "<cmd>Glance references<cr>")
 
 -- <Nvim tree>
 keymap("", "<leader>g", "<cmd>NvimTreeToggle<cr>", opts)
@@ -258,3 +265,23 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader>n ~ set number
 -- <leader>z ~ zippy
 -- <leader>m ~ telescope mark
+
+-- == green flags ===
+-- Good looking
+-- Tall girl (1.8m)
+-- Big booty
+-- Goth style, always wears black
+-- Quiet chill woman
+
+-- == Red flags ====
+-- Broken drug adict father
+-- Open about having sex with men, two sex partners currently
+-- Secondary job is about pornography
+-- Nihilistic perspective in life
+-- Cat girl, obviously doesn't want kids
+-- 30 y/o
+-- Over uses social media
+-- Rude verbal language
+-- Tattoos and expansors
+
+-- Se puede reducir que estoy con ella porque es alta, basicamente.
