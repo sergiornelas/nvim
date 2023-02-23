@@ -73,6 +73,10 @@ keymap("n", "<c-w><c-q>", "<cmd>WindowsToggleAutowidth<cr>", opts)
 keymap("", "}", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
 keymap("", "*", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", opts)
 
+-- <Swap-split>
+keymap("", "<c-w><c-u>", "<cmd>SwapSplit<cr>", opts)
+keymap("", "<c-w>u", "<cmd>SwapSplit<cr>", opts)
+
 -- <Color picker>
 keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
 
@@ -95,9 +99,6 @@ keymap("", "<leader>g", "<cmd>NvimTreeToggle<cr>", opts)
 -- <Inlay hints>
 keymap("", "<leader>h", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
--- <Transparency>
-keymap("", "<leader><cr>", "<cmd>TransparentToggle<cr>", opts) -- gives info about current buffer
-
 -- <Bufferdelete>
 keymap("", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
 
@@ -106,9 +107,6 @@ keymap("", "<leader>va", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
 
 -- <Zippy>
 keymap("", "<leader>z", "<cmd>lua require('zippy').insert_print()<cr>", opts)
-
--- <Swap-split>
-keymap("", "<c-w><c-j>", "<cmd>SwapSplit<cr>", opts)
 
 -- <Cellular-automaton>
 keymap("", "]", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
@@ -230,6 +228,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- <leader> maps available:
 -- y
+-- <cr>
 -- x, c, m
 -- <leader>
 -- <esc>
@@ -244,7 +243,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- <C-W>_ maps available:
 -- t (first window), i (definition), o (delete all), f (file), n (new empty buffer)
--- w, y, u, p
+-- w, y, p
 -- a, d, g, h, k, l
 -- z, x, c, b, m
 
@@ -265,23 +264,3 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader>n ~ set number
 -- <leader>z ~ zippy
 -- <leader>m ~ telescope mark
-
--- == green flags ===
--- Good looking
--- Tall girl (1.8m)
--- Big booty
--- Goth style, always wears black
--- Quiet chill woman
-
--- == Red flags ====
--- Broken drug adict father
--- Open about having sex with men, two sex partners currently
--- Secondary job is about pornography
--- Nihilistic perspective in life
--- Cat girl, obviously doesn't want kids
--- 30 y/o
--- Over uses social media
--- Rude verbal language
--- Tattoos and expansors
-
--- Se puede reducir que estoy con ella porque es alta, basicamente.

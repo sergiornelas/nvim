@@ -12,6 +12,9 @@ return {
 					["<c-o>"] = actions.previous,
 					["l"] = actions.jump,
 					["<c-l>"] = actions.jump,
+					["<c-c>v"] = actions.jump_vsplit,
+					["<c-c>s"] = actions.jump_split,
+					["<c-c>t"] = actions.jump_tab,
 				},
 			},
 		})

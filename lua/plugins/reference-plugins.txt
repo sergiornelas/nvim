@@ -93,7 +93,7 @@ smartpde/neoscopes   light project magagement (interesting)
 charludo/projectmgr.nvim            switch between projects
 seandewar/killersheep.nvim                       sheep game
 GnikDroy/projections.nvim                   project/session
-nyngwang/fzf-lua-projections.nvim manage your GnikDroy sess
+nyngwang/fzf-lua-projections.nvim      manage your sessions
 phaazon/mind.nvim                                  note app
 folke/todo-comments.nvim                       pretty notes
 Ostralyan/scribe.nvim                 telescope quick notes
@@ -119,7 +119,7 @@ LeonHeidelbach/trailblazer.nvim        visual mark (mature)
 
 Last time checked Awesome and This-week-in-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-(16/02/23)
+(20/02/23)
 
 Pending neovim ==================
 clean reference-plugins.txt

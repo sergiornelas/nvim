@@ -59,6 +59,7 @@ function M.config()
 	-- :checkhealth nvim_treesitter -> (OK: `cc` executable found)
 	-- brew info gcc
 	-- ln -s /usr/local/Cellar/gcc/<version>/bin/gcc-<version 11|12> /usr/local/bin/cc
+	-- real: ln -s /usr/local/Cellar/gcc/12.2.0/bin/gcc-12 /usr/local/bin/cc
 end
 
 return M

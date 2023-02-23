@@ -17,13 +17,6 @@ return {
 		cmd = "SwapSplit",
 		config = true,
 	},
-	{
-		"xiyaowong/nvim-transparent",
-		lazy = false,
-		opts = {
-			enable = true,
-		},
-	},
 	{ "famiu/bufdelete.nvim", cmd = "Bdelete" },
 	{
 		"rhysd/clever-f.vim",
@@ -48,14 +41,14 @@ return {
 	},
 	{
 		"kwkarlwang/bufjump.nvim",
-		-- keys = {
-		--  "K",
-		--  "J",
-		-- },
+		keys = {
+			"K",
+			"J",
+		},
 		config = function()
 			require("bufjump").setup({
-				-- 	forward = "K",
-				-- 	backward = "J",
+				forward = "K",
+				backward = "J",
 			})
 		end,
 	},
