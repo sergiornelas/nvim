@@ -9,11 +9,11 @@ keymap("", "K", "<cmd>BufferLineCycleNext<cr>", opts)
 -- <LSP Saga>
 keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<cr>")
 keymap("n", "gr", "<cmd>Lspsaga rename<cr>")
-keymap("n", "gR", "<cmd>Lspsaga rename ++project<CR>")
+keymap("n", "gR", "<cmd>Lspsaga rename ++project<cr>")
 keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>")
 keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>")
 keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<cr>")
-keymap("n", "gB", "<cmd>Lspsaga show_buf_diagnostics<CR>")
+keymap("n", "gB", "<cmd>Lspsaga show_buf_diagnostics<cr>")
 keymap("n", "\\r", "<cmd>Lspsaga diagnostic_jump_prev<cr>")
 keymap("n", "\\f", "<cmd>Lspsaga diagnostic_jump_next<cr>")
 keymap("n", "\\t", function()
@@ -113,9 +113,6 @@ keymap("", "]", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
 
 -- <TreeSJ>
 keymap("", "<leader>vj", "<cmd>TSJToggle<cr>", opts)
-
--- <Neorg toc>
-keymap("", "gN", "<cmd>Neorg toc<cr>", opts)
 
 -- Open links under cursor in browser
 if vim.fn.has("macunix") == 1 then

@@ -8,4 +8,11 @@ return {
 		"eandrju/cellular-automaton.nvim",
 		cmd = "CellularAutomaton",
 	},
+	{
+		"m4xshen/smartcolumn.nvim",
+		ft = "norg",
+		opts = {
+			colorcolumn = 125,
+		},
+	},
 }

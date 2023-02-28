@@ -24,7 +24,7 @@ function M.config()
 			split = "<c-c>s",
 			tabe = "<c-c>t",
 			quit = "<esc>",
-			close = "q",
+			close = "<esc>",
 		},
 		code_action = {
 			keys = {

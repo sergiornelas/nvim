@@ -19,7 +19,7 @@ function M.config()
 		hijack_cursor = true,
 		update_focused_file = {
 			enable = true, --cursor goes to the file
-			update_root = false, --Update the root directory of the tree if the file is not under current root directory.
+			update_root = true, --Update the root directory of the tree if the file is not under current root directory.
 			-- disabled because updates to current folder instead root .git
 		},
 		-- root_dirs = { ".git" }, -- Preferred root directories. Only relevant when `update_focused_file.update_root` is `true`

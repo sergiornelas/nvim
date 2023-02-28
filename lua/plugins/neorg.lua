@@ -1,7 +1,7 @@
 local M = {
 	"nvim-neorg/neorg",
 	ft = "norg",
-	build = ":Neorg sync-parsers",
+	cmd = "Neorg",
 }
 
 function M.config()
@@ -16,15 +16,63 @@ function M.config()
 			["core.defaults"] = {},
 			["core.keybinds"] = {
 				config = {
-					default_keybinds = false,
+					neorg_leader = ",",
 					hook = function(keybinds)
-						keybinds.remap_event("norg", "", "gd", "core.norg.esupports.hop.hop-link")
+						keybinds.remap_event("norg", "n", "\\e", "core.integrations.treesitter.previous.heading")
+						keybinds.remap_event("norg", "n", "\\f", "core.integrations.treesitter.next.heading")
+						keybinds.remap_event("norg", "n", "\\c", "core.looking-glass.magnify-code-block")
+						keybinds.remap_event("norg", "n", "\\v", "core.itero.next-iteration")
 					end,
+					-- default_keybinds = false,
+				},
+			},
+			["core.norg.concealer"] = {
+				config = {
+					dim_code_blocks = {
+						conceal = true,
+					},
+					icon_preset = "varied",
+					icons = {
+						todo = {
+							cancelled = {
+								icon = "❌",
+							},
+							done = {
+								icon = "✅",
+							},
+							on_hold = {
+								icon = "⏸️",
+							},
+							pending = {
+								icon = "🕒",
+							},
+							recurring = {
+								icon = "🔄",
+							},
+							uncertain = {
+								icon = "❔",
+							},
+							urgent = {
+								icon = "⚠️",
+							},
+						},
+					},
+				},
+			},
+			["core.norg.dirman"] = {
+				config = {
+					workspaces = {
+						work = "~/notes/work",
+						home = "~/notes/home",
+					},
+					-- neorg basically launch with this workspace enabled by default
+					default_workspace = "work",
+					index = "index.norg",
+					open_last_workspace = false,
 				},
 			},
 			-- Complementary:
-			["core.norg.concealer"] = {}, -- cool icons
-			["core.norg.completion"] = { -- extra cmp options,
+			["core.norg.completion"] = {
 				config = {
 					engine = "nvim-cmp",
 				},
@@ -37,19 +85,6 @@ function M.config()
 			},
 			-- ["external.context"] = {},
 			-- ["core.integrations.telescope"] = {}, -- Enable telescope module
-			-- ["core.norg.dirman"] = { --Managing directories full of .norg files
-			--     config = {
-			--       workspaces = {
-			--         notes = "~/notes",
-			--         -- gtd = "~/notes/gtd",
-			--       },
-			--     },
-			--   },
-			-- ["core.gtd.base"] = {,
-			-- 	config = {
-			-- 		workspace = "gtd",
-			-- 	}
-			-- },
 		},
 	})
 

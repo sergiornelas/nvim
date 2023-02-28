@@ -115,11 +115,12 @@ roobert/search-replace.nvim       UI for search and replace
 princejoogie/chafa.nvim                      images and svg
 axkirillov/easypick.nvim  telescope with arbitrary commands
 asiryk/auto-hlsearch.nvim hlsearch auto (autocommands file)
-LeonHeidelbach/trailblazer.nvim        visual mark (mature)
+LeonHeidelbach/trailblazer.nvim          visual mark (huge)
+atusy/tsnode-marker.nvim         nested functions bgc color
 
 Last time checked Awesome and This-week-in-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-(20/02/23)
+(28/02/23)
 
 Pending neovim ==================
 clean reference-plugins.txt

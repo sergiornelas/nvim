@@ -80,6 +80,9 @@ return {
 	{
 		"sainnhe/edge",
 		keys = lazy_map,
+		config = function()
+			vim.g.edge_transparent_background = 1
+		end,
 	},
 	{
 		"sainnhe/gruvbox-material",
