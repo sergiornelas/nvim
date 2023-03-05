@@ -68,10 +68,9 @@ function M.config()
 				vim.keymap.set(mode, l, r, opts)
 			end
 
-			-- Navigation
 			map("n", "<c-g>", function()
 				if vim.wo.diff then
-					return "<c-g>"
+					return "<cmd>Gitsigns next_hunk<cr>"
 				end
 				vim.schedule(function()
 					gs.next_hunk()
@@ -81,7 +80,7 @@ function M.config()
 
 			map("n", "<c-t>", function()
 				if vim.wo.diff then
-					return "<c-t>"
+					return "<cmd>Gitsigns prev_hunk<cr>"
 				end
 				vim.schedule(function()
 					gs.prev_hunk()

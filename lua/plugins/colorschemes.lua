@@ -1,6 +1,6 @@
 local lazy_map = {
 	{
-		"<leader>p",
+		"<leader>c",
 		"<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>",
 	},
 }

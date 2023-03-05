@@ -16,7 +16,7 @@ function M.config()
 			view = {
 				["<c-i>"] = actions.select_next_entry,
 				["<c-o>"] = actions.select_prev_entry,
-				["<leader>g"] = actions.toggle_files,
+				["<leader>a"] = actions.toggle_files,
 				["<leader>e"] = "gt",
 			},
 			file_panel = {
@@ -26,7 +26,7 @@ function M.config()
 				["<c-e>"] = actions.scroll_view(-0.25),
 				["<c-u>"] = actions.scroll_view(-0.60),
 				["<c-d>"] = actions.scroll_view(0.60),
-				["<leader>g"] = actions.toggle_files,
+				["<leader>a"] = actions.toggle_files,
 				["<leader>e"] = "gt",
 			},
 			file_history_panel = {
@@ -36,7 +36,7 @@ function M.config()
 				["<c-e>"] = actions.scroll_view(-0.25),
 				["<c-u>"] = actions.scroll_view(-0.60),
 				["<c-d>"] = actions.scroll_view(0.60),
-				["<leader>g"] = actions.toggle_files,
+				["<leader>a"] = actions.toggle_files,
 				["<leader>e"] = "gt",
 			},
 		},

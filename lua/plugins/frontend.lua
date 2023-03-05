@@ -22,11 +22,11 @@ return {
 		"Oldenborg/vim-px-to-rem",
 		keys = {
 			{
-				"<leader>vp",
+				"<leader>P",
 				"<cmd>Px!<cr>",
 			},
 			{
-				"<leader>vr",
+				"<leader>R",
 				"<cmd>Rem!<cr>",
 			},
 		},

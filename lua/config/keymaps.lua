@@ -23,12 +23,12 @@ keymap("n", "gh", "<cmd>Lspsaga hover_doc<cr>")
 keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<cr>")
 
 -- <Typerscript>
-keymap("n", "<leader>vI", "<cmd>TypescriptAddMissingImports<cr>", opts)
-keymap("n", "<leader>vO", "<cmd>TypescriptOrganizeImports<cr>", opts)
-keymap("n", "<leader>vU", "<cmd>TypescriptRemoveUnused<cr>", opts)
-keymap("n", "<leader>vF", "<cmd>TypescriptFixAll<cr>", opts)
-keymap("n", "<leader>vR", "<cmd>TypescriptRenameFile<cr>", opts)
-keymap("n", "<leader>vd", "<cmd>TypescriptGoToSourceDefinition<cr>", opts) -- Typescript 4.7+
+keymap("n", "<leader>Ti", "<cmd>TypescriptAddMissingImports<cr>", opts)
+keymap("n", "<leader>To", "<cmd>TypescriptOrganizeImports<cr>", opts)
+keymap("n", "<leader>Tu", "<cmd>TypescriptRemoveUnused<cr>", opts)
+keymap("n", "<leader>Tf", "<cmd>TypescriptFixAll<cr>", opts)
+keymap("n", "<leader>Tr", "<cmd>TypescriptRenameFile<cr>", opts)
+keymap("n", "<leader>Td", "<cmd>TypescriptGoToSourceDefinition<cr>", opts) -- Typescript 4.7+
 
 -- <Grapple>
 keymap("", "mv", "<cmd>lua require('grapple').popup_tags()<cr>", opts)
@@ -51,8 +51,8 @@ keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
 keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
 keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
 keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
-keymap("", "<leader>b", "<cmd>Telescope marks theme=ivy<cr>", opts)
-keymap("n", "<leader>p", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
+keymap("", "<leader>M", "<cmd>Telescope marks theme=ivy<cr>", opts)
+keymap("n", "<leader>c", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
 
 -- <Neorg>
 keymap("", ",f", "<c-w>s<cmd>Neorg workspace todo<cr>", opts)
@@ -89,11 +89,11 @@ keymap("", "<c-w>u", "<cmd>SwapSplit<cr>", opts)
 keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
 
 -- <Lazy>
-keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
+keymap("n", "<leader>v", "<cmd>Lazy<cr>", opts)
 
 -- <Px-Rem>
-keymap("", "<leader>vp", "<cmd>Px!<cr>", opts)
-keymap("", "<leader>vr", "<cmd>Rem!<cr>", opts)
+keymap("", "<leader>P", "<cmd>Px!<cr>", opts)
+keymap("", "<leader>R", "<cmd>Rem!<cr>", opts)
 
 -- <Session lens>
 keymap({ "n", "x" }, "mg", "<cmd>SearchSession<cr>", opts)
@@ -102,16 +102,16 @@ keymap({ "n", "x" }, "mg", "<cmd>SearchSession<cr>", opts)
 keymap("n", "go", "<cmd>Glance references<cr>")
 
 -- <Nvim tree>
-keymap("", "<leader>r", "<cmd>NvimTreeToggle<cr>", opts)
+keymap("", "<leader>a", "<cmd>NvimTreeToggle<cr>", opts)
 
 -- <Inlay hints>
-keymap("", "<leader>h", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
+keymap("", "<leader>r", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
 -- <Bufferdelete>
 keymap("", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
 
 -- <Mini trailspace>
-keymap("", "<leader>va", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
+keymap("", "<leader>b", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
 
 -- <Zippy>
 keymap("", "<leader>z", "<cmd>lua require('zippy').insert_print()<cr>", opts)
@@ -120,7 +120,7 @@ keymap("", "<leader>z", "<cmd>lua require('zippy').insert_print()<cr>", opts)
 keymap("", "]", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
 
 -- <TreeSJ>
-keymap("", "<leader>vj", "<cmd>TSJToggle<cr>", opts)
+keymap("", "<leader>p", "<cmd>TSJToggle<cr>", opts)
 
 -- Open links under cursor in browser
 if vim.fn.has("macunix") == 1 then
@@ -201,7 +201,7 @@ keymap("n", "gM", "gm", opts)
 -- Utils
 keymap("n", "U", "<c-r>", opts) --                                         redo
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
-keymap("", "<leader>a", "<cmd>set hlsearch!<cr>", opts) --           highlights
+keymap("", "<leader>h", "<cmd>set hlsearch!<cr>", opts) --           highlights
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) --                        exit neovim
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
@@ -214,7 +214,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- Shift char available:
 -- Y
--- S
+-- Z
 
 -- <tab> and <esc> are free
 
@@ -238,8 +238,8 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <cr>
 -- x, c, m
 -- <esc>
--- caps chars
--- combinations with: j, v
+-- caps chars (G, C...)
+-- combinations with: j
 -- Reverse available: z, c
 
 -- <C-> maps available:
@@ -267,7 +267,8 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- yank + key
 
 -- Used but mappeable
+-- <leader>v ~ lazy
 -- <leader>n ~ set number
--- <leader>z ~ zippy
--- <leader>m ~ telescope mark
+-- <leader>r ~ inlay
+-- <leader>p ~ treesj
 -- <leader><leader> ~ previous and next buffer (for norg)
