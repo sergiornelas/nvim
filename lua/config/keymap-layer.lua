@@ -42,13 +42,10 @@ keymap("", "{{", "``") --                                   VV
 keymap("", "`", "~") --                                     M
 
 -- NOTES
--- gi/go for git hunk navigation it's quite confortable.
-
 -- You could think that you can map W (?) for a different one
 -- because you don't use (?) quite often, but mapping W (?) it's impossible,
 -- (expects an after-key, similar when you used 'vv' for visual line).
 
 -- V for mark is cool, you need to use marks more often.
 
--- QZ | UM are bad idea for illuminate because you need a different finger.
 -- TN is more confortable than DU.

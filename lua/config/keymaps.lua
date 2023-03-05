@@ -89,7 +89,7 @@ keymap("", "<c-w>u", "<cmd>SwapSplit<cr>", opts)
 keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
 
 -- <Lazy>
-keymap("n", "<leader>v", "<cmd>Lazy<cr>", opts)
+keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
 
 -- <Px-Rem>
 keymap("", "<leader>P", "<cmd>Px!<cr>", opts)
@@ -102,10 +102,10 @@ keymap({ "n", "x" }, "mg", "<cmd>SearchSession<cr>", opts)
 keymap("n", "go", "<cmd>Glance references<cr>")
 
 -- <Nvim tree>
-keymap("", "<leader>a", "<cmd>NvimTreeToggle<cr>", opts)
+keymap("", "<leader>t", "<cmd>NvimTreeToggle<cr>", opts)
 
 -- <Inlay hints>
-keymap("", "<leader>r", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
+keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
 -- <Bufferdelete>
 keymap("", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
@@ -158,9 +158,9 @@ keymap("i", "<c-i>", "<c-f>", opts) --    move line in the corresponding tab fra
 keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode again
 
 -- Tabs
-keymap("", "<leader>e", "gt", opts) --                 next tab
 keymap("", "<leader>w", "gT", opts) --                 prev tab
-keymap("", "<leader>t", "<cmd>tabclose<cr>", opts) -- close tab
+keymap("", "<leader>e", "gt", opts) --                 next tab
+keymap("", "<leader>r", "<cmd>tabclose<cr>", opts) -- close tab
 
 -- Visual mode
 keymap("", "<c-l>", "<c-v>", opts) --       block visual selection
@@ -235,8 +235,8 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- <leader> maps available:
 -- y
--- <cr>
--- x, c, m
+-- a, <cr>
+-- x, m
 -- <esc>
 -- caps chars (G, C...)
 -- combinations with: j
@@ -267,8 +267,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- yank + key
 
 -- Used but mappeable
--- <leader>v ~ lazy
 -- <leader>n ~ set number
--- <leader>r ~ inlay
+-- <leader>v ~ inlay
 -- <leader>p ~ treesj
 -- <leader><leader> ~ previous and next buffer (for norg)
