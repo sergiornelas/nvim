@@ -69,9 +69,9 @@ function M.config()
 			end
 
 			-- Navigation
-			map("n", "gi", function()
+			map("n", "<c-g>", function()
 				if vim.wo.diff then
-					return "gi"
+					return "<c-g>"
 				end
 				vim.schedule(function()
 					gs.next_hunk()
@@ -79,9 +79,9 @@ function M.config()
 				return "<Ignore>"
 			end, { expr = true })
 
-			map("n", "go", function()
+			map("n", "<c-t>", function()
 				if vim.wo.diff then
-					return "go"
+					return "<c-t>"
 				end
 				vim.schedule(function()
 					gs.prev_hunk()
@@ -95,7 +95,7 @@ function M.config()
 			map("n", "<leader>jW", gs.stage_buffer)
 			map("n", "<leader>ju", gs.undo_stage_hunk)
 			map("n", "<leader>jR", gs.reset_buffer)
-			map("n", "<leader>w", gs.preview_hunk)
+			map("n", "<leader>g", gs.preview_hunk)
 			map("n", "<leader>jj", function()
 				gs.blame_line({ full = true })
 			end)

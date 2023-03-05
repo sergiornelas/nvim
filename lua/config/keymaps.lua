@@ -2,10 +2,6 @@ vim.g.mapleader = " "
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- <Bufferline>
-keymap("", "J", "<cmd>BufferLineCyclePrev<cr>", opts)
-keymap("", "K", "<cmd>BufferLineCycleNext<cr>", opts)
-
 -- <LSP Saga>
 keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<cr>")
 keymap("n", "gr", "<cmd>Lspsaga rename<cr>")
@@ -25,8 +21,6 @@ end)
 keymap("n", "gz", "<cmd>Lspsaga outline<cr>")
 keymap("n", "gh", "<cmd>Lspsaga hover_doc<cr>")
 keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<cr>")
--- keymap("n", "gk", "<cmd>Lspsaga lsp_finder<cr>")
--- keymap({ "n", "t" }, "<c-space>", "<cmd>Lspsaga term_toggle<cr>")
 
 -- <Typerscript>
 keymap("n", "<leader>vI", "<cmd>TypescriptAddMissingImports<cr>", opts)
@@ -60,6 +54,20 @@ keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("", "<leader>b", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
 
+-- <Neorg>
+keymap("", ",f", "<c-w>s<cmd>Neorg workspace todo<cr>", opts)
+keymap("", ",W", ":Neorg workspace ", { noremap = true })
+keymap("", ",i", "<cmd>Neorg index<cr>", opts)
+keymap("", ",q", "<cmd>Neorg return<cr>", opts)
+keymap("", ",z", "<cmd>Neorg toc<cr>", opts)
+keymap("", ",c", "<cmd>Neorg toggle-concealer<cr>", opts)
+keymap("", "<leader><leader>", "<cmd>bp<cr><cmd>bn<cr>", opts)
+
+-- <Leap>
+keymap({ "n", "x" }, "s", function()
+	require("leap").leap({ target_windows = { vim.fn.win_getid() } })
+end)
+
 -- <Diff view git>
 keymap("", "<leader>d", "<cmd>DiffviewOpen<cr>", opts)
 keymap("", "<leader>jf", "<cmd>DiffviewFileHistory %<cr>", opts)
@@ -91,10 +99,10 @@ keymap("", "<leader>vr", "<cmd>Rem!<cr>", opts)
 keymap({ "n", "x" }, "mg", "<cmd>SearchSession<cr>", opts)
 
 -- <Glance>
-keymap("n", "gk", "<cmd>Glance references<cr>")
+keymap("n", "go", "<cmd>Glance references<cr>")
 
 -- <Nvim tree>
-keymap("", "<leader>g", "<cmd>NvimTreeToggle<cr>", opts)
+keymap("", "<leader>r", "<cmd>NvimTreeToggle<cr>", opts)
 
 -- <Inlay hints>
 keymap("", "<leader>h", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
@@ -151,7 +159,7 @@ keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode aga
 
 -- Tabs
 keymap("", "<leader>e", "gt", opts) --                 next tab
-keymap("", "<leader>r", "gT", opts) --                 prev tab
+keymap("", "<leader>w", "gT", opts) --                 prev tab
 keymap("", "<leader>t", "<cmd>tabclose<cr>", opts) -- close tab
 
 -- Visual mode
@@ -206,6 +214,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- Shift char available:
 -- Y
+-- S
 
 -- <tab> and <esc> are free
 
@@ -220,14 +229,14 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- z, m
 
 -- G maps available:
--- y
+-- y, i (goes insert where stopped)
+-- k
 -- <cr>
 
 -- <leader> maps available:
 -- y
 -- <cr>
 -- x, c, m
--- <leader>
 -- <esc>
 -- caps chars
 -- combinations with: j, v
@@ -261,3 +270,4 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader>n ~ set number
 -- <leader>z ~ zippy
 -- <leader>m ~ telescope mark
+-- <leader><leader> ~ previous and next buffer (for norg)

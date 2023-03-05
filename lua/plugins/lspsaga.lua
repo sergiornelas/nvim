@@ -11,8 +11,8 @@ function M.config()
 
 	lspsaga.setup({
 		scroll_preview = {
-			scroll_down = "<C-d>",
-			scroll_up = "<C-u>",
+			scroll_down = "<c-d>",
+			scroll_up = "<c-u>",
 		},
 		finder = {
 			vsplit = "v",
@@ -20,9 +20,9 @@ function M.config()
 		},
 		definition = {
 			edit = "<c-c>o",
-			vsplit = "<c-c>v",
-			split = "<c-c>s",
-			tabe = "<c-c>t",
+			vsplit = "<c-v>",
+			split = "<c-s>",
+			tabe = "<c-k>",
 			quit = "<esc>",
 			close = "<esc>",
 		},

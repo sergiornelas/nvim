@@ -20,16 +20,28 @@ function M.config()
 					hook = function(keybinds)
 						keybinds.remap_event("norg", "n", "\\e", "core.integrations.treesitter.previous.heading")
 						keybinds.remap_event("norg", "n", "\\f", "core.integrations.treesitter.next.heading")
-						keybinds.remap_event("norg", "n", "\\c", "core.looking-glass.magnify-code-block")
+						keybinds.remap_event("norg", "n", "gc", "core.looking-glass.magnify-code-block")
 						keybinds.remap_event("norg", "n", "\\v", "core.itero.next-iteration")
 					end,
 					-- default_keybinds = false,
 				},
 			},
+			["core.norg.dirman"] = {
+				config = {
+					workspaces = {
+						wiki = "~/notes/wiki",
+						todo = "~/notes/todo",
+						data = "~/notes/data",
+					},
+					default_workspace = "wiki",
+					index = "index.norg",
+					open_last_workspace = false,
+				},
+			},
 			["core.norg.concealer"] = {
 				config = {
 					dim_code_blocks = {
-						conceal = true,
+						conceal = false,
 					},
 					icon_preset = "varied",
 					icons = {
@@ -59,25 +71,12 @@ function M.config()
 					},
 				},
 			},
-			["core.norg.dirman"] = {
-				config = {
-					workspaces = {
-						work = "~/notes/work",
-						home = "~/notes/home",
-					},
-					-- neorg basically launch with this workspace enabled by default
-					default_workspace = "work",
-					index = "index.norg",
-					open_last_workspace = false,
-				},
-			},
-			-- Complementary:
 			["core.norg.completion"] = {
 				config = {
 					engine = "nvim-cmp",
 				},
 			},
-			["core.norg.qol.toc"] = { -- Index,
+			["core.norg.qol.toc"] = {
 				config = {
 					default_toc_mode = "split",
 					toc_split_placement = "right",

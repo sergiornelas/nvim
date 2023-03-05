@@ -1,10 +1,12 @@
 return {
 	{
 		"ggandor/leap.nvim",
-		keys = { { "s", mode = { "n", "x" } }, { "S", mode = { "n", "x" } } },
-		config = function()
-			require("leap").add_default_mappings()
-		end,
+		keys = {
+			{
+				"s",
+				"<cmd> lua require('leap').leap({ target_windows = { vim.fn.win_getid() } })<cr>",
+			},
+		},
 	},
 	{
 		"anuvyklack/windows.nvim",

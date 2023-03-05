@@ -14,9 +14,9 @@ local keymaps = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
 	if client.name == "tsserver" or client.name == "lua_ls" then
-		keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
+		-- keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
 		keymap("n", "gd", vim.lsp.buf.definition, bufopts)
-		-- keymap("n", "gd", "<cmd>TypescriptGoToSourceDefinition<cr>", bufopts)
+		keymap("n", "gD", "<cmd>TypescriptGoToSourceDefinition<cr>", bufopts)
 		keymap("n", "gI", vim.lsp.buf.implementation, bufopts)
 		keymap("n", "gS", vim.lsp.buf.signature_help, bufopts)
 		keymap("n", "gT", vim.lsp.buf.type_definition, bufopts)

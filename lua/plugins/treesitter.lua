@@ -26,6 +26,7 @@ local M = {
 					"json",
 					"lua",
 					"markdown",
+					"markdown_inline",
 					"norg",
 					"scss",
 					"tsx",
