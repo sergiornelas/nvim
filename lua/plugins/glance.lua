@@ -14,7 +14,7 @@ return {
 					["<c-l>"] = actions.jump,
 					["<c-v>"] = actions.jump_vsplit,
 					["<c-s>"] = actions.jump_split,
-					["<c-k>"] = actions.jump_tab,
+					["<c-t>"] = actions.jump_tab,
 				},
 			},
 		})

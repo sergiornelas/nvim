@@ -17,6 +17,7 @@ TREESITTER ------------------------------------------------
 ziontee113/syntax-tree-surfer                  TS navigator
 ziontee113/neo-minimap             Navigate between queries
 cshuaimin/ssr.nvim            structural search and replace
+HiPhish/nvim-ts-rainbow2                   rainbow (mature)
 
 DEBUGGING -------------------------------------------------
 mfusseneger/nvim-dap
@@ -49,6 +50,7 @@ kdheepak/lazygit.nvim                               lazygit
 pwntester/octo.nvim                                  git PR
 ruifm/gitlinker.nvim                          add bitbucket
 ray-x/forgit.nvim                              git commands
+aaronhallaert/advanced-git-search.nvim   git telescope int.
 
 FRONTEND --------------------------------------------------
 vuki656/package-info.nvim                              node
@@ -120,4 +122,4 @@ atusy/tsnode-marker.nvim         nested functions bgc color
 
 Last time checked Awesome and This-week-in-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-(28/02/23)
+(07/03/23)

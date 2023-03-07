@@ -13,6 +13,9 @@ function M.config()
 	})
 
 	local keymap = vim.keymap.set
+	-- indentation (mini.indentscope does a better job)
+	-- restOfIndentation not really that useful
+
 	keymap({ "o", "x" }, "iv", function()
 		textobjs.value(true)
 	end)
@@ -42,6 +45,9 @@ function M.config()
 		textobjs.nearEoL()
 	end)
 
+	-- mdlink (markdown)
+	-- mdFencedCodeBlock(markdown)
+
 	keymap({ "o", "x" }, "ic", function()
 		textobjs.cssSelector(true)
 	end)
@@ -49,10 +55,11 @@ function M.config()
 		textobjs.cssSelector(false)
 	end)
 
+	-- jsRegex (not useful)
+
 	keymap({ "o", "x" }, "iD", function()
 		textobjs.doubleSquareBrackets(true)
 	end)
-
 	keymap({ "o", "x" }, "aD", function()
 		textobjs.doubleSquareBrackets(false)
 	end)
@@ -78,6 +85,12 @@ function M.config()
 
 	keymap({ "o", "x" }, "U", function()
 		textobjs.url()
+	end)
+
+	-- shellPipe (zsh, fish)
+
+	keymap({ "o", "x" }, "ii", function()
+		textobjs.toNextClosingBracket()
 	end)
 end
 

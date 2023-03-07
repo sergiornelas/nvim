@@ -10,54 +10,8 @@ function M.config()
 	end
 
 	gitsigns.setup({
-		signs = {
-			add = { hl = "GitSignsAdd", text = " ▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-			change = { hl = "GitSignsChange", text = " ▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-			delete = { hl = "GitSignsDelete", text = " ", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-			topdelete = {
-				hl = "GitSignsDelete",
-				text = " ",
-				numhl = "GitSignsDeleteNr",
-				linehl = "GitSignsDeleteLn",
-			},
-			changedelete = {
-				hl = "GitSignsChange",
-				text = " ~",
-				numhl = "GitSignsChangeNr",
-				linehl = "GitSignsChangeLn",
-			},
-		},
-		signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-		numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
-		linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-		word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
-		watch_gitdir = {
-			interval = 1000,
-			follow_files = true,
-		},
-		attach_to_untracked = true,
-		current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
 		current_line_blame_opts = {
-			virt_text = true,
-			virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-			delay = 1000,
-			ignore_whitespace = false,
-		},
-		current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
-		sign_priority = 6,
-		update_debounce = 100,
-		status_formatter = nil, -- Use default
-		max_file_length = 40000,
-		preview_config = {
-			-- Options passed to nvim_open_win
-			border = "single",
-			style = "minimal",
-			relative = "cursor",
-			row = 0,
-			col = 1,
-		},
-		yadm = {
-			enable = false,
+			delay = 400,
 		},
 		on_attach = function(bufnr)
 			local gs = package.loaded.gitsigns
@@ -89,25 +43,26 @@ function M.config()
 			end, { expr = true })
 
 			-- Actions
-			map({ "n", "v" }, "<leader>jw", ":Gitsigns stage_hunk<cr>")
+			map({ "n", "v" }, "<leader>je", ":Gitsigns stage_hunk<cr>")
 			map({ "n", "v" }, "<leader>jr", ":Gitsigns reset_hunk<cr>")
-			map("n", "<leader>jW", gs.stage_buffer)
+			map("n", "<leader>jE", gs.stage_buffer)
 			map("n", "<leader>ju", gs.undo_stage_hunk)
 			map("n", "<leader>jR", gs.reset_buffer)
 			map("n", "<leader>g", gs.preview_hunk)
-			map("n", "<leader>jj", function()
+			map("n", "<leader>jb", function()
 				gs.blame_line({ full = true })
 			end)
-			map("n", "<leader>jk", gs.toggle_current_line_blame)
+			map("n", "<leader>jl", gs.toggle_current_line_blame)
 			map("n", "<leader>jd", gs.diffthis)
 			map("n", "<leader>jD", function()
 				gs.diffthis("~")
 			end)
-			map("n", "<leader>je", gs.toggle_deleted)
-			map("n", "<leader>ja", gs.preview_hunk_inline)
-
+			map("n", "<leader>jt", gs.toggle_deleted)
 			-- Text object
-			map({ "o", "x" }, "ih", ":<c-u>Gitsigns select_hunk<cr>")
+			map({ "o", "x" }, "ig", ":<c-u>Gitsigns select_hunk<cr>")
+			-- Extras
+			map("n", "<leader>jh", gs.preview_hunk_inline)
+			map("n", "<leader>jc", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 		end,
 	})
 end

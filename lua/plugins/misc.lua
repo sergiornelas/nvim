@@ -11,8 +11,10 @@ return {
 	{
 		"m4xshen/smartcolumn.nvim",
 		ft = "norg",
-		opts = {
-			colorcolumn = 125,
-		},
+		config = function()
+			require("smartcolumn").setup({
+				colorcolumn = "125",
+			})
+		end,
 	},
 }

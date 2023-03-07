@@ -18,7 +18,7 @@ end)
 keymap("n", "\\g", function()
 	require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
 end)
-keymap("n", "gz", "<cmd>Lspsaga outline<cr>")
+keymap("n", "gO", "<cmd>Lspsaga outline<cr>")
 keymap("n", "gh", "<cmd>Lspsaga hover_doc<cr>")
 keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<cr>")
 
@@ -31,7 +31,7 @@ keymap("n", "<leader>Tr", "<cmd>TypescriptRenameFile<cr>", opts)
 keymap("n", "<leader>Td", "<cmd>TypescriptGoToSourceDefinition<cr>", opts) -- Typescript 4.7+
 
 -- <Grapple>
-keymap("", "mv", "<cmd>lua require('grapple').popup_tags()<cr>", opts)
+keymap("", "mg", "<cmd>lua require('grapple').popup_tags()<cr>", opts)
 keymap("", "mm", "<cmd>lua require('grapple').toggle()<cr>", opts)
 keymap("", "mf", "<cmd>lua require('grapple').select({key=1})<cr>", opts)
 keymap("", "me", "<cmd>lua require('grapple').select({key=2})<cr>", opts)
@@ -71,7 +71,7 @@ end)
 -- <Diff view git>
 keymap("", "<leader>d", "<cmd>DiffviewOpen<cr>", opts)
 keymap("", "<leader>jf", "<cmd>DiffviewFileHistory %<cr>", opts)
-keymap("", "<leader>jg", "<cmd>DiffviewFileHistory<cr>", opts)
+keymap("", "<leader>jp", "<cmd>DiffviewFileHistory<cr>", opts)
 
 -- <Windows>
 keymap("n", "<c-w><c-e>", "<cmd>WindowsMaximize<cr>", opts)
@@ -94,9 +94,6 @@ keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
 -- <Px-Rem>
 keymap("", "<leader>P", "<cmd>Px!<cr>", opts)
 keymap("", "<leader>R", "<cmd>Rem!<cr>", opts)
-
--- <Session lens>
-keymap({ "n", "x" }, "mg", "<cmd>SearchSession<cr>", opts)
 
 -- <Glance>
 keymap("n", "go", "<cmd>Glance references<cr>")
@@ -158,9 +155,11 @@ keymap("i", "<c-i>", "<c-f>", opts) --    move line in the corresponding tab fra
 keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode again
 
 -- Tabs
-keymap("", "<leader>w", "gT", opts) --                 prev tab
-keymap("", "<leader>e", "gt", opts) --                 next tab
-keymap("", "<leader>r", "<cmd>tabclose<cr>", opts) -- close tab
+keymap("", "<leader>w", "gT", opts) --                        prev tab
+keymap("", "<leader>e", "gt", opts) --                        next tab
+keymap("", "<leader>r", "<cmd>tabclose<cr>", opts) --        close tab
+keymap("", "<leader>>", "<cmd>tabmove +1<cr>", opts) --  tab move left
+keymap("", "<leader><", "<cmd>tabmove -1<cr>", opts) -- tab move right
 
 -- Visual mode
 keymap("", "<c-l>", "<c-v>", opts) --       block visual selection
@@ -208,6 +207,7 @@ keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
 keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
 keymap("", "<leader>n", "<cmd>set nu!<cr>", opts) --          toggle set number
+keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
 keymap("", "\\<leader>", "`.") --                       go to last changed line
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
 keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
@@ -270,4 +270,5 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader>n ~ set number
 -- <leader>v ~ inlay
 -- <leader>p ~ treesj
+-- <leader>Z ~ set command height 0
 -- <leader><leader> ~ previous and next buffer (for norg)

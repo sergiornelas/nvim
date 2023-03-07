@@ -1,9 +1,9 @@
-local g = vim.g
 local api = vim.api
 local group = api.nvim_create_augroup("group", { clear = true })
+local cmd = api.nvim_create_autocmd
 
 -- Set wrap and spell on specific file types
-api.nvim_create_autocmd("FileType", {
+cmd("FileType", {
 	pattern = { "norg", "markdown", "gitcommit" },
 	callback = function()
 		vim.opt_local.wrap = true
@@ -12,21 +12,18 @@ api.nvim_create_autocmd("FileType", {
 })
 
 -- Show yank line highlight
-api.nvim_create_autocmd("TextYankPost", {
+cmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank()
 	end,
 })
 
 -- Jump to the last place you’ve visited in a file before exiting
-api.nvim_create_autocmd(
-	"BufReadPost",
-	{ command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
-)
+cmd("BufReadPost", { command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] })
 
 -- Show cursor line only in active window
-api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = group })
-api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = group })
+cmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = group })
+cmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = group })
 
 api.nvim_exec(
 	[[
@@ -37,7 +34,7 @@ api.nvim_exec(
   :tnoremap <Esc> <C-\><C-n>
 
   " Magic multicursor
-  xnoremap gt :s/\(\w.*\)/
+  xnoremap gT :s/\(\w.*\)/
 
   " Stop folding
   autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99
@@ -50,13 +47,6 @@ api.nvim_exec(
 ]],
 	false
 )
-
--- Python plugins load faster
-g.loaded_python_provider = 1
-g.python_host_skip_check = 1
-g.python_host_prog = "/usr/local/bin/python"
-g.python3_host_skip_check = 1
-g.python3_host_prog = "/usr/local/bin/python3"
 
 -- Symbols listchars
 -- opt.listchars = {

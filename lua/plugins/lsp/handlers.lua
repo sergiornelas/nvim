@@ -18,8 +18,8 @@ local keymaps = function(client, bufnr)
 		keymap("n", "gd", vim.lsp.buf.definition, bufopts)
 		keymap("n", "gD", "<cmd>TypescriptGoToSourceDefinition<cr>", bufopts)
 		keymap("n", "gI", vim.lsp.buf.implementation, bufopts)
-		keymap("n", "gS", vim.lsp.buf.signature_help, bufopts)
-		keymap("n", "gT", vim.lsp.buf.type_definition, bufopts)
+		keymap("n", "gs", vim.lsp.buf.signature_help, bufopts)
+		keymap("n", "gt", vim.lsp.buf.type_definition, bufopts)
 	end
 
 	keymap("n", "gA", vim.lsp.buf.add_workspace_folder, bufopts)

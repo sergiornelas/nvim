@@ -12,13 +12,13 @@
 --   ! _{@}`        ! _`˙˙~
 --   Z˙CVBNM        Z˙CVBNM
 
--- Y,P,X are ignored by the writing layer, difficult to type.
--- T/N are mapped for illuminate.
+-- Y, P, X are ignored by the writing layer, difficult to type
+-- T/N are mapped for illuminate
 -- Q/B are mapped for nvim-recorder
 -- H is mapped for CellularAutomaton
--- Z,M/L,^ are free for vim effect.
+-- Z, M/L, ^ are free for vim effect
 -- \ is already mapped by multiple plugins and actions
--- +-][| missing mapped vim effect.
+-- +-][| missing mapped vim effect
 
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }

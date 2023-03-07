@@ -22,7 +22,7 @@ function M.config()
 			edit = "<c-c>o",
 			vsplit = "<c-v>",
 			split = "<c-s>",
-			tabe = "<c-k>",
+			tabe = "<c-t>",
 			quit = "<esc>",
 			close = "<esc>",
 		},

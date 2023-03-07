@@ -141,6 +141,10 @@ local M = {
 			"<leader>.",
 		},
 	},
+	{
+		"max397574/neorg-contexts",
+		ft = "norg",
+	},
 }
 
 return M

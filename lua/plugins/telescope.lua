@@ -22,8 +22,8 @@ function M.config()
 			results_title = "",
 			layout_config = {
 				vertical = {
-					width = 83,
-					height = 48,
+					width = 87,
+					height = 53,
 				},
 			},
 			-- previewer = false
@@ -38,14 +38,14 @@ function M.config()
 			path_display = { "smart" },
 			mappings = {
 				i = {
-					["<C-i>"] = actions.move_selection_next,
-					["<C-o>"] = actions.move_selection_previous,
-					["<C-j>"] = actions.select_default,
-					["<C-n>"] = actions.cycle_history_next,
-					["<C-p>"] = actions.cycle_history_prev,
-					["<C-s>"] = actions.select_horizontal,
-					["<C-k>"] = actions.select_tab,
-					["<C-a>"] = { "<esc>", type = "command" },
+					["<c-i>"] = actions.move_selection_next,
+					["<c-o>"] = actions.move_selection_previous,
+					["<c-j>"] = actions.select_default,
+					["<c-n>"] = actions.cycle_history_next,
+					["<c-p>"] = actions.cycle_history_prev,
+					["<c-s>"] = actions.select_horizontal,
+					["<c-t>"] = actions.select_tab,
+					["<c-a>"] = { "<esc>", type = "command" },
 					["<esc>"] = actions.close,
 				},
 			},
@@ -65,8 +65,8 @@ function M.config()
 			git_status = {
 				mappings = {
 					i = {
-						["<C-i>"] = actions.move_selection_next,
-						["<C-o>"] = actions.move_selection_previous,
+						["<c-i>"] = actions.move_selection_next,
+						["<c-o>"] = actions.move_selection_previous,
 					},
 				},
 			},
