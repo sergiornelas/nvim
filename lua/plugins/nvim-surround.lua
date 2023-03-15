@@ -1,7 +1,7 @@
 local M = {
 	"kylechui/nvim-surround",
 	version = "*",
-	event = "InsertEnter",
+	event = "BufReadPost",
 }
 
 function M.config()
@@ -12,8 +12,8 @@ function M.config()
 
 	nvim_surround.setup({
 		keymaps = {
-			insert = "<C-x>s",
-			insert_line = "<C-x>S",
+			insert = "<c-x>s",
+			insert_line = "<c-x>S",
 			normal = "dm",
 			normal_cur = "dmm",
 			normal_line = "dM",

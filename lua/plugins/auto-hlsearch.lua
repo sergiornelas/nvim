@@ -1,6 +1,6 @@
 return {
 	"asiryk/auto-hlsearch.nvim",
-	tag = "1.0.0",
+	version = "1.1.0",
 	event = "BufReadPre",
 	config = function()
 		require("auto-hlsearch").setup({

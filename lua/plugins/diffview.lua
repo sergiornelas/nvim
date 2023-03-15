@@ -18,6 +18,7 @@ function M.config()
 				["<c-o>"] = actions.select_prev_entry,
 				["<leader>t"] = actions.toggle_files,
 				["<leader>e"] = "gt",
+				["["] = "$",
 			},
 			file_panel = {
 				["l"] = actions.select_entry,
@@ -28,6 +29,7 @@ function M.config()
 				["<c-d>"] = actions.scroll_view(0.60),
 				["<leader>t"] = actions.toggle_files,
 				["<leader>e"] = "gt",
+				["["] = "$",
 			},
 			file_history_panel = {
 				["l"] = actions.select_entry,
@@ -38,6 +40,7 @@ function M.config()
 				["<c-d>"] = actions.scroll_view(0.60),
 				["<leader>t"] = actions.toggle_files,
 				["<leader>e"] = "gt",
+				["["] = "$",
 			},
 		},
 	})

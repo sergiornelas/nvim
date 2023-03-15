@@ -30,14 +30,14 @@ function M.config()
 		textobjs.key(false)
 	end)
 
-	keymap({ "o", "x" }, "in", function()
+	keymap({ "o", "x" }, "in", function() -- (+)
 		textobjs.number(true)
 	end)
 	keymap({ "o", "x" }, "an", function()
 		textobjs.number(false)
 	end)
 
-	keymap({ "o", "x" }, "?", function()
+	keymap({ "o", "x" }, "!", function()
 		textobjs.diagnostic()
 	end)
 
@@ -55,7 +55,7 @@ function M.config()
 		textobjs.cssSelector(false)
 	end)
 
-	-- jsRegex (not useful)
+	-- jsRegex (not useful (+))
 
 	keymap({ "o", "x" }, "iD", function()
 		textobjs.doubleSquareBrackets(true)

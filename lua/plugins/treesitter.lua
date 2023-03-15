@@ -60,8 +60,8 @@ local M = {
 				incremental_selection = {
 					enable = true,
 					keymaps = {
-						init_selection = "<c-y>",
-						scope_incremental = "<c-c>",
+						init_selection = "<c-_>",
+						scope_incremental = "<c-_>",
 						node_incremental = "<c-i>",
 						node_decremental = "<c-o>",
 					},
@@ -81,6 +81,14 @@ local M = {
 							["iP"] = "@parameter.inner",
 							["aC"] = "@class.outer",
 							["iC"] = "@class.inner",
+							-- ["in"] = "@number.inner", -- works
+							-- ["iv"] = "@assignment.lhs", -- goto name of variable declaration useful
+							-- ["iv"] = "@assignment.rhs", -- value (this works)
+							-- ["ik"] = "@attribute.inner", -- not working
+							-- ["ik"] = "@frame.inner", -- not working
+							-- ["ik"] = "@return.inner", -- not working
+							-- ["ik"] = "@scopename.inner", -- not working
+							-- ["ik"] = "@statement.outer", -- not working
 						},
 						include_surrounding_whitespace = true,
 					},

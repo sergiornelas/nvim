@@ -31,7 +31,7 @@ api.nvim_exec(
   cnoremap <c-v> <c-r>*
 
   " Exit terminal
-  :tnoremap <Esc> <C-\><C-n>
+  :tnoremap <esc> <c-\><c-n>
 
   " Magic multicursor
   xnoremap gT :s/\(\w.*\)/

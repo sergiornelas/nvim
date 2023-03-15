@@ -18,17 +18,4 @@ return {
 			},
 		},
 	},
-	{
-		"Oldenborg/vim-px-to-rem",
-		keys = {
-			{
-				"<leader>P",
-				"<cmd>Px!<cr>",
-			},
-			{
-				"<leader>R",
-				"<cmd>Rem!<cr>",
-			},
-		},
-	},
 }

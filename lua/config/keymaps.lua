@@ -31,7 +31,7 @@ keymap("n", "<leader>Tr", "<cmd>TypescriptRenameFile<cr>", opts)
 keymap("n", "<leader>Td", "<cmd>TypescriptGoToSourceDefinition<cr>", opts) -- Typescript 4.7+
 
 -- <Grapple>
-keymap("", "mg", "<cmd>lua require('grapple').popup_tags()<cr>", opts)
+keymap("", "mv", "<cmd>lua require('grapple').popup_tags()<cr>", opts)
 keymap("", "mm", "<cmd>lua require('grapple').toggle()<cr>", opts)
 keymap("", "mf", "<cmd>lua require('grapple').select({key=1})<cr>", opts)
 keymap("", "me", "<cmd>lua require('grapple').select({key=2})<cr>", opts)
@@ -39,7 +39,7 @@ keymap("", "mw", "<cmd>lua require('grapple').select({key=3})<cr>", opts)
 keymap("", "ma", "<cmd>lua require('grapple').select({key=4})<cr>", opts)
 keymap("", "mr", "<cmd>lua require('grapple').select({key=5})<cr>", opts)
 keymap("", "mt", "<cmd>lua require('grapple').select({key=6})<cr>", opts)
-keymap("", "mq", ":lua require('grapple').tag({ key = '", { noremap = true })
+keymap("", "mF", ":lua require('grapple').tag({ key = '", { noremap = true })
 keymap("n", "<c-j>", "<cmd>lua require('grapple').cycle_backward()<cr>", opts)
 keymap("n", "<c-k>", "<cmd>lua require('grapple').cycle_forward()<cr>", opts)
 -- keymap("", "<leader>vh", "<cmd>lua require('grapple').popup_tags('global')<cr>", opts)
@@ -55,23 +55,24 @@ keymap("", "<leader>M", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("n", "<leader>c", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
 
 -- <Neorg>
-keymap("", ",f", "<c-w>s<cmd>Neorg workspace todo<cr>", opts)
+keymap("", "mg", "<c-w>s<cmd>Neorg workspace todo<cr>", opts)
+keymap("", "mq", "<cmd>Neorg return<cr>", opts)
 keymap("", ",W", ":Neorg workspace ", { noremap = true })
 keymap("", ",i", "<cmd>Neorg index<cr>", opts)
-keymap("", ",q", "<cmd>Neorg return<cr>", opts)
 keymap("", ",z", "<cmd>Neorg toc<cr>", opts)
 keymap("", ",c", "<cmd>Neorg toggle-concealer<cr>", opts)
 keymap("", "<leader><leader>", "<cmd>bp<cr><cmd>bn<cr>", opts)
-
--- <Leap>
-keymap({ "n", "x" }, "s", function()
-	require("leap").leap({ target_windows = { vim.fn.win_getid() } })
-end)
 
 -- <Diff view git>
 keymap("", "<leader>d", "<cmd>DiffviewOpen<cr>", opts)
 keymap("", "<leader>jf", "<cmd>DiffviewFileHistory %<cr>", opts)
 keymap("", "<leader>jp", "<cmd>DiffviewFileHistory<cr>", opts)
+
+-- <Move>
+keymap("v", "<c-j>", ":MoveBlock(1)<cr>", opts)
+keymap("v", "<c-k>", ":MoveBlock(-1)<cr>", opts)
+keymap("v", "<c-c>", ":MoveHBlock(-1)<cr>", opts)
+keymap("v", "<c-v>", ":MoveHBlock(1)<cr>", opts)
 
 -- <Windows>
 keymap("n", "<c-w><c-e>", "<cmd>WindowsMaximize<cr>", opts)
@@ -91,27 +92,17 @@ keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
 -- <Lazy>
 keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
 
--- <Px-Rem>
-keymap("", "<leader>P", "<cmd>Px!<cr>", opts)
-keymap("", "<leader>R", "<cmd>Rem!<cr>", opts)
-
 -- <Glance>
 keymap("n", "go", "<cmd>Glance references<cr>")
-
--- <Nvim tree>
-keymap("", "<leader>t", "<cmd>NvimTreeToggle<cr>", opts)
 
 -- <Inlay hints>
 keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
 -- <Bufferdelete>
-keymap("", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
+keymap("n", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
 
 -- <Mini trailspace>
 keymap("", "<leader>b", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
-
--- <Zippy>
-keymap("", "<leader>z", "<cmd>lua require('zippy').insert_print()<cr>", opts)
 
 -- <Cellular-automaton>
 keymap("", "]", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
@@ -129,7 +120,7 @@ end
 -- Navigation
 keymap("", "<leader>q", "<cmd>q<cr>", opts) --             close window
 keymap("", "<leader>Q", "<cmd>q!<cr>", opts) -- close window and buffer
-keymap("", "<c-v>", "<c-^>", opts) --              toggle recent window
+keymap("n", "<c-v>", "<c-^>", opts) --             toggle recent window
 keymap("", "<c-r>", "<c-w>w", opts) --             navigate next window
 keymap("n", "<c-u>", "<c-u>zz", opts) --         scrolls up half buffer
 keymap("n", "<c-d>", "<c-d>zz", opts) --       scrolls down half buffer
@@ -185,10 +176,6 @@ keymap({ "n", "x" }, "z.", ":<c-u>normal! zszH<cr>", opts) -- center horizontal
 keymap({ "n", "v" }, "x", '"_x', opts)
 keymap({ "n", "v" }, "X", '"_X', opts)
 
--- Move line/paragraph
-keymap("x", "<c-j>", ":move '>+1<cr>gv-gv", opts)
-keymap("x", "<c-k>", ":move '<-2<cr>gv-gv", opts)
-
 -- Switch jumps
 keymap("n", "<c-o>", "<c-i>", opts)
 keymap("n", "<c-i>", "<c-o>", opts)
@@ -201,12 +188,14 @@ keymap("n", "gM", "gm", opts)
 keymap("n", "U", "<c-r>", opts) --                                         redo
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
 keymap("", "<leader>h", "<cmd>set hlsearch!<cr>", opts) --           highlights
-keymap("n", "<c-q>", "<cmd>qa<cr>", opts) --                        exit neovim
+keymap("n", "<leader>KK", "<cmd>KillKillKill<cr>", opts) --          sheep game
+keymap("n", "<c-q><c-q>", "<cmd>qa<cr>", opts) --                   exit neovim
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
 keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
 keymap("", "<leader>n", "<cmd>set nu!<cr>", opts) --          toggle set number
+keymap("n", "<c-q><c-a>", "<cmd>qa!<cr>", opts) --       exit neovim forcefully
 keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
 keymap("", "\\<leader>", "`.") --                       go to last changed line
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
@@ -272,3 +261,5 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader>p ~ treesj
 -- <leader>Z ~ set command height 0
 -- <leader><leader> ~ previous and next buffer (for norg)
+-- <c-c> ~ (visual) move selected area left
+-- <c-v> ~ (visual) move selected area right

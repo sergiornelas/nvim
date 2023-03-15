@@ -5,6 +5,10 @@ return {
 		config = true,
 	},
 	{
+		"fedepujol/move.nvim",
+		cmd = { "MoveBlock", "MoveHBlock" },
+	},
+	{
 		"eandrju/cellular-automaton.nvim",
 		cmd = "CellularAutomaton",
 	},
@@ -16,5 +20,9 @@ return {
 				colorcolumn = "125",
 			})
 		end,
+	},
+	{
+		"seandewar/killersheep.nvim",
+		cmd = "KillKillKill",
 	},
 }

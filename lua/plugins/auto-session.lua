@@ -23,7 +23,12 @@ function M.config()
 		auto_session_create_enabled = false,
 		auto_session_use_git_branch = false,
 		pre_save_cmds = { _G.close_all_floating_wins, "lua require('incline').disable()" },
-		-- save_extra_cmds
+		save_extra_cmds = {
+			-- load last colorscheme by session
+			function()
+				return "colorscheme " .. vim.g.colors_name
+			end,
+		},
 		-- post_save_cmds
 		-- pre_restore_cmds
 		post_restore_cmds = { "lua require('incline').enable()" },

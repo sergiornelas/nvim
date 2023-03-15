@@ -11,8 +11,8 @@ return {
 		end
 		boole.setup({
 			mappings = {
-				increment = "<C-x>",
-				decrement = "<C-z>",
+				increment = "<c-x>",
+				decrement = "<c-z>",
 			},
 		})
 	end,

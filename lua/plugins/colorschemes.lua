@@ -7,15 +7,6 @@ local lazy_map = {
 
 return {
 	{
-		"raddari/last-color.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			local theme = require("last-color").recall() or "gruvbox"
-			vim.api.nvim_exec(("colorscheme %s"):format(theme), false)
-		end,
-	},
-	{
 		"B4mbus/oxocarbon-lua.nvim",
 		config = function()
 			vim.g.oxocarbon_lua_transparent = true
@@ -147,5 +138,9 @@ return {
 		opts = {
 			transparent_bg = true,
 		},
+	},
+	{
+		"Tsuzat/NeoSolarized.nvim",
+		keys = lazy_map,
 	},
 }
