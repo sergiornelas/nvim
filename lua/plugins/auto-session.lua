@@ -22,7 +22,7 @@ function M.config()
 		log_level = "error",
 		auto_session_create_enabled = false,
 		auto_session_use_git_branch = false,
-		pre_save_cmds = { _G.close_all_floating_wins, "lua require('incline').disable()" },
+		pre_save_cmds = { _G.close_all_floating_wins, "lua require('incline').disable()", "RunClose" },
 		save_extra_cmds = {
 			-- load last colorscheme by session
 			function()
@@ -36,7 +36,7 @@ function M.config()
 		-- post_delete_cmds
 	})
 
-	vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+	vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,globals"
 end
 
 return M

@@ -50,9 +50,22 @@ keymap("", "<leader>i", "<cmd>Telescope find_files<cr>", opts)
 keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
 keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
 keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
-keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
+keymap("", "<leader>G", "<cmd>Telescope grep_string<cr>", opts)
 keymap("", "<leader>M", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("n", "<leader>c", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
+
+-- <Codi> and <Scratch>
+vim.api.nvim_exec(
+	[[
+nnoremap <leader>ss :TabooOpen Scratch 󰙏 <cr>:Scratch<cr>
+nnoremap <leader>sn :TabooOpen Scratch 󰙏 <cr>:ScratchWithName<cr>
+nnoremap <leader>so :TabooOpen Scratch 󰙏 <cr>:ScratchOpen<cr>
+nnoremap <leader>sf :TabooOpen Scratch 󰙏 <cr>:ScratchOpenFzf<cr>
+nnoremap <leader>sp :Codi <bar> call timer_start(200, {-> execute("RunCode")})<cr>
+nnoremap <leader>se :CodiExpand<cr>
+]],
+	false
+)
 
 -- <Neorg>
 keymap("", "mg", "<c-w>s<cmd>Neorg workspace todo<cr>", opts)
@@ -64,9 +77,9 @@ keymap("", ",c", "<cmd>Neorg toggle-concealer<cr>", opts)
 keymap("", "<leader><leader>", "<cmd>bp<cr><cmd>bn<cr>", opts)
 
 -- <Diff view git>
-keymap("", "<leader>d", "<cmd>DiffviewOpen<cr>", opts)
-keymap("", "<leader>jf", "<cmd>DiffviewFileHistory %<cr>", opts)
-keymap("", "<leader>jp", "<cmd>DiffviewFileHistory<cr>", opts)
+keymap("", "<leader>d", "<cmd>DiffviewOpen<cr> | <cmd>TabooRename Diffview  <cr> ", opts)
+keymap("", "<leader>jf", "<cmd>DiffviewFileHistory %<cr> | <cmd>TabooRename FileHistory  <cr>", opts)
+keymap("", "<leader>jp", "<cmd>DiffviewFileHistory<cr> | <cmd>TabooRename ProjectHistory  <cr>", opts)
 
 -- <Move>
 keymap("v", "<c-j>", ":MoveBlock(1)<cr>", opts)
@@ -95,8 +108,12 @@ keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
 -- <Glance>
 keymap("n", "go", "<cmd>Glance references<cr>")
 
--- <Inlay hints>
-keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
+-- <Inlay hints> and <Lsp Lens>
+keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr> | <cmd>LspLensToggle<cr>", opts)
+
+-- <Taboo>
+keymap("n", "<leader>E", ":TabooRename ", { noremap = true })
+keymap("n", "<leader>R", "<cmd>TabooReset<cr>", opts)
 
 -- <Bufferdelete>
 keymap("n", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
@@ -189,23 +206,23 @@ keymap("n", "U", "<c-r>", opts) --                                         redo
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
 keymap("", "<leader>h", "<cmd>set hlsearch!<cr>", opts) --           highlights
 keymap("n", "<leader>KK", "<cmd>KillKillKill<cr>", opts) --          sheep game
-keymap("n", "<c-q><c-q>", "<cmd>qa<cr>", opts) --                   exit neovim
+keymap("n", "<c-q>", "<cmd>qa<cr>", opts) --                        exit neovim
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
 keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
 keymap("", "<leader>n", "<cmd>set nu!<cr>", opts) --          toggle set number
-keymap("n", "<c-q><c-a>", "<cmd>qa!<cr>", opts) --       exit neovim forcefully
+keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) --         force exit neovim
 keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
 keymap("", "\\<leader>", "`.") --                       go to last changed line
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
 keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
+-- <esc> and <s-esc> are free
+
 -- Shift char available:
 -- Y
 -- Z
-
--- <tab> and <esc> are free
 
 -- D maps available:
 -- q, r, y
@@ -227,7 +244,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- a, <cr>
 -- x, m
 -- <esc>
--- caps chars (G, C...)
+-- caps chars (C...)
 -- combinations with: j
 -- Reverse available: z, c
 
@@ -247,15 +264,15 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- s
 -- z, b, n, m
 
--- \ maps available
+-- \ maps available:
 -- y, u, i, o, p
 -- h, k, l
 -- z, x, b, n
 
--- q maps available
+-- q maps available:
 -- yank + key
 
--- Used but mappeable
+-- Used but mappeable:
 -- <leader>n ~ set number
 -- <leader>v ~ inlay
 -- <leader>p ~ treesj

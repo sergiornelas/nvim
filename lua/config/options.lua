@@ -20,7 +20,6 @@ o.numberwidth = 4 --           set number column width to 2 (default 4)
 o.pumheight = 10 --            pop up menu height
 o.ruler = false --             hide the line and column number of the cursor position
 o.scrolloff = 0 --             minimal number of screen lines to keep above and below the cursor
-o.shell = "/bin/zsh" --        even if you are using fish, some plugins run in bash
 o.shiftwidth = 2 --            the number of spaces inserted for each indentation
 o.shortmess:append("c") --     hide all the completion messages, e.g. "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found"
 o.showcmd = false --           hide (partial) command in the last line of the screen (for performance)
@@ -41,3 +40,4 @@ o.updatetime = 200 --          faster completion (4000ms default)
 o.whichwrap:append("<,>,[,],h,l") -- keys allowed to move to the previous/next line when the beginning/end of line is reached
 o.wrap = false --              display lines as one long line
 o.writebackup = false --       if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+o.showtabline = 1 --           0: never, 1: only if there are at least two tab pages, 2: always

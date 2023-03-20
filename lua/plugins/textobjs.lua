@@ -16,6 +16,37 @@ function M.config()
 	-- indentation (mini.indentscope does a better job)
 	-- restOfIndentation not really that useful
 
+	keymap({ "o", "x" }, "iS", function()
+		textobjs.subword(true)
+	end)
+	keymap({ "o", "x" }, "aS", function()
+		textobjs.subword(false)
+	end)
+
+	keymap({ "o", "x" }, "ii", function()
+		textobjs.toNextClosingBracket()
+	end)
+
+	keymap({ "o", "x" }, "ar", function()
+		textobjs.restOfParagraph()
+	end)
+
+	keymap({ "o", "x" }, "gG", function()
+		textobjs.entireBuffer()
+	end)
+
+	keymap({ "o", "x" }, "n", function()
+		textobjs.nearEoL()
+	end)
+
+	keymap({ "o", "x" }, "_", function()
+		textobjs.lineCharacterwise()
+	end)
+
+	keymap({ "o", "x" }, "|", function()
+		textobjs.column()
+	end)
+
 	keymap({ "o", "x" }, "iv", function()
 		textobjs.value(true)
 	end)
@@ -30,6 +61,10 @@ function M.config()
 		textobjs.key(false)
 	end)
 
+	keymap({ "o", "x" }, "U", function()
+		textobjs.url()
+	end)
+
 	keymap({ "o", "x" }, "in", function() -- (+)
 		textobjs.number(true)
 	end)
@@ -39,10 +74,6 @@ function M.config()
 
 	keymap({ "o", "x" }, "!", function()
 		textobjs.diagnostic()
-	end)
-
-	keymap({ "o", "x" }, "n", function()
-		textobjs.nearEoL()
 	end)
 
 	-- mdlink (markdown)
@@ -64,34 +95,7 @@ function M.config()
 		textobjs.doubleSquareBrackets(false)
 	end)
 
-	keymap({ "o", "x" }, "|", function()
-		textobjs.column()
-	end)
-
-	keymap({ "o", "x" }, "ar", function()
-		textobjs.restOfParagraph()
-	end)
-
-	keymap({ "o", "x" }, "iS", function()
-		textobjs.subword(true)
-	end)
-	keymap({ "o", "x" }, "aS", function()
-		textobjs.subword(false)
-	end)
-
-	keymap({ "o", "x" }, "gG", function()
-		textobjs.entireBuffer()
-	end)
-
-	keymap({ "o", "x" }, "U", function()
-		textobjs.url()
-	end)
-
 	-- shellPipe (zsh, fish)
-
-	keymap({ "o", "x" }, "ii", function()
-		textobjs.toNextClosingBracket()
-	end)
 end
 
 return M

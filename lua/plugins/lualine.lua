@@ -16,7 +16,7 @@ function M.config()
 			icons_enabled = true,
 			theme = "auto",
 			component_separators = { left = "", right = "╎" },
-			section_separators = { left = "", right = "" },
+			section_separators = "",
 			disabled_filetypes = { "NvimTree" },
 			always_divide_middle = true,
 			globalstatus = true,
@@ -25,8 +25,20 @@ function M.config()
 			},
 		},
 		sections = {
-			lualine_a = { "tabs" },
-			lualine_b = { "searchcount", "location", { require("recorder").recordingStatus } },
+			lualine_a = {
+				{
+					"searchcount",
+					color = { bg = "#4f0000", fg = "#ebdbb2" },
+				},
+				{
+					function()
+						local key = require("grapple").key()
+						return "󰓹  [" .. key .. "]"
+					end,
+					cond = require("grapple").exists,
+				},
+			},
+			lualine_b = { "diagnostics", { require("recorder").recordingStatus } },
 			lualine_c = {
 				{ navic.get_location, cond = navic.is_available },
 			},
@@ -37,14 +49,10 @@ function M.config()
 					color = { fg = "#ff9e64" },
 				},
 			},
-			lualine_y = { "diagnostics", "diff" },
+			lualine_y = { "diff" },
 			lualine_z = {
 				{
-					function()
-						local key = require("grapple").key()
-						return "󰓹  [" .. key .. "]"
-					end,
-					cond = require("grapple").exists,
+					"location",
 				},
 			},
 		},

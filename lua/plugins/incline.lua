@@ -12,8 +12,8 @@ function M.config()
 	incline.setup({
 		window = {
 			margin = {
-				horizontal = 0,
-				vertical = 0,
+				horizontal = 2,
+				vertical = 1,
 			},
 			padding = 1,
 			padding_char = " ",

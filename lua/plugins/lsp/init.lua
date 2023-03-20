@@ -8,6 +8,10 @@ local M = {
 			"lvimuser/lsp-inlayhints.nvim",
 			config = true,
 		},
+		{
+			"VidocqH/lsp-lens.nvim",
+			config = true,
+		},
 	},
 }
 

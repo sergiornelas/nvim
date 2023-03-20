@@ -77,9 +77,11 @@ aduros/ai.vim                                openAI and GPT
 dense-analysis/neural           OpenAI and GPT-3 completion
 
 COMPETITIVE CODING ----------------------------------------
-run = "cd js && npm ci" at lab plugin dir
-0x100101/lab.nvim                     show output in buffer
-metakirby5/codi.vim                   show output in buffer
+>> run = "cd js && npm ci" at lab plugin dir
+0x100101/lab.nvim           visual text output (dissapears)
+michaelb/sniprun        block visual run, virtual text lost
+arjunmahishi/flow.nvim      block visual run, fish problems
+erietz/vim-terminator            breaks when use nvm latest
 p00f/cphelper.nvim                          code challenges
 xeluxee/competitest.nvim                    code challenges
 
