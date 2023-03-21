@@ -7,7 +7,6 @@ cmd("FileType", {
 	pattern = { "norg", "markdown", "gitcommit" },
 	callback = function()
 		vim.opt_local.wrap = true
-		vim.opt_local.spell = true
 	end,
 })
 
@@ -36,14 +35,14 @@ api.nvim_exec(
   " Magic multicursor
   xnoremap gT :s/\(\w.*\)/
 
-  " Stop folding
-  autocmd BufWritePost,BufEnter * set nofoldenable foldmethod=manual foldlevelstart=99
-
   " Wrap break icon
   set showbreak=↪\ 
 
   " Stop automatic comment when enter in insert mode
   au BufEnter * set fo-=c fo-=r fo-=o
+
+  " All folds are open
+  set nofoldenable
 ]],
 	false
 )

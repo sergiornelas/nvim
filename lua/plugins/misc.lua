@@ -15,11 +15,9 @@ return {
 	{
 		"m4xshen/smartcolumn.nvim",
 		ft = "norg",
-		config = function()
-			require("smartcolumn").setup({
-				colorcolumn = "125",
-			})
-		end,
+		opts = {
+			colorcolumn = "125",
+		},
 	},
 	{
 		"seandewar/killersheep.nvim",

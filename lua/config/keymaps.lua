@@ -57,12 +57,16 @@ keymap("n", "<leader>c", "<cmd>Telescope colorscheme theme=dropdown winblend=0<c
 -- <Codi> and <Scratch>
 vim.api.nvim_exec(
 	[[
-nnoremap <leader>ss :TabooOpen Scratch 󰙏 <cr>:Scratch<cr>
-nnoremap <leader>sn :TabooOpen Scratch 󰙏 <cr>:ScratchWithName<cr>
-nnoremap <leader>so :TabooOpen Scratch 󰙏 <cr>:ScratchOpen<cr>
-nnoremap <leader>sf :TabooOpen Scratch 󰙏 <cr>:ScratchOpenFzf<cr>
-nnoremap <leader>sp :Codi <bar> call timer_start(200, {-> execute("RunCode")})<cr>
-nnoremap <leader>se :CodiExpand<cr>
+  nnoremap <leader>si :TabooOpen Scratch 󰙏 <cr>:Scratch<cr>
+  nnoremap <leader>sn :TabooOpen Scratch 󰙏 <cr>:ScratchWithName<cr>
+  " nnoremap <leader>so :TabooOpen Scratch 󰙏 <cr>:ScratchOpen<cr> (node_modules files mess)
+  nnoremap <leader>sf :TabooOpen Scratch 󰙏 <cr>:ScratchOpenFzf<cr>
+  function CodeRunner()
+    execute 'RunCode'
+    execute 'lua require("colorful-winsep").NvimSeparatorDel()'
+  endfunction
+  nnoremap <leader>sp :Codi <bar> call timer_start(200, CodeRunner())<cr>
+  nnoremap <leader>se :CodiExpand<cr>
 ]],
 	false
 )
@@ -212,9 +216,10 @@ keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
 keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
 keymap("", "<leader>n", "<cmd>set nu!<cr>", opts) --          toggle set number
+keymap("n", "<leader>a", "za", opts) --                       toggle fold block
 keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) --         force exit neovim
 keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
-keymap("", "\\<leader>", "`.") --                       go to last changed line
+keymap("", "\\<leader>", "g;") --                       go to last changed line
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
 keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
@@ -241,7 +246,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- <leader> maps available:
 -- y
--- a, <cr>
+-- <cr>
 -- x, m
 -- <esc>
 -- caps chars (C...)

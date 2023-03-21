@@ -16,6 +16,16 @@ return {
 		config = true,
 	},
 	{
+		"nvim-zh/colorful-winsep.nvim",
+		no_exec_files = {},
+		opts = {
+			highlight = {
+				fg = "#988E8E",
+			},
+		},
+		event = { "WinNew" },
+	},
+	{
 		"gcmt/taboo.vim",
 		lazy = false,
 		config = function()
@@ -57,11 +67,9 @@ return {
 			"K",
 			"J",
 		},
-		config = function()
-			require("bufjump").setup({
-				forward = "K",
-				backward = "J",
-			})
-		end,
+		opts = {
+			forward = "K",
+			backward = "J",
+		},
 	},
 }
