@@ -84,3 +84,10 @@ api.nvim_exec(
 --    endwhile
 -- endfunction
 -- autocmd VimEnter * call timer_start(7, {-> execute("call DeleteBufferByExtension('fish')")})
+
+-- Execute multiple commands after a call timer
+-- function CodeRunner()
+--   execute 'RunCode'
+--   execute 'lua require("colorful-winsep").NvimSeparatorDel()'
+-- endfunction
+-- nnoremap <leader>sp :Codi <bar> call timer_start(200, CodeRunner())<cr>

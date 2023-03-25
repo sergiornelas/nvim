@@ -28,23 +28,4 @@ return {
 			},
 		},
 	},
-	{
-		"LintaoAmons/scratch.nvim",
-		cmd = { "Scratch", "ScratchWithName", "ScratchOpen", "ScratchOpenFzf" },
-		opts = {
-			scratch_file_dir = vim.fn.stdpath("cache") .. "/scratch.nvim",
-			filetypes = { "js" },
-			filetype_details = {
-				js = {
-					requireDir = false,
-					filename = "main",
-					content = { "package main", "", "func main() {", "  ", "}" },
-					cursor = {
-						location = { 4, 2 },
-						insert_mode = true,
-					},
-				},
-			},
-		},
-	},
 }

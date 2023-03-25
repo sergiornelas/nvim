@@ -50,23 +50,14 @@ keymap("", "<leader>i", "<cmd>Telescope find_files<cr>", opts)
 keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
 keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
 keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
-keymap("", "<leader>G", "<cmd>Telescope grep_string<cr>", opts)
+keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("", "<leader>M", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("n", "<leader>c", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
 
--- <Codi> and <Scratch>
+-- <Codi> and <Runner>
 vim.api.nvim_exec(
 	[[
-  nnoremap <leader>si :TabooOpen Scratch 󰙏 <cr>:Scratch<cr>
-  nnoremap <leader>sn :TabooOpen Scratch 󰙏 <cr>:ScratchWithName<cr>
-  " nnoremap <leader>so :TabooOpen Scratch 󰙏 <cr>:ScratchOpen<cr> (node_modules files mess)
-  nnoremap <leader>sf :TabooOpen Scratch 󰙏 <cr>:ScratchOpenFzf<cr>
-  function CodeRunner()
-    execute 'RunCode'
-    execute 'lua require("colorful-winsep").NvimSeparatorDel()'
-  endfunction
-  nnoremap <leader>sp :Codi <bar> call timer_start(200, CodeRunner())<cr>
-  nnoremap <leader>se :CodiExpand<cr>
+  nnoremap <leader>C :tabnew ~/scratchFiles/scratch.js<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
 ]],
 	false
 )
@@ -78,7 +69,7 @@ keymap("", ",W", ":Neorg workspace ", { noremap = true })
 keymap("", ",i", "<cmd>Neorg index<cr>", opts)
 keymap("", ",z", "<cmd>Neorg toc<cr>", opts)
 keymap("", ",c", "<cmd>Neorg toggle-concealer<cr>", opts)
-keymap("", "<leader><leader>", "<cmd>bp<cr><cmd>bn<cr>", opts)
+keymap("", "<leader><leader>", "<cmd>Neorg toggle-concealer<cr><cmd>Neorg toggle-concealer<cr>", opts)
 
 -- <Diff view git>
 keymap("", "<leader>d", "<cmd>DiffviewOpen<cr> | <cmd>TabooRename Diffview  <cr> ", opts)
@@ -193,6 +184,11 @@ keymap({ "n", "x" }, "zh", "z25h", opts) --                          zoom right
 keymap({ "n", "x" }, "gj", "zz", opts) --                           center text
 keymap({ "n", "x" }, "z.", ":<c-u>normal! zszH<cr>", opts) -- center horizontal
 
+-- Fold commands
+keymap("n", "<leader>a", "za", opts) -- toggle fold block
+keymap("n", "z<leader>", "zR", opts) -- open all folds
+keymap("n", "c<leader>", "zM", opts) -- close all folds
+
 -- Don't yank on delete char
 keymap({ "n", "v" }, "x", '"_x', opts)
 keymap({ "n", "v" }, "X", '"_X', opts)
@@ -216,7 +212,6 @@ keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
 keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
 keymap("", "<leader>n", "<cmd>set nu!<cr>", opts) --          toggle set number
-keymap("n", "<leader>a", "za", opts) --                       toggle fold block
 keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) --         force exit neovim
 keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
 keymap("", "\\<leader>", "g;") --                       go to last changed line
@@ -249,9 +244,8 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <cr>
 -- x, m
 -- <esc>
--- caps chars (C...)
+-- caps chars (G...)
 -- combinations with: j
--- Reverse available: z, c
 
 -- <C-> maps available:
 -- y, p
@@ -282,6 +276,6 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader>v ~ inlay
 -- <leader>p ~ treesj
 -- <leader>Z ~ set command height 0
--- <leader><leader> ~ previous and next buffer (for norg)
+-- <leader><leader> ~ Neorg concealer toggle
 -- <c-c> ~ (visual) move selected area left
 -- <c-v> ~ (visual) move selected area right
