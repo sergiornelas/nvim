@@ -21,7 +21,6 @@ function M.config()
 			diagnostics.tidy,
 			formatting.prettierd,
 			formatting.stylua,
-			null_ls.builtins.code_actions.gitsigns,
 			-- typescript_ext,
 			-- formatting.prettier.with({
 			-- 	extra_filetypes = { "toml", "solidity" },

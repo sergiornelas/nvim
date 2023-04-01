@@ -4,7 +4,7 @@ local M = {
 		"kyazdani42/nvim-web-devicons",
 	},
 	keys = {
-		{ "<leader>t", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree" },
+		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree" },
 	},
 }
 

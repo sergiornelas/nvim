@@ -31,36 +31,28 @@ keymap("n", "<leader>Tr", "<cmd>TypescriptRenameFile<cr>", opts)
 keymap("n", "<leader>Td", "<cmd>TypescriptGoToSourceDefinition<cr>", opts) -- Typescript 4.7+
 
 -- <Grapple>
-keymap("", "mv", "<cmd>lua require('grapple').popup_tags()<cr>", opts)
-keymap("", "mm", "<cmd>lua require('grapple').toggle()<cr>", opts)
-keymap("", "mf", "<cmd>lua require('grapple').select({key=1})<cr>", opts)
-keymap("", "me", "<cmd>lua require('grapple').select({key=2})<cr>", opts)
-keymap("", "mw", "<cmd>lua require('grapple').select({key=3})<cr>", opts)
-keymap("", "ma", "<cmd>lua require('grapple').select({key=4})<cr>", opts)
-keymap("", "mr", "<cmd>lua require('grapple').select({key=5})<cr>", opts)
-keymap("", "mt", "<cmd>lua require('grapple').select({key=6})<cr>", opts)
-keymap("", "mF", ":lua require('grapple').tag({ key = '", { noremap = true })
-keymap("n", "<c-j>", "<cmd>lua require('grapple').cycle_backward()<cr>", opts)
-keymap("n", "<c-k>", "<cmd>lua require('grapple').cycle_forward()<cr>", opts)
--- keymap("", "<leader>vh", "<cmd>lua require('grapple').popup_tags('global')<cr>", opts)
+keymap("n", "m<leader>", "<cmd>GrappleToggle<cr>", opts)
+keymap("n", "mt", ":GrappleTag key=", { noremap = true })
+keymap("n", "mT", ":GrappleTag scope=global key=", { noremap = true })
+keymap("n", "mv", "<cmd>GrapplePopup tags<cr>", opts)
+keymap("n", "mG", "<cmd>lua require('grapple').popup_tags('global')<cr>", opts)
+keymap("n", "mf", "<cmd>GrappleSelect key=1<cr>", opts)
+keymap("n", "me", "<cmd>GrappleSelect key=2<cr>", opts)
+keymap("n", "mw", "<cmd>GrappleSelect key=3<cr>", opts)
+keymap("n", "ma", "<cmd>GrappleSelect key=4<cr>", opts)
+keymap("n", "ms", "<cmd>GrappleSelect key=5<cr>", opts)
+keymap("n", "md", "<cmd>GrappleSelect key=6<cr>", opts)
+keymap("n", "J", "<cmd>GrappleCycle backward<cr>", opts)
+keymap("n", "K", "<cmd>GrappleCycle forward<cr>", opts)
 
 -- <Telescope>
 keymap("", "<leader>u", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("", "<leader>i", "<cmd>Telescope find_files<cr>", opts)
 keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
-keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
+keymap("", "<leader>w", "<cmd>Telescope live_grep<cr>", opts)
 keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
 keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("", "<leader>M", "<cmd>Telescope marks theme=ivy<cr>", opts)
-keymap("n", "<leader>c", "<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>", opts)
-
--- <Codi> and <Runner>
-vim.api.nvim_exec(
-	[[
-  nnoremap <leader>C :tabnew ~/scratchFiles/scratch.js<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
-]],
-	false
-)
 
 -- <Neorg>
 keymap("", "mg", "<c-w>s<cmd>Neorg workspace todo<cr>", opts)
@@ -69,7 +61,6 @@ keymap("", ",W", ":Neorg workspace ", { noremap = true })
 keymap("", ",i", "<cmd>Neorg index<cr>", opts)
 keymap("", ",z", "<cmd>Neorg toc<cr>", opts)
 keymap("", ",c", "<cmd>Neorg toggle-concealer<cr>", opts)
-keymap("", "<leader><leader>", "<cmd>Neorg toggle-concealer<cr><cmd>Neorg toggle-concealer<cr>", opts)
 
 -- <Diff view git>
 keymap("", "<leader>d", "<cmd>DiffviewOpen<cr> | <cmd>TabooRename Diffview  <cr> ", opts)
@@ -98,17 +89,17 @@ keymap("", "<c-w>u", "<cmd>SwapSplit<cr>", opts)
 keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
 
 -- <Lazy>
-keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
+keymap("n", "<leader>F", "<cmd>Lazy<cr>", opts)
 
 -- <Glance>
 keymap("n", "go", "<cmd>Glance references<cr>")
 
--- <Inlay hints> and <Lsp Lens>
-keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr> | <cmd>LspLensToggle<cr>", opts)
+-- <Inlay hints>
+keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
 -- <Taboo>
-keymap("n", "<leader>E", ":TabooRename ", { noremap = true })
-keymap("n", "<leader>R", "<cmd>TabooReset<cr>", opts)
+keymap("n", "<leader>R", ":TabooRename ", { noremap = true })
+keymap("n", "<leader>C", "<cmd>TabooReset<cr>", opts)
 
 -- <Bufferdelete>
 keymap("n", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
@@ -121,6 +112,19 @@ keymap("", "]", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
 
 -- <TreeSJ>
 keymap("", "<leader>p", "<cmd>TSJToggle<cr>", opts)
+
+-- <Codi-Runner> and <Neorg refresh>
+vim.api.nvim_exec(
+	[[
+  nnoremap <leader>G :tabnew ~/scratchFiles/scratch.js<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
+  augroup leaderleaderbinds
+    autocmd! leaderleaderbinds
+    autocmd FileType javascript nnoremap <buffer> <silent> <leader><leader> <cmd>RunClose<cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
+    autocmd FileType norg       nnoremap <buffer> <silent> <leader><leader> <cmd>Neorg toggle-concealer<cr><cmd>Neorg toggle-concealer<cr>
+  augroup end
+]],
+	false
+)
 
 -- Open links under cursor in browser
 if vim.fn.has("macunix") == 1 then
@@ -158,11 +162,12 @@ keymap("i", "<c-i>", "<c-f>", opts) --    move line in the corresponding tab fra
 keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode again
 
 -- Tabs
-keymap("", "<leader>w", "gT", opts) --                        prev tab
-keymap("", "<leader>e", "gt", opts) --                        next tab
-keymap("", "<leader>r", "<cmd>tabclose<cr>", opts) --        close tab
-keymap("", "<leader>>", "<cmd>tabmove +1<cr>", opts) --  tab move left
-keymap("", "<leader><", "<cmd>tabmove -1<cr>", opts) -- tab move right
+keymap("n", "<c-j>", "gT", opts) --                            prev tab
+keymap("n", "<c-k>", "gt", opts) --                            next tab
+keymap("n", "<leader>t", "<cmd>tabclose<cr>", opts) --        close tab
+keymap("n", "<leader>>", "<cmd>tabmove +1<cr>", opts) --  tab move left
+keymap("n", "<leader><", "<cmd>tabmove -1<cr>", opts) -- tab move right
+keymap("n", "<leader>TT", "<cmd>tabo<cr>", opts) --      close all tabs
 
 -- Visual mode
 keymap("", "<c-l>", "<c-v>", opts) --       block visual selection
@@ -240,11 +245,11 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <cr>
 
 -- <leader> maps available:
--- y
--- <cr>
+-- r, y
+-- l
 -- x, m
 -- <esc>
--- caps chars (G...)
+-- caps chars (C...)
 -- combinations with: j
 
 -- <C-> maps available:
@@ -274,8 +279,11 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- Used but mappeable:
 -- <leader>n ~ set number
 -- <leader>v ~ inlay
+-- <leader>t ~ close tab
 -- <leader>p ~ treesj
+-- <leader>w ~ telescope live_grep (replaced from l)
 -- <leader>Z ~ set command height 0
--- <leader><leader> ~ Neorg concealer toggle
+-- <leader>F ~ lazy menu
+-- <leader>G ~ code scratch
 -- <c-c> ~ (visual) move selected area left
 -- <c-v> ~ (visual) move selected area right

@@ -46,19 +46,20 @@ function M.config()
 					["<c-s>"] = actions.select_horizontal,
 					["<c-t>"] = actions.select_tab,
 					["<c-a>"] = { "<esc>", type = "command" },
+					["<c-f>"] = actions.to_fuzzy_refine,
 					["<esc>"] = actions.close,
 				},
 			},
 		},
 		pickers = {
 			colorscheme = {
-				enable_preview = true, --some colorschemes break
+				enable_preview = true,
 			},
 			buffers = {
 				sort_lastused = true,
 				mappings = {
 					i = {
-						["<c-f>"] = actions.delete_buffer,
+						["<c-e>"] = actions.delete_buffer,
 					},
 				},
 			},

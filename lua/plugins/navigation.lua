@@ -61,15 +61,4 @@ return {
 			},
 		},
 	},
-	{
-		"kwkarlwang/bufjump.nvim",
-		keys = {
-			"K",
-			"J",
-		},
-		opts = {
-			forward = "K",
-			backward = "J",
-		},
-	},
 }

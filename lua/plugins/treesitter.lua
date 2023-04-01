@@ -20,7 +20,6 @@ local M = {
 				ensure_installed = {
 					"bash",
 					"css",
-					"help",
 					"html",
 					"javascript",
 					"json",
@@ -32,6 +31,7 @@ local M = {
 					"tsx",
 					"typescript",
 					"vim",
+					"vimdoc",
 				},
 				sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 				auto_install = true,

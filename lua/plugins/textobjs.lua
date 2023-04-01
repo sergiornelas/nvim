@@ -16,84 +16,50 @@ function M.config()
 	-- indentation (mini.indentscope does a better job)
 	-- restOfIndentation not really that useful
 
-	keymap({ "o", "x" }, "iS", function()
-		textobjs.subword(true)
-	end)
-	keymap({ "o", "x" }, "aS", function()
-		textobjs.subword(false)
-	end)
+	keymap({ "o", "x" }, "iS", "<cmd>lua require('various-textobjs').subword(true)<CR>")
+	keymap({ "o", "x" }, "aS", "<cmd>lua require('various-textobjs').subword(false)<CR>")
 
-	keymap({ "o", "x" }, "ii", function()
-		textobjs.toNextClosingBracket()
-	end)
+	keymap({ "o", "x" }, "ii", "<cmd>lua require('various-textobjs').toNextClosingBracket()<CR>")
 
-	keymap({ "o", "x" }, "ar", function()
-		textobjs.restOfParagraph()
-	end)
+	keymap({ "o", "x" }, "ar", "<cmd>lua require('various-textobjs').restOfParagraph()<CR>")
 
-	keymap({ "o", "x" }, "gG", function()
-		textobjs.entireBuffer()
-	end)
+	keymap({ "o", "x" }, "gG", "<cmd>lua require('various-textobjs').entireBuffer()<CR>")
 
-	keymap({ "o", "x" }, "n", function()
-		textobjs.nearEoL()
-	end)
+	keymap({ "o", "x" }, "n", "<cmd>lua require('various-textobjs').nearEoL()<CR>")
 
-	keymap({ "o", "x" }, "_", function()
-		textobjs.lineCharacterwise()
-	end)
+	keymap({ "o", "x" }, "_", "<cmd>lua require('various-textobjs').lineCharacterwise()<CR>")
 
-	keymap({ "o", "x" }, "|", function()
-		textobjs.column()
-	end)
+	keymap({ "o", "x" }, "|", "<cmd>lua require('various-textobjs').column()<CR>")
 
-	keymap({ "o", "x" }, "iv", function()
-		textobjs.value(true)
-	end)
-	keymap({ "o", "x" }, "av", function()
-		textobjs.value(false)
-	end)
+	keymap({ "o", "x" }, "iv", "<cmd>lua require('various-textobjs').value(true)<CR>")
+	keymap({ "o", "x" }, "av", "<cmd>lua require('various-textobjs').value(false)<CR>")
 
-	keymap({ "o", "x" }, "ik", function()
-		textobjs.key(true)
-	end)
-	keymap({ "o", "x" }, "ak", function()
-		textobjs.key(false)
-	end)
+	keymap({ "o", "x" }, "ik", "<cmd>lua require('various-textobjs').key(true)<CR>")
+	keymap({ "o", "x" }, "ak", "<cmd>lua require('various-textobjs').key(false)<CR>")
 
-	keymap({ "o", "x" }, "U", function()
-		textobjs.url()
-	end)
+	keymap({ "o", "x" }, "U", "<cmd>lua require('various-textobjs').url()<CR>")
 
-	keymap({ "o", "x" }, "in", function() -- (+)
-		textobjs.number(true)
-	end)
-	keymap({ "o", "x" }, "an", function()
-		textobjs.number(false)
-	end)
+	keymap({ "o", "x" }, "in", "<cmd>lua require('various-textobjs').number(true)<CR>")
+	keymap({ "o", "x" }, "an", "<cmd>lua require('various-textobjs').number(false)<CR>")
 
-	keymap({ "o", "x" }, "!", function()
-		textobjs.diagnostic()
-	end)
+	keymap({ "o", "x" }, "!", "<cmd>lua require('various-textobjs').diagnostic()<CR>")
 
 	-- mdlink (markdown)
 	-- mdFencedCodeBlock(markdown)
 
-	keymap({ "o", "x" }, "ic", function()
-		textobjs.cssSelector(true)
-	end)
-	keymap({ "o", "x" }, "ac", function()
-		textobjs.cssSelector(false)
-	end)
+	keymap({ "o", "x" }, "ic", "<cmd>lua require('various-textobjs').cssSelector(true)<CR>", { buffer = true })
+	keymap({ "o", "x" }, "ac", "<cmd>lua require('various-textobjs').cssSelector(false)<CR>", { buffer = true })
 
-	-- jsRegex (not useful (+))
+	-- htmlAttribute (not useful)
+	-- jsRegex (not useful (*))
 
-	keymap({ "o", "x" }, "iD", function()
-		textobjs.doubleSquareBrackets(true)
-	end)
-	keymap({ "o", "x" }, "aD", function()
-		textobjs.doubleSquareBrackets(false)
-	end)
+	keymap({ "o", "x" }, "iD", "<cmd>lua require('various-textobjs').doubleSquareBrackets(true)<CR>", { buffer = true })
+	keymap(
+		{ "o", "x" },
+		"aD",
+		"<cmd>lua require('various-textobjs').doubleSquareBrackets(false)<CR>",
+		{ buffer = true }
+	)
 
 	-- shellPipe (zsh, fish)
 end

@@ -38,6 +38,7 @@ local M = {}
 M.on_attach = function(client, bufnr)
 	keymaps(client, bufnr)
 	nvim_navic.attach(client, bufnr)
+	require("nvim-navbuddy").attach(client, bufnr)
 	if client.name == "tsserver" then
 		lsp_inlayhints.on_attach(client, bufnr) -- Typescript 4.4+
 		client.server_capabilities.documentFormattingProvider = false

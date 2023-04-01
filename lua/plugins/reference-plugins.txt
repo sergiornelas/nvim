@@ -91,7 +91,6 @@ charludo/projectmgr.nvim            switch between projects
 GnikDroy/projections.nvim                   project/session
 
 NOTES -----------------------------------------------------
-phaazon/mind.nvim                                  note app
 folke/todo-comments.nvim                       pretty notes
 Chaitanyabsprip/present.nvim       power point presentation
 JellyApple102/easyread.nvim            text colors readable
@@ -130,4 +129,6 @@ Last time revisited all these plugins
 
 Last time checked Awesome and This-week-in-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-(20/03/23)
+(27/03/23)
+
+not added navbuddy, smartcolumn2 on this-week-in-neovim.org or awesome
