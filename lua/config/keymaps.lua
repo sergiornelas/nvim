@@ -45,21 +45,35 @@ keymap("n", "md", "<cmd>GrappleSelect key=6<cr>", opts)
 keymap("n", "J", "<cmd>GrappleCycle backward<cr>", opts)
 keymap("n", "K", "<cmd>GrappleCycle forward<cr>", opts)
 
+-- <Gitsigns> and next/prev diff line
+vim.api.nvim_exec(
+	[[
+    nnoremap <expr> <c-g> &diff ? ']c' : "<cmd>Gitsigns next_hunk<cr>"
+    nnoremap <expr> <c-t> &diff ? '[c' : "<cmd>Gitsigns prev_hunk<cr>"
+  ]],
+	false
+)
+
 -- <Telescope>
 keymap("", "<leader>u", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("", "<leader>i", "<cmd>Telescope find_files<cr>", opts)
 keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
-keymap("", "<leader>w", "<cmd>Telescope live_grep<cr>", opts)
+keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
 keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
 keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("", "<leader>M", "<cmd>Telescope marks theme=ivy<cr>", opts)
+
+-- <LSP-Signature>
+keymap({ "n", "i" }, "<c-s>", function()
+	require("lsp_signature").toggle_float_win()
+end, opts)
 
 -- <Neorg>
 keymap("", "mg", "<c-w>s<cmd>Neorg workspace todo<cr>", opts)
 keymap("", "mq", "<cmd>Neorg return<cr>", opts)
 keymap("", ",W", ":Neorg workspace ", { noremap = true })
 keymap("", ",i", "<cmd>Neorg index<cr>", opts)
-keymap("", ",z", "<cmd>Neorg toc<cr>", opts)
+keymap("", ",t", "<cmd>Neorg toc<cr>", opts)
 keymap("", ",c", "<cmd>Neorg toggle-concealer<cr>", opts)
 
 -- <Diff view git>
@@ -94,6 +108,9 @@ keymap("n", "<leader>F", "<cmd>Lazy<cr>", opts)
 -- <Glance>
 keymap("n", "go", "<cmd>Glance references<cr>")
 
+-- <Navbuddy>
+keymap("n", "<leader>n", "<cmd>Navbuddy<cr>")
+
 -- <Inlay hints>
 keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
@@ -113,12 +130,12 @@ keymap("", "]", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
 -- <TreeSJ>
 keymap("", "<leader>p", "<cmd>TSJToggle<cr>", opts)
 
--- <Codi-Runner> and <Neorg refresh>
+-- <Codi-Runner> and <Neorg> refresh
 vim.api.nvim_exec(
 	[[
   nnoremap <leader>G :tabnew ~/scratchFiles/scratch.js<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
-  augroup leaderleaderbinds
-    autocmd! leaderleaderbinds
+  augroup doubleleaderbinds
+    autocmd! doubleleaderbinds
     autocmd FileType javascript nnoremap <buffer> <silent> <leader><leader> <cmd>RunClose<cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
     autocmd FileType norg       nnoremap <buffer> <silent> <leader><leader> <cmd>Neorg toggle-concealer<cr><cmd>Neorg toggle-concealer<cr>
   augroup end
@@ -216,7 +233,7 @@ keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
 keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
-keymap("", "<leader>n", "<cmd>set nu!<cr>", opts) --          toggle set number
+keymap("", "<leader>N", "<cmd>set nu!<cr>", opts) --          toggle set number
 keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) --         force exit neovim
 keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
 keymap("", "\\<leader>", "g;") --                       go to last changed line
@@ -246,7 +263,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- <leader> maps available:
 -- r, y
--- l
+-- <cr>
 -- x, m
 -- <esc>
 -- caps chars (C...)
@@ -277,12 +294,10 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- yank + key
 
 -- Used but mappeable:
--- <leader>n ~ set number
+-- <leader>n ~ navbuddy
 -- <leader>v ~ inlay
 -- <leader>t ~ close tab
 -- <leader>p ~ treesj
--- <leader>w ~ telescope live_grep (replaced from l)
--- <leader>Z ~ set command height 0
 -- <leader>F ~ lazy menu
 -- <leader>G ~ code scratch
 -- <c-c> ~ (visual) move selected area left

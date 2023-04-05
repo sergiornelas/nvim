@@ -23,9 +23,9 @@ function M.config()
 						keybinds.remap_event("norg", "n", "\\f", "core.integrations.treesitter.next.heading")
 						keybinds.remap_event("norg", "n", "gc", "core.looking-glass.magnify-code-block")
 						keybinds.remap_event("norg", "n", "\\v", "core.itero.next-iteration")
-						keybinds.remap_event("norg", "n", ",f", "core.integrations.telescope.find_linkable") -- go to other header from current workspace
+						keybinds.remap_event("norg", "n", ",e", "core.integrations.telescope.find_linkable") -- go to other header from current workspace
 						keybinds.remap_event("norg", "n", ",l", "core.integrations.telescope.insert_file_link") -- insert file link from current workspace
-						keybinds.remap_event("norg", "n", ",<space>", "core.integrations.telescope.search_headings") -- current file headers
+						keybinds.remap_event("norg", "n", ",f", "core.integrations.telescope.search_headings") -- current file headers
 						keybinds.remap_event("norg", "n", ",nf", "core.integrations.telescope.find_norg_files") -- find files in current workspace, not useful
 						keybinds.remap_event("norg", "n", ",s", "core.integrations.telescope.switch_workspace") -- not useful
 						keybinds.remap_event("norg", "n", ",L", "core.integrations.telescope.insert_link") -- not working

@@ -9,7 +9,7 @@ return {
 			mapping = {
 				startStopRecording = "@",
 				playMacro = "&",
-				switchSlot = "<c-s>",
+				switchSlot = "<leader>&",
 				editMacro = "cq",
 				yankMacro = "qm", -- also decodes it for turning macros to mappings
 				addBreakPoint = "^",

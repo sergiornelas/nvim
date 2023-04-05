@@ -23,6 +23,14 @@ require("lazy").setup({
 	},
 	ui = {
 		browser = "Brave",
+		custom_keys = {
+			-- open a terminal for the plugin dir
+			["<space>t"] = function(plugin)
+				require("lazy.util").float_term(nil, {
+					cwd = plugin.dir,
+				})
+			end,
+		},
 	},
 	performance = {
 		rtp = {

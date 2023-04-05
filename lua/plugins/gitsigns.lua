@@ -22,30 +22,10 @@ function M.config()
 				vim.keymap.set(mode, l, r, opts)
 			end
 
-			map("n", "<c-g>", function()
-				if vim.wo.diff then
-					return "<cmd>Gitsigns next_hunk<cr>"
-				end
-				vim.schedule(function()
-					gs.next_hunk()
-				end)
-				return "<Ignore>"
-			end, { expr = true })
-
-			map("n", "<c-t>", function()
-				if vim.wo.diff then
-					return "<cmd>Gitsigns prev_hunk<cr>"
-				end
-				vim.schedule(function()
-					gs.prev_hunk()
-				end)
-				return "<Ignore>"
-			end, { expr = true })
-
 			-- Actions
-			map({ "n", "v" }, "<leader>je", ":Gitsigns stage_hunk<cr>")
+			map({ "n", "v" }, "<leader>w", ":Gitsigns stage_hunk<cr>")
 			map({ "n", "v" }, "<leader>jr", ":Gitsigns reset_hunk<cr>")
-			map("n", "<leader>jE", gs.stage_buffer)
+			map("n", "<leader>jW", gs.stage_buffer)
 			map("n", "<leader>ju", gs.undo_stage_hunk)
 			map("n", "<leader>jR", gs.reset_buffer)
 			map("n", "<leader>g", gs.preview_hunk)

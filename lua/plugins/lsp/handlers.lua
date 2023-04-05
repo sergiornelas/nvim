@@ -12,23 +12,24 @@ keymap("n", "gq", vim.diagnostic.setloclist, { noremap = true, silent = true })
 local keymaps = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	local lsp = vim.lsp.buf
 
 	if client.name == "tsserver" or client.name == "lua_ls" then
-		-- keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
-		keymap("n", "gd", vim.lsp.buf.definition, bufopts)
+		-- keymap"n", "gD", lsp_buf.declaration, bufopts
+		keymap("n", "gd", lsp.definition, bufopts)
 		keymap("n", "gD", "<cmd>TypescriptGoToSourceDefinition<cr>", bufopts)
-		keymap("n", "gI", vim.lsp.buf.implementation, bufopts)
-		keymap("n", "gs", vim.lsp.buf.signature_help, bufopts)
-		keymap("n", "gt", vim.lsp.buf.type_definition, bufopts)
+		keymap("n", "gI", lsp.implementation, bufopts)
+		keymap("n", "gs", lsp.signature_help, bufopts)
+		keymap("n", "gt", lsp.type_definition, bufopts)
 	end
 
-	keymap("n", "gA", vim.lsp.buf.add_workspace_folder, bufopts)
-	keymap("n", "gF", vim.lsp.buf.remove_workspace_folder, bufopts)
+	keymap("n", "gA", lsp.add_workspace_folder, bufopts)
+	keymap("n", "gF", lsp.remove_workspace_folder, bufopts)
 	keymap("n", "gW", function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+		print(vim.inspect(lsp.list_workspace_folders()))
 	end, bufopts)
 	keymap("n", "g<leader>", function()
-		vim.lsp.buf.format({ async = true })
+		lsp.format({ async = true })
 	end, bufopts)
 	keymap("n", "gL", "<cmd>LspInfo<cr>", bufopts)
 end

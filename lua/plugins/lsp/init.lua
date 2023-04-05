@@ -9,16 +9,8 @@ local M = {
 			config = true,
 		},
 		{
-			"SmiteshP/nvim-navbuddy",
-			dependencies = {
-				"MunifTanjim/nui.nvim",
-			},
-			keys = {
-				{
-					"<leader><cr>",
-					"<cmd>Navbuddy<cr>",
-				},
-			},
+			"ray-x/lsp_signature.nvim",
+			config = true,
 		},
 	},
 }
