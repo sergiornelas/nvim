@@ -45,15 +45,6 @@ keymap("n", "md", "<cmd>GrappleSelect key=6<cr>", opts)
 keymap("n", "J", "<cmd>GrappleCycle backward<cr>", opts)
 keymap("n", "K", "<cmd>GrappleCycle forward<cr>", opts)
 
--- <Gitsigns> and next/prev diff line
-vim.api.nvim_exec(
-	[[
-    nnoremap <expr> <c-g> &diff ? ']c' : "<cmd>Gitsigns next_hunk<cr>"
-    nnoremap <expr> <c-t> &diff ? '[c' : "<cmd>Gitsigns prev_hunk<cr>"
-  ]],
-	false
-)
-
 -- <Telescope>
 keymap("", "<leader>u", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("", "<leader>i", "<cmd>Telescope find_files<cr>", opts)
@@ -61,7 +52,7 @@ keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
 keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
 keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
 keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
-keymap("", "<leader>M", "<cmd>Telescope marks theme=ivy<cr>", opts)
+keymap("", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>", opts)
 
 -- <LSP-Signature>
 keymap({ "n", "i" }, "<c-s>", function()
@@ -130,6 +121,15 @@ keymap("", "]", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
 -- <TreeSJ>
 keymap("", "<leader>p", "<cmd>TSJToggle<cr>", opts)
 
+-- <Gitsigns> and next/prev diff line
+vim.api.nvim_exec(
+	[[
+    noremap <expr> <c-g> &diff ? ']c' : "<cmd>Gitsigns next_hunk<cr>"
+    noremap <expr> <c-t> &diff ? '[c' : "<cmd>Gitsigns prev_hunk<cr>"
+  ]],
+	false
+)
+
 -- <Codi-Runner> and <Neorg> refresh
 vim.api.nvim_exec(
 	[[
@@ -154,14 +154,12 @@ end
 keymap("", "<leader>q", "<cmd>q<cr>", opts) --             close window
 keymap("", "<leader>Q", "<cmd>q!<cr>", opts) -- close window and buffer
 keymap("n", "<c-v>", "<c-^>", opts) --             toggle recent window
-keymap("", "<c-r>", "<c-w>w", opts) --             navigate next window
+keymap("n", "<c-r>", "<c-w>w", opts) --            navigate next window
 keymap("n", "<c-u>", "<c-u>zz", opts) --         scrolls up half buffer
 keymap("n", "<c-d>", "<c-d>zz", opts) --       scrolls down half buffer
-keymap("", "<c-a>", "<c-w>W", opts) --         navigate previous window
+keymap("n", "<c-a>", "<c-w>W", opts) --        navigate previous window
 keymap("", "<c-e>", "<c-y>", opts) --          page scrolls up one line
 keymap("", "<c-f>", "<c-e>", opts) --        page scrolls down one line
-keymap("", "<c-p>", "<c-b>", opts) --        page scrolls up fullscreen
-keymap("", "<c-b>", "<c-f>", opts) --      page scrolls down fullscreen
 
 -- Resize window
 keymap("", "ƒ", "<cmd>vertical resize +4<cr>", opts)

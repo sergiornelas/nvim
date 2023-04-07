@@ -13,7 +13,7 @@ return {
 		local actions = require("nvim-navbuddy.actions")
 		navbuddy.setup({
 			window = {
-				size = "45%",
+				size = { height = "35%", width = "45%" },
 				position = "75%",
 				sections = {
 					mid = {
@@ -24,12 +24,14 @@ return {
 					},
 				},
 			},
+			use_default_mappings = false,
 			mappings = {
 				["<esc>"] = actions.close,
-				["<c-i>"] = actions.next_sibling,
-				["<c-o>"] = actions.previous_sibling,
-				["<c-a>"] = actions.parent,
-				["<c-f>"] = actions.children,
+				["j"] = actions.next_sibling,
+				["k"] = actions.previous_sibling,
+				["h"] = actions.parent,
+				["l"] = actions.children,
+				["0"] = actions.root,
 				["v"] = actions.visual_name,
 				["V"] = actions.visual_scope,
 				["q"] = actions.yank_name,
@@ -43,7 +45,7 @@ return {
 				["f"] = actions.fold_create,
 				["F"] = actions.fold_delete,
 				["C"] = actions.comment,
-				["<c-j>"] = actions.select,
+				["o"] = actions.select,
 				["J"] = actions.move_down,
 				["K"] = actions.move_up,
 			},

@@ -8,9 +8,10 @@ return {
 			height = 25,
 			mappings = {
 				list = {
+					["l"] = actions.jump,
+					["<c-j>"] = actions.jump,
 					["<c-i>"] = actions.next,
 					["<c-o>"] = actions.previous,
-					["l"] = actions.jump,
 					["<c-l>"] = actions.jump,
 					["<c-v>"] = actions.jump_vsplit,
 					["<c-s>"] = actions.jump_split,

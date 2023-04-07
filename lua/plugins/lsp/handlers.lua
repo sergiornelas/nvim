@@ -20,7 +20,7 @@ local keymaps = function(client, bufnr)
 		keymap("n", "gD", "<cmd>TypescriptGoToSourceDefinition<cr>", bufopts)
 		keymap("n", "gI", lsp.implementation, bufopts)
 		keymap("n", "gs", lsp.signature_help, bufopts)
-		keymap("n", "gt", lsp.type_definition, bufopts)
+		keymap("n", "gf", lsp.type_definition, bufopts)
 	end
 
 	keymap("n", "gA", lsp.add_workspace_folder, bufopts)

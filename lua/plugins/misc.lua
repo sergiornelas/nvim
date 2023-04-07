@@ -16,7 +16,7 @@ return {
 		"m4xshen/smartcolumn.nvim",
 		ft = "norg",
 		opts = {
-			colorcolumn = "125",
+			colorcolumn = "123",
 		},
 	},
 	{

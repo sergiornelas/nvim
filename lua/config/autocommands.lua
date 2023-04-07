@@ -91,3 +91,16 @@ api.nvim_exec(
 --   execute 'lua require("colorful-winsep").NvimSeparatorDel()'
 -- endfunction
 -- nnoremap <leader>sp :Codi <bar> call timer_start(200, CodeRunner())<cr>
+
+-- Auto window resize
+-- vim.cmd([[
+-- augroup ReduceNoise
+--     autocmd!
+--     autocmd WinEnter * :call ResizeSplits()
+--     autocmd FileType NvimTree set winwidth&
+-- augroup END
+-- function! ResizeSplits()
+--     set winwidth=110
+--     wincmd =
+-- endfunction
+-- ]])

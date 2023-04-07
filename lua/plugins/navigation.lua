@@ -13,7 +13,14 @@ return {
 		"anuvyklack/windows.nvim",
 		dependencies = "anuvyklack/middleclass",
 		event = "WinNew",
-		config = true,
+		opts = {
+			autowidth = {
+				winwidth = 15,
+			},
+			animation = {
+				enable = false,
+			},
+		},
 	},
 	{
 		"nvim-zh/colorful-winsep.nvim",

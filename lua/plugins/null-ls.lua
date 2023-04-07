@@ -6,7 +6,6 @@ local M = {
 
 function M.config()
 	local null_ls_ok, null_ls = pcall(require, "null-ls")
-	-- local typescript_ext_ok, typescript_ext = pcall(require, "typescript.extensions.null-ls.code-actions")
 	if not null_ls_ok then
 		return
 	end
@@ -21,7 +20,6 @@ function M.config()
 			diagnostics.tidy,
 			formatting.prettierd,
 			formatting.stylua,
-			-- typescript_ext,
 			-- formatting.prettier.with({
 			-- 	extra_filetypes = { "toml", "solidity" },
 			-- 	extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
