@@ -13,14 +13,18 @@ return {
 		local actions = require("nvim-navbuddy.actions")
 		navbuddy.setup({
 			window = {
-				size = { height = "35%", width = "45%" },
+				size = { height = "35%", width = "65%" },
 				position = "75%",
 				sections = {
+					left = {
+						size = "30%",
+					},
 					mid = {
-						size = "50%",
+						size = "40%",
 					},
 					right = {
 						size = "30%",
+						preview = "never",
 					},
 				},
 			},
@@ -48,6 +52,7 @@ return {
 				["o"] = actions.select,
 				["J"] = actions.move_down,
 				["K"] = actions.move_up,
+				["p"] = actions.toggle_preview,
 			},
 			lsp = {
 				auto_attach = false, -- If set to true, you don't need to manually use attach function

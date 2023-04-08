@@ -104,3 +104,11 @@ api.nvim_exec(
 --     wincmd =
 -- endfunction
 -- ]])
+
+--Execute command for specific filetype
+-- if &ft == "lua"
+--   set winwidth=110
+-- endif
+
+-- Execute keyboard command
+-- :exe "normal \<C-W>\<C-w>"

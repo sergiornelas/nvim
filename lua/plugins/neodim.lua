@@ -1,7 +1,7 @@
 local M = {
 	"zbirenbaum/neodim",
 	event = "LspAttach",
-	-- branch = "v2",
+	branch = "v2",
 }
 
 function M.config()

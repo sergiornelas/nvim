@@ -53,6 +53,7 @@ keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
 keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
 keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>", opts)
+keymap("", "<leader>H", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
 
 -- <LSP-Signature>
 keymap({ "n", "i" }, "<c-s>", function()
