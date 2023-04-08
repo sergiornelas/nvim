@@ -1,10 +1,5 @@
 return {
 	{
-		"tversteeg/registers.nvim",
-		event = "InsertEnter",
-		config = true,
-	},
-	{
 		"fedepujol/move.nvim",
 		cmd = { "MoveBlock", "MoveHBlock" },
 	},

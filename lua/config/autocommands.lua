@@ -110,5 +110,8 @@ api.nvim_exec(
 --   set winwidth=110
 -- endif
 
+-- Map command for multiple filetypes
+-- au FileType javascript,javascriptreact nnoremap...
+
 -- Execute keyboard command
 -- :exe "normal \<C-W>\<C-w>"

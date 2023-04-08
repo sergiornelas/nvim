@@ -54,6 +54,8 @@ keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
 keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("", "<leader>H", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
+keymap("", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<cr>", opts)
+keymap("i", "<c-r>", "<cmd>Telescope registers theme=cursor layout_config={height=0.3}<cr>", opts)
 
 -- <LSP-Signature>
 keymap({ "n", "i" }, "<c-s>", function()
@@ -134,12 +136,12 @@ vim.api.nvim_exec(
 -- <Codi-Runner> and <Neorg> refresh
 vim.api.nvim_exec(
 	[[
-  nnoremap <leader>G :tabnew ~/scratchFiles/scratch.js<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
-  augroup doubleleaderbinds
-    autocmd! doubleleaderbinds
-    autocmd FileType javascript nnoremap <buffer> <silent> <leader><leader> <cmd>RunClose<cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
-    autocmd FileType norg       nnoremap <buffer> <silent> <leader><leader> <cmd>Neorg toggle-concealer<cr><cmd>Neorg toggle-concealer<cr>
-  augroup end
+  nnoremap <leader>G :tabnew ~/scratchFiles/scratch.ts<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
+  aug doubleleaderbinds
+    au! doubleleaderbinds
+    au FileType norg nnoremap <buffer> <silent> <leader><leader> <cmd>Neorg toggle-concealer<cr><cmd>Neorg toggle-concealer<cr>
+    au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <buffer> <silent> <leader><leader> <cmd>RunClose<cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
+  aug end
 ]],
 	false
 )
@@ -228,6 +230,7 @@ keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
 keymap("", "<leader>h", "<cmd>set hlsearch!<cr>", opts) --           highlights
 keymap("n", "<leader>KK", "<cmd>KillKillKill<cr>", opts) --          sheep game
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) --                        exit neovim
+keymap("n", "<leader>V", ":verbose map ", { noremap = true }) --  check mapping
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap

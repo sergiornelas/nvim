@@ -15,7 +15,7 @@ return {
 		event = "WinNew",
 		opts = {
 			autowidth = {
-				winwidth = 10,
+				winwidth = 12,
 			},
 			animation = {
 				enable = false,
