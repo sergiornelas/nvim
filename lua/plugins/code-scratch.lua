@@ -12,6 +12,7 @@ return {
 		end,
 		-- npm i -g typescript
 		-- npm i -g tsun
+		-- works if you don't have empty lines inside a scope. you can use: //
 	},
 	{
 		"CRAG666/code_runner.nvim",

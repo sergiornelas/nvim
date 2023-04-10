@@ -1,27 +1,29 @@
-LSP -------------------------------------------------------
-simrat39/symbols-outline.nvim        LSP Diagram menu (jsx)
-folke/trouble.nvim                       pretty diagnostics
-kevinhwang91/nvim-bqf                              quickfix
-ray-x/navigator.lua                            LSP hardcore
-stevearc/aerial.nvim                       LSP Diagram menu
-folke/neoconf.nvim   global/project-local lsp settings live
-joechrisellis/lsp-format-modifications.nvim   format edited
-smjonas/inc-rename.nvim                          lsp rename
-kosayoda/nvim-lightbulb                     lsp code action
-vigoux/notifier.nvim                show message lsp loaded
-jinzhongjia/LspUI.nvim                            saga mini
-tzachar/local-highlight.nvim       word illuminate (mature)
-nvim-telescope/telescope-ui-select.nvim telescope evrywhere
+LSP ---------------------------------------------------------------------------------
+simrat39/symbols-outline.nvim                                  LSP Diagram menu (jsx)
+folke/trouble.nvim                                                 pretty diagnostics
+kevinhwang91/nvim-bqf                                                        quickfix
+ray-x/navigator.lua                                                      LSP hardcore
+stevearc/aerial.nvim                                                 LSP Diagram menu
+folke/neoconf.nvim                             global/project-local lsp settings live
+joechrisellis/lsp-format-modifications.nvim                             format edited
+smjonas/inc-rename.nvim lsp rename,          bug:mandatory cursor on word for c-p/c-n
+filipdutescu/renamer.nvim                           problem: 6~11ms for small feature
+weilbith/nvim-code-action-menu                      don't shows full code action info
+aznhe21/actions-preview.nvim                        don't shows full code action info
+kosayoda/nvim-lightbulb                                               lsp code action
+vigoux/notifier.nvim                                          show message lsp loaded
+jinzhongjia/LspUI.nvim saga mini                  code action and diagnostics limited
+tzachar/local-highlight.nvim                                 word illuminate (mature)
+nvim-telescope/telescope-ui-select.nvim currently using dressing (nvimtreeinputscool)
 
-TREESITTER ------------------------------------------------
-ziontee113/syntax-tree-surfer                  TS navigator
-ziontee113/neo-minimap             Navigate between queries
-cshuaimin/ssr.nvim            structural search and replace
-HiPhish/nvim-ts-rainbow2 rainbow (mat, tsx elem bad colors)
-utilyre/sentiment.nvim  parenthesis colorful bug (diffview)
-CKolkey/ts-node-action                 (mature for jsx/tsx)
+TREESITTER --------------------------------------------------------------------------
+ziontee113/syntax-tree-surfer                                            TS navigator
+cshuaimin/ssr.nvim                                      structural search and replace
+HiPhish/nvim-ts-rainbow2 rainbow                            (mat, tsx elem no colors)
+utilyre/sentiment.nvim                            parenthesis colorful bug (diffview)
+CKolkey/ts-node-action                                           (mature for jsx/tsx)
 
-DEBUGGING -------------------------------------------------
+DEBUGGING ---------------------------------------------------------------------------
 mfusseneger/nvim-dap
 sakhnik/nvim-gdb
 rcarriga/nvim-dap-ui
@@ -31,7 +33,7 @@ theHamsta/nvim-dap-virtual-text
 ravenxrz/DAPInstall.nvim
 Lommix/godot.nvim
 
-TESTING ---------------------------------------------------
+TESTING -----------------------------------------------------------------------------
 David-Kunz/jester
 klen/nvim-test
 janko-m/vim-test
@@ -39,92 +41,93 @@ rcarriga/neotest
 nvim-neotest/neotest
 andythigpen/nvim-coverage
 mini.test
-is0n/jaq-nvim                         terminal test results
-EthanJWright/vs-tasks.nvim            terminal test results
-stevearc/overseer.nvim               ttr (exe cmds on save)
-andythigpen/nvim-coverage                          coverage
+is0n/jaq-nvim                                                   terminal test results
+EthanJWright/vs-tasks.nvim                                      terminal test results
+stevearc/overseer.nvim                                         ttr (exe cmds on save)
+andythigpen/nvim-coverage                                                    coverage
 
-GIT -------------------------------------------------------
-tpope/vim-fugitive                              most robust
-TimUntersberger/neogit                                magit
-akinsho/git-conflict.nvim                         conflicts
-kdheepak/lazygit.nvim                               lazygit
-pwntester/octo.nvim                                  git PR
-ruifm/gitlinker.nvim                          add bitbucket
-ray-x/forgit.nvim                              git commands
-aaronhallaert/advanced-git-search.nvim   git telescope int.
+GIT ---------------------------------------------------------------------------------
+tpope/vim-fugitive                                                        most robust
+TimUntersberger/neogit                                                          magit
+akinsho/git-conflict.nvim                                                   conflicts
+kdheepak/lazygit.nvim                                                         lazygit
+pwntester/octo.nvim                                                            git PR
+ruifm/gitlinker.nvim                                                    add bitbucket
+ray-x/forgit.nvim                                                        git commands
+aaronhallaert/advanced-git-search.nvim                      git telescope integration
 
-FRONTEND --------------------------------------------------
-vuki656/package-info.nvim                              node
-b0o/SchemaStore.nvim                            json schema
-gennaro-tedesco/nvim-jqx                         json index
-rest-nvim/rest.nvim                                 postman
-NTBBloodbath/rest.nvim                              postman
-mattn/webapi-vim                                  postman ?
-vinnymeller/swagger-preview.nvim            swagger preview
-MunifTanjim/prettier.nvim              prettier alternative
-numToStr/prettierrc.nvim               prettier alternative
-ray-x/web-tools.nvim               live server for html/css
-Azeirah/nvim-redux                          redux telescope
-barrett-ruth/import-cost.nvim        cost memory of imports
+FRONTEND ----------------------------------------------------------------------------
+vuki656/package-info.nvim                                                        node
+b0o/SchemaStore.nvim                                                      json schema
+gennaro-tedesco/nvim-jqx                                                   json index
+rest-nvim/rest.nvim                                                           postman
+NTBBloodbath/rest.nvim                                                        postman
+mattn/webapi-vim                                                            postman ?
+vinnymeller/swagger-preview.nvim                                      swagger preview
+MunifTanjim/prettier.nvim                                        prettier alternative
+numToStr/prettierrc.nvim                                         prettier alternative
+ray-x/web-tools.nvim                                         live server for html/css
+Azeirah/nvim-redux                                                    redux telescope
+barrett-ruth/import-cost.nvim                                  cost memory of imports
 
-ARTIFICIAL INTELIGENCE ------------------------------------
+ARTIFICIAL INTELIGENCE --------------------------------------------------------------
 github/copilot.vim
 zbirenbaum/copilot-cmp
 jameshiew/nvim-magic
 tzachar/cmp-tabnine
-jackMort/ChatGPT.nvim                               ChatGPT
-aduros/ai.vim                                openAI and GPT
-dense-analysis/neural           OpenAI and GPT-3 completion
+jackMort/ChatGPT.nvim                                                         ChatGPT
+aduros/ai.vim                                                          openAI and GPT
+dense-analysis/neural                                     OpenAI and GPT-3 completion
 
-COMPETITIVE CODING ----------------------------------------
+COMPETITIVE CODING ------------------------------------------------------------------
 >> run = "cd js && npm ci" at lab plugin dir
-0x100101/lab.nvim           visual text output (dissapears)
-michaelb/sniprun blockvisualrun, virtual textlost, nowatch?
-arjunmahishi/flow.nvim      block visual run, fish problems
-erietz/vim-terminator            breaks when use nvm latest
-p00f/cphelper.nvim                          code challenges
-xeluxee/competitest.nvim                    code challenges
-Vigemus/iron.nvim    run selected area, buggy, watch works?
+0x100101/lab.nvim                                     visual text output (dissapears)
+michaelb/sniprun                           blockvisualrun, virtual textlost, nowatch?
+arjunmahishi/flow.nvim                                block visual run, fish problems
+erietz/vim-terminator                                      breaks when use nvm latest
+p00f/cphelper.nvim                                                    code challenges
+xeluxee/competitest.nvim                                              code challenges
+Vigemus/iron.nvim                              run selected area, buggy, watch works?
 
-PROJECT ---------------------------------------------------
-smartpde/neoscopes   light project magagement (interesting)
-charludo/projectmgr.nvim            switch between projects
-GnikDroy/projections.nvim                   project/session
+PROJECT -----------------------------------------------------------------------------
+smartpde/neoscopes                             light project magagement (interesting)
+charludo/projectmgr.nvim                                      switch between projects
+GnikDroy/projections.nvim                                             project/session
 
-NOTES -----------------------------------------------------
-folke/todo-comments.nvim                       pretty notes
-Chaitanyabsprip/present.nvim       power point presentation
-JellyApple102/easyread.nvim            text colors readable
+NOTES -------------------------------------------------------------------------------
+folke/todo-comments.nvim                                                 pretty notes
+Chaitanyabsprip/present.nvim                                 power point presentation
+JellyApple102/easyread.nvim                                      text colors readable
 
-UTILS -----------------------------------------------------
-tzachar/cmp-fuzzy-buffer                                CMP
-tzachar/cmp-fuzzy-path                                  CMP
-MattesGroeger/vim-bookmarks                           marks
-ThePrimeagen/refactoring.nvim                   refactoring
-anuvyklack/pretty-fold.nvim           fold with percentages
-chentoast/marks.nvim                           visual marks
-danymat/neogen          comments on files for documentation
-edluffy/specs.nvim        cool highlight cursor (has a bug)
-potamides/pantran.nvim                    google translator
-jghauser/kitty-runner.nvim         kitty commands from nvim
-smjonas/live-command.nvim                      live command
-cbochs/portal.nvim                       c-o / c-i enhanced
-folke/noice.nvim                           bunch of pop ups
-DaikyXendo/nvim-tree.lua      nvim tree with material icons
-folke/styler.nvim           colorscheme by file (bug c-w w)
-tamton-aquib/zone.nvim                         screen saver
-debugloop/telescope-undo.nvim                telescope undo
-nyngwang/NeoTerm.lua      attach a terminal for each buffer
-rareitems/printer.nvim   add console.logs (wait for mature)
-roobert/search-replace.nvim       UI for search and replace
-princejoogie/chafa.nvim                      images and svg
-axkirillov/easypick.nvim  telescope with arbitrary commands
-LeonHeidelbach/trailblazer.nvim          visual mark (huge)
-atusy/tsnode-marker.nvim         nested functions bgc color
-willothy/flatten.nvim   open neovim file from nvim terminal
-shellRaining/hlchunk.nvim   cool indent line (mature (tsx))
-kevinhwang91/nvim-ufo      10m loading, bug: folds all file
+UTILS -------------------------------------------------------------------------------
+tzachar/cmp-fuzzy-buffer                                                          CMP
+tzachar/cmp-fuzzy-path                                                            CMP
+MattesGroeger/vim-bookmarks                                                     marks
+ThePrimeagen/refactoring.nvim                                             refactoring
+anuvyklack/pretty-fold.nvim                                     fold with percentages
+chentoast/marks.nvim                                                     visual marks
+danymat/neogen                                    comments on files for documentation
+edluffy/specs.nvim                                  cool highlight cursor (has a bug)
+potamides/pantran.nvim                                              google translator
+jghauser/kitty-runner.nvim                                   kitty commands from nvim
+smjonas/live-command.nvim                                                live command
+cbochs/portal.nvim                                                 c-o / c-i enhanced
+folke/noice.nvim                                                     bunch of pop ups
+DaikyXendo/nvim-tree.lua                                nvim tree with material icons
+folke/styler.nvim                                     colorscheme by file (bug c-w w)
+tamton-aquib/zone.nvim                                                   screen saver
+debugloop/telescope-undo.nvim                                          telescope undo
+nyngwang/NeoTerm.lua                                attach a terminal for each buffer
+rareitems/printer.nvim                             add console.logs (wait for mature)
+roobert/search-replace.nvim                                 UI for search and replace
+princejoogie/chafa.nvim                                                images and svg
+axkirillov/easypick.nvim                            telescope with arbitrary commands
+LeonHeidelbach/trailblazer.nvim                                    visual mark (huge)
+atusy/tsnode-marker.nvim                                   nested functions bgc color
+willothy/flatten.nvim                             open neovim file from nvim terminal
+shellRaining/hlchunk.nvim                             cool indent line (mature (tsx))
+kevinhwang91/nvim-ufo                                10m loading, bug: folds all file
+VonHeikemen/fine-cmdline.nvim       cmdline float window. bad: press c-i twice always
 
 Last time revisited all these plugins
 (07/03/23)

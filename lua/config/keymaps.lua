@@ -3,24 +3,24 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- <LSP Saga>
-keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<cr>")
-keymap("n", "gr", "<cmd>Lspsaga rename<cr>")
+-- keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<cr>")
+-- keymap("n", "gr", "<cmd>Lspsaga rename<cr>")
+-- keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>")
+-- keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<cr>")
+-- keymap("n", "gB", "<cmd>Lspsaga show_buf_diagnostics<cr>")
+-- keymap("n", "\\r", "<cmd>Lspsaga diagnostic_jump_prev<cr>")
+-- keymap("n", "\\f", "<cmd>Lspsaga diagnostic_jump_next<cr>")
+-- keymap("n", "\\t", function()
+-- 	require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+-- end)
+-- keymap("n", "\\g", function()
+-- 	require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
+-- end)
+-- keymap("n", "gh", "<cmd>Lspsaga hover_doc<cr>")
+keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<cr>")
 keymap("n", "gR", "<cmd>Lspsaga rename ++project<cr>")
 keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>")
-keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>")
-keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<cr>")
-keymap("n", "gB", "<cmd>Lspsaga show_buf_diagnostics<cr>")
-keymap("n", "\\r", "<cmd>Lspsaga diagnostic_jump_prev<cr>")
-keymap("n", "\\f", "<cmd>Lspsaga diagnostic_jump_next<cr>")
-keymap("n", "\\t", function()
-	require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end)
-keymap("n", "\\g", function()
-	require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
-end)
 keymap("n", "gO", "<cmd>Lspsaga outline<cr>")
-keymap("n", "gh", "<cmd>Lspsaga hover_doc<cr>")
-keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<cr>")
 
 -- <Typerscript>
 keymap("n", "<leader>Ti", "<cmd>TypescriptAddMissingImports<cr>", opts)
@@ -108,6 +108,9 @@ keymap("n", "<leader>n", "<cmd>Navbuddy<cr>")
 -- <Inlay hints>
 keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
+-- <Code runner>
+keymap("n", "<leader>r", "<cmd>RunCode<cr>", opts)
+
 -- <Taboo>
 keymap("n", "<leader>R", ":TabooRename ", { noremap = true })
 keymap("n", "<leader>C", "<cmd>TabooReset<cr>", opts)
@@ -183,8 +186,8 @@ keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode aga
 keymap("n", "<c-j>", "gT", opts) --                            prev tab
 keymap("n", "<c-k>", "gt", opts) --                            next tab
 keymap("n", "<leader>t", "<cmd>tabclose<cr>", opts) --        close tab
-keymap("n", "<leader>>", "<cmd>tabmove +1<cr>", opts) --  tab move left
-keymap("n", "<leader><", "<cmd>tabmove -1<cr>", opts) -- tab move right
+keymap("n", "<leader>.", "<cmd>tabmove +1<cr>", opts) --  tab move left
+keymap("n", "<leader>,", "<cmd>tabmove -1<cr>", opts) -- tab move right
 keymap("n", "<leader>TT", "<cmd>tabo<cr>", opts) --      close all tabs
 
 -- Visual mode
@@ -300,6 +303,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader>v ~ inlay
 -- <leader>t ~ close tab
 -- <leader>p ~ treesj
+-- <leader>r ~ RunCode
 -- <leader>F ~ lazy menu
 -- <leader>G ~ code scratch
 -- <c-c> ~ (visual) move selected area left

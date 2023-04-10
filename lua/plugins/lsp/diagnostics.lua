@@ -15,17 +15,22 @@ function M.setup()
 		signs = {
 			active = signs, -- show signs
 		},
-		update_in_insert = true,
+		update_in_insert = false,
 		underline = true,
 		severity_sort = true,
 		float = {
 			focusable = true,
 			style = "minimal",
-			border = "rounded",
-			source = "always",
+			border = "single",
 			header = "",
-			prefix = "",
+			-- source = "always",
+			-- prefix = "",
 		},
+	})
+
+	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+		border = "single",
+		title = "   ",
 	})
 end
 

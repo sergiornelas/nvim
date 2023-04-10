@@ -18,4 +18,10 @@ return {
 		"seandewar/killersheep.nvim",
 		cmd = "KillKillKill",
 	},
+	{
+		"utilyre/sentiment.nvim",
+		event = "BufReadPost",
+		version = "*",
+		config = true,
+	},
 }
