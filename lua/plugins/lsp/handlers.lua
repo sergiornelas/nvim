@@ -25,38 +25,39 @@ keymap(
 )
 keymap("n", "gq", vim.diagnostic.setloclist)
 
-local keymaps = function(client, bufnr)
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	local lsp = vim.lsp.buf
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		-- Enable completion triggered by <c-x><c-o>
+		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-	if client.name == "tsserver" or client.name == "lua_ls" then
+		local lsp = vim.lsp.buf
+		local opts = { buffer = ev.buf }
 		-- keymap("n", "gD", lsp.declaration, bufopts)
-		keymap("n", "gd", lsp.definition, bufopts)
-		keymap("n", "gD", "<cmd>TypescriptGoToSourceDefinition<cr>", bufopts)
-		keymap("n", "gh", lsp.hover, bufopts)
-		keymap("n", "gI", lsp.implementation, bufopts)
-		keymap("n", "gs", lsp.signature_help, bufopts)
-		keymap("n", "gA", lsp.add_workspace_folder, bufopts)
-		keymap("n", "gF", lsp.remove_workspace_folder, bufopts)
+		keymap("n", "gd", lsp.definition, opts)
+		keymap("n", "gD", "<cmd>TypescriptGoToSourceDefinition<cr>", opts)
+		keymap("n", "gh", lsp.hover, opts)
+		keymap("n", "gI", lsp.implementation, opts)
+		keymap("n", "gs", lsp.signature_help, opts)
+		keymap("n", "gA", lsp.add_workspace_folder, opts)
+		keymap("n", "gF", lsp.remove_workspace_folder, opts)
 		keymap("n", "gW", function()
 			print(vim.inspect(lsp.list_workspace_folders()))
-		end, bufopts)
-		keymap("n", "gf", lsp.type_definition, bufopts)
-		keymap("n", "gr", lsp.rename, bufopts)
-		keymap({ "n", "v" }, "gc", lsp.code_action, bufopts)
+		end, opts)
+		keymap("n", "gf", lsp.type_definition, opts)
+		keymap("n", "gr", lsp.rename, opts)
+		keymap({ "n", "v" }, "gc", lsp.code_action, opts)
 		-- keymap("n", "gR", lsp.references, bufopts)
 		keymap("n", "g<leader>", function()
 			lsp.format({ async = true })
-		end, bufopts)
-	end
-	keymap("n", "gL", "<cmd>LspInfo<cr>", bufopts)
-end
+		end, opts)
+		keymap("n", "gL", "<cmd>LspInfo<cr>", opts)
+	end,
+})
 
 local M = {}
 
 M.on_attach = function(client, bufnr)
-	keymaps(client, bufnr)
 	nvim_navic.attach(client, bufnr)
 	require("nvim-navbuddy").attach(client, bufnr)
 	if client.name == "tsserver" then

@@ -24,8 +24,15 @@ return {
 					},
 					right = {
 						size = "30%",
-						preview = "never",
 					},
+				},
+			},
+			node_markers = {
+				enabled = true,
+				icons = {
+					leaf = "  ",
+					leaf_selected = " → ",
+					branch = " ",
 				},
 			},
 			use_default_mappings = false,
@@ -52,7 +59,14 @@ return {
 				["o"] = actions.select,
 				["J"] = actions.move_down,
 				["K"] = actions.move_up,
-				["p"] = actions.toggle_preview,
+				["t"] = actions.telescope({
+					layout_config = {
+						height = 0.60,
+						width = 0.60,
+						prompt_position = "top",
+						preview_width = 0.50,
+					},
+				}),
 			},
 			lsp = {
 				auto_attach = false, -- If set to true, you don't need to manually use attach function

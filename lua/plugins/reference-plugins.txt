@@ -13,6 +13,7 @@ aznhe21/actions-preview.nvim                        don't shows full code action
 kosayoda/nvim-lightbulb                                               lsp code action
 vigoux/notifier.nvim                                          show message lsp loaded
 jinzhongjia/LspUI.nvim saga mini                  code action and diagnostics limited
+glepnir/lspsaga.nvim                     code actions limited and brokes all the time
 tzachar/local-highlight.nvim                                 word illuminate (mature)
 nvim-telescope/telescope-ui-select.nvim currently using dressing (nvimtreeinputscool)
 
@@ -78,6 +79,7 @@ tzachar/cmp-tabnine
 jackMort/ChatGPT.nvim                                                         ChatGPT
 aduros/ai.vim                                                          openAI and GPT
 dense-analysis/neural                                     OpenAI and GPT-3 completion
+james1236/backseat.nvim          GPT to highlight and explain code readability issues
 
 COMPETITIVE CODING ------------------------------------------------------------------
 >> run = "cd js && npm ci" at lab plugin dir
@@ -134,4 +136,4 @@ Last time revisited all these plugins
 
 Last time checked Awesome and This-week-in-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-(04/04/23)
+(10/04/23)

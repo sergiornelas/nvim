@@ -10,19 +10,6 @@ return {
 		},
 	},
 	{
-		"anuvyklack/windows.nvim",
-		dependencies = "anuvyklack/middleclass",
-		event = "WinNew",
-		opts = {
-			autowidth = {
-				winwidth = 12,
-			},
-			animation = {
-				enable = false,
-			},
-		},
-	},
-	{
 		"nvim-zh/colorful-winsep.nvim",
 		no_exec_files = {},
 		opts = {

@@ -3,24 +3,10 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- <LSP Saga>
--- keymap({ "n", "x" }, "gc", "<cmd>Lspsaga code_action<cr>")
--- keymap("n", "gr", "<cmd>Lspsaga rename<cr>")
--- keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>")
--- keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<cr>")
--- keymap("n", "gB", "<cmd>Lspsaga show_buf_diagnostics<cr>")
--- keymap("n", "\\r", "<cmd>Lspsaga diagnostic_jump_prev<cr>")
--- keymap("n", "\\f", "<cmd>Lspsaga diagnostic_jump_next<cr>")
--- keymap("n", "\\t", function()
--- 	require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
--- end)
--- keymap("n", "\\g", function()
--- 	require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
--- end)
--- keymap("n", "gh", "<cmd>Lspsaga hover_doc<cr>")
-keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<cr>")
-keymap("n", "gR", "<cmd>Lspsaga rename ++project<cr>")
-keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>")
-keymap("n", "gO", "<cmd>Lspsaga outline<cr>")
+-- keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<cr>")
+-- keymap("n", "gR", "<cmd>Lspsaga rename ++project<cr>")
+-- keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>")
+-- keymap("n", "gO", "<cmd>Lspsaga outline<cr>")
 
 -- <Typerscript>
 keymap("n", "<leader>Ti", "<cmd>TypescriptAddMissingImports<cr>", opts)
@@ -155,6 +141,26 @@ if vim.fn.has("macunix") == 1 then
 else
 	keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<cr>", opts)
 end
+
+-- Auto windows resize
+vim.api.nvim_exec(
+	[[
+augroup ReduceNoise
+    autocmd!
+    autocmd WinEnter * :call ResizeSplits()
+    autocmd FileType NvimTree set winwidth&
+augroup END
+function! ResizeSplits()
+  for i in ['lua', 'text', 'markdown', 'gitignore', 'gitcommit', 'gitconfig', 'git', 'conf', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'json', 'css', 'html', 'groovy', 'scss', 'svg', 'jproperties', 'dosini', 'editorconfig', 'jsonc', 'sh', 'zsh', 'tmux', 'python', 'fish']
+    if &ft == i
+      set winwidth=110
+      wincmd =
+    endif
+  endfor
+endfunction
+]],
+	false
+)
 
 -- Navigation
 keymap("", "<leader>q", "<cmd>q<cr>", opts) --             close window
@@ -308,3 +314,4 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader>G ~ code scratch
 -- <c-c> ~ (visual) move selected area left
 -- <c-v> ~ (visual) move selected area right
+-- <c-h> ~ delete buffer
