@@ -8,6 +8,7 @@ return {
           \ 'javascriptreact': 'javascript',
           \ 'typescriptreact': 'typescript',
           \ }
+          let g:codi#autocmd = 'CursorHold'
 			 ]])
 		end,
 		-- npm i -g typescript

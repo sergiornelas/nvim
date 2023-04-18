@@ -3,7 +3,9 @@ return {
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 	},
-	cmd = "Navbuddy",
+	keys = {
+		{ "<leader>n", "<cmd>Navbuddy<cr>", desc = "Navbuddy" },
+	},
 	config = function()
 		local navbuddy_ok, navbuddy = pcall(require, "nvim-navbuddy")
 		if not navbuddy_ok then
@@ -66,6 +68,7 @@ return {
 						prompt_position = "top",
 						preview_width = 0.50,
 					},
+					layout_strategy = "horizontal",
 				}),
 			},
 			lsp = {

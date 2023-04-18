@@ -21,7 +21,7 @@ keymap("n", "m<leader>", "<cmd>GrappleToggle<cr>", opts)
 keymap("n", "mt", ":GrappleTag key=", { noremap = true })
 keymap("n", "mT", ":GrappleTag scope=global key=", { noremap = true })
 keymap("n", "mv", "<cmd>GrapplePopup tags<cr>", opts)
-keymap("n", "mG", "<cmd>lua require('grapple').popup_tags('global')<cr>", opts)
+keymap("n", "mG", "<c-w>s <cmd>lua require('grapple').popup_tags('global')<cr>", opts)
 keymap("n", "mf", "<cmd>GrappleSelect key=1<cr>", opts)
 keymap("n", "me", "<cmd>GrappleSelect key=2<cr>", opts)
 keymap("n", "mw", "<cmd>GrappleSelect key=3<cr>", opts)
@@ -55,6 +55,7 @@ keymap("", ",W", ":Neorg workspace ", { noremap = true })
 keymap("", ",i", "<cmd>Neorg index<cr>", opts)
 keymap("", ",t", "<cmd>Neorg toc<cr>", opts)
 keymap("", ",c", "<cmd>Neorg toggle-concealer<cr>", opts)
+keymap("", "<leader>x", "<cmd>Neorg context toggle<cr>:let &scrolloff=999-&scrolloff<cr><cmd>Twilight<cr>", opts)
 
 -- <Diff view git>
 keymap("", "<leader>d", "<cmd>DiffviewOpen<cr> | <cmd>TabooRename Diffview  <cr> ", opts)
@@ -87,9 +88,6 @@ keymap("n", "<leader>F", "<cmd>Lazy<cr>", opts)
 
 -- <Glance>
 keymap("n", "go", "<cmd>Glance references<cr>")
-
--- <Navbuddy>
-keymap("n", "<leader>n", "<cmd>Navbuddy<cr>")
 
 -- <Inlay hints>
 keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
@@ -142,26 +140,6 @@ else
 	keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<cr>", opts)
 end
 
--- Auto windows resize
-vim.api.nvim_exec(
-	[[
-augroup ReduceNoise
-    autocmd!
-    autocmd WinEnter * :call ResizeSplits()
-    autocmd FileType NvimTree set winwidth&
-augroup END
-function! ResizeSplits()
-  for i in ['lua', 'text', 'markdown', 'gitignore', 'gitcommit', 'gitconfig', 'git', 'conf', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'json', 'css', 'html', 'groovy', 'scss', 'svg', 'jproperties', 'dosini', 'editorconfig', 'jsonc', 'sh', 'zsh', 'tmux', 'python', 'fish']
-    if &ft == i
-      set winwidth=110
-      wincmd =
-    endif
-  endfor
-endfunction
-]],
-	false
-)
-
 -- Navigation
 keymap("", "<leader>q", "<cmd>q<cr>", opts) --             close window
 keymap("", "<leader>Q", "<cmd>q!<cr>", opts) -- close window and buffer
@@ -192,8 +170,8 @@ keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode aga
 keymap("n", "<c-j>", "gT", opts) --                            prev tab
 keymap("n", "<c-k>", "gt", opts) --                            next tab
 keymap("n", "<leader>t", "<cmd>tabclose<cr>", opts) --        close tab
-keymap("n", "<leader>.", "<cmd>tabmove +1<cr>", opts) --  tab move left
-keymap("n", "<leader>,", "<cmd>tabmove -1<cr>", opts) -- tab move right
+keymap("n", "<leader>>", "<cmd>tabmove +1<cr>", opts) --  tab move left
+keymap("n", "<leader><", "<cmd>tabmove -1<cr>", opts) -- tab move right
 keymap("n", "<leader>TT", "<cmd>tabo<cr>", opts) --      close all tabs
 
 -- Visual mode
@@ -308,6 +286,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader>n ~ navbuddy
 -- <leader>v ~ inlay
 -- <leader>t ~ close tab
+-- <leader>x ~ neorg twilight mode
 -- <leader>p ~ treesj
 -- <leader>r ~ RunCode
 -- <leader>F ~ lazy menu

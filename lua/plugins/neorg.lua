@@ -21,7 +21,7 @@ function M.config()
 					hook = function(keybinds)
 						keybinds.remap_event("norg", "n", "\\e", "core.integrations.treesitter.previous.heading")
 						keybinds.remap_event("norg", "n", "\\f", "core.integrations.treesitter.next.heading")
-						keybinds.remap_event("norg", "n", "gc", "core.looking-glass.magnify-code-block")
+						keybinds.remap_event("norg", "n", "g<space>", "core.looking-glass.magnify-code-block")
 						keybinds.remap_event("norg", "n", "\\v", "core.itero.next-iteration")
 						keybinds.remap_event("norg", "n", ",e", "core.integrations.telescope.find_linkable") -- go to other header from current workspace
 						keybinds.remap_event("norg", "n", ",l", "core.integrations.telescope.insert_file_link") -- insert file link from current workspace
@@ -48,7 +48,7 @@ function M.config()
 			["core.norg.concealer"] = {
 				config = {
 					dim_code_blocks = {
-						conceal = false,
+						conceal = true,
 					},
 					icon_preset = "varied",
 					icons = {
@@ -91,6 +91,16 @@ function M.config()
 			},
 			["core.integrations.telescope"] = {},
 			["external.context"] = {},
+			-- needs maturity
+			-- ["core.presenter"] = {
+			-- 	config = {
+			-- 		zen_mode = "zen-mode",
+			-- 		-- breaks with truezen plugin
+			-- 		-- pure ZenMode low fps
+			-- 		-- zen-mode.nvim only applies on heaader 1
+			-- 		-- zen-mode twilight no applies
+			-- 	},
+			-- },
 		},
 	})
 

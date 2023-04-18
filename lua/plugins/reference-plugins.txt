@@ -23,6 +23,7 @@ cshuaimin/ssr.nvim                                      structural search and re
 HiPhish/nvim-ts-rainbow2 rainbow                            (mat, tsx elem no colors)
 utilyre/sentiment.nvim                            parenthesis colorful bug (diffview)
 CKolkey/ts-node-action                                           (mature for jsx/tsx)
+lukas-reineke/headlines.nvim                neorg cool titles and niceties (slow fps)
 
 DEBUGGING ---------------------------------------------------------------------------
 mfusseneger/nvim-dap
@@ -80,6 +81,8 @@ jackMort/ChatGPT.nvim                                                         Ch
 aduros/ai.vim                                                          openAI and GPT
 dense-analysis/neural                                     OpenAI and GPT-3 completion
 james1236/backseat.nvim          GPT to highlight and explain code readability issues
+Bryley/neoai.nvim                                  brings the power of OpenAI's GPT-4
+Exafunction/codeium.vim        Free, ultrafast Copilot alternative for Vim and Neovim
 
 COMPETITIVE CODING ------------------------------------------------------------------
 >> run = "cd js && npm ci" at lab plugin dir
@@ -130,10 +133,11 @@ willothy/flatten.nvim                             open neovim file from nvim ter
 shellRaining/hlchunk.nvim                             cool indent line (mature (tsx))
 kevinhwang91/nvim-ufo                                10m loading, bug: folds all file
 VonHeikemen/fine-cmdline.nvim       cmdline float window. bad: press c-i twice always
+chrisgrieser/nvim-alt-substitute                                    better substitute
 
 Last time revisited all these plugins
 (07/03/23)
 
 Last time checked Awesome and This-week-in-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-(10/04/23)
+(18/04/23)

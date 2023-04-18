@@ -41,3 +41,6 @@ o.whichwrap:append("<,>,[,],h,l") -- keys allowed to move to the previous/next l
 o.wrap = false --              display lines as one long line
 o.writebackup = false --       if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 o.showtabline = 1 --           0: never, 1: only if there are at least two tab pages, 2: always
+o.winwidth = 10 --             Minimal number of columns for the current window.
+o.winminwidth = 10 --          The minimal width of a window, when it's not the current window.
+o.equalalways = false --       all the windows are automatically made the same size after splitting or closing a window.

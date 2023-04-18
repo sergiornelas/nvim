@@ -38,7 +38,11 @@ keymap("", "[", "$") --                                     G
 keymap("", "=", "%") --                                     J
 keymap("", "|", "&") --                                     K
 keymap("", "{", "`") --                                     V
-keymap("", "{{", "``") --                                   VV
+keymap("", "{#", "`u") --                                  VU
+keymap("", "{=", "`j") --                                  VJ
+keymap("", "{`", "`m") --                                  VM
+keymap("", "{|", "`k") --                                  VK
+keymap("", "{{", "``") --                                  VV
 keymap("", "`", "~") --                                     M
 
 -- NOTES
