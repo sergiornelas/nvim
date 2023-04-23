@@ -70,7 +70,7 @@ keymap("v", "<c-v>", ":MoveHBlock(1)<cr>", opts)
 
 -- <Windows>
 keymap("n", "<c-w><c-e>", "<cmd>WindowsMaximize<cr>", opts)
-keymap("n", "<c-w><c-q>", "<cmd>WindowsToggleAutowidth<cr>", opts)
+keymap("n", "<c-w><c-a>", "<cmd>WindowsToggleAutowidth<cr>", opts)
 
 -- <Illuminate>
 keymap("", "}", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
@@ -110,6 +110,9 @@ keymap("", "]", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
 
 -- <TreeSJ>
 keymap("", "<leader>p", "<cmd>TSJToggle<cr>", opts)
+
+-- <Nvim-tree>
+keymap("n", "<space>w", "<cmd>NvimTreeToggle<cr>", opts)
 
 -- <Gitsigns> and next/prev diff line
 vim.api.nvim_exec(
@@ -224,6 +227,7 @@ keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
 keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
 keymap("", "<leader>N", "<cmd>set nu!<cr>", opts) --          toggle set number
 keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) --         force exit neovim
+keymap("n", "<c-w><c-q>", "<cmd>wq<cr>", opts) --          save and exit neovim
 keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
 keymap("", "\\<leader>", "g;") --                       go to last changed line
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break

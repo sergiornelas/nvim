@@ -1,8 +1,7 @@
 local nvim_navic_ok, nvim_navic = pcall(require, "nvim-navic")
-local lsp_inlayhints_ok, lsp_inlayhints = pcall(require, "lsp-inlayhints")
 local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 
-if not nvim_navic_ok or not lsp_inlayhints_ok or not cmp_nvim_lsp_ok then
+if not nvim_navic_ok or not cmp_nvim_lsp_ok then
 	return
 end
 
@@ -61,7 +60,7 @@ M.on_attach = function(client, bufnr)
 	nvim_navic.attach(client, bufnr)
 	require("nvim-navbuddy").attach(client, bufnr)
 	if client.name == "tsserver" then
-		lsp_inlayhints.on_attach(client, bufnr) -- Typescript 4.4+
+		require("lsp-inlayhints").on_attach(client, bufnr) -- Typescript 4.4+
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
 	end

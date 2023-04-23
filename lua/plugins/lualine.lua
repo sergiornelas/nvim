@@ -9,8 +9,6 @@ function M.config()
 		return
 	end
 
-	local navic = require("nvim-navic")
-
 	lualine.setup({
 		options = {
 			icons_enabled = true,
@@ -39,16 +37,7 @@ function M.config()
 				},
 			},
 			lualine_b = { "diagnostics", { require("recorder").recordingStatus } },
-			lualine_c = {
-				{
-					function()
-						return navic.get_location()
-					end,
-					cond = function()
-						return navic.is_available()
-					end,
-				},
-			},
+			lualine_c = { "navic" },
 			lualine_x = {
 				{
 					require("lazy.status").updates,

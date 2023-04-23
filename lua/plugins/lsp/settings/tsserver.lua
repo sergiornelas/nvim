@@ -1,7 +1,7 @@
 -- https://github.com/typescript-language-server/typescript-language-server
 return {
 	settings = {
-		javascript = {
+		typescript = {
 			inlayHints = {
 				includeInlayParameterNameHints = "all",
 				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
@@ -12,7 +12,7 @@ return {
 				includeInlayEnumMemberValueHints = true,
 			},
 		},
-		typescript = {
+		javascript = {
 			inlayHints = {
 				includeInlayParameterNameHints = "all",
 				includeInlayParameterNameHintsWhenArgumentMatchesName = false,

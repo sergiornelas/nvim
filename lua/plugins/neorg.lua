@@ -29,11 +29,13 @@ function M.config()
 						keybinds.remap_event("norg", "n", ",nf", "core.integrations.telescope.find_norg_files") -- find files in current workspace, not useful
 						keybinds.remap_event("norg", "n", ",s", "core.integrations.telescope.switch_workspace") -- not useful
 						keybinds.remap_event("norg", "n", ",L", "core.integrations.telescope.insert_link") -- not working
+						keybinds.remap_event("norg", "n", ",z", "core.pivot.toggle-list-type") -- inverts all the other items in that list.
+						keybinds.remap_event("norg", "n", ",x", "core.pivot.invert-list-type") -- inverts all the other items in that list, however respects mixed lists
 					end,
 					-- default_keybinds = false,
 				},
 			},
-			["core.norg.dirman"] = {
+			["core.dirman"] = {
 				config = {
 					workspaces = {
 						wiki = "~/notes/wiki",
@@ -45,7 +47,7 @@ function M.config()
 					open_last_workspace = false,
 				},
 			},
-			["core.norg.concealer"] = {
+			["core.concealer"] = {
 				config = {
 					dim_code_blocks = {
 						conceal = true,
@@ -78,12 +80,12 @@ function M.config()
 					},
 				},
 			},
-			["core.norg.completion"] = {
+			["core.completion"] = {
 				config = {
 					engine = "nvim-cmp",
 				},
 			},
-			["core.norg.qol.toc"] = {
+			["core.qol.toc"] = {
 				config = {
 					default_toc_mode = "split",
 					toc_split_placement = "right",
@@ -97,7 +99,7 @@ function M.config()
 			-- 		zen_mode = "zen-mode",
 			-- 		-- breaks with truezen plugin
 			-- 		-- pure ZenMode low fps
-			-- 		-- zen-mode.nvim only applies on heaader 1
+			-- 		-- zen-mode.nvim only applies on header 1
 			-- 		-- zen-mode twilight no applies
 			-- 	},
 			-- },
