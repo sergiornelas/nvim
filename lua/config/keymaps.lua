@@ -44,7 +44,7 @@ keymap("", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<cr>"
 keymap("i", "<c-r>", "<cmd>Telescope registers theme=cursor layout_config={height=0.3}<cr>", opts)
 
 -- <LSP-Signature>
-keymap({ "n", "i" }, "<c-s>", function()
+keymap("i", "<c-s>", function()
 	require("lsp_signature").toggle_float_win()
 end, opts)
 
@@ -79,6 +79,9 @@ keymap("", "*", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", 
 -- <Swap-split>
 keymap("", "<c-w><c-u>", "<cmd>SwapSplit<cr>", opts)
 keymap("", "<c-w>u", "<cmd>SwapSplit<cr>", opts)
+
+-- <Session>
+keymap("n", "<c-s>", "<cmd>lua require('auto-session.session-lens').search_session()<cr>", opts)
 
 -- <Color picker>
 keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
@@ -123,14 +126,21 @@ vim.api.nvim_exec(
 	false
 )
 
--- <Codi-Runner> and <Neorg> refresh
+-- <Codi-Runner> and <Neorg> refresh (Codi suspended temporally)
+keymap(
+	"n",
+	"<leader>G",
+	"<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>TabooRename Scratch 󰙏 <cr><cmd>RunCode<cr>",
+	opts
+)
 vim.api.nvim_exec(
 	[[
-  nnoremap <leader>G :tabnew ~/scratchFiles/scratch.ts<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
+  " nnoremap <leader>G :tabnew ~/scratchFiles/scratch.ts<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
   aug doubleleaderbinds
     au! doubleleaderbinds
     au FileType norg nnoremap <buffer> <silent> <leader><leader> <cmd>Neorg toggle-concealer<cr><cmd>Neorg toggle-concealer<cr>
-    au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <buffer> <silent> <leader><leader> <cmd>RunClose<cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
+    " au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <buffer> <silent> <leader><leader> <cmd>RunClose<cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
+    au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <buffer> <silent> <leader><leader> <cmd>RunClose<cr><cmd>RunCode<cr>
   aug end
 ]],
 	false
@@ -228,6 +238,7 @@ keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
 keymap("", "<leader>N", "<cmd>set nu!<cr>", opts) --          toggle set number
 keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) --         force exit neovim
 keymap("n", "<c-w><c-q>", "<cmd>wq<cr>", opts) --          save and exit neovim
+keymap("n", "<leader><c-h>", "<cmd>bd!<cr>", opts) --     delete written buffer
 keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
 keymap("", "\\<leader>", "g;") --                       go to last changed line
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break

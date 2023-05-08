@@ -39,7 +39,8 @@ function M.config()
 	keymap({ "o", "x" }, "n", "<cmd>lua require('various-textobjs').nearEoL()<cr>")
 
 	-- current line, but characterwise
-	keymap({ "o", "x" }, "_", "<cmd>lua require('various-textobjs').lineCharacterwise()<cr>")
+	keymap({ "o", "x" }, "i_", "<cmd>lua require('various-textobjs').lineCharacterwise(true)<cr>")
+	keymap({ "o", "x" }, "a_", "<cmd>lua require('various-textobjs').lineCharacterwise(false)<cr>")
 
 	-- column down until indent or shorter line. Accepts {count} for multiple columns.
 	keymap({ "o", "x" }, "|", "<cmd>lua require('various-textobjs').column()<cr>")
@@ -54,10 +55,6 @@ function M.config()
 
 	-- link beginning with "http"
 	keymap({ "o", "x" }, "U", "<cmd>lua require('various-textobjs').url()<cr>")
-
-	-- numbers, similar to <C-a>
-	keymap({ "o", "x" }, "in", "<cmd>lua require('various-textobjs').number(true)<cr>")
-	keymap({ "o", "x" }, "an", "<cmd>lua require('various-textobjs').number(false)<cr>")
 
 	-- LSP diagnostic (requires built-in LSP)
 	keymap({ "o", "x" }, "!", "<cmd>lua require('various-textobjs').diagnostic()<cr>")

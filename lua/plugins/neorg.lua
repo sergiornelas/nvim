@@ -113,6 +113,7 @@ function M.config()
 	-- brew info gcc
 	-- ln -s /usr/local/Cellar/gcc/<version>/bin/gcc-<version 11|12> /usr/local/bin/cc
 	-- real: ln -s /usr/local/Cellar/gcc/12.2.0/bin/gcc-12 /usr/local/bin/cc
+	-- tip: when you update cc/gcc, you'll have to delete the /usr/local/bin/cc file in order to create a new one.
 end
 
 return M

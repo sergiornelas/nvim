@@ -2,7 +2,7 @@ return {
 	{
 		"windwp/nvim-ts-autotag",
 		dependencies = "nvim-treesitter",
-		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+		ft = { "javascriptreact", "typescriptreact" },
 	},
 	{
 		"uga-rosa/ccc.nvim",

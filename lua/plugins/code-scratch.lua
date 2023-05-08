@@ -18,6 +18,7 @@ return {
 	{
 		"CRAG666/code_runner.nvim",
 		cmd = { "RunCode", "RunFile" },
+		-- commit = "a010649236fe245eaab2641a13228cd601499715", (last commit warning prompt using codi)
 		opts = {
 			focus = false,
 			startinsert = false,

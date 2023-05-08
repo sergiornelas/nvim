@@ -34,6 +34,10 @@ function M.config()
 		post_restore_cmds = { "lua require('incline').enable()" },
 		-- pre_delete_cmds
 		-- post_delete_cmds
+		session_lens = {
+			prompt_title = "~ Teleport ~",
+			path_display = { "shorten" },
+		},
 	})
 
 	vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,globals"
