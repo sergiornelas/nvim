@@ -16,7 +16,6 @@ jinzhongjia/LspUI.nvim saga mini                  code action and diagnostics li
 glepnir/lspsaga.nvim                     code actions limited and brokes all the time
 tzachar/local-highlight.nvim                                 word illuminate (mature)
 nvim-telescope/telescope-ui-select.nvim currently using dressing (nvimtreeinputscool)
-dmmulroy/tsc.nvim                      run typescript projects displays quickfix list
 VidocqH/lsp-lens.nvim                                  show definition and references
 
 TREESITTER --------------------------------------------------------------------------
@@ -137,13 +136,14 @@ kevinhwang91/nvim-ufo                                10m loading, bug: folds all
 VonHeikemen/fine-cmdline.nvim       cmdline float window. bad: press c-i twice always
 chrisgrieser/nvim-alt-substitute                                    better substitute
 AckslD/muren.nvim                                              replace multiple words
+imNel/monorepo.nvim                                  multiple projects inside project
 
 Last time revisited all these plugins
 07/03/23
 
 Last time checked this-week-in-neovim
-Apr 17
+May 08
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-06/05/23
+May 08

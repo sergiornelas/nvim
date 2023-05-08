@@ -1,9 +1,7 @@
 local M = {
 	"neovim/nvim-lspconfig",
-	event = "BufReadPre",
+	ft = { "lua", "html", "css", "json", "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	dependencies = {
-		"mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
 		{
 			"lvimuser/lsp-inlayhints.nvim",
 			config = true,
