@@ -2,15 +2,20 @@ return {
 	{
 		"eandrju/cellular-automaton.nvim",
 		cmd = "CellularAutomaton",
+		keys = {
+			{
+				"]",
+				"<cmd>CellularAutomaton make_it_rain<cr>",
+			},
+		},
 	},
 	{
 		"seandewar/killersheep.nvim",
-		cmd = "KillKillKill",
-	},
-	{
-		"utilyre/sentiment.nvim",
-		event = "BufReadPost",
-		version = "*",
-		config = true,
+		keys = {
+			{
+				"<leader>KK",
+				"<cmd>KillKillKill<cr>",
+			},
+		},
 	},
 }

@@ -1,7 +1,6 @@
-local nvim_navic_ok, nvim_navic = pcall(require, "nvim-navic")
 local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 
-if not nvim_navic_ok or not cmp_nvim_lsp_ok then
+if not cmp_nvim_lsp_ok then
 	return
 end
 
@@ -57,7 +56,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 local M = {}
 
 M.on_attach = function(client, bufnr)
-	nvim_navic.attach(client, bufnr)
+	require("nvim-navic").attach(client, bufnr)
 	require("nvim-navbuddy").attach(client, bufnr)
 	if client.name == "tsserver" then
 		require("lsp-inlayhints").on_attach(client, bufnr) -- Typescript 4.4+

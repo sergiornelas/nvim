@@ -27,6 +27,7 @@ local M = {
 								keybinds.remap_event("norg", "n", "\\f", "core.integrations.treesitter.next.heading")
 								keybinds.remap_event("norg", "n", "g<space>", "core.looking-glass.magnify-code-block")
 								keybinds.remap_event("norg", "n", "\\v", "core.itero.next-iteration")
+								keybinds.remap_event("norg", "i", "<cr>", "core.itero.next-iteration")
 								keybinds.remap_event("norg", "n", ",e", "core.integrations.telescope.find_linkable") -- go to other header from current workspace
 								keybinds.remap_event("norg", "n", ",l", "core.integrations.telescope.insert_file_link") -- insert file link from current workspace
 								keybinds.remap_event("norg", "n", ",f", "core.integrations.telescope.search_headings") -- current file headers
@@ -91,12 +92,10 @@ local M = {
 					},
 					["core.qol.toc"] = {
 						config = {
-							default_toc_mode = "split",
-							toc_split_placement = "right",
+							close_after_use = true,
 						},
 					},
 					["core.integrations.telescope"] = {},
-					["external.context"] = {},
 					-- needs maturity
 					-- ["core.presenter"] = {
 					-- 	config = {
@@ -119,10 +118,6 @@ local M = {
 			-- real: ln -s /usr/local/Cellar/gcc/12.2.0/bin/gcc-12 /usr/local/bin/cc
 			-- tip: when you update cc/gcc, you'll have to delete the /usr/local/bin/cc file in order to create a new one.
 		end,
-	},
-	{
-		"max397574/neorg-contexts",
-		ft = "norg",
 	},
 	{
 		"m4xshen/smartcolumn.nvim",

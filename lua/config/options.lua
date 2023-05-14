@@ -6,6 +6,7 @@ o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 o.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 o.conceallevel = 2 --          so that `` is visible in markdown files, useful for neorg files
 o.cursorline = true --         highlight the current line
+o.equalalways = false --       all the windows are automatically made the same size after splitting or closing a window.
 o.expandtab = true --          convert tabs to spaces
 o.fileencoding = "utf-8" --    the encoding written to a file
 o.fillchars.eob = " " --       show empty lines at the end of a buffer as ` ` (default `~`)
@@ -25,6 +26,7 @@ o.shortmess:append("c") --     hide all the completion messages, e.g. "-- XXX co
 o.showcmd = false --           hide (partial) command in the last line of the screen (for performance)
 o.showmode = false --          we don't need to see things like --INSERT-- anymore
 o.showtabline = 0 --           always show tabs
+o.showtabline = 1 --           0: never, 1: only if there are at least two tab pages, 2: always
 o.sidescrolloff = 8 --         minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
 o.signcolumn = "yes" --        always show the sign column, otherwise it would shift the text each time
 o.smartcase = true --          smart case
@@ -38,9 +40,7 @@ o.timeoutlen = 1000 --         time to wait for a mapped sequence to complete (i
 o.undofile = true --           enable persistent undo
 o.updatetime = 200 --          faster completion (4000ms default)
 o.whichwrap:append("<,>,[,],h,l") -- keys allowed to move to the previous/next line when the beginning/end of line is reached
+o.winminwidth = 10 --          The minimal width of a window, when it's not the current window.
+o.winwidth = 10 --             Minimal number of columns for the current window.
 o.wrap = false --              display lines as one long line
 o.writebackup = false --       if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-o.showtabline = 1 --           0: never, 1: only if there are at least two tab pages, 2: always
-o.winwidth = 10 --             Minimal number of columns for the current window.
-o.winminwidth = 10 --          The minimal width of a window, when it's not the current window.
-o.equalalways = false --       all the windows are automatically made the same size after splitting or closing a window.

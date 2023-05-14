@@ -53,9 +53,9 @@ keymap("", "mg", "<c-w>s<cmd>Neorg workspace todo<cr>", opts)
 keymap("", "mq", "<cmd>Neorg return<cr>", opts)
 keymap("", ",W", ":Neorg workspace ", { noremap = true })
 keymap("", ",i", "<cmd>Neorg index<cr>", opts)
-keymap("", ",t", "<cmd>Neorg toc<cr>", opts)
+keymap("", ",tt", "<cmd>Neorg toc<cr>", opts)
 keymap("", ",c", "<cmd>Neorg toggle-concealer<cr>", opts)
-keymap("", "<leader>x", "<cmd>Neorg context toggle<cr>:let &scrolloff=999-&scrolloff<cr><cmd>Twilight<cr>", opts)
+keymap("", "<leader>x", ":let &scrolloff=999-&scrolloff<cr><cmd>Twilight<cr>", opts)
 
 -- <Diff view git>
 keymap("", "<leader>d", "<cmd>DiffviewOpen<cr> | <cmd>TabooRename Diffview  <cr> ", opts)
@@ -71,6 +71,10 @@ keymap("v", "<c-v>", ":MoveHBlock(1)<cr>", opts)
 -- <Windows>
 keymap("n", "<c-w><c-e>", "<cmd>WindowsMaximize<cr>", opts)
 keymap("n", "<c-w><c-a>", "<cmd>WindowsToggleAutowidth<cr>", opts)
+
+-- <Taboo>
+keymap("n", "<leader>R", ":TabooRename ", { noremap = true })
+keymap("n", "<leader>C", "<cmd>TabooReset<cr>", opts)
 
 -- <Illuminate>
 keymap("", "}", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
@@ -98,18 +102,21 @@ keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 -- <Code runner>
 keymap("n", "<leader>r", "<cmd>RunCode<cr>", opts)
 
--- <Taboo>
-keymap("n", "<leader>R", ":TabooRename ", { noremap = true })
-keymap("n", "<leader>C", "<cmd>TabooReset<cr>", opts)
+-- <Treesitter context>
+vim.api.nvim_exec(
+	[[
+  nnoremap gk :lua require("treesitter-context").go_to_context()<cr> | :autocmd CursorHold * normal! m'<cr>
+]],
+	false
+)
+
+-- nnoremap gk :lua require("treesitter-context").go_to_context()<cr> | :autocmd CursorHold * normal! m'<cr>
 
 -- <Bufferdelete>
 keymap("n", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
 
 -- <Mini trailspace>
 keymap("", "<leader>b", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
-
--- <Cellular-automaton>
-keymap("", "]", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
 
 -- <TreeSJ>
 keymap("", "<leader>p", "<cmd>TSJToggle<cr>", opts)
@@ -228,7 +235,6 @@ keymap("n", "gM", "gm", opts)
 keymap("n", "U", "<c-r>", opts) --                                         redo
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
 keymap("", "<leader>h", "<cmd>set hlsearch!<cr>", opts) --           highlights
-keymap("n", "<leader>KK", "<cmd>KillKillKill<cr>", opts) --          sheep game
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) --                        exit neovim
 keymap("n", "<leader>V", ":verbose map ", { noremap = true }) --  check mapping
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
@@ -261,8 +267,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- z, m
 
 -- G maps available:
--- y, i (goes insert where stopped)
--- k
+-- y, i (goes insert where stopped) p
 -- <cr>
 
 -- <leader> maps available:
