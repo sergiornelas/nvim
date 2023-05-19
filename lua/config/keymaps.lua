@@ -77,7 +77,7 @@ keymap("n", "<leader>R", ":TabooRename ", { noremap = true })
 keymap("n", "<leader>C", "<cmd>TabooReset<cr>", opts)
 
 -- <Illuminate>
-keymap("", "}", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
+keymap("", "@", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
 keymap("", "*", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", opts)
 
 -- <Swap-split>
@@ -103,14 +103,7 @@ keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 keymap("n", "<leader>r", "<cmd>RunCode<cr>", opts)
 
 -- <Treesitter context>
-vim.api.nvim_exec(
-	[[
-  nnoremap gk :lua require("treesitter-context").go_to_context()<cr> | :autocmd CursorHold * normal! m'<cr>
-]],
-	false
-)
-
--- nnoremap gk :lua require("treesitter-context").go_to_context()<cr> | :autocmd CursorHold * normal! m'<cr>
+keymap("n", "\\j", "<cmd>lua require('treesitter-context').go_to_context()<cr>", opts)
 
 -- <Bufferdelete>
 keymap("n", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
@@ -224,8 +217,8 @@ keymap({ "n", "v" }, "x", '"_x', opts)
 keymap({ "n", "v" }, "X", '"_X', opts)
 
 -- Switch jumps
-keymap("n", "<c-o>", "<c-i>", opts)
-keymap("n", "<c-i>", "<c-o>", opts)
+keymap("n", "<c-o>", "<c-i>zz", opts)
+keymap("n", "<c-i>", "<c-o>zz", opts)
 
 -- Switch middle cursor
 keymap("n", "gm", "gM", opts)
@@ -297,7 +290,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- \ maps available:
 -- y, u, i, o, p
 -- h, k, l
--- z, x, b, n
+-- z, x, b, n, m
 
 -- q maps available:
 -- yank + key

@@ -5,20 +5,23 @@
 
 --  WRITING       VIM EFFECT
 -- ---------------------------
--- &?/+* #$% \^   ˙?/{˙ #)( \^
+-- &?/+* #$~ \^   ˙?/{˙ #$~ \^
 -- QWERT˙UIO˙     QWERT˙UIO˙
---  (;)-[]=|~      ^=*}$˙%&~
---  ASDFGHJKL      ASDFGHJKL
---   ! _{@}`        ! _`˙˙~
---   Z˙CVBNM        Z˙CVBNM
+--  ()=-[];|       ^=*}$˙%|˙
+--  ASDFGHJK˙      ASDFGHJK˙
+--   !%_{}@`        ,%;`˙˙`
+--   ZXCVBNM        ZXCVBNM
 
--- Y, P, X are ignored by the writing layer, difficult to type
--- T/N are mapped for illuminate
--- Q/B are mapped for nvim-recorder
--- H is mapped for CellularAutomaton
--- Z, M/L, ^ are free for vim effect
--- \ is already mapped by multiple plugins and actions
--- +-][| missing mapped vim effect
+-- Y, P, L are ignored by the writing layer, difficult to type
+-- Plugins:
+--    T/N are mapped for illuminate
+--    Q/B/H are mapped for nvim-recorder
+--      , is mapped for neorg keymaps
+--      \ is mapped for various plugins
+--      @ is replaced by nvim-recorder
+
+-- I, ^, K, X, M             are free for vim effect (repeated or useless (K))
+-- &, +, (, ), -, [, ], !, _ missing mapped vim effect
 
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
@@ -26,24 +29,22 @@ local opts = { noremap = true, silent = true }
 keymap("", "+", ":keepjumps norm! '{'<cr>", opts) --        R
 keymap("x", "+", ":<c-u>keepjumps norm! gv{'<cr>", opts) -- R
 keymap("x", "#", 'y?\\V<c-r>"<cr><cmd>AutoHlsearch<cr>') -- U
-keymap("", "$", ")") --                                     I
-keymap("", "%", "(") --                                     O
 keymap("", "(", "^") --                                     A
-keymap("", ";", "=") --                                     S
-keymap("", ")", "*<cmd>AutoHlsearch<cr>") --                D
-keymap("x", ")", 'y/\\V<c-r>"<cr><cmd>AutoHlsearch<cr>') -- D
+keymap("", ")", "=") --                                     S
+keymap("", "=", "*<cmd>AutoHlsearch<cr>") --                D
+keymap("x", "=", 'y/\\V<c-r>"<cr><cmd>AutoHlsearch<cr>') -- D
 keymap("", "-", ":keepjumps norm! '}'<cr>", opts) --        F
 keymap("x", "-", ":<c-u>keepjumps norm! gv}'<cr>", opts) -- F
 keymap("", "[", "$") --                                     G
-keymap("", "=", "%") --                                     J
-keymap("", "|", "&") --                                     K
+keymap("", ";", "%") --                                     J
+keymap("", "!", ",") --                                     Z
+keymap("", "_", ";") --                                     C
 keymap("", "{", "`") --                                     V
 keymap("", "{#", "`u") --                                  VU
-keymap("", "{=", "`j") --                                  VJ
+keymap("", "{;", "`j") --                                  VJ
 keymap("", "{`", "`m") --                                  VM
 keymap("", "{|", "`k") --                                  VK
 keymap("", "{{", "``") --                                  VV
-keymap("", "`", "~") --                                     M
 
 -- NOTES
 -- You could think that you can map W (?) for a different one

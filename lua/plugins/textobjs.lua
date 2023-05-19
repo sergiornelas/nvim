@@ -22,6 +22,20 @@ function M.config()
 	-- indentation (mini.indentscope does a better job)
 	-- restOfIndentation not really that useful
 
+	-- delete surrounding indentation
+	keymap("n", "dsi", function()
+		textobjs.indentation(true, true)
+		local notOnIndentedLine = vim.fn.mode():find("V") == nil
+		if notOnIndentedLine then
+			return
+		end
+		vim.cmd.normal({ ">", bang = true })
+		local endBorderLn = vim.api.nvim_buf_get_mark(0, ">")[1] + 1
+		local startBorderLn = vim.api.nvim_buf_get_mark(0, "<")[1] - 1
+		vim.cmd(tostring(endBorderLn) .. " delete")
+		vim.cmd(tostring(startBorderLn) .. " delete")
+	end)
+
 	-- like iw, but treating -, _, and . as word delimiters and only part of camelCase
 	keymap({ "o", "x" }, "iS", "<cmd>lua require('various-textobjs').subword(true)<cr>")
 	keymap({ "o", "x" }, "aS", "<cmd>lua require('various-textobjs').subword(false)<cr>")

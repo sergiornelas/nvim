@@ -33,8 +33,8 @@ function M.config()
 			-- height = 0.60, (percentages)
 			-- width = { 0.52, max = 0.52, min = 0.52 },
 			-- initial_mode = "insert",
-			prompt_prefix = " ",
-			selection_caret = " ",
+			prompt_prefix = "  ",
+			selection_caret = "  ",
 			path_display = { "smart" },
 			mappings = {
 				i = {

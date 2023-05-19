@@ -7,12 +7,12 @@ return {
 			slots = { "a", "b" },
 			-- Default keymaps
 			mapping = {
-				startStopRecording = "@",
+				startStopRecording = "}",
 				playMacro = "&",
 				switchSlot = "<leader>&",
 				editMacro = "cq",
 				yankMacro = "qm", -- also decodes it for turning macros to mappings
-				addBreakPoint = "^",
+				addBreakPoint = "]",
 				-- addBreakPoint = "##", -- ⚠️ this should be a string you don't use in insert mode during a macro
 			},
 			-- clear all macros-slots on startup

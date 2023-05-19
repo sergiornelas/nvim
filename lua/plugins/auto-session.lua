@@ -36,6 +36,7 @@ function M.config()
 		-- post_delete_cmds
 		session_lens = {
 			prompt_title = "~ Teleport ~",
+			theme_conf = { layout_config = { width = 0.35 }, prompt_prefix = "󱓞  " },
 			path_display = { "shorten" },
 		},
 	})

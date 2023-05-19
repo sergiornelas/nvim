@@ -99,6 +99,8 @@ PROJECT ------------------------------------------------------------------------
 smartpde/neoscopes                             light project magagement (interesting)
 charludo/projectmgr.nvim                                      switch between projects
 GnikDroy/projections.nvim                                             project/session
+imNel/monorepo.nvim                            multiple projects scope inside project
+aaditeynair/conduct.nvim multiple sessions one project (mature autoload project root)
 
 NOTES -------------------------------------------------------------------------------
 folke/todo-comments.nvim                                                 pretty notes
@@ -136,14 +138,13 @@ kevinhwang91/nvim-ufo                                10m loading, bug: folds all
 VonHeikemen/fine-cmdline.nvim       cmdline float window. bad: press c-i twice always
 chrisgrieser/nvim-alt-substitute                                    better substitute
 AckslD/muren.nvim                                              replace multiple words
-imNel/monorepo.nvim                                  multiple projects inside project
 
 Last time revisited all these plugins
 07/03/23
 
 Last time checked this-week-in-neovim
-May 08
+May 15
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-May 08
+May 16
