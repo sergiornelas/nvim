@@ -25,7 +25,7 @@ function M.config()
 			-- Actions
 			map({ "n", "v" }, "<leader>e", ":Gitsigns stage_hunk<cr>")
 			map({ "n", "v" }, "<leader>jr", ":Gitsigns reset_hunk<cr>")
-			map("n", "<leader>jw", gs.stage_buffer)
+			map("n", "<leader>je", gs.stage_buffer)
 			map("n", "<leader>ju", gs.undo_stage_hunk)
 			map("n", "<leader>jR", gs.reset_buffer)
 			map("n", "<leader>g", gs.preview_hunk)

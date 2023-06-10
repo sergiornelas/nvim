@@ -17,6 +17,7 @@ glepnir/lspsaga.nvim                     code actions limited and brokes all the
 tzachar/local-highlight.nvim                                 word illuminate (mature)
 nvim-telescope/telescope-ui-select.nvim currently using dressing (nvimtreeinputscool)
 VidocqH/lsp-lens.nvim                                  show definition and references
+Bekaboo/dropbar.nvim                             IDE-like breadcrumbs, out of the box
 
 TREESITTER --------------------------------------------------------------------------
 ziontee113/syntax-tree-surfer                                            TS navigator
@@ -84,6 +85,8 @@ dense-analysis/neural                                     OpenAI and GPT-3 compl
 james1236/backseat.nvim          GPT to highlight and explain code readability issues
 Bryley/neoai.nvim                                  brings the power of OpenAI's GPT-4
 Exafunction/codeium.vim        Free, ultrafast Copilot alternative for Vim and Neovim
+tdfacer/explain-it.nvim                     Ask a question, and let robots explain-it
+Dhanus3133/Leetbuddy.nvim                  Enables seamless integration with Leetcode
 
 COMPETITIVE CODING ------------------------------------------------------------------
 >> run = "cd js && npm ci" at lab plugin dir
@@ -142,9 +145,10 @@ AckslD/muren.nvim                                              replace multiple 
 Last time revisited all these plugins
 07/03/23
 
+====================
 Last time checked this-week-in-neovim
-May 15
+Jun 07
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-May 16
+Jun 09

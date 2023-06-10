@@ -143,4 +143,23 @@ return {
 		"Tsuzat/NeoSolarized.nvim",
 		keys = lazy_map,
 	},
+	{
+		"ribru17/bamboo.nvim",
+		keys = lazy_map,
+		config = function()
+			require("bamboo").setup({
+				transparent = true,
+			})
+		end,
+	},
+	{
+		"maxmx03/fluoromachine.nvim",
+		keys = lazy_map,
+		config = function()
+			require("fluoromachine").setup({
+				glow = true,
+				transparent = true,
+			})
+		end,
+	},
 }
