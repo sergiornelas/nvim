@@ -225,7 +225,6 @@ keymap("n", "gm", "gM", opts)
 keymap("n", "gM", "gm", opts)
 
 -- Utils
-keymap("n", "U", "<c-r>", opts) --                                         redo
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
 keymap("", "<leader>h", "<cmd>set hlsearch!<cr>", opts) --           highlights
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) --                        exit neovim

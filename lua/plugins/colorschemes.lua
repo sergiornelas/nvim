@@ -162,4 +162,25 @@ return {
 			})
 		end,
 	},
+	{
+		"ramojus/mellifluous.nvim",
+		keys = lazy_map,
+		opts = {
+			transparent_background = {
+				enabled = true,
+			},
+		},
+	},
+	{
+		"sekke276/dark_flat.nvim",
+		keys = lazy_map,
+		opts = {
+			transparent = true,
+		},
+	},
+	-- wait for transparency:
+	{
+		"dasupradyumna/midnight.nvim",
+		keys = lazy_map,
+	},
 }

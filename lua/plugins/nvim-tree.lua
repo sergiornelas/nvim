@@ -93,17 +93,6 @@ function M.config()
 		respect_buf_cwd = true, --Will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
 		renderer = {
 			highlight_opened_files = "icon",
-			icons = {
-				glyphs = {
-					git = {
-						unstaged = "🐻",
-					},
-					folder = {
-						arrow_closed = "",
-						arrow_open = "",
-					},
-				},
-			},
 			indent_markers = {
 				enable = false,
 			},

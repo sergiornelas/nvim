@@ -18,6 +18,7 @@ tzachar/local-highlight.nvim                                 word illuminate (ma
 nvim-telescope/telescope-ui-select.nvim currently using dressing (nvimtreeinputscool)
 VidocqH/lsp-lens.nvim                                  show definition and references
 Bekaboo/dropbar.nvim                             IDE-like breadcrumbs, out of the box
+pmizio/typescript-tools.nvim              tsserver fast (not really, wait for mature)
 
 TREESITTER --------------------------------------------------------------------------
 ziontee113/syntax-tree-surfer                                            TS navigator
@@ -73,6 +74,7 @@ numToStr/prettierrc.nvim                                         prettier altern
 ray-x/web-tools.nvim                                         live server for html/css
 Azeirah/nvim-redux                                                    redux telescope
 barrett-ruth/import-cost.nvim                                  cost memory of imports
+tomiis4/hypersonic.nvim                                         explanation for regex
 
 ARTIFICIAL INTELIGENCE --------------------------------------------------------------
 github/copilot.vim
@@ -87,6 +89,7 @@ Bryley/neoai.nvim                                  brings the power of OpenAI's 
 Exafunction/codeium.vim        Free, ultrafast Copilot alternative for Vim and Neovim
 tdfacer/explain-it.nvim                     Ask a question, and let robots explain-it
 Dhanus3133/Leetbuddy.nvim                  Enables seamless integration with Leetcode
+svermeulen/text-to-colorscheme                    colorscheme generator with chat gpt
 
 COMPETITIVE CODING ------------------------------------------------------------------
 >> run = "cd js && npm ci" at lab plugin dir
@@ -141,14 +144,20 @@ kevinhwang91/nvim-ufo                                10m loading, bug: folds all
 VonHeikemen/fine-cmdline.nvim       cmdline float window. bad: press c-i twice always
 chrisgrieser/nvim-alt-substitute                                    better substitute
 AckslD/muren.nvim                                              replace multiple words
+HampusHauffman/block.nvim                                        colorful nested code
+zaldih/themery.nvim                                       colorschemes changing tools
 
 Last time revisited all these plugins
 07/03/23
 
 ====================
-Last time checked this-week-in-neovim
-Jun 07
+Last time checked this-week-in-neovim (maybe dead)
+Jun 12
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Jun 09
+Jun 28
+
+Last time checked reddit neovim
+Check the same day as the last one in order to make sure of not forget a plugin
+Jun 28

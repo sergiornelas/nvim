@@ -37,8 +37,8 @@ keymap("", "-", ":keepjumps norm! '}'<cr>", opts) --        F
 keymap("x", "-", ":<c-u>keepjumps norm! gv}'<cr>", opts) -- F
 keymap("", "[", "$") --                                     G
 keymap("", ";", "%") --                                     J
-keymap("", "!", ",") --                                     Z
-keymap("", "_", ";") --                                     C
+-- keymap("", "!", ",") --                                  Z
+-- keymap("", "_", ";") --                                  C
 keymap("", "{", "`") --                                     V
 keymap("", "{#", "`u") --                                  VU
 keymap("", "{;", "`j") --                                  VJ
