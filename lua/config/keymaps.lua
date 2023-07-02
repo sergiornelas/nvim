@@ -182,7 +182,7 @@ keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode aga
 -- Tabs
 keymap("n", "<c-j>", "gT", opts) --                            prev tab
 keymap("n", "<c-k>", "gt", opts) --                            next tab
-keymap("n", "<leader>t", "<cmd>tabclose<cr>", opts) --        close tab
+keymap("n", "<c-y>", "<cmd>tabclose<cr>", opts) --            close tab
 keymap("n", "<leader>>", "<cmd>tabmove +1<cr>", opts) --  tab move left
 keymap("n", "<leader><", "<cmd>tabmove -1<cr>", opts) -- tab move right
 keymap("n", "<leader>TT", "<cmd>tabo<cr>", opts) --      close all tabs
@@ -271,7 +271,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- combinations with: j
 
 -- <C-> maps available:
--- y, p
+-- p
 -- <cr>
 -- b, n
 

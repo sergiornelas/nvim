@@ -8,7 +8,9 @@ return {
 			config = true,
 		},
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		"mrjones2014/nvim-ts-Rainbow",
+		"mrjones2014/nvim-ts-Rainbow", -- deprecated since Jun 7, but jsx/tsx files using rainbow 2 still not working
+		-- also creates conflict with diffview
+		-- "HiPhish/nvim-ts-rainbow2",
 	},
 	config = function()
 		local configs_ok, configs = pcall(require, "nvim-treesitter.configs")
@@ -51,6 +53,11 @@ return {
 				enable = true,
 				extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
 				max_file_lines = nil, -- Do not enable for files with more than n lines, int
+				-- rainbow2:
+				-- Which query to use for finding delimiters
+				-- query = "rainbow-parens",
+				-- Highlight the entire buffer all at once
+				-- strategy = require("ts-rainbow").strategy.global,
 			},
 			context_commentstring = { --JSX commments
 				enable = true,

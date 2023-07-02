@@ -10,13 +10,12 @@ smjonas/inc-rename.nvim lsp rename,          bug:mandatory cursor on word for c-
 filipdutescu/renamer.nvim                           problem: 6~11ms for small feature
 weilbith/nvim-code-action-menu                      don't shows full code action info
 aznhe21/actions-preview.nvim                        don't shows full code action info
-kosayoda/nvim-lightbulb                                               lsp code action
 vigoux/notifier.nvim                                          show message lsp loaded
 jinzhongjia/LspUI.nvim saga mini                  code action and diagnostics limited
 glepnir/lspsaga.nvim                     code actions limited and brokes all the time
 tzachar/local-highlight.nvim                                 word illuminate (mature)
 nvim-telescope/telescope-ui-select.nvim currently using dressing (nvimtreeinputscool)
-VidocqH/lsp-lens.nvim                                  show definition and references
+VidocqH/lsp-lens.nvim                 show definition and references (takes one line)
 Bekaboo/dropbar.nvim                             IDE-like breadcrumbs, out of the box
 pmizio/typescript-tools.nvim              tsserver fast (not really, wait for mature)
 
@@ -24,7 +23,6 @@ TREESITTER ---------------------------------------------------------------------
 ziontee113/syntax-tree-surfer                                            TS navigator
 cshuaimin/ssr.nvim                                      structural search and replace
 HiPhish/nvim-ts-rainbow2 rainbow                            (mat, tsx elem no colors)
-utilyre/sentiment.nvim                            parenthesis colorful bug (diffview)
 CKolkey/ts-node-action                                           (mature for jsx/tsx)
 lukas-reineke/headlines.nvim                neorg cool titles and niceties (slow fps)
 
@@ -42,8 +40,6 @@ TESTING ------------------------------------------------------------------------
 David-Kunz/jester
 klen/nvim-test
 janko-m/vim-test
-rcarriga/neotest
-nvim-neotest/neotest
 andythigpen/nvim-coverage
 mini.test
 is0n/jaq-nvim                                                   terminal test results
@@ -127,8 +123,7 @@ jghauser/kitty-runner.nvim                                   kitty commands from
 smjonas/live-command.nvim                                                live command
 cbochs/portal.nvim                                                 c-o / c-i enhanced
 folke/noice.nvim                                                     bunch of pop ups
-DaikyXendo/nvim-tree.lua                                nvim tree with material icons
-folke/styler.nvim                                     colorscheme by file (bug c-w w)
+folke/styler.nvim                                            colorscheme by file type
 tamton-aquib/zone.nvim                                                   screen saver
 debugloop/telescope-undo.nvim                                          telescope undo
 nyngwang/NeoTerm.lua                                attach a terminal for each buffer
@@ -137,13 +132,12 @@ roobert/search-replace.nvim                                 UI for search and re
 princejoogie/chafa.nvim                                                images and svg
 axkirillov/easypick.nvim                            telescope with arbitrary commands
 LeonHeidelbach/trailblazer.nvim                                    visual mark (huge)
-atusy/tsnode-marker.nvim                                   nested functions bgc color
 willothy/flatten.nvim                             open neovim file from nvim terminal
 shellRaining/hlchunk.nvim                             cool indent line (mature (tsx))
 kevinhwang91/nvim-ufo                                10m loading, bug: folds all file
-VonHeikemen/fine-cmdline.nvim       cmdline float window. bad: press c-i twice always
-chrisgrieser/nvim-alt-substitute                                    better substitute
-AckslD/muren.nvim                                              replace multiple words
+VonHeikemen/fine-cmdline.nvim  cmdline float. press c-i twice always, c-w not applies
+chrisgrieser/nvim-alt-substitute                         better substitute with regex
+AckslD/muren.nvim                                      replace multiple words with UI
 HampusHauffman/block.nvim                                        colorful nested code
 zaldih/themery.nvim                                       colorschemes changing tools
 

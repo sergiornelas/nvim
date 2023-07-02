@@ -16,6 +16,7 @@
 -- Plugins:
 --    T/N are mapped for illuminate
 --    Q/B/H are mapped for nvim-recorder
+--    Z/C are mapped for flash
 --      , is mapped for neorg keymaps
 --      \ is mapped for various plugins
 --      @ is replaced by nvim-recorder
@@ -37,8 +38,6 @@ keymap("", "-", ":keepjumps norm! '}'<cr>", opts) --        F
 keymap("x", "-", ":<c-u>keepjumps norm! gv}'<cr>", opts) -- F
 keymap("", "[", "$") --                                     G
 keymap("", ";", "%") --                                     J
--- keymap("", "!", ",") --                                  Z
--- keymap("", "_", ";") --                                  C
 keymap("", "{", "`") --                                     V
 keymap("", "{#", "`u") --                                  VU
 keymap("", "{;", "`j") --                                  VJ
