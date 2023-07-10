@@ -14,6 +14,7 @@ function M.config()
 	local diagnostics = null_ls.builtins.diagnostics
 	local formatting = null_ls.builtins.formatting
 
+	-- they are archiving null-ls on August 11, 2023
 	null_ls.setup({
 		debug = false,
 		sources = {

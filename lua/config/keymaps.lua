@@ -2,19 +2,17 @@ vim.g.mapleader = " "
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- <LSP Saga>
--- keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<cr>")
--- keymap("n", "gR", "<cmd>Lspsaga rename ++project<cr>")
--- keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>")
--- keymap("n", "gO", "<cmd>Lspsaga outline<cr>")
-
--- <Typerscript>
-keymap("n", "<leader>Ti", "<cmd>TypescriptAddMissingImports<cr>", opts)
-keymap("n", "<leader>To", "<cmd>TypescriptOrganizeImports<cr>", opts)
-keymap("n", "<leader>Tu", "<cmd>TypescriptRemoveUnused<cr>", opts)
-keymap("n", "<leader>Tf", "<cmd>TypescriptFixAll<cr>", opts)
-keymap("n", "<leader>Tr", "<cmd>TypescriptRenameFile<cr>", opts)
-keymap("n", "<leader>Td", "<cmd>TypescriptGoToSourceDefinition<cr>", opts) -- Typescript 4.7+
+-- <Telescope>
+keymap("", "<leader>u", "<cmd>Telescope oldfiles<cr>", opts)
+keymap("", "<leader>i", "<cmd>Telescope find_files<cr>", opts)
+keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
+keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
+keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
+keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
+keymap("", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>", opts)
+keymap("", "<leader>H", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
+keymap("", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<cr>", opts)
+keymap("i", "<c-r>", "<cmd>Telescope registers theme=cursor layout_config={height=0.3}<cr>", opts)
 
 -- <Grapple>
 keymap("n", "m<leader>", "<cmd>GrappleToggle<cr>", opts)
@@ -31,17 +29,13 @@ keymap("n", "md", "<cmd>GrappleSelect key=6<cr>", opts)
 keymap("n", "J", "<cmd>GrappleCycle backward<cr>", opts)
 keymap("n", "K", "<cmd>GrappleCycle forward<cr>", opts)
 
--- <Telescope>
-keymap("", "<leader>u", "<cmd>Telescope oldfiles<cr>", opts)
-keymap("", "<leader>i", "<cmd>Telescope find_files<cr>", opts)
-keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
-keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
-keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
-keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
-keymap("", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>", opts)
-keymap("", "<leader>H", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
-keymap("", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<cr>", opts)
-keymap("i", "<c-r>", "<cmd>Telescope registers theme=cursor layout_config={height=0.3}<cr>", opts)
+-- <Typerscript>
+keymap("n", "<leader>Ti", "<cmd>TypescriptAddMissingImports<cr>", opts)
+keymap("n", "<leader>To", "<cmd>TypescriptOrganizeImports<cr>", opts)
+keymap("n", "<leader>Tu", "<cmd>TypescriptRemoveUnused<cr>", opts)
+keymap("n", "<leader>Tf", "<cmd>TypescriptFixAll<cr>", opts)
+keymap("n", "<leader>Tr", "<cmd>TypescriptRenameFile<cr>", opts)
+keymap("n", "<leader>Td", "<cmd>TypescriptGoToSourceDefinition<cr>", opts) -- Typescript 4.7+
 
 -- <LSP-Signature>
 keymap("i", "<c-s>", function()
@@ -233,7 +227,7 @@ keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
 keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
-keymap("", "<leader>N", "<cmd>set nu!<cr>", opts) --          toggle set number
+keymap("", "<leader>n", "<cmd>set nu!<cr>", opts) --          toggle set number
 keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) --         force exit neovim
 keymap("n", "<c-w><c-q>", "<cmd>wq<cr>", opts) --          save and exit neovim
 keymap("n", "<leader><c-h>", "<cmd>bd!<cr>", opts) --     delete written buffer
@@ -295,7 +289,6 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- yank + key
 
 -- Used but mappeable:
--- <leader>n ~ navbuddy
 -- <leader>v ~ inlay
 -- <leader>t ~ close tab
 -- <leader>x ~ neorg twilight mode
@@ -306,3 +299,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <c-c> ~ (visual) move selected area left
 -- <c-v> ~ (visual) move selected area right
 -- <c-h> ~ delete buffer
+
+-- How to map <Tab> but not affect <C-i>
+-- Your terminal has to be able to distinguish <Tab> from <C-i>. You can
+-- try <C-v><Tab> and <C-v><C-i> in insert mode and compare the output

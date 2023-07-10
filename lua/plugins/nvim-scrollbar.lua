@@ -15,7 +15,7 @@ function M.config()
 			gitsigns = true, --requires gitsigns
 			-- search = false, --requires hlslens
 		},
-		excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify", "NvimTree", "Navbuddy", "DiffviewFiles" },
+		excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify", "NvimTree", "DiffviewFiles" },
 	})
 end
 

@@ -3,10 +3,14 @@ return {
 		"folke/flash.nvim",
 		event = "VeryLazy",
 		opts = {
+			labels = "jiofewasdghklqrtyupzxcvbnm",
 			label = {
 				uppercase = false,
 			},
 			modes = {
+				search = {
+					enabled = false,
+				},
 				char = {
 					keys = { "f", "F", "t", "T", [";"] = "_", [","] = "!" },
 					search = { wrap = true },

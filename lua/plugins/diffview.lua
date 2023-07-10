@@ -3,6 +3,7 @@ local M = {
 	cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewFileHistory" },
 }
 
+-- conflicts with windows.nvim
 function M.config()
 	local diffview_ok, diffview = pcall(require, "diffview")
 	if not diffview_ok then

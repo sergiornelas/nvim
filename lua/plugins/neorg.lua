@@ -54,11 +54,11 @@ local M = {
 					},
 					["core.concealer"] = {
 						config = {
-							dim_code_blocks = {
-								conceal = true,
-							},
 							icon_preset = "varied",
 							icons = {
+								code_block = {
+									conceal = true,
+								},
 								todo = {
 									cancelled = {
 										icon = "❌",
@@ -77,6 +77,9 @@ local M = {
 									},
 									uncertain = {
 										icon = "❔",
+									},
+									undone = {
+										icon = "×",
 									},
 									urgent = {
 										icon = "⚠️",

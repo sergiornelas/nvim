@@ -18,7 +18,7 @@ function M.config()
 			normal_cur = "dmm",
 			normal_line = "dM",
 			normal_cur_line = "dMM",
-			visual = "S",
+			visual = "<c-s>",
 			visual_line = "gZ",
 			delete = "ds",
 			change = "cs",

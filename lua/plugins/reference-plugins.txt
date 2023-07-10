@@ -130,6 +130,7 @@ nyngwang/NeoTerm.lua                                attach a terminal for each b
 rareitems/printer.nvim                             add console.logs (wait for mature)
 roobert/search-replace.nvim                                 UI for search and replace
 princejoogie/chafa.nvim                                                images and svg
+3rd/image.nvim                                                 images render on neorg
 axkirillov/easypick.nvim                            telescope with arbitrary commands
 LeonHeidelbach/trailblazer.nvim                                    visual mark (huge)
 willothy/flatten.nvim                             open neovim file from nvim terminal
@@ -145,13 +146,9 @@ Last time revisited all these plugins
 07/03/23
 
 ====================
-Last time checked this-week-in-neovim (maybe dead)
-Jun 12
+Last time checked this-week-in-neovim
+Jul 09
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Jun 28
-
-Last time checked reddit neovim
-Check the same day as the last one in order to make sure of not forget a plugin
-Jun 28
+Jul 09
