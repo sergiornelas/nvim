@@ -26,8 +26,8 @@ keymap("n", "mw", "<cmd>GrappleSelect key=3<cr>", opts)
 keymap("n", "ma", "<cmd>GrappleSelect key=4<cr>", opts)
 keymap("n", "ms", "<cmd>GrappleSelect key=5<cr>", opts)
 keymap("n", "md", "<cmd>GrappleSelect key=6<cr>", opts)
-keymap("n", "J", "<cmd>GrappleCycle backward<cr>", opts)
-keymap("n", "K", "<cmd>GrappleCycle forward<cr>", opts)
+keymap("n", "<c-b>", "<cmd>GrappleCycle backward<cr>", opts)
+keymap("n", "<c-n>", "<cmd>GrappleCycle forward<cr>", opts)
 
 -- <Typerscript>
 keymap("n", "<leader>Ti", "<cmd>TypescriptAddMissingImports<cr>", opts)
@@ -99,9 +99,6 @@ keymap("n", "<leader>r", "<cmd>RunCode<cr>", opts)
 -- <Treesitter context>
 keymap("n", "\\j", "<cmd>lua require('treesitter-context').go_to_context()<cr>", opts)
 
--- <Bufferdelete>
-keymap("n", "<c-h>", "<cmd>Bdelete<cr>", opts) --buffer delete
-
 -- <Mini trailspace>
 keymap("", "<leader>b", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
 
@@ -109,13 +106,13 @@ keymap("", "<leader>b", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
 keymap("", "<leader>p", "<cmd>TSJToggle<cr>", opts)
 
 -- <Nvim-tree>
-keymap("n", "<space>w", "<cmd>NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>a", "<cmd>NvimTreeToggle<cr>", opts)
 
 -- <Gitsigns> and next/prev diff line
 vim.api.nvim_exec(
 	[[
-    noremap <expr> <c-g> &diff ? ']c' : "<cmd>Gitsigns next_hunk<cr>"
-    noremap <expr> <c-t> &diff ? '[c' : "<cmd>Gitsigns prev_hunk<cr>"
+    noremap <expr> J &diff ? ']c' : "<cmd>Gitsigns next_hunk<cr>"
+    noremap <expr> K &diff ? '[c' : "<cmd>Gitsigns prev_hunk<cr>"
   ]],
 	false
 )
@@ -148,8 +145,8 @@ else
 end
 
 -- Navigation
-keymap("", "<leader>q", "<cmd>q<cr>", opts) --             close window
-keymap("", "<leader>Q", "<cmd>q!<cr>", opts) -- close window and buffer
+keymap("", "<leader>w", "<cmd>q<cr>", opts) --             close window
+keymap("", "<leader>W", "<cmd>q!<cr>", opts) -- close window and buffer
 keymap("n", "<c-v>", "<c-^>", opts) --             toggle recent window
 keymap("n", "<c-r>", "<c-w>w", opts) --            navigate next window
 keymap("n", "<c-u>", "<c-u>zz", opts) --         scrolls up half buffer
@@ -176,7 +173,7 @@ keymap("i", "<c-e>", "<c-o>$", opts) -- goes end of the line and insert mode aga
 -- Tabs
 keymap("n", "<c-j>", "gT", opts) --                            prev tab
 keymap("n", "<c-k>", "gt", opts) --                            next tab
-keymap("n", "<c-y>", "<cmd>tabclose<cr>", opts) --            close tab
+keymap("n", "<c-h>", "<cmd>tabclose<cr>", opts) --            close tab
 keymap("n", "<leader>>", "<cmd>tabmove +1<cr>", opts) --  tab move left
 keymap("n", "<leader><", "<cmd>tabmove -1<cr>", opts) -- tab move right
 keymap("n", "<leader>TT", "<cmd>tabo<cr>", opts) --      close all tabs
@@ -202,7 +199,6 @@ keymap({ "n", "x" }, "gj", "zz", opts) --                           center text
 keymap({ "n", "x" }, "z.", ":<c-u>normal! zszH<cr>", opts) -- center horizontal
 
 -- Fold commands
-keymap("n", "<leader>a", "za", opts) -- toggle fold block
 keymap("n", "z<leader>", "zR", opts) -- open all folds
 keymap("n", "c<leader>", "zM", opts) -- close all folds
 
@@ -257,17 +253,16 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <cr>
 
 -- <leader> maps available:
--- r, y
+-- q, r, y
 -- <cr>
 -- x, m
 -- <esc>
 -- caps chars (C...)
--- combinations with: j
+-- combinations with: g, t
 
 -- <C-> maps available:
--- p
+-- y, p
 -- <cr>
--- b, n
 
 -- <C-W>_ maps available:
 -- t (first window), i (definition), o (delete all), f (file), n (new empty buffer)
@@ -290,7 +285,6 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- Used but mappeable:
 -- <leader>v ~ inlay
--- <leader>t ~ close tab
 -- <leader>x ~ neorg twilight mode
 -- <leader>p ~ treesj
 -- <leader>r ~ RunCode
@@ -298,8 +292,3 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader>G ~ code scratch
 -- <c-c> ~ (visual) move selected area left
 -- <c-v> ~ (visual) move selected area right
--- <c-h> ~ delete buffer
-
--- How to map <Tab> but not affect <C-i>
--- Your terminal has to be able to distinguish <Tab> from <C-i>. You can
--- try <C-v><Tab> and <C-v><C-i> in insert mode and compare the output

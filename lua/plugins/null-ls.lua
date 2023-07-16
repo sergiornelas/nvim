@@ -19,7 +19,9 @@ function M.config()
 		debug = false,
 		sources = {
 			diagnostics.tidy,
-			formatting.prettierd,
+			formatting.prettierd.with({
+				extra_args = { "--single-quote" },
+			}),
 			formatting.stylua,
 			-- formatting.prettier.with({
 			-- 	extra_filetypes = { "toml", "solidity" },

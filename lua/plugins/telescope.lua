@@ -44,7 +44,7 @@ function M.config()
 					["<c-n>"] = actions.cycle_history_next,
 					["<c-p>"] = actions.cycle_history_prev,
 					["<c-s>"] = actions.select_horizontal,
-					["<c-t>"] = actions.select_tab,
+					["<c-u>"] = actions.select_tab,
 					["<c-a>"] = { "<esc>", type = "command" },
 					["<c-f>"] = actions.to_fuzzy_refine,
 					["<esc>"] = actions.close,

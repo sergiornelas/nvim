@@ -5,8 +5,9 @@ local M = {
 	},
 	lazy = false,
 	-- lazy loading not working:
+	-- event = "VeryLazy",
 	-- keys = {
-	-- 	{ "<leader>w", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree" },
+	-- 	{ "<leader>a", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree" },
 	-- },
 	-- cmd = "NvimTreeToggle",
 }
@@ -27,7 +28,7 @@ function M.config()
 		keymap("n", "<c-p>", api.node.open.replace_tree_buffer, opts("Open: In Place"))
 		keymap("n", "<c-k>", api.node.show_info_popup, opts("Info"))
 		keymap("n", "<cr>", api.fs.rename_sub, opts("Rename: Omit Filename"))
-		keymap("n", "<c-t>", api.node.open.tab, opts("Open: New Tab"))
+		keymap("n", "<c-u>", api.node.open.tab, opts("Open: New Tab"))
 		keymap("n", "<c-v>", api.node.open.vertical, opts("Open: Vertical Split"))
 		keymap("n", "<c-s>", api.node.open.horizontal, opts("Open: Horizontal Split"))
 		keymap("n", "<c-h>", api.node.navigate.parent_close, opts("Close Directory"))
