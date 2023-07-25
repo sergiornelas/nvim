@@ -14,7 +14,8 @@ function M.config()
 	local diagnostics = null_ls.builtins.diagnostics
 	local formatting = null_ls.builtins.formatting
 
-	-- they are archiving null-ls on August 11, 2023
+	-- they are archiving null-ls and typescript.nvim on August 11, 2023
+	-- replace typescript.nvim for pmizio/typescript-tools.nvim
 	null_ls.setup({
 		debug = false,
 		sources = {

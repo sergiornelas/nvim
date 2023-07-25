@@ -8,7 +8,31 @@ return {
 			config = true,
 		},
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		"hiphish/rainbow-delimiters.nvim",
+		{
+			"hiphish/rainbow-delimiters.nvim",
+			config = function()
+				local rainbow_delimiters = require("rainbow-delimiters")
+				vim.g.rainbow_delimiters = {
+					strategy = {
+						[""] = rainbow_delimiters.strategy["global"],
+						vim = rainbow_delimiters.strategy["local"],
+					},
+					query = {
+						[""] = "rainbow-delimiters",
+						lua = "rainbow-blocks",
+					},
+					highlight = {
+						"RainbowDelimiterRed",
+						"RainbowDelimiterYellow",
+						"RainbowDelimiterBlue",
+						"RainbowDelimiterOrange",
+						"RainbowDelimiterGreen",
+						"RainbowDelimiterViolet",
+						"RainbowDelimiterCyan",
+					},
+				}
+			end,
+		},
 	},
 	config = function()
 		local configs_ok, configs = pcall(require, "nvim-treesitter.configs")
@@ -31,6 +55,7 @@ return {
 				"typescript",
 				"vim",
 				"vimdoc",
+				"yaml",
 			},
 			sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 			auto_install = true,

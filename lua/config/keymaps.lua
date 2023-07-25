@@ -26,7 +26,7 @@ keymap("n", "mw", "<cmd>GrappleSelect key=3<cr>", opts)
 keymap("n", "ma", "<cmd>GrappleSelect key=4<cr>", opts)
 keymap("n", "ms", "<cmd>GrappleSelect key=5<cr>", opts)
 keymap("n", "md", "<cmd>GrappleSelect key=6<cr>", opts)
-keymap("n", "<c-b>", "<cmd>GrappleCycle backward<cr>", opts)
+keymap("n", "<c-p>", "<cmd>GrappleCycle backward<cr>", opts)
 keymap("n", "<c-n>", "<cmd>GrappleCycle forward<cr>", opts)
 
 -- <Typerscript>
@@ -93,9 +93,6 @@ keymap("n", "go", "<cmd>Glance references<cr>")
 -- <Inlay hints>
 keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
--- <Code runner>
-keymap("n", "<leader>r", "<cmd>RunCode<cr>", opts)
-
 -- <Treesitter context>
 keymap("n", "\\j", "<cmd>lua require('treesitter-context').go_to_context()<cr>", opts)
 
@@ -106,7 +103,7 @@ keymap("", "<leader>b", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
 keymap("", "<leader>p", "<cmd>TSJToggle<cr>", opts)
 
 -- <Nvim-tree>
-keymap("n", "<leader>a", "<cmd>NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>r", "<cmd>NvimTreeToggle<cr>", opts)
 
 -- <Gitsigns> and next/prev diff line
 vim.api.nvim_exec(
@@ -146,7 +143,7 @@ end
 
 -- Navigation
 keymap("", "<leader>w", "<cmd>q<cr>", opts) --             close window
-keymap("", "<leader>W", "<cmd>q!<cr>", opts) -- close window and buffer
+keymap("", "<leader>Q", "<cmd>q!<cr>", opts) -- close window and buffer
 keymap("n", "<c-v>", "<c-^>", opts) --             toggle recent window
 keymap("n", "<c-r>", "<c-w>w", opts) --            navigate next window
 keymap("n", "<c-u>", "<c-u>zz", opts) --         scrolls up half buffer
@@ -253,15 +250,17 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <cr>
 
 -- <leader> maps available:
--- q, r, y
--- <cr>
+-- q, y
+-- a, <cr>
 -- x, m
 -- <esc>
 -- caps chars (C...)
--- combinations with: g, t
+-- combinations with: j, t
 
 -- <C-> maps available:
--- y, p
+-- y
+-- s (session change)
+-- b, m
 -- <cr>
 
 -- <C-W>_ maps available:
@@ -284,10 +283,10 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- yank + key
 
 -- Used but mappeable:
+-- <leader>d ~ DiffviewOpen
 -- <leader>v ~ inlay
 -- <leader>x ~ neorg twilight mode
 -- <leader>p ~ treesj
--- <leader>r ~ RunCode
 -- <leader>F ~ lazy menu
 -- <leader>G ~ code scratch
 -- <c-c> ~ (visual) move selected area left

@@ -43,6 +43,9 @@ api.nvim_exec(
 
   " All folds are open
   set nofoldenable
+
+  " Command prev option
+  cnoremap <c-o> <c-p>
 ]],
 	false
 )

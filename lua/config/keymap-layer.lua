@@ -40,6 +40,7 @@ keymap("", "[", "$") --                                     G
 keymap("", ";", "%") --                                     J
 keymap("", "{", "`") --                                     V
 keymap("", "{#", "`u") --                                  VU
+keymap("", "{$", "`i") --                                  VI
 keymap("", "{;", "`j") --                                  VJ
 keymap("", "{`", "`m") --                                  VM
 keymap("", "{|", "`k") --                                  VK
