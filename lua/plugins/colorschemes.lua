@@ -1,3 +1,4 @@
+-- https://github.com/AstroNvim/astrotheme
 local lazy_map = {
 	{
 		"<leader>c",
@@ -182,5 +183,12 @@ return {
 	{
 		"dasupradyumna/midnight.nvim",
 		keys = lazy_map,
+	},
+	{
+		"justinsgithub/oh-my-monokai.nvim",
+		keys = lazy_map,
+		opts = {
+			transparent_background = true,
+		},
 	},
 }

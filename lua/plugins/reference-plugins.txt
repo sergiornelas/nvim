@@ -19,12 +19,20 @@ VidocqH/lsp-lens.nvim                 show definition and references (takes one 
 Bekaboo/dropbar.nvim                             IDE-like breadcrumbs, out of the box
 pmizio/typescript-tools.nvim              tsserver fast (not really, wait for mature)
 
+Null-ls alternatives: ---------------------------------------------------------------
+https://dotfyle.com/this-week-in-neovim/48#jose-elias-alvarez/null-ls.nvim
+elentok/format-on-save.nvim
+nvimdev/guard.nvim
+creativenull/diagnosticls-configs-nvim
+creativenull/efmls-configs-nvim
+niuiic/format.nvim
+
 TREESITTER --------------------------------------------------------------------------
 ziontee113/syntax-tree-surfer                                            TS navigator
 cshuaimin/ssr.nvim                                      structural search and replace
-HiPhish/nvim-ts-rainbow2 rainbow                            (mat, tsx elem no colors)
 CKolkey/ts-node-action                                           (mature for jsx/tsx)
 lukas-reineke/headlines.nvim                neorg cool titles and niceties (slow fps)
+00sapo/visual.nvim                                                      helix motions
 
 DEBUGGING ---------------------------------------------------------------------------
 mfusseneger/nvim-dap
@@ -35,6 +43,7 @@ Weissle/persistent-breakpoints.nvim
 theHamsta/nvim-dap-virtual-text
 ravenxrz/DAPInstall.nvim
 Lommix/godot.nvim
+niuiic/dap-utils.nvim
 
 TESTING -----------------------------------------------------------------------------
 David-Kunz/jester
@@ -86,6 +95,8 @@ Exafunction/codeium.vim        Free, ultrafast Copilot alternative for Vim and N
 tdfacer/explain-it.nvim                     Ask a question, and let robots explain-it
 Dhanus3133/Leetbuddy.nvim                  Enables seamless integration with Leetcode
 svermeulen/text-to-colorscheme                    colorscheme generator with chat gpt
+Robitx/gp.nvim                                      Gp (GPT prompt) plugin for Neovim
+dpayne/CodeGPT.nvim                           The focus is around code related usages
 
 COMPETITIVE CODING ------------------------------------------------------------------
 >> run = "cd js && npm ci" at lab plugin dir
@@ -147,8 +158,8 @@ Last time revisited all these plugins
 
 ====================
 Last time checked this-week-in-neovim
-Jul 09
+Jul 23
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Jul 09
+Jul 26

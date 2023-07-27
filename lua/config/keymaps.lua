@@ -11,7 +11,7 @@ keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
 keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("", "<leader>H", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
-keymap("", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<cr>", opts)
+keymap("", "<leader>a", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("i", "<c-r>", "<cmd>Telescope registers theme=cursor layout_config={height=0.3}<cr>", opts)
 
 -- <Grapple>
@@ -223,6 +223,7 @@ keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
 keymap("", "<leader>n", "<cmd>set nu!<cr>", opts) --          toggle set number
 keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) --         force exit neovim
 keymap("n", "<c-w><c-q>", "<cmd>wq<cr>", opts) --          save and exit neovim
+keymap("n", "q<leader>", "$T!yt!", opts) --                yank secret password
 keymap("n", "<leader><c-h>", "<cmd>bd!<cr>", opts) --     delete written buffer
 keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
 keymap("", "\\<leader>", "g;") --                       go to last changed line
@@ -251,11 +252,12 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- <leader> maps available:
 -- q, y
--- a, <cr>
+-- <cr>
 -- x, m
 -- <esc>
 -- caps chars (C...)
 -- combinations with: j, t
+-- numbers
 
 -- <C-> maps available:
 -- y
