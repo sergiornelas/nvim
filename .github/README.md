@@ -4,7 +4,7 @@
   
 [![Lua](https://img.shields.io/badge/Made%20With-Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)]()
 [![Repo_Size](https://img.shields.io/github/languages/code-size/shaunsingh/nyoom.nvim?color=orange&label=Repo%20Size&style=for-the-badge)]()
-[![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.7+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
+[![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.9+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
 <br>
 <a href="https://dotfyle.com/sergiornelas/nvim"><img src="https://dotfyle.com/sergiornelas/nvim/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/sergiornelas/nvim"><img src="https://dotfyle.com/sergiornelas/nvim/badges/leaderkey?style=flat" /></a>
