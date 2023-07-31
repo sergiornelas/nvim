@@ -43,6 +43,9 @@ function M.config()
 	-- from cursor to next closing ], ), or }
 	keymap({ "o", "x" }, "ii", "<cmd>lua require('various-textobjs').toNextClosingBracket()<cr>")
 
+	-- from cursor to next ", ', or ```
+	keymap({ "o", "x" }, "Q", "<cmd>lua require('various-textobjs').toNextQuotationMark()<cr>")
+
 	-- like }, but linewise
 	keymap({ "o", "x" }, "ar", "<cmd>lua require('various-textobjs').restOfParagraph()<cr>")
 
@@ -95,7 +98,6 @@ function M.config()
 	keymap({ "o", "x" }, "ac", "<cmd>lua require('various-textobjs').cssSelector(false)<cr>", { buffer = true })
 
 	-- htmlAttribute (not useful)
-	-- jsRegex (not useful (*))
 
 	-- ext enclosed by [[]]
 	keymap({ "o", "x" }, "iD", "<cmd>lua require('various-textobjs').doubleSquareBrackets(true)<cr>", { buffer = true })

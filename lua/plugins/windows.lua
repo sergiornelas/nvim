@@ -14,7 +14,7 @@ return {
 			filetype = { "NvimTree", "neo-tree", "undotree", "gundo", "DiffviewFiles" },
 		},
 		animation = {
-			enable = false,
+			enable = true,
 			-- duration = 300,
 			-- fps = 30,
 			duration = 42,

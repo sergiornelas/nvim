@@ -123,17 +123,17 @@ return {
 				move = {
 					enable = true,
 					set_jumps = true,
-					goto_next_start = {
-						["\\d"] = "@call.outer",
-						["\\s"] = "@function.outer",
-						["\\a"] = "@conditional.outer",
-						["\\v"] = "@parameter.outer",
-					},
 					goto_previous_start = {
-						["\\e"] = "@call.outer",
-						["\\w"] = "@function.outer",
 						["\\q"] = "@conditional.outer",
+						["\\w"] = "@function.outer",
+						["\\t"] = "@call.outer",
 						["\\c"] = "@parameter.outer",
+					},
+					goto_next_start = {
+						["\\a"] = "@conditional.outer",
+						["\\s"] = "@function.outer",
+						["\\g"] = "@call.outer",
+						["\\v"] = "@parameter.outer",
 					},
 				},
 			},

@@ -158,8 +158,9 @@ Last time revisited all these plugins
 
 ====================
 Last time checked this-week-in-neovim
-Jul 23
+Don't expect a new issue for the next 2 weeks
+Jul 30
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Jul 26
+Jul 30

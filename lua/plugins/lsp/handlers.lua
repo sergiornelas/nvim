@@ -9,16 +9,16 @@ local keymap = vim.keymap.set
 keymap("n", "gw", '<cmd>lua vim.diagnostic.open_float(0, { scope = "cursor", border = "single" })<CR>')
 keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>')
 keymap("n", "gB", '<cmd>lua vim.diagnostic.open_float(0, { scope = "buffer", border = "double" })<CR>')
-keymap("n", "\\r", vim.diagnostic.goto_prev)
-keymap("n", "\\f", vim.diagnostic.goto_next)
+keymap("n", "\\e", vim.diagnostic.goto_prev)
+keymap("n", "\\d", vim.diagnostic.goto_next)
 keymap(
 	"n",
-	"\\t",
+	"\\r",
 	"<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR, float = { border = { '╭', '~', '╮', '│', '╯', '─', '╰', '│' } } })<CR>"
 )
 keymap(
 	"n",
-	"\\g",
+	"\\f",
 	"<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR, float = { border = { '╭', '~', '╮', '│', '╯', '─', '╰', '│' } } })<CR>"
 )
 keymap("n", "gq", vim.diagnostic.setloclist)
