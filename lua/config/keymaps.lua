@@ -9,23 +9,23 @@ keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
 keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
 keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
 keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
-keymap("", "<leader>m", "<cmd>Telescope marks theme=ivy<cr>", opts)
+keymap("", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
+keymap("", "<leader>M", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("", "<leader>H", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
-keymap("", "<leader>a", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("i", "<c-r>", "<cmd>Telescope registers theme=cursor layout_config={height=0.3}<cr>", opts)
 
 -- <Grapple>
-keymap("n", "m<leader>", "<cmd>GrappleToggle<cr>", opts)
-keymap("n", "mt", ":GrappleTag key=", { noremap = true })
-keymap("n", "mT", ":GrappleTag scope=global key=", { noremap = true })
-keymap("n", "mv", "<cmd>GrapplePopup tags<cr>", opts)
-keymap("n", "mG", "<c-w>s <cmd>lua require('grapple').popup_tags('global')<cr>", opts)
-keymap("n", "mf", "<cmd>GrappleSelect key=1<cr>", opts)
-keymap("n", "me", "<cmd>GrappleSelect key=2<cr>", opts)
-keymap("n", "mw", "<cmd>GrappleSelect key=3<cr>", opts)
-keymap("n", "ma", "<cmd>GrappleSelect key=4<cr>", opts)
-keymap("n", "ms", "<cmd>GrappleSelect key=5<cr>", opts)
-keymap("n", "md", "<cmd>GrappleSelect key=6<cr>", opts)
+keymap("n", "<leader>m", "<cmd>GrappleToggle<cr>", opts)
+keymap("n", "<leader>p", "<cmd>GrapplePopup tags<cr>", opts)
+keymap("n", "<leader>Gk", ":GrappleTag key=", { noremap = true })
+keymap("n", "<leader>Gg", ":GrappleTag scope=global key=", { noremap = true })
+keymap("n", "<leader>GG", "<c-w>s <cmd>lua require('grapple').popup_tags('global')<cr>", opts)
+keymap("n", "<leader>1", "<cmd>GrappleSelect key=1<cr>", opts)
+keymap("n", "<leader>2", "<cmd>GrappleSelect key=2<cr>", opts)
+keymap("n", "<leader>3", "<cmd>GrappleSelect key=3<cr>", opts)
+keymap("n", "<leader>4", "<cmd>GrappleSelect key=4<cr>", opts)
+keymap("n", "<leader>5", "<cmd>GrappleSelect key=5<cr>", opts)
+keymap("n", "<leader>6", "<cmd>GrappleSelect key=6<cr>", opts)
 keymap("n", "<c-p>", "<cmd>GrappleCycle backward<cr>", opts)
 keymap("n", "<c-n>", "<cmd>GrappleCycle forward<cr>", opts)
 
@@ -43,8 +43,8 @@ keymap("i", "<c-s>", function()
 end, opts)
 
 -- <Neorg>
-keymap("", "mg", "<c-w>s<cmd>Neorg workspace todo<cr>", opts)
-keymap("", "mq", "<cmd>Neorg return<cr>", opts)
+keymap("", "<leader>n", "<c-w>s<cmd>Neorg workspace todo<cr>", opts)
+keymap("", ",q", "<cmd>Neorg return<cr>", opts)
 keymap("", ",W", ":Neorg workspace ", { noremap = true })
 keymap("", ",i", "<cmd>Neorg index<cr>", opts)
 keymap("", ",tt", "<cmd>Neorg toc<cr>", opts)
@@ -52,7 +52,6 @@ keymap("", ",c", "<cmd>Neorg toggle-concealer<cr>", opts)
 keymap("", "<leader>x", ":let &scrolloff=999-&scrolloff<cr><cmd>Twilight<cr>", opts)
 
 -- <Diff view git>
-keymap("", "<leader>d", "<cmd>DiffviewOpen<cr> | <cmd>TabooRename Diffview  <cr> ", opts)
 keymap("", "<leader>jf", "<cmd>DiffviewFileHistory %<cr> | <cmd>TabooRename FileHistory  <cr>", opts)
 keymap("", "<leader>jp", "<cmd>DiffviewFileHistory<cr> | <cmd>TabooRename ProjectHistory  <cr>", opts)
 
@@ -71,21 +70,18 @@ keymap("n", "<leader>R", ":TabooRename ", { noremap = true })
 keymap("n", "<leader>C", "<cmd>TabooReset<cr>", opts)
 
 -- <Illuminate>
-keymap("", "@", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
-keymap("", "*", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", opts)
+keymap("", "-", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
+keymap("", "+", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", opts)
 
 -- <Swap-split>
 keymap("", "<c-w><c-u>", "<cmd>SwapSplit<cr>", opts)
 keymap("", "<c-w>u", "<cmd>SwapSplit<cr>", opts)
 
--- <Session>
-keymap("n", "<c-s>", "<cmd>lua require('auto-session.session-lens').search_session()<cr>", opts)
-
 -- <Color picker>
 keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
 
 -- <Lazy>
-keymap("n", "<leader>F", "<cmd>Lazy<cr>", opts)
+keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
 
 -- <Glance>
 keymap("n", "go", "<cmd>Glance references<cr>")
@@ -94,16 +90,13 @@ keymap("n", "go", "<cmd>Glance references<cr>")
 keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
 -- <Treesitter context>
-keymap("n", "\\j", "<cmd>lua require('treesitter-context').go_to_context()<cr>", opts)
+keymap("n", "gK", "<cmd>lua require('treesitter-context').go_to_context()<cr>", opts)
 
 -- <Mini trailspace>
 keymap("", "<leader>b", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
 
--- <TreeSJ>
-keymap("", "<leader>p", "<cmd>TSJToggle<cr>", opts)
-
 -- <Nvim-tree>
-keymap("n", "<leader>r", "<cmd>NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>a", "<cmd>NvimTreeToggle<cr>", opts)
 
 -- <Gitsigns> and next/prev diff line
 vim.api.nvim_exec(
@@ -117,13 +110,13 @@ vim.api.nvim_exec(
 -- <Codi-Runner> and <Neorg> refresh (Codi suspended temporally)
 keymap(
 	"n",
-	"<leader>G",
+	"<leader>J",
 	"<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>TabooRename Scratch 󰙏 <cr><cmd>RunCode<cr>",
 	opts
 )
 vim.api.nvim_exec(
 	[[
-  " nnoremap <leader>G :tabnew ~/scratchFiles/scratch.ts<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
+  " nnoremap <leader>J :tabnew ~/scratchFiles/scratch.ts<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
   aug doubleleaderbinds
     au! doubleleaderbinds
     au FileType norg nnoremap <buffer> <silent> <leader><leader> <cmd>Neorg toggle-concealer<cr><cmd>Neorg toggle-concealer<cr>
@@ -220,7 +213,7 @@ keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
 keymap("", "<leader>W", "<cmd>set wrap!<cr>", opts) --          toggle set wrap
 keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) --        toggle set spell
-keymap("", "<leader>n", "<cmd>set nu!<cr>", opts) --          toggle set number
+keymap("", "<leader>N", "<cmd>set nu!<cr>", opts) --          toggle set number
 keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) --         force exit neovim
 keymap("n", "<c-w><c-q>", "<cmd>wq<cr>", opts) --          save and exit neovim
 keymap("n", "q<leader>", "$T!yt!", opts) --                yank secret password
@@ -249,19 +242,18 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- G maps available:
 -- y, i (goes insert where stopped) p
 -- <cr>
+-- caps chars
 
 -- <leader> maps available:
--- q, y
--- <cr>
--- x, m
+-- q, r, y
+-- d, <cr>
 -- <esc>
 -- caps chars (C...)
 -- combinations with: j, t
--- numbers
 
 -- <C-> maps available:
 -- y
--- s (session change)
+-- s
 -- b, m
 -- <cr>
 
@@ -278,18 +270,12 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- \ maps available:
 -- y, u, i, o, p
--- h, k, l
+-- j, h, k, l
 -- z, x, b, n, m
 
 -- q maps available:
 -- yank + key
 
 -- Used but mappeable:
--- <leader>d ~ DiffviewOpen
 -- <leader>v ~ inlay
 -- <leader>x ~ neorg twilight mode
--- <leader>p ~ treesj
--- <leader>F ~ lazy menu
--- <leader>G ~ code scratch
--- <c-c> ~ (visual) move selected area left
--- <c-v> ~ (visual) move selected area right

@@ -5,16 +5,16 @@
 
 --  WRITING       VIM EFFECT
 -- ---------------------------
--- &?/+* #$~ \^   ˙?/{˙ #$~ \^
+-- &?/+* #$~ \^   ˙?/˙{ #$~ \^
 -- QWERT˙UIO˙     QWERT˙UIO˙
---  ()=-[];|       ^=*}$˙%|˙
+--  ()=-[];|       ^=*˙$˙%|˙
 --  ASDFGHJK˙      ASDFGHJK˙
---   !%_{}@`        ,%;`˙˙`
+--   !%_{}@`        ,%;`˙}`
 --   ZXCVBNM        ZXCVBNM
 
 -- Y, P, L are ignored by the writing layer, difficult to type
 -- Plugins:
---    T/N are mapped for illuminate
+--    F/R are mapped for illuminate
 --    Q/B/H are mapped for nvim-recorder
 --    Z/C are mapped for flash
 --      , is mapped for neorg keymaps
@@ -27,15 +27,15 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap("", "+", ":keepjumps norm! '{'<cr>", opts) --        R
-keymap("x", "+", ":<c-u>keepjumps norm! gv{'<cr>", opts) -- R
+keymap("", "*", ":keepjumps norm! '{'<cr>", opts) --        R
+keymap("x", "*", ":<c-u>keepjumps norm! gv{'<cr>", opts) -- R
 keymap("x", "#", 'y?\\V<c-r>"<cr><cmd>AutoHlsearch<cr>') -- U
 keymap("", "(", "^") --                                     A
 keymap("", ")", "=") --                                     S
 keymap("", "=", "*<cmd>AutoHlsearch<cr>") --                D
 keymap("x", "=", 'y/\\V<c-r>"<cr><cmd>AutoHlsearch<cr>') -- D
-keymap("", "-", ":keepjumps norm! '}'<cr>", opts) --        F
-keymap("x", "-", ":<c-u>keepjumps norm! gv}'<cr>", opts) -- F
+keymap("", "@", ":keepjumps norm! '}'<cr>", opts) --        F
+keymap("x", "@", ":<c-u>keepjumps norm! gv}'<cr>", opts) -- F
 keymap("", "[", "$") --                                     G
 keymap("", ";", "%") --                                     J
 keymap("", "{", "`") --                                     V

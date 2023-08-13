@@ -9,11 +9,18 @@ return {
 		},
 	},
 	opts = {
-		hlgroup = "HighlightUndo",
 		duration = 300,
-		keymaps = {
-			{ "n", "u", "undo", {} },
-			{ "n", "U", "redo", {} },
+		undo = {
+			hlgroup = "HighlightUndo",
+			mode = "n",
+			lhs = "u",
+			map = "undo",
+		},
+		redo = {
+			hlgroup = "HighlightUndo",
+			mode = "n",
+			lhs = "U",
+			map = "redo",
 		},
 	},
 }

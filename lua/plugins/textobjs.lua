@@ -41,7 +41,7 @@ function M.config()
 	keymap({ "o", "x" }, "aS", "<cmd>lua require('various-textobjs').subword(false)<cr>")
 
 	-- from cursor to next closing ], ), or }
-	keymap({ "o", "x" }, "ii", "<cmd>lua require('various-textobjs').toNextClosingBracket()<cr>")
+	keymap({ "o", "x" }, "C", "<cmd>lua require('various-textobjs').toNextClosingBracket()<cr>")
 
 	-- from cursor to next ", ', or ```
 	keymap({ "o", "x" }, "Q", "<cmd>lua require('various-textobjs').toNextQuotationMark()<cr>")
