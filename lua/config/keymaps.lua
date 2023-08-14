@@ -30,12 +30,12 @@ keymap("n", "<c-p>", "<cmd>GrappleCycle backward<cr>", opts)
 keymap("n", "<c-n>", "<cmd>GrappleCycle forward<cr>", opts)
 
 -- <Typerscript>
-keymap("n", "<leader>Ti", "<cmd>TypescriptAddMissingImports<cr>", opts)
-keymap("n", "<leader>To", "<cmd>TypescriptOrganizeImports<cr>", opts)
-keymap("n", "<leader>Tu", "<cmd>TypescriptRemoveUnused<cr>", opts)
-keymap("n", "<leader>Tf", "<cmd>TypescriptFixAll<cr>", opts)
-keymap("n", "<leader>Tr", "<cmd>TypescriptRenameFile<cr>", opts)
-keymap("n", "<leader>Td", "<cmd>TypescriptGoToSourceDefinition<cr>", opts) -- Typescript 4.7+
+keymap("n", "<leader>To", "<cmd>TSToolsOrganizeImports<cr>", opts)
+keymap("n", "<leader>Ts", "<cmd>TSToolsSortImports<cr>", opts)
+keymap("n", "<leader>TR", "<cmd>TSToolsRemoveUnusedImports<cr>", opts)
+keymap("n", "<leader>Tr", "<cmd>TSToolsRemoveUnused<cr>", opts)
+keymap("n", "<leader>Ti", "<cmd>TSToolsAddMissingImports<cr>", opts)
+keymap("n", "<leader>Tf", "<cmd>TSToolsFixAll<cr>", opts)
 
 -- <LSP-Signature>
 keymap("i", "<c-s>", function()

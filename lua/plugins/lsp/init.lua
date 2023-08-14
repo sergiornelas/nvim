@@ -3,6 +3,9 @@ local M = {
 	lazy = false,
 	dependencies = {
 		{
+			"pmizio/typescript-tools.nvim",
+		},
+		{
 			"ray-x/lsp_signature.nvim",
 			config = true,
 		},
@@ -11,9 +14,6 @@ local M = {
 			opts = {
 				autocmd = { enabled = true, updatetime = 100 },
 			},
-		},
-		{
-			"pmizio/typescript-tools.nvim",
 		},
 	},
 }

@@ -18,14 +18,10 @@ nvim-telescope/telescope-ui-select.nvim currently using dressing (nvimtreeinputs
 VidocqH/lsp-lens.nvim                 show definition and references (takes one line)
 Bekaboo/dropbar.nvim                             IDE-like breadcrumbs, out of the box
 pmizio/typescript-tools.nvim              tsserver fast (not really, wait for mature)
-
-Null-ls alternatives: ---------------------------------------------------------------
-https://dotfyle.com/this-week-in-neovim/48#jose-elias-alvarez/null-ls.nvim
-elentok/format-on-save.nvim
-nvimdev/guard.nvim
-creativenull/diagnosticls-configs-nvim
-creativenull/efmls-configs-nvim
-niuiic/format.nvim
+elentok/format-on-save.nvim                                       Null-ls alternative
+creativenull/diagnosticls-configs-nvim                            Null-ls alternative
+creativenull/efmls-configs-nvim                                   Null-ls alternative
+niuiic/format.nvim                                                Null-ls alternative
 
 TREESITTER --------------------------------------------------------------------------
 ziontee113/syntax-tree-surfer                                            TS navigator

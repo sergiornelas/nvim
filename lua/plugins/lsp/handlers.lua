@@ -33,9 +33,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf }
 		-- keymap("n", "gD", lsp.declaration, bufopts)
 		keymap("n", "gd", lsp.definition, opts)
-		keymap("n", "gD", "<cmd>TypescriptGoToSourceDefinition<cr>", opts)
+		keymap("n", "gD", "<cmd>TSToolsGoToSourceDefinition<cr>", opts)
 		keymap("n", "gh", lsp.hover, opts)
-		keymap("n", "gI", lsp.implementation, opts)
+		keymap("n", "gz", lsp.implementation, opts)
 		keymap("n", "gs", lsp.signature_help, opts)
 		keymap("n", "gA", lsp.add_workspace_folder, opts)
 		keymap("n", "gF", lsp.remove_workspace_folder, opts)
@@ -57,10 +57,6 @@ local M = {}
 
 M.on_attach = function(client, bufnr)
 	require("nvim-navic").attach(client, bufnr)
-	if client.name == "tsserver" then
-		client.server_capabilities.documentFormattingProvider = false
-		client.server_capabilities.documentRangeFormattingProvider = false
-	end
 
 	if client.server_capabilities.inlayHintProvider then
 		vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
