@@ -1,11 +1,7 @@
 local M = {
 	"neovim/nvim-lspconfig",
-	ft = { "lua", "html", "css", "json", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	lazy = false,
 	dependencies = {
-		{
-			"lvimuser/lsp-inlayhints.nvim",
-			config = true,
-		},
 		{
 			"ray-x/lsp_signature.nvim",
 			config = true,
@@ -16,14 +12,17 @@ local M = {
 				autocmd = { enabled = true, updatetime = 100 },
 			},
 		},
+		{
+			"pmizio/typescript-tools.nvim",
+		},
 	},
 }
 
 function M.config()
 	local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
-	local typescript_ok, typescript = pcall(require, "typescript")
+	local typescript_tools_ok, typescript_tools = pcall(require, "typescript-tools")
 
-	if not lspconfig_ok or not typescript_ok then
+	if not lspconfig_ok or not typescript_tools_ok then
 		return
 	end
 
@@ -31,13 +30,31 @@ function M.config()
 	local on_attach = require("plugins.lsp.handlers").on_attach
 	local capabilities = require("plugins.lsp.handlers").capabilities
 
-	typescript.setup({
-		server = {
-			on_attach = on_attach,
-			capabilities = capabilities,
-			settings = require("plugins.lsp.settings.tsserver").settings,
-			-- root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "node_modules"),
+	typescript_tools.setup({
+		on_attach = on_attach,
+		settings = {
+			-- spawn additional tsserver instance to calculate diagnostics on it
+			separate_diagnostic_server = true,
+			publish_diagnostic_on = "insert_leave", -- "change"|"insert_leave"
+			-- expose_as_code_action = { "fix_all", "add_missing_imports", "remove_unused" },
+			expose_as_code_action = {},
+			-- string|nil - specify a custom path to `tsserver.js` file, if this is nil or file under path
+			-- not exists then standard path resolution strategy is applied
+			tsserver_path = nil,
+			-- specify a list of plugins to load by tsserver, e.g., for support `styled-components`
+			tsserver_plugins = {
+				-- for TypeScript v4.9+
+				"@styled/typescript-styled-plugin",
+				-- or for older TypeScript versions
+				-- "typescript-styled-plugin",
+			},
+			tsserver_format_options = {},
+			tsserver_file_preferences = require("plugins.lsp.settings.tsserver"),
+			complete_function_calls = true, -- param alias sugestion
 		},
+		-- handlers = {
+		-- 	["textDocument/publishDiagnostics"] = require("typescript-tools.api").filter_diagnostics({ 80006 }),
+		-- },
 	})
 
 	lspconfig.eslint.setup({

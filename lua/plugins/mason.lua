@@ -18,7 +18,6 @@ return {
 			"html",
 			"jsonls",
 			"lua_ls",
-			"tsserver",
 		}
 
 		mason.setup()

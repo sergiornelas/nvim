@@ -1,27 +1,15 @@
 -- https://github.com/typescript-language-server/typescript-language-server
+-- https://github.com/microsoft/TypeScript/blob/v5.0.4/src/server/protocol.ts#L3439
+
 return {
-	settings = {
-		typescript = {
-			inlayHints = {
-				includeInlayParameterNameHints = "all",
-				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHints = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayEnumMemberValueHints = true,
-			},
-		},
-		javascript = {
-			inlayHints = {
-				includeInlayParameterNameHints = "all",
-				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHints = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayEnumMemberValueHints = true,
-			},
-		},
-	},
+	includeInlayParameterNameHints = "all",
+	includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+	includeInlayFunctionParameterTypeHints = true,
+	includeInlayVariableTypeHints = true,
+	includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+	includeInlayPropertyDeclarationTypeHints = true,
+	includeInlayFunctionLikeReturnTypeHints = true,
+	includeInlayEnumMemberValueHints = true,
+	quotePreference = "auto",
+	includeCompletionsForModuleExports = true,
 }

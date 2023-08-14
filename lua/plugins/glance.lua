@@ -6,6 +6,10 @@ return {
 		local actions = glance.actions
 		require("glance").setup({
 			height = 25,
+			preview_win_opts = { -- Configure preview window options
+				number = false,
+				wrap = false,
+			},
 			mappings = {
 				list = {
 					["l"] = actions.jump,
@@ -15,7 +19,7 @@ return {
 					["<c-l>"] = actions.jump,
 					["<c-v>"] = actions.jump_vsplit,
 					["<c-s>"] = actions.jump_split,
-					["<c-t>"] = actions.jump_tab,
+					["<c-r>"] = actions.jump_tab,
 				},
 			},
 		})

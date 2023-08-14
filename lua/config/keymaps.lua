@@ -86,11 +86,8 @@ keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
 -- <Glance>
 keymap("n", "go", "<cmd>Glance references<cr>")
 
--- <Inlay hints>
-keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
-
 -- <Treesitter context>
-keymap("n", "gK", "<cmd>lua require('treesitter-context').go_to_context()<cr>", opts)
+keymap("n", "gI", "<cmd>lua require('treesitter-context').go_to_context()<cr>", opts)
 
 -- <Mini trailspace>
 keymap("", "<leader>b", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
@@ -220,6 +217,7 @@ keymap("n", "q<leader>", "$T!yt!", opts) --                yank secret password
 keymap("n", "<leader><c-h>", "<cmd>bd!<cr>", opts) --     delete written buffer
 keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
 keymap("", "\\<leader>", "g;") --                       go to last changed line
+keymap("", "g,", "gi", opts) --                 go to last insert mode position
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
 keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
@@ -247,6 +245,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader> maps available:
 -- q, r, y
 -- d, <cr>
+-- v
 -- <esc>
 -- caps chars (C...)
 -- combinations with: j, t

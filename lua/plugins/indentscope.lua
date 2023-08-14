@@ -14,8 +14,8 @@ return {
 			mappings = {
 				object_scope = "ij",
 				object_scope_with_border = "o",
-				goto_top = "gk",
-				goto_bottom = "g,",
+				goto_top = "gi",
+				goto_bottom = "gk",
 			},
 		})
 	end,
