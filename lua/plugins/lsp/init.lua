@@ -15,6 +15,10 @@ local M = {
 				autocmd = { enabled = true, updatetime = 100 },
 			},
 		},
+		{
+			"lvimuser/lsp-inlayhints.nvim",
+			config = true,
+		},
 	},
 }
 

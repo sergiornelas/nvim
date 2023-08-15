@@ -1,7 +1,7 @@
 -- COMMAND SUBSTITUTION
 -- Decided to change vim default navigation keymaps because sometimes they are a pain in
 -- the ass. Writing layer uses semicolon (;), it's managed by Karabiner:
--- https://github.com/sergiornelas/MacOS-Dotfiles/blob/main/karabiner/karabiner.json#L141-L621
+-- https://github.com/sergiornelas/MacOS-Dotfiles/blob/main/karabiner/karabiner.json#L96-L576
 
 --  WRITING       VIM EFFECT
 -- ---------------------------

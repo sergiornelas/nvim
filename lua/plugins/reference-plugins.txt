@@ -22,6 +22,9 @@ elentok/format-on-save.nvim                                       Null-ls altern
 creativenull/diagnosticls-configs-nvim                            Null-ls alternative
 creativenull/efmls-configs-nvim                                   Null-ls alternative
 niuiic/format.nvim                                                Null-ls alternative
+mhartington/formatter.nvim                            Null-ls alternative (947 stars)
+nvimdev/guard.nvim                            Null-ls alternative (faster, but buggy)
+rmagatti/goto-preview                          reference window instead of go to file
 
 TREESITTER --------------------------------------------------------------------------
 ziontee113/syntax-tree-surfer                                            TS navigator
@@ -159,4 +162,4 @@ Jul 30
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Jul 30
+Aug 14

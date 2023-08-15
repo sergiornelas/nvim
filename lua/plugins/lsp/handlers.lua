@@ -59,30 +59,29 @@ M.on_attach = function(client, bufnr)
 	require("nvim-navic").attach(client, bufnr)
 
 	if client.server_capabilities.inlayHintProvider then
-		vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
-
-		-- enable/disable on insert mode:
-		local inlay_hints_group = vim.api.nvim_create_augroup("InlayHints", { clear = false })
-		local mode = vim.api.nvim_get_mode().mode
-		vim.lsp.inlay_hint(bufnr, mode == "n" or mode == "v")
-		vim.api.nvim_create_autocmd("InsertEnter", {
-			group = inlay_hints_group,
-			buffer = bufnr,
-			callback = function()
-				vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
-				vim.lsp.inlay_hint(bufnr, false)
-			end,
-		})
-		vim.api.nvim_create_autocmd("InsertLeave", {
-			group = inlay_hints_group,
-			buffer = bufnr,
-			callback = function()
-				vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
-				vim.lsp.inlay_hint(bufnr, true)
-			end,
-		})
-
-		-- toggle manually
+		require("lsp-inlayhints").on_attach(client, bufnr) -- Typescript 4.4
+		-- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
+		-- -- enable/disable on insert mode:
+		-- local inlay_hints_group = vim.api.nvim_create_augroup("InlayHints", { clear = false })
+		-- local mode = vim.api.nvim_get_mode().mode
+		-- vim.lsp.inlay_hint(bufnr, mode == "n" or mode == "v")
+		-- vim.api.nvim_create_autocmd("InsertEnter", {
+		-- 	group = inlay_hints_group,
+		-- 	buffer = bufnr,
+		-- 	callback = function()
+		-- 		vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
+		-- 		vim.lsp.inlay_hint(bufnr, false)
+		-- 	end,
+		-- })
+		-- vim.api.nvim_create_autocmd("InsertLeave", {
+		-- 	group = inlay_hints_group,
+		-- 	buffer = bufnr,
+		-- 	callback = function()
+		-- 		vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
+		-- 		vim.lsp.inlay_hint(bufnr, true)
+		-- 	end,
+		-- })
+		-- -- toggle manually
 		-- keymap(
 		-- 	"n",
 		-- 	"<leader>v",

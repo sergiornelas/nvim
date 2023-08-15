@@ -86,6 +86,9 @@ keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
 -- <Glance>
 keymap("n", "go", "<cmd>Glance references<cr>")
 
+-- <Inlay hints>
+keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
+
 -- <Treesitter context>
 keymap("n", "gI", "<cmd>lua require('treesitter-context').go_to_context()<cr>", opts)
 
@@ -143,10 +146,10 @@ keymap("", "<c-e>", "<c-y>", opts) --          page scrolls up one line
 keymap("", "<c-f>", "<c-e>", opts) --        page scrolls down one line
 
 -- Resize window
-keymap("", "ƒ", "<cmd>vertical resize +4<cr>", opts)
-keymap("", "∂", "<cmd>resize +4<cr>", opts)
-keymap("", "ß", "<cmd>resize -4<cr>", opts)
-keymap("", "å", "<cmd>vertical resize -4<cr>", opts)
+keymap("", "<Left>", "<cmd>vertical resize -4<cr>", opts)
+keymap("", "<Up>", "<cmd>resize -4<cr>", opts)
+keymap("", "<Down>", "<cmd>resize +4<cr>", opts)
+keymap("", "<Right>", "<cmd>vertical resize +4<cr>", opts)
 
 -- Insert mode
 keymap("i", "<c-f>", "<c-i>", opts) --                                         tab
@@ -245,7 +248,6 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- <leader> maps available:
 -- q, r, y
 -- d, <cr>
--- v
 -- <esc>
 -- caps chars (C...)
 -- combinations with: j, t
@@ -278,3 +280,4 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- Used but mappeable:
 -- <leader>v ~ inlay
 -- <leader>x ~ neorg twilight mode
+-- tab arrow keys
