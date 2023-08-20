@@ -12,7 +12,7 @@ return {
 				animation = indentscope.gen_animation.none(),
 			},
 			mappings = {
-				object_scope = "ij",
+				object_scope = "u",
 				object_scope_with_border = "o",
 				goto_top = "gi",
 				goto_bottom = "gk",

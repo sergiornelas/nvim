@@ -27,15 +27,13 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap("", "*", ":keepjumps norm! '{'<cr>", opts) --        R
-keymap("x", "*", ":<c-u>keepjumps norm! gv{'<cr>", opts) -- R
+keymap("", "*", ":keepjumps norm! '{'<cr>", opts) --        T
+keymap("x", "*", ":<c-u>keepjumps norm! gv{'<cr>", opts) -- T
 keymap("x", "#", 'y?\\V<c-r>"<cr><cmd>AutoHlsearch<cr>') -- U
 keymap("", "(", "^") --                                     A
 keymap("", ")", "=") --                                     S
 keymap("", "=", "*<cmd>AutoHlsearch<cr>") --                D
 keymap("x", "=", 'y/\\V<c-r>"<cr><cmd>AutoHlsearch<cr>') -- D
-keymap("", "@", ":keepjumps norm! '}'<cr>", opts) --        F
-keymap("x", "@", ":<c-u>keepjumps norm! gv}'<cr>", opts) -- F
 keymap("", "[", "$") --                                     G
 keymap("", ";", "%") --                                     J
 keymap("", "{", "`") --                                     V
@@ -45,6 +43,8 @@ keymap("", "{;", "`j") --                                  VJ
 keymap("", "{`", "`m") --                                  VM
 keymap("", "{|", "`k") --                                  VK
 keymap("", "{{", "``") --                                  VV
+keymap("", "@", ":keepjumps norm! '}'<cr>", opts) --        N
+keymap("x", "@", ":<c-u>keepjumps norm! gv}'<cr>", opts) -- N
 
 -- NOTES
 -- You could think that you can map W (?) for a different one

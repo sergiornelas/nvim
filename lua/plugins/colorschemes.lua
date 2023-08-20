@@ -1,4 +1,3 @@
--- https://github.com/AstroNvim/astrotheme
 local lazy_map = {
 	{
 		"<leader>c",
@@ -7,13 +6,6 @@ local lazy_map = {
 }
 
 return {
-	{
-		"B4mbus/oxocarbon-lua.nvim",
-		config = function()
-			vim.g.oxocarbon_lua_transparent = true
-		end,
-		keys = lazy_map,
-	},
 	{
 		"EdenEast/nightfox.nvim",
 		keys = lazy_map,
@@ -91,17 +83,12 @@ return {
 		end,
 	},
 	{
-		"sam4llis/nvim-tundra",
-		keys = lazy_map,
-		opts = {
-			transparent_background = true,
-		},
-	},
-	{
 		"tiagovla/tokyodark.nvim",
 		keys = lazy_map,
 		config = function()
-			vim.g.tokyodark_transparent_background = true
+			require("tokyodark").setup({
+				transparent_background = true,
+			})
 		end,
 	},
 	{
@@ -114,16 +101,6 @@ return {
 			})
 			vim.o.background = "dark"
 		end,
-	},
-	{
-		"lmburns/kimbox",
-		keys = lazy_map,
-		opts = {
-			toggle_style_key = "<leader>%",
-			allow_italic = true,
-			allow_underline = true,
-			transparent = true,
-		},
 	},
 	{
 		"navarasu/onedark.nvim",
@@ -178,11 +155,6 @@ return {
 		opts = {
 			transparent = true,
 		},
-	},
-	-- wait for transparency:
-	{
-		"dasupradyumna/midnight.nvim",
-		keys = lazy_map,
 	},
 	{
 		"justinsgithub/oh-my-monokai.nvim",

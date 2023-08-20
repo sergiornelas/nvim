@@ -36,6 +36,10 @@ function M.config()
 		vim.cmd(tostring(startBorderLn) .. " delete")
 	end)
 
+	-- outer indentation, expanded to blank lines; useful to get functions with annotations
+	keymap({ "o", "x" }, "ag", "<cmd>lua require('various-textobjs').greedyOuterIndentation(true)<cr>")
+	keymap({ "o", "x" }, "ig", "<cmd>lua require('various-textobjs').greedyOuterIndentation(false)<cr>")
+
 	-- like iw, but treating -, _, and . as word delimiters and only part of camelCase
 	keymap({ "o", "x" }, "iS", "<cmd>lua require('various-textobjs').subword(true)<cr>")
 	keymap({ "o", "x" }, "aS", "<cmd>lua require('various-textobjs').subword(false)<cr>")

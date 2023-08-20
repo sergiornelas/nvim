@@ -17,7 +17,7 @@ keymap("i", "<c-r>", "<cmd>Telescope registers theme=cursor layout_config={heigh
 -- <Grapple>
 keymap("n", "<leader>m", "<cmd>GrappleToggle<cr>", opts)
 keymap("n", "<leader>p", "<cmd>GrapplePopup tags<cr>", opts)
-keymap("n", "<leader>Gk", ":GrappleTag key=", { noremap = true })
+keymap("n", "<leader>Gj", ":GrappleTag key=", { noremap = true })
 keymap("n", "<leader>Gg", ":GrappleTag scope=global key=", { noremap = true })
 keymap("n", "<leader>GG", "<c-w>s <cmd>lua require('grapple').popup_tags('global')<cr>", opts)
 keymap("n", "<leader>1", "<cmd>GrappleSelect key=1<cr>", opts)
@@ -26,7 +26,7 @@ keymap("n", "<leader>3", "<cmd>GrappleSelect key=3<cr>", opts)
 keymap("n", "<leader>4", "<cmd>GrappleSelect key=4<cr>", opts)
 keymap("n", "<leader>5", "<cmd>GrappleSelect key=5<cr>", opts)
 keymap("n", "<leader>6", "<cmd>GrappleSelect key=6<cr>", opts)
-keymap("n", "<c-p>", "<cmd>GrappleCycle backward<cr>", opts)
+keymap("n", "<c-b>", "<cmd>GrappleCycle backward<cr>", opts)
 keymap("n", "<c-n>", "<cmd>GrappleCycle forward<cr>", opts)
 
 -- <Typerscript>
@@ -252,10 +252,13 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- caps chars (C...)
 -- combinations with: j, t
 
+-- visual maps available:
+-- x, v, m
+
 -- <C-> maps available:
--- y
+-- y, p
 -- s
--- b, m
+-- m (uses as enter)
 -- <cr>
 
 -- <C-W>_ maps available:

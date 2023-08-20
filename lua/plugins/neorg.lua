@@ -10,7 +10,6 @@ local M = {
 			if not neorg_ok then
 				return
 			end
-
 			neorg.setup({
 				load = {
 					["core.defaults"] = {},
