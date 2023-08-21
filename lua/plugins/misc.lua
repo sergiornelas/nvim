@@ -18,12 +18,4 @@ return {
 			},
 		},
 	},
-	-- { "NeogitOrg/neogit", dependencies = "nvim-lua/plenary.nvim", lazy = false, config = true },
-	-- {
-	-- 	"tiagovla/scope.nvim",
-	-- 	lazy = false,
-	-- 	config = function()
-	-- 		require("scope").setup()
-	-- 	end,
-	-- },
 }

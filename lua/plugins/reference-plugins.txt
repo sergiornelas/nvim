@@ -32,6 +32,7 @@ cshuaimin/ssr.nvim                                      structural search and re
 CKolkey/ts-node-action                                           (mature for jsx/tsx)
 lukas-reineke/headlines.nvim                neorg cool titles and niceties (slow fps)
 00sapo/visual.nvim                                                      helix motions
+filNaj/tree-setter  typescript space bar snippets (wait for compatibility for js/tsx)
 
 DEBUGGING ---------------------------------------------------------------------------
 mfusseneger/nvim-dap
@@ -152,6 +153,7 @@ AckslD/muren.nvim                                      replace multiple words wi
 HampusHauffman/block.nvim                                        colorful nested code
 zaldih/themery.nvim                                       colorschemes changing tools
 mg979/tabline.nvim     lua tab rename plugin (bugs with autosession, wait for mature)
+tiagovla/scope.nvim                               workspace by tab (very interesting)
 
 Last time revisited all these plugins
 07/03/23

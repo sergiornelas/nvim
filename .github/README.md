@@ -39,7 +39,6 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 ### bars-and-lines
 
 + [m4xshen/smartcolumn.nvim](https://dotfyle.com/plugins/m4xshen/smartcolumn.nvim)
-+ [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
 ### code-runner
 
 + [CRAG666/code_runner.nvim](https://dotfyle.com/plugins/CRAG666/code_runner.nvim)
@@ -115,8 +114,7 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [chrisgrieser/nvim-dr-lsp](https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp)
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 + [ray-x/lsp_signature.nvim](https://dotfyle.com/plugins/ray-x/lsp_signature.nvim)
-+ [kosayoda/nvim-lightbulb](https://dotfyle.com/plugins/kosayoda/nvim-lightbulb)
-+ [DNLHC/glance.nvim](https://dotfyle.com/plugins/DNLHC/glance.nvim)
++ [nvimdev/lspsaga.nvim](https://dotfyle.com/plugins/nvimdev/lspsaga.nvim)
 ### lsp-installer
 
 + [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
