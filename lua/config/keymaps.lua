@@ -129,9 +129,9 @@ vim.api.nvim_exec(
 
 -- Open links under cursor in browser
 if vim.fn.has("macunix") == 1 then
-	keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<cr>", opts)
+	keymap("n", "gy", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<cr>", opts)
 else
-	keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<cr>", opts)
+	keymap("n", "gy", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<cr>", opts)
 end
 
 -- Navigation
@@ -241,7 +241,6 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- z, m
 
 -- G maps available:
--- y, i (goes insert where stopped) p
 -- <cr>
 -- caps chars
 

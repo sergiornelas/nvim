@@ -151,6 +151,7 @@ chrisgrieser/nvim-alt-substitute                         better substitute with 
 AckslD/muren.nvim                                      replace multiple words with UI
 HampusHauffman/block.nvim                                        colorful nested code
 zaldih/themery.nvim                                       colorschemes changing tools
+mg979/tabline.nvim      lua tab rename plugin (bugs with autosesion, wait for mature)
 
 Last time revisited all these plugins
 07/03/23
@@ -162,4 +163,4 @@ Jul 30
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Aug 14
+Aug 20

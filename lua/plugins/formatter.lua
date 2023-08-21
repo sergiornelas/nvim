@@ -38,6 +38,15 @@ return {
 				typescriptreact = {
 					require("formatter.filetypes.typescriptreact").prettierd,
 				},
+				json = {
+					require("formatter.filetypes.json").prettierd,
+				},
+				css = {
+					require("formatter.filetypes.css").prettierd,
+				},
+				html = {
+					require("formatter.filetypes.html").prettierd,
+				},
 			},
 		})
 		-- Format after save
