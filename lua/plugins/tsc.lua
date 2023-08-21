@@ -3,7 +3,7 @@ return {
 	config = true,
 	keys = {
 		{
-			"gP",
+			"gT",
 			"<cmd>TSC<cr>",
 		},
 	},

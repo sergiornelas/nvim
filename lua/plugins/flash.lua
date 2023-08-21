@@ -13,6 +13,7 @@ return {
 			char = {
 				keys = { "f", "F", "t", "T", [";"] = "_", [","] = "!" },
 				search = { wrap = true },
+				highlight = { backdrop = false },
 			},
 		},
 	},

@@ -10,12 +10,6 @@ local M = {
 			config = true,
 		},
 		{
-			"kosayoda/nvim-lightbulb",
-			opts = {
-				autocmd = { enabled = true, updatetime = 100 },
-			},
-		},
-		{
 			"lvimuser/lsp-inlayhints.nvim",
 			config = true,
 		},

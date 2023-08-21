@@ -83,9 +83,6 @@ keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
 -- <Lazy>
 keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
 
--- <Glance>
-keymap("n", "go", "<cmd>Glance references<cr>")
-
 -- <Inlay hints>
 keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
 
@@ -106,6 +103,11 @@ vim.api.nvim_exec(
   ]],
 	false
 )
+
+-- <Code runner>
+keymap("n", "<leader>rc", "<cmd>Codi<cr>", opts)
+keymap("n", "<leader>re", "<cmd>CodiExpand<cr>", opts)
+keymap("n", "<leader>rr", "<cmd>RunCode<cr>", opts)
 
 -- <Codi-Runner> and <Neorg> refresh (Codi suspended temporally)
 keymap(
@@ -219,7 +221,7 @@ keymap("n", "<c-w><c-q>", "<cmd>wq<cr>", opts) --          save and exit neovim
 keymap("n", "q<leader>", "$T!yt!", opts) --                yank secret password
 keymap("n", "<leader><c-h>", "<cmd>bd!<cr>", opts) --     delete written buffer
 keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
-keymap("", "\\<leader>", "g;") --                       go to last changed line
+keymap("", "<c-p>", "g;") --                       go to last changed line
 keymap("", "g,", "gi", opts) --                 go to last insert mode position
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
 keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
@@ -245,7 +247,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- caps chars
 
 -- <leader> maps available:
--- q, r, y
+-- q, y
 -- d, <cr>
 -- <esc>
 -- caps chars (C...)
@@ -255,7 +257,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- x, v, m
 
 -- <C-> maps available:
--- y, p
+-- y
 -- s
 -- m (uses as enter)
 -- <cr>
@@ -275,11 +277,14 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- y, u, i, o, p
 -- j, h, k, l
 -- z, x, b, n, m
+-- spacebar
 
 -- q maps available:
 -- yank + key
 
 -- Used but mappeable:
 -- <leader>v ~ inlay
+-- <leader>r ~ runcode commands
 -- <leader>x ~ neorg twilight mode
+-- <c-p> ~ go to last edited line
 -- tab arrow keys

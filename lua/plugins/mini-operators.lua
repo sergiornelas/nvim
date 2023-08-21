@@ -4,7 +4,7 @@ return {
 	keys = {
 		"g=",
 		"gx",
-		"gp",
+		"gP",
 		"gR",
 		"gS",
 	},
@@ -21,7 +21,7 @@ return {
 		},
 		-- Multiply (duplicate) text
 		multiply = {
-			prefix = "gp",
+			prefix = "gP",
 		},
 		-- Replace text with register
 		replace = {

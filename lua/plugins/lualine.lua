@@ -45,7 +45,16 @@ function M.config()
 					end,
 				},
 				{ require("dr-lsp").lspProgress },
-				"navic",
+				{
+					function()
+						if require("lspsaga.symbol.winbar").get_bar() then
+							-- doesn't show jsx/tsx content:
+							return require("lspsaga.symbol.winbar").get_bar()
+						else
+							return ""
+						end
+					end,
+				},
 			},
 			lualine_x = {},
 			lualine_y = { "diff" },

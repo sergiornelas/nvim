@@ -32,9 +32,6 @@ api.nvim_exec(
   " Exit terminal
   :tnoremap <esc> <c-\><c-n>
 
-  " Magic multicursor
-  xnoremap gT :s/\(\w.*\)/
-
   " Wrap break icon
   set showbreak=↪\ 
 
