@@ -151,7 +151,7 @@ chrisgrieser/nvim-alt-substitute                         better substitute with 
 AckslD/muren.nvim                                      replace multiple words with UI
 HampusHauffman/block.nvim                                        colorful nested code
 zaldih/themery.nvim                                       colorschemes changing tools
-mg979/tabline.nvim      lua tab rename plugin (bugs with autosesion, wait for mature)
+mg979/tabline.nvim     lua tab rename plugin (bugs with autosession, wait for mature)
 
 Last time revisited all these plugins
 07/03/23
