@@ -100,7 +100,7 @@ local M = {
 				},
 				formatting = {
 					format = lspkind.cmp_format({
-						maxwidth = 19,
+						maxwidth = 30,
 						ellipsis_char = "...",
 						-- avoids duplicate results
 						-- before = function(entry, vim_item)

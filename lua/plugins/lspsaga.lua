@@ -55,7 +55,7 @@ return {
 				win_width = 45,
 				close_after_jump = false,
 				keys = {
-					toggle_or_jump = "o",
+					toggle_or_jump = "<cr>",
 					quit = "<esc>",
 					jump = "e",
 				},
