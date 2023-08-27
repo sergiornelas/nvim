@@ -10,6 +10,7 @@ return {
 			code_action = {
 				show_server_name = true,
 				keys = {
+					exec = "<cr>",
 					quit = "<esc>",
 				},
 			},
@@ -19,6 +20,7 @@ return {
 					vsplit = "<c-c>v",
 					split = "<c-c>s",
 					tabe = "<c-c>r",
+					tabnew = "<c-c>R",
 					quit = "q",
 					close = "<esc>",
 				},

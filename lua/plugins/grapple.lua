@@ -12,8 +12,8 @@ function M.config()
 	grapple.setup({
 		scope = "git",
 		popup_options = {
-			width = 48,
-			height = 8,
+			width = 60,
+			height = 10,
 		},
 	})
 end

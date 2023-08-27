@@ -4,8 +4,8 @@ return {
 	keys = {
 		"g=",
 		"gx",
-		"gP",
-		"gR",
+		"gt",
+		"gz",
 		"gS",
 	},
 	opts = {
@@ -21,11 +21,11 @@ return {
 		},
 		-- Multiply (duplicate) text
 		multiply = {
-			prefix = "gP",
+			prefix = "gt",
 		},
 		-- Replace text with register
 		replace = {
-			prefix = "gR",
+			prefix = "gz",
 			-- Whether to reindent new text to match previous indent
 			reindent_linewise = true,
 		},

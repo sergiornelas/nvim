@@ -9,7 +9,8 @@ return {
 
 		indentscope.setup({
 			draw = {
-				animation = indentscope.gen_animation.none(),
+				delay = 100,
+				-- animation = indentscope.gen_animation.none(),
 			},
 			mappings = {
 				object_scope = "u",

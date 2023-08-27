@@ -12,15 +12,17 @@ local M = {
 				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 				toggler = {
 					line = "gn",
+					block = "gbc",
 				},
 				opleader = {
 					line = "ga",
+					block = "gb",
 				},
 				extra = {
 					-- Add comment on the line above
-					above = "gaM",
+					above = "gaK",
 					-- Add comment on the line below
-					below = "gam",
+					below = "gaJ",
 					---Add comment at the end of line
 					eol = "gaA",
 				},

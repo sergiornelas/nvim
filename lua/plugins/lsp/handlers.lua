@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf }
 		-- keymap("n", "gD", lsp.declaration, bufopts)
 		keymap("n", "gD", "<cmd>TSToolsGoToSourceDefinition<cr>", opts)
-		keymap("n", "gz", lsp.implementation, opts)
+		-- keymap("n", "gz", lsp.implementation, opts)
 		keymap("n", "gs", lsp.signature_help, opts)
 		keymap("n", "gA", lsp.add_workspace_folder, opts)
 		keymap("n", "gF", lsp.remove_workspace_folder, opts)
@@ -30,9 +30,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 
 		-- <Lspsaga>
+		-- keymap("n", "g<leader>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 		keymap("n", "g<leader>", "<cmd>Lspsaga code_action<cr>", opts)
 		keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>", opts)
 		keymap("n", "gd", "<cmd>Lspsaga goto_definition<cr>", opts)
+		keymap("n", "g<cr>", "<cmd>Lspsaga goto_type_definition<cr>", opts)
 		keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<cr>", opts)
 		keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
 		keymap("n", "gq", "<cmd>Lspsaga show_buf_diagnostics<cr>", opts)

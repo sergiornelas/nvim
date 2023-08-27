@@ -111,15 +111,6 @@ return {
 					},
 					include_surrounding_whitespace = true,
 				},
-				swap = {
-					enable = true,
-					swap_next = {
-						["du"] = "@function.outer",
-					},
-					swap_previous = {
-						["dp"] = "@function.outer",
-					},
-				},
 				move = {
 					enable = true,
 					set_jumps = true,

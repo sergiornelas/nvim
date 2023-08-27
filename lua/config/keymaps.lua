@@ -243,7 +243,8 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- z, m
 
 -- G maps available:
--- <cr>
+-- <cr> (using it for lspsaga goto type def)
+-- c
 -- caps chars
 
 -- <leader> maps available:
