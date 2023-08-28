@@ -18,10 +18,10 @@ return {
 				keys = {
 					edit = "<c-c>o",
 					vsplit = "<c-c>v",
-					split = "<c-c>s",
-					tabe = "<c-c>r",
-					tabnew = "<c-c>R",
-					quit = "q",
+					split = "<c-c>x",
+					tabe = "<c-c>k",
+					tabnew = "<c-c>K",
+					quit = "<c-q>",
 					close = "<esc>",
 				},
 			},
@@ -41,12 +41,12 @@ return {
 				keys = {
 					shuttle = "<c-o>", -- shuttle bettween the finder layout window
 					toggle_or_open = "<cr>",
-					vsplit = "v",
-					split = "s",
-					tabe = "r",
-					tabnew = "R",
+					vsplit = "<c-v>",
+					split = "<c-x>",
+					tabe = "<c-k>",
+					tabnew = "Q",
 					quit = "<esc>",
-					close = "<C-c>k",
+					close = "<c-c>k",
 				},
 			},
 			lightbulb = {

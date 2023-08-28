@@ -38,7 +38,7 @@ keymap("n", "<leader>Ti", "<cmd>TSToolsAddMissingImports<cr>", opts)
 keymap("n", "<leader>Tf", "<cmd>TSToolsFixAll<cr>", opts)
 
 -- <LSP-Signature>
-keymap("i", "<c-s>", function()
+keymap("i", "<c-s><leader>", function()
 	require("lsp_signature").toggle_float_win()
 end, opts)
 
@@ -209,6 +209,7 @@ keymap("n", "gM", "gm", opts)
 -- Utils
 keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
 keymap("", "<leader>h", "<cmd>set hlsearch!<cr>", opts) --           highlights
+keymap("n", "<cr>", "mzo<esc>`z", opts) --                           break line
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) --                        exit neovim
 keymap("n", "<leader>V", ":verbose map ", { noremap = true }) --  check mapping
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
@@ -233,9 +234,9 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- Z
 
 -- D maps available:
--- q, r, y
+-- q, y, p
 -- <cr>
--- z, x, c
+-- z, x, c, v?, m
 
 -- C maps available:
 -- r, y, u, p
@@ -259,7 +260,6 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- <C-> maps available:
 -- y
--- s
 -- m (uses as enter)
 -- <cr>
 

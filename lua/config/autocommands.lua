@@ -115,3 +115,11 @@ api.nvim_exec(
 
 -- Execute keyboard command
 -- :exe "normal \<C-W>\<C-w>"
+
+-- :nmap - Display normal mode maps
+-- :imap - Display insert mode maps
+-- :vmap - Display visual and select mode maps
+-- :smap - Display select mode maps
+-- :xmap - Display visual mode maps
+-- :cmap - Display command-line mode maps
+-- :omap - Display operator pending mode maps

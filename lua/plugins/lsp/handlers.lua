@@ -30,8 +30,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 
 		-- <Lspsaga>
-		-- keymap("n", "g<leader>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-		keymap("n", "g<leader>", "<cmd>Lspsaga code_action<cr>", opts)
+		keymap("n", "g<leader>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+		-- Not showing full action elements, not applying when updating dependencies array:
+		-- keymap("n", "g<leader>", "<cmd>Lspsaga code_action<cr>", opts)
 		keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>", opts)
 		keymap("n", "gd", "<cmd>Lspsaga goto_definition<cr>", opts)
 		keymap("n", "g<cr>", "<cmd>Lspsaga goto_type_definition<cr>", opts)

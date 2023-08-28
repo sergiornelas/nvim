@@ -12,23 +12,28 @@ function M.config()
 
 	nvim_surround.setup({
 		keymaps = {
-			insert = "<c-x>s",
-			insert_line = "<c-x>S",
-			normal = "dm",
-			normal_cur = "dmm",
-			normal_line = "dM",
-			normal_cur_line = "dMM",
-			visual = "<c-s>",
-			visual_line = "gZ",
+			insert = "<c-s><c-j>",
+			insert_line = "<c-s><c-s>",
+			--
+			normal = "<c-s><c-j>",
+			normal_line = "<c-s><c-s>",
+			normal_cur = "<c-s>l",
+			normal_cur_line = "<c-s>L",
+			--
+			visual = "<c-s><c-j>",
+			visual_line = "<c-s><c-s>",
+			--
 			delete = "ds",
+			--
 			change = "cs",
+			change_line = "cS",
 		},
 		aliases = {
 			["a"] = ">",
 			["p"] = ")",
 			["c"] = "}",
 			["b"] = "]",
-			["q"] = { '"', "'", "`" },
+			["q"] = "'",
 			["s"] = { "}", "]", ")", ">", '"', "'", "`" },
 		},
 	})
