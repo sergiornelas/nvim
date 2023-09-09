@@ -6,6 +6,12 @@ local M = {
 			"pmizio/typescript-tools.nvim",
 		},
 		{
+			"kosayoda/nvim-lightbulb",
+			opts = {
+				autocmd = { enabled = true, updatetime = 50 },
+			},
+		},
+		{
 			"ray-x/lsp_signature.nvim",
 			config = true,
 		},

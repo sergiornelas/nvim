@@ -6,6 +6,23 @@ end
 
 local keymap = vim.keymap.set
 
+keymap("n", "gw", '<cmd>lua vim.diagnostic.open_float(0, { scope = "cursor", border = "single" })<CR>')
+keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>')
+keymap("n", "gB", '<cmd>lua vim.diagnostic.open_float(0, { scope = "buffer", border = "double" })<CR>')
+keymap("n", "\\e", vim.diagnostic.goto_prev)
+keymap("n", "\\d", vim.diagnostic.goto_next)
+keymap(
+	"n",
+	"\\r",
+	"<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR, float = { border = { '╭', '~', '╮', '│', '╯', '─', '╰', '│' } } })<CR>"
+)
+keymap(
+	"n",
+	"\\f",
+	"<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR, float = { border = { '╭', '~', '╮', '│', '╯', '─', '╰', '│' } } })<CR>"
+)
+keymap("n", "gq", vim.diagnostic.setloclist)
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
@@ -14,46 +31,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		local lsp = vim.lsp.buf
 		local opts = { buffer = ev.buf }
-		-- keymap("n", "gD", lsp.declaration, bufopts)
-		keymap("n", "gD", "<cmd>TSToolsGoToSourceDefinition<cr>", opts)
-		-- keymap("n", "gz", lsp.implementation, opts)
+		keymap("n", "gD", lsp.declaration, opts)
+		keymap("n", "gd", lsp.definition, opts)
+		keymap("n", "gt", "<cmd>TSToolsGoToSourceDefinition<cr>", opts)
+		keymap("n", "gh", lsp.hover, opts)
+		-- keymap("n", "", lsp.implementation, opts)
 		keymap("n", "gs", lsp.signature_help, opts)
 		keymap("n", "gA", lsp.add_workspace_folder, opts)
 		keymap("n", "gF", lsp.remove_workspace_folder, opts)
 		keymap("n", "gW", function()
 			print(vim.inspect(lsp.list_workspace_folders()))
 		end, opts)
-		keymap("n", "gf", lsp.type_definition, opts)
-		-- keymap("n", "gR", lsp.references, opts)
-		keymap("n", "g;", function()
-			lsp.format({ async = true })
-		end, opts)
-
-		-- <Lspsaga>
-		keymap("n", "g<leader>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-		-- Not showing full action elements, not applying when updating dependencies array:
-		-- keymap("n", "g<leader>", "<cmd>Lspsaga code_action<cr>", opts)
-		keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>", opts)
-		keymap("n", "gd", "<cmd>Lspsaga goto_definition<cr>", opts)
-		keymap("n", "g<cr>", "<cmd>Lspsaga goto_type_definition<cr>", opts)
-		keymap("n", "gw", "<cmd>Lspsaga show_cursor_diagnostics<cr>", opts)
-		keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
-		keymap("n", "gq", "<cmd>Lspsaga show_buf_diagnostics<cr>", opts)
-		keymap("n", "gQ", "<cmd>Lspsaga show_workspace_diagnostics<cr>", opts)
-		keymap("n", "\\e", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
-		keymap("n", "\\d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-		keymap("n", "\\r", function()
-			require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
-		end, opts)
-		keymap("n", "\\f", function()
-			require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
-		end, opts)
-		keymap("n", "go", "<cmd>Lspsaga finder<cr>", opts)
-		keymap("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opts)
-		keymap("n", "gH", "<cmd>Lspsaga hover_doc ++keep<cr>", opts)
-		keymap("n", "gO", "<cmd>Lspsaga outline<cr>", opts)
-		keymap("n", "gr", "<cmd>Lspsaga rename<cr>", opts)
-		keymap("n", "gR", ":Lspsaga project_replace ", { noremap = true })
+		-- keymap("n", "", lsp.type_definition, opts)
+		keymap("n", "gr", lsp.rename, opts)
+		keymap({ "n", "v" }, "g<leader>", lsp.code_action, opts)
+		keymap({ "n", "v" }, "gc", require("actions-preview").code_actions, opts)
+		keymap("n", "go", lsp.references, opts)
+		-- keymap("n", "g;", function()
+		-- 	lsp.format({ async = true })
+		-- end, opts)
 	end,
 	keymap("n", "gL", "<cmd>LspInfo<cr>"),
 })
@@ -61,6 +57,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 local M = {}
 
 M.on_attach = function(client, bufnr)
+	require("nvim-navic").attach(client, bufnr)
+
 	if client.server_capabilities.inlayHintProvider then
 		require("lsp-inlayhints").on_attach(client, bufnr) -- Typescript 4.4
 		-- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })

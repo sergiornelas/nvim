@@ -43,6 +43,9 @@ api.nvim_exec(
 
   " Command prev option
   cnoremap <c-o> <c-p>
+
+  " close quickfix with escape
+  nnoremap <expr> <esc> &buftype == 'quickfix' ? ":q<cr>" : '<esc>'
 ]],
 	false
 )
