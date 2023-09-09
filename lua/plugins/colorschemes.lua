@@ -1,3 +1,4 @@
+---@diagnostic disable: inject-field
 local lazy_map = {
 	{
 		"<leader>c",

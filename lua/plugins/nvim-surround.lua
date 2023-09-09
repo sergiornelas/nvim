@@ -12,15 +12,15 @@ function M.config()
 
 	nvim_surround.setup({
 		keymaps = {
-			insert = "<c-s><c-j>",
+			insert = "<c-s>",
 			insert_line = "<c-s><c-s>",
 			--
-			normal = "<c-s><c-j>",
+			normal = "<c-s>",
 			normal_line = "<c-s><c-s>",
-			normal_cur = "<c-s>l",
-			normal_cur_line = "<c-s>L",
+			normal_cur = "<c-s>c",
+			normal_cur_line = "<c-s>C",
 			--
-			visual = "<c-s><c-j>",
+			visual = "<c-s>",
 			visual_line = "<c-s><c-s>",
 			--
 			delete = "ds",

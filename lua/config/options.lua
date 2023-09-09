@@ -44,3 +44,9 @@ o.winminwidth = 10 --          The minimal width of a window, when it's not the 
 o.winwidth = 10 --             Minimal number of columns for the current window.
 o.wrap = false --              display lines as one long line
 o.writebackup = false --       if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+
+-- when windows become crazy:
+-- winminwidth = 10
+-- winwidth = 10
+-- winminheight = 10
+-- winheight = 10

@@ -24,6 +24,7 @@ creativenull/efmls-configs-nvim                                   Null-ls altern
 niuiic/format.nvim                                                Null-ls alternative
 mhartington/formatter.nvim                            Null-ls alternative (947 stars)
 nvimdev/guard.nvim                            Null-ls alternative (faster, but buggy)
+stevearc/conform.nvim                                 Null-ls lightweight alternative 
 rmagatti/goto-preview                          reference window instead of go to file
 
 TREESITTER --------------------------------------------------------------------------
@@ -83,6 +84,7 @@ tomiis4/hypersonic.nvim                                         explanation for 
 ARTIFICIAL INTELIGENCE --------------------------------------------------------------
 github/copilot.vim
 zbirenbaum/copilot-cmp
+zbirenbaum/copilot.lua
 jameshiew/nvim-magic
 tzachar/cmp-tabnine
 jackMort/ChatGPT.nvim                                                         ChatGPT
@@ -96,6 +98,8 @@ Dhanus3133/Leetbuddy.nvim                  Enables seamless integration with Lee
 svermeulen/text-to-colorscheme                    colorscheme generator with chat gpt
 Robitx/gp.nvim                                      Gp (GPT prompt) plugin for Neovim
 dpayne/CodeGPT.nvim                           The focus is around code related usages
+piersolenski/wtf.nvim                                diagnostics detailed explanation
+CamdenClark/flyboy                                    lightweight ChatGPT interaction
 
 COMPETITIVE CODING ------------------------------------------------------------------
 >> run = "cd js && npm ci" at lab plugin dir
@@ -153,6 +157,7 @@ HampusHauffman/block.nvim                                        colorful nested
 zaldih/themery.nvim                                       colorschemes changing tools
 mg979/tabline.nvim     lua tab rename plugin (bugs with autosession, wait for mature)
 tiagovla/scope.nvim                               workspace by tab (very interesting)
+Hajime-Suzuki/vuffers.nvim                          vertical bufferlist with features
 
 Last time revisited all these plugins
 07/03/23
@@ -160,8 +165,8 @@ Last time revisited all these plugins
 ====================
 Last time checked this-week-in-neovim
 Don't expect a new issue for the next 2 weeks
-Aug 21
+Aug 28
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Aug 21
+Sep 05

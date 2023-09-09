@@ -9,7 +9,7 @@ return {
 		},
 		keys = {
 			{
-				"<leader>tl",
+				"<leader>tj",
 				function()
 					require("neotest").run.run_last()
 				end,
@@ -27,13 +27,13 @@ return {
 				end,
 			},
 			{
-				"<leader>tj",
+				"<leader>tr",
 				function()
 					require("neotest").run.run()
 				end,
 			},
 			{
-				"<leader>ts",
+				"<leader>tS",
 				function()
 					require("neotest").summary.toggle()
 				end,
@@ -55,7 +55,7 @@ return {
 				end,
 			},
 			{
-				"<leader>tS",
+				"<leader>ts",
 				function()
 					require("neotest").run.stop()
 				end,

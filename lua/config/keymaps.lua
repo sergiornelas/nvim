@@ -1,3 +1,4 @@
+---@diagnostic disable: inject-field
 vim.g.mapleader = " "
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
@@ -116,18 +117,19 @@ keymap(
 	"<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>TabooRename Scratch 󰙏 <cr><cmd>RunCode<cr>",
 	opts
 )
-vim.api.nvim_exec(
-	[[
-  " nnoremap <leader>J :tabnew ~/scratchFiles/scratch.ts<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
-  aug doubleleaderbinds
-    au! doubleleaderbinds
-    au FileType norg nnoremap <buffer> <silent> <leader><leader> <cmd>Neorg toggle-concealer<cr><cmd>Neorg toggle-concealer<cr>
-    " au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <buffer> <silent> <leader><leader> <cmd>RunClose<cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
-    au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <buffer> <silent> <leader><leader> <cmd>RunClose<cr><cmd>RunCode<cr>
-  aug end
-]],
-	false
-)
+
+-- vim.api.nvim_exec(
+-- 	[[
+--   " nnoremap <leader>J :tabnew ~/scratchFiles/scratch.ts<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
+--   " aug doubleleaderbinds
+--     " au! doubleleaderbinds
+--     " au FileType norg nnoremap <buffer> <silent> <leader><leader> <cmd>Neorg toggle-concealer<cr><cmd>Neorg toggle-concealer<cr>
+--     " au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <buffer> <silent> <leader><leader> <cmd>RunClose<cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
+--     " au FileType javascript,javascriptreact,typescript,typescriptreact nnoremap <buffer> <silent> <leader><leader> <cmd>RunClose<cr><cmd>RunCode<cr>
+--   " aug end
+-- ]],
+-- 	false
+-- )
 
 -- Open links under cursor in browser
 if vim.fn.has("macunix") == 1 then
@@ -140,10 +142,10 @@ end
 keymap("", "<leader>w", "<cmd>q<cr>", opts) --             close window
 keymap("", "<leader>Q", "<cmd>q!<cr>", opts) -- close window and buffer
 keymap("n", "<c-v>", "<c-^>", opts) --             toggle recent window
-keymap("n", "<c-r>", "<c-w>w", opts) --            navigate next window
+keymap("n", "<c-r>", "<c-w>w99zh", opts) --            navigate next window
 keymap("n", "<c-u>", "<c-u>zz", opts) --         scrolls up half buffer
 keymap("n", "<c-d>", "<c-d>zz", opts) --       scrolls down half buffer
-keymap("n", "<c-a>", "<c-w>W", opts) --        navigate previous window
+keymap("n", "<c-a>", "<c-w>W99zh", opts) --        navigate previous window
 keymap("", "<c-e>", "<c-y>", opts) --          page scrolls up one line
 keymap("", "<c-f>", "<c-e>", opts) --        page scrolls down one line
 
@@ -211,6 +213,7 @@ keymap("", "<leader>f", "<cmd>w<cr>", opts) --                        save file
 keymap("", "<leader>h", "<cmd>set hlsearch!<cr>", opts) --           highlights
 keymap("n", "<cr>", "mzo<esc>`z", opts) --                           break line
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) --                        exit neovim
+keymap("n", "g<cr>", "mzO<esc>`z", opts) --                       break line up
 keymap("n", "<leader>V", ":verbose map ", { noremap = true }) --  check mapping
 keymap({ "n", "x" }, "g<c-x>", "g<c-a>") --                     increase column
 keymap({ "n", "x" }, "g<c-z>", "g<c-x>") --                     decrease column
@@ -221,6 +224,7 @@ keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) --         force exit neovim
 keymap("n", "<c-w><c-q>", "<cmd>wq<cr>", opts) --          save and exit neovim
 keymap("n", "q<leader>", "$T!yt!", opts) --                yank secret password
 keymap("n", "<leader><c-h>", "<cmd>bd!<cr>", opts) --     delete written buffer
+keymap("n", "<leader><leader>", "i<space><esc>", opts) -- one space normal mode
 keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
 keymap("", "<c-p>", "g;") --                       go to last changed line
 keymap("", "g,", "gi", opts) --                 go to last insert mode position
@@ -244,13 +248,13 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- z, m
 
 -- G maps available:
--- <cr> (using it for lspsaga goto type def)
--- c
+-- c, .
 -- caps chars
 
 -- <leader> maps available:
 -- q, y
 -- d, <cr>
+-- <leader> (space right)
 -- <esc>
 -- caps chars (C...)
 -- combinations with: j, t
@@ -284,6 +288,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- yank + key
 
 -- Used but mappeable:
+-- <leader><leader> ~ space right
 -- <leader>v ~ inlay
 -- <leader>r ~ runcode commands
 -- <leader>x ~ neorg twilight mode
