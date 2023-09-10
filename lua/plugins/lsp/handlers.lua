@@ -45,7 +45,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- keymap("n", "", lsp.type_definition, opts)
 		keymap("n", "gr", lsp.rename, opts)
 		keymap({ "n", "v" }, "g<leader>", lsp.code_action, opts)
-		keymap({ "n", "v" }, "gc", require("actions-preview").code_actions, opts)
 		keymap("n", "go", lsp.references, opts)
 		-- keymap("n", "g;", function()
 		-- 	lsp.format({ async = true })

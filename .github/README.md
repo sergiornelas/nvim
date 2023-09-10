@@ -36,9 +36,13 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 ## Plugins
 
+### ai
+
++ [jackMort/ChatGPT.nvim](https://dotfyle.com/plugins/jackMort/ChatGPT.nvim)
 ### bars-and-lines
 
 + [m4xshen/smartcolumn.nvim](https://dotfyle.com/plugins/m4xshen/smartcolumn.nvim)
++ [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
 ### code-runner
 
 + [CRAG666/code_runner.nvim](https://dotfyle.com/plugins/CRAG666/code_runner.nvim)
@@ -58,8 +62,8 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [cpea2506/one_monokai.nvim](https://dotfyle.com/plugins/cpea2506/one_monokai.nvim)
 + [sekke276/dark_flat.nvim](https://dotfyle.com/plugins/sekke276/dark_flat.nvim)
 + [sainnhe/sonokai](https://dotfyle.com/plugins/sainnhe/sonokai)
-+ [rebelot/kanagawa.nvim](https://dotfyle.com/plugins/rebelot/kanagawa.nvim)
 + [rose-pine/neovim](https://dotfyle.com/plugins/rose-pine/neovim)
++ [rebelot/kanagawa.nvim](https://dotfyle.com/plugins/rebelot/kanagawa.nvim)
 + [navarasu/onedark.nvim](https://dotfyle.com/plugins/navarasu/onedark.nvim)
 + [AlexvZyl/nordic.nvim](https://dotfyle.com/plugins/AlexvZyl/nordic.nvim)
 + [ramojus/mellifluous.nvim](https://dotfyle.com/plugins/ramojus/mellifluous.nvim)
@@ -74,6 +78,9 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 ### cursorline
 
 + [RRethy/vim-illuminate](https://dotfyle.com/plugins/RRethy/vim-illuminate)
+### dependency-management
+
++ [piersolenski/telescope-import.nvim](https://dotfyle.com/plugins/piersolenski/telescope-import.nvim)
 ### editing-support
 
 + [utilyre/sentiment.nvim](https://dotfyle.com/plugins/utilyre/sentiment.nvim)
@@ -90,7 +97,7 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [kyazdani42/nvim-tree.lua](https://dotfyle.com/plugins/kyazdani42/nvim-tree.lua)
 ### formatting
 
-+ [mhartington/formatter.nvim](https://dotfyle.com/plugins/mhartington/formatter.nvim)
++ [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
 ### fuzzy-finder
 
 + [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
@@ -109,11 +116,12 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [echasnovski/mini.indentscope](https://dotfyle.com/plugins/echasnovski/mini.indentscope)
 ### lsp
 
++ [aznhe21/actions-preview.nvim](https://dotfyle.com/plugins/aznhe21/actions-preview.nvim)
 + [onsails/lspkind.nvim](https://dotfyle.com/plugins/onsails/lspkind.nvim)
 + [chrisgrieser/nvim-dr-lsp](https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp)
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 + [ray-x/lsp_signature.nvim](https://dotfyle.com/plugins/ray-x/lsp_signature.nvim)
-+ [nvimdev/lspsaga.nvim](https://dotfyle.com/plugins/nvimdev/lspsaga.nvim)
++ [kosayoda/nvim-lightbulb](https://dotfyle.com/plugins/kosayoda/nvim-lightbulb)
 ### lsp-installer
 
 + [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
@@ -132,7 +140,7 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [nvim-neorg/neorg](https://dotfyle.com/plugins/nvim-neorg/neorg)
 ### nvim-dev
 
-+ [anuvyklack/animation.nvim](https://dotfyle.com/plugins/anuvyklack/animation.nvim)
++ [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
 + [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
 ### plugin-manager
 
@@ -140,6 +148,9 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 ### programming-languages-support
 
 + [dmmulroy/tsc.nvim](https://dotfyle.com/plugins/dmmulroy/tsc.nvim)
+### quickfix
+
++ [kevinhwang91/nvim-bqf](https://dotfyle.com/plugins/kevinhwang91/nvim-bqf)
 ### session
 
 + [rmagatti/auto-session](https://dotfyle.com/plugins/rmagatti/auto-session)
