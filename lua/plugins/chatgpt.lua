@@ -9,7 +9,7 @@ return {
 	},
 	config = function()
 		require("chatgpt").setup({
-			api_key_cmd = "echo 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",
+			api_key_cmd = "echo ",
 		})
 	end,
 	dependencies = {
