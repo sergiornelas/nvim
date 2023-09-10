@@ -12,6 +12,7 @@ return {
 			"hiphish/rainbow-delimiters.nvim",
 			config = function()
 				local rainbow_delimiters = require("rainbow-delimiters")
+				---@diagnostic disable-next-line: inject-field
 				vim.g.rainbow_delimiters = {
 					strategy = {
 						[""] = rainbow_delimiters.strategy["global"],

@@ -4,6 +4,7 @@ local M = {
 	build = "make",
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ "piersolenski/telescope-import.nvim" },
 	},
 }
 
@@ -82,9 +83,13 @@ function M.config()
 				case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 				-- the default case_mode is "smart_case"
 			},
+			import = {
+				insert_at_top = true,
+			},
 		},
 	})
 
+	telescope.load_extension("import")
 	telescope.load_extension("fzf")
 
 	-- Token  	       Match type           	          Description

@@ -7,7 +7,7 @@ local M = {
 	-- lazy loading not working:
 	-- event = "VeryLazy",
 	-- keys = {
-	-- 	{ "<leader>a", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree" },
+	-- 	{ "<leader>a", "<cmd>NvimTreeToggle<cr>" },
 	-- },
 	-- cmd = "NvimTreeToggle",
 }
