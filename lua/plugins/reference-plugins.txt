@@ -1,23 +1,17 @@
 LSP ---------------------------------------------------------------------------------
-simrat39/symbols-outline.nvim                                  LSP Diagram menu (jsx)
-folke/trouble.nvim                                                 pretty diagnostics
-kevinhwang91/nvim-bqf                                                        quickfix
-ray-x/navigator.lua                                                      LSP hardcore
+simrat39/symbols-outline.nvim                                        LSP Diagram menu
 stevearc/aerial.nvim                                                 LSP Diagram menu
+folke/trouble.nvim                                                 pretty diagnostics
+ray-x/navigator.lua                                                      LSP hardcore
 folke/neoconf.nvim                             global/project-local lsp settings live
-joechrisellis/lsp-format-modifications.nvim                             format edited
-smjonas/inc-rename.nvim lsp rename,          bug:mandatory cursor on word for c-p/c-n
-filipdutescu/renamer.nvim                           problem: 6~11ms for small feature
-weilbith/nvim-code-action-menu                      don't shows full code action info
-aznhe21/actions-preview.nvim                        don't shows full code action info
+smjonas/inc-rename.nvim                      lsp rename, bug: goes to the top of file
 vigoux/notifier.nvim                                          show message lsp loaded
-jinzhongjia/LspUI.nvim saga mini                  code action and diagnostics limited
-glepnir/lspsaga.nvim                     code actions limited and brokes all the time
 tzachar/local-highlight.nvim                                 word illuminate (mature)
-nvim-telescope/telescope-ui-select.nvim currently using dressing (nvimtreeinputscool)
 VidocqH/lsp-lens.nvim                 show definition and references (takes one line)
 Bekaboo/dropbar.nvim                             IDE-like breadcrumbs, out of the box
 pmizio/typescript-tools.nvim              tsserver fast (not really, wait for mature)
+rmagatti/goto-preview                                                  like Saga peak
+joechrisellis/lsp-format-modifications.nvim                     format specific files
 elentok/format-on-save.nvim                                       Null-ls alternative
 creativenull/diagnosticls-configs-nvim                            Null-ls alternative
 creativenull/efmls-configs-nvim                                   Null-ls alternative
@@ -25,7 +19,6 @@ niuiic/format.nvim                                                Null-ls altern
 mhartington/formatter.nvim                            Null-ls alternative (947 stars)
 nvimdev/guard.nvim                            Null-ls alternative (faster, but buggy)
 stevearc/conform.nvim                                 Null-ls lightweight alternative 
-rmagatti/goto-preview                          reference window instead of go to file
 
 TREESITTER --------------------------------------------------------------------------
 ziontee113/syntax-tree-surfer                                            TS navigator
@@ -50,7 +43,6 @@ TESTING ------------------------------------------------------------------------
 David-Kunz/jester
 klen/nvim-test
 janko-m/vim-test
-andythigpen/nvim-coverage
 mini.test
 is0n/jaq-nvim                                                   terminal test results
 EthanJWright/vs-tasks.nvim                                      terminal test results
@@ -85,7 +77,6 @@ ARTIFICIAL INTELIGENCE ---------------------------------------------------------
 github/copilot.vim
 zbirenbaum/copilot-cmp
 zbirenbaum/copilot.lua
-jameshiew/nvim-magic
 tzachar/cmp-tabnine
 jackMort/ChatGPT.nvim                                                         ChatGPT
 aduros/ai.vim                                                          openAI and GPT
@@ -131,7 +122,7 @@ ThePrimeagen/refactoring.nvim                                             refact
 anuvyklack/pretty-fold.nvim                                     fold with percentages
 chentoast/marks.nvim                                                     visual marks
 danymat/neogen                                    comments on files for documentation
-edluffy/specs.nvim                                  cool highlight cursor (has a bug)
+edluffy/specs.nvim                       cool highlight cursor (bug with zz commands)
 potamides/pantran.nvim                                              google translator
 jghauser/kitty-runner.nvim                                   kitty commands from nvim
 smjonas/live-command.nvim                                                live command
@@ -141,7 +132,6 @@ folke/styler.nvim                                            colorscheme by file
 tamton-aquib/zone.nvim                                                   screen saver
 debugloop/telescope-undo.nvim                                          telescope undo
 nyngwang/NeoTerm.lua                                attach a terminal for each buffer
-rareitems/printer.nvim                             add console.logs (wait for mature)
 roobert/search-replace.nvim                                 UI for search and replace
 princejoogie/chafa.nvim                                                images and svg
 3rd/image.nvim                                                 images render on neorg
@@ -155,12 +145,12 @@ chrisgrieser/nvim-alt-substitute                         better substitute with 
 AckslD/muren.nvim                                      replace multiple words with UI
 HampusHauffman/block.nvim                                        colorful nested code
 zaldih/themery.nvim                                       colorschemes changing tools
-mg979/tabline.nvim     lua tab rename plugin (bugs with autosession, wait for mature)
 tiagovla/scope.nvim                               workspace by tab (very interesting)
 Hajime-Suzuki/vuffers.nvim                          vertical bufferlist with features
+altermo/ultimate-autopair.nvim  replace tabout, autopair, nvim-surround (wait for m.)
 
 Last time revisited all these plugins
-07/03/23
+09/09/23
 
 ====================
 Last time checked this-week-in-neovim

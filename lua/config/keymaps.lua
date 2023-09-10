@@ -13,6 +13,7 @@ keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
 keymap("", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("", "<leader>M", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("", "<leader>H", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
+keymap("", "<leader>I", "<cmd>Telescope import<cr>", opts)
 keymap("i", "<c-r>", "<cmd>Telescope registers theme=cursor layout_config={height=0.3}<cr>", opts)
 
 -- <Grapple>
