@@ -1,5 +1,5 @@
--- https://github.com/typescript-language-server/typescript-language-server
 -- https://github.com/microsoft/TypeScript/blob/v5.0.4/src/server/protocol.ts#L3439
+-- https://github.com/typescript-language-server/typescript-language-server#inlay-hints-textdocumentinlayhint
 
 return {
 	includeInlayParameterNameHints = "all",
@@ -10,6 +10,4 @@ return {
 	includeInlayPropertyDeclarationTypeHints = true,
 	includeInlayFunctionLikeReturnTypeHints = true,
 	includeInlayEnumMemberValueHints = true,
-	quotePreference = "auto",
-	includeCompletionsForModuleExports = true,
 }

@@ -1,7 +1,14 @@
 local M = {
 	{
 		"numToStr/Comment.nvim",
-		event = "VeryLazy",
+		keys = {
+			{ "gn", mode = { "n", "x" } },
+			{ "gb", mode = { "n", "x" } },
+			{ "ga", mode = { "n", "x" } },
+		},
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
 		config = function()
 			local comment_ok, comment = pcall(require, "Comment")
 			if not comment_ok then
@@ -28,10 +35,6 @@ local M = {
 				},
 			})
 		end,
-	},
-	{
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	},
 }
 

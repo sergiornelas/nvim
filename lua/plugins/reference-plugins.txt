@@ -149,6 +149,7 @@ zaldih/themery.nvim                                       colorschemes changing 
 tiagovla/scope.nvim                               workspace by tab (very interesting)
 Hajime-Suzuki/vuffers.nvim                          vertical bufferlist with features
 altermo/ultimate-autopair.nvim  replace tabout, autopair, nvim-surround (wait for m.)
+saccarosium/neomarks                                               harpoon mimimalist
 
 Last time revisited all these plugins
 09/09/23

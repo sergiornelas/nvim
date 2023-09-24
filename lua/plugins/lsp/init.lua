@@ -15,10 +15,6 @@ local M = {
 			"ray-x/lsp_signature.nvim",
 			config = true,
 		},
-		{
-			"lvimuser/lsp-inlayhints.nvim",
-			config = true,
-		},
 	},
 }
 

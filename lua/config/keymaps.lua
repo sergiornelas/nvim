@@ -87,7 +87,9 @@ keymap("n", "<leader>q", "<cmd>ChatGPT<cr>", opts)
 keymap("x", "<c-c>", "<cmd>ChatGPTRun complete_code<cr>", opts)
 
 -- <Inlay hints>
-keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
+keymap("n", "<leader>v", function()
+	vim.lsp.inlay_hint(0, nil)
+end, opts)
 
 -- <Treesitter context>
 keymap("n", "gI", "<cmd>lua require('treesitter-context').go_to_context()<cr>", opts)
@@ -144,10 +146,10 @@ end
 keymap("", "<leader>w", "<cmd>q<cr>", opts) --             close window
 keymap("", "<leader>Q", "<cmd>q!<cr>", opts) -- close window and buffer
 keymap("n", "<c-v>", "<c-^>", opts) --             toggle recent window
-keymap("n", "<c-r>", "<c-w>w99zh", opts) --            navigate next window
+keymap("n", "<c-r>", "<c-w>w99zh", opts) --        navigate next window
 keymap("n", "<c-u>", "<c-u>zz", opts) --         scrolls up half buffer
 keymap("n", "<c-d>", "<c-d>zz", opts) --       scrolls down half buffer
-keymap("n", "<c-a>", "<c-w>W99zh", opts) --        navigate previous window
+keymap("n", "<c-a>", "<c-w>W99zh", opts) --    navigate previous window
 keymap("", "<c-e>", "<c-y>", opts) --          page scrolls up one line
 keymap("", "<c-f>", "<c-e>", opts) --        page scrolls down one line
 
@@ -227,8 +229,9 @@ keymap("n", "<c-w><c-q>", "<cmd>wq<cr>", opts) --          save and exit neovim
 keymap("n", "q<leader>", "$T!yt!", opts) --                yank secret password
 keymap("n", "<leader><c-h>", "<cmd>bd!<cr>", opts) --     delete written buffer
 keymap("n", "<leader><leader>", "i<space><esc>", opts) -- one space normal mode
+keymap("x", "<leader><leader>", "I<space><esc>", opts) -- one space visual mode
 keymap("", "<leader>Z", "<cmd>set ch=0<cr>", opts) --   set command height to 0
-keymap("", "<c-p>", "g;") --                       go to last changed line
+keymap("", "<c-p>", "g;") --                            go to last changed line
 keymap("", "g,", "gi", opts) --                 go to last insert mode position
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
 keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J

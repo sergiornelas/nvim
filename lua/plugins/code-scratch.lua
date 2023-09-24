@@ -1,7 +1,7 @@
 return {
 	{
 		"metakirby5/codi.vim",
-		event = "VeryLazy",
+		cmd = { "Codi", "CodiExpand" },
 		config = function()
 			vim.cmd([[
           let g:codi#aliases = {

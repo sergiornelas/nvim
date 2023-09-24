@@ -7,6 +7,17 @@ function M.setup()
 		{ name = "DiagnosticSignInfo", text = "ℹ️" },
 		{ name = "DiagnosticSignWarn", text = "⚠️" },
 	}
+	local hoverBorder = {
+		{ "╭", "FloatBorder" },
+		{ "─", "FloatBorder" },
+		{ "╮", "FloatBorder" },
+		{ "│", "FloatBorder" },
+		{ "╯", "FloatBorder" },
+		{ "─", "FloatBorder" },
+		{ "╰", "FloatBorder" },
+		{ "│", "FloatBorder" },
+	}
+
 	for _, sign in ipairs(signs) do
 		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 	end
@@ -29,7 +40,7 @@ function M.setup()
 	})
 
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-		border = "single",
+		border = hoverBorder,
 		title = "   ",
 	})
 end
