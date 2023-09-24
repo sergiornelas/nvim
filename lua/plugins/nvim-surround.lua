@@ -1,7 +1,21 @@
 local M = {
 	"kylechui/nvim-surround",
 	version = "*",
-	event = "BufReadPost",
+	keys = {
+		{
+			"<c-s>",
+			mode = { "n", "x", "i" },
+		},
+		{
+			"ds",
+		},
+		{
+			"cs",
+		},
+		{
+			"cS",
+		},
+	},
 }
 
 function M.config()
