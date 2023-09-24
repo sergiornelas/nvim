@@ -1,6 +1,11 @@
 return {
 	"aznhe21/actions-preview.nvim",
-	lazy = false,
+	keys = {
+		{
+			"g<leader>",
+			"<cmd>lua require('actions-preview').code_actions()<cr>",
+		},
+	},
 	opts = {
 		telescope = {
 			sorting_strategy = "ascending",

@@ -25,8 +25,7 @@ o.shiftwidth = 2 --            the number of spaces inserted for each indentatio
 o.shortmess:append("c") --     hide all the completion messages, e.g. "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found"
 o.showcmd = false --           hide (partial) command in the last line of the screen (for performance)
 o.showmode = false --          we don't need to see things like --INSERT-- anymore
-o.showtabline = 0 --           always show tabs
-o.showtabline = 1 --           0: never, 1: only if there are at least two tab pages, 2: always
+o.showtabline = 2 --           0: never, 1: only if there are at least two tab pages, 2: always
 o.sidescrolloff = 8 --         minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
 o.signcolumn = "yes" --        always show the sign column, otherwise it would shift the text each time
 o.smartcase = true --          smart case

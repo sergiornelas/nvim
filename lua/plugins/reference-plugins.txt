@@ -51,7 +51,7 @@ andythigpen/nvim-coverage                                                    cov
 
 GIT ---------------------------------------------------------------------------------
 tpope/vim-fugitive                                                        most robust
-TimUntersberger/neogit                                                          magit
+NeogitOrg/neogit                                                                magit
 akinsho/git-conflict.nvim                                                   conflicts
 pwntester/octo.nvim                                                            git PR
 ruifm/gitlinker.nvim                                                    add bitbucket
@@ -91,6 +91,7 @@ Robitx/gp.nvim                                      Gp (GPT prompt) plugin for N
 dpayne/CodeGPT.nvim                           The focus is around code related usages
 piersolenski/wtf.nvim                                diagnostics detailed explanation
 CamdenClark/flyboy                                    lightweight ChatGPT interaction
+gsuuon/llm.nvim                                                   use LLM's in Neovim
 
 COMPETITIVE CODING ------------------------------------------------------------------
 >> run = "cd js && npm ci" at lab plugin dir
@@ -152,11 +153,14 @@ altermo/ultimate-autopair.nvim  replace tabout, autopair, nvim-surround (wait fo
 Last time revisited all these plugins
 09/09/23
 
+Last topic revisited in all awesome-neovim
+LSP
+continue in Diagnostics
+
 ====================
 Last time checked this-week-in-neovim
-Don't expect a new issue for the next 2 weeks
-Aug 28
+Sep 10
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Sep 05
+Sep 10

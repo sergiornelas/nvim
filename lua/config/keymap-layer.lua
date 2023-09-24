@@ -7,9 +7,9 @@
 -- ---------------------------
 -- &?/+* #$~ \^   ˙?/˙{ #$~ \^
 -- QWERT˙UIO˙     QWERT˙UIO˙
---  ()=-[];|       ^=*˙$˙%|˙
+--  ()=-[];`       ^=*˙$˙%`˙
 --  ASDFGHJK˙      ASDFGHJK˙
---   !%_{}@`        ,%;`˙}`
+--   !%_{}@|        ,%;`˙}|
 --   ZXCVBNM        ZXCVBNM
 
 -- Y, P, L are ignored by the writing layer, difficult to type
@@ -19,9 +19,8 @@
 --    Z/C are mapped for flash
 --      , is mapped for neorg keymaps
 --      \ is mapped for various plugins
---      @ is replaced by nvim-recorder
 
--- I, ^, K, X, M             are free for vim effect (repeated or useless (K))
+-- I, H, K, L, X, M, ^       are free for mapping (H: not really necessary)
 -- &, +, (, ), -, [, ], !, _ missing mapped vim effect
 
 local keymap = vim.keymap.set

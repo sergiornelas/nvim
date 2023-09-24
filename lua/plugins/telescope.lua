@@ -89,8 +89,8 @@ function M.config()
 		},
 	})
 
-	telescope.load_extension("import")
 	telescope.load_extension("fzf")
+	telescope.load_extension("import")
 
 	-- Token  	       Match type           	          Description
 	-- -------+-----------------------------+-----------------------------------

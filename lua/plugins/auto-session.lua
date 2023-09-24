@@ -13,7 +13,6 @@ function M.config()
 		log_level = "error",
 		auto_session_create_enabled = false,
 		auto_session_use_git_branch = false,
-		pre_save_cmds = { "lua require('incline').disable()" },
 		save_extra_cmds = {
 			-- load last colorscheme by session
 			function()
@@ -22,7 +21,6 @@ function M.config()
 		},
 		-- post_save_cmds
 		-- pre_restore_cmds
-		post_restore_cmds = { "lua require('incline').enable()" },
 		-- pre_delete_cmds
 		-- post_delete_cmds
 		session_lens = {

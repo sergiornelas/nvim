@@ -54,8 +54,8 @@ keymap("", ",c", "<cmd>Neorg toggle-concealer<cr>", opts)
 keymap("", "<leader>x", ":let &scrolloff=999-&scrolloff<cr><cmd>Twilight<cr>", opts)
 
 -- <Diff view git>
-keymap("", "<leader>jf", "<cmd>DiffviewFileHistory %<cr> | <cmd>TabooRename FileHistory  <cr>", opts)
-keymap("", "<leader>jp", "<cmd>DiffviewFileHistory<cr> | <cmd>TabooRename ProjectHistory  <cr>", opts)
+keymap("", "<leader>jf", "<cmd>DiffviewFileHistory %<cr> | <cmd>TabRename FileHistory  <cr>", opts)
+keymap("", "<leader>jp", "<cmd>DiffviewFileHistory<cr> | <cmd>TabRename ProjectHistory  <cr>", opts)
 
 -- <Move>
 keymap("v", "<c-j>", ":MoveBlock(1)<cr>", opts)
@@ -68,8 +68,8 @@ keymap("n", "<c-w><c-e>", "<cmd>WindowsMaximize<cr>", opts)
 keymap("n", "<c-w><c-a>", "<cmd>WindowsToggleAutowidth<cr>", opts)
 
 -- <Taboo>
-keymap("n", "<leader>R", ":TabooRename ", { noremap = true })
-keymap("n", "<leader>C", "<cmd>TabooReset<cr>", opts)
+keymap("n", "<leader>R", ":TabRename ", { noremap = true })
+keymap("n", "<leader>C", "<cmd>TabRename main<cr>", opts)
 
 -- <Illuminate>
 keymap("", "-", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
@@ -79,11 +79,12 @@ keymap("", "+", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", 
 keymap("", "<c-w><c-u>", "<cmd>SwapSplit<cr>", opts)
 keymap("", "<c-w>u", "<cmd>SwapSplit<cr>", opts)
 
--- <Color picker>
-keymap("n", "<c-c>", "<cmd>CccPick<cr>", opts)
-
 -- <Lazy>
 keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
+
+-- <ChatGPT>
+keymap("n", "<leader>q", "<cmd>ChatGPT<cr>", opts)
+keymap("x", "<c-c>", "<cmd>ChatGPTRun complete_code<cr>", opts)
 
 -- <Inlay hints>
 keymap("", "<leader>v", "<cmd>lua require('lsp-inlayhints').toggle()<cr>", opts)
@@ -115,13 +116,13 @@ keymap("n", "<leader>rr", "<cmd>RunCode<cr>", opts)
 keymap(
 	"n",
 	"<leader>J",
-	"<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>TabooRename Scratch 󰙏 <cr><cmd>RunCode<cr>",
+	"<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>TabRename Scratch 󰙏 <cr><cmd>RunCode<cr>",
 	opts
 )
 
 -- vim.api.nvim_exec(
 -- 	[[
---   " nnoremap <leader>J :tabnew ~/scratchFiles/scratch.ts<cr>:TabooRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
+--   " nnoremap <leader>J :tabnew ~/scratchFiles/scratch.ts<cr>:TabRename Scratch 󰙏 <cr>:Codi<bar>:call timer_start(500, execute("RunCode"))<cr>
 --   " aug doubleleaderbinds
 --     " au! doubleleaderbinds
 --     " au FileType norg nnoremap <buffer> <silent> <leader><leader> <cmd>Neorg toggle-concealer<cr><cmd>Neorg toggle-concealer<cr>
@@ -202,8 +203,8 @@ keymap({ "n", "v" }, "x", '"_x', opts)
 keymap({ "n", "v" }, "X", '"_X', opts)
 
 -- Switch jumps
-keymap("n", "<c-o>", "<c-i>zz", opts)
-keymap("n", "<c-i>", "<c-o>zz", opts)
+keymap("n", "<c-o>", "<c-i>", opts)
+keymap("n", "<c-i>", "<c-o>", opts)
 
 -- Switch middle cursor
 keymap("n", "gm", "gM", opts)
@@ -232,7 +233,18 @@ keymap("", "g,", "gi", opts) --                 go to last insert mode position
 keymap("n", "d<leader>", "cc<esc>", opts) --  clear line without deleting break
 keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
--- <esc> and <s-esc> are free
+-- <leader> maps available:
+-- y
+-- d, <cr>
+-- <leader> (space right)
+-- <esc>
+-- caps chars (C...)
+-- combinations with: j, t
+
+-- <C-> maps available:
+-- y, p (go to last edited)
+-- c, m (uses as enter)
+-- <cr>
 
 -- Shift char available:
 -- Y
@@ -252,21 +264,8 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 -- c, .
 -- caps chars
 
--- <leader> maps available:
--- q, y
--- d, <cr>
--- <leader> (space right)
--- <esc>
--- caps chars (C...)
--- combinations with: j, t
-
 -- visual maps available:
 -- x, v, m
-
--- <C-> maps available:
--- y
--- m (uses as enter)
--- <cr>
 
 -- <C-W>_ maps available:
 -- t (first window), i (definition), o (delete all), f (file), n (new empty buffer)
