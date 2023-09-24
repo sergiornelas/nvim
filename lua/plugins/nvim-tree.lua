@@ -106,7 +106,6 @@ function M.config()
 		view = {
 			adaptive_size = true,
 			centralize_selection = true,
-			hide_root_folder = false,
 			side = "left",
 			signcolumn = "yes",
 			float = {

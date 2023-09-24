@@ -67,7 +67,7 @@ keymap("v", "<c-v>", ":MoveHBlock(1)<cr>", opts)
 keymap("n", "<c-w><c-e>", "<cmd>WindowsMaximize<cr>", opts)
 keymap("n", "<c-w><c-a>", "<cmd>WindowsToggleAutowidth<cr>", opts)
 
--- <Taboo>
+-- <Tabby>
 keymap("n", "<leader>R", ":TabRename ", { noremap = true })
 keymap("n", "<leader>C", "<cmd>TabRename main<cr>", opts)
 
@@ -243,7 +243,7 @@ keymap({ "n", "x" }, "y", "mzJ`z", opts) -- cursor stay current position when J
 
 -- <C-> maps available:
 -- y, p (go to last edited)
--- c, m (uses as enter)
+-- c, m (used as enter)
 -- <cr>
 
 -- Shift char available:

@@ -5,13 +5,30 @@ local theme = {
 	win = { fg = "#ebdbb2", bg = "#434040" },
 }
 
+local modified_symbol = ""
+
+local function buf_modified(buf)
+	if vim.bo[buf].modified then
+		return modified_symbol
+	else
+		return ""
+	end
+end
+
+local function tab_modified(tab)
+	local wins = require("tabby.module.api").get_tab_wins(tab)
+	for _, x in pairs(wins) do
+		if vim.bo[vim.api.nvim_win_get_buf(x)].modified then
+			return modified_symbol
+		end
+	end
+	return ""
+end
+
 return {
 	"nanozuki/tabby.nvim",
 	event = "BufReadPost",
-	-- event = "TabEnter",
-	-- TabEnter, TabLeave, TabNew, TabNewEntered, TabClosed
 	config = function()
-		-- require("tabby.nvim").setup({})
 		require("tabby.tabline").set(function(line)
 			return {
 				line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
@@ -19,6 +36,7 @@ return {
 						line.sep("", theme.win, theme.fill),
 						win.is_current() and "" or "",
 						win.buf_name(),
+						buf_modified(win.buf().id),
 						line.sep("", theme.win, theme.fill),
 						hl = theme.win,
 						margin = " ",
@@ -31,6 +49,7 @@ return {
 						line.sep("", hl, theme.fill),
 						tab.is_current() and "" or "󰆣",
 						tab.name(),
+						tab_modified(tab.id),
 						line.sep("", hl, theme.fill),
 						hl = hl,
 						margin = " ",
