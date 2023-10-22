@@ -24,7 +24,7 @@ cmd("BufReadPost", { command = [[if line("'\"") > 1 && line("'\"") <= line("$") 
 cmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = group })
 cmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = group })
 
--- Closing tab go back to previous tab
+-- Closing tab then go back to previous tab
 cmd("TabClosed", {
 	command = "tabprevious",
 })

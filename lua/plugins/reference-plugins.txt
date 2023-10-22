@@ -80,7 +80,7 @@ zbirenbaum/copilot.lua
 tzachar/cmp-tabnine
 jackMort/ChatGPT.nvim                                                         ChatGPT
 aduros/ai.vim                                                          openAI and GPT
-dense-analysis/neural                                     OpenAI and GPT-3 completion
+dense-analysis/neural                                                OpenAI and GPT-3
 james1236/backseat.nvim          GPT to highlight and explain code readability issues
 Bryley/neoai.nvim                                  brings the power of OpenAI's GPT-4
 Exafunction/codeium.vim        Free, ultrafast Copilot alternative for Vim and Neovim
@@ -92,6 +92,7 @@ dpayne/CodeGPT.nvim                           The focus is around code related u
 piersolenski/wtf.nvim                                diagnostics detailed explanation
 CamdenClark/flyboy                                    lightweight ChatGPT interaction
 gsuuon/llm.nvim                                                   use LLM's in Neovim
+David-Kunz/gen.nvim                                                          llama IA
 
 COMPETITIVE CODING ------------------------------------------------------------------
 >> run = "cd js && npm ci" at lab plugin dir
@@ -102,6 +103,7 @@ erietz/vim-terminator                                      breaks when use nvm l
 p00f/cphelper.nvim                                                    code challenges
 xeluxee/competitest.nvim                                              code challenges
 Vigemus/iron.nvim                              run selected area, buggy, watch works?
+leetcode.nvim                                           leetcode problems with neovim
 
 PROJECT -----------------------------------------------------------------------------
 smartpde/neoscopes                             light project magagement (interesting)
@@ -114,6 +116,7 @@ NOTES --------------------------------------------------------------------------
 folke/todo-comments.nvim                                                 pretty notes
 Chaitanyabsprip/present.nvim                                 power point presentation
 JellyApple102/easyread.nvim                                      text colors readable
+luckasRanarison/nvim-devdocs                                       docs all languages
 
 UTILS -------------------------------------------------------------------------------
 tzachar/cmp-fuzzy-buffer                                                          CMP
@@ -160,8 +163,8 @@ continue in Diagnostics
 
 ====================
 Last time checked this-week-in-neovim
-Sep 10
+Sep 25
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Sep 10
+Oct 8
