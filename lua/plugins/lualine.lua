@@ -12,12 +12,12 @@ function M.config()
 	lualine.setup({
 		options = {
 			icons_enabled = true,
-			theme = "auto",
+			theme = "gruvbox",
 			component_separators = { left = "", right = "╎" },
 			section_separators = "",
 			disabled_filetypes = { "NvimTree" },
 			always_divide_middle = true,
-			globalstatus = true,
+			globalstatus = false,
 			refresh = {
 				statusline = 100,
 			},
@@ -25,18 +25,12 @@ function M.config()
 		sections = {
 			lualine_a = {
 				{
-					"searchcount",
+					"filename",
 					color = { bg = "#4f0000", fg = "#ebdbb2" },
-				},
-				{
-					function()
-						local key = require("grapple").key()
-						return "󰓹  [" .. key .. "]"
-					end,
-					cond = require("grapple").exists,
+					path = 0,
 				},
 			},
-			lualine_b = { "diagnostics", { require("recorder").recordingStatus } },
+			lualine_b = { "diagnostics" },
 			lualine_c = {
 				{
 					require("dr-lsp").lspCount,
@@ -51,9 +45,18 @@ function M.config()
 			lualine_y = { "diff" },
 			lualine_z = {
 				{
-					"location",
+					function()
+						local key = require("grapple").key()
+						return "󰓹  [" .. key .. "]"
+					end,
+					cond = require("grapple").exists,
 				},
 			},
+		},
+		inactive_sections = {
+			lualine_a = { "filename" },
+			lualine_c = {},
+			lualine_x = {},
 		},
 		tabline = {},
 		extensions = {},
