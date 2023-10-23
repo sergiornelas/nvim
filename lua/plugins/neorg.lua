@@ -17,24 +17,44 @@ local M = {
 						config = {
 							neorg_leader = ",",
 							hook = function(keybinds)
+								keybinds.remap_event("norg", "n", "]e", "core.integrations.treesitter.next.heading")
+								keybinds.remap_event("norg", "n", "[e", "core.integrations.treesitter.previous.heading")
+								keybinds.remap_event("norg", "n", "g<space>", "core.looking-glass.magnify-code-block")
+								keybinds.remap_event("norg", "n", "[v", "core.itero.next-iteration")
+								keybinds.remap_event("norg", "i", "<cr>", "core.itero.next-iteration")
 								keybinds.remap_event(
 									"norg",
 									"n",
-									"\\e",
-									"core.integrations.treesitter.previous.heading"
-								)
-								keybinds.remap_event("norg", "n", "\\f", "core.integrations.treesitter.next.heading")
-								keybinds.remap_event("norg", "n", "g<space>", "core.looking-glass.magnify-code-block")
-								keybinds.remap_event("norg", "n", "\\v", "core.itero.next-iteration")
-								keybinds.remap_event("norg", "i", "<cr>", "core.itero.next-iteration")
-								keybinds.remap_event("norg", "n", ",e", "core.integrations.telescope.find_linkable") -- go to other header from current workspace
-								keybinds.remap_event("norg", "n", ",l", "core.integrations.telescope.insert_file_link") -- insert file link from current workspace
-								keybinds.remap_event("norg", "n", ",f", "core.integrations.telescope.search_headings") -- current file headers
+									"<leader>ne",
+									"core.integrations.telescope.find_linkable"
+								) -- go to other header from current workspace
+								keybinds.remap_event(
+									"norg",
+									"n",
+									"<leader>nl",
+									"core.integrations.telescope.insert_file_link"
+								) -- insert file link from current workspace
+								keybinds.remap_event(
+									"norg",
+									"n",
+									"<leader>nf",
+									"core.integrations.telescope.search_headings"
+								) -- current file headers
 								keybinds.remap_event("norg", "n", ",nf", "core.integrations.telescope.find_norg_files") -- find files in current workspace, not useful
-								keybinds.remap_event("norg", "n", ",s", "core.integrations.telescope.switch_workspace") -- not useful
-								keybinds.remap_event("norg", "n", ",L", "core.integrations.telescope.insert_link") -- not working
-								keybinds.remap_event("norg", "n", ",z", "core.pivot.toggle-list-type") -- inverts all the other items in that list.
-								keybinds.remap_event("norg", "n", ",x", "core.pivot.invert-list-type") -- inverts all the other items in that list, however respects mixed lists
+								keybinds.remap_event(
+									"norg",
+									"n",
+									"<leader>ns",
+									"core.integrations.telescope.switch_workspace"
+								) -- not useful
+								keybinds.remap_event(
+									"norg",
+									"n",
+									"<leader>nI",
+									"core.integrations.telescope.insert_link"
+								) -- not working
+								keybinds.remap_event("norg", "n", "<leader>nz", "core.pivot.toggle-list-type") -- inverts all the other items in that list.
+								keybinds.remap_event("norg", "n", "<leader>nx", "core.pivot.invert-list-type") -- inverts all the other items in that list, however respects mixed lists
 							end,
 							-- default_keybinds = false,
 						},

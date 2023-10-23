@@ -2,9 +2,8 @@ local M = {
 	{
 		"numToStr/Comment.nvim",
 		keys = {
-			{ "gn", mode = { "n", "x" } },
+			{ "gc", mode = { "n", "x" } },
 			{ "gb", mode = { "n", "x" } },
-			{ "ga", mode = { "n", "x" } },
 		},
 		dependencies = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
@@ -18,20 +17,20 @@ local M = {
 			comment.setup({
 				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 				toggler = {
-					line = "gn",
+					line = "gcc",
 					block = "gbc",
 				},
 				opleader = {
-					line = "ga",
+					line = "gc",
 					block = "gb",
 				},
 				extra = {
 					-- Add comment on the line above
-					above = "gaK",
+					above = "gcK",
 					-- Add comment on the line below
-					below = "gaJ",
-					---Add comment at the end of line
-					eol = "gaA",
+					below = "gcJ",
+					-- Add comment at the end of line
+					eol = "gcA",
 				},
 			})
 		end,

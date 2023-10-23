@@ -83,10 +83,10 @@ return {
 			incremental_selection = {
 				enable = true,
 				keymaps = {
-					init_selection = "<c-_>",
-					scope_incremental = "<c-_>",
+					init_selection = false,
+					scope_incremental = false,
 					node_incremental = "<c-i>",
-					node_decremental = "<c-o>",
+					node_decremental = "<c-u>",
 				},
 			},
 			textobjects = {
@@ -119,16 +119,25 @@ return {
 					enable = true,
 					set_jumps = true,
 					goto_previous_start = {
-						["\\q"] = "@conditional.outer",
-						["\\w"] = "@function.outer",
-						["\\t"] = "@call.outer",
-						["\\c"] = "@parameter.outer",
+						["[q"] = "@conditional.outer",
+						["[f"] = "@function.outer",
+						["[a"] = "@call.outer",
+						["[v"] = "@parameter.outer",
 					},
 					goto_next_start = {
-						["\\a"] = "@conditional.outer",
-						["\\s"] = "@function.outer",
-						["\\g"] = "@call.outer",
-						["\\v"] = "@parameter.outer",
+						["]q"] = "@conditional.outer",
+						["]f"] = "@function.outer",
+						["]a"] = "@call.outer",
+						["]v"] = "@parameter.outer",
+					},
+				},
+				swap = {
+					enable = true,
+					swap_next = {
+						["<leader>."] = "@parameter.inner",
+					},
+					swap_previous = {
+						["<leader>,"] = "@parameter.inner",
 					},
 				},
 			},

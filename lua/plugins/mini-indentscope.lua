@@ -13,10 +13,10 @@ return {
 				-- animation = indentscope.gen_animation.none(),
 			},
 			mappings = {
-				object_scope = "u",
-				object_scope_with_border = "o",
-				goto_top = "gi",
-				goto_bottom = "gk",
+				object_scope = "ii",
+				object_scope_with_border = "ai",
+				goto_top = "[w",
+				goto_bottom = "]w",
 			},
 		})
 	end,

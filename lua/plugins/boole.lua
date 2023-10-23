@@ -1,7 +1,7 @@
 return {
 	"nat-418/boole.nvim",
 	keys = {
-		"<c-z>",
+		"<c-a>",
 		"<c-x>",
 	},
 	config = function()
@@ -11,8 +11,8 @@ return {
 		end
 		boole.setup({
 			mappings = {
-				decrement = "<c-z>",
-				increment = "<c-x>",
+				increment = "<c-a>",
+				decrement = "<c-x>",
 			},
 		})
 	end,
