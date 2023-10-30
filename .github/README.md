@@ -41,7 +41,6 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [jackMort/ChatGPT.nvim](https://dotfyle.com/plugins/jackMort/ChatGPT.nvim)
 ### bars-and-lines
 
-+ [m4xshen/smartcolumn.nvim](https://dotfyle.com/plugins/m4xshen/smartcolumn.nvim)
 + [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
 ### code-runner
 
@@ -49,12 +48,11 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 ### color
 
 + [NvChad/nvim-colorizer.lua](https://dotfyle.com/plugins/NvChad/nvim-colorizer.lua)
-+ [folke/twilight.nvim](https://dotfyle.com/plugins/folke/twilight.nvim)
-+ [uga-rosa/ccc.nvim](https://dotfyle.com/plugins/uga-rosa/ccc.nvim)
 ### colorscheme
 
 + [tiagovla/tokyodark.nvim](https://dotfyle.com/plugins/tiagovla/tokyodark.nvim)
 + [sainnhe/gruvbox-material](https://dotfyle.com/plugins/sainnhe/gruvbox-material)
++ [ribru17/bamboo.nvim](https://dotfyle.com/plugins/ribru17/bamboo.nvim)
 + [luisiacc/gruvbox-baby](https://dotfyle.com/plugins/luisiacc/gruvbox-baby)
 + [sainnhe/edge](https://dotfyle.com/plugins/sainnhe/edge)
 + [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
@@ -62,8 +60,8 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [cpea2506/one_monokai.nvim](https://dotfyle.com/plugins/cpea2506/one_monokai.nvim)
 + [sekke276/dark_flat.nvim](https://dotfyle.com/plugins/sekke276/dark_flat.nvim)
 + [sainnhe/sonokai](https://dotfyle.com/plugins/sainnhe/sonokai)
-+ [rose-pine/neovim](https://dotfyle.com/plugins/rose-pine/neovim)
 + [rebelot/kanagawa.nvim](https://dotfyle.com/plugins/rebelot/kanagawa.nvim)
++ [rose-pine/neovim](https://dotfyle.com/plugins/rose-pine/neovim)
 + [navarasu/onedark.nvim](https://dotfyle.com/plugins/navarasu/onedark.nvim)
 + [AlexvZyl/nordic.nvim](https://dotfyle.com/plugins/AlexvZyl/nordic.nvim)
 + [ramojus/mellifluous.nvim](https://dotfyle.com/plugins/ramojus/mellifluous.nvim)
@@ -85,13 +83,8 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 + [utilyre/sentiment.nvim](https://dotfyle.com/plugins/utilyre/sentiment.nvim)
 + [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
-+ [echasnovski/mini.operators](https://dotfyle.com/plugins/echasnovski/mini.operators)
 + [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
-+ [Wansmer/sibling-swap.nvim](https://dotfyle.com/plugins/Wansmer/sibling-swap.nvim)
 + [echasnovski/mini.trailspace](https://dotfyle.com/plugins/echasnovski/mini.trailspace)
-+ [nacro90/numb.nvim](https://dotfyle.com/plugins/nacro90/numb.nvim)
-+ [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
-+ [chrisgrieser/nvim-various-textobjs](https://dotfyle.com/plugins/chrisgrieser/nvim-various-textobjs)
 ### file-explorer
 
 + [kyazdani42/nvim-tree.lua](https://dotfyle.com/plugins/kyazdani42/nvim-tree.lua)
@@ -131,10 +124,6 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 ### marks
 
 + [cbochs/grapple.nvim](https://dotfyle.com/plugins/cbochs/grapple.nvim)
-### motion
-
-+ [folke/flash.nvim](https://dotfyle.com/plugins/folke/flash.nvim)
-+ [abecodes/tabout.nvim](https://dotfyle.com/plugins/abecodes/tabout.nvim)
 ### note-taking
 
 + [nvim-neorg/neorg](https://dotfyle.com/plugins/nvim-neorg/neorg)
@@ -160,26 +149,24 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 ### split-and-window
 
 + [anuvyklack/windows.nvim](https://dotfyle.com/plugins/anuvyklack/windows.nvim)
-+ [nvim-zh/colorful-winsep.nvim](https://dotfyle.com/plugins/nvim-zh/colorful-winsep.nvim)
 ### statusline
 
 + [nvim-lualine/lualine.nvim](https://dotfyle.com/plugins/nvim-lualine/lualine.nvim)
-+ [b0o/incline.nvim](https://dotfyle.com/plugins/b0o/incline.nvim)
 ### syntax
 
 + [m-demare/hlargs.nvim](https://dotfyle.com/plugins/m-demare/hlargs.nvim)
 + [kylechui/nvim-surround](https://dotfyle.com/plugins/kylechui/nvim-surround)
 + [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
 + [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
+### tabline
+
++ [nanozuki/tabby.nvim](https://dotfyle.com/plugins/nanozuki/tabby.nvim)
 ### test
 
 + [nvim-neotest/neotest](https://dotfyle.com/plugins/nvim-neotest/neotest)
 ### utility
 
 + [zbirenbaum/neodim](https://dotfyle.com/plugins/zbirenbaum/neodim)
-+ [chrisgrieser/nvim-early-retirement](https://dotfyle.com/plugins/chrisgrieser/nvim-early-retirement)
-+ [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
-+ [chrisgrieser/nvim-recorder](https://dotfyle.com/plugins/chrisgrieser/nvim-recorder)
 ## Language Servers
 
 + cssls

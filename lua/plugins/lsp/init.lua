@@ -48,9 +48,23 @@ function M.config()
 				-- or for older TypeScript versions
 				-- "typescript-styled-plugin",
 			},
+			-- this value is passed to: https://nodejs.org/api/cli.html#--max-old-space-sizesize-in-megabytes
+			-- memory limit in megabytes or "auto"(basically no limit)
+			tsserver_max_memory = "auto",
+			-- described below
 			tsserver_format_options = {},
 			tsserver_file_preferences = require("plugins.lsp.settings.tsserver"),
+			tsserver_locale = "en",
+			-- mirror of VSCode's `typescript.suggest.completeFunctionCalls`
 			complete_function_calls = true, -- param alias sugestion
+			include_completions_with_insert_text = true,
+			-- CodeLens
+			-- WARNING: Experimental feature also in VSCode, because it might hit performance of server.
+			-- possible values: ("off"|"all"|"implementations_only"|"references_only")
+			code_lens = "off",
+			-- by default code lenses are displayed on all referencable values and for some of you it can
+			-- be too much this option reduce count of them by removing member references from lenses
+			disable_member_code_lens = true,
 		},
 		-- handlers = {
 		-- 	["textDocument/publishDiagnostics"] = require("typescript-tools.api").filter_diagnostics({ 80006 }),
