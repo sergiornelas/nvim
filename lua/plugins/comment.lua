@@ -26,9 +26,9 @@ local M = {
 				},
 				extra = {
 					-- Add comment on the line above
-					above = "gcK",
+					above = "gcO",
 					-- Add comment on the line below
-					below = "gcJ",
+					below = "gco",
 					-- Add comment at the end of line
 					eol = "gcA",
 				},

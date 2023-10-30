@@ -26,13 +26,13 @@ function M.config()
 
 	nvim_surround.setup({
 		keymaps = {
-			insert = "<c-s>",
-			insert_line = "<c-s><c-s>",
+			insert = "<c-s>", -- (vim: not used or used for terminal control flow)
+			insert_line = "<c-s><c-s>", -- (vim: not used or used for terminal control flow)
 			--
-			normal = "<c-s>",
-			normal_line = "<c-s><c-s>",
-			normal_cur = "<c-s>c",
-			normal_cur_line = "<c-s>C",
+			normal = "<c-s>", -- (vim: not used, or used for terminal control flow)
+			normal_line = "<c-s><c-s>", -- (vim: not used, or used for terminal control flow)
+			normal_cur = "<c-s>c", -- (vim: not used, or used for terminal control flow)
+			normal_cur_line = "<c-s>C", -- (vim: not used, or used for terminal control flow)
 			--
 			visual = "<c-s>",
 			visual_line = "<c-s><c-s>",

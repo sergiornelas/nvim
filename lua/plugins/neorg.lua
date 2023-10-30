@@ -15,7 +15,7 @@ local M = {
 					["core.defaults"] = {},
 					["core.keybinds"] = {
 						config = {
-							neorg_leader = ",",
+							neorg_leader = "<leader><leader>",
 							hook = function(keybinds)
 								keybinds.remap_event("norg", "n", "]e", "core.integrations.treesitter.next.heading")
 								keybinds.remap_event("norg", "n", "[e", "core.integrations.treesitter.previous.heading")
@@ -40,7 +40,7 @@ local M = {
 									"<leader>nf",
 									"core.integrations.telescope.search_headings"
 								) -- current file headers
-								keybinds.remap_event("norg", "n", ",nf", "core.integrations.telescope.find_norg_files") -- find files in current workspace, not useful
+								-- keybinds.remap_event("norg", "n", ",nf", "core.integrations.telescope.find_norg_files") -- find files in current workspace, not useful
 								keybinds.remap_event(
 									"norg",
 									"n",
@@ -139,39 +139,6 @@ local M = {
 			-- ln -s /usr/local/Cellar/gcc/<version>/bin/gcc-<version 11|12> /usr/local/bin/cc
 			-- real: ln -s /usr/local/Cellar/gcc/12.2.0/bin/gcc-12 /usr/local/bin/cc
 			-- tip: when you update cc/gcc, you'll have to delete the /usr/local/bin/cc file in order to create a new one.
-		end,
-	},
-	{
-		"m4xshen/smartcolumn.nvim",
-		ft = "norg",
-		opts = {
-			colorcolumn = "123",
-		},
-	},
-	{
-		"folke/twilight.nvim",
-		ft = "norg",
-		config = function()
-			require("twilight").setup({
-				dimming = {
-					alpha = 0.25,
-				},
-				context = 10, -- amount of lines we will try to show around the current line
-				expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
-					"function",
-					"method",
-					"table",
-					"if_statement",
-					"heading3", --norg
-				},
-				exclude = {
-					"javascript",
-					"javascriptreact",
-					"typescript",
-					"typescriptreact",
-					"markdown",
-				},
-			})
 		end,
 	},
 }

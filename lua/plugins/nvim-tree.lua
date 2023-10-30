@@ -23,56 +23,74 @@ function M.config()
 		local function opts(desc)
 			return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 		end
-		local keymap = vim.keymap.set
-		keymap("n", "<c-n>", api.tree.change_root_to_node, opts("CD"))
-		keymap("n", "<c-p>", api.node.open.replace_tree_buffer, opts("Open: In Place"))
-		keymap("n", "<c-q>", api.node.show_info_popup, opts("Info"))
-		keymap("n", "<cr>", api.fs.rename_sub, opts("Rename: Omit Filename"))
-		keymap("n", "<c-k>", api.node.open.tab, opts("Open: New Tab"))
-		keymap("n", "<c-v>", api.node.open.vertical, opts("Open: Vertical Split"))
-		keymap("n", "<c-x>", api.node.open.horizontal, opts("Open: Horizontal Split"))
-		keymap("n", "<c-h>", api.node.navigate.parent_close, opts("Close Directory"))
-		keymap("n", "l", api.node.open.edit, opts("Open"))
-		keymap("n", "<c-i>", api.node.open.preview, opts("Open Preview"))
-		keymap("n", ">", api.node.navigate.sibling.next, opts("Next Sibling"))
-		keymap("n", "<", api.node.navigate.sibling.prev, opts("Previous Sibling"))
-		keymap("n", ".", api.node.run.cmd, opts("Run Command"))
-		keymap("n", "-", api.tree.change_root_to_parent, opts("Up"))
-		keymap("n", "a", api.fs.create, opts("Create"))
-		keymap("n", "mv", api.marks.bulk.move, opts("Move Bookmarked"))
-		keymap("n", "B", api.tree.toggle_no_buffer_filter, opts("Toggle No Buffer"))
-		keymap("n", "c", api.fs.copy.node, opts("Copy"))
-		keymap("n", "gc", api.tree.toggle_git_clean_filter, opts("Toggle Git Clean"))
-		keymap("n", "gK", api.node.navigate.git.prev, opts("Prev Git"))
-		keymap("n", "gJ", api.node.navigate.git.next, opts("Next Git"))
-		keymap("n", "d", api.fs.remove, opts("Delete"))
-		keymap("n", "D", api.fs.trash, opts("Trash"))
-		keymap("n", "E", api.tree.expand_all, opts("Expand All"))
-		keymap("n", "e", api.fs.rename_basename, opts("Rename: Basename"))
-		keymap("n", "gn", api.node.navigate.diagnostics.next, opts("Next Diagnostic"))
-		keymap("n", "gp", api.node.navigate.diagnostics.prev, opts("Prev Diagnostic"))
-		keymap("n", "F", api.live_filter.clear, opts("Clean Filter"))
-		keymap("n", "f", api.live_filter.start, opts("Filter"))
-		keymap("n", "g?", api.tree.toggle_help, opts("Help"))
-		keymap("n", "gq", api.fs.copy.absolute_path, opts("Copy Absolute Path"))
-		keymap("n", "H", api.tree.toggle_hidden_filter, opts("Toggle Dotfiles"))
-		keymap("n", "I", api.tree.toggle_gitignore_filter, opts("Toggle Git Ignore"))
-		keymap("n", "J", api.node.navigate.sibling.last, opts("Last Sibling"))
-		keymap("n", "K", api.node.navigate.sibling.first, opts("First Sibling"))
-		keymap("n", "mm", api.marks.toggle, opts("Toggle Bookmark"))
-		keymap("n", "o", api.node.open.no_window_picker, opts("Open: No Window Picker"))
-		keymap("n", "p", api.fs.paste, opts("Paste"))
-		keymap("n", "P", api.node.navigate.parent, opts("Parent Directory"))
-		keymap("n", "<esc>", api.tree.close, opts("Close"))
-		keymap("n", "r", api.fs.rename, opts("Rename"))
-		keymap("n", "R", api.tree.reload, opts("Refresh"))
-		keymap("n", "s", api.node.run.system, opts("Run System"))
-		keymap("n", "S", api.tree.search_node, opts("Search"))
-		keymap("n", "U", api.tree.toggle_custom_filter, opts("Toggle Hidden"))
-		keymap("n", "W", api.tree.collapse_all, opts("Collapse"))
-		keymap("n", "x", api.fs.cut, opts("Cut"))
-		keymap("n", "q", api.fs.copy.filename, opts("Copy Name"))
-		keymap("n", "Q", api.fs.copy.relative_path, opts("Copy Relative Path"))
+		local mappings = {
+			-- BEGIN_DEFAULT_ON_ATTACH
+			["<C-]>"] = { api.tree.change_root_to_node, "CD" },
+			["<C-e>"] = { api.node.open.replace_tree_buffer, "Open: In Place" },
+			["<C-k>"] = { api.node.show_info_popup, "Info" },
+			["<C-r>"] = { api.fs.rename_sub, "Rename: Omit Filename" },
+			["<C-t>"] = { api.node.open.tab, "Open: New Tab" },
+			["<C-v>"] = { api.node.open.vertical, "Open: Vertical Split" },
+			["<C-x>"] = { api.node.open.horizontal, "Open: Horizontal Split" },
+			["<BS>"] = { api.node.navigate.parent_close, "Close Directory" },
+			["<CR>"] = { api.node.open.edit, "Open" },
+			["<Tab>"] = { api.node.open.preview, "Open Preview" },
+			[">"] = { api.node.navigate.sibling.next, "Next Sibling" },
+			["<"] = { api.node.navigate.sibling.prev, "Previous Sibling" },
+			["."] = { api.node.run.cmd, "Run Command" },
+			["-"] = { api.tree.change_root_to_parent, "Up" },
+			["a"] = { api.fs.create, "Create" },
+			["bmv"] = { api.marks.bulk.move, "Move Bookmarked" },
+			["B"] = { api.tree.toggle_no_buffer_filter, "Toggle No Buffer" },
+			["c"] = { api.fs.copy.node, "Copy" },
+			["C"] = { api.tree.toggle_git_clean_filter, "Toggle Git Clean" },
+			["[c"] = { api.node.navigate.git.prev, "Prev Git" },
+			["]c"] = { api.node.navigate.git.next, "Next Git" },
+			["d"] = { api.fs.remove, "Delete" },
+			["D"] = { api.fs.trash, "Trash" },
+			["E"] = { api.tree.expand_all, "Expand All" },
+			["e"] = { api.fs.rename_basename, "Rename: Basename" },
+			["]e"] = { api.node.navigate.diagnostics.next, "Next Diagnostic" },
+			["[e"] = { api.node.navigate.diagnostics.prev, "Prev Diagnostic" },
+			["F"] = { api.live_filter.clear, "Clean Filter" },
+			["f"] = { api.live_filter.start, "Filter" },
+			["g?"] = { api.tree.toggle_help, "Help" },
+			["gy"] = { api.fs.copy.absolute_path, "Copy Absolute Path" },
+			["H"] = { api.tree.toggle_hidden_filter, "Toggle Dotfiles" },
+			["I"] = { api.tree.toggle_gitignore_filter, "Toggle Git Ignore" },
+			["J"] = { api.node.navigate.sibling.last, "Last Sibling" },
+			["K"] = { api.node.navigate.sibling.first, "First Sibling" },
+			["m"] = { api.marks.toggle, "Toggle Bookmark" },
+			["o"] = { api.node.open.edit, "Open" },
+			["O"] = { api.node.open.no_window_picker, "Open: No Window Picker" },
+			["p"] = { api.fs.paste, "Paste" },
+			["P"] = { api.node.navigate.parent, "Parent Directory" },
+			["q"] = { api.tree.close, "Close" },
+			["r"] = { api.fs.rename, "Rename" },
+			["R"] = { api.tree.reload, "Refresh" },
+			["s"] = { api.node.run.system, "Run System" },
+			["S"] = { api.tree.search_node, "Search" },
+			["U"] = { api.tree.toggle_custom_filter, "Toggle Hidden" },
+			["W"] = { api.tree.collapse_all, "Collapse" },
+			["x"] = { api.fs.cut, "Cut" },
+			["y"] = { api.fs.copy.filename, "Copy Name" },
+			["Y"] = { api.fs.copy.relative_path, "Copy Relative Path" },
+			["<2-LeftMouse>"] = { api.node.open.edit, "Open" },
+			["<2-RightMouse>"] = { api.tree.change_root_to_node, "CD" },
+			-- END_DEFAULT_ON_ATTACH
+
+			-- Mappings migrated from view.mappings.list
+			["l"] = { api.node.open.edit, "Open" },
+			-- ["<CR>"] = { api.node.open.edit, "Open" },
+			-- ["o"] = { api.node.open.edit, "Open" },
+			["h"] = { api.node.navigate.parent_close, "Close Directory" },
+			["v"] = { api.node.open.vertical, "Open: Vertical Split" },
+			["N"] = { api.tree.change_root_to_node, "CD" },
+		}
+
+		for keys, mapping in pairs(mappings) do
+			vim.keymap.set("n", keys, mapping[1], opts(mapping[2]))
+		end
 	end
 
 	nvim_tree.setup({

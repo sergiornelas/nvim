@@ -104,6 +104,7 @@ p00f/cphelper.nvim                                                    code chall
 xeluxee/competitest.nvim                                              code challenges
 Vigemus/iron.nvim                              run selected area, buggy, watch works?
 leetcode.nvim                                           leetcode problems with neovim
+trimclain/builder.nvim                                        like modern code_runner
 
 PROJECT -----------------------------------------------------------------------------
 smartpde/neoscopes                             light project magagement (interesting)
@@ -153,6 +154,7 @@ tiagovla/scope.nvim                               workspace by tab (very interes
 Hajime-Suzuki/vuffers.nvim                          vertical bufferlist with features
 altermo/ultimate-autopair.nvim  replace tabout, autopair, nvim-surround (wait for m.)
 saccarosium/neomarks                                               harpoon mimimalist
+edluffy/hologram.nvim                                              images on terminal
 
 Last time revisited all these plugins
 09/09/23
@@ -163,8 +165,8 @@ continue in Diagnostics
 
 ====================
 Last time checked this-week-in-neovim
-Sep 25
+Oct 15
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Oct 8
+Oct 29

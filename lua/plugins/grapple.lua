@@ -1,6 +1,7 @@
 local M = {
 	"cbochs/grapple.nvim",
 	dependencies = "nvim-lua/plenary.nvim",
+	event = "BufReadPost",
 }
 
 function M.config()
