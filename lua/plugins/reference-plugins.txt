@@ -165,8 +165,8 @@ continue in Diagnostics
 
 ====================
 Last time checked this-week-in-neovim
-Oct 15
+Nov 05
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Oct 29
+Nov 05

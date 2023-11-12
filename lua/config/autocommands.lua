@@ -47,7 +47,7 @@ api.nvim_exec(
   set nofoldenable
 
   " Command prev option
-  cnoremap <c-o> <c-p>
+  cnoremap <c-o> <c-p> " (vim: not used)
 
   " close quickfix with escape
   nnoremap <expr> <esc> &buftype == 'quickfix' ? ":q<cr>" : '<esc>'

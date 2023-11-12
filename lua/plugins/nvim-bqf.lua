@@ -12,7 +12,7 @@ return {
 				open = "O",
 				openc = "o",
 				drop = "<cr>",
-				tabdrop = "<c-k>",
+				tabdrop = "<c-t>",
 				tab = "T",
 				split = "<c-x>",
 				vsplit = "<c-v>",

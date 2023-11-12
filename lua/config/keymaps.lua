@@ -3,17 +3,6 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- LEADER MAPS ====================================
--- <Telescope>
-keymap("", "<leader>u", "<cmd>Telescope oldfiles<cr>", opts)
-keymap("", "<leader>i", "<cmd>Telescope find_files<cr>", opts)
-keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
-keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
-keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
-keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
-keymap("", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
-keymap("", "<leader>M", "<cmd>Telescope marks theme=ivy<cr>", opts)
-keymap("", "<leader>H", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
-keymap("", "<leader>I", "<cmd>Telescope import<cr>", opts)
 -- <Grapple>
 keymap("n", "<leader>m", "<cmd>GrappleToggle<cr>", opts)
 keymap("n", "<leader>p", "<cmd>GrapplePopup tags<cr>", opts)
@@ -26,6 +15,32 @@ keymap("n", "<leader>3", "<cmd>GrappleSelect key=3<cr>", opts)
 keymap("n", "<leader>4", "<cmd>GrappleSelect key=4<cr>", opts)
 keymap("n", "<leader>5", "<cmd>GrappleSelect key=5<cr>", opts)
 keymap("n", "<leader>6", "<cmd>GrappleSelect key=6<cr>", opts)
+keymap("n", "<leader>7", "<cmd>GrappleSelect key=7<cr>", opts)
+keymap("n", "<leader>8", "<cmd>GrappleSelect key=8<cr>", opts)
+keymap("n", "<leader>9", "<cmd>GrappleSelect key=9<cr>", opts)
+keymap("n", "<leader>0", "<cmd>GrappleSelect key=10<cr>", opts)
+
+-- <Telescope>
+keymap("", "<leader>u", "<cmd>Telescope oldfiles<cr>", opts)
+keymap("", "<leader>i", "<cmd>Telescope find_files<cr>", opts)
+keymap("", "<leader>o", "<cmd>Telescope buffers<cr>", opts)
+keymap("", "<leader>l", "<cmd>Telescope live_grep<cr>", opts)
+keymap("", "<leader>k", "<cmd>Telescope git_status<cr>", opts)
+keymap("", "<leader>s", "<cmd>Telescope grep_string<cr>", opts)
+keymap("", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
+keymap("", "<leader>M", "<cmd>Telescope marks theme=ivy<cr>", opts)
+keymap("", "<leader>H", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
+keymap("", "<leader>I", "<cmd>Telescope import<cr>", opts)
+-- <Code runner>
+keymap("n", "<leader>rc", "<cmd>Codi<cr>", opts)
+keymap("n", "<leader>re", "<cmd>CodiExpand<cr>", opts)
+keymap("n", "<leader>rr", "<cmd>RunCode<cr>", opts)
+keymap(
+	"n",
+	"<leader>J",
+	"<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>TabRename Scratch 󰙏 <cr><cmd>RunCode<cr>",
+	opts
+)
 -- <Neorg>
 keymap("", "<leader>nn", "<c-w>s<cmd>Neorg workspace todo<cr>", opts)
 keymap("", "<leader>nq", "<cmd>Neorg return<cr>", opts)
@@ -40,16 +55,6 @@ keymap("n", "<leader>TR", "<cmd>TSToolsRemoveUnusedImports<cr>", opts)
 keymap("n", "<leader>Tr", "<cmd>TSToolsRemoveUnused<cr>", opts)
 keymap("n", "<leader>Ti", "<cmd>TSToolsAddMissingImports<cr>", opts)
 keymap("n", "<leader>Tf", "<cmd>TSToolsFixAll<cr>", opts)
--- <Code runner>
-keymap("n", "<leader>rc", "<cmd>Codi<cr>", opts)
-keymap("n", "<leader>re", "<cmd>CodiExpand<cr>", opts)
-keymap("n", "<leader>rr", "<cmd>RunCode<cr>", opts)
-keymap(
-	"n",
-	"<leader>J",
-	"<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>TabRename Scratch 󰙏 <cr><cmd>RunCode<cr>",
-	opts
-)
 -- <Inlay hints>
 keymap("n", "<leader>v", function()
 	vim.lsp.inlay_hint(0, nil)
@@ -62,10 +67,10 @@ keymap("n", "<leader>R", ":TabRename ", { noremap = true })
 keymap("n", "<leader>C", "<cmd>TabRename main<cr>", opts)
 -- <Lazy>
 keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
--- <Mini trailspace>
-keymap("", "<leader>b", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
 -- <Nvim-tree>
 keymap("n", "<leader>a", "<cmd>NvimTreeToggle<cr>", opts)
+-- <Mini trailspace>
+keymap("", "<leader>b", "<cmd>lua require('mini.trailspace').trim()<cr>", opts)
 -- Leader utils
 keymap("n", "<leader>>", "<cmd>tabmove +1<cr>", opts) --        tab left
 keymap("n", "<leader><", "<cmd>tabmove -1<cr>", opts) --       tab right
@@ -81,8 +86,7 @@ keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) --  force exit neovim
 
 -- NO LEADER MAPS =================================
 -- <Windows>
-keymap("n", "<c-w><c-e>", "<cmd>WindowsMaximize<cr>", opts)
-keymap("n", "<c-w><c-a>", "<cmd>WindowsToggleAutowidth<cr>", opts)
+keymap("n", "<c-w><c-e>", "<cmd>lua require('maximize').toggle()<cr>", opts)
 -- <LSP-Signature>
 keymap("i", "<c-g>s", function()
 	require("lsp_signature").toggle_float_win()
@@ -104,8 +108,6 @@ keymap("n", "g<c-k>", "mxO<esc>`x", opts) --                      break line up
 keymap("n", "g<c-j>", "mxo<esc>`x", opts) --                    break line down
 keymap("n", "gG", "<cmd>%y+<cr>", opts) --                     yank full buffer
 keymap("n", "vgG", "VGOgg", opts) --                         select full buffer
-keymap("n", "dgG", "<cmd>%d<cr>", opts) --                   delete full buffer
-keymap("n", "cgG", "gg0cG", opts) --                         change full buffer
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- stop exit
 
 -- VIM DEFAULTS REMAPPING =========================
@@ -117,12 +119,12 @@ vim.api.nvim_exec(
   ]],
 	false
 )
+-- <Grapple>
+keymap("n", "<c-n>", "<cmd>GrappleCycle forward<cr>", opts) -- (vim: same as "j")
+keymap("n", "<c-p>", "<cmd>GrappleCycle backward<cr>", opts) -- (vim: same as "k")
 -- <Illuminate>
 keymap("n", "<c-g>", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts) -- (vim: display current file name and position)
 keymap("n", "<c-t>", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", opts) -- (vim: jump to N older Tag in tag list)
--- <Grapple>
-keymap("n", "<c-p>", "<cmd>GrappleCycle backward<cr>", opts) -- (vim: same as "k")
-keymap("n", "<c-n>", "<cmd>GrappleCycle forward<cr>", opts) -- (vim: same as "j")
 -- <Telescope>
 keymap("i", "<c-r>", "<cmd>Telescope registers theme=cursor layout_config={height=0.3}<cr>", opts) -- (vim: insert the contents of a register)
 -- <ChatGPT>
