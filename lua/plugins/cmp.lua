@@ -51,14 +51,12 @@ local M = {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
 				},
-				mapping = {
-					["<c-u>"] = cmp.mapping.scroll_docs(-4),
-					["<c-d>"] = cmp.mapping.scroll_docs(4),
-					["<c-f>"] = cmp.mapping({
-						i = cmp.mapping.abort(),
-						c = cmp.mapping.close(),
-					}),
-					-- Accept currently selected item. If none selected, `select` first item.
+				mapping = cmp.mapping.preset.insert({
+					["<c-b>"] = cmp.mapping.scroll_docs(-4),
+					["<c-f>"] = cmp.mapping.scroll_docs(4),
+					["<c-Space>"] = cmp.mapping.complete(),
+					["<c-e>"] = cmp.mapping.abort(),
+					-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items:
 					["<c-j>"] = cmp.mapping.confirm({ select = true }),
 					["<c-i>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
@@ -66,7 +64,7 @@ local M = {
 						elseif luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
 						elseif has_words_before() then
-							cmp.complete()
+							fallback()
 						else
 							fallback()
 						end
@@ -80,7 +78,7 @@ local M = {
 							fallback()
 						end
 					end, { "i", "s" }),
-				},
+				}),
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },

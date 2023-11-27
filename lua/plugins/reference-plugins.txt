@@ -1,5 +1,6 @@
 LSP ---------------------------------------------------------------------------------
 simrat39/symbols-outline.nvim                                        LSP Diagram menu
+hedyhli/outline.nvim                                    enhanced symbols-outline.nvim
 stevearc/aerial.nvim                                                 LSP Diagram menu
 folke/trouble.nvim                                                 pretty diagnostics
 ray-x/navigator.lua                                                      LSP hardcore
@@ -18,7 +19,7 @@ creativenull/efmls-configs-nvim                                   Null-ls altern
 niuiic/format.nvim                                                Null-ls alternative
 mhartington/formatter.nvim                            Null-ls alternative (947 stars)
 nvimdev/guard.nvim                            Null-ls alternative (faster, but buggy)
-stevearc/conform.nvim                                 Null-ls lightweight alternative 
+stevearc/conform.nvim                                 Null-ls lightweight alternative
 
 TREESITTER --------------------------------------------------------------------------
 ziontee113/syntax-tree-surfer                                            TS navigator
@@ -169,4 +170,4 @@ Nov 05
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Nov 05
+Nov 26

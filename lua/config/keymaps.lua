@@ -107,7 +107,7 @@ keymap("", "<Right>", "<cmd>vertical resize +4<cr>", opts) --      resize right
 keymap("n", "g<c-k>", "mxO<esc>`x", opts) --                      break line up
 keymap("n", "g<c-j>", "mxo<esc>`x", opts) --                    break line down
 keymap("n", "gG", "<cmd>%y+<cr>", opts) --                     yank full buffer
-keymap("n", "vgG", "VGOgg", opts) --                         select full buffer
+keymap("x", "gG", "<esc>VGOgg", opts) --                     select full buffer
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- stop exit
 
 -- VIM DEFAULTS REMAPPING =========================

@@ -54,6 +54,7 @@ return {
 				"markdown",
 				"markdown_inline",
 				"norg",
+				"regex",
 				"scss",
 				"tsx",
 				"typescript",
@@ -75,10 +76,6 @@ return {
 			},
 			autotag = { --HTML/JSX tags autorename
 				enable = true,
-			},
-			context_commentstring = { --JSX commments
-				enable = true,
-				enable_autocmd = false,
 			},
 			incremental_selection = {
 				enable = true,

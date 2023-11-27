@@ -31,17 +31,8 @@ function M.config()
 				},
 			},
 			lualine_b = { "diagnostics" },
-			lualine_c = {
-				{
-					require("dr-lsp").lspCount,
-					fmt = function(str)
-						return str:gsub("[LSP:]", "")
-					end,
-				},
-				{ require("dr-lsp").lspProgress },
-				{ "navic" },
-			},
-			lualine_x = {},
+			lualine_c = { "navic" },
+			lualine_x = { "location" },
 			lualine_y = { "diff" },
 			lualine_z = {
 				{
