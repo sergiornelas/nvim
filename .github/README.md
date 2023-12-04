@@ -54,6 +54,7 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [sainnhe/gruvbox-material](https://dotfyle.com/plugins/sainnhe/gruvbox-material)
 + [ribru17/bamboo.nvim](https://dotfyle.com/plugins/ribru17/bamboo.nvim)
 + [luisiacc/gruvbox-baby](https://dotfyle.com/plugins/luisiacc/gruvbox-baby)
++ [Tsuzat/NeoSolarized.nvim](https://dotfyle.com/plugins/Tsuzat/NeoSolarized.nvim)
 + [sainnhe/edge](https://dotfyle.com/plugins/sainnhe/edge)
 + [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
 + [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
@@ -81,7 +82,6 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [piersolenski/telescope-import.nvim](https://dotfyle.com/plugins/piersolenski/telescope-import.nvim)
 ### editing-support
 
-+ [utilyre/sentiment.nvim](https://dotfyle.com/plugins/utilyre/sentiment.nvim)
 + [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
 + [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
 + [echasnovski/mini.trailspace](https://dotfyle.com/plugins/echasnovski/mini.trailspace)
@@ -111,7 +111,6 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 + [aznhe21/actions-preview.nvim](https://dotfyle.com/plugins/aznhe21/actions-preview.nvim)
 + [onsails/lspkind.nvim](https://dotfyle.com/plugins/onsails/lspkind.nvim)
-+ [chrisgrieser/nvim-dr-lsp](https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp)
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 + [ray-x/lsp_signature.nvim](https://dotfyle.com/plugins/ray-x/lsp_signature.nvim)
 + [kosayoda/nvim-lightbulb](https://dotfyle.com/plugins/kosayoda/nvim-lightbulb)
@@ -146,9 +145,7 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 ### snippet
 
 + [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
-### split-and-window
-
-+ [anuvyklack/windows.nvim](https://dotfyle.com/plugins/anuvyklack/windows.nvim)
++ [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
 ### statusline
 
 + [nvim-lualine/lualine.nvim](https://dotfyle.com/plugins/nvim-lualine/lualine.nvim)
@@ -158,15 +155,9 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [kylechui/nvim-surround](https://dotfyle.com/plugins/kylechui/nvim-surround)
 + [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
 + [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
-### tabline
-
-+ [nanozuki/tabby.nvim](https://dotfyle.com/plugins/nanozuki/tabby.nvim)
 ### test
 
 + [nvim-neotest/neotest](https://dotfyle.com/plugins/nvim-neotest/neotest)
-### utility
-
-+ [zbirenbaum/neodim](https://dotfyle.com/plugins/zbirenbaum/neodim)
 ## Language Servers
 
 + cssls
