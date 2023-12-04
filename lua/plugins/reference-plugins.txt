@@ -170,4 +170,4 @@ Nov 05
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Nov 26
+Dic 03

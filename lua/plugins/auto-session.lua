@@ -23,11 +23,6 @@ function M.config()
 		-- pre_restore_cmds
 		-- pre_delete_cmds
 		-- post_delete_cmds
-		session_lens = {
-			prompt_title = "~ Teleport ~",
-			theme_conf = { layout_config = { width = 0.35 }, prompt_prefix = "󱓞  " },
-			path_display = { "shorten" },
-		},
 	})
 
 	vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,globals"

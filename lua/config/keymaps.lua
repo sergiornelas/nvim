@@ -32,8 +32,6 @@ keymap("", "<leader>M", "<cmd>Telescope marks theme=ivy<cr>", opts)
 keymap("", "<leader>H", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
 keymap("", "<leader>I", "<cmd>Telescope import<cr>", opts)
 -- <Code runner>
-keymap("n", "<leader>rc", "<cmd>Codi<cr>", opts)
-keymap("n", "<leader>re", "<cmd>CodiExpand<cr>", opts)
 keymap("n", "<leader>rr", "<cmd>RunCode<cr>", opts)
 keymap(
 	"n",
@@ -55,16 +53,9 @@ keymap("n", "<leader>TR", "<cmd>TSToolsRemoveUnusedImports<cr>", opts)
 keymap("n", "<leader>Tr", "<cmd>TSToolsRemoveUnused<cr>", opts)
 keymap("n", "<leader>Ti", "<cmd>TSToolsAddMissingImports<cr>", opts)
 keymap("n", "<leader>Tf", "<cmd>TSToolsFixAll<cr>", opts)
--- <Inlay hints>
-keymap("n", "<leader>v", function()
-	vim.lsp.inlay_hint(0, nil)
-end, opts)
 -- <Diff view git>
 keymap("", "<leader>jf", "<cmd>DiffviewFileHistory %<cr> | <cmd>TabRename FileHistory  <cr>", opts)
 keymap("", "<leader>jp", "<cmd>DiffviewFileHistory<cr> | <cmd>TabRename ProjectHistory  <cr>", opts)
--- <Tabby>
-keymap("n", "<leader>R", ":TabRename ", { noremap = true })
-keymap("n", "<leader>C", "<cmd>TabRename main<cr>", opts)
 -- <Lazy>
 keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts)
 -- <Nvim-tree>
@@ -83,20 +74,15 @@ keymap("", "<leader>S", "<cmd>set spell!<cr>", opts) -- toggle set spell
 keymap("", "<leader>N", "<cmd>set nu!<cr>", opts) --   toggle set number
 keymap("n", "y<leader>", "$T!yt!", opts) --         yank secret password
 keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) --  force exit neovim
+keymap("n", "<leader>v", function() --                       Inlay hints
+	vim.lsp.inlay_hint(0, nil)
+end, opts)
 
 -- NO LEADER MAPS =================================
--- <Windows>
-keymap("n", "<c-w><c-e>", "<cmd>lua require('maximize').toggle()<cr>", opts)
 -- <LSP-Signature>
-keymap("i", "<c-g>s", function()
-	require("lsp_signature").toggle_float_win()
-end, opts)
 keymap("i", "<c-g><c-s>", function()
 	require("lsp_signature").toggle_float_win()
 end, opts)
--- <Move>
-keymap("v", "<c-j>", ":MoveBlock(1)<cr>", opts)
-keymap("v", "<c-k>", ":MoveBlock(-1)<cr>", opts)
 -- <Treesitter context>
 keymap("n", "g<c-t>", "<cmd>lua require('treesitter-context').go_to_context()<cr>", opts)
 -- Utils
@@ -107,7 +93,7 @@ keymap("", "<Right>", "<cmd>vertical resize +4<cr>", opts) --      resize right
 keymap("n", "g<c-k>", "mxO<esc>`x", opts) --                      break line up
 keymap("n", "g<c-j>", "mxo<esc>`x", opts) --                    break line down
 keymap("n", "gG", "<cmd>%y+<cr>", opts) --                     yank full buffer
-keymap("x", "gG", "<esc>VGOgg", opts) --                     select full buffer
+keymap("x", "gG", "VGOgg", opts) --                          select full buffer
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- stop exit
 
 -- VIM DEFAULTS REMAPPING =========================
@@ -123,8 +109,8 @@ vim.api.nvim_exec(
 keymap("n", "<c-n>", "<cmd>GrappleCycle forward<cr>", opts) -- (vim: same as "j")
 keymap("n", "<c-p>", "<cmd>GrappleCycle backward<cr>", opts) -- (vim: same as "k")
 -- <Illuminate>
-keymap("n", "<c-g>", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts) -- (vim: display current file name and position)
-keymap("n", "<c-t>", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", opts) -- (vim: jump to N older Tag in tag list)
+keymap("", "]t", "<cmd>lua require('illuminate').goto_next_reference(wrap)<cr>", opts)
+keymap("", "[t", "<cmd>lua require('illuminate').goto_prev_reference(wrap)<cr>", opts)
 -- <Telescope>
 keymap("i", "<c-r>", "<cmd>Telescope registers theme=cursor layout_config={height=0.3}<cr>", opts) -- (vim: insert the contents of a register)
 -- <ChatGPT>

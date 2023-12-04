@@ -1,7 +1,7 @@
 local M = {
 	{
 		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		event = "BufReadPost",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -61,8 +61,6 @@ local M = {
 					["<c-i>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
 						elseif has_words_before() then
 							fallback()
 						else
@@ -72,7 +70,19 @@ local M = {
 					["<c-o>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					["<c-l>"] = cmp.mapping(function(fallback)
+						if luasnip.expand_or_jumpable() then
+							luasnip.expand_or_jump()
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					["<c-z>"] = cmp.mapping(function(fallback)
+						if luasnip.jumpable(-1) then
 							luasnip.jump(-1)
 						else
 							fallback()

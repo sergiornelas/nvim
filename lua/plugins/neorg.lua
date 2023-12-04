@@ -3,7 +3,6 @@ local M = {
 		"nvim-neorg/neorg",
 		ft = "norg",
 		cmd = "Neorg",
-		dependencies = { "nvim-neorg/neorg-telescope" },
 		config = function()
 			-- https://github.com/nvim-neorg/neorg/wiki
 			local neorg_ok, neorg = pcall(require, "neorg")
@@ -22,37 +21,6 @@ local M = {
 								keybinds.remap_event("norg", "n", "g<space>", "core.looking-glass.magnify-code-block")
 								keybinds.remap_event("norg", "n", "[v", "core.itero.next-iteration")
 								keybinds.remap_event("norg", "i", "<cr>", "core.itero.next-iteration")
-								keybinds.remap_event(
-									"norg",
-									"n",
-									"<leader>ne",
-									"core.integrations.telescope.find_linkable"
-								) -- go to other header from current workspace
-								keybinds.remap_event(
-									"norg",
-									"n",
-									"<leader>nl",
-									"core.integrations.telescope.insert_file_link"
-								) -- insert file link from current workspace
-								keybinds.remap_event(
-									"norg",
-									"n",
-									"<leader>nf",
-									"core.integrations.telescope.search_headings"
-								) -- current file headers
-								-- keybinds.remap_event("norg", "n", ",nf", "core.integrations.telescope.find_norg_files") -- find files in current workspace, not useful
-								keybinds.remap_event(
-									"norg",
-									"n",
-									"<leader>ns",
-									"core.integrations.telescope.switch_workspace"
-								) -- not useful
-								keybinds.remap_event(
-									"norg",
-									"n",
-									"<leader>nI",
-									"core.integrations.telescope.insert_link"
-								) -- not working
 								keybinds.remap_event("norg", "n", "<leader>nz", "core.pivot.toggle-list-type") -- inverts all the other items in that list.
 								keybinds.remap_event("norg", "n", "<leader>nx", "core.pivot.invert-list-type") -- inverts all the other items in that list, however respects mixed lists
 							end,
@@ -117,7 +85,6 @@ local M = {
 							close_after_use = true,
 						},
 					},
-					["core.integrations.telescope"] = {},
 					-- needs maturity
 					-- ["core.presenter"] = {
 					-- 	config = {

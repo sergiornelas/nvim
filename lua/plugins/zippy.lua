@@ -1,6 +1,6 @@
 return {
 	{
-		"PatschD/zippy.nvim",
+		"sergiornelas/zippy.nvim",
 		keys = {
 			{
 				"<leader>z",
