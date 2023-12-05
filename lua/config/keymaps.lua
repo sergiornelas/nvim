@@ -33,12 +33,7 @@ keymap("", "<leader>H", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
 keymap("", "<leader>I", "<cmd>Telescope import<cr>", opts)
 -- <Code runner>
 keymap("n", "<leader>rr", "<cmd>RunCode<cr>", opts)
-keymap(
-	"n",
-	"<leader>J",
-	"<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>TabRename Scratch 󰙏 <cr><cmd>RunCode<cr>",
-	opts
-)
+keymap("n", "<leader>J", "<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>RunCode<cr>", opts)
 -- <Neorg>
 keymap("", "<leader>nn", "<c-w>s<cmd>Neorg workspace todo<cr>", opts)
 keymap("", "<leader>nq", "<cmd>Neorg return<cr>", opts)
