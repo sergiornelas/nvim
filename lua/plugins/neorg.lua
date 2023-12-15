@@ -3,6 +3,14 @@ local M = {
 		"nvim-neorg/neorg",
 		ft = "norg",
 		cmd = "Neorg",
+		keys = {
+			{ "<leader>nn", "<c-w>s<cmd>Neorg workspace todo<cr>" },
+			{ "<leader>nq", "<cmd>Neorg return<cr>" },
+			{ "<leader>nW", ":Neorg workspace ", { noremap = true } },
+			{ "<leader>ni", "<cmd>Neorg index<cr>" },
+			{ "<leader>nt", "<cmd>Neorg toc<cr>" },
+			{ "<leader>nc", "<cmd>Neorg toggle-concealer<cr>" },
+		},
 		config = function()
 			-- https://github.com/nvim-neorg/neorg/wiki
 			local neorg_ok, neorg = pcall(require, "neorg")

@@ -3,13 +3,10 @@ local M = {
 	dependencies = {
 		"kyazdani42/nvim-web-devicons",
 	},
+	keys = {
+		{ "<leader>a", "<cmd>NvimTreeToggle<cr>" },
+	},
 	lazy = false,
-	-- lazy loading not working:
-	-- event = "VeryLazy",
-	-- keys = {
-	-- 	{ "<leader>a", "<cmd>NvimTreeToggle<cr>" },
-	-- },
-	-- cmd = "NvimTreeToggle",
 }
 
 function M.config()

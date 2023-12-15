@@ -1,9 +1,3 @@
-local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-
-if not cmp_nvim_lsp_ok then
-	return
-end
-
 local keymap = vim.keymap.set
 
 keymap("n", "go", '<cmd>lua vim.diagnostic.open_float(0, { scope = "cursor", border = "single" })<CR>') -- (vim: cursor to byte N in the buffer)
@@ -33,13 +27,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf }
 		keymap("n", "gy", lsp.declaration, opts)
 		keymap("n", "gd", lsp.definition, opts) -- (vim: go to definition of word under the cursor in current function)
-		-- keymap("n", "gt", "<cmd>TSToolsGoToSourceDefinition<cr>", opts)
 		keymap("n", "K", lsp.hover, opts) -- (vim: lookup Keyword under the cursor with 'keywordprg')
 		keymap("n", "gz", lsp.implementation, opts)
 		keymap("n", "gs", lsp.signature_help, opts) -- (vim: go to sleep for N seconds (default 1))
-		keymap("n", "<leader>wa", lsp.add_workspace_folder, opts)
-		keymap("n", "<leader>wr", lsp.remove_workspace_folder, opts)
-		keymap("n", "<leader>wl", function()
+		keymap("n", "<leader>la", lsp.add_workspace_folder, opts)
+		keymap("n", "<leader>lx", lsp.remove_workspace_folder, opts)
+		keymap("n", "<leader>ll", function()
 			print(vim.inspect(lsp.list_workspace_folders()))
 		end, opts)
 		keymap("n", "<leader>D", lsp.type_definition, opts)
@@ -61,9 +54,9 @@ M.on_attach = function(client, bufnr)
 		vim.lsp.inlay_hint(0, true)
 		-- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
 	end
+	if client.name == "typescript-tools" then
+		keymap("n", "gS", "<cmd>TSToolsGoToSourceDefinition<cr>")
+	end
 end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 return M

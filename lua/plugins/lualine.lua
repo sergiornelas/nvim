@@ -32,7 +32,7 @@ function M.config()
 			},
 			lualine_b = { "diagnostics" },
 			lualine_c = { "navic" },
-			lualine_x = { "location" },
+			lualine_x = { "location", "progress" },
 			lualine_y = { "diff" },
 			lualine_z = {
 				{

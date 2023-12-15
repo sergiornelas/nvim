@@ -1,6 +1,15 @@
 local M = {
 	"sindrets/diffview.nvim",
-	cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewFileHistory" },
+	keys = {
+		{ "<leader>do", "<cmd>DiffviewOpen<cr>" },
+		{ "<leader>dc", "<cmd>DiffviewClose<cr>" },
+		{ "<leader>dt", "<cmd>DiffviewToggleFiles<cr>" },
+		{ "<leader>dF", "<cmd>DiffviewFocusFiles<cr>" },
+		{ "<leader>df", "<cmd>DiffviewFileHistory %<cr>" },
+		{ "<leader>dp", "<cmd>DiffviewFileHistory<cr>" },
+		{ "<leader>dr", "<cmd>DiffviewRefresh<cr>" },
+		{ "<leader>dl", "<cmd>DiffviewLog<cr>" },
+	},
 }
 
 -- conflicts with windows.nvim
@@ -17,7 +26,7 @@ function M.config()
 			view = {
 				["<c-i>"] = actions.select_next_entry,
 				["<c-o>"] = actions.select_prev_entry,
-				["<leader>w"] = actions.toggle_files,
+				["<leader>a"] = actions.toggle_files,
 			},
 			file_panel = {
 				["l"] = actions.select_entry,
@@ -25,7 +34,7 @@ function M.config()
 				["<c-o>"] = actions.select_prev_entry,
 				["<c-u>"] = actions.scroll_view(-0.60),
 				["<c-d>"] = actions.scroll_view(0.60),
-				["<leader>w"] = actions.toggle_files,
+				["<leader>a"] = actions.toggle_files,
 			},
 			file_history_panel = {
 				["l"] = actions.select_entry,
@@ -33,7 +42,7 @@ function M.config()
 				["<c-o>"] = actions.select_prev_entry,
 				["<c-u>"] = actions.scroll_view(-0.60),
 				["<c-d>"] = actions.scroll_view(0.60),
-				["<leader>w"] = actions.toggle_files,
+				["<leader>a"] = actions.toggle_files,
 			},
 		},
 	})

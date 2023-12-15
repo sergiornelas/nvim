@@ -5,7 +5,7 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
-			"antoinemadec/FixCursorHold.nvim",
+			-- "antoinemadec/FixCursorHold.nvim",
 			"haydenmeade/neotest-jest",
 		},
 		keys = {
@@ -16,13 +16,13 @@ return {
 				end,
 			},
 			{
-				"<leader>tt",
+				"<leader>te",
 				function()
 					require("neotest").run.run(vim.fn.expand("%"))
 				end,
 			},
 			{
-				"<leader>tT",
+				"<leader>tL",
 				function()
 					require("neotest").run.run(vim.loop.cwd())
 				end,

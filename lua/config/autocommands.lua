@@ -44,10 +44,11 @@ api.nvim_exec(
   au BufEnter * set fo-=c fo-=r fo-=o
 
   " All folds are open
-  set nofoldenable
+  " set nofoldenable
 
   " Command prev option
-  cnoremap <c-o> <c-p> " (vim: not used)
+  cnoremap <c-o> <c-p>
+  " (vim: not used)
 
   " close quickfix with escape
   nnoremap <expr> <esc> &buftype == 'quickfix' ? ":q<cr>" : '<esc>'

@@ -2,7 +2,7 @@
 local lazy_map = {
 	{
 		"<leader>c",
-		"<cmd>Telescope colorscheme theme=dropdown winblend=0<cr>",
+		"<cmd>Telescope colorscheme prompt_title=Colorscheme layout_config={width=50}<cr>",
 	},
 }
 
@@ -26,10 +26,10 @@ return {
 		end,
 	},
 	{
-		"cpea2506/one_monokai.nvim",
+		"loctvl842/monokai-pro.nvim",
 		keys = lazy_map,
 		opts = {
-			transparent = true,
+			transparent_background = true,
 		},
 	},
 	{
@@ -161,7 +161,8 @@ return {
 		},
 	},
 	{
-		"justinsgithub/oh-my-monokai.nvim",
+		"fynnfluegge/monet.nvim",
+		name = "monet",
 		keys = lazy_map,
 		opts = {
 			transparent_background = true,

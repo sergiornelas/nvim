@@ -11,8 +11,8 @@ return {
 			sorting_strategy = "ascending",
 			layout_strategy = "vertical",
 			layout_config = {
-				width = 0.5,
-				height = 0.5,
+				width = 0.6,
+				height = 0.6,
 				prompt_position = "top",
 				preview_cutoff = 10,
 				preview_height = function(_, _, max_lines)

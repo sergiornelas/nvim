@@ -165,9 +165,9 @@ LSP
 continue in Diagnostics
 
 ====================
-Last time checked this-week-in-neovim
+Last time checked this-week-in-neovim (dead 💀)
 Nov 05
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
-Dic 03
+Dic 11

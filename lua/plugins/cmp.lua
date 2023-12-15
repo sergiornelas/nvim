@@ -37,8 +37,8 @@ local M = {
 			end
 
 			luasnip.setup({
-				history = false,
-				region_check_events = "CursorMoved",
+				-- history = false,
+				-- region_check_events = "CursorMoved",
 			})
 
 			cmp.setup({
@@ -54,7 +54,7 @@ local M = {
 				mapping = cmp.mapping.preset.insert({
 					["<c-b>"] = cmp.mapping.scroll_docs(-4),
 					["<c-f>"] = cmp.mapping.scroll_docs(4),
-					["<c-Space>"] = cmp.mapping.complete(),
+					["<c-space>"] = cmp.mapping.complete(),
 					["<c-e>"] = cmp.mapping.abort(),
 					-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items:
 					["<c-j>"] = cmp.mapping.confirm({ select = true }),
@@ -63,6 +63,7 @@ local M = {
 							cmp.select_next_item()
 						elseif has_words_before() then
 							fallback()
+							-- cmp.complete()
 						else
 							fallback()
 						end
@@ -74,19 +75,11 @@ local M = {
 							fallback()
 						end
 					end, { "i", "s" }),
-					["<c-l>"] = cmp.mapping(function(fallback)
-						if luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
-						else
-							fallback()
-						end
+					["<c-l>"] = cmp.mapping(function()
+						luasnip.expand_or_jump()
 					end, { "i", "s" }),
-					["<c-z>"] = cmp.mapping(function(fallback)
-						if luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
+					["<c-z>"] = cmp.mapping(function()
+						luasnip.jump(-1)
 					end, { "i", "s" }),
 				}),
 				sources = {

@@ -5,13 +5,16 @@ return {
 	dependencies = {
 		{
 			"nvim-treesitter/nvim-treesitter-context",
-			config = true,
+			keys = {
+				{ "g<c-t>", "<cmd>lua require('treesitter-context').go_to_context()<cr>" },
+			},
 		},
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		{
 			"hiphish/rainbow-delimiters.nvim",
 			config = function()
 				local rainbow_delimiters = require("rainbow-delimiters")
+				---@type rainbow_delimiters.config
 				vim.g.rainbow_delimiters = {
 					strategy = {
 						[""] = rainbow_delimiters.strategy["global"],
@@ -38,8 +41,8 @@ return {
 			end,
 		},
 		{
-			"m-demare/hlargs.nvim",
-			config = true,
+			"amadeus/vim-mjml",
+			ft = "mjml",
 		},
 	},
 	config = function()

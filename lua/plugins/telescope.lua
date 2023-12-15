@@ -1,4 +1,4 @@
-local M = {
+return {
 	"nvim-telescope/telescope.nvim",
 	cmd = "Telescope",
 	build = "make",
@@ -6,96 +6,159 @@ local M = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "piersolenski/telescope-import.nvim" },
 	},
-}
-
-function M.config()
-	local telescope_ok, telescope = pcall(require, "telescope")
-	if not telescope_ok then
-		return
-	end
-
-	local actions = require("telescope.actions")
-	telescope.setup({
-		defaults = {
-			layout_strategy = "vertical", --horizontal/vertical/flex
-			sorting_strategy = "ascending", --important
-			winblend = 12,
-			results_title = "",
-			layout_config = {
-				vertical = {
-					width = 87,
-					height = 53,
-				},
-			},
-			-- previewer = false
-			-- mirror = true,
-			-- prompt_position = "top",
-			-- preview_cutoff = 120,
-			-- height = 0.60, (percentages)
-			-- width = { 0.52, max = 0.52, min = 0.52 },
-			-- initial_mode = "insert",
-			prompt_prefix = "  ",
-			selection_caret = "  ",
-			path_display = { "smart" },
-			mappings = {
-				i = {
-					["<c-i>"] = actions.move_selection_next,
-					["<c-o>"] = actions.move_selection_previous,
-					["<c-j>"] = actions.select_default,
-					["<c-n>"] = actions.cycle_history_next,
-					["<c-p>"] = actions.cycle_history_prev,
-					["<c-r>"] = actions.to_fuzzy_refine,
-					["<esc>"] = actions.close,
-				},
-			},
-		},
-		pickers = {
-			colorscheme = {
-				enable_preview = true,
-			},
-			buffers = {
-				sort_lastused = true,
-				mappings = {
-					i = {
-						["<c-e>"] = actions.delete_buffer,
+	config = function()
+		local actions = require("telescope.actions")
+		require("telescope").setup({
+			defaults = {
+				layout_strategy = "vertical", --horizontal/vertical/flex
+				sorting_strategy = "ascending", --important
+				winblend = 12,
+				results_title = "",
+				layout_config = {
+					vertical = {
+						width = 87,
+						height = 53,
 					},
 				},
-			},
-			git_status = {
+				-- previewer = false
+				-- mirror = true,
+				-- prompt_position = "top",
+				-- preview_cutoff = 120,
+				-- height = 0.60, (percentages)
+				-- width = { 0.52, max = 0.52, min = 0.52 },
+				-- initial_mode = "insert",
+				prompt_prefix = "  ",
+				selection_caret = "  ",
+				path_display = { "smart" },
 				mappings = {
 					i = {
 						["<c-i>"] = actions.move_selection_next,
 						["<c-o>"] = actions.move_selection_previous,
+						["<c-j>"] = actions.select_default,
+						["<c-n>"] = actions.cycle_history_next,
+						["<c-p>"] = actions.cycle_history_prev,
+						["<c-z>"] = actions.to_fuzzy_refine,
+						["<esc>"] = actions.close,
+						["<c-.>"] = actions.toggle_selection + actions.move_selection_worse,
+						["<c-,>"] = actions.toggle_selection + actions.move_selection_better,
+						-- ["<c-q>"] = actions.send_to_qflist + actions.open_qflist,
+						["<c-b>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						-- select_all, -- select all telescope results
+						-- drop_all, -- deselect all telescope results
+						-- select_drop, -- move to current current buffer position window, not new buffer
+						-- git_rename_branch -- not added
+						-- send_selected_to_loclist -- not added
+						-- actions.delete_mark, -- elminate element/s from telescope results
 					},
 				},
 			},
-		},
-		extensions = {
-			fzf = {
-				fuzzy = true, -- false will only do exact matching
-				override_generic_sorter = true, -- override the generic sorter
-				override_file_sorter = true, -- override the file sorter
-				case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-				-- the default case_mode is "smart_case"
+			pickers = {
+				colorscheme = {
+					enable_preview = true,
+				},
+				buffers = {
+					sort_lastused = false,
+					mappings = {
+						i = {
+							["<c-e>"] = actions.delete_buffer,
+						},
+					},
+				},
+				git_status = {
+					mappings = {
+						i = {
+							["<c-i>"] = actions.move_selection_next,
+							["<c-e>"] = actions.git_staging_toggle,
+						},
+					},
+				},
 			},
-			import = {
-				insert_at_top = true,
+			extensions = {
+				fzf = {
+					fuzzy = true, -- false will only do exact matching
+					override_generic_sorter = true, -- override the generic sorter
+					override_file_sorter = true, -- override the file sorter
+					case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+					-- the default case_mode is "smart_case"
+				},
+				import = {
+					insert_at_top = true,
+				},
 			},
-		},
-	})
+		})
 
-	telescope.load_extension("fzf")
-	telescope.load_extension("import")
+		require("telescope").load_extension("fzf")
+		require("telescope").load_extension("import")
 
-	-- Token  	       Match type           	          Description
-	-- -------+-----------------------------+-----------------------------------
-	-- sbtrkt 	fuzzy-match                 	Items that match sbtrkt
-	-- 'wild  	exact-match (quoted)        	Items that include wild
-	-- ^music 	prefix-exact-match          	Items that start with music
-	-- .mp3$  	suffix-exact-match          	Items that end with .mp3
-	-- !fire  	inverse-exact-match         	Items that do not include fire
-	-- !^music	inverse-prefix-exact-match  	Items that do not start with music
-	-- !.mp3$ 	inverse-suffix-exact-match  	Items that do not end with .mp3
-end
-
-return M
+		-- Token  	       Match type           	          Description
+		-- -------+-----------------------------+-----------------------------------
+		-- sbtrkt 	fuzzy-match                 	Items that match sbtrkt
+		-- 'wild  	exact-match (quoted)        	Items that include wild
+		-- ^music 	prefix-exact-match          	Items that start with music
+		-- .mp3$  	suffix-exact-match          	Items that end with .mp3
+		-- !fire  	inverse-exact-match         	Items that do not include fire
+		-- !^music	inverse-prefix-exact-match  	Items that do not start with music
+		-- !.mp3$ 	inverse-suffix-exact-match  	Items that do not end with .mp3
+	end,
+	keys = {
+		-- File Pickers
+		{ "<leader>fi", "<cmd>Telescope find_files<cr>" },
+		{ "<leader>fg", "<cmd>Telescope git_files<cr>" },
+		{ "<leader>fw", "<cmd>Telescope grep_string<cr>", mode = { "n", "x" } },
+		{ "<leader>fl", "<cmd>Telescope live_grep<cr>" },
+		-- Vim pickers
+		{ "<leader>o", "<cmd>Telescope buffers theme=dropdown prompt_title=~Teleport~ <cr>" },
+		{ "<leader>fo", "<cmd>Telescope oldfiles theme=ivy<cr>" },
+		-- { "<leader>", "<cmd>Telescope commands<cr>" },
+		{ "<leader>fa", "<cmd>Telescope tags<cr>" },
+		{ "<leader>fh", "<cmd>Telescope command_history layout_config={height=30}<cr>" },
+		{ "<leader>f/", "<cmd>Telescope search_history layout_config={height=30}<cr>" },
+		{ "<leader>H", "<cmd>Telescope help_tags theme=ivy<cr>" },
+		-- { "<leader>", "<cmd>Telescope man_pages<cr>" },
+		{ "<leader>fm", "<cmd>Telescope marks<cr>" },
+		-- { "<leader>c", "<cmd>Telescope colorscheme<cr>" }, -- added in colorschemes.lua
+		{ "<leader>fq", "<cmd>Telescope quickfix<cr>" },
+		{ "<leader>fQ", "<cmd>Telescope quickfixhistory<cr>" },
+		{ "<leader>fc", "<cmd>Telescope loclist<cr>" },
+		{ "<leader>fj", "<cmd>Telescope jumplist<cr>" },
+		{ "<leader>fv", "<cmd>Telescope vim_options<cr>" },
+		{ "<leader>fr", "<cmd>Telescope registers theme=dropdown layout_config={height=30}<cr>" },
+		-- { "<leader>", "<cmd>Telescope autocommands<cr>" },
+		{ "<leader>ns", "<cmd>Telescope spell_suggest theme=dropdown layout_config={height=30}<cr>" },
+		{ "<leader>fk", "<cmd>Telescope keymaps<cr>" },
+		{ "<leader>nf", "<cmd>Telescope filetypes<cr>" },
+		-- { "<leader>", "<cmd>Telescope highlights<cr>" },
+		{ "<leader>ff", "<cmd>Telescope current_buffer_fuzzy_find<cr>" },
+		{ "<leader>fs", "<cmd>Telescope current_buffer_tags<cr>" },
+		{ "<leader>/", "<cmd>Telescope resume<cr>" },
+		-- { "<leader>", "<cmd>Telescope pickers<cr>" },
+		-- Neovim LSP Pickers
+		{ "<leader>lr", "<cmd>Telescope lsp_references<cr>" },
+		{ "<leader>lc", "<cmd>Telescope lsp_incoming_calls<cr>" },
+		{ "<leader>lo", "<cmd>Telescope lsp_outgoing_calls<cr>" },
+		{ "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>" },
+		{ "<leader>lq", ":Telescope lsp_workspace_symbols query=" },
+		{ "<leader>lw", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>" },
+		{ "<leader>lg", "<cmd>Telescope diagnostics theme=dropdown<cr>" },
+		{ "<leader>li", "<cmd>Telescope lsp_implementations<cr>" },
+		{ "<leader>ld", "<cmd>Telescope lsp_definitions<cr>" },
+		{ "<leader>lt", "<cmd>Telescope lsp_type_definitions<cr>" },
+		-- Git Pickers
+		{ "<leader>gc", "<cmd>Telescope git_commits<cr>" },
+		{ "<leader>gm", "<cmd>Telescope git_bcommits<cr>" },
+		{ "<leader>gM", "<cmd>Telescope git_bcommits_range<cr>" },
+		{ "<leader>gb", "<cmd>Telescope git_branches<cr>" },
+		{ "<leader>gs", "<cmd>Telescope git_status layout_strategy=horizontal<cr>" },
+		{ "<leader>gh", "<cmd>Telescope git_stash<cr>" },
+		-- Treesitter Pickers
+		{ "<leader>ft", "<cmd>Telescope treesitter<cr>" },
+		-- Lists Pickers
+		-- { "<leader>", "<cmd>Telescope planets<cr>" },
+		-- { "<leader>", "<cmd>Telescope builtin<cr>" },
+		-- { "<leader>", "<cmd>Telescope reloader<cr>" },
+		-- { "<leader>", "<cmd>Telescope symbols<cr>" },
+		-- Not included in Github
+		-- { "<leader>", "<cmd>Telescope tagstack<cr>" },
+		-- { "<leader>", "<cmd>Telescope fd<cr>" },
+	},
+}
