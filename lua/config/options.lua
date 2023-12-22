@@ -38,7 +38,7 @@ o.undofile = true --           enable persistent undo
 o.updatetime = 200 --          faster completion (4000ms default)
 o.winminwidth = 10 --          The minimal width of a window, when it's not the current window.
 o.winwidth = 10 --             Minimal number of columns for the current window.
-o.wrap = true --               display lines as one long line
+o.wrap = false --              display lines as one long line
 o.writebackup = false --       if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 
 -- when windows become crazy:

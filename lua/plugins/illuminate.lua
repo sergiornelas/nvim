@@ -17,6 +17,8 @@ return {
 			filetypes_denylist = {
 				"NvimTree",
 				"TelescopePrompt",
+				"lazy",
+				"mason",
 			},
 		})
 	end,

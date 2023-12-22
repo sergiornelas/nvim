@@ -32,17 +32,9 @@ function M.config()
 			},
 			lualine_b = { "diagnostics" },
 			lualine_c = { "navic" },
-			lualine_x = { "location", "progress" },
+			lualine_x = { "progress" },
 			lualine_y = { "diff" },
-			lualine_z = {
-				{
-					function()
-						local key = require("grapple").key()
-						return "󰓹  [" .. key .. "]"
-					end,
-					cond = require("grapple").exists,
-				},
-			},
+			lualine_z = { "location" },
 		},
 		inactive_sections = {
 			lualine_a = { "filename" },

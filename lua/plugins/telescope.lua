@@ -35,17 +35,17 @@ return {
 						["<c-i>"] = actions.move_selection_next,
 						["<c-o>"] = actions.move_selection_previous,
 						["<c-j>"] = actions.select_default,
-						["<c-n>"] = actions.cycle_history_next,
-						["<c-p>"] = actions.cycle_history_prev,
+						["<c-m>"] = actions.cycle_history_next,
+						["<c-;>"] = actions.cycle_history_prev,
 						["<c-z>"] = actions.to_fuzzy_refine,
 						["<esc>"] = actions.close,
-						["<c-.>"] = actions.toggle_selection + actions.move_selection_worse,
-						["<c-,>"] = actions.toggle_selection + actions.move_selection_better,
+						["<c-n>"] = actions.toggle_selection + actions.move_selection_worse,
+						["<c-p>"] = actions.toggle_selection + actions.move_selection_better,
 						-- ["<c-q>"] = actions.send_to_qflist + actions.open_qflist,
 						["<c-b>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						-- select_all, -- select all telescope results
 						-- drop_all, -- deselect all telescope results
-						-- select_drop, -- move to current current buffer position window, not new buffer
+						-- select_drop, -- move to current current buffer position window, not new buffer. Drop deletes arglist
 						-- git_rename_branch -- not added
 						-- send_selected_to_loclist -- not added
 						-- actions.delete_mark, -- elminate element/s from telescope results
@@ -103,7 +103,7 @@ return {
 	keys = {
 		-- File Pickers
 		{ "<leader>fi", "<cmd>Telescope find_files<cr>" },
-		{ "<leader>fg", "<cmd>Telescope git_files<cr>" },
+		{ "<leader>gf", "<cmd>Telescope git_files<cr>" },
 		{ "<leader>fw", "<cmd>Telescope grep_string<cr>", mode = { "n", "x" } },
 		{ "<leader>fl", "<cmd>Telescope live_grep<cr>" },
 		-- Vim pickers
@@ -124,31 +124,31 @@ return {
 		{ "<leader>fv", "<cmd>Telescope vim_options<cr>" },
 		{ "<leader>fr", "<cmd>Telescope registers theme=dropdown layout_config={height=30}<cr>" },
 		-- { "<leader>", "<cmd>Telescope autocommands<cr>" },
-		{ "<leader>ns", "<cmd>Telescope spell_suggest theme=dropdown layout_config={height=30}<cr>" },
+		{ "<leader>fs", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
 		{ "<leader>fk", "<cmd>Telescope keymaps<cr>" },
-		{ "<leader>nf", "<cmd>Telescope filetypes<cr>" },
+		{ "<leader>fy", "<cmd>Telescope filetypes<cr>" },
 		-- { "<leader>", "<cmd>Telescope highlights<cr>" },
 		{ "<leader>ff", "<cmd>Telescope current_buffer_fuzzy_find<cr>" },
-		{ "<leader>fs", "<cmd>Telescope current_buffer_tags<cr>" },
+		{ "<leader>fb", "<cmd>Telescope current_buffer_tags<cr>" },
 		{ "<leader>/", "<cmd>Telescope resume<cr>" },
 		-- { "<leader>", "<cmd>Telescope pickers<cr>" },
 		-- Neovim LSP Pickers
-		{ "<leader>lr", "<cmd>Telescope lsp_references<cr>" },
-		{ "<leader>lc", "<cmd>Telescope lsp_incoming_calls<cr>" },
-		{ "<leader>lo", "<cmd>Telescope lsp_outgoing_calls<cr>" },
-		{ "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>" },
-		{ "<leader>lq", ":Telescope lsp_workspace_symbols query=" },
-		{ "<leader>lw", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>" },
-		{ "<leader>lg", "<cmd>Telescope diagnostics theme=dropdown<cr>" },
-		{ "<leader>li", "<cmd>Telescope lsp_implementations<cr>" },
-		{ "<leader>ld", "<cmd>Telescope lsp_definitions<cr>" },
-		{ "<leader>lt", "<cmd>Telescope lsp_type_definitions<cr>" },
+		-- { "<leader>", "<cmd>Telescope lsp_references<cr>" },
+		-- { "<leader>", "<cmd>Telescope lsp_incoming_calls<cr>" },
+		-- { "<leader>", "<cmd>Telescope lsp_outgoing_calls<cr>" },
+		-- { "<leader>", "<cmd>Telescope lsp_document_symbols<cr>" },
+		-- { "<leader>", ":Telescope lsp_workspace_symbols query=" },
+		{ "<leader>ly", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>" },
+		-- { " leader>", "<cmd>Telescope diagnostics theme=dropdown<cr>" },
+		-- { "<leader>", "<cmd>Telescope lsp_implementations<cr>" },
+		-- { "<leader>", "<cmd>Telescope lsp_definitions<cr>" },
+		-- { "<leader>", "<cmd>Telescope lsp_type_definitions<cr>" },
 		-- Git Pickers
 		{ "<leader>gc", "<cmd>Telescope git_commits<cr>" },
 		{ "<leader>gm", "<cmd>Telescope git_bcommits<cr>" },
 		{ "<leader>gM", "<cmd>Telescope git_bcommits_range<cr>" },
 		{ "<leader>gb", "<cmd>Telescope git_branches<cr>" },
-		{ "<leader>gs", "<cmd>Telescope git_status layout_strategy=horizontal<cr>" },
+		{ "<leader>gs", "<cmd>Telescope git_status<cr>" },
 		{ "<leader>gh", "<cmd>Telescope git_stash<cr>" },
 		-- Treesitter Pickers
 		{ "<leader>ft", "<cmd>Telescope treesitter<cr>" },

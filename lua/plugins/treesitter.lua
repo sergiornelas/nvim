@@ -9,7 +9,6 @@ return {
 				{ "g<c-t>", "<cmd>lua require('treesitter-context').go_to_context()<cr>" },
 			},
 		},
-		"nvim-treesitter/nvim-treesitter-textobjects",
 		{
 			"hiphish/rainbow-delimiters.nvim",
 			config = function()
@@ -91,58 +90,6 @@ return {
 					scope_incremental = false,
 					node_incremental = "<c-i>",
 					node_decremental = "<c-u>",
-				},
-			},
-			textobjects = {
-				select = {
-					enable = true,
-					lookahead = true,
-					keymaps = {
-						["af"] = "@call.outer",
-						["if"] = "@call.inner",
-						["aF"] = "@function.outer",
-						["iF"] = "@function.inner",
-						["ac"] = "@conditional.outer",
-						["ic"] = "@conditional.inner",
-						["aP"] = "@parameter.outer",
-						["iP"] = "@parameter.inner",
-						["aC"] = "@class.outer",
-						["iC"] = "@class.inner",
-						["in"] = "@number.inner",
-						-- ["iv"] = "@assignment.lhs", -- goto name of variable declaration useful
-						-- ["iv"] = "@assignment.rhs", -- value (this works)
-						-- ["ik"] = "@attribute.inner", -- not working
-						-- ["ik"] = "@frame.inner", -- not working
-						-- ["ik"] = "@return.inner", -- not working
-						-- ["ik"] = "@scopename.inner", -- not working
-						-- ["ik"] = "@statement.outer", -- not working
-					},
-					include_surrounding_whitespace = true,
-				},
-				move = {
-					enable = true,
-					set_jumps = true,
-					goto_previous_start = {
-						["[q"] = "@conditional.outer",
-						["[f"] = "@function.outer",
-						["[a"] = "@call.outer",
-						["[v"] = "@parameter.outer",
-					},
-					goto_next_start = {
-						["]q"] = "@conditional.outer",
-						["]f"] = "@function.outer",
-						["]a"] = "@call.outer",
-						["]v"] = "@parameter.outer",
-					},
-				},
-				swap = {
-					enable = true,
-					swap_next = {
-						["<leader>."] = "@parameter.inner",
-					},
-					swap_previous = {
-						["<leader>,"] = "@parameter.inner",
-					},
 				},
 			},
 		})

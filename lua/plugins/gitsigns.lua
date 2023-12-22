@@ -45,16 +45,16 @@ function M.config()
 
 			-- Actions
 			map("n", "<leader>s", ":Gitsigns stage_hunk<cr>")
-			map("n", "<leader>gr", ":Gitsigns reset_hunk<cr>")
+			map("n", "<leader>gj", ":Gitsigns reset_hunk<cr>")
 			map("v", "<leader>s", function()
 				gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end)
-			map("v", "<leader>gr", function()
+			map("v", "<leader>gj", function()
 				gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end)
 			map("n", "<leader>gS", gs.stage_buffer)
 			map("n", "<leader>gu", gs.undo_stage_hunk)
-			map("n", "<leader>gR", gs.reset_buffer)
+			map("n", "<leader>gJ", gs.reset_buffer)
 			map("n", "<leader>e", gs.preview_hunk)
 			map("n", "<leader>gl", function()
 				gs.blame_line({ full = true })
@@ -68,7 +68,7 @@ function M.config()
 			-- Text object
 			map({ "o", "x" }, "ig", ":<c-u>Gitsigns select_hunk<cr>")
 			-- Extras
-			map("n", "<leader>gi", gs.preview_hunk_inline)
+			map("n", "<leader>gp", gs.preview_hunk_inline)
 		end,
 	})
 end

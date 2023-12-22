@@ -20,7 +20,6 @@ return {
 		vim.api.nvim_create_autocmd({ "FileType" }, {
 			callback = function()
 				local ignore_filetypes = {
-					"fzf",
 					"lazy",
 					"mason",
 				}

@@ -14,20 +14,23 @@ local M = {
 				},
 			},
 		},
-		{
-			"ray-x/lsp_signature.nvim",
-			config = true,
-			commit = "da4adf009ed6984ee823fed7db1b7dfacf0b03ae",
-			keys = {
-				{
-					"<c-g><c-s>",
-					function()
-						require("lsp_signature").toggle_float_win()
-					end,
-					mode = "i",
-				},
-			},
-		},
+		--  wait for mature (bugs):
+		-- {
+		-- 	"ray-x/lsp_signature.nvim",
+		-- 	opts = {
+		-- 		transparency = 23,
+		-- 	},
+		-- 	commit = "c9dc249794e472a8dd7f87c80f9dcbdba4c68ce1",
+		-- 	keys = {
+		-- 		{
+		-- 			"<c-g><c-s>",
+		-- 			function()
+		-- 				require("lsp_signature").toggle_float_win()
+		-- 			end,
+		-- 			mode = "i",
+		-- 		},
+		-- 	},
+		-- },
 	},
 }
 

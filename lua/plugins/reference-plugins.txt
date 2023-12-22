@@ -1,5 +1,4 @@
 LSP ---------------------------------------------------------------------------------
-simrat39/symbols-outline.nvim                                        LSP Diagram menu
 hedyhli/outline.nvim                                    enhanced symbols-outline.nvim
 stevearc/aerial.nvim                                                 LSP Diagram menu
 folke/trouble.nvim                                                 pretty diagnostics
@@ -10,7 +9,6 @@ vigoux/notifier.nvim                                          show message lsp l
 tzachar/local-highlight.nvim                                 word illuminate (mature)
 VidocqH/lsp-lens.nvim                 show definition and references (takes one line)
 Bekaboo/dropbar.nvim                             IDE-like breadcrumbs, out of the box
-pmizio/typescript-tools.nvim              tsserver fast (not really, wait for mature)
 rmagatti/goto-preview                                                  like Saga peak
 joechrisellis/lsp-format-modifications.nvim                     format specific files
 elentok/format-on-save.nvim                                       Null-ls alternative
@@ -165,8 +163,8 @@ LSP
 continue in Diagnostics
 
 ====================
-Last time checked this-week-in-neovim (dead 💀)
-Nov 05
+Last time checked this-week-in-neovim
+Dic 5
 
 Last time checked awesome-neovim
 Check the same day as the last one in order to make sure of not forget a plugin
