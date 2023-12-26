@@ -10,7 +10,7 @@ return {
 	config = true,
 	keys = {
 		{
-			"<leader>TS",
+			"<leader>TP",
 			"<cmd>TSC<cr>",
 		},
 	},

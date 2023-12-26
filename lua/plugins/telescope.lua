@@ -57,7 +57,9 @@ return {
 					enable_preview = true,
 				},
 				buffers = {
-					sort_lastused = false,
+					ignore_current_buffer = true, -- if true, don't show the current buffer in the list
+					sort_lastused = true, -- Sorts current and last buffer to the top and selects the lastused
+					sort_mru = true, -- Sorts all buffers after most recent used. Not just the current and last one
 					mappings = {
 						i = {
 							["<c-e>"] = actions.delete_buffer,
@@ -102,12 +104,12 @@ return {
 	end,
 	keys = {
 		-- File Pickers
-		{ "<leader>fi", "<cmd>Telescope find_files<cr>" },
+		{ "<leader>i", "<cmd>Telescope find_files<cr>" },
 		{ "<leader>gf", "<cmd>Telescope git_files<cr>" },
 		{ "<leader>fw", "<cmd>Telescope grep_string<cr>", mode = { "n", "x" } },
-		{ "<leader>fl", "<cmd>Telescope live_grep<cr>" },
+		{ "<leader>fi", "<cmd>Telescope live_grep<cr>" },
 		-- Vim pickers
-		{ "<leader>o", "<cmd>Telescope buffers theme=dropdown prompt_title=~Teleport~ <cr>" },
+		{ "<leader>o", "<cmd>Telescope buffers theme=dropdown prompt_title=Teleport⚡ <cr>" },
 		{ "<leader>fo", "<cmd>Telescope oldfiles theme=ivy<cr>" },
 		-- { "<leader>", "<cmd>Telescope commands<cr>" },
 		{ "<leader>fa", "<cmd>Telescope tags<cr>" },
@@ -122,15 +124,15 @@ return {
 		{ "<leader>fc", "<cmd>Telescope loclist<cr>" },
 		{ "<leader>fj", "<cmd>Telescope jumplist<cr>" },
 		{ "<leader>fv", "<cmd>Telescope vim_options<cr>" },
-		{ "<leader>fr", "<cmd>Telescope registers theme=dropdown layout_config={height=30}<cr>" },
+		{ "<leader>fr", "<cmd>Telescope registers theme=dropdown layout_config={height=50}<cr>" },
 		-- { "<leader>", "<cmd>Telescope autocommands<cr>" },
-		{ "<leader>fs", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
+		{ "<leader>fl", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
 		{ "<leader>fk", "<cmd>Telescope keymaps<cr>" },
 		{ "<leader>fy", "<cmd>Telescope filetypes<cr>" },
 		-- { "<leader>", "<cmd>Telescope highlights<cr>" },
 		{ "<leader>ff", "<cmd>Telescope current_buffer_fuzzy_find<cr>" },
 		{ "<leader>fb", "<cmd>Telescope current_buffer_tags<cr>" },
-		{ "<leader>/", "<cmd>Telescope resume<cr>" },
+		{ "<leader>;", "<cmd>Telescope resume<cr>" },
 		-- { "<leader>", "<cmd>Telescope pickers<cr>" },
 		-- Neovim LSP Pickers
 		-- { "<leader>", "<cmd>Telescope lsp_references<cr>" },

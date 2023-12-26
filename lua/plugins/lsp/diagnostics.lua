@@ -8,13 +8,13 @@ function M.setup()
 		{ name = "DiagnosticSignWarn", text = "⚠️" },
 	}
 	local hoverBorder = {
-		{ "╭", "FloatBorder" },
+		{ "┌", "FloatBorder" },
 		{ "─", "FloatBorder" },
-		{ "╮", "FloatBorder" },
+		{ "┐", "FloatBorder" },
 		{ "│", "FloatBorder" },
-		{ "╯", "FloatBorder" },
+		{ "┘", "FloatBorder" },
 		{ "─", "FloatBorder" },
-		{ "╰", "FloatBorder" },
+		{ "└", "FloatBorder" },
 		{ "│", "FloatBorder" },
 	}
 
@@ -22,20 +22,23 @@ function M.setup()
 		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 	end
 	vim.diagnostic.config({
-		virtual_text = true, -- disable virtual text
+		virtual_text = {
+			source = false,
+			prefix = " ",
+		},
 		signs = {
-			active = signs, -- show signs
+			active = signs,
 		},
 		update_in_insert = true,
 		underline = true,
 		severity_sort = true,
 		float = {
-			focusable = true,
+			focusable = false,
 			style = "minimal",
 			border = "single",
 			header = "",
-			-- source = "always",
-			-- prefix = "",
+			source = "always",
+			prefix = "",
 		},
 	})
 

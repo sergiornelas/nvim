@@ -23,7 +23,7 @@ function M.config()
 			end
 
 			-- Navigation
-			map("n", "<c-j>", function() -- (vim: same as "j")
+			map({ "n", "x" }, "<c-j>", function() -- (vim: same as "j")
 				if vim.wo.diff then
 					return "]c"
 				end
@@ -33,7 +33,7 @@ function M.config()
 				return "<Ignore>"
 			end, { expr = true })
 
-			map("n", "<c-k>", function() -- (vim: not used)
+			map({ "n", "x" }, "<c-k>", function() -- (vim: not used)
 				if vim.wo.diff then
 					return "[c"
 				end
@@ -45,16 +45,16 @@ function M.config()
 
 			-- Actions
 			map("n", "<leader>s", ":Gitsigns stage_hunk<cr>")
-			map("n", "<leader>gj", ":Gitsigns reset_hunk<cr>")
+			map("n", "<leader>r", ":Gitsigns reset_hunk<cr>")
 			map("v", "<leader>s", function()
 				gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end)
-			map("v", "<leader>gj", function()
+			map("v", "<leader>r", function()
 				gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end)
 			map("n", "<leader>gS", gs.stage_buffer)
 			map("n", "<leader>gu", gs.undo_stage_hunk)
-			map("n", "<leader>gJ", gs.reset_buffer)
+			map("n", "<leader>gR", gs.reset_buffer)
 			map("n", "<leader>e", gs.preview_hunk)
 			map("n", "<leader>gl", function()
 				gs.blame_line({ full = true })

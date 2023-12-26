@@ -1,9 +1,10 @@
+-- npm install -g typescript
 return {
 	{
 		"CRAG666/code_runner.nvim",
 		cmd = { "RunCode", "RunFile" },
 		keys = {
-			{ "<leader>rr", "<cmd>RunCode<cr>" },
+			{ "<leader>x", "<cmd>RunCode<cr>" },
 			{ "<leader>J", "<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>RunCode<cr>" },
 		},
 		-- commit = "a010649236fe245eaab2641a13228cd601499715", (last commit warning prompt using codi)
@@ -14,10 +15,10 @@ return {
 				size = 13,
 			},
 			filetype = {
-				javascript = "nvm use latest && node --watch",
-				typescript = "deno run --allow-net --watch",
-				javascriptreact = "nvm use latest && node --watch",
-				typescriptreact = "deno run --allow-net --watch",
+				javascript = "nvm use 20 && node --watch",
+				typescript = "nvm use 20 && node --watch",
+				javascriptreact = "nvm use 20 && node --watch",
+				typescriptreact = "nvm use 20 && node --watch",
 			},
 		},
 	},

@@ -20,9 +20,9 @@ return {
 				win_height = 25, -- height of preview window for horizontal layout, large value (999) perform preview window as full model
 			},
 			func_map = {
-				open = "<cr>", -- open the item under the cursor
+				open = "O", -- open the item under the cursor
 				openc = "o", --  open the item, and close quickfix window
-				-- drop = "O", -- use drop to open the item, and close quickfix window -- drop deletes arglist
+				drop = "", -- use drop to open the item, and close quickfix window -- drop deletes arglist
 				-- tabdrop use tab drop to open the item, and close quickfix window -- drop deletes arglist
 				tab = "t", -- open the item in a new tab
 				tabb = "T", -- open the item in a new tab, but stay in quickfix window

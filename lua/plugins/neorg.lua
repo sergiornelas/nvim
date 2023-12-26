@@ -49,6 +49,16 @@ local M = {
 					},
 					["core.concealer"] = {
 						config = {
+							-- If true, Neorg will enable folding by default for .norg documents.
+							-- You may use the inbuilt Neovim folding options like foldnestmax,
+							-- foldlevelstart and others to then tune the behaviour to your liking:
+							-- default true
+							folds = false,
+							-- When set to auto, Neorg will open all folds when opening new documents
+							-- if foldlevel is 0. When set to always, Neorg will always open all folds
+							-- when opening new documents. When set to never, Neorg will not do anything:
+							-- default "auto"
+							init_open_folds = "auto",
 							icon_preset = "varied",
 							icons = {
 								code_block = {

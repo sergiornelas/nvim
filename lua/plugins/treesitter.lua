@@ -6,7 +6,8 @@ return {
 		{
 			"nvim-treesitter/nvim-treesitter-context",
 			keys = {
-				{ "g<c-t>", "<cmd>lua require('treesitter-context').go_to_context()<cr>" },
+				{ "<leader>u", "<cmd>lua require('treesitter-context').go_to_context()<cr>" },
+				{ "<leader>tu", "<cmd>TSContextToggle<cr>" },
 			},
 		},
 		{
@@ -89,7 +90,7 @@ return {
 					init_selection = false,
 					scope_incremental = false,
 					node_incremental = "<c-i>",
-					node_decremental = "<c-u>",
+					node_decremental = "<c-o>", -- (vim: switch from Select to Visual mode for one command)
 				},
 			},
 		})

@@ -4,6 +4,7 @@ return {
 		{
 			"g<leader>",
 			"<cmd>lua require('actions-preview').code_actions()<cr>",
+			mode = { "n", "v" },
 		},
 	},
 	opts = {

@@ -30,7 +30,7 @@ return {
 				tsserver_path = nil,
 				-- specify a list of plugins to load by tsserver, e.g., for support `styled-components`
 				tsserver_plugins = {
-					-- npm i -g @styled/typescript-styled-plugin typescript-styled-plugin
+					-- npm i -g @styled/typescript-styled-plugin typescript-styled-plugin (deprecated)
 					-- for TypeScript v4.9+
 					"@styled/typescript-styled-plugin",
 					-- or for older TypeScript versions
@@ -66,3 +66,29 @@ return {
 		})
 	end,
 }
+
+-- Styled components IntelliSense:
+-- ----------------------
+-- npm install styled-components
+-- npm install --save-dev @styled/typescript-styled-plugin typescript
+-- tsconfig.json:
+-- {
+--   "compilerOptions": {
+--     "plugins": [
+--       {
+--         "name": "@styled/typescript-styled-plugin",
+--         "tags": ["styled", "css", "sty"],
+--         "lint": {
+--           "duplicateProperties": "warning",
+--           "emptyRules": "warning",
+--           "boxModel": "warning",
+--           "universalSelector": "warning",
+--           "zeroUnits": "warning",
+--           "important": "warning",
+--           "float": "warning",
+--           "idSelector": "warning"
+--         }
+--       }
+--     ]
+--   }
+-- }

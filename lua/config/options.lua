@@ -10,6 +10,7 @@ o.equalalways = true --        all the windows are automatically made the same s
 o.expandtab = true --          convert tabs to spaces
 o.fileencoding = "utf-8" --    the encoding written to a file
 o.fillchars.eob = " " --       show empty lines at the end of a buffer as ` ` (default `~`)
+o.foldmethod = "manual" --     folds are created manually.
 o.guifont = "monospace:h17" -- the font used in graphical neovim applications
 o.hlsearch = false --          highlight all matches on previous search pattern
 o.ignorecase = true --         ignore case in search patterns
@@ -22,7 +23,7 @@ o.ruler = false --             hide the line and column number of the cursor pos
 o.scrolloff = 0 --             minimal number of screen lines to keep above and below the cursor
 o.shiftwidth = 2 --            the number of spaces inserted for each indentation
 o.showcmd = false --           hide (partial) command in the last line of the screen (for performance)
-o.showmode = false --          we don't need to see things like --INSERT-- anymore
+o.showmode = true --           we don't need to see things like --INSERT-- anymore
 o.showtabline = 1 --           0: never, 1: only if there are at least two tab pages, 2: always
 o.sidescrolloff = 8 --         minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
 o.signcolumn = "yes" --        always show the sign column, otherwise it would shift the text each time
@@ -40,6 +41,7 @@ o.winminwidth = 10 --          The minimal width of a window, when it's not the 
 o.winwidth = 10 --             Minimal number of columns for the current window.
 o.wrap = false --              display lines as one long line
 o.writebackup = false --       if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+o.spelllang = "es,en" --       spelling language, found in spell/es.utf-8.spl
 
 -- when windows become crazy:
 -- winminwidth = 10

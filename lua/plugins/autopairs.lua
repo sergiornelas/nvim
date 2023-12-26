@@ -11,6 +11,10 @@ return {
 			check_ts = true, -- treesitter integration
 			disable_filetype = { "TelescopePrompt" },
 			map_c_h = true,
+			map_c_w = true,
+			fast_wrap = {
+				map = "<c-b>",
+			},
 		})
 	end,
 }
