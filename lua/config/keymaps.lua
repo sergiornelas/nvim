@@ -2,19 +2,20 @@ vim.g.mapleader = " "
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap("n", "<leader>w", "<cmd>w<cr>", opts) --               save file
-keymap("n", "d<leader>", "cc<esc>", opts) --                 clear line
-keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts) --          Lazy status
-keymap("n", "y<leader>", "$T!yt!", opts) --        yank secret password
-keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) -- force exit neovim
-keymap("n", "[<leader>", "mxO<esc>`x", opts) --           break line up
-keymap("n", "]<leader>", "mxo<esc>`x", opts) --         break line down
-keymap("n", "gG", "<cmd>%y+<cr>", opts) --             yank full buffer
-keymap("x", "gG", "VGOgg", opts) --                  select full buffer
-keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- exit vim safely (vim: not used, or used for terminal control flow)
+keymap("n", "<leader>w", "<cmd>w<cr>", opts) --       	            save file
+keymap("n", "d<leader>", "cc<esc>", opts) --          	           clear line
+keymap("n", "[<leader>", "mxO<esc>`x", opts) --       	        break line up
+keymap("n", "]<leader>", "mxo<esc>`x", opts) --       	      break line down
+keymap("n", "gG", "<cmd>%y+<cr>", opts) --            	     yank full buffer
+keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) -- 	    force exit neovim
+keymap("x", "gG", "VGOgg", opts) --                   	   select full buffer
+keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts) --    	   Lazy plugin status
+keymap("n", "y<leader>", "$T!yt!", opts) --           	 yank secret password
+keymap("n", "<c-w><c-e>", "<cmd>vnew<cr>", opts) -- new buffer vertical split
+keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- 	 exit vim safely (vim: not used, or used for terminal control flow)
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- (vim: suspend program (or start new shell))
 
--- ARG LIST ========================================
+-- ARG LIST =======================================
 -- arglist gets deleted if you open buffer using drop command
 keymap("n", "<leader>1", "<cmd>argument 1<cr>", opts) --          go to arg buffer 1
 keymap("n", "<leader>2", "<cmd>argument 2<cr>", opts) --          go to arg buffer 2

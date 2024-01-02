@@ -37,8 +37,7 @@ local M = {
 			end
 
 			luasnip.setup({
-				-- history = false,
-				-- region_check_events = "CursorMoved",
+				region_check_events = "CursorMoved", -- snippets get deleted once you delete the block (buggy)
 			})
 
 			cmp.setup({

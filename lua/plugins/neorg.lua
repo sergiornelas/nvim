@@ -31,6 +31,7 @@ local M = {
 								keybinds.remap_event("norg", "i", "<cr>", "core.itero.next-iteration")
 								keybinds.remap_event("norg", "n", "<leader>nz", "core.pivot.toggle-list-type") -- inverts all the other items in that list.
 								keybinds.remap_event("norg", "n", "<leader>nx", "core.pivot.invert-list-type") -- inverts all the other items in that list, however respects mixed lists
+								keybinds.remap_event("norg", "n", "<c-'>", "core.qol.todo_items.todo.task_cycle")
 							end,
 							-- default_keybinds = false,
 						},

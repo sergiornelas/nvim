@@ -24,11 +24,6 @@ cmd("BufReadPost", { command = [[if line("'\"") > 1 && line("'\"") <= line("$") 
 cmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = group })
 cmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = group })
 
--- Closing tab then go back to previous tab
-cmd("TabClosed", {
-	command = "tabprevious",
-})
-
 vim.cmd([[
   " Escape insert mode terminal
   :tnoremap <esc> <c-\><c-n>
@@ -37,7 +32,7 @@ vim.cmd([[
   set showbreak=↪\ 
 
   " Stop automatic comment when enter in insert mode
-  au BufEnter * set fo-=c fo-=r fo-=o
+  au BufEnter * set fo-=cro
 
   " Command prev option
   cnoremap <c-o> <c-p>
@@ -54,11 +49,12 @@ vim.cmd([[
   let @n="mxyGo\<esc>pVGJ0y$:execute('let @t=\<c-r>0')\<cr>dd`x"
 
   " abbreviations
+  " <c-v>+space skip the abbreviation"
   iab SN sergio.ornelas@nextiva.com
   cab sss SessionSave<cr>
   cab ssd SessionDelete<cr>
   cab rc RunCode<cr>
-  " <c-v>+space skip the abbreviation"
+  cab ntr NvimTreeRefresh<cr>
 ]])
 
 -- Pretty quickfix
@@ -117,11 +113,6 @@ vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
 -- }
 -- opt.list = true
 
--- execute <esc>O command
--- vim.api.nvim_exec([[
---   :normal O
--- ]])
-
 -- Execute command when vim leave
 -- autocmd VimLeave * TSContextDisable
 
@@ -174,11 +165,3 @@ vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
 
 -- Execute keyboard command
 -- :exe "normal \<C-W>\<C-w>"
-
--- :nmap - Display normal mode maps
--- :imap - Display insert mode maps
--- :vmap - Display visual and select mode maps
--- :smap - Display select mode maps
--- :xmap - Display visual mode maps
--- :cmap - Display command-line mode maps
--- :omap - Display operator pending mode maps

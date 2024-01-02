@@ -3,8 +3,8 @@
 <div align="center">
   
 [![Lua](https://img.shields.io/badge/Made%20With-Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)]()
-[![Repo_Size](https://img.shields.io/github/languages/code-size/shaunsingh/nyoom.nvim?color=orange&label=Repo%20Size&style=for-the-badge)]()
-[![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.9+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
+[![Repo_Size](https://img.shields.io/github/languages/code-size/sergiornelas/nvim?color=orange&label=Repo%20Size&style=for-the-badge)]()
+[![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.10+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
 <br>
 <a href="https://dotfyle.com/sergiornelas/nvim"><img src="https://dotfyle.com/sergiornelas/nvim/badges/plugins?style=plastic" /></a>
 <a href="https://dotfyle.com/sergiornelas/nvim"><img src="https://dotfyle.com/sergiornelas/nvim/badges/leaderkey?style=plastic" /></a>
@@ -58,7 +58,6 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [sainnhe/edge](https://dotfyle.com/plugins/sainnhe/edge)
 + [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
 + [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
-+ [cpea2506/one_monokai.nvim](https://dotfyle.com/plugins/cpea2506/one_monokai.nvim)
 + [sekke276/dark_flat.nvim](https://dotfyle.com/plugins/sekke276/dark_flat.nvim)
 + [sainnhe/sonokai](https://dotfyle.com/plugins/sainnhe/sonokai)
 + [rebelot/kanagawa.nvim](https://dotfyle.com/plugins/rebelot/kanagawa.nvim)
@@ -114,15 +113,13 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 + [ray-x/lsp_signature.nvim](https://dotfyle.com/plugins/ray-x/lsp_signature.nvim)
 + [kosayoda/nvim-lightbulb](https://dotfyle.com/plugins/kosayoda/nvim-lightbulb)
++ [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
 ### lsp-installer
 
 + [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
 ### lua-colorscheme
 
 + [ellisonleao/gruvbox.nvim](https://dotfyle.com/plugins/ellisonleao/gruvbox.nvim)
-### marks
-
-+ [cbochs/grapple.nvim](https://dotfyle.com/plugins/cbochs/grapple.nvim)
 ### note-taking
 
 + [nvim-neorg/neorg](https://dotfyle.com/plugins/nvim-neorg/neorg)
@@ -152,7 +149,6 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 ### syntax
 
 + [kylechui/nvim-surround](https://dotfyle.com/plugins/kylechui/nvim-surround)
-+ [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
 + [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
 ### test
 
@@ -164,3 +160,4 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + html
 + jsonls
 + lua_ls
++ tsserver

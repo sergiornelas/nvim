@@ -48,7 +48,7 @@ return {
 						-- select_drop, -- move to current current buffer position window, not new buffer. Drop deletes arglist
 						-- git_rename_branch -- not added
 						-- send_selected_to_loclist -- not added
-						-- actions.delete_mark, -- elminate element/s from telescope results
+						-- actions.delete_mark, -- eliminate element/s from telescope results
 					},
 				},
 			},
@@ -121,12 +121,12 @@ return {
 		-- { "<leader>c", "<cmd>Telescope colorscheme<cr>" }, -- added in colorschemes.lua
 		{ "<leader>fq", "<cmd>Telescope quickfix<cr>" },
 		{ "<leader>fQ", "<cmd>Telescope quickfixhistory<cr>" },
-		{ "<leader>fc", "<cmd>Telescope loclist<cr>" },
+		{ "<leader>fl", "<cmd>Telescope loclist<cr>" },
 		{ "<leader>fj", "<cmd>Telescope jumplist<cr>" },
 		{ "<leader>fv", "<cmd>Telescope vim_options<cr>" },
 		{ "<leader>fr", "<cmd>Telescope registers theme=dropdown layout_config={height=50}<cr>" },
 		-- { "<leader>", "<cmd>Telescope autocommands<cr>" },
-		{ "<leader>fl", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
+		{ "<c-g><c-j>", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
 		{ "<leader>fk", "<cmd>Telescope keymaps<cr>" },
 		{ "<leader>fy", "<cmd>Telescope filetypes<cr>" },
 		-- { "<leader>", "<cmd>Telescope highlights<cr>" },
