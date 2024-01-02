@@ -111,7 +111,6 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [aznhe21/actions-preview.nvim](https://dotfyle.com/plugins/aznhe21/actions-preview.nvim)
 + [onsails/lspkind.nvim](https://dotfyle.com/plugins/onsails/lspkind.nvim)
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-+ [ray-x/lsp_signature.nvim](https://dotfyle.com/plugins/ray-x/lsp_signature.nvim)
 + [kosayoda/nvim-lightbulb](https://dotfyle.com/plugins/kosayoda/nvim-lightbulb)
 + [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
 ### lsp-installer
