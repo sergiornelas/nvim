@@ -9,8 +9,8 @@ return {
 		mappings = {
 			object_scope = "ij",
 			object_scope_with_border = "aj",
-			goto_top = "[w",
-			goto_bottom = "]w",
+			goto_top = "[f", -- (vim: same as "gf")
+			goto_bottom = "]f", -- (vim: same as "gf")
 		},
 	},
 	config = function(_, opts)

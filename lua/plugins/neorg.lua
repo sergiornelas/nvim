@@ -28,10 +28,11 @@ local M = {
 								keybinds.remap_event("norg", "n", "[e", "core.integrations.treesitter.previous.heading")
 								keybinds.remap_event("norg", "n", "g<space>", "core.looking-glass.magnify-code-block")
 								keybinds.remap_event("norg", "n", "[v", "core.itero.next-iteration")
-								keybinds.remap_event("norg", "i", "<cr>", "core.itero.next-iteration")
 								keybinds.remap_event("norg", "n", "<leader>nz", "core.pivot.toggle-list-type") -- inverts all the other items in that list.
 								keybinds.remap_event("norg", "n", "<leader>nx", "core.pivot.invert-list-type") -- inverts all the other items in that list, however respects mixed lists
 								keybinds.remap_event("norg", "n", "<c-'>", "core.qol.todo_items.todo.task_cycle")
+								keybinds.remap_event("norg", "i", "<cr>", "core.itero.next-iteration")
+								-- <leader>lt list toggle
 							end,
 							-- default_keybinds = false,
 						},

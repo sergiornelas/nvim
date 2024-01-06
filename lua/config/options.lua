@@ -3,6 +3,7 @@ local o = vim.opt
 o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 o.conceallevel = 2 --          so that `` is visible in markdown files, useful for neorg files
 o.cursorline = true --         highlight the current line
+o.expandtab = true --          convert tabs to spaces (useful for neorg extraspaces for spanish accents or secret password)
 o.ignorecase = true --         ignore case in search patterns
 o.linebreak = true --          avoid wrapping a line in the middle of a word.
 o.mouse = "" --                allow the mouse to be used in neovim

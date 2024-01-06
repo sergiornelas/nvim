@@ -29,6 +29,7 @@ function M.config()
 				end
 				vim.schedule(function()
 					gs.next_hunk()
+					vim.cmd("norm ^")
 				end)
 				return "<Ignore>"
 			end, { expr = true })
@@ -39,6 +40,7 @@ function M.config()
 				end
 				vim.schedule(function()
 					gs.prev_hunk()
+					vim.cmd("norm ^")
 				end)
 				return "<Ignore>"
 			end, { expr = true })

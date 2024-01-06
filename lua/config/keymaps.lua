@@ -63,5 +63,9 @@ keymap({ "n", "x", "i" }, "<c-g><c-w>", "<cmd>set wrap!<cr>", opts) --   toggle 
 keymap({ "n", "x", "i" }, "<c-g><c-l>", "<cmd>set spell!<cr>", opts) -- toggle spell (vim: display current file name and position, toggle between Visual mode and Select mode)
 keymap({ "n", "x", "i" }, "<c-g><c-n>", "<cmd>set nu!<cr>", opts) --   toggle number (vim: display current file name and position, toggle between Visual mode and Select mode)
 keymap({ "n", "x", "i" }, "<c-g><c-i>", function()
-	vim.lsp.inlay_hint(0, nil) --                                   toggle inlay hints (vim: display current file name and position, toggle between Visual mode and Select mode)
+	if vim.lsp.inlay_hint.is_enabled() then
+		vim.lsp.inlay_hint.enable(0, false)
+	else
+		vim.lsp.inlay_hint.enable(0, true)
+	end
 end, opts)

@@ -3,8 +3,8 @@ local keymap = vim.keymap.set
 keymap("n", "go", '<cmd>lua vim.diagnostic.open_float(0, { scope = "cursor", border = "single" })<CR>') -- (vim: cursor to byte N in the buffer)
 keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>')
 keymap("n", "gB", '<cmd>lua vim.diagnostic.open_float(0, { scope = "buffer", border = "double" })<CR>')
-keymap("n", "[d", vim.diagnostic.goto_prev) -- (vim: show first #define found in current and included files matching the word under the cursor, start searching at beginning of current file (don't works in modern JS, TS))
-keymap("n", "]d", vim.diagnostic.goto_next) -- (vim: show first #define found in current and included files matching the word under thekeymap( cursor, start searching at cursor position)
+keymap("n", "[w", vim.diagnostic.goto_prev)
+keymap("n", "]w", vim.diagnostic.goto_next)
 keymap(
 	"n",
 	"[e",
@@ -57,7 +57,7 @@ local M = {}
 M.on_attach = function(client, bufnr)
 	require("nvim-navic").attach(client, bufnr)
 	if client.server_capabilities.inlayHintProvider then
-		vim.lsp.inlay_hint(0, true)
+		vim.lsp.inlay_hint.enable(0, true)
 		-- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
 	end
 	if client.name == "typescript-tools" then
