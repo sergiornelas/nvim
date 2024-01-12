@@ -97,6 +97,9 @@ axkirillov/easypick.nvim                            telescope with arbitrary com
 tiagovla/scope.nvim                               workspace by tab (very interesting)
 altermo/ultimate-autopair.nvim  replace tabout, autopair, nvim-surround (wait for m.)
 linrongbin16/gentags.nvim   					Tags generator/management for old school vimers
+LunarVim/bigfile.nvim             disables certain features if the opened file is big
+chrisgrieser/nvim-scissors               automagical editing and creation of snippets
+chrisgrieser/nvim-chainsaw              powerfull auto console.logs (wait for mature)
 
 Last time revisited all these plugins
 01/01/24
@@ -106,4 +109,4 @@ Last time checked this-week-in-neovim
 Jan 01
 
 Last time checked awesome-neovim
-Jan 01
+Jan 08

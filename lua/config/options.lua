@@ -3,7 +3,7 @@ local o = vim.opt
 o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 o.conceallevel = 2 --          so that `` is visible in markdown files, useful for neorg files
 o.cursorline = true --         highlight the current line
-o.expandtab = true --          convert tabs to spaces (useful for neorg extraspaces for spanish accents or secret password)
+o.expandtab = true --          convert tabs to spaces (useful for neorg extraspaces)
 o.ignorecase = true --         ignore case in search patterns
 o.linebreak = true --          avoid wrapping a line in the middle of a word.
 o.mouse = "" --                allow the mouse to be used in neovim
@@ -21,9 +21,3 @@ o.tabstop = 2 --               insert 2 spaces for a tab
 o.termguicolors = true --      set term gui colors (most terminals support this)
 o.undofile = true --           enable persistent undo
 o.wrap = false --              display lines as one long line
-
--- windows options:
--- winminwidth = 10
--- winwidth = 10
--- winminheight = 10
--- winheight = 10

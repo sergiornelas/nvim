@@ -102,6 +102,9 @@ function _G.qftf(info)
 end
 vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
 
+-- usefull commands:
+-- :wind diffthis - enters diff mode, you can find text differences between two buffers. You need the two buffers & windows opened
+
 -- Symbols listchars
 -- opt.listchars = {
 -- 	tab = "│ ",

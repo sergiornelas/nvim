@@ -14,6 +14,7 @@ keymap("n", "y<leader>", "$T!yt!", opts) --           	 yank secret password
 keymap("n", "<c-w><c-e>", "<cmd>vnew<cr>", opts) -- new buffer vertical split
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- 	 exit vim safely (vim: not used, or used for terminal control flow)
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- (vim: suspend program (or start new shell))
+keymap("i", "<c-space><c-space>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts) --                           spell last word
 
 -- ARG LIST =======================================
 -- arglist gets deleted if you open buffer using drop command
@@ -59,13 +60,6 @@ keymap("n", "<leader>,", "<cmd>tabmove -1<cr>", opts) -- tab right
 keymap("n", "<leader>/", "<cmd>tabclose<cr>", opts) --   tab close
 
 -- TOGGLE OPTIONS =================================
-keymap({ "n", "x", "i" }, "<c-g><c-w>", "<cmd>set wrap!<cr>", opts) --   toggle wrap (vim: display current file name and position, toggle between Visual mode and Select mode)
-keymap({ "n", "x", "i" }, "<c-g><c-l>", "<cmd>set spell!<cr>", opts) -- toggle spell (vim: display current file name and position, toggle between Visual mode and Select mode)
-keymap({ "n", "x", "i" }, "<c-g><c-n>", "<cmd>set nu!<cr>", opts) --   toggle number (vim: display current file name and position, toggle between Visual mode and Select mode)
-keymap({ "n", "x", "i" }, "<c-g><c-i>", function()
-	if vim.lsp.inlay_hint.is_enabled() then
-		vim.lsp.inlay_hint.enable(0, false)
-	else
-		vim.lsp.inlay_hint.enable(0, true)
-	end
-end, opts)
+keymap({ "n", "x", "i" }, "<c-space><c-w>", "<cmd>set wrap!<cr>", opts) --   toggle wrap
+keymap({ "n", "x", "i" }, "<c-space><c-l>", "<cmd>set spell!<cr>", opts) -- toggle spell
+keymap({ "n", "x", "i" }, "<c-space><c-n>", "<cmd>set nu!<cr>", opts) --   toggle number

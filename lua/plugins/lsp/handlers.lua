@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap("n", "K", lsp.hover, opts) -- (vim: lookup Keyword under the cursor with 'keywordprg')
 		keymap("n", "ga", lsp.implementation, opts) -- (vim: print ascii value of character under the cursor)
 		keymap("n", "gs", lsp.signature_help, opts) -- (vim: go to sleep for N seconds (default 1))
-		keymap("i", "<c-g><c-s>", lsp.signature_help, opts)
+		keymap("i", "<c-space><c-g>", lsp.signature_help, opts)
 		keymap("n", "<leader>lA", lsp.add_workspace_folder, opts)
 		keymap("n", "<leader>lR", lsp.remove_workspace_folder, opts)
 		keymap("n", "<leader>lL", function()
@@ -48,6 +48,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap("n", "<leader>lo", lsp.outgoing_calls, opts)
 		keymap("n", "<leader>ls", lsp.document_symbol, opts)
 		keymap("n", "<leader>lw", lsp.workspace_symbol, opts)
+		keymap({ "n", "x", "i" }, "<c-space><c-i>", function()
+			if vim.lsp.inlay_hint.is_enabled() then
+				vim.lsp.inlay_hint.enable(0, false)
+			else
+				vim.lsp.inlay_hint.enable(0, true)
+			end
+		end, opts)
 	end,
 	keymap("n", "gL", "<cmd>LspInfo<cr>"),
 })

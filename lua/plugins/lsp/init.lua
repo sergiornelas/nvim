@@ -23,7 +23,7 @@ local M = {
 		-- 	commit = "c9dc249794e472a8dd7f87c80f9dcbdba4c68ce1",
 		-- 	keys = {
 		-- 		{
-		-- 			"<c-g><c-s>",
+		-- 			"<c-space><c-s>",
 		-- 			function()
 		-- 				require("lsp_signature").toggle_float_win()
 		-- 			end,

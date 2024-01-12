@@ -53,7 +53,7 @@ local M = {
 				mapping = cmp.mapping.preset.insert({
 					["<c-b>"] = cmp.mapping.scroll_docs(-4),
 					["<c-f>"] = cmp.mapping.scroll_docs(4),
-					["<c-space>"] = cmp.mapping.complete(),
+					["<c-'>"] = cmp.mapping.complete(),
 					["<c-e>"] = cmp.mapping.abort(),
 					-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items:
 					["<c-j>"] = cmp.mapping.confirm({ select = true }),
