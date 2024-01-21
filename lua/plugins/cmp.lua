@@ -54,7 +54,8 @@ local M = {
 					["<c-b>"] = cmp.mapping.scroll_docs(-4),
 					["<c-f>"] = cmp.mapping.scroll_docs(4),
 					["<c-'>"] = cmp.mapping.complete(),
-					["<c-e>"] = cmp.mapping.abort(),
+					["<c-space>"] = cmp.mapping.abort(),
+					["<c-e>"] = vim.NIL, -- (vim: insert the character which is below the cursor)
 					-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items:
 					["<c-j>"] = cmp.mapping.confirm({ select = true }),
 					["<c-i>"] = cmp.mapping(function(fallback)

@@ -127,7 +127,7 @@ return {
 		{ "<leader>fv", "<cmd>Telescope vim_options<cr>" },
 		{ "<leader>fr", "<cmd>Telescope registers theme=dropdown layout_config={height=50}<cr>" },
 		-- { "<leader>", "<cmd>Telescope autocommands<cr>" },
-		{ "<c-space><c-space>", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
+		{ "<c-space>", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
 		{ "<leader>fk", "<cmd>Telescope keymaps<cr>" },
 		{ "<leader>fy", "<cmd>Telescope filetypes<cr>" },
 		-- { "<leader>", "<cmd>Telescope highlights<cr>" },

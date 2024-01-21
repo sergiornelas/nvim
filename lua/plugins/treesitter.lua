@@ -7,7 +7,7 @@ return {
 			"nvim-treesitter/nvim-treesitter-context",
 			keys = {
 				{ "<leader>u", "<cmd>lua require('treesitter-context').go_to_context()<cr>" },
-				{ "<c-space><c-t>", "<cmd>TSContextToggle<cr>", mode = { "n", "x", "i" } },
+				{ "<c-g><c-t>", "<cmd>TSContextToggle<cr>", mode = { "n", "x", "i" } }, --   toggle wrap (vim: display current file name and position, toggle between Visual mode and Select mode)
 			},
 		},
 		{

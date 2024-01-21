@@ -4,6 +4,7 @@ local opts = { noremap = true, silent = true }
 
 keymap("n", "<leader>w", "<cmd>w<cr>", opts) --       	            save file
 keymap("n", "d<leader>", "cc<esc>", opts) --          	           clear line
+keymap("n", "<leader><leader>", "i<space><esc>", opts) --        adds a space
 keymap("n", "[<leader>", "mxO<esc>`x", opts) --       	        break line up
 keymap("n", "]<leader>", "mxo<esc>`x", opts) --       	      break line down
 keymap("n", "gG", "<cmd>%y+<cr>", opts) --            	     yank full buffer
@@ -14,7 +15,7 @@ keymap("n", "y<leader>", "$T!yt!", opts) --           	 yank secret password
 keymap("n", "<c-w><c-e>", "<cmd>vnew<cr>", opts) -- new buffer vertical split
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- 	 exit vim safely (vim: not used, or used for terminal control flow)
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- (vim: suspend program (or start new shell))
-keymap("i", "<c-space><c-space>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts) --                           spell last word
+keymap("i", "<c-v>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts) -- spell last word (vim: insert next non-digit literally)
 
 -- ARG LIST =======================================
 -- arglist gets deleted if you open buffer using drop command
@@ -60,6 +61,6 @@ keymap("n", "<leader>,", "<cmd>tabmove -1<cr>", opts) -- tab right
 keymap("n", "<leader>/", "<cmd>tabclose<cr>", opts) --   tab close
 
 -- TOGGLE OPTIONS =================================
-keymap({ "n", "x", "i" }, "<c-space><c-w>", "<cmd>set wrap!<cr>", opts) --   toggle wrap
-keymap({ "n", "x", "i" }, "<c-space><c-l>", "<cmd>set spell!<cr>", opts) -- toggle spell
-keymap({ "n", "x", "i" }, "<c-space><c-n>", "<cmd>set nu!<cr>", opts) --   toggle number
+keymap({ "n", "x", "i" }, "<c-g><c-w>", "<cmd>set wrap!<cr>", opts) --   toggle wrap (vim: display current file name and position, toggle between Visual mode and Select mode)
+keymap({ "n", "x", "i" }, "<c-g><c-l>", "<cmd>set spell!<cr>", opts) -- toggle spell (vim: display current file name and position, toggle between Visual mode and Select mode)
+keymap({ "n", "x", "i" }, "<c-g><c-n>", "<cmd>set nu!<cr>", opts) --   toggle number (vim: display current file name and position, toggle between Visual mode and Select mode)

@@ -4,12 +4,13 @@ local M = {
 		ft = "norg",
 		cmd = "Neorg",
 		keys = {
-			{ "<leader>nn", "<c-w>s<cmd>Neorg workspace todo<cr>" },
-			{ "<leader>nq", "<cmd>Neorg return<cr>" },
+			-- you can't map nt, nn, nl, ni, nm
+			-- https://github.com/nvim-neorg/neorg/blob/main/lua/neorg/modules/core/keybinds/keybinds.lua
+			{ "<leader>ne", "<c-w>s<cmd>Neorg workspace todo<cr>" },
+			{ "<leader>nr", "<cmd>Neorg return<cr>" },
 			{ "<leader>nW", ":Neorg workspace ", { noremap = true } },
-			{ "<leader>ni", "<cmd>Neorg index<cr>" },
-			{ "<leader>nt", "<cmd>Neorg toc<cr>" },
-			{ "<leader>nc", "<cmd>Neorg toggle-concealer<cr>" },
+			{ "<leader>nx", "<cmd>Neorg index<cr>" },
+			{ "<leader>ng", "<cmd>Neorg toggle-concealer<cr>" },
 		},
 		config = function()
 			-- https://github.com/nvim-neorg/neorg/wiki
@@ -22,16 +23,14 @@ local M = {
 					["core.defaults"] = {},
 					["core.keybinds"] = {
 						config = {
-							neorg_leader = "<leader><leader>",
+							neorg_leader = "<leader>n",
 							hook = function(keybinds)
 								keybinds.remap_event("norg", "n", "]e", "core.integrations.treesitter.next.heading")
 								keybinds.remap_event("norg", "n", "[e", "core.integrations.treesitter.previous.heading")
 								keybinds.remap_event("norg", "n", "g<space>", "core.looking-glass.magnify-code-block")
-								keybinds.remap_event("norg", "n", "[v", "core.itero.next-iteration")
-								keybinds.remap_event("norg", "n", "<leader>nz", "core.pivot.toggle-list-type") -- inverts all the other items in that list.
-								keybinds.remap_event("norg", "n", "<leader>nx", "core.pivot.invert-list-type") -- inverts all the other items in that list, however respects mixed lists
 								keybinds.remap_event("norg", "n", "<c-'>", "core.qol.todo_items.todo.task_cycle")
 								keybinds.remap_event("norg", "i", "<cr>", "core.itero.next-iteration")
+								keybinds.unmap("norg", "n", "<C-Space>")
 								-- <leader>lt list toggle
 							end,
 							-- default_keybinds = false,
