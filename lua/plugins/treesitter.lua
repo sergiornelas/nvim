@@ -89,8 +89,8 @@ return {
 				keymaps = {
 					init_selection = false,
 					scope_incremental = false,
-					node_incremental = "<c-i>",
-					node_decremental = "<c-o>", -- (vim: switch from Select to Visual mode for one command)
+					node_incremental = "<c-r>",
+					node_decremental = "<c-t>",
 				},
 			},
 		})

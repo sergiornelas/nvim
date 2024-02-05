@@ -2,10 +2,12 @@ local api = vim.api
 local group = api.nvim_create_augroup("group", { clear = true })
 local cmd = api.nvim_create_autocmd
 
--- Set wrap specific file types
+-- Set specific properties for file types
 cmd("FileType", {
 	pattern = { "norg", "markdown", "gitcommit" },
 	callback = function()
+		vim.opt_local.colorcolumn = "80"
+		vim.opt_local.textwidth = 80
 		vim.opt_local.wrap = true
 	end,
 })
@@ -31,7 +33,7 @@ vim.cmd([[
   " Wrap break icon
   set showbreak=↪\ 
 
-  " Stop automatic comment when enter in insert mode
+  " Stop automatic comment when break line in insert mode
   au BufEnter * set fo-=cro
 
   " Command prev option

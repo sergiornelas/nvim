@@ -11,7 +11,7 @@
 return {
 	"kevinhwang91/nvim-bqf",
 	ft = "qf",
-	dependencies = { "junegunn/fzf" },
+	-- dependencies = { "junegunn/fzf" },
 	config = function()
 		require("bqf").setup({
 			-- ⚠️  quickfix is opened in right column whenever vsplit (vanilla vim).

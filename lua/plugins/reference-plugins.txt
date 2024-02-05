@@ -6,6 +6,7 @@ folke/neoconf.nvim                             global/project-local lsp settings
 VidocqH/lsp-lens.nvim                 show definition and references (takes one line)
 joechrisellis/lsp-format-modifications.nvim  run autoformatter over the changed lines
 ThePrimeagen/refactoring.nvim                                             refactoring
+jdrupal-dev/code-refactor.nvim                          more javascripts code actions
 
 TREESITTER --------------------------------------------------------------------------
 CKolkey/ts-node-action                                           (mature for jsx/tsx)
@@ -37,6 +38,7 @@ pwntester/octo.nvim                                                            g
 ruifm/gitlinker.nvim                                                    add bitbucket
 ray-x/forgit.nvim                                                        git commands
 aaronhallaert/advanced-git-search.nvim                      git telescope integration
+fredeeb/tardis.nvim                                    time travel current buffer git
 
 FRONTEND ----------------------------------------------------------------------------
 vuki656/package-info.nvim                                                        node
@@ -63,12 +65,13 @@ Exafunction/codeium.nvim                             native Codeium plugin for N
 tdfacer/explain-it.nvim                     Ask a question, and let robots explain-it
 Dhanus3133/Leetbuddy.nvim                  Enables seamless integration with Leetcode
 svermeulen/text-to-colorscheme                    colorscheme generator with chat gpt
-Robitx/gp.nvim                                      Gp (GPT prompt) plugin for Neovim
+Robitx/gp.nvim           Gp (GPT prompt) plugin for Neovim (better than ChatGPT.nvim)
 dpayne/CodeGPT.nvim                           The focus is around code related usages
 piersolenski/wtf.nvim                                diagnostics detailed explanation
 CamdenClark/flyboy                                    lightweight ChatGPT interaction
 gsuuon/llm.nvim                                                   use LLM's in Neovim
 David-Kunz/gen.nvim                                                          llama IA
+gsuuon/model.nvim                                                   another IA plugin
 
 COMPETITIVE CODING ------------------------------------------------------------------
 0x100101/lab.nvim                                     visual text output (dissapears)
@@ -100,13 +103,15 @@ linrongbin16/gentags.nvim   					Tags generator/management for old school vimers
 LunarVim/bigfile.nvim             disables certain features if the opened file is big
 chrisgrieser/nvim-scissors               automagical editing and creation of snippets
 chrisgrieser/nvim-chainsaw              powerfull auto console.logs (wait for mature)
+rasulomaroff/reactive.nvim     cursor line colors (wait for mature: nvim menu screen)
+otavioschwanck/arrow.nvim                                   harpoon with UI and icons
 
 Last time revisited all these plugins
 01/01/24
 
 ====================
 Last time checked this-week-in-neovim
-Jan 13
+Feb 03
 
 Last time checked awesome-neovim
-Jan 14
+Feb 05

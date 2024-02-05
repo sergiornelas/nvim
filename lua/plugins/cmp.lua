@@ -8,6 +8,7 @@ local M = {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-emoji",
 			"onsails/lspkind.nvim",
+			"hrsh7th/cmp-calc",
 		},
 		config = function()
 			local cmp_ok, cmp = pcall(require, "cmp")
@@ -86,6 +87,7 @@ local M = {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "buffer" },
+					{ name = "calc" },
 					{ name = "path" },
 					{ name = "neorg" },
 					{ name = "emoji" },

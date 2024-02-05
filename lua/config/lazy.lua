@@ -17,9 +17,9 @@ require("lazy").setup({
 		lazy = true,
 	},
 	checker = {
-		enabled = true,
-		notify = false,
-		frequency = 1800, -- check for updates every half hour
+		enabled = false,
+		notify = false, -- get a notification when new updates are found
+		frequency = 604800, -- check for updates every week
 	},
 	ui = {
 		browser = "Brave",

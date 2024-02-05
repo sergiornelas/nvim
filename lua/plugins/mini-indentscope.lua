@@ -7,8 +7,8 @@ return {
 			-- animation = indentscope.gen_animation.none(),
 		},
 		mappings = {
-			object_scope = "ij",
-			object_scope_with_border = "aj",
+			object_scope = "<c-o>", -- (vim: switch from Select to Visual mode for one command)
+			object_scope_with_border = "<c-i>",
 			goto_top = "[t",
 			goto_bottom = "]t",
 		},

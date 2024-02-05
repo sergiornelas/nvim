@@ -4,11 +4,11 @@ local M = {
 		ft = "norg",
 		cmd = "Neorg",
 		keys = {
-			-- you can't map nt, nn, nl, ni, nm
+			-- you can't map: nt, nn, nl, ni, nm
 			-- https://github.com/nvim-neorg/neorg/blob/main/lua/neorg/modules/core/keybinds/keybinds.lua
 			{ "<leader>ne", "<c-w>s<cmd>Neorg workspace todo<cr>" },
 			{ "<leader>nr", "<cmd>Neorg return<cr>" },
-			{ "<leader>nW", ":Neorg workspace ", { noremap = true } },
+			{ "<leader>nw", ":Neorg workspace ", { noremap = true } },
 			{ "<leader>nx", "<cmd>Neorg index<cr>" },
 			{ "<leader>ng", "<cmd>Neorg toggle-concealer<cr>" },
 		},

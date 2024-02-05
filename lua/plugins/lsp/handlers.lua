@@ -60,6 +60,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			end,
 			opts
 		)
+		keymap({ "n", "x", "i" }, "<c-g><c-d>", function()
+			if vim.diagnostic.is_disabled() then
+				vim.diagnostic.enable()
+			else
+				vim.diagnostic.disable()
+			end
+		end, { desc = "Toggle diagnostics" })
 	end,
 	keymap("n", "gL", "<cmd>LspInfo<cr>"),
 })
