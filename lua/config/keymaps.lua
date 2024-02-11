@@ -17,22 +17,6 @@ keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- 	 exit vim safely (vim: not used, o
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- (vim: suspend program (or start new shell))
 keymap("i", "<c-v>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts) -- spell last word (vim: insert next non-digit literally)
 
--- ARG LIST =======================================
--- arglist gets deleted if you open buffer using drop command
-keymap("n", "<leader>1", "<cmd>argument 1<cr>", opts) --          go to arg buffer 1
-keymap("n", "<leader>2", "<cmd>argument 2<cr>", opts) --          go to arg buffer 2
-keymap("n", "<leader>3", "<cmd>argument 3<cr>", opts) --          go to arg buffer 3
-keymap("n", "<leader>4", "<cmd>argument 4<cr>", opts) --          go to arg buffer 4
-keymap("n", "<leader>5", "<cmd>argument 5<cr>", opts) --          go to arg buffer 5
-keymap("n", "<leader>6", "<cmd>argument 6<cr>", opts) --          go to arg buffer 6
-keymap("n", "<leader>7", "<cmd>argument 7<cr>", opts) --          go to arg buffer 7
-keymap("n", "<leader>aj", "<cmd>args<cr>", opts) --            show arg list buffers
-keymap("n", "<leader>ad", "<cmd>argdelete<cr>", opts) --           delete arg buffer
-keymap("n", "<leader>ap", "<cmd>argdedupe<cr>", opts) -- delete duplicated filenames
-keymap("n", "<leader>m", "<cmd>argadd<cr>", opts) --          add buffer to arg list
-keymap("n", "<leader>af", "<cmd>fir<cr>", opts) --             go to fist arg buffer
-keymap("n", "<leader>al", "<cmd>la<cr>", opts) --              go to last arg buffer
-
 -- QUICK FIX LIST =================================
 keymap("n", "<leader>qj", "<cmd>copen<cr>", opts) --   open quickfix
 keymap("n", "<leader>qq", "<cmd>ccl<cr>", opts) --    close quickfix

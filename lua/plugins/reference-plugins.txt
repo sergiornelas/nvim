@@ -7,6 +7,8 @@ VidocqH/lsp-lens.nvim                 show definition and references (takes one 
 joechrisellis/lsp-format-modifications.nvim  run autoformatter over the changed lines
 ThePrimeagen/refactoring.nvim                                             refactoring
 jdrupal-dev/code-refactor.nvim                          more javascripts code actions
+artemave/workspace-diagnostics.nvim            Populates project-wide lsp diagnostics
+marilari88/twoslash-queries.nvim               print typescript types as virtual text
 
 TREESITTER --------------------------------------------------------------------------
 CKolkey/ts-node-action                                           (mature for jsx/tsx)
@@ -50,6 +52,7 @@ ray-x/web-tools.nvim                                         live server for htm
 barrett-ruth/import-cost.nvim                                  cost memory of imports
 tomiis4/hypersonic.nvim                                         explanation for regex
 yioneko/nvim-vtsls                                      utilize capabilities of vtsls
+Redoxahmii/json-to-ts.nvim                           convert JSON to TypeScript types
 
 ARTIFICIAL INTELIGENCE --------------------------------------------------------------
 github/copilot.vim
@@ -104,14 +107,15 @@ LunarVim/bigfile.nvim             disables certain features if the opened file i
 chrisgrieser/nvim-scissors               automagical editing and creation of snippets
 chrisgrieser/nvim-chainsaw              powerfull auto console.logs (wait for mature)
 rasulomaroff/reactive.nvim     cursor line colors (wait for mature: nvim menu screen)
-otavioschwanck/arrow.nvim                                   harpoon with UI and icons
+tamton-aquib/keys.nvim                        shows keystrokes (wait for mature: c-o)
+LintaoAmons/bookmarks.nvim                    little notes as bookmark in the project
 
 Last time revisited all these plugins
 01/01/24
 
 ====================
 Last time checked this-week-in-neovim
-Feb 03
+Feb 10
 
 Last time checked awesome-neovim
-Feb 05
+Feb 11
