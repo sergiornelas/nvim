@@ -25,6 +25,14 @@ function M.config()
 		sections = {
 			lualine_a = {
 				{
+					function()
+						local key = require("grapple").key()
+						return "󰓹 [" .. key .. "]"
+					end,
+					cond = require("grapple").exists,
+					color = { bg = "#151517", fg = "#ebdbb2" },
+				},
+				{
 					"filename",
 					color = { bg = "#4f0000", fg = "#ebdbb2" },
 					path = 0,
