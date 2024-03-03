@@ -25,6 +25,9 @@ function M.config()
 	end
 
 	grapple.setup({
+		popup_tags_title = function(scope)
+			return string.format(" %s ", scope:gsub(vim.env.HOME, "🚀"))
+		end,
 		scope = "git",
 		popup_options = {
 			width = 60,

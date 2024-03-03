@@ -52,11 +52,9 @@ vim.cmd([[
 
   " abbreviations
   " <c-v>+space skip the abbreviation"
-  iab SN sergio.ornelas@nextiva.com
+  iab @sn sergio.ornelas@nextiva.com
   cab sss SessionSave<cr>
   cab ssd SessionDelete<cr>
-  cab rc RunCode<cr>
-  cab ntr NvimTreeRefresh<cr>
 ]])
 
 -- Pretty quickfix

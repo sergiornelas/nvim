@@ -6,6 +6,7 @@ keymap("n", "<leader>w", "<cmd>w<cr>", opts) --       	            save file
 keymap("n", "d<leader>", "cc<esc>", opts) --          	           clear line
 keymap("n", "<leader><leader>", "i<space><esc>", opts) --        adds a space
 keymap("n", "[<leader>", "mxO<esc>`x", opts) --       	        break line up
+keymap("i", "<c-z>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts) --     fix last spell
 keymap("n", "]<leader>", "mxo<esc>`x", opts) --       	      break line down
 keymap("n", "gG", "<cmd>%y+<cr>", opts) --            	     yank full buffer
 keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) -- 	    force exit neovim
@@ -15,7 +16,6 @@ keymap("n", "y<leader>", "$T!yt!", opts) --           	 yank secret password
 keymap("n", "<c-w><c-e>", "<cmd>vnew<cr>", opts) -- new buffer vertical split
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- 	 exit vim safely (vim: not used, or used for terminal control flow)
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- (vim: suspend program (or start new shell))
-keymap("i", "<c-v>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts) -- spell last word (vim: insert next non-digit literally)
 
 -- QUICK FIX LIST =================================
 keymap("n", "<leader>qj", "<cmd>copen<cr>", opts) --   open quickfix

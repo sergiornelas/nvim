@@ -6,7 +6,7 @@ local M = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-emoji",
+			{ "allaman/emoji.nvim", opts = { enable_cmp_integration = true } },
 			"onsails/lspkind.nvim",
 			"hrsh7th/cmp-calc",
 		},
@@ -52,8 +52,8 @@ local M = {
 					documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<c-b>"] = cmp.mapping.scroll_docs(-4),
-					["<c-f>"] = cmp.mapping.scroll_docs(4),
+					["<c-,>"] = cmp.mapping.scroll_docs(-4),
+					["<c-.>"] = cmp.mapping.scroll_docs(4),
 					["<c-'>"] = cmp.mapping.complete(),
 					["<c-space>"] = cmp.mapping.abort(),
 					["<c-e>"] = vim.NIL, -- (vim: insert the character which is below the cursor)
@@ -76,14 +76,15 @@ local M = {
 							fallback()
 						end
 					end, { "i", "s" }),
-					["<c-l>"] = cmp.mapping(function()
+					["<c-v>"] = cmp.mapping(function() -- (vim: insert next non-digit literally)
 						luasnip.expand_or_jump()
 					end, { "i", "s" }),
-					["<c-z>"] = cmp.mapping(function()
+					["<c-;>"] = cmp.mapping(function()
 						luasnip.jump(-1)
 					end, { "i", "s" }),
 				}),
 				sources = {
+					{ name = "codeium" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "buffer" },
@@ -91,6 +92,7 @@ local M = {
 					{ name = "path" },
 					{ name = "neorg" },
 					{ name = "emoji" },
+					-- { name = "buffer", keyword_length = 5 },
 				},
 				sorting = {
 					-- determines the order in which cmp shows you it's entries.
@@ -111,6 +113,7 @@ local M = {
 						-- vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
 						-- return vim_item
 						-- end,
+						symbol_map = { Codeium = "󰢚" },
 					}),
 				},
 			})

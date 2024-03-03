@@ -118,4 +118,4 @@ Last time checked this-week-in-neovim
 Feb 10
 
 Last time checked awesome-neovim
-Feb 11
+Feb 25

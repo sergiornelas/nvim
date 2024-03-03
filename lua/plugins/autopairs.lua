@@ -13,7 +13,7 @@ return {
 			map_c_h = true,
 			map_c_w = true,
 			fast_wrap = {
-				map = "<c-b>",
+				map = "<c-->",
 			},
 		})
 	end,
