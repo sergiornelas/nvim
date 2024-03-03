@@ -18,7 +18,7 @@ keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- 	 exit vim safely (vim: not used, o
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- (vim: suspend program (or start new shell))
 
 -- QUICK FIX LIST =================================
-keymap("n", "<leader>qj", "<cmd>copen<cr>", opts) --   open quickfix
+keymap("n", "<leader>qo", "<cmd>copen<cr>", opts) --   open quickfix
 keymap("n", "<leader>qq", "<cmd>ccl<cr>", opts) --    close quickfix
 keymap("n", "]q", "<cmd>cn<cr>", opts) --      quickfix next element
 keymap("n", "[q", "<cmd>cp<cr>", opts) --      quickfix prev element
@@ -26,7 +26,7 @@ keymap("n", "]Q", "<cmd>clast<cr>", opts) --   quickfix last element
 keymap("n", "[Q", "<cmd>cfirst<cr>", opts) -- quickfix first element
 
 -- LOCATION LIST===================================
-keymap("n", "<leader>lj", "<cmd>lopen<cr>", opts) --   open loclist
+keymap("n", "<leader>lo", "<cmd>lopen<cr>", opts) --   open loclist
 keymap("n", "<leader>lq", "<cmd>lclose<cr>", opts) -- close loclist
 keymap("n", "]l", "<cmd>lne<cr>", opts) --     loclist next element
 keymap("n", "[l", "<cmd>lp<cr>", opts) --      loclist prev element

@@ -44,8 +44,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap("n", "<leader>lf", function()
 			lsp.format({ async = true })
 		end, opts)
-		keymap("n", "<leader>li", lsp.incoming_calls, opts)
-		keymap("n", "<leader>lo", lsp.outgoing_calls, opts)
+		keymap("n", "<leader>lI", lsp.incoming_calls, opts)
+		keymap("n", "<leader>lO", lsp.outgoing_calls, opts)
 		keymap("n", "<leader>ls", lsp.document_symbol, opts)
 		keymap("n", "<leader>lw", lsp.workspace_symbol, opts)
 		keymap(

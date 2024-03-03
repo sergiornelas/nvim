@@ -137,16 +137,6 @@ return {
 		end,
 	},
 	{
-		"maxmx03/fluoromachine.nvim",
-		keys = lazy_map,
-		config = function()
-			require("fluoromachine").setup({
-				glow = true,
-				transparent = true,
-			})
-		end,
-	},
-	{
 		"ramojus/mellifluous.nvim",
 		keys = lazy_map,
 		opts = {

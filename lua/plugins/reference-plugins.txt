@@ -53,6 +53,7 @@ barrett-ruth/import-cost.nvim                                  cost memory of im
 tomiis4/hypersonic.nvim                                         explanation for regex
 yioneko/nvim-vtsls                                      utilize capabilities of vtsls
 Redoxahmii/json-to-ts.nvim                           convert JSON to TypeScript types
+brenoprata10/nvim-highlight-colors  virtual text colors          (mature: dissapears)
 
 ARTIFICIAL INTELIGENCE --------------------------------------------------------------
 github/copilot.vim
@@ -66,7 +67,6 @@ Bryley/neoai.nvim                                  brings the power of OpenAI's 
 Exafunction/codeium.vim        Free, ultrafast Copilot alternative for Vim and Neovim
 Exafunction/codeium.nvim                             native Codeium plugin for Neovim
 tdfacer/explain-it.nvim                     Ask a question, and let robots explain-it
-Dhanus3133/Leetbuddy.nvim                  Enables seamless integration with Leetcode
 svermeulen/text-to-colorscheme                    colorscheme generator with chat gpt
 Robitx/gp.nvim           Gp (GPT prompt) plugin for Neovim (better than ChatGPT.nvim)
 dpayne/CodeGPT.nvim                           The focus is around code related usages
@@ -101,14 +101,15 @@ debugloop/telescope-undo.nvim                                          telescope
 edluffy/hologram.nvim                                              images on terminal
 axkirillov/easypick.nvim                            telescope with arbitrary commands
 tiagovla/scope.nvim                               workspace by tab (very interesting)
-altermo/ultimate-autopair.nvim  replace tabout, autopair, nvim-surround (wait for m.)
+altermo/ultimate-autopair.nvim       replace tabout, autopair, nvim-surround (mature)
 linrongbin16/gentags.nvim   					Tags generator/management for old school vimers
 LunarVim/bigfile.nvim             disables certain features if the opened file is big
 chrisgrieser/nvim-scissors               automagical editing and creation of snippets
-chrisgrieser/nvim-chainsaw              powerfull auto console.logs (wait for mature)
-rasulomaroff/reactive.nvim     cursor line colors (wait for mature: nvim menu screen)
-tamton-aquib/keys.nvim                        shows keystrokes (wait for mature: c-o)
+chrisgrieser/nvim-chainsaw                       powerfull auto console.logs (mature)
+rasulomaroff/reactive.nvim              cursor line colors (mature: nvim menu screen)
+tamton-aquib/keys.nvim                                 shows keystrokes (mature: c-o)
 LintaoAmons/bookmarks.nvim                    little notes as bookmark in the project
+briangwaltney/paren-hint.nvim  ghost text that shows the text preceding (mature: tsx)
 
 Last time revisited all these plugins
 01/01/24
@@ -118,4 +119,4 @@ Last time checked this-week-in-neovim
 Feb 10
 
 Last time checked awesome-neovim
-Feb 25
+Mar 03

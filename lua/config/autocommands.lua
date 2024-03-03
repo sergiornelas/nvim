@@ -52,7 +52,7 @@ vim.cmd([[
 
   " abbreviations
   " <c-v>+space skip the abbreviation"
-  iab @sn sergio.ornelas@nextiva.com
+  iab snext sergio.ornelas@nextiva.com
   cab sss SessionSave<cr>
   cab ssd SessionDelete<cr>
 ]])

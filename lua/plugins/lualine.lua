@@ -25,10 +25,7 @@ function M.config()
 		sections = {
 			lualine_a = {
 				{
-					function()
-						local key = require("grapple").key()
-						return "󰓹 [" .. key .. "]"
-					end,
+					require("grapple").statusline,
 					cond = require("grapple").exists,
 					color = { bg = "#151517", fg = "#ebdbb2" },
 				},

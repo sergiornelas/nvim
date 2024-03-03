@@ -108,7 +108,7 @@ return {
 		{ "<leader>i", "<cmd>Telescope find_files<cr>" },
 		{ "<leader>gf", "<cmd>Telescope git_files<cr>" },
 		{ "<leader>fw", "<cmd>Telescope grep_string<cr>", mode = { "n", "x" } },
-		{ "<leader>fi", "<cmd>Telescope live_grep<cr>" },
+		{ "<leader>;", "<cmd>Telescope live_grep<cr>" },
 		-- Vim pickers
 		{ "<leader>o", "<cmd>Telescope buffers theme=dropdown prompt_title=Teleport⚡ <cr>" },
 		{ "<leader>fo", "<cmd>Telescope oldfiles theme=ivy<cr>" },
@@ -133,7 +133,7 @@ return {
 		-- { "<leader>", "<cmd>Telescope highlights<cr>" },
 		{ "<leader>ff", "<cmd>Telescope current_buffer_fuzzy_find<cr>" },
 		{ "<leader>fb", "<cmd>Telescope current_buffer_tags<cr>" },
-		{ "<leader>;", "<cmd>Telescope resume<cr>" },
+		{ "<leader>'", "<cmd>Telescope resume<cr>" },
 		-- { "<leader>", "<cmd>Telescope pickers<cr>" },
 		-- Neovim LSP Pickers
 		-- { "<leader>", "<cmd>Telescope lsp_references<cr>" },
