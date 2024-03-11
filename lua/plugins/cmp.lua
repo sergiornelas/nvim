@@ -59,7 +59,7 @@ local M = {
 					["<c-e>"] = vim.NIL, -- (vim: insert the character which is below the cursor)
 					-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items:
 					["<c-j>"] = cmp.mapping.confirm({ select = true }),
-					["<c-i>"] = cmp.mapping(function(fallback)
+					["<c-n>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
 						elseif has_words_before() then
@@ -69,7 +69,7 @@ local M = {
 							fallback()
 						end
 					end, { "i", "s" }),
-					["<c-o>"] = cmp.mapping(function(fallback)
+					["<c-p>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item()
 						else

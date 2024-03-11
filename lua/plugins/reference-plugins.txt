@@ -116,7 +116,7 @@ Last time revisited all these plugins
 
 ====================
 Last time checked this-week-in-neovim
-Feb 10
+Mar 10
 
 Last time checked awesome-neovim
-Mar 03
+Mar 10
