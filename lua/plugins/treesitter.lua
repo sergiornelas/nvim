@@ -7,13 +7,14 @@ return {
 			"nvim-treesitter/nvim-treesitter-context",
 			keys = {
 				{ "<leader>u", "<cmd>lua require('treesitter-context').go_to_context()<cr>" },
-				{ "<c-g><c-t>", "<cmd>TSContextToggle<cr>", mode = { "n", "x", "i" } }, --   toggle wrap (vim: display current file name and position, toggle between Visual mode and Select mode)
+				{ "<c-space><c-t>", "<cmd>TSContextToggle<cr>", mode = { "n", "x", "i" } },
 			},
 		},
 		{
 			"hiphish/rainbow-delimiters.nvim",
 			config = function()
 				local rainbow_delimiters = require("rainbow-delimiters")
+				---@diagnostic disable-next-line: undefined-doc-name
 				---@type rainbow_delimiters.config
 				vim.g.rainbow_delimiters = {
 					strategy = {

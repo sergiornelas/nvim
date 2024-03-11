@@ -4,7 +4,6 @@ return {
 	build = "make",
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		{ "piersolenski/telescope-import.nvim" },
 	},
 	config = function()
 		local actions = require("telescope.actions")
@@ -84,14 +83,10 @@ return {
 					case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 					-- the default case_mode is "smart_case"
 				},
-				import = {
-					insert_at_top = true,
-				},
 			},
 		})
 
 		require("telescope").load_extension("fzf")
-		require("telescope").load_extension("import")
 
 		-- Token  	       Match type           	          Description
 		-- -------+-----------------------------+-----------------------------------
@@ -108,7 +103,7 @@ return {
 		{ "<leader>i", "<cmd>Telescope find_files<cr>" },
 		{ "<leader>gf", "<cmd>Telescope git_files<cr>" },
 		{ "<leader>fw", "<cmd>Telescope grep_string<cr>", mode = { "n", "x" } },
-		{ "<leader>;", "<cmd>Telescope live_grep<cr>" },
+		{ "<leader>v", "<cmd>Telescope live_grep<cr>" },
 		-- Vim pickers
 		{ "<leader>o", "<cmd>Telescope buffers theme=dropdown prompt_title=Teleport⚡ <cr>" },
 		{ "<leader>fo", "<cmd>Telescope oldfiles theme=ivy<cr>" },
@@ -122,18 +117,18 @@ return {
 		-- { "<leader>c", "<cmd>Telescope colorscheme<cr>" }, -- added in colorschemes.lua
 		{ "<leader>fq", "<cmd>Telescope quickfix<cr>" },
 		{ "<leader>fQ", "<cmd>Telescope quickfixhistory<cr>" },
-		{ "<leader>fl", "<cmd>Telescope loclist<cr>" },
+		{ "<leader>fi", "<cmd>Telescope loclist<cr>" },
 		{ "<leader>fj", "<cmd>Telescope jumplist<cr>" },
 		{ "<leader>fv", "<cmd>Telescope vim_options<cr>" },
 		{ "<leader>fr", "<cmd>Telescope registers theme=dropdown layout_config={height=50}<cr>" },
 		-- { "<leader>", "<cmd>Telescope autocommands<cr>" },
-		{ "<c-space>", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
+		{ "<leader>fl", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
 		{ "<leader>fk", "<cmd>Telescope keymaps<cr>" },
 		{ "<leader>fy", "<cmd>Telescope filetypes<cr>" },
 		-- { "<leader>", "<cmd>Telescope highlights<cr>" },
 		{ "<leader>ff", "<cmd>Telescope current_buffer_fuzzy_find<cr>" },
 		{ "<leader>fb", "<cmd>Telescope current_buffer_tags<cr>" },
-		{ "<leader>'", "<cmd>Telescope resume<cr>" },
+		{ "<leader>;", "<cmd>Telescope resume<cr>" },
 		-- { "<leader>", "<cmd>Telescope pickers<cr>" },
 		-- Neovim LSP Pickers
 		-- { "<leader>", "<cmd>Telescope lsp_references<cr>" },

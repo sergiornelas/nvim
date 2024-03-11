@@ -30,7 +30,7 @@ local M = {
 								keybinds.remap_event("norg", "n", "g<space>", "core.looking-glass.magnify-code-block")
 								keybinds.remap_event("norg", "n", "<c-'>", "core.qol.todo_items.todo.task_cycle")
 								keybinds.remap_event("norg", "i", "<cr>", "core.itero.next-iteration")
-								keybinds.unmap("norg", "n", "<C-Space>")
+								keybinds.unmap("norg", "n", "<c-space>")
 								-- <leader>lt list toggle
 							end,
 							-- default_keybinds = false,

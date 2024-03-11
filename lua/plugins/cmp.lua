@@ -55,7 +55,7 @@ local M = {
 					["<c-,>"] = cmp.mapping.scroll_docs(-4),
 					["<c-.>"] = cmp.mapping.scroll_docs(4),
 					["<c-'>"] = cmp.mapping.complete(),
-					["<c-space>"] = cmp.mapping.abort(),
+					["<c-l>"] = cmp.mapping.abort(),
 					["<c-e>"] = vim.NIL, -- (vim: insert the character which is below the cursor)
 					-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items:
 					["<c-j>"] = cmp.mapping.confirm({ select = true }),
@@ -84,8 +84,8 @@ local M = {
 					end, { "i", "s" }),
 				}),
 				sources = {
-					{ name = "codeium" },
 					{ name = "nvim_lsp" },
+					{ name = "codeium" },
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "calc" },
@@ -113,7 +113,7 @@ local M = {
 						-- vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
 						-- return vim_item
 						-- end,
-						symbol_map = { Codeium = "󰢚" },
+						symbol_map = { Codeium = "󰚩" },
 					}),
 				},
 			})

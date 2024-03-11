@@ -13,7 +13,7 @@ keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) -- 	    force exit neovim
 keymap("x", "gG", "VGOgg", opts) --                   	   select full buffer
 keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts) --    	   Lazy plugin status
 keymap("n", "y<leader>", "$T!yt!", opts) --           	 yank secret password
-keymap("n", "<c-w><c-e>", "<cmd>vnew<cr>", opts) -- new buffer vertical split
+keymap({ "n", "x" }, "<c-w><c-e>", "<cmd>vnew<cr>", opts) -- new buffer vertical split
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- 	 exit vim safely (vim: not used, or used for terminal control flow)
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- (vim: suspend program (or start new shell))
 
@@ -45,6 +45,6 @@ keymap("n", "<leader>,", "<cmd>tabmove -1<cr>", opts) -- tab right
 keymap("n", "<leader>/", "<cmd>tabclose<cr>", opts) --   tab close
 
 -- TOGGLE OPTIONS =================================
-keymap({ "n", "x", "i" }, "<c-g><c-w>", "<cmd>set wrap!<cr>", opts) --   toggle wrap (vim: display current file name and position, toggle between Visual mode and Select mode)
-keymap({ "n", "x", "i" }, "<c-g><c-l>", "<cmd>set spell!<cr>", opts) -- toggle spell (vim: display current file name and position, toggle between Visual mode and Select mode)
-keymap({ "n", "x", "i" }, "<c-g><c-n>", "<cmd>set nu!<cr>", opts) --   toggle number (vim: display current file name and position, toggle between Visual mode and Select mode)
+keymap({ "n", "x", "i" }, "<c-space><c-w>", "<cmd>set wrap!<cr>", opts)
+keymap({ "n", "x", "i" }, "<c-space><c-l>", "<cmd>set spell!<cr>", opts)
+keymap({ "n", "x", "i" }, "<c-space><c-n>", "<cmd>set nu!<cr>", opts)
