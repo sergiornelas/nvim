@@ -40,13 +40,6 @@ return {
 		},
 	},
 	{
-		"luisiacc/gruvbox-baby",
-		keys = lazy_map,
-		config = function()
-			vim.g.gruvbox_baby_transparent_mode = 1
-		end,
-	},
-	{
 		"rebelot/kanagawa.nvim",
 		keys = lazy_map,
 		opts = {
@@ -124,10 +117,6 @@ return {
 		},
 	},
 	{
-		"Tsuzat/NeoSolarized.nvim",
-		keys = lazy_map,
-	},
-	{
 		"ribru17/bamboo.nvim",
 		keys = lazy_map,
 		config = function()
@@ -159,5 +148,35 @@ return {
 		opts = {
 			transparent_background = true,
 		},
+	},
+	{
+		"craftzdog/solarized-osaka.nvim",
+		keys = lazy_map,
+		config = function()
+			require("solarized-osaka").setup({
+				on_highlights = function(hl, c)
+					local prompt = "#2d3149"
+					hl.TelescopeNormal = {
+						bg = c.bg_dark,
+						fg = c.fg_dark,
+					}
+					hl.TelescopeBorder = {
+						bg = c.bg_dark,
+						fg = c.bg_dark,
+					}
+					hl.TelescopePromptNormal = {
+						bg = prompt,
+					}
+					hl.TelescopePreviewTitle = {
+						bg = c.bg_dark,
+						fg = c.bg_dark,
+					}
+					hl.TelescopeResultsTitle = {
+						bg = c.bg_dark,
+						fg = c.bg_dark,
+					}
+				end,
+			})
+		end,
 	},
 }

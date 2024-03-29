@@ -13,6 +13,7 @@ keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) -- 	    force exit neovim
 keymap("x", "gG", "VGOgg", opts) --                   	   select full buffer
 keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts) --    	   Lazy plugin status
 keymap("n", "y<leader>", "$T!yt!", opts) --           	 yank secret password
+keymap("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>", opts) -- fix last spell
 keymap({ "n", "x" }, "<c-w><c-e>", "<cmd>vnew<cr>", opts) -- new buffer vertical split
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- 	 exit vim safely (vim: not used, or used for terminal control flow)
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- (vim: suspend program (or start new shell))

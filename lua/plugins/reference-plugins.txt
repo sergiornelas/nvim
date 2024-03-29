@@ -41,6 +41,7 @@ ruifm/gitlinker.nvim                                                    add bitb
 ray-x/forgit.nvim                                                        git commands
 aaronhallaert/advanced-git-search.nvim                      git telescope integration
 fredeeb/tardis.nvim                                    time travel current buffer git
+isak102/telescope-git-file-history.nvim                 open/preview the current file
 
 FRONTEND ----------------------------------------------------------------------------
 vuki656/package-info.nvim                                                        node
@@ -75,6 +76,7 @@ CamdenClark/flyboy                                    lightweight ChatGPT intera
 gsuuon/llm.nvim                                                   use LLM's in Neovim
 David-Kunz/gen.nvim                                                          llama IA
 gsuuon/model.nvim                                                   another IA plugin
+olimorris/codecompanion.nvim                Copilot chat like experience via a buffer
 
 COMPETITIVE CODING ------------------------------------------------------------------
 0x100101/lab.nvim                                     visual text output (dissapears)
@@ -116,7 +118,7 @@ Last time revisited all these plugins
 
 ====================
 Last time checked this-week-in-neovim
-Mar 10
+Mar 25
 
 Last time checked awesome-neovim
-Mar 10
+Mar 24
