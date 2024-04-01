@@ -18,8 +18,8 @@ local M = {
 		{ "<leader>8", "<cmd>Grapple select index=8<cr>" },
 		{ "<leader>9", "<cmd>Grapple select index=9<cr>" },
 		{ "<leader>0", "<cmd>Grapple select index=10<cr>" },
-		{ "<c-g>", "<cmd>Grapple cycle_forward<cr>" },
-		{ "<c-c>", "<cmd>Grapple cycle_backward<cr>" },
+		{ "<c-g>", "<cmd>Grapple cycle_forward<cr>" }, -- (vim: display current file name and position)
+		{ "<c-t>", "<cmd>Grapple cycle_backward<cr>" }, -- (vim: jump to N older Tag in tag list)
 	},
 }
 

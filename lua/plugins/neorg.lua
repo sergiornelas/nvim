@@ -1,6 +1,13 @@
 local M = {
 	{
+		"vhyrro/luarocks.nvim",
+		priority = 1000,
+		config = true,
+	},
+	{
 		"nvim-neorg/neorg",
+		dependencies = { "luarocks.nvim" },
+		version = "*", -- Pin Neorg to the latest stable release
 		ft = "norg",
 		cmd = "Neorg",
 		keys = {
@@ -28,7 +35,7 @@ local M = {
 								keybinds.remap_event("norg", "n", "]e", "core.integrations.treesitter.next.heading")
 								keybinds.remap_event("norg", "n", "[e", "core.integrations.treesitter.previous.heading")
 								keybinds.remap_event("norg", "n", "g<space>", "core.looking-glass.magnify-code-block")
-								keybinds.remap_event("norg", "n", "<c-'>", "core.qol.todo_items.todo.task_cycle")
+								keybinds.remap_event("norg", "n", "<c-]>", "core.qol.todo_items.todo.task_cycle")
 								keybinds.remap_event("norg", "i", "<cr>", "core.itero.next-iteration")
 								keybinds.unmap("norg", "n", "<c-space>")
 								-- <leader>lt list toggle

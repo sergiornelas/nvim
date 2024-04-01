@@ -37,7 +37,7 @@ function M.config()
 				{
 					"vim.fn['codeium#GetStatusString']()",
 					fmt = function(str)
-						if str == " ON" or str == " 0 " then
+						if str == " ON" or str == "OFF" or str == " 0 " then
 							return ""
 						elseif str == " * " then
 							return " 󰔟 "
