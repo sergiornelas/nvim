@@ -1,7 +1,6 @@
 local o = vim.opt
 
 o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-o.concealcursor = "n" --       conceal not revealing in normal mode
 o.conceallevel = 2 --          so that `` is visible in markdown files, useful for neorg files
 o.cursorline = true --         highlight the current line
 o.expandtab = true --          convert tabs to spaces (useful for neorg extraspaces)

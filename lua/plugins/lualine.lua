@@ -25,8 +25,12 @@ function M.config()
 		sections = {
 			lualine_a = {
 				{
-					require("grapple").statusline,
-					cond = require("grapple").exists,
+					function()
+						return "󰛢 " .. require("grapple").name_or_index()
+					end,
+					cond = function()
+						return package.loaded["grapple"] and require("grapple").exists()
+					end,
 					color = { bg = "#151517", fg = "#ebdbb2" },
 				},
 				{
