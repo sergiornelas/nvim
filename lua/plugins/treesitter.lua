@@ -5,6 +5,14 @@ return {
 	dependencies = {
 		{
 			"nvim-treesitter/nvim-treesitter-context",
+			config = function()
+				require("treesitter-context").setup({
+					enable = true,
+					max_lines = 0,
+					line_numbers = true,
+					multiline_threshold = 20, -- Maximum number of lines to show for a single context
+				})
+			end,
 			keys = {
 				{ "<leader>u", "<cmd>lua require('treesitter-context').go_to_context()<cr>" },
 				{ "<c-space><c-t>", "<cmd>TSContextToggle<cr>", mode = { "n", "x", "i" } },

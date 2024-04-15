@@ -6,13 +6,13 @@ return {
 			vim.cmd([[
         let g:codeium_disable_bindings = 1
         let g:codeium_no_map_tab = 1
-        inoremap <silent><expr> <c-g>
+        inoremap <silent><expr> <c-f>
         \ exists('b:_codeium_completions') && !empty(get(b:_codeium_completions, 'items', [])) ?
-        \ codeium#Accept() : "\<c-g>"
+        \ codeium#Accept() : "\<c-f>"
       ]])
 
 			-- (vim: not used (but by default it's in 'cinkeys' to re-indent the current line))
-			vim.keymap.set("i", "<c-f>", function()
+			vim.keymap.set("i", "<c-g>", function()
 				return vim.fn["codeium#CycleCompletions"](1)
 			end, { expr = true, silent = true })
 

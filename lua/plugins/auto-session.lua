@@ -9,10 +9,18 @@ function M.config()
 		return
 	end
 
+	-- Usefull for disabling TSContext and Fidget
+	function _G.close_floating_windows()
+		for _, win in ipairs(vim.api.nvim_list_wins()) do
+			local config = vim.api.nvim_win_get_config(win)
+			if config.relative ~= "" then
+				vim.api.nvim_win_close(win, false)
+			end
+		end
+	end
+
 	auto_session.setup({
-		log_level = "error",
-		auto_session_create_enabled = false,
-		auto_session_use_git_branch = false,
+		pre_save_cmds = { _G.close_floating_windows, "NvimTreeClose", "ccl", "lclose" },
 		save_extra_cmds = {
 			-- load last colorscheme by session
 			function()
@@ -21,6 +29,7 @@ function M.config()
 		},
 		-- post_save_cmds
 		-- pre_restore_cmds
+		-- post_restore_cmds
 		-- pre_delete_cmds
 		-- post_delete_cmds
 	})

@@ -179,4 +179,11 @@ return {
 			})
 		end,
 	},
+	{
+		"eldritch-theme/eldritch.nvim",
+		keys = lazy_map,
+		opts = {
+			transparent = true, -- Enable this to disable setting the background color
+		},
+	},
 }

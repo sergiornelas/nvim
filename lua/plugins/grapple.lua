@@ -1,6 +1,7 @@
 local M = {
 	"cbochs/grapple.nvim",
 	dependencies = "nvim-lua/plenary.nvim",
+	event = "BufReadPost",
 	keys = {
 		{ "<leader>m", "<cmd>Grapple toggle<cr>" },
 		{ "<leader>p", "<cmd>Grapple open_tags<cr>" },

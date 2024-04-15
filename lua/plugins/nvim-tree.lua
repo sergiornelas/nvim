@@ -96,7 +96,9 @@ function M.config()
 		hijack_cursor = true,
 		update_focused_file = {
 			enable = true, --cursor goes to the file
-			update_root = true, --Update the root directory of the tree if the file is not under current root directory.
+			update_root = { -- Update the root directory of the tree if the file is not under current root directory.
+				enable = true,
+			},
 			-- disabled because updates to current folder instead root .git
 		},
 		diagnostics = {
@@ -119,8 +121,9 @@ function M.config()
 			},
 		},
 		view = {
+			preserve_window_proportions = true,
+			centralize_selection = false, --  auto zz
 			adaptive_size = true,
-			centralize_selection = true,
 			side = "left",
 			signcolumn = "yes",
 			float = {

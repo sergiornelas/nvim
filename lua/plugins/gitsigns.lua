@@ -14,8 +14,6 @@ function M.config()
 			delay = 400,
 		},
 		on_attach = function(bufnr)
-			local gs = package.loaded.gitsigns
-
 			local function map(mode, l, r, opts)
 				opts = opts or {}
 				opts.buffer = bufnr
@@ -25,52 +23,46 @@ function M.config()
 			-- Navigation
 			map({ "n", "x" }, "<c-j>", function() -- (vim: same as "j")
 				if vim.wo.diff then
-					return "]c"
+					vim.cmd.normal({ "]c", bang = true })
+				else
+					gitsigns.nav_hunk("next")
 				end
-				vim.schedule(function()
-					gs.next_hunk()
-					vim.cmd("norm ^")
-				end)
-				return "<Ignore>"
-			end, { expr = true })
+			end)
 
 			map({ "n", "x" }, "<c-k>", function() -- (vim: not used)
 				if vim.wo.diff then
-					return "[c"
+					vim.cmd.normal({ "[c", bang = true })
+				else
+					gitsigns.nav_hunk("prev")
 				end
-				vim.schedule(function()
-					gs.prev_hunk()
-					vim.cmd("norm ^")
-				end)
-				return "<Ignore>"
-			end, { expr = true })
+			end)
 
 			-- Actions
-			map("n", "<leader>s", ":Gitsigns stage_hunk<cr>")
-			map("n", "<leader>r", ":Gitsigns reset_hunk<cr>")
+			map("n", "<leader>s", gitsigns.stage_hunk)
+			map("n", "<leader>r", gitsigns.reset_hunk)
 			map("v", "<leader>s", function()
-				gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+				gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end)
 			map("v", "<leader>r", function()
-				gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+				gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end)
-			map("n", "<leader>gS", gs.stage_buffer)
-			map("n", "<leader>gu", gs.undo_stage_hunk)
-			map("n", "<leader>gR", gs.reset_buffer)
-			map("n", "<leader>e", gs.preview_hunk)
+			map("n", "<leader>gS", gitsigns.stage_buffer)
+			map("n", "<leader>gu", gitsigns.undo_stage_hunk)
+			map("n", "<leader>gR", gitsigns.reset_buffer)
+			map("n", "<leader>e", gitsigns.preview_hunk)
 			map("n", "<leader>gl", function()
-				gs.blame_line({ full = true })
+				gitsigns.blame_line({ full = true })
 			end)
-			map("n", "<leader>gt", gs.toggle_current_line_blame)
-			map("n", "<leader>gd", gs.diffthis)
+			map("n", "<leader>gt", gitsigns.toggle_current_line_blame)
+			map("n", "<leader>gd", gitsigns.diffthis)
 			map("n", "<leader>gD", function()
-				gs.diffthis("~")
+				gitsigns.diffthis("~")
 			end)
-			map("n", "<leader>gg", gs.toggle_deleted)
+			map("n", "<leader>gg", gitsigns.toggle_deleted)
 			-- Text object
 			map({ "o", "x" }, "ig", ":<c-u>Gitsigns select_hunk<cr>")
 			-- Extras
-			map("n", "<leader>gp", gs.preview_hunk_inline)
+			map("n", "<leader>gp", gitsigns.preview_hunk_inline)
 		end,
 	})
 end
