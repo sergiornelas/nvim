@@ -53,7 +53,7 @@ ray-x/web-tools.nvim                                         live server for htm
 barrett-ruth/import-cost.nvim                                  cost memory of imports
 tomiis4/hypersonic.nvim                                         explanation for regex
 yioneko/nvim-vtsls                                      utilize capabilities of vtsls
-Redoxahmii/json-to-ts.nvim                           convert JSON to TypeScript types
+Redoxahmii/json-to-types.nvim                        convert JSON to TypeScript types
 brenoprata10/nvim-highlight-colors  virtual text colors          (mature: dissapears)
 
 ARTIFICIAL INTELIGENCE --------------------------------------------------------------
@@ -104,12 +104,11 @@ edluffy/hologram.nvim                                              images on ter
 axkirillov/easypick.nvim                            telescope with arbitrary commands
 tiagovla/scope.nvim                               workspace by tab (very interesting)
 altermo/ultimate-autopair.nvim       replace tabout, autopair, nvim-surround (mature)
-linrongbin16/gentags.nvim   					Tags generator/management for old school vimers
 LunarVim/bigfile.nvim             disables certain features if the opened file is big
 chrisgrieser/nvim-scissors               automagical editing and creation of snippets
 chrisgrieser/nvim-chainsaw                       powerfull auto console.logs (mature)
 rasulomaroff/reactive.nvim              cursor line colors (mature: nvim menu screen)
-tamton-aquib/keys.nvim                                 shows keystrokes (mature: c-o)
+tamton-aquib/keys.nvim                              shows keystrokes (mature: ctrl-o)
 LintaoAmons/bookmarks.nvim                    little notes as bookmark in the project
 briangwaltney/paren-hint.nvim  ghost text that shows the text preceding (mature: tsx)
 
@@ -121,4 +120,4 @@ Last time checked this-week-in-neovim
 Apr 14
 
 Last time checked awesome-neovim
-Apr 14
+Apr 21

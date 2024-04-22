@@ -5,8 +5,9 @@ local M = {
 	keys = {
 		{ "<leader>m", "<cmd>Grapple toggle<cr>" },
 		{ "<leader>p", "<cmd>Grapple open_tags<cr>" },
-		{ "<leader>P", "<cmd>Grapple open_tags scope=global<cr>" },
-		{ "<leader>gn", ":Grapple tag name=~" },
+		{ "<leader>P", "<cmd>Grapple open_tags scope=stash<cr>" },
+		{ "<leader>G", "<cmd>Grapple open_tags scope=global<cr>" },
+		{ "<leader>gn", ":Grapple tag scope=stash name=" },
 		{ "<leader>gN", ":Grapple tag scope=global name=~" },
 		{ "<leader>gq", "<cmd>Grapple quickfix<cr>" },
 		{ "<leader>1", "<cmd>Grapple select index=1<cr>" },
@@ -19,8 +20,8 @@ local M = {
 		{ "<leader>8", "<cmd>Grapple select index=8<cr>" },
 		{ "<leader>9", "<cmd>Grapple select index=9<cr>" },
 		{ "<leader>0", "<cmd>Grapple select index=10<cr>" },
-		{ "<c-g>", "<cmd>Grapple cycle_forward<cr>" }, -- (vim: display current file name and position)
-		{ "<c-t>", "<cmd>Grapple cycle_backward<cr>" }, -- (vim: jump to N older Tag in tag list)
+		{ "<c-g>", "<cmd>Grapple cycle_tags next<cr>" }, -- (vim: display current file name and position)
+		{ "<c-t>", "<cmd>Grapple cycle_tags prev<cr>" }, -- (vim: jump to N older Tag in tag list)
 	},
 }
 
@@ -31,6 +32,21 @@ function M.config()
 	end
 
 	grapple.setup({
+		scopes = {
+			{
+				name = "stash",
+				fallback = "cwd",
+				cache = { event = "DirChanged" },
+				desc = "Markable files",
+				resolver = function()
+					---@diagnostic disable-next-line: undefined-field
+					local root = vim.loop.cwd()
+					local id = string.format("%s:%s", root, "stash")
+					local path = root
+					return id, path
+				end,
+			},
+		},
 		win_opts = {
 			width = 60,
 			height = 10,

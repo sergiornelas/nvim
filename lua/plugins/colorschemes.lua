@@ -75,13 +75,6 @@ return {
 		end,
 	},
 	{
-		"sainnhe/sonokai",
-		keys = lazy_map,
-		config = function()
-			vim.g.sonokai_transparent_background = 1
-		end,
-	},
-	{
 		"tiagovla/tokyodark.nvim",
 		keys = lazy_map,
 		config = function()
@@ -135,21 +128,6 @@ return {
 		},
 	},
 	{
-		"sekke276/dark_flat.nvim",
-		keys = lazy_map,
-		opts = {
-			transparent = true,
-		},
-	},
-	{
-		"fynnfluegge/monet.nvim",
-		name = "monet",
-		keys = lazy_map,
-		opts = {
-			transparent_background = true,
-		},
-	},
-	{
 		"craftzdog/solarized-osaka.nvim",
 		keys = lazy_map,
 		config = function()
@@ -183,7 +161,7 @@ return {
 		"eldritch-theme/eldritch.nvim",
 		keys = lazy_map,
 		opts = {
-			transparent = true, -- Enable this to disable setting the background color
+			transparent = true,
 		},
 	},
 }

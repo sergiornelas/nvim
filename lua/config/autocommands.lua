@@ -36,21 +36,6 @@ vim.cmd([[
   " Stop automatic comment when break line in insert mode
   au BufEnter * set fo-=cro
 
-  " Equalize windows width when vim has been resized
-  au WinNew * set winfixheight
-  au VimResized * wincmd  =
-  function! Equalize_Windows()
-    let current_win = winnr()
-    exe 'windo set nowinfixheight'
-    exe 'wincmd ='
-    exe 'windo set winfixheight'
-    exe 'wincmd ' . current_win . 'w'
-  endfunction
-  nnoremap <c-w>= <cmd>call Equalize_Windows()<cr>
-  nnoremap <c-w><c-=> <cmd>call Equalize_Windows()<cr>
-  vnoremap <c-w>= <cmd>call Equalize_Windows()<cr>gv
-  vnoremap <c-w><c-=> <cmd>call Equalize_Windows()<cr>gv
-
   " Command prev option
   cnoremap <c-o> <c-p>
   " (vim: not used)

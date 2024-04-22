@@ -18,7 +18,7 @@ return {
 			opts = {},
 		},
 		redo = {
-			hlgroup = "HighlightUndo",
+			hlgroup = "HighlightRedo",
 			mode = "n",
 			lhs = "<C-r>",
 			map = "redo",
