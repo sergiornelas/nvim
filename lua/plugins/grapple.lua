@@ -5,9 +5,9 @@ local M = {
 	keys = {
 		{ "<leader>m", "<cmd>Grapple toggle<cr>" },
 		{ "<leader>p", "<cmd>Grapple open_tags<cr>" },
-		{ "<leader>P", "<cmd>Grapple open_tags scope=stash<cr>" },
+		{ "<leader>P", "<cmd>Grapple open_tags scope=bookmarks<cr>" },
 		{ "<leader>G", "<cmd>Grapple open_tags scope=global<cr>" },
-		{ "<leader>gn", ":Grapple tag scope=stash name=" },
+		{ "<leader>gn", ":Grapple tag scope=bookmarks name=" },
 		{ "<leader>gN", ":Grapple tag scope=global name=~" },
 		{ "<leader>gq", "<cmd>Grapple quickfix<cr>" },
 		{ "<leader>1", "<cmd>Grapple select index=1<cr>" },
@@ -34,22 +34,18 @@ function M.config()
 	grapple.setup({
 		scopes = {
 			{
-				name = "stash",
+				name = "bookmarks",
 				fallback = "cwd",
 				cache = { event = "DirChanged" },
 				desc = "Markable files",
 				resolver = function()
 					---@diagnostic disable-next-line: undefined-field
 					local root = vim.loop.cwd()
-					local id = string.format("%s:%s", root, "stash")
+					local id = string.format("%s:%s", root, "bookmarks")
 					local path = root
 					return id, path
 				end,
 			},
-		},
-		win_opts = {
-			width = 60,
-			height = 10,
 		},
 	})
 end

@@ -63,7 +63,7 @@ function M.config()
 			lualine_x = {},
 		},
 		tabline = {},
-		extensions = {},
+		extensions = { "quickfix" },
 	})
 end
 

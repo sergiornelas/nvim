@@ -63,6 +63,7 @@ function M.config()
 			["p"] = { api.fs.paste, "Paste" },
 			["P"] = { api.node.navigate.parent, "Parent Directory" },
 			["q"] = { api.tree.close, "Close" },
+			["<esc>"] = { api.tree.close, "Close" },
 			["r"] = { api.fs.rename, "Rename" },
 			["R"] = { api.tree.reload, "Refresh" },
 			["s"] = { api.node.run.system, "Run System" },

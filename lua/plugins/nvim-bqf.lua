@@ -1,6 +1,6 @@
 -- BQF advantages
 -- Is native, uses builtin vim quickfix features (return to previous/next quickfix, arbitrary commands with :cdo, filter results with fzf).
--- Is more confortable to navigate with than Trouble.nvim:
+-- Is more confortable to navigate with than Trouble.nvim
 -- * Navigate between files, not only via references
 -- * No constantly folding/unfolding
 -- * No pressing j twice to go next reference file

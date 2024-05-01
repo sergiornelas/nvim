@@ -25,6 +25,7 @@ theHamsta/nvim-dap-virtual-text
 ravenxrz/DAPInstall.nvim
 Lommix/godot.nvim
 niuiic/dap-utils.nvim
+andrewferrier/debugprint.nvim
 
 TESTING -----------------------------------------------------------------------------
 David-Kunz/jester
@@ -42,6 +43,7 @@ ray-x/forgit.nvim                                                        git com
 aaronhallaert/advanced-git-search.nvim                      git telescope integration
 fredeeb/tardis.nvim                                    time travel current buffer git
 isak102/telescope-git-file-history.nvim                 open/preview the current file
+FabijanZulj/blame.nvim                                         git blame in all lines
 
 FRONTEND ----------------------------------------------------------------------------
 vuki656/package-info.nvim                                                        node
@@ -65,8 +67,6 @@ aduros/ai.vim                                                          openAI an
 dense-analysis/neural                                                OpenAI and GPT-3
 james1236/backseat.nvim          GPT to highlight and explain code readability issues
 Bryley/neoai.nvim                                  brings the power of OpenAI's GPT-4
-Exafunction/codeium.vim        Free, ultrafast Copilot alternative for Vim and Neovim
-Exafunction/codeium.nvim                             native Codeium plugin for Neovim
 tdfacer/explain-it.nvim                     Ask a question, and let robots explain-it
 svermeulen/text-to-colorscheme                    colorscheme generator with chat gpt
 Robitx/gp.nvim           Gp (GPT prompt) plugin for Neovim (better than ChatGPT.nvim)
@@ -111,13 +111,17 @@ rasulomaroff/reactive.nvim              cursor line colors (mature: nvim menu sc
 tamton-aquib/keys.nvim                              shows keystrokes (mature: ctrl-o)
 LintaoAmons/bookmarks.nvim                    little notes as bookmark in the project
 briangwaltney/paren-hint.nvim  ghost text that shows the text preceding (mature: tsx)
+altermo/nwm                     allows you to use x11 windows as if they were buffers
+NStefan002/screenkey.nvim       displays the keys you are typing in a floating window
+nvim-focus/focus.nvim                                              autoresize windows
+nfrid/due.nvim                simple plugin that provides you due for the date string
 
 Last time revisited all these plugins
 01/01/24
 
 ====================
 Last time checked this-week-in-neovim
-Apr 14
+Apr 29
 
 Last time checked awesome-neovim
-Apr 21
+Apr 28
