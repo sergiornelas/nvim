@@ -90,7 +90,6 @@ local M = {
 				}),
 				sources = {
 					{ name = "nvim_lsp" },
-					{ name = "codeium" },
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "calc" },
@@ -118,7 +117,6 @@ local M = {
 						-- vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
 						-- return vim_item
 						-- end,
-						symbol_map = { Codeium = "󰚩" },
 					}),
 				},
 			})

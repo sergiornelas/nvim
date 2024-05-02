@@ -38,18 +38,6 @@ function M.config()
 					color = { bg = "#4f0000", fg = "#ebdbb2" },
 					path = 0,
 				},
-				{
-					"vim.fn['codeium#GetStatusString']()",
-					fmt = function(str)
-						if str == " ON" or str == "OFF" or str == " 0 " then
-							return ""
-						elseif str == " * " then
-							return " 󰔟 "
-						else
-							return str
-						end
-					end,
-				},
 			},
 			lualine_b = { "diagnostics" },
 			lualine_c = { "navic" },
