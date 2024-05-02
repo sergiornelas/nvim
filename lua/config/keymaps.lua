@@ -43,7 +43,9 @@ keymap({ "n", "x" }, "<c-;>", "<cmd>vertical resize -6<cr>", opts) --           
 -- TAB COMMANDS ===================================
 keymap("n", "<leader>.", "<cmd>tabmove +1<cr>", opts) --  tab left
 keymap("n", "<leader>,", "<cmd>tabmove -1<cr>", opts) -- tab right
-keymap("n", "<leader>/", "<cmd>tabclose<cr>", opts) --   tab close
+keymap("n", "<leader>>", "<cmd>tablast<cr>", opts) --     tab last
+keymap("n", "<leader><", "<cmd>tabfirst<cr>", opts) --   tab first
+keymap("n", "<leader>x", "<cmd>tabclose<cr>", opts) --   tab close
 
 -- TOGGLE OPTIONS =================================
 keymap({ "n", "x", "i" }, "<c-space><c-w>", "<cmd>set wrap!<cr>", opts)

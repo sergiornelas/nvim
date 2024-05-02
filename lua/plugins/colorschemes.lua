@@ -1,7 +1,7 @@
 ---@diagnostic disable: inject-field
 local lazy_map = {
 	{
-		"<leader>c",
+		"<leader>fc",
 		"<cmd>Telescope colorscheme prompt_title=Colorscheme layout_config={width=50}<cr>",
 	},
 }

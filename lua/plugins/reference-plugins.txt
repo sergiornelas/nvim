@@ -59,7 +59,6 @@ Redoxahmii/json-to-types.nvim                        convert JSON to TypeScript 
 brenoprata10/nvim-highlight-colors  virtual text colors          (mature: dissapears)
 
 ARTIFICIAL INTELIGENCE --------------------------------------------------------------
-github/copilot.vim
 zbirenbaum/copilot-cmp
 zbirenbaum/copilot.lua
 tzachar/cmp-tabnine
@@ -76,7 +75,7 @@ CamdenClark/flyboy                                    lightweight ChatGPT intera
 gsuuon/llm.nvim                                                   use LLM's in Neovim
 David-Kunz/gen.nvim                                                          llama IA
 gsuuon/model.nvim                                                   another IA plugin
-olimorris/codecompanion.nvim                Copilot chat like experience via a buffer
+olimorris/codecompanion.nvim                copilot chat like experience via a buffer
 
 COMPETITIVE CODING ------------------------------------------------------------------
 0x100101/lab.nvim                                     visual text output (dissapears)
@@ -124,4 +123,4 @@ Last time checked this-week-in-neovim
 Apr 29
 
 Last time checked awesome-neovim
-Apr 28
+Apr 30
