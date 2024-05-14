@@ -7,7 +7,9 @@ return {
 	},
 	config = function()
 		local actions = require("telescope.actions")
-		require("telescope").setup({
+		local telescope = require("telescope")
+
+		telescope.setup({
 			defaults = {
 				layout_strategy = "vertical", --horizontal/vertical/flex
 				sorting_strategy = "ascending", --important
@@ -83,10 +85,18 @@ return {
 					case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 					-- the default case_mode is "smart_case"
 				},
+				heading = {
+					treesitter = true,
+					picker_opts = {
+						layout_config = { width = 0.6, preview_width = 0.5 },
+						layout_strategy = "vertical",
+					},
+				},
 			},
 		})
 
-		require("telescope").load_extension("fzf")
+		telescope.load_extension("fzf")
+		telescope.load_extension("heading")
 
 		-- Token  	       Match type           	          Description
 		-- -------+-----------------------------+-----------------------------------

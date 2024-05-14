@@ -12,7 +12,6 @@ marilari88/twoslash-queries.nvim               print typescript types as virtual
 
 TREESITTER --------------------------------------------------------------------------
 CKolkey/ts-node-action                                           (mature for jsx/tsx)
-lukas-reineke/headlines.nvim  neorg cool titles and niceties (slow fps, not working?)
 filNaj/tree-setter  typescript space bar snippets (wait for compatibility for js/tsx)
 
 DEBUGGING ---------------------------------------------------------------------------
@@ -98,7 +97,7 @@ potamides/pantran.nvim                                              google trans
 jghauser/kitty-runner.nvim                                   kitty commands from nvim
 smjonas/live-command.nvim              visual feedback for vim search/global commands
 debugloop/telescope-undo.nvim                                          telescope undo
-3rd/image.nvim                                                 images render on neorg
+3rd/image.nvim                                              images render on markdown
 edluffy/hologram.nvim                                              images on terminal
 axkirillov/easypick.nvim                            telescope with arbitrary commands
 tiagovla/scope.nvim                               workspace by tab (very interesting)
@@ -123,4 +122,4 @@ Last time checked this-week-in-neovim
 Apr 29
 
 Last time checked awesome-neovim
-Apr 30
+May 14

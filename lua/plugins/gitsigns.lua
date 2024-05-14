@@ -62,7 +62,7 @@ function M.config()
 			-- Text object
 			map({ "o", "x" }, "ig", ":<c-u>Gitsigns select_hunk<cr>")
 			-- Extras
-			map("n", "<leader>gp", gitsigns.preview_hunk_inline)
+			map("n", "<leader>ge", gitsigns.preview_hunk_inline)
 		end,
 	})
 end

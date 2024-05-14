@@ -1,6 +1,6 @@
 return {
 	"echasnovski/mini.trailspace",
-	ft = { "norg", "md" },
+	ft = { "md" },
 	keys = {
 		{ "<leader>b", "<cmd>lua require('mini.trailspace').trim()<cr>" },
 	},

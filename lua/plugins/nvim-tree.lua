@@ -123,7 +123,7 @@ function M.config()
 		},
 		view = {
 			preserve_window_proportions = true,
-			centralize_selection = false, --  auto zz
+			centralize_selection = true, --  auto zz
 			adaptive_size = true,
 			side = "left",
 			signcolumn = "yes",

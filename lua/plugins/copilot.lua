@@ -45,15 +45,25 @@ return {
 					insert = "<c-c>",
 				},
 				reset = {
-					normal = "<c-l><c-l>",
-					insert = "<c-l><c-l>",
+					normal = "",
+					insert = "",
 				},
 			},
 		},
 		keys = {
 			{
+				"<leader>cv",
+				":CopilotChat ",
+				mode = { "x" },
+			},
+			{
 				"<leader>co",
 				"<cmd>CopilotChatOpen<cr>",
+				mode = { "n", "x" },
+			},
+			{
+				"<leader>cs",
+				"<cmd>CopilotChatStop<cr>",
 				mode = { "n", "x" },
 			},
 			{
@@ -102,7 +112,7 @@ return {
 				mode = { "n", "x" },
 			},
 			{
-				"<leader>cs",
+				"<leader>cC",
 				"<cmd>CopilotChatCommitStaged<cr>",
 				mode = { "n", "x" },
 			},

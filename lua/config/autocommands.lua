@@ -4,7 +4,7 @@ local cmd = api.nvim_create_autocmd
 
 -- Set specific properties for file types
 cmd("FileType", {
-	pattern = { "norg", "markdown", "gitcommit" },
+	pattern = { "markdown", "gitcommit" },
 	callback = function()
 		vim.opt_local.colorcolumn = "80"
 		vim.opt_local.textwidth = 80

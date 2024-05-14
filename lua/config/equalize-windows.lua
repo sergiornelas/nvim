@@ -1,3 +1,5 @@
+-- Equalize windows width (not height) through all tabs when resizing Vim
+
 vim.cmd([[
   function Windows_Fix_Height(status)
     " tabpagenr('$') = number of total tabs

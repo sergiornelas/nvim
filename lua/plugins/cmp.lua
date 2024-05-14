@@ -94,7 +94,6 @@ local M = {
 					{ name = "buffer" },
 					{ name = "calc" },
 					{ name = "path" },
-					{ name = "neorg" },
 					{ name = "emoji" },
 					-- { name = "buffer", keyword_length = 5 },
 				},
