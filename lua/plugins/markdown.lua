@@ -1,5 +1,48 @@
 return {
 	{
+		"jakewvincent/mkdnflow.nvim",
+		ft = { "markdown" },
+		config = function()
+			require("mkdnflow").setup({
+				create_dirs = true,
+				mappings = {
+					MkdnNextHeading = { "n", "]e" },
+					MkdnPrevHeading = { "n", "[e" },
+					MkdnCreateLinkFromClipboard = { { "n", "v" }, "<leader>mc" },
+					MkdnDestroyLink = { "n", "<leader>md" },
+					MkdnTagSpan = { "v", "<leader>mt" },
+					MkdnYankFileAnchorLink = { "n", "yaA" },
+					MkdnToggleToDo = { { "n", "v" }, "<c-]>" }, -- (vim: :ta to ident under cursor, jump to highlighted tag)
+					MkdnUpdateNumbering = { "n", "<leader>mn" },
+					MkdnTablePrevRow = { "i", "<leader>ma" },
+					MkdnTableNewRowBelow = { "n", "<leader>mir" },
+					MkdnTableNewRowAbove = { "n", "<leader>miR" },
+					MkdnTableNewColAfter = { "n", "<leader>mic" },
+					MkdnTableNewColBefore = { "n", "<leader>miC" },
+					MkdnFoldSection = { "n", "<leader>mf" },
+					MkdnUnfoldSection = { "n", "<leader>mF" },
+				},
+			})
+		end,
+	},
+	{
+		"MeanderingProgrammer/markdown.nvim",
+		ft = "markdown",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("render-markdown").setup({
+				-- headings = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+				headings = { "☥ ", "☯ ", "▲ ", "⌘ ", "⛧ ", "☪ " },
+				highlights = {
+					heading = {
+						backgrounds = { "DiffAdd", "DiffChange", "DiffDelete" },
+					},
+					code = "",
+				},
+			})
+		end,
+	},
+	{
 		"laytan/cloak.nvim",
 		ft = "markdown",
 		config = function()
@@ -21,6 +64,19 @@ return {
 					},
 				},
 			})
+		end,
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+		config = function()
+			vim.g.mkdp_auto_close = 0
+			vim.g.mkdp_page_title = "<${name}/>"
+			vim.keymap.set("n", "<leader>me", "<cmd>MarkdownPreview<cr>", { noremap = true, silent = true })
 		end,
 	},
 	{

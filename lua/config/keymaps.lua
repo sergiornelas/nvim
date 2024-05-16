@@ -17,6 +17,7 @@ keymap("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>", opts) -- fix last sp
 keymap({ "n", "x" }, "<c-w><c-e>", "<cmd>vnew<cr>", opts) -- new buffer vertical split
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- 	 exit vim safely (vim: not used, or used for terminal control flow)
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- (vim: suspend program (or start new shell))
+keymap("n", "<leader>n", "<cmd>tabnew><cr><cmd>e ~/notes/scratch/main.md<cr>", opts) -- goes to main scratch file
 
 -- QUICK FIX LIST =================================
 keymap("n", "<leader>qo", "<cmd>copen<cr>", opts) --   open quickfix

@@ -113,13 +113,15 @@ altermo/nwm                     allows you to use x11 windows as if they were bu
 NStefan002/screenkey.nvim       displays the keys you are typing in a floating window
 nvim-focus/focus.nvim                                              autoresize windows
 nfrid/due.nvim                simple plugin that provides you due for the date string
+sshelll/telescope-switch.nvim       switch between buffers using some defined filters
+jellydn/typecheck.nvim               seamless TypeScript type checking using quickfix
 
 Last time revisited all these plugins
 01/01/24
 
 ====================
 Last time checked this-week-in-neovim
-Apr 29
+May 14
 
 Last time checked awesome-neovim
 May 14

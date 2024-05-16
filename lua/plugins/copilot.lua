@@ -41,7 +41,7 @@ return {
 					insert = "<c-i>",
 				},
 				close = {
-					normal = "<esc>",
+					normal = "q",
 					insert = "<c-c>",
 				},
 				reset = {
