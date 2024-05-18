@@ -72,7 +72,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	keymap("n", "gL", "<cmd>LspInfo<cr>"),
 })
 
--- some test
 local M = {}
 
 M.on_attach = function(client, bufnr)
