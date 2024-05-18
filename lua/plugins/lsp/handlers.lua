@@ -4,8 +4,8 @@ local keymap = vim.keymap.set
 local methods = vim.lsp.protocol.Methods
 
 keymap("n", "gB", '<cmd>lua vim.diagnostic.open_float(0, { scope = "buffer", border = "double" })<CR>')
-keymap("n", "[d", vim.diagnostic.goto_prev) -- (vim: go to prev diagnostic no float w.(nvim 0.10))
-keymap("n", "]d", vim.diagnostic.goto_next) -- (vim: go to next diagnostic no float w.(nvim 0.10))
+keymap("n", "[d", vim.diagnostic.goto_prev) -- (vim: go to prev diagnostic no float w. (nvim 0.10))
+keymap("n", "]d", vim.diagnostic.goto_next) -- (vim: go to next diagnostic no float w. (nvim 0.10))
 keymap(
 	"n",
 	"[e",
@@ -69,7 +69,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			ToggleDiagnostic()
 		end)
 	end,
-	keymap("n", "gl", "<cmd>LspInfo<cr>"),
+	keymap("n", "gL", "<cmd>LspInfo<cr>"),
 })
 
 local M = {}
@@ -79,14 +79,12 @@ M.on_attach = function(client, bufnr)
 	if client.supports_method(methods.textDocument_inlayHint) then
 		vim.lsp.inlay_hint.enable(true)
 		vim.api.nvim_create_autocmd("InsertEnter", {
-			desc = "Enable inlay hints",
 			buffer = bufnr,
 			callback = function()
 				vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
 			end,
 		})
 		vim.api.nvim_create_autocmd("InsertLeave", {
-			desc = "Disable inlay hints",
 			buffer = bufnr,
 			callback = function()
 				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })

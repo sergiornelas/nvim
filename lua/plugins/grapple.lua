@@ -37,7 +37,6 @@ function M.config()
 				name = "bookmarks",
 				fallback = "cwd",
 				cache = { event = "DirChanged" },
-				desc = "Markable files",
 				resolver = function()
 					---@diagnostic disable-next-line: undefined-field
 					local root = vim.loop.cwd()

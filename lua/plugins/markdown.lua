@@ -33,7 +33,6 @@ return {
 			vim.cmd([[
         autocmd ColorScheme * highlight Header1 guifg=#ebdbb2 guibg=#471414
         autocmd ColorScheme * highlight Header2 guifg=#ebdbb2 guibg=#34312F
-        "autocmd ColorScheme * highlight Header3 guifg=#ebdbb2 guibg=#3F414D
       ]])
 			require("render-markdown").setup({
 				-- headings = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },

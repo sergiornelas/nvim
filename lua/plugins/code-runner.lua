@@ -4,7 +4,7 @@ return {
 		"CRAG666/code_runner.nvim",
 		cmd = { "RunCode", "RunFile" },
 		keys = {
-			{ "<leader>\\", "<cmd>RunCode<cr>" },
+			{ "<leader><cr>", "<cmd>RunCode<cr>" },
 			{ "<leader>J", "<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>RunCode<cr>" },
 		},
 		opts = {
