@@ -4,7 +4,7 @@ return {
 		cmd = "CellularAutomaton",
 		keys = {
 			{
-				"<leader>\\",
+				"<leader>C",
 				"<cmd>CellularAutomaton make_it_rain<cr>",
 			},
 		},
@@ -13,7 +13,7 @@ return {
 		"seandewar/killersheep.nvim",
 		keys = {
 			{
-				"<leader>KK",
+				"<leader>K",
 				"<cmd>KillKillKill<cr>",
 			},
 		},

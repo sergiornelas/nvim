@@ -37,7 +37,7 @@ function M.setup()
 			style = "minimal",
 			border = "single",
 			header = "",
-			source = "always",
+			source = false,
 			prefix = "",
 		},
 	})

@@ -17,7 +17,7 @@ keymap("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>", opts) -- fix last sp
 keymap({ "n", "x" }, "<c-w><c-e>", "<cmd>vnew<cr>", opts) -- new buffer vertical split
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- 	 exit vim safely (vim: not used, or used for terminal control flow)
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- (vim: suspend program (or start new shell))
-keymap("n", "<leader>n", "<cmd>tabnew><cr><cmd>e ~/notes/scratch/main.md<cr>", opts) -- goes to main scratch file
+keymap("n", "<leader>n", ':lua toggle_file_in_split("~/notes/scratch/main.md")<cr>', opts) -- toggle scratch file
 
 -- QUICK FIX LIST =================================
 keymap("n", "<leader>qo", "<cmd>copen<cr>", opts) --   open quickfix
@@ -48,7 +48,10 @@ keymap("n", "<leader>>", "<cmd>tablast<cr>", opts) --     tab last
 keymap("n", "<leader><", "<cmd>tabfirst<cr>", opts) --   tab first
 keymap("n", "<leader>x", "<cmd>tabclose<cr>", opts) --   tab close
 
--- TOGGLE OPTIONS =================================
-keymap({ "n", "x", "i" }, "<c-space><c-w>", "<cmd>set wrap!<cr>", opts)
-keymap({ "n", "x", "i" }, "<c-space><c-l>", "<cmd>set spell!<cr>", opts)
-keymap({ "n", "x", "i" }, "<c-space><c-n>", "<cmd>set nu!<cr>", opts)
+-- OPTIONS ========================================
+keymap("n", "<leader>p", "<cmd>set spell!<cr>", opts)
+keymap("n", "<leader>a", "<cmd>set wrap!<cr>", opts)
+keymap("n", "<leader>b", "<cmd>set nu!<cr>", opts)
+keymap({ "x", "i" }, "<c-space><c-p>", "<cmd>set spell!<cr>", opts)
+keymap({ "x", "i" }, "<c-space><c-a>", "<cmd>set wrap!<cr>", opts)
+keymap({ "x", "i" }, "<c-space><c-b>", "<cmd>set nu!<cr>", opts)

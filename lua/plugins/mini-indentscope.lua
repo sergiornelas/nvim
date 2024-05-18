@@ -9,8 +9,8 @@ return {
 		mappings = {
 			object_scope = "<c-o>", -- (vim: switch from Select to Visual mode for one command)
 			object_scope_with_border = "<c-i>",
-			goto_top = "[t",
-			goto_bottom = "]t",
+			goto_top = "[w",
+			goto_bottom = "]w",
 		},
 	},
 	config = function(_, opts)

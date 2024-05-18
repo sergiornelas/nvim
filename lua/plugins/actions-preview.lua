@@ -2,7 +2,7 @@ return {
 	"aznhe21/actions-preview.nvim",
 	keys = {
 		{
-			"<leader>a",
+			"<leader>la",
 			"<cmd>lua require('actions-preview').code_actions()<cr>",
 			mode = { "n", "v" },
 		},

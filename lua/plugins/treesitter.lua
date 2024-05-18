@@ -14,8 +14,9 @@ return {
 				})
 			end,
 			keys = {
-				{ "<leader>u", "<cmd>lua require('treesitter-context').go_to_context()<cr>" },
-				{ "<c-space><c-t>", "<cmd>TSContextToggle<cr>", mode = { "n", "x", "i" } },
+				{ "<leader>y", "<cmd>lua require('treesitter-context').go_to_context()<cr>" },
+				{ "<leader>u", "<cmd>TSContextToggle<cr>", mode = "n" },
+				{ "<c-space><c-u>", "<cmd>TSContextToggle<cr>", mode = { "i", "x" } },
 			},
 		},
 		{

@@ -1,10 +1,11 @@
+-- Interesting LSP config:
+-- https://github.com/MariaSolOs/dotfiles/blob/597848ee02e6500454d6b5817a1ed0928e80dafa/.config/nvim/lua/lsp.lua#L105-L119
 local keymap = vim.keymap.set
+local methods = vim.lsp.protocol.Methods
 
-keymap("n", "go", '<cmd>lua vim.diagnostic.open_float(0, { scope = "cursor", border = "single" })<CR>') -- (vim: cursor to byte N in the buffer)
-keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>')
 keymap("n", "gB", '<cmd>lua vim.diagnostic.open_float(0, { scope = "buffer", border = "double" })<CR>')
-keymap("n", "[w", vim.diagnostic.goto_prev)
-keymap("n", "]w", vim.diagnostic.goto_next)
+keymap("n", "[d", vim.diagnostic.goto_prev) -- (vim: go to prev diagnostic no float w.(nvim 0.10))
+keymap("n", "]d", vim.diagnostic.goto_next) -- (vim: go to next diagnostic no float w.(nvim 0.10))
 keymap(
 	"n",
 	"[e",
@@ -19,6 +20,14 @@ keymap(
 keymap("n", "<leader>ld", vim.diagnostic.setloclist)
 keymap("n", "<leader>qd", vim.diagnostic.setqflist)
 
+function ToggleDiagnostic()
+	if vim.diagnostic.is_enabled() then
+		vim.diagnostic.enable(false)
+	else
+		vim.diagnostic.enable()
+	end
+end
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
@@ -28,7 +37,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf }
 		-- keymap("n", "gh", lsp.declaration, opts) -- not supported by any of the servers registered: (lua, ts) (vim: start Select mode)
 		keymap("n", "gd", lsp.definition, opts) -- (vim: go to definition of word under the cursor in current function)
-		keymap("n", "K", lsp.hover, opts) -- (vim: lookup Keyword under the cursor with 'keywordprg')
 		keymap("n", "ga", lsp.implementation, opts) -- (vim: print ascii value of character under the cursor)
 		keymap("n", "gs", lsp.signature_help, opts) -- (vim: go to sleep for N seconds (default 1))
 		keymap("i", "<c-space><c-s>", lsp.signature_help, opts)
@@ -37,9 +45,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap("n", "<leader>lL", function()
 			print(vim.inspect(lsp.list_workspace_folders()))
 		end, opts)
-		keymap("n", "gy", lsp.type_definition, opts)
+		keymap("n", "<leader>D", lsp.type_definition, opts)
 		keymap("n", "<leader>ln", lsp.rename, opts)
-		-- keymap({ "n", "x" }, "g<leader>", lsp.code_action, opts) -- using plugin actions-preview
+		-- keymap({ "n", "x" }, "<leader>la", lsp.code_action, opts) -- using plugin actions-preview
 		keymap("n", "<leader>lr", lsp.references, opts)
 		keymap("n", "<leader>lf", function()
 			lsp.format({ async = true })
@@ -48,34 +56,46 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap("n", "<leader>lO", lsp.outgoing_calls, opts)
 		keymap("n", "<leader>ls", lsp.document_symbol, opts)
 		keymap("n", "<leader>lw", lsp.workspace_symbol, opts)
-		keymap({ "n", "x", "i" }, "<c-space><c-i>", function()
-			if vim.lsp.inlay_hint.is_enabled() then
-				vim.lsp.inlay_hint.enable(0, false)
-			else
-				vim.lsp.inlay_hint.enable(0, true)
-			end
-		end, opts)
-		keymap({ "n", "x", "i" }, "<c-space><c-d>", function()
-			if vim.diagnostic.is_disabled() then
-				vim.diagnostic.enable()
-			else
-				vim.diagnostic.disable()
-			end
-		end, { desc = "Toggle diagnostics" })
+		keymap("n", "<leader>h", function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+		end)
+		keymap("x", "<c-space><c-h>", function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+		end)
+		keymap("n", "<leader>lt", function()
+			ToggleDiagnostic()
+		end)
+		keymap("x", "<c-space><c-l>", function()
+			ToggleDiagnostic()
+		end)
 	end,
-	keymap("n", "gL", "<cmd>LspInfo<cr>"),
+	keymap("n", "gl", "<cmd>LspInfo<cr>"),
 })
 
 local M = {}
 
 M.on_attach = function(client, bufnr)
 	require("nvim-navic").attach(client, bufnr)
-	if client.server_capabilities.inlayHintProvider then
-		vim.lsp.inlay_hint.enable(0, true)
+	if client.supports_method(methods.textDocument_inlayHint) then
+		vim.lsp.inlay_hint.enable(true)
+		vim.api.nvim_create_autocmd("InsertEnter", {
+			desc = "Enable inlay hints",
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
+			end,
+		})
+		vim.api.nvim_create_autocmd("InsertLeave", {
+			desc = "Disable inlay hints",
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+			end,
+		})
 		-- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
 	end
 	if client.name == "typescript-tools" then
-		keymap("n", "gz", "<cmd>TSToolsGoToSourceDefinition<cr>")
+		keymap("n", "go", "<cmd>TSToolsGoToSourceDefinition<cr>") -- (vim: cursor to byte N in the buffer)
 	end
 end
 

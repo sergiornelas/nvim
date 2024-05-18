@@ -14,7 +14,7 @@ return {
 					MkdnYankFileAnchorLink = { "n", "yaA" },
 					MkdnToggleToDo = { { "n", "v" }, "<c-]>" }, -- (vim: :ta to ident under cursor, jump to highlighted tag)
 					MkdnUpdateNumbering = { "n", "<leader>mn" },
-					MkdnTablePrevRow = { "i", "<leader>ma" },
+					-- MkdnTablePrevRow = { "i", "<leader>ma" },
 					MkdnTableNewRowBelow = { "n", "<leader>mir" },
 					MkdnTableNewRowAbove = { "n", "<leader>miR" },
 					MkdnTableNewColAfter = { "n", "<leader>mic" },
@@ -30,12 +30,17 @@ return {
 		ft = "markdown",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
+			vim.cmd([[
+        autocmd ColorScheme * highlight Header1 guifg=#ebdbb2 guibg=#471414
+        autocmd ColorScheme * highlight Header2 guifg=#ebdbb2 guibg=#34312F
+        "autocmd ColorScheme * highlight Header3 guifg=#ebdbb2 guibg=#3F414D
+      ]])
 			require("render-markdown").setup({
 				-- headings = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
 				headings = { "☥ ", "☯ ", "▲ ", "⌘ ", "⛧ ", "☪ " },
 				highlights = {
 					heading = {
-						backgrounds = { "DiffAdd", "DiffChange", "DiffDelete" },
+						backgrounds = { "Header1", "Header2", "" },
 					},
 					code = "",
 				},
