@@ -1,6 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 ---@diagnostic disable-next-line: undefined-field
-if not vim.loop.fs_stat(lazypath) then
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
@@ -23,7 +23,6 @@ require("lazy").setup({
 		frequency = 604800, -- check for updates every week
 	},
 	ui = {
-		browser = "Brave",
 		custom_keys = {
 			-- open a terminal for the plugin dir
 			["<space>t"] = function(plugin)

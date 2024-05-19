@@ -56,10 +56,12 @@ vim.cmd([[
   cab sss SessionSave<cr>
   cab ssd SessionDelete<cr>
 
-  " Default cursorline color
+  " Set group colors
   augroup MyColors
     autocmd!
     autocmd ColorScheme * highlight CursorLine guibg=#25424D
+    autocmd ColorScheme * highlight MarkdownHeader1 guifg=#ebdbb2 guibg=#471414
+    autocmd ColorScheme * highlight MarkdownHeader2 guifg=#ebdbb2 guibg=#34312F
   augroup END
 ]])
 

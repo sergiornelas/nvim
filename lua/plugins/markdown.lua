@@ -30,16 +30,12 @@ return {
 		ft = "markdown",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
-			vim.cmd([[
-        autocmd ColorScheme * highlight Header1 guifg=#ebdbb2 guibg=#471414
-        autocmd ColorScheme * highlight Header2 guifg=#ebdbb2 guibg=#34312F
-      ]])
 			require("render-markdown").setup({
 				-- headings = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
 				headings = { "☥ ", "☯ ", "▲ ", "⌘ ", "⛧ ", "☪ " },
 				highlights = {
 					heading = {
-						backgrounds = { "Header1", "Header2", "" },
+						backgrounds = { "MarkdownHeader1", "MarkdownHeader2", "" },
 					},
 					code = "",
 				},

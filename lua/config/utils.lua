@@ -1,16 +1,23 @@
 -- Toggle scratch file
 function _G.toggle_file_in_split(file_path)
 	local found = false
+	-- search it and close if already opened
 	for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
 		if vim.api.nvim_win_get_buf(win) == vim.fn.bufnr(file_path) then
+			vim.cmd("normal! mz")
 			vim.api.nvim_win_close(win, true)
+			vim.cmd("wincmd p")
 			found = true
 			break
 		end
 	end
+	-- open it if scratch file not found
 	if not found then
 		vim.cmd("split " .. file_path)
-		vim.cmd("resize +5")
+		vim.cmd("wincmd J")
+		vim.cmd("normal! `z")
+		vim.cmd("normal! zz")
+		vim.cmd("resize +5 | wincmd p | wincmd p")
 	end
 end
 
