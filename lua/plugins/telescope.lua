@@ -4,6 +4,12 @@ return {
 	build = "make",
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{
+			"crispgm/telescope-heading.nvim",
+			keys = {
+				{ "<leader>fh", "<cmd>Telescope heading<cr>" },
+			},
+		},
 	},
 	config = function()
 		local actions = require("telescope.actions")

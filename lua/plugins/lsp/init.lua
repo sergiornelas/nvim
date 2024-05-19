@@ -1,6 +1,6 @@
 local M = {
 	"neovim/nvim-lspconfig",
-	lazy = false,
+	event = "BufReadPost",
 	dependencies = {
 		{
 			"kosayoda/nvim-lightbulb",

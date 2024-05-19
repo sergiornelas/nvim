@@ -1,4 +1,4 @@
--- Disables TSContext and Fidget when exit (auto-session)
+-- Closes TSContext and Fidget (floating windows) when exit (auto-session)
 function _G.close_floating_windows()
 	for _, win in ipairs(vim.api.nvim_list_wins()) do
 		local config = vim.api.nvim_win_get_config(win)

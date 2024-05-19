@@ -1,6 +1,6 @@
 return {
 	"andersevenrud/nvim_context_vt",
-	lazy = false,
+	event = "BufReadPost",
 	config = function()
 		require("nvim_context_vt").setup({
 			prefix = "~~~>",

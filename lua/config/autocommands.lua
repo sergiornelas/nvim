@@ -40,8 +40,9 @@ vim.cmd([[
   cnoremap <c-o> <c-p>
   " (vim: not used)
 
-  " close quickfix and loclist with escape
+  " close quickfix and loclist with escape and q
   nnoremap <silent> <expr> <esc> &buftype == 'quickfix' ? ":ccl<cr>:lcl<cr>" : '<esc>'
+  nnoremap <silent> <expr> q &buftype == 'quickfix' ? ":ccl<cr>:lcl<cr>" : '<esc>'
 
   " macros
   " switch ^[ to \<esc>, switch ^M to \<cr>, switch ^R to \<c-r>

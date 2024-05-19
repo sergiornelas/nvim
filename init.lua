@@ -27,7 +27,7 @@ require("lazy").setup(plugins, {
 		lazy = true,
 	},
 	ui = {
-		size = { width = 0.1, height = 0.1 }, --- Disable Lazy, to stop updating plugins daily
+		size = { width = 0.8, height = 0.8 }, --- Disable Lazy, to stop updating plugins daily
 		border = "single",
 		browser = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", -- doesn't work
 		custom_keys = {

@@ -79,10 +79,4 @@ return {
 			vim.keymap.set("n", "<leader>me", "<cmd>MarkdownPreview<cr>", { noremap = true, silent = true })
 		end,
 	},
-	{
-		"crispgm/telescope-heading.nvim",
-		keys = {
-			{ "<leader>fh", "<cmd>Telescope heading<cr>" },
-		},
-	},
 }

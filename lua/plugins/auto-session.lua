@@ -22,6 +22,9 @@ function M.config()
 		-- post_restore_cmds
 		-- pre_delete_cmds
 		-- post_delete_cmds
+		session_lens = {
+			load_on_setup = false,
+		},
 	})
 
 	vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,globals"

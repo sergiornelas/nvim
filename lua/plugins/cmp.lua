@@ -1,7 +1,7 @@
 local M = {
 	{
 		"hrsh7th/nvim-cmp",
-		event = "BufReadPost",
+		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -130,7 +130,6 @@ local M = {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
-		event = "InsertEnter",
 	},
 }
 
