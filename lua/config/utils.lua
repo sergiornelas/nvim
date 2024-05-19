@@ -1,7 +1,17 @@
+-- Disables TSContext and Fidget when exit (auto-session)
+function _G.close_floating_windows()
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		local config = vim.api.nvim_win_get_config(win)
+		if config.relative ~= "" then
+			vim.api.nvim_win_close(win, false)
+		end
+	end
+end
+
 -- Toggle scratch file
 function _G.toggle_file_in_split(file_path)
 	local found = false
-	-- search it and close if already opened
+	-- search it and close it if it's already opened
 	for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
 		if vim.api.nvim_win_get_buf(win) == vim.fn.bufnr(file_path) then
 			vim.cmd("normal! mz")
@@ -11,7 +21,7 @@ function _G.toggle_file_in_split(file_path)
 			break
 		end
 	end
-	-- open it if scratch file not found
+	-- open it if the scratch file is not in the current windows
 	if not found then
 		vim.cmd("split " .. file_path)
 		vim.cmd("wincmd J")

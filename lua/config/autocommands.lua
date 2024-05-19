@@ -65,6 +65,7 @@ vim.cmd([[
   augroup END
 ]])
 
+-- Reference commands: ========================
 -- usefull commands:
 -- :wind diffthis - enters diff mode, you can find text differences between two buffers. You need the two buffers & windows opened
 

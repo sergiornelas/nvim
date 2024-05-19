@@ -1,4 +1,3 @@
-vim.g.mapleader = " "
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -11,7 +10,7 @@ keymap("n", "]<leader>", "mxo<esc>`x", opts) --       	      break line down
 keymap("n", "gG", "<cmd>%y+<cr>", opts) --            	     yank full buffer
 keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) -- 	    force exit neovim
 keymap("x", "gG", "VGOgg", opts) --                   	   select full buffer
-keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts) --    	   Lazy plugin status
+-- keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts) --    	   Lazy plugin status
 keymap("n", "y<leader>", "^f:llyE", opts) --           	 yank secret password
 keymap("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>", opts) -- fix last spell
 keymap({ "n", "x" }, "<c-w><c-e>", "<cmd>vnew<cr>", opts) -- new buffer vertical split
