@@ -1,7 +1,6 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap("n", "<leader>w", "<cmd>w<cr>", opts) --       	            save file
 keymap("n", "d<leader>", "cc<esc>", opts) --          	           clear line
 keymap("n", "<leader><leader>", "i<space><esc>", opts) --        adds a space
 keymap("n", "[<leader>", "mxO<esc>`x", opts) --       	        break line up

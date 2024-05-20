@@ -15,7 +15,6 @@ function M.config()
 			theme = "gruvbox",
 			component_separators = { left = "", right = "╎" },
 			section_separators = "",
-			disabled_filetypes = { "NvimTree" },
 			always_divide_middle = true,
 			globalstatus = false,
 			refresh = {

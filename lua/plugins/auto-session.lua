@@ -10,7 +10,7 @@ function M.config()
 	end
 
 	auto_session.setup({
-		pre_save_cmds = { close_floating_windows, "NvimTreeClose", "ccl", "lclose" },
+		pre_save_cmds = { close_floating_windows, "ccl", "lclose" },
 		save_extra_cmds = {
 			-- load last colorscheme by session
 			function()

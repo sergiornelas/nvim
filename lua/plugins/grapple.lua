@@ -1,6 +1,5 @@
 local M = {
 	"cbochs/grapple.nvim",
-	event = "BufReadPost",
 	keys = {
 		{ "g<leader>", "<cmd>Grapple toggle<cr>" },
 		{ "<leader>go", "<cmd>Grapple open_tags<cr>" },
