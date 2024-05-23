@@ -55,7 +55,6 @@ barrett-ruth/import-cost.nvim                                  cost memory of im
 tomiis4/hypersonic.nvim                                         explanation for regex
 yioneko/nvim-vtsls                                      utilize capabilities of vtsls
 Redoxahmii/json-to-types.nvim                        convert JSON to TypeScript types
-brenoprata10/nvim-highlight-colors  virtual text colors          (mature: dissapears)
 
 ARTIFICIAL INTELIGENCE --------------------------------------------------------------
 zbirenbaum/copilot-cmp
@@ -89,7 +88,6 @@ NOTES --------------------------------------------------------------------------
 folke/todo-comments.nvim                                                 pretty notes
 Chaitanyabsprip/present.nvim                                 power point presentation
 JellyApple102/easyread.nvim                                      text colors readable
-luckasRanarison/nvim-devdocs                                       docs all languages
 
 UTILS -------------------------------------------------------------------------------
 danymat/neogen                                    comments on files for documentation
@@ -98,17 +96,13 @@ jghauser/kitty-runner.nvim                                   kitty commands from
 smjonas/live-command.nvim              visual feedback for vim search/global commands
 debugloop/telescope-undo.nvim                                          telescope undo
 3rd/image.nvim                                              images render on markdown
-edluffy/hologram.nvim                                              images on terminal
 axkirillov/easypick.nvim                            telescope with arbitrary commands
 tiagovla/scope.nvim                               workspace by tab (very interesting)
-altermo/ultimate-autopair.nvim       replace tabout, autopair, nvim-surround (mature)
 LunarVim/bigfile.nvim             disables certain features if the opened file is big
 chrisgrieser/nvim-scissors               automagical editing and creation of snippets
 chrisgrieser/nvim-chainsaw                       powerfull auto console.logs (mature)
 rasulomaroff/reactive.nvim              cursor line colors (mature: nvim menu screen)
-tamton-aquib/keys.nvim                              shows keystrokes (mature: ctrl-o)
 LintaoAmons/bookmarks.nvim                    little notes as bookmark in the project
-briangwaltney/paren-hint.nvim  ghost text that shows the text preceding (mature: tsx)
 altermo/nwm                     allows you to use x11 windows as if they were buffers
 NStefan002/screenkey.nvim       displays the keys you are typing in a floating window
 nvim-focus/focus.nvim                                              autoresize windows
@@ -117,11 +111,11 @@ sshelll/telescope-switch.nvim       switch between buffers using some defined fi
 jellydn/typecheck.nvim               seamless TypeScript type checking using quickfix
 
 Last time revisited all these plugins
-01/01/24
+20/05/2024
 
 ====================
 Last time checked this-week-in-neovim
 May 14
 
 Last time checked awesome-neovim
-May 14
+May 20

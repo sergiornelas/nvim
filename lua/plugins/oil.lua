@@ -1,7 +1,7 @@
 return {
 	"stevearc/oil.nvim",
 	keys = {
-		{ "<leader>j", "<cmd>Oil --float<cr>" },
+		{ "<c-space>", "<cmd>Oil --float<cr>" },
 	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
@@ -11,7 +11,7 @@ return {
 				["<c-j>"] = "actions.select",
 				["<c-s>"] = "actions.select_vsplit",
 				["<c-h>"] = "actions.select_split",
-				["<space>j"] = "actions.close",
+				["<c-space>"] = "actions.close",
 				["K"] = "actions.parent",
 				["_"] = "actions.open_cwd",
 				["gs"] = "actions.change_sort",

@@ -1,4 +1,5 @@
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/coding.lua#L171-L188
+-- https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/109
 return {
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	opts = {

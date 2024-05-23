@@ -4,11 +4,19 @@ local cmd = api.nvim_create_autocmd
 
 -- Set specific properties for file types
 cmd("FileType", {
-	pattern = { "markdown", "gitcommit" },
+	pattern = { "markdown" },
 	callback = function()
 		vim.opt_local.colorcolumn = "80"
 		vim.opt_local.textwidth = 80
 		vim.opt_local.wrap = true
+		vim.keymap.set("n", "]e", function()
+			vim.cmd("silent! /^##\\+\\s.*$")
+			vim.cmd("nohlsearch")
+		end)
+		vim.keymap.set("n", "[e", function()
+			vim.cmd("silent! ?^##\\+\\s.*$")
+			vim.cmd("nohlsearch")
+		end)
 	end,
 })
 

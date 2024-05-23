@@ -103,6 +103,7 @@ return {
 
 		telescope.load_extension("fzf")
 		telescope.load_extension("heading")
+		telescope.load_extension("emoji")
 
 		-- Token  	       Match type           	          Description
 		-- -------+-----------------------------+-----------------------------------
@@ -138,7 +139,7 @@ return {
 		{ "<leader>fv", "<cmd>Telescope vim_options<cr>" },
 		{ "<leader>fr", "<cmd>Telescope registers theme=dropdown layout_config={height=50}<cr>" },
 		-- { "<leader>", "<cmd>Telescope autocommands<cr>" },
-		{ "<leader>fl", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
+		{ "<leader>fp", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
 		{ "<leader>fk", "<cmd>Telescope keymaps<cr>" },
 		{ "<leader>fy", "<cmd>Telescope filetypes<cr>" },
 		-- { "<leader>", "<cmd>Telescope highlights<cr>" },
@@ -174,5 +175,7 @@ return {
 		-- Not included in Github
 		-- { "<leader>", "<cmd>Telescope tagstack<cr>" },
 		-- { "<leader>", "<cmd>Telescope fd<cr>" },
+		-- Extras
+		{ "<c-space><c-e>", "<cmd>Telescope emoji theme=cursor layout_config={height=14}<cr>", mode = { "i" } },
 	},
 }

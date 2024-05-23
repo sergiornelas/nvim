@@ -1,31 +1,5 @@
 return {
 	{
-		"jakewvincent/mkdnflow.nvim",
-		ft = { "markdown" },
-		config = function()
-			require("mkdnflow").setup({
-				create_dirs = true,
-				mappings = {
-					MkdnNextHeading = { "n", "]e" },
-					MkdnPrevHeading = { "n", "[e" },
-					MkdnCreateLinkFromClipboard = { { "n", "v" }, "<leader>mc" },
-					MkdnDestroyLink = { "n", "<leader>md" },
-					MkdnTagSpan = { "v", "<leader>mt" },
-					MkdnYankFileAnchorLink = { "n", "yaA" },
-					MkdnToggleToDo = { { "n", "v" }, "<c-]>" }, -- (vim: :ta to ident under cursor, jump to highlighted tag)
-					MkdnUpdateNumbering = { "n", "<leader>mn" },
-					-- MkdnTablePrevRow = { "i", "<leader>ma" },
-					MkdnTableNewRowBelow = { "n", "<leader>mir" },
-					MkdnTableNewRowAbove = { "n", "<leader>miR" },
-					MkdnTableNewColAfter = { "n", "<leader>mic" },
-					MkdnTableNewColBefore = { "n", "<leader>miC" },
-					MkdnFoldSection = { "n", "<leader>mf" },
-					MkdnUnfoldSection = { "n", "<leader>mF" },
-				},
-			})
-		end,
-	},
-	{
 		"MeanderingProgrammer/markdown.nvim",
 		ft = "markdown",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
@@ -75,7 +49,16 @@ return {
 		config = function()
 			vim.g.mkdp_auto_close = 0
 			vim.g.mkdp_page_title = "<${name}/>"
-			vim.keymap.set("n", "<leader>me", "<cmd>MarkdownPreview<cr>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>m", "<cmd>MarkdownPreview<cr>", { noremap = true, silent = true })
 		end,
+	},
+	{
+		"opdavies/toggle-checkbox.nvim",
+		keys = {
+			{
+				"<c-]>", -- (vim :ta to ident under cursor)
+				"<cmd>lua require('toggle-checkbox').toggle()<CR>",
+			},
+		},
 	},
 }

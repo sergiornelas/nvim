@@ -19,6 +19,14 @@ return {
 				javascriptreact = "nvm use 20 && node --watch",
 				typescriptreact = "nvm use 20 && node --watch",
 			},
+			-- SyntaxError: Cannot use import statement outside a module
+			-- project = {
+			-- 	["~/Desktop/coding/react/"] = {
+			-- 		name = "react",
+			-- 		description = "React pet project",
+			-- 		file_name = "src/App.js",
+			-- 	},
+			-- },
 		},
 	},
 }
