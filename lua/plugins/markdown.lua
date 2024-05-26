@@ -17,7 +17,7 @@ return {
 		end,
 	},
 	{
-		"laytan/cloak.nvim",
+		"sergiornelas/cloak.nvim",
 		ft = "markdown",
 		config = function()
 			require("cloak").setup({

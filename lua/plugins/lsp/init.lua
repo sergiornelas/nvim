@@ -14,23 +14,6 @@ local M = {
 				},
 			},
 		},
-		--  wait for mature (bugs):
-		-- {
-		-- 	"ray-x/lsp_signature.nvim",
-		-- 	opts = {
-		-- 		transparency = 23,
-		-- 	},
-		-- 	commit = "c9dc249794e472a8dd7f87c80f9dcbdba4c68ce1",
-		-- 	keys = {
-		-- 		{
-		-- 			"<c-space><c-s>",
-		-- 			function()
-		-- 				require("lsp_signature").toggle_float_win()
-		-- 			end,
-		-- 			mode = "i",
-		-- 		},
-		-- 	},
-		-- },
 	},
 }
 

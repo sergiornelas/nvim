@@ -1,18 +1,20 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap("n", "d<leader>", "cc<esc>", opts) --          	           clear line
-keymap("n", "<leader><leader>", "i<space><esc>", opts) --        adds a space
-keymap("n", "[<leader>", "mxO<esc>`x", opts) --       	        break line up
-keymap("i", "<c-z>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts) --     fix last spell
-keymap("n", "]<leader>", "mxo<esc>`x", opts) --       	      break line down
-keymap("n", "gG", "<cmd>%y+<cr>", opts) --            	     yank full buffer
-keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) -- 	    force exit neovim
-keymap("x", "gG", "VGOgg", opts) --                   	   select full buffer
-keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts) --    	   Lazy plugin status
-keymap("n", "y<leader>", "^f:llyE", opts) --           	 yank secret password
-keymap("n", "<leader>j", "i<c-g>u<Esc>]s1z=`]a<c-g>u<esc>", opts) -- fix next spell
-keymap("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>", opts) -- fix prev spell
+keymap("n", "d<leader>", "cc<esc>", opts) --          	                    clear line
+keymap("n", "<leader><leader>", "i<space><esc>", opts) --                 adds a space
+keymap("n", "[<leader>", "mxO<esc>`x", opts) --       	                 break line up
+keymap("i", "<c-z>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts) --              fix last spell
+keymap("n", "<leader>j", "i<c-g>u<Esc>]s1z=`]a<c-g>u<esc>", opts) --    fix next spell
+keymap("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>", opts) --    fix prev spell
+keymap("n", "]<leader>", "mxo<esc>`x", opts) --       	               break line down
+keymap("n", "gG", "<cmd>%y+<cr>", opts) --            	              yank full buffer
+keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) -- 	             force exit neovim
+keymap("x", "gG", "VGOgg", opts) --                   	            select full buffer
+keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts) --    	            Lazy plugin status
+keymap("n", "y<leader>", "^f:llyE", opts) --           	          yank secret password
+keymap("i", "<c-space><c-j>", "<Esc>o- [ ] ", opts) --           create checkbox below
+keymap("i", "<c-space><c-k>", "<Esc>O- [ ] ", opts) --           create checkbox above
 keymap({ "n", "x" }, "<c-w><c-e>", "<cmd>vnew<cr>", opts) -- new buffer vertical split
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- 	 exit vim safely (vim: not used, or used for terminal control flow, visual block)
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- (vim: suspend program (or start new shell))
@@ -48,9 +50,9 @@ keymap("n", "<leader><", "<cmd>tabfirst<cr>", opts) --   tab first
 keymap("n", "<leader>y", "<cmd>tabclose<cr>", opts) --   tab close
 
 -- OPTIONS ========================================
-keymap("n", "<leader>p", "<cmd>set spell!<cr>", opts)
-keymap("n", "<leader>a", "<cmd>set wrap!<cr>", opts)
-keymap("n", "<leader>b", "<cmd>set nu!<cr>", opts)
-keymap({ "x", "i" }, "<c-space><c-p>", "<cmd>set spell!<cr>", opts)
-keymap({ "x", "i" }, "<c-space><c-a>", "<cmd>set wrap!<cr>", opts)
-keymap({ "x", "i" }, "<c-space><c-b>", "<cmd>set nu!<cr>", opts)
+keymap({ "n", "x" }, "<leader>p", "<cmd>set spell!<cr>", opts)
+keymap({ "n", "x" }, "<leader>a", "<cmd>set wrap!<cr>", opts)
+keymap({ "n", "x" }, "<leader>b", "<cmd>set nu!<cr>", opts)
+keymap("i", "<c-space><c-p>", "<cmd>set spell!<cr>", opts)
+keymap("i", "<c-space><c-a>", "<cmd>set wrap!<cr>", opts)
+keymap("i", "<c-space><c-b>", "<cmd>set nu!<cr>", opts)

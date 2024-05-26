@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
@@ -25,6 +25,9 @@ require("config.keymaps")
 require("lazy").setup(plugins, {
 	defaults = {
 		lazy = true,
+	},
+	git = {
+		timeout = 20, -- kill processes that take more than 20 seconds
 	},
 	ui = {
 		size = { width = 0.8, height = 0.8 }, --- Disable Lazy, to stop updating plugins daily

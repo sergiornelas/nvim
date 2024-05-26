@@ -16,12 +16,12 @@ return {
 				local opts = { noremap = true, silent = true }
 				keymap({ "n", "x" }, "<leader>u", "<cmd>TSContextToggle<cr>", opts)
 				keymap("i", "<c-space><c-u>", "<cmd>TSContextToggle<cr>", opts)
-				keymap("n", "<leader>tu", "<cmd>lua require('treesitter-context').go_to_context(1)<cr>", opts)
-				for i = 2, 9 do
+				keymap("n", "<leader>t0", "<cmd>lua require('treesitter-context').go_to_context(1)<cr>", opts)
+				for i = 1, 9 do
 					local cmd = "<cmd>lua require('treesitter-context').go_to_context(" .. i .. ")<cr>"
 					keymap("n", "<leader>t" .. i, cmd, opts)
 				end
-				keymap("n", "<leader>t<leader>", "<cmd>lua require('treesitter-context').go_to_context(99)<cr>", opts)
+				keymap("n", "<leader>tu", "<cmd>lua require('treesitter-context').go_to_context(99)<cr>", opts)
 			end,
 		},
 		{
