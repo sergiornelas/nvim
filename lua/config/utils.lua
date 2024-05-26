@@ -25,7 +25,7 @@ function _G.toggle_file_in_split(file_path)
 	end
 	-- open it if the scratch file is not in the current windows
 	if not found then
-		vim.cmd("split " .. file_path)
+		vim.cmd("keepalt split " .. file_path)
 		vim.cmd("wincmd J")
 		vim.cmd("normal! `z")
 		vim.cmd("normal! zz")

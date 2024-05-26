@@ -5,19 +5,31 @@ return {
 	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		require("oil").setup({
+		local oil = require("oil")
+		oil.setup({
 			keymaps = {
 				["g?"] = "actions.show_help",
 				["<c-j>"] = "actions.select",
 				["<c-s>"] = "actions.select_vsplit",
 				["<c-h>"] = "actions.select_split",
 				["<c-space>"] = "actions.close",
-				["K"] = "actions.parent",
+				["<c-k>"] = "actions.parent",
 				["_"] = "actions.open_cwd",
 				["gs"] = "actions.change_sort",
 				["gx"] = "actions.open_external",
 				["g."] = "actions.toggle_hidden",
 				["g\\"] = "actions.toggle_trash",
+				["yp"] = {
+					callback = function()
+						local entry = oil.get_cursor_entry()
+						local dir = oil.get_current_dir()
+						if not entry or not dir then
+							return
+						end
+						local relpath = vim.fn.fnamemodify(dir, ":.")
+						vim.fn.setreg("+", relpath .. entry.name)
+					end,
+				},
 			},
 			-- Configuration for the floating window in oil.open_float
 			float = {

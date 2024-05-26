@@ -20,14 +20,6 @@ keymap(
 keymap("n", "<leader>ld", vim.diagnostic.setloclist)
 keymap("n", "<leader>qd", vim.diagnostic.setqflist)
 
-function ToggleDiagnostic()
-	if vim.diagnostic.is_enabled() then
-		vim.diagnostic.enable(false)
-	else
-		vim.diagnostic.enable()
-	end
-end
-
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
@@ -56,17 +48,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap("n", "<leader>lO", lsp.outgoing_calls, opts)
 		keymap("n", "<leader>ls", lsp.document_symbol, opts)
 		keymap("n", "<leader>lw", lsp.workspace_symbol, opts)
-		keymap("n", "<leader>h", function()
+		keymap({ "n", "x" }, "<leader>i", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
 		end)
-		keymap("x", "<c-space><c-h>", function()
+		keymap("i", "<c-space><c-i>", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
 		end)
-		keymap("n", "<leader>lt", function()
-			ToggleDiagnostic()
-		end)
-		keymap("x", "<c-space><c-l>", function()
-			ToggleDiagnostic()
+		keymap({ "n", "x" }, "<leader>lt", function()
+			if vim.diagnostic.is_enabled() then
+				vim.diagnostic.enable(false)
+			else
+				vim.diagnostic.enable()
+			end
 		end)
 	end,
 	keymap("n", "gL", "<cmd>LspInfo<cr>"),
@@ -78,18 +71,6 @@ M.on_attach = function(client, bufnr)
 	require("nvim-navic").attach(client, bufnr)
 	if client.supports_method(methods.textDocument_inlayHint) then
 		vim.lsp.inlay_hint.enable(true)
-		vim.api.nvim_create_autocmd("InsertEnter", {
-			buffer = bufnr,
-			callback = function()
-				vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
-			end,
-		})
-		vim.api.nvim_create_autocmd("InsertLeave", {
-			buffer = bufnr,
-			callback = function()
-				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-			end,
-		})
 		-- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
 	end
 	if client.name == "typescript-tools" then

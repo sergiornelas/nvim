@@ -43,6 +43,7 @@ aaronhallaert/advanced-git-search.nvim                      git telescope integr
 fredeeb/tardis.nvim                                    time travel current buffer git
 isak102/telescope-git-file-history.nvim                 open/preview the current file
 FabijanZulj/blame.nvim                                         git blame in all lines
+echasnovski/mini-git                                          vim-fugitive for neovim
 
 FRONTEND ----------------------------------------------------------------------------
 vuki656/package-info.nvim                                                        node
@@ -109,6 +110,7 @@ nvim-focus/focus.nvim                                              autoresize wi
 nfrid/due.nvim                simple plugin that provides you due for the date string
 sshelll/telescope-switch.nvim       switch between buffers using some defined filters
 jellydn/typecheck.nvim               seamless TypeScript type checking using quickfix
+luckasRanarison/clear-action.nvim code actions with fully customizable signs, actions
 
 Last time revisited all these plugins
 20/05/2024
@@ -118,4 +120,4 @@ Last time checked this-week-in-neovim
 May 14
 
 Last time checked awesome-neovim
-May 20
+May 25

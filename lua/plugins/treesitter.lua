@@ -12,12 +12,17 @@ return {
 					line_numbers = true,
 					multiline_threshold = 20, -- Maximum number of lines to show for a single context
 				})
+				local keymap = vim.keymap.set
+				local opts = { noremap = true, silent = true }
+				keymap({ "n", "x" }, "<leader>u", "<cmd>TSContextToggle<cr>", opts)
+				keymap("i", "<c-space><c-u>", "<cmd>TSContextToggle<cr>", opts)
+				keymap("n", "<leader>tu", "<cmd>lua require('treesitter-context').go_to_context(1)<cr>", opts)
+				for i = 2, 9 do
+					local cmd = "<cmd>lua require('treesitter-context').go_to_context(" .. i .. ")<cr>"
+					keymap("n", "<leader>t" .. i, cmd, opts)
+				end
+				keymap("n", "<leader>t<leader>", "<cmd>lua require('treesitter-context').go_to_context(99)<cr>", opts)
 			end,
-			keys = {
-				{ "<leader>tu", "<cmd>lua require('treesitter-context').go_to_context()<cr>" },
-				{ "<leader>u", "<cmd>TSContextToggle<cr>", mode = "n" },
-				{ "<c-space><c-u>", "<cmd>TSContextToggle<cr>", mode = { "i", "x" } },
-			},
 		},
 		{
 			"hiphish/rainbow-delimiters.nvim",

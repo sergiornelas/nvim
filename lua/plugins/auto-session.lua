@@ -26,8 +26,6 @@ function M.config()
 			load_on_setup = false,
 		},
 	})
-
-	vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,globals"
 end
 
 return M

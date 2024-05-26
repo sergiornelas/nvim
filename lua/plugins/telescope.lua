@@ -117,13 +117,13 @@ return {
 	end,
 	keys = {
 		-- File Pickers
-		{ "<leader>i", "<cmd>Telescope find_files<cr>" },
+		{ "<leader>fi", "<cmd>Telescope find_files<cr>" },
 		{ "<leader>gf", "<cmd>Telescope git_files<cr>" },
 		{ "<leader>fw", "<cmd>Telescope grep_string<cr>", mode = { "n", "x" } },
-		{ "<leader>v", "<cmd>Telescope live_grep<cr>" },
+		{ "<leader>fl", "<cmd>Telescope live_grep<cr>" },
 		-- Vim pickers
-		{ "<leader>o", "<cmd>Telescope buffers theme=dropdown prompt_title=Teleport⚡ <cr>" },
-		{ "<leader>fo", "<cmd>Telescope oldfiles theme=ivy<cr>" },
+		{ "<leader>fo", "<cmd>Telescope buffers theme=dropdown prompt_title=Teleport⚡ <cr>" },
+		{ "<leader>fd", "<cmd>Telescope oldfiles theme=ivy<cr>" },
 		-- { "<leader>", "<cmd>Telescope commands<cr>" },
 		-- { "<leader>", "<cmd>Telescope tags<cr>" },
 		{ "<leader>:", "<cmd>Telescope command_history layout_config={height=30}<cr>" },
@@ -134,7 +134,7 @@ return {
 		-- { "<leader>c", "<cmd>Telescope colorscheme<cr>" }, -- added in colorschemes.lua
 		{ "<leader>fq", "<cmd>Telescope quickfix<cr>" },
 		{ "<leader>fQ", "<cmd>Telescope quickfixhistory<cr>" },
-		{ "<leader>fi", "<cmd>Telescope loclist<cr>" },
+		{ "<leader>fs", "<cmd>Telescope loclist<cr>" },
 		{ "<leader>fj", "<cmd>Telescope jumplist<cr>" },
 		{ "<leader>fv", "<cmd>Telescope vim_options<cr>" },
 		{ "<leader>fr", "<cmd>Telescope registers theme=dropdown layout_config={height=50}<cr>" },

@@ -68,9 +68,11 @@ vim.cmd([[
   " Set group colors
   augroup MyColors
     autocmd!
-    autocmd ColorScheme * highlight CursorLine guibg=#25424D
-    autocmd ColorScheme * highlight MarkdownHeader1 guifg=#ebdbb2 guibg=#471414
-    autocmd ColorScheme * highlight MarkdownHeader2 guifg=#ebdbb2 guibg=#34312F
+    autocmd ColorScheme * hi CursorLine guibg=#25424D
+    autocmd ColorScheme * hi MarkdownHeader1 guifg=#ebdbb2 guibg=#471414
+    autocmd ColorScheme * hi MarkdownHeader2 guifg=#ebdbb2 guibg=#34312F
+    autocmd ColorScheme * hi TreesitterContext guibg=#34312F
+    autocmd ColorScheme * hi TreesitterContextBottom gui=underline guisp=#887F68
   augroup END
 ]])
 

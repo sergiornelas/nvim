@@ -81,7 +81,7 @@ local M = {
 							fallback()
 						end
 					end, { "i", "s" }),
-					["<c-v>"] = cmp.mapping(function() -- (vim: insert next non-digit literally)
+					["<c-v>"] = cmp.mapping(function() -- (vim: insert next non-digit literally, same as c-q)
 						luasnip.expand_or_jump()
 					end, { "i", "s" }),
 					["<c-;>"] = cmp.mapping(function()
@@ -94,7 +94,6 @@ local M = {
 					{ name = "buffer" },
 					{ name = "calc" },
 					{ name = "path" },
-					{ name = "emoji" },
 					-- { name = "buffer", keyword_length = 5 },
 				},
 				sorting = {
