@@ -3,8 +3,9 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		draw = {
-			delay = 100,
-			-- animation = indentscope.gen_animation.none(),
+			animation = function()
+				return 0
+			end,
 		},
 		mappings = {
 			object_scope = "<c-o>", -- (vim: switch from Select to Visual mode for one command)

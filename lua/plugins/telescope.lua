@@ -162,7 +162,7 @@ return {
 		{ "<leader>gc", "<cmd>Telescope git_commits<cr>" },
 		{ "<leader>gm", "<cmd>Telescope git_bcommits<cr>" },
 		{ "<leader>gM", "<cmd>Telescope git_bcommits_range<cr>" },
-		{ "<leader>gb", "<cmd>Telescope git_branches<cr>" },
+		{ "<leader>gr", "<cmd>Telescope git_branches<cr>" },
 		{ "<leader>gs", "<cmd>Telescope git_status<cr>" },
 		{ "<leader>gh", "<cmd>Telescope git_stash<cr>" },
 		-- Treesitter Pickers
@@ -176,6 +176,6 @@ return {
 		-- { "<leader>", "<cmd>Telescope tagstack<cr>" },
 		-- { "<leader>", "<cmd>Telescope fd<cr>" },
 		-- Extras
-		{ "<c-space><c-e>", "<cmd>Telescope emoji theme=cursor layout_config={height=14}<cr>", mode = { "i" } },
+		{ "<c-g><c-e>", "<cmd>Telescope emoji theme=cursor layout_config={height=14}<cr>", mode = { "i" } },
 	},
 }

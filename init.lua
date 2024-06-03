@@ -30,7 +30,7 @@ require("lazy").setup(plugins, {
 		timeout = 20, -- kill processes that take more than 20 seconds
 	},
 	ui = {
-		size = { width = 0.8, height = 0.8 }, --- Disable Lazy, to stop updating plugins daily
+		size = { width = 0.8, height = 0.8 },
 		border = "single",
 		browser = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", -- doesn't work
 		custom_keys = {

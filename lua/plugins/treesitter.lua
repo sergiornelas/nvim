@@ -15,7 +15,7 @@ return {
 				local keymap = vim.keymap.set
 				local opts = { noremap = true, silent = true }
 				keymap({ "n", "x" }, "<leader>u", "<cmd>TSContextToggle<cr>", opts)
-				keymap("i", "<c-space><c-u>", "<cmd>TSContextToggle<cr>", opts)
+				keymap("i", "<c-g><c-t>", "<cmd>TSContextToggle<cr>", opts)
 				keymap("n", "<leader>t0", "<cmd>lua require('treesitter-context').go_to_context(1)<cr>", opts)
 				for i = 1, 9 do
 					local cmd = "<cmd>lua require('treesitter-context').go_to_context(" .. i .. ")<cr>"

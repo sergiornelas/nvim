@@ -13,8 +13,8 @@ keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) -- 	             force exit n
 keymap("x", "gG", "VGOgg", opts) --                   	            select full buffer
 keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts) --    	            Lazy plugin status
 keymap("n", "y<leader>", "^f:llyE", opts) --           	          yank secret password
-keymap("i", "<c-space><c-j>", "<Esc>o- [ ] ", opts) --           create checkbox below
-keymap("i", "<c-space><c-k>", "<Esc>O- [ ] ", opts) --           create checkbox above
+keymap("i", "<c-g><c-[>", "<Esc>o- [ ] ", opts) --               create checkbox below
+keymap("i", "<c-g><c-]>", "<Esc>O- [ ] ", opts) --               create checkbox above
 keymap({ "n", "x" }, "<c-w><c-e>", "<cmd>vnew<cr>", opts) -- new buffer vertical split
 keymap("n", "<c-q>", "<cmd>qa<cr>", opts) -- 	 exit vim safely (vim: not used, or used for terminal control flow, visual block)
 keymap({ "n", "x" }, "<c-z>", "<cmd>echo 'Be careful!'<cr>", opts) -- (vim: suspend program (or start new shell))
@@ -53,6 +53,6 @@ keymap("n", "<leader>y", "<cmd>tabclose<cr>", opts) --   tab close
 keymap({ "n", "x" }, "<leader>p", "<cmd>set spell!<cr>", opts)
 keymap({ "n", "x" }, "<leader>a", "<cmd>set wrap!<cr>", opts)
 keymap({ "n", "x" }, "<leader>b", "<cmd>set nu!<cr>", opts)
-keymap("i", "<c-space><c-p>", "<cmd>set spell!<cr>", opts)
-keymap("i", "<c-space><c-a>", "<cmd>set wrap!<cr>", opts)
-keymap("i", "<c-space><c-b>", "<cmd>set nu!<cr>", opts)
+keymap("i", "<c-g><c-p>", "<cmd>set spell!<cr>", opts)
+keymap("i", "<c-g><c-a>", "<cmd>set wrap!<cr>", opts)
+keymap("i", "<c-g><c-b>", "<cmd>set nu!<cr>", opts)

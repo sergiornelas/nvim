@@ -9,8 +9,8 @@ return {
 				replace_keycodes = false,
 			})
 			vim.g.copilot_no_tab_map = true
-			vim.keymap.set("i", "<c-g>", "<Plug>(copilot-next)")
-			vim.keymap.set("i", "<c-b>", "<Plug>(copilot-previous)")
+			vim.keymap.set("i", "<c-space>", "<Plug>(copilot-next)")
+			vim.keymap.set("i", "<c-;>", "<Plug>(copilot-previous)")
 			vim.keymap.set("i", "<c-l>", "<Plug>(copilot-dismiss)")
 			vim.api.nvim_create_autocmd("ColorScheme", {
 				callback = function()
@@ -60,7 +60,7 @@ return {
 				mode = { "x" },
 			},
 			{
-				"<leader>co",
+				"<leader>h",
 				"<cmd>CopilotChatOpen<cr>",
 				mode = { "n", "x" },
 			},
@@ -90,7 +90,7 @@ return {
 				mode = { "n", "x" },
 			},
 			{
-				"<leader>cp",
+				"<leader>co",
 				"<cmd>CopilotChatOptimize<cr>",
 				mode = { "n", "x" },
 			},

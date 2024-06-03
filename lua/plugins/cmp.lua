@@ -84,7 +84,7 @@ local M = {
 					["<c-v>"] = cmp.mapping(function() -- (vim: insert next non-digit literally, same as c-q)
 						luasnip.expand_or_jump()
 					end, { "i", "s" }),
-					["<c-;>"] = cmp.mapping(function()
+					["<c-b>"] = cmp.mapping(function()
 						luasnip.jump(-1)
 					end, { "i", "s" }),
 				}),

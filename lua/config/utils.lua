@@ -29,7 +29,7 @@ function _G.toggle_file_in_split(file_path)
 		vim.cmd("wincmd J")
 		vim.cmd("normal! `z")
 		vim.cmd("normal! zz")
-		vim.cmd("resize +5 | wincmd p | wincmd p")
+		vim.cmd("resize +6 | wincmd p | wincmd p")
 	end
 end
 

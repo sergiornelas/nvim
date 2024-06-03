@@ -1,3 +1,6 @@
+https://www.youtube.com/watch?v=yCgieVu13VQ
+https://github.com/sxyazi/yazi?tab=readme-ov-file  Blazing Fast Terminal File Manager
+
 LSP ---------------------------------------------------------------------------------
 hedyhli/outline.nvim                                    enhanced symbols-outline.nvim
 stevearc/aerial.nvim                                                 LSP Diagram menu
@@ -44,6 +47,7 @@ fredeeb/tardis.nvim                                    time travel current buffe
 isak102/telescope-git-file-history.nvim                 open/preview the current file
 FabijanZulj/blame.nvim                                         git blame in all lines
 echasnovski/mini-git                                          vim-fugitive for neovim
+SuperBo/fugit2.nvim                                                    neovim git GUI
 
 FRONTEND ----------------------------------------------------------------------------
 vuki656/package-info.nvim                                                        node
@@ -111,6 +115,7 @@ nfrid/due.nvim                simple plugin that provides you due for the date s
 sshelll/telescope-switch.nvim       switch between buffers using some defined filters
 jellydn/typecheck.nvim               seamless TypeScript type checking using quickfix
 luckasRanarison/clear-action.nvim code actions with fully customizable signs, actions
+MagicDuck/grug-far.nvim                            Find And Replace plugin for neovim
 
 Last time revisited all these plugins
 20/05/2024
@@ -120,4 +125,4 @@ Last time checked this-week-in-neovim
 May 14
 
 Last time checked awesome-neovim
-May 25
+Jun 03
