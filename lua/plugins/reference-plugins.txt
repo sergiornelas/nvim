@@ -1,6 +1,3 @@
-https://www.youtube.com/watch?v=yCgieVu13VQ
-https://github.com/sxyazi/yazi?tab=readme-ov-file  Blazing Fast Terminal File Manager
-
 LSP ---------------------------------------------------------------------------------
 hedyhli/outline.nvim                                    enhanced symbols-outline.nvim
 stevearc/aerial.nvim                                                 LSP Diagram menu
@@ -115,14 +112,15 @@ nfrid/due.nvim                simple plugin that provides you due for the date s
 sshelll/telescope-switch.nvim       switch between buffers using some defined filters
 jellydn/typecheck.nvim               seamless TypeScript type checking using quickfix
 luckasRanarison/clear-action.nvim code actions with fully customizable signs, actions
-MagicDuck/grug-far.nvim                            Find And Replace plugin for neovim
+MagicDuck/grug-far.nvim                            find and replace plugin for neovim
+VoxelPrismatic/rabbit.nvim                               remembers history per window
 
 Last time revisited all these plugins
 20/05/2024
 
 ====================
 Last time checked this-week-in-neovim
-May 14
+Jun 09
 
 Last time checked awesome-neovim
-Jun 03
+Jun 09

@@ -1,3 +1,7 @@
+-- replace cmp with new builtin completion, future reference:
+-- https://www.reddit.com/r/neovim/comments/1d7j0c1/a_small_gist_to_use_the_new_builtin_completion/
+-- https://gist.github.com/MariaSolOs/2e44a86f569323c478e5a078d0cf98cc
+
 local M = {
 	{
 		"hrsh7th/nvim-cmp",

@@ -15,6 +15,17 @@ return {
 		local actions = require("telescope.actions")
 		local telescope = require("telescope")
 
+		local send_find_files_to_live_grep = function()
+			local files = {}
+			local prompt_bufnr = vim.api.nvim_get_current_buf()
+			require("telescope.actions.utils").map_entries(prompt_bufnr, function(entry, _, _)
+				table.insert(files, entry[0] or entry[1])
+			end)
+			require("telescope.builtin").live_grep({
+				search_dirs = files,
+			})
+		end
+
 		telescope.setup({
 			defaults = {
 				layout_strategy = "vertical", --horizontal/vertical/flex
@@ -60,6 +71,13 @@ return {
 				},
 			},
 			pickers = {
+				find_files = {
+					mappings = {
+						i = {
+							["<c-e>"] = send_find_files_to_live_grep,
+						},
+					},
+				},
 				colorscheme = {
 					enable_preview = true,
 				},

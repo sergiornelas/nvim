@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			print(vim.inspect(lsp.list_workspace_folders()))
 		end, opts)
 		keymap("n", "<leader>D", lsp.type_definition, opts)
-		keymap("n", "<leader>ln", lsp.rename, opts)
+		keymap("n", "<leader>le", lsp.rename, opts)
 		-- keymap({ "n", "x" }, "<leader>la", lsp.code_action, opts) -- using plugin actions-preview
 		keymap("n", "<leader>lr", lsp.references, opts)
 		keymap("n", "<leader>lf", function()

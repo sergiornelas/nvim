@@ -3,7 +3,6 @@
 -- Is more confortable to navigate with than Trouble.nvim
 -- * Navigate between files, not only via references
 -- * No constantly folding/unfolding
--- * No pressing j twice to go next reference file
 -- See more buffers in the list
 -- It is lighter
 -- More aesthetic imo

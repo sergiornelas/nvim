@@ -51,6 +51,10 @@ return {
 					normal = "",
 					insert = "",
 				},
+				accept_diff = {
+					normal = "",
+					insert = "",
+				},
 			},
 		},
 		keys = {
