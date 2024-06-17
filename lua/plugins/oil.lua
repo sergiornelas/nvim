@@ -10,11 +10,14 @@ return {
 			keymaps = {
 				["g?"] = "actions.show_help",
 				["<c-j>"] = "actions.select",
-				["<c-s>"] = "actions.select_vsplit",
-				["<c-h>"] = "actions.select_split",
+				["<c-s>"] = { "actions.select_split", opts = { vertical = true } },
+				["<c-h>"] = { "actions.select_split", opts = { horizontal = true } },
+				["<c-t>"] = { "actions.select_split", opts = { tab = true } },
 				["<c-space>"] = "actions.close",
 				["<c-k>"] = "actions.parent",
 				["_"] = "actions.open_cwd",
+				["`"] = "actions.cd",
+				["~"] = { "actions.cd", opts = { scope = "tab" } },
 				["gs"] = "actions.change_sort",
 				["gx"] = "actions.open_external",
 				["g."] = "actions.toggle_hidden",
@@ -28,6 +31,17 @@ return {
 						end
 						local relpath = vim.fn.fnamemodify(dir, ":.")
 						vim.fn.setreg("+", relpath .. entry.name)
+					end,
+				},
+				["gd"] = {
+					callback = function()
+						---@diagnostic disable-next-line: lowercase-global
+						detail = not detail
+						if detail then
+							require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
+						else
+							require("oil").set_columns({ "icon" })
+						end
 					end,
 				},
 			},

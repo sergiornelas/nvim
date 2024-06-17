@@ -123,4 +123,4 @@ Last time checked this-week-in-neovim
 Jun 09
 
 Last time checked awesome-neovim
-Jun 09
+Jun 16

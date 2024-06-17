@@ -80,6 +80,7 @@ return {
 				},
 				colorscheme = {
 					enable_preview = true,
+					ignore_builtins = true,
 				},
 				buffers = {
 					ignore_current_buffer = true, -- if true, don't show the current buffer in the list

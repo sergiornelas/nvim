@@ -13,6 +13,11 @@ return {
 					},
 					code = "",
 				},
+				win_options = {
+					concealcursor = {
+						rendered = "vic",
+					},
+				},
 			})
 		end,
 	},
@@ -49,6 +54,11 @@ return {
 		config = function()
 			vim.g.mkdp_auto_close = 0
 			vim.g.mkdp_page_title = "<${name}/>"
+			vim.cmd([[
+        let g:mkdp_preview_options = {
+        \ 'disable_sync_scroll': 1,
+        \ }
+      ]])
 			vim.keymap.set("n", "<leader>m", "<cmd>MarkdownPreview<cr>", { noremap = true, silent = true })
 		end,
 	},

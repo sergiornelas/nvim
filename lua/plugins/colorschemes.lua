@@ -50,6 +50,13 @@ return {
 		},
 	},
 	{
+		"sho-87/kanagawa-paper.nvim",
+		keys = lazy_map,
+		opts = {
+			transparent = true,
+		},
+	},
+	{
 		"rose-pine/neovim",
 		keys = lazy_map,
 		config = function()

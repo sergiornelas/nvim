@@ -74,7 +74,7 @@ return {
 				mode = { "n", "x" },
 			},
 			{
-				"<leader>cr",
+				"<leader>cc",
 				"<cmd>CopilotChatReset<cr>",
 				mode = { "n", "x" },
 			},
@@ -114,12 +114,12 @@ return {
 				mode = { "n", "x" },
 			},
 			{
-				"<leader>cc",
+				"<leader>cm",
 				"<cmd>CopilotChatCommit<cr>",
 				mode = { "n", "x" },
 			},
 			{
-				"<leader>cC",
+				"<leader>cM",
 				"<cmd>CopilotChatCommitStaged<cr>",
 				mode = { "n", "x" },
 			},
