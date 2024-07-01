@@ -11,6 +11,7 @@ local M = {
 				},
 				virtual_text = {
 					enabled = true,
+					text = "󰌵",
 				},
 			},
 		},

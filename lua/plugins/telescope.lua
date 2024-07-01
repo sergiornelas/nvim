@@ -84,7 +84,7 @@ return {
 				},
 				buffers = {
 					ignore_current_buffer = true, -- if true, don't show the current buffer in the list
-					only_cwd = true, -- if true, only show buffers in the current working directory
+					only_cwd = false, -- if true, only show buffers in the current working directory
 					sort_lastused = true, -- Sorts current and last buffer to the top and selects the lastused
 					sort_mru = true, -- Sorts all buffers after most recent used. Not just the current and last one
 					mappings = {
@@ -141,7 +141,7 @@ return {
 		{ "<leader>fw", "<cmd>Telescope grep_string<cr>", mode = { "n", "x" } },
 		{ "<leader>fl", "<cmd>Telescope live_grep<cr>" },
 		-- Vim pickers
-		{ "<leader>fo", "<cmd>Telescope buffers theme=dropdown prompt_title=Teleport⚡ <cr>" },
+		{ "<leader>fo", "<cmd>Telescope buffers theme=dropdown prompt_title=Teleport<cr>" },
 		{ "<leader>fd", "<cmd>Telescope oldfiles theme=ivy<cr>" },
 		-- { "<leader>", "<cmd>Telescope commands<cr>" },
 		-- { "<leader>", "<cmd>Telescope tags<cr>" },

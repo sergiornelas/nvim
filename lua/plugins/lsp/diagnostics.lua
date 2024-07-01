@@ -2,10 +2,10 @@ local M = {}
 
 function M.setup()
 	local signs = {
-		{ name = "DiagnosticSignError", text = "🔥" },
-		{ name = "DiagnosticSignHint", text = "🔎" },
-		{ name = "DiagnosticSignInfo", text = "ℹ️" },
-		{ name = "DiagnosticSignWarn", text = "⚠️" },
+		{ name = "DiagnosticSignError", text = "" },
+		{ name = "DiagnosticSignHint", text = "" },
+		{ name = "DiagnosticSignInfo", text = "" },
+		{ name = "DiagnosticSignWarn", text = "" },
 	}
 	local hoverBorder = {
 		{ "┌", "FloatBorder" },
@@ -44,7 +44,6 @@ function M.setup()
 
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 		border = hoverBorder,
-		title = "   ",
 	})
 end
 

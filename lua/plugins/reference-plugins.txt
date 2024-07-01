@@ -51,11 +51,12 @@ vuki656/package-info.nvim                                                       
 b0o/SchemaStore.nvim                                                      json schema
 gennaro-tedesco/nvim-jqx                                             json in quickfix
 rest-nvim/rest.nvim                                                           postman
+mistweaverco/kulala.nvim                                                HTTP requests
 vinnymeller/swagger-preview.nvim                                      swagger preview
 ray-x/web-tools.nvim                                         live server for html/css
 barrett-ruth/import-cost.nvim                                  cost memory of imports
 tomiis4/hypersonic.nvim                                         explanation for regex
-yioneko/nvim-vtsls                                      utilize capabilities of vtsls
+yioneko/nvim-vtsls                                   replacement for typescript-tools
 Redoxahmii/json-to-types.nvim                        convert JSON to TypeScript types
 
 ARTIFICIAL INTELIGENCE --------------------------------------------------------------
@@ -120,7 +121,7 @@ Last time revisited all these plugins
 
 ====================
 Last time checked this-week-in-neovim
-Jun 09
+Jun 18
 
 Last time checked awesome-neovim
-Jun 16
+Jun 30

@@ -9,28 +9,29 @@ function _G.close_floating_windows()
 end
 
 -- Toggle scratch file
-function _G.toggle_file_in_split(file_path)
-	local found = false
-	-- search it and close it if it's already opened
-	for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-		if vim.api.nvim_win_get_buf(win) == vim.fn.bufnr(file_path) then
-			vim.cmd("normal! mz")
-			vim.cmd("w")
-			vim.api.nvim_win_close(win, true)
-			vim.cmd("wincmd p")
-			vim.cmd("normal! :<esc>")
-			found = true
-			break
-		end
-	end
-	-- open it if the scratch file is not in the current windows
-	if not found then
-		vim.cmd("keepalt split " .. file_path)
+function _G.toggle_file_in_split(filepath)
+	local RESIZE_AMOUNT = 6
+	_G.file_windows = _G.file_windows or {}
+	local expanded_filepath = vim.fn.expand(filepath)
+	local tab_id = vim.api.nvim_get_current_tabpage()
+	_G.file_windows[tab_id] = _G.file_windows[tab_id] or {}
+	local window_id = _G.file_windows[tab_id][expanded_filepath]
+
+	if window_id and vim.api.nvim_win_is_valid(window_id) then
+		vim.cmd("normal! mZ")
+		vim.cmd("w")
+		vim.api.nvim_win_close(window_id, true)
+		vim.cmd("wincmd p")
+	else
+		vim.cmd("split " .. expanded_filepath)
+		window_id = vim.api.nvim_get_current_win()
 		vim.cmd("wincmd J")
-		vim.cmd("normal! `z")
+		vim.cmd("normal! `Z")
 		vim.cmd("normal! zz")
-		vim.cmd("resize +6 | wincmd p | wincmd p")
+		vim.cmd("resize +" .. RESIZE_AMOUNT .. " | wincmd p | wincmd p")
 	end
+
+	_G.file_windows[tab_id][expanded_filepath] = window_id and vim.api.nvim_win_is_valid(window_id) and window_id or nil
 end
 
 -- Pretty quickfix
@@ -43,7 +44,7 @@ function _G.qftf(info)
 	else
 		items = fn.getloclist(info.winid, { id = info.id, items = 0 }).items
 	end
-	local limit = 31
+	local limit = 55 -- file path limit
 	local fnameFmt1, fnameFmt2 = "%-" .. limit .. "s", "…%." .. (limit - 1) .. "s"
 	local validFmt = "%s │%5d:%-3d│%s %s"
 	for i = info.start_idx, info.end_idx do
@@ -107,7 +108,7 @@ vim.cmd([[
   endfunction
 
   function Auto_Equalize_Width_All_Windows()
-    " one window, no TSContext/Fidget, no tabs  
+    " one window, no floating windows, no tabs 
     if winnr('$') == 1 && tabpagenr('$') == 1
       return
     endif

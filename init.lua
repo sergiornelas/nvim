@@ -1,19 +1,10 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 ---@diagnostic disable-next-line: undefined-field
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
-		lazypath,
-	})
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
 end
 vim.opt.rtp:prepend(lazypath)
-
----@diagnostic disable-next-line: undefined-doc-name, assign-type-mismatch
-local plugins = "plugins" ---@type LazySpec
 
 vim.g.mapleader = " "
 
@@ -22,9 +13,12 @@ require("config.autocommands")
 require("config.utils")
 require("config.keymaps")
 
-require("lazy").setup(plugins, {
+require("lazy").setup({
 	defaults = {
 		lazy = true,
+	},
+	spec = {
+		{ import = "plugins" },
 	},
 	git = {
 		timeout = 20, -- kill processes that take more than 20 seconds
@@ -32,7 +26,8 @@ require("lazy").setup(plugins, {
 	ui = {
 		size = { width = 0.8, height = 0.8 },
 		border = "single",
-		browser = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", -- doesn't work
+		title = " Lazy",
+		browser = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
 		custom_keys = {
 			-- Open lazygit log
 			["<leader>l"] = {
@@ -53,10 +48,7 @@ require("lazy").setup(plugins, {
 		},
 	},
 	checker = {
-		-- automatically check for plugin updates
-		enabled = false,
 		notify = false, -- get a notification when new updates are found
-		frequency = 604800, -- check for updates every week
 	},
 	performance = {
 		rtp = {

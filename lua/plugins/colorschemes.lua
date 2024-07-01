@@ -1,4 +1,3 @@
----@diagnostic disable: inject-field
 local lazy_map = {
 	{
 		"<leader>fc",
@@ -52,9 +51,18 @@ return {
 	{
 		"sho-87/kanagawa-paper.nvim",
 		keys = lazy_map,
-		opts = {
-			transparent = true,
-		},
+		config = function()
+			require("kanagawa-paper").setup({
+				transparent = true,
+				overrides = function()
+					return {
+						NormalFloat = { bg = "none" },
+						FloatBorder = { bg = "none" },
+						FloatTitle = { bg = "none" },
+					}
+				end,
+			})
+		end,
 	},
 	{
 		"rose-pine/neovim",

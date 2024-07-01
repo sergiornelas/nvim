@@ -1,11 +1,22 @@
 return {
 	"stevearc/oil.nvim",
 	keys = {
-		{ "<c-space>", "<cmd>Oil --float<cr>" },
+		{ "<c-space>" },
 	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local oil = require("oil")
+
+		vim.keymap.set("n", "<c-space>", function()
+			require("oil").open_float()
+			vim.wait(1000, function()
+				return oil.get_cursor_entry() ~= nil
+			end)
+			if oil.get_cursor_entry() then
+				oil.open_preview()
+			end
+		end)
+
 		oil.setup({
 			keymaps = {
 				["g?"] = "actions.show_help",
@@ -51,6 +62,7 @@ return {
 				max_width = 80,
 				max_height = 0,
 				border = "single",
+				preview_split = "above",
 				-- win_options = {
 				-- 	winblend = 0, -- bug, only works with initial dir
 				-- },
