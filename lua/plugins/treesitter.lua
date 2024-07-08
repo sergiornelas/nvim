@@ -55,10 +55,6 @@ return {
 				}
 			end,
 		},
-		{
-			"amadeus/vim-mjml",
-			ft = "mjml",
-		},
 	},
 	config = function()
 		local configs_ok, configs = pcall(require, "nvim-treesitter.configs")

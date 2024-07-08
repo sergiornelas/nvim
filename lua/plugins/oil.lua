@@ -3,7 +3,16 @@ return {
 	keys = {
 		{ "<c-space>" },
 	},
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = {
+		"echasnovski/mini.icons",
+		opts = {},
+		init = function()
+			package.preload["nvim-web-devicons"] = function()
+				require("mini.icons").mock_nvim_web_devicons()
+				return package.loaded["nvim-web-devicons"]
+			end
+		end,
+	},
 	config = function()
 		local oil = require("oil")
 

@@ -6,7 +6,7 @@ return {
 			prefix = "~~~>",
 			-- How many lines required after starting position to show virtual text
 			-- Default: 1 (equals two lines total)
-			min_rows = 2,
+			min_rows = 4,
 		})
 	end,
 }

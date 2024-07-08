@@ -59,6 +59,7 @@ return {
 						NormalFloat = { bg = "none" },
 						FloatBorder = { bg = "none" },
 						FloatTitle = { bg = "none" },
+						None = { fg = "#DACBA5" }, -- next hunk show color
 					}
 				end,
 			})
@@ -90,15 +91,6 @@ return {
 		end,
 	},
 	{
-		"tiagovla/tokyodark.nvim",
-		keys = lazy_map,
-		config = function()
-			require("tokyodark").setup({
-				transparent_background = true,
-			})
-		end,
-	},
-	{
 		"ellisonleao/gruvbox.nvim",
 		keys = lazy_map,
 		config = function()
@@ -115,6 +107,11 @@ return {
 		opts = {
 			style = "deep",
 			transparent = true,
+			highlights = {
+				["comments"] = { fg = "#0C7A8E" },
+				["@comment"] = { fg = "#0C7A8E" },
+				["@lsp.type.comment"] = { fg = "#0C7A8E" },
+			},
 		},
 	},
 	{
@@ -132,15 +129,6 @@ return {
 				transparent = true,
 			})
 		end,
-	},
-	{
-		"ramojus/mellifluous.nvim",
-		keys = lazy_map,
-		opts = {
-			transparent_background = {
-				enabled = true,
-			},
-		},
 	},
 	{
 		"craftzdog/solarized-osaka.nvim",
@@ -174,6 +162,13 @@ return {
 	},
 	{
 		"eldritch-theme/eldritch.nvim",
+		keys = lazy_map,
+		opts = {
+			transparent = true,
+		},
+	},
+	{
+		"scottmckendry/cyberdream.nvim",
 		keys = lazy_map,
 		opts = {
 			transparent = true,

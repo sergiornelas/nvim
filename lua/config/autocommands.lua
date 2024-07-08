@@ -1,40 +1,49 @@
-local api = vim.api
-local group = api.nvim_create_augroup("group", { clear = true })
-local cmd = api.nvim_create_autocmd
+local group = vim.api.nvim_create_augroup("group", { clear = true })
+local autocmd = vim.api.nvim_create_autocmd
+local cmd = vim.cmd
+local keymap = vim.keymap.set
 
--- Set specific properties for file types
-cmd("FileType", {
+-- Set specific options/keymaps for markdown files
+autocmd("FileType", {
 	pattern = { "markdown" },
 	callback = function()
 		vim.opt_local.colorcolumn = "80"
 		vim.opt_local.textwidth = 80
 		vim.opt_local.wrap = true
-		vim.keymap.set("n", "]e", function()
-			vim.cmd("silent! /^##\\+\\s.*$")
-			vim.cmd("nohlsearch")
+		keymap("n", "]e", function()
+			cmd("silent! /^##\\+\\s.*$")
+			cmd("nohlsearch")
 		end)
-		vim.keymap.set("n", "[e", function()
-			vim.cmd("silent! ?^##\\+\\s.*$")
-			vim.cmd("nohlsearch")
+		keymap("n", "[e", function()
+			cmd("silent! ?^##\\+\\s.*$")
+			cmd("nohlsearch")
+		end)
+		keymap("n", "gf", function()
+			cmd("normal! $")
+			cmd("normal! h")
+			cmd("normal! gf")
 		end)
 	end,
 })
 
 -- Show yank line highlight
-cmd("TextYankPost", {
+autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank()
 	end,
 })
 
 -- Jump to the last place you’ve visited in a file before exiting
-cmd("BufReadPost", { command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] })
+autocmd(
+	"BufReadPost",
+	{ command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
+)
 
 -- Show cursor line only in active window
-cmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = group })
-cmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = group })
+autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = group })
+autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = group })
 
-vim.cmd([[
+cmd([[
   " Escape insert mode terminal
   :tnoremap <esc> <c-\><c-n>
 
@@ -69,6 +78,10 @@ vim.cmd([[
   augroup MyColors
     autocmd!
     autocmd ColorScheme * hi CursorLine guibg=#25424D
+    autocmd ColorScheme * hi LineNr guifg=#807B7B
+    autocmd Colorscheme * hi MsgArea guifg=#DACBA5
+    autocmd Colorscheme * hi LspInlayHint guifg=#74716A guibg=#161514 gui=italic
+    autocmd Colorscheme * hi ContextVt guifg=#807B7B gui=italic
     autocmd ColorScheme * hi MarkdownHeader1 guifg=#ebdbb2 guibg=#4F4545
     autocmd ColorScheme * hi MarkdownHeader2 guifg=#ebdbb2 guibg=#34312F
     autocmd ColorScheme * hi TreesitterContext guibg=#34312F

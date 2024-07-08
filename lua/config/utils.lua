@@ -23,7 +23,7 @@ function _G.toggle_file_in_split(filepath)
 		vim.api.nvim_win_close(window_id, true)
 		vim.cmd("wincmd p")
 	else
-		vim.cmd("split " .. expanded_filepath)
+		vim.cmd("keepalt split " .. expanded_filepath)
 		window_id = vim.api.nvim_get_current_win()
 		vim.cmd("wincmd J")
 		vim.cmd("normal! `Z")
