@@ -7,7 +7,6 @@ o.expandtab = true --          convert tabs to spaces (useful for markdown extra
 o.ignorecase = true --         ignore case in search patterns
 o.inccommand = "split" --      shows partial off-screen results in a preview window when you type a command
 o.linebreak = true --          avoid wrapping a line in the middle of a word.
-o.mouse = "" --                allow the mouse to be used in neovim
 o.number = true --             show lines number
 o.numberwidth = 1 --           minimal number of columns to use for the line number
 o.pumheight = 10 --            pop up menu height

@@ -1,7 +1,7 @@
 return {
 	"stevearc/oil.nvim",
 	keys = {
-		{ "<c-space>" },
+		{ "<c-space>", "<cmd>Oil --float<cr>" },
 	},
 	dependencies = {
 		"echasnovski/mini.icons",
@@ -15,16 +15,6 @@ return {
 	},
 	config = function()
 		local oil = require("oil")
-
-		vim.keymap.set("n", "<c-space>", function()
-			require("oil").open_float()
-			vim.wait(1000, function()
-				return oil.get_cursor_entry() ~= nil
-			end)
-			if oil.get_cursor_entry() then
-				oil.open_preview()
-			end
-		end)
 
 		oil.setup({
 			keymaps = {

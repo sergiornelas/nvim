@@ -31,6 +31,10 @@ function M.config()
 	end
 
 	grapple.setup({
+		win_opts = {
+			width = 120,
+			height = 14,
+		},
 		scopes = {
 			{
 				name = "bookmarks",

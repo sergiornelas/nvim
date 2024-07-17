@@ -8,30 +8,41 @@ function _G.close_floating_windows()
 	end
 end
 
+-- TODO: Persistent last_file after closing neovim
 -- Toggle scratch file
 function _G.toggle_file_in_split(filepath)
 	local RESIZE_AMOUNT = 6
 	_G.file_windows = _G.file_windows or {}
-	local expanded_filepath = vim.fn.expand(filepath)
-	local tab_id = vim.api.nvim_get_current_tabpage()
-	_G.file_windows[tab_id] = _G.file_windows[tab_id] or {}
-	local window_id = _G.file_windows[tab_id][expanded_filepath]
+
+	local current_tab_id = vim.api.nvim_get_current_tabpage()
+
+	_G.file_windows[current_tab_id] = _G.file_windows[current_tab_id] or {}
+	local window_id = _G.file_windows[current_tab_id].window_id
+	local last_file = _G.file_windows[current_tab_id].last_file or filepath
 
 	if window_id and vim.api.nvim_win_is_valid(window_id) then
-		vim.cmd("normal! mZ")
+		-- Write changes, close window, and return to previous window
 		vim.cmd("w")
+		-- Store the current file path before closing the window
+		_G.file_windows[current_tab_id].last_file = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(window_id))
+		vim.cmd("normal! mz")
 		vim.api.nvim_win_close(window_id, true)
 		vim.cmd("wincmd p")
 	else
-		vim.cmd("keepalt split " .. expanded_filepath)
+		-- Open file in new split window, move it to bottom, center cursor, and resize
+		local full_filepath = vim.fn.expand(last_file)
+		vim.cmd("keepalt split " .. filepath)
+		vim.cmd("e" .. full_filepath)
 		window_id = vim.api.nvim_get_current_win()
+		vim.cmd("normal! `z")
 		vim.cmd("wincmd J")
-		vim.cmd("normal! `Z")
+
 		vim.cmd("normal! zz")
 		vim.cmd("resize +" .. RESIZE_AMOUNT .. " | wincmd p | wincmd p")
 	end
 
-	_G.file_windows[tab_id][expanded_filepath] = window_id and vim.api.nvim_win_is_valid(window_id) and window_id or nil
+	-- Update window ID in file_windows table
+	_G.file_windows[current_tab_id].window_id = window_id and vim.api.nvim_win_is_valid(window_id) and window_id or nil
 end
 
 -- Pretty quickfix

@@ -6,9 +6,6 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{
 			"crispgm/telescope-heading.nvim",
-			keys = {
-				{ "<leader>fh", "<cmd>Telescope heading<cr>" },
-			},
 		},
 	},
 	config = function()
@@ -34,8 +31,8 @@ return {
 				results_title = "",
 				layout_config = {
 					vertical = {
-						width = 87,
-						height = 53,
+						width = 90,
+						height = 60,
 					},
 				},
 				-- previewer = false
@@ -194,7 +191,8 @@ return {
 		-- Not included in Github
 		-- { "<leader>", "<cmd>Telescope tagstack<cr>" },
 		-- { "<leader>", "<cmd>Telescope fd<cr>" },
-		-- Extras
+		-- Plugins
 		{ "<c-g><c-e>", "<cmd>Telescope emoji theme=cursor layout_config={height=14}<cr>", mode = { "i" } },
+		{ "<leader>fh", "<cmd>Telescope heading<cr>" },
 	},
 }

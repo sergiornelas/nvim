@@ -24,6 +24,18 @@ function M.config()
 		sections = {
 			lualine_a = {
 				{
+					"progress",
+					color = { bg = "", fg = "#A39D9D" },
+					padding = {
+						right = 1,
+					},
+				},
+				{
+					"filename",
+					color = { bg = "#4f0000", fg = "#ebdbb2" },
+					path = 0,
+				},
+				{
 					function()
 						return "󰛢 " .. require("grapple").name_or_index()
 					end,
@@ -32,17 +44,12 @@ function M.config()
 					end,
 					color = { bg = "#151517", fg = "#ebdbb2" },
 				},
-				{
-					"filename",
-					color = { bg = "#4f0000", fg = "#ebdbb2" },
-					path = 0,
-				},
 			},
 			lualine_b = { "diagnostics" },
 			lualine_c = { "navic" },
-			lualine_x = { "progress" },
+			lualine_x = { "" },
 			lualine_y = { "diff" },
-			lualine_z = { "location" },
+			lualine_z = {},
 		},
 		inactive_sections = {
 			lualine_a = { "filename" },

@@ -63,8 +63,6 @@ cmd([[
 
   " macros
   " switch ^[ to \<esc>, switch ^M to \<cr>, switch ^R to \<c-r>
-  " email templates:
-  let @b='gg00:%s/"/\\"/g\<cr>gg0VGJ0y$`Bvi"P0vaiokkky f'
   " sum columns visual selection
   let @n="mxyGo\<esc>pVGJ0y$:execute('let @t=\<c-r>0')\<cr>dd`x"
 
@@ -78,7 +76,7 @@ cmd([[
   augroup MyColors
     autocmd!
     autocmd ColorScheme * hi CursorLine guibg=#25424D
-    autocmd ColorScheme * hi LineNr guifg=#807B7B
+    autocmd ColorScheme * hi LineNr guifg=#6C6767
     autocmd Colorscheme * hi MsgArea guifg=#DACBA5
     autocmd Colorscheme * hi LspInlayHint guifg=#74716A guibg=#161514 gui=italic
     autocmd Colorscheme * hi ContextVt guifg=#807B7B gui=italic

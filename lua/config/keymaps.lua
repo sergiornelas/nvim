@@ -12,6 +12,7 @@ keymap("n", "gG", "<cmd>%y+<cr>", opts) --            	              yank full b
 keymap("n", "<leader><c-q>", "<cmd>qa!<cr>", opts) -- 	             force exit neovim
 keymap("x", "gG", "VGOgg", opts) --                   	            select full buffer
 keymap("n", "<leader>L", "<cmd>Lazy<cr>", opts) --    	            Lazy plugin status
+keymap("n", "g.", "<cmd>echo col('.')<cr>", opts) --           	   show current column
 keymap("n", "y<leader>", "^f:llyE", opts) --           	          yank secret password
 keymap("i", "<c-g><c-[>", "<Esc>o- [ ] ", opts) --               create checkbox below
 keymap("i", "<c-g><c-]>", "<Esc>O- [ ] ", opts) --               create checkbox above
