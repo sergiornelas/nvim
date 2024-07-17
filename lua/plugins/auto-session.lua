@@ -10,7 +10,12 @@ function M.config()
 	end
 
 	auto_session.setup({
-		pre_save_cmds = { close_floating_windows, "ccl", "lclose" },
+		pre_save_cmds = {
+			close_floating_windows,
+			"ccl",
+			"lclose",
+			"lua toggle_file_in_split(false)",
+		},
 		save_extra_cmds = {
 			-- load last colorscheme by session
 			function()

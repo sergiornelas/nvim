@@ -18,6 +18,15 @@ function _G.toggle_file_in_split(filepath)
 
 	_G.file_windows[current_tab_id] = _G.file_windows[current_tab_id] or {}
 	local window_id = _G.file_windows[current_tab_id].window_id
+
+	-- If filepath is not present. Useful for auto-session.lua
+	if not filepath then
+		vim.cmd("normal! mz")
+		vim.api.nvim_win_close(window_id, true)
+		vim.cmd("windo normal! zz")
+		return
+	end
+
 	local last_file = _G.file_windows[current_tab_id].last_file or filepath
 
 	if window_id and vim.api.nvim_win_is_valid(window_id) then
@@ -34,7 +43,7 @@ function _G.toggle_file_in_split(filepath)
 		vim.cmd("keepalt split " .. filepath)
 		vim.cmd("e" .. full_filepath)
 		window_id = vim.api.nvim_get_current_win()
-		vim.cmd("normal! `z")
+		vim.cmd("keepjumps normal! `z")
 		vim.cmd("wincmd J")
 
 		vim.cmd("normal! zz")
