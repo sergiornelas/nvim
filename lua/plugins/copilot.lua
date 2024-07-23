@@ -74,7 +74,7 @@ return {
 				mode = { "n", "x" },
 			},
 			{
-				"<leader>cc",
+				"<leader>cl",
 				"<cmd>CopilotChatReset<cr>",
 				mode = { "n", "x" },
 			},

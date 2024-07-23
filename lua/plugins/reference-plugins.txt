@@ -129,4 +129,4 @@ Last time checked this-week-in-neovim
 Jul 09
 
 Last time checked awesome-neovim
-Jul 16
+Jul 21

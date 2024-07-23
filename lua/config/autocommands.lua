@@ -76,7 +76,7 @@ cmd([[
   augroup MyColors
     autocmd!
     autocmd ColorScheme * hi CursorLine guibg=#25424D
-    autocmd ColorScheme * hi LineNr guifg=#6C6767
+    autocmd ColorScheme * hi LineNr guifg=#807B7B
     autocmd Colorscheme * hi MsgArea guifg=#DACBA5
     autocmd Colorscheme * hi LspInlayHint guifg=#74716A guibg=#161514 gui=italic
     autocmd Colorscheme * hi ContextVt guifg=#807B7B gui=italic

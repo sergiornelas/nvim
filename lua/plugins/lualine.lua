@@ -31,11 +31,6 @@ function M.config()
 					},
 				},
 				{
-					"filename",
-					color = { bg = "#4f0000", fg = "#ebdbb2" },
-					path = 0,
-				},
-				{
 					function()
 						return "󰛢 " .. require("grapple").name_or_index()
 					end,
@@ -43,6 +38,11 @@ function M.config()
 						return package.loaded["grapple"] and require("grapple").exists()
 					end,
 					color = { bg = "#151517", fg = "#ebdbb2" },
+				},
+				{
+					"filename",
+					color = { bg = "#4f0000", fg = "#ebdbb2" },
+					path = 0,
 				},
 			},
 			lualine_b = { "diagnostics" },

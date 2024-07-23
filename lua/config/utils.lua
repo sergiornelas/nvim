@@ -43,7 +43,9 @@ function _G.toggle_file_in_split(filepath)
 		vim.cmd("keepalt split " .. filepath)
 		vim.cmd("e" .. full_filepath)
 		window_id = vim.api.nvim_get_current_win()
-		vim.cmd("keepjumps normal! `z")
+		if vim.fn.getpos("'z")[1] ~= 0 then
+			vim.cmd("keepjumps normal! `z")
+		end
 		vim.cmd("wincmd J")
 
 		vim.cmd("normal! zz")
