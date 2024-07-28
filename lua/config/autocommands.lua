@@ -23,6 +23,8 @@ autocmd("FileType", {
 			cmd("normal! h")
 			cmd("normal! gf")
 		end)
+		keymap("i", "<c-g><c-[>", "<Esc>o- [ ] ", { noremap = true, silent = true })
+		keymap("i", "<c-g><c-]>", "<Esc>O- [ ] ", { noremap = true, silent = true })
 	end,
 })
 

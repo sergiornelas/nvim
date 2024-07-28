@@ -9,7 +9,7 @@ ThePrimeagen/refactoring.nvim                                             refact
 jdrupal-dev/code-refactor.nvim                          more javascripts code actions
 artemave/workspace-diagnostics.nvim            Populates project-wide lsp diagnostics
 marilari88/twoslash-queries.nvim               print typescript types as virtual text
-mfussenegger/nvim-lint                                            linters like eslint
+mfussenegger/nvim-lint                                  linters like eslint (popular)
 
 TREESITTER --------------------------------------------------------------------------
 CKolkey/ts-node-action                                           (mature for jsx/tsx)
@@ -126,7 +126,7 @@ Last time revisited all these plugins
 
 ====================
 Last time checked this-week-in-neovim
-Jul 09
+Jul 23
 
 Last time checked awesome-neovim
-Jul 21
+Jul 28

@@ -13,6 +13,8 @@ function M.config()
 		current_line_blame_opts = {
 			delay = 400,
 		},
+		signcolumn = false,
+		numhl = true,
 		on_attach = function(bufnr)
 			local function map(mode, l, r, opts)
 				opts = opts or {}

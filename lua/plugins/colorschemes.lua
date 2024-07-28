@@ -174,4 +174,13 @@ return {
 			transparent = true,
 		},
 	},
+	{
+		"0xstepit/flow.nvim",
+		keys = lazy_map,
+		config = function()
+			require("flow").setup({
+				transparent = true,
+			})
+		end,
+	},
 }
