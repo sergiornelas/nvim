@@ -12,6 +12,7 @@ o.numberwidth = 1 --           minimal number of columns to use for the line num
 o.pumheight = 10 --            pop up menu height
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,globals" -- session start options
 o.shiftwidth = 2 --            the number of spaces inserted for each indentation
+o.showbreak = "↪ " --          wrap break icon
 o.showcmd = false --           hide (partial) command in the last line of the screen (for performance)
 o.signcolumn = "number" --     merges the number column and sign column into one
 o.smartcase = true --          Override the 'ignorecase' option if the search pattern contains upper case characters.

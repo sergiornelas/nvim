@@ -31,11 +31,12 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 		},
 		opts = {
-			debug = true,
+			auto_follow_cursor = false,
 			window = {
 				layout = "float",
 				width = 0.7,
-				height = 0.7,
+				height = 0.8,
+				border = "shadow",
 				title = " Copilot Chat   ",
 			},
 			mappings = {
@@ -44,7 +45,7 @@ return {
 					insert = "<c-i>",
 				},
 				close = {
-					normal = "q",
+					normal = "",
 					insert = "<c-c>",
 				},
 				reset = {

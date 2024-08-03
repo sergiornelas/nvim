@@ -21,6 +21,19 @@ function M.config()
 
 	local actions = require("diffview.actions")
 
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = { "DiffviewFileHistory", "DiffviewFiles" },
+		callback = function()
+			vim.api.nvim_buf_set_keymap(
+				0,
+				"n",
+				"q",
+				":lua vim.cmd('DiffviewClose')<CR>",
+				{ noremap = true, silent = true }
+			)
+		end,
+	})
+
 	diffview.setup({
 		key_bindings = {
 			view = {

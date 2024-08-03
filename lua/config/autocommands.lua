@@ -1,7 +1,34 @@
-local group = vim.api.nvim_create_augroup("group", { clear = true })
+--- @param mode string
+--- @param key string
+--- @param command string
+local function map(mode, key, command)
+	vim.api.nvim_buf_set_keymap(0, mode, key, command, { noremap = true, silent = true })
+end
 local autocmd = vim.api.nvim_create_autocmd
-local cmd = vim.cmd
-local keymap = vim.keymap.set
+
+-- Set group colors
+vim.api.nvim_create_augroup("MyColors", { clear = true })
+autocmd("ColorScheme", {
+	group = "MyColors",
+	pattern = "*",
+	callback = function()
+		local highlights = {
+			{ "LineNr", { fg = "#807B7B" } },
+			{ "MsgArea", { fg = "#DACBA5" } },
+			{ "CursorLine", { bg = "#25424D" } },
+			{ "TreesitterContext", { bg = "#34312F" } },
+			{ "ContextVt", { fg = "#807B7B", italic = true } },
+			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#f3971b" } },
+			{ "MarkdownHeader1", { fg = "#ebdbb2", bg = "#4F4545" } },
+			{ "MarkdownHeader2", { fg = "#ebdbb2", bg = "#34312F" } },
+			{ "TreesitterContextBottom", { underline = true, sp = "#887F68" } },
+			{ "LspInlayHint", { fg = "#74716A", bg = "#161514", italic = true } },
+		}
+		for _, highlight in ipairs(highlights) do
+			vim.api.nvim_set_hl(0, highlight[1], highlight[2])
+		end
+	end,
+})
 
 -- Set specific options/keymaps for markdown files
 autocmd("FileType", {
@@ -10,21 +37,28 @@ autocmd("FileType", {
 		vim.opt_local.colorcolumn = "80"
 		vim.opt_local.textwidth = 80
 		vim.opt_local.wrap = true
-		keymap("n", "]e", function()
-			cmd("silent! /^##\\+\\s.*$")
-			cmd("nohlsearch")
-		end)
-		keymap("n", "[e", function()
-			cmd("silent! ?^##\\+\\s.*$")
-			cmd("nohlsearch")
-		end)
-		keymap("n", "gf", function()
-			cmd("normal! $")
-			cmd("normal! h")
-			cmd("normal! gf")
-		end)
-		keymap("i", "<c-g><c-[>", "<Esc>o- [ ] ", { noremap = true, silent = true })
-		keymap("i", "<c-g><c-]>", "<Esc>O- [ ] ", { noremap = true, silent = true })
+		map("i", "<c-g><c-[>", "<esc>o- [ ] ")
+		map("i", "<c-g><c-]>", "<Esc>O- [ ] ")
+		map("n", "]e", "<cmd>silent! /^##\\+\\s.*$<cr><cmd>nohlsearch<cr>")
+		map("n", "[e", "<cmd>silent! ?^##\\+\\s.*$<cr> <cmd>nohlsearch<cr>")
+		map("n", "gf", "<cmd>normal! $<cr><cmd>normal! h<cr><cmd>normal! gf<cr>")
+	end,
+})
+
+-- Close quickfix and loclist with escape and q
+autocmd("FileType", {
+	pattern = { "qf" },
+	callback = function()
+		map("n", "<esc>", "<cmd>ccl<cr><cmd>lcl<cr>")
+		map("n", "q", "<cmd>ccl<cr><cmd>lcl<cr>")
+	end,
+})
+
+-- Set mark and close Copilot chat
+autocmd("FileType", {
+	pattern = { "copilot-chat" },
+	callback = function()
+		map("n", "q", "mz<cmd>CopilotChatClose<cr>")
 	end,
 })
 
@@ -35,62 +69,35 @@ autocmd("TextYankPost", {
 	end,
 })
 
+-- Show cursor line only in active window
+autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline" })
+autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline" })
+
+-- Stop automatic comment when break line in insert mode
+autocmd("BufEnter", {
+	pattern = "*",
+	command = "set fo-=cro",
+})
+
 -- Jump to the last place you’ve visited in a file before exiting
 autocmd(
 	"BufReadPost",
 	{ command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
 )
 
--- Show cursor line only in active window
-autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline", group = group })
-autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = group })
+-- Abbreviations
+-- <c-v>+space skip the abbreviation"
+vim.cmd("iabbrev snext sergio.ornelas@nextiva.com")
+vim.cmd("cabbrev sss SessionSave<cr>")
+vim.cmd("cabbrev ssd SessionDelete<cr>")
 
-cmd([[
-  " Escape insert mode terminal
-  :tnoremap <esc> <c-\><c-n>
+-- Macros
+-- switch ^[ to \<esc>, switch ^M to \<cr>, switch ^R to \<c-r>
+-- sum columns visual selection
+vim.g.n = "mxyGo\\<esc>pVGJ0y$:execute('let @t=\\<c-r>0')\\<cr>dd`x"
 
-  " Wrap break icon
-  set showbreak=↪\ 
-
-  " Stop automatic comment when break line in insert mode
-  au BufEnter * set fo-=cro
-
-  " Command prev option
-  cnoremap <c-o> <c-p>
-  " (vim: not used)
-
-  " close quickfix and loclist with escape and q
-  nnoremap <silent> <expr> <esc> &buftype == 'quickfix' ? ":ccl<cr>:lcl<cr>" : '<esc>'
-  nnoremap <silent> <expr> q &buftype == 'quickfix' ? ":ccl<cr>:lcl<cr>" : 'q'
-
-  " macros
-  " switch ^[ to \<esc>, switch ^M to \<cr>, switch ^R to \<c-r>
-  " sum columns visual selection
-  let @n="mxyGo\<esc>pVGJ0y$:execute('let @t=\<c-r>0')\<cr>dd`x"
-
-  " abbreviations
-  " <c-v>+space skip the abbreviation"
-  iab snext sergio.ornelas@nextiva.com
-  cab sss SessionSave<cr>
-  cab ssd SessionDelete<cr>
-
-  " Set group colors
-  augroup MyColors
-    autocmd!
-    autocmd ColorScheme * hi CursorLine guibg=#25424D
-    autocmd ColorScheme * hi LineNr guifg=#807B7B
-    autocmd Colorscheme * hi MsgArea guifg=#DACBA5
-    autocmd Colorscheme * hi LspInlayHint guifg=#74716A guibg=#161514 gui=italic
-    autocmd Colorscheme * hi ContextVt guifg=#807B7B gui=italic
-    autocmd ColorScheme * hi MarkdownHeader1 guifg=#ebdbb2 guibg=#4F4545
-    autocmd ColorScheme * hi MarkdownHeader2 guifg=#ebdbb2 guibg=#34312F
-    autocmd ColorScheme * hi TreesitterContext guibg=#34312F
-    autocmd ColorScheme * hi TreesitterContextBottom gui=underline guisp=#887F68
-  augroup END
-]])
-
--- Reference commands: ========================
--- usefull commands:
+-- Reference commands ========================
+-- usefull commands
 -- :wind diffthis - enters diff mode, you can find text differences between two buffers. You need the two buffers & windows opened
 
 -- Symbols listchars
