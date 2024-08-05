@@ -95,6 +95,7 @@ return {
 			-- Workaround for truncating long TypeScript inlay hints.
 			-- TODO: Remove this if https://github.com/neovim/neovim/issues/27240 gets addressed.
 			-- https://github.com/MariaSolOs/dotfiles/blob/88646ab9bd20d6f36dacea0cdee8b6af3ffc4c50/.config/nvim/lua/lsp.lua#L275-L292
+			-- Looks like Maria currently deal with inlay hints using nvim-vtsls
 			local methods = vim.lsp.protocol.Methods
 			local inlay_hint_handler = vim.lsp.handlers[methods.textDocument_inlayHint]
 			vim.lsp.handlers[methods.textDocument_inlayHint] = function(err, result, ctx, config)

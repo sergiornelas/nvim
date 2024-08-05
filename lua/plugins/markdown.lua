@@ -1,24 +1,52 @@
 return {
 	{
 		"MeanderingProgrammer/markdown.nvim",
+		main = "render-markdown",
 		ft = "markdown",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
 			require("render-markdown").setup({
-				-- headings = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
-				headings = { "☥ ", "☯ ", "▲ ", "⌘ ", "⛧ ", "☪ " },
-				highlights = {
-					heading = {
-						backgrounds = { "MarkdownHeader1", "MarkdownHeader2", "" },
-					},
-					code = "",
+				heading = {
+					width = "block",
 				},
-				win_options = {
-					concealcursor = {
-						rendered = "vic",
+				code = {
+					style = "normal",
+					width = "block",
+				},
+				dash = {
+					width = 80,
+				},
+				checkbox = {
+					unchecked = {
+						icon = " ",
+					},
+					checked = {
+						icon = " ",
+					},
+					custom = {
+						todo = { raw = "[-]", rendered = " ", highlight = "RenderMarkdownTodo" },
+						uncertain = { raw = "[?]", rendered = " ", highlight = "RenderMarkdownH6" },
+						urgent = { raw = "[!]", rendered = " ", highlight = "RenderMarkdownH2" },
 					},
 				},
 			})
+		end,
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+		config = function()
+			vim.g.mkdp_auto_close = 0
+			vim.g.mkdp_page_title = "<${name}/>"
+			vim.cmd([[
+        let g:mkdp_preview_options = {
+        \ 'disable_sync_scroll': 1,
+        \ }
+      ]])
+			vim.keymap.set("n", "<leader>m", "<cmd>MarkdownPreview<cr>", { noremap = true, silent = true })
 		end,
 	},
 	{
@@ -43,23 +71,6 @@ return {
 					},
 				},
 			})
-		end,
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-		config = function()
-			vim.g.mkdp_auto_close = 0
-			vim.g.mkdp_page_title = "<${name}/>"
-			vim.cmd([[
-        let g:mkdp_preview_options = {
-        \ 'disable_sync_scroll': 1,
-        \ }
-      ]])
-			vim.keymap.set("n", "<leader>m", "<cmd>MarkdownPreview<cr>", { noremap = true, silent = true })
 		end,
 	},
 	{

@@ -46,6 +46,7 @@ isak102/telescope-git-file-history.nvim                 open/preview the current
 FabijanZulj/blame.nvim                                         git blame in all lines
 echasnovski/mini-git                                          vim-fugitive for neovim
 SuperBo/fugit2.nvim                                                    neovim git GUI
+isakbm/gitgraph.nvim                                      git graph plugin for neovim
 
 FRONTEND ----------------------------------------------------------------------------
 vuki656/package-info.nvim                                                        node
@@ -120,6 +121,7 @@ MagicDuck/grug-far.nvim                            find and replace plugin for n
 VoxelPrismatic/rabbit.nvim                               remembers history per window
 imNel/monorepo.nvim                         create multiple projects inside a project
 tristone13th/lspmark.nvim                            bookmark persistent based on lsp
+LintaoAmons/bookmarks.nvim                                notes bookmark project tree
 
 Last time revisited all these plugins
 20/05/2024
@@ -129,4 +131,4 @@ Last time checked this-week-in-neovim
 Jul 23
 
 Last time checked awesome-neovim
-Jul 28
+Ago 04

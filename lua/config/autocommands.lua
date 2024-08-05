@@ -14,13 +14,13 @@ autocmd("ColorScheme", {
 	callback = function()
 		local highlights = {
 			{ "LineNr", { fg = "#807B7B" } },
+			{ "Visual", { bg = "#52524e" } },
 			{ "MsgArea", { fg = "#DACBA5" } },
 			{ "CursorLine", { bg = "#25424D" } },
 			{ "TreesitterContext", { bg = "#34312F" } },
+			{ "MiniIndentscopeSymbol", { fg = "#DACBA5" } },
 			{ "ContextVt", { fg = "#807B7B", italic = true } },
 			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#f3971b" } },
-			{ "MarkdownHeader1", { fg = "#ebdbb2", bg = "#4F4545" } },
-			{ "MarkdownHeader2", { fg = "#ebdbb2", bg = "#34312F" } },
 			{ "TreesitterContextBottom", { underline = true, sp = "#887F68" } },
 			{ "LspInlayHint", { fg = "#74716A", bg = "#161514", italic = true } },
 		}
@@ -97,9 +97,6 @@ vim.cmd("cabbrev ssd SessionDelete<cr>")
 vim.g.n = "mxyGo\\<esc>pVGJ0y$:execute('let @t=\\<c-r>0')\\<cr>dd`x"
 
 -- Reference commands ========================
--- usefull commands
--- :wind diffthis - enters diff mode, you can find text differences between two buffers. You need the two buffers & windows opened
-
 -- Symbols listchars
 -- opt.listchars = {
 -- 	tab = "│ ",
@@ -117,22 +114,6 @@ vim.g.n = "mxyGo\\<esc>pVGJ0y$:execute('let @t=\\<c-r>0')\\<cr>dd`x"
 -- Execute command when VimEnter and after some miliseconds
 -- autocmd VimEnter * call timer_start(10, {-> execute("unmap [%")})
 
--- Eliminate terminal buffers when enter neovim
--- function! DeleteBufferByExtension(strExt)
---    let s:bufNr = bufnr("$")
---    while s:bufNr > 0
---        if buflisted(s:bufNr)
---            if (matchstr(bufname(s:bufNr), "/".a:strExt."$") == "/".a:strExt )
---               if getbufvar(s:bufNr, '&modified') == 0
---                  execute "bd ".s:bufNr
---               endif
---            endif
---        endif
---        let s:bufNr = s:bufNr-1
---    endwhile
--- endfunction
--- autocmd VimEnter * call timer_start(7, {-> execute("call DeleteBufferByExtension('fish')")})
-
 -- Execute multiple commands after a call timer
 -- function CodeRunner()
 --   execute 'RunCode'
@@ -140,26 +121,8 @@ vim.g.n = "mxyGo\\<esc>pVGJ0y$:execute('let @t=\\<c-r>0')\\<cr>dd`x"
 -- endfunction
 -- nnoremap <leader>sp :Codi <bar> call timer_start(200, CodeRunner())<cr>
 
--- Auto window resize
--- vim.cmd([[
--- augroup ReduceNoise
---     autocmd!
---     autocmd WinEnter * :call ResizeSplits()
---     autocmd FileType NvimTree set winwidth&
--- augroup END
--- function! ResizeSplits()
---     set winwidth=110
---     wincmd =
--- endfunction
--- ]])
-
---Execute command for specific filetype
--- if &ft == "lua"
---   set winwidth=110
--- endif
-
--- Map command for multiple filetypes
--- au FileType javascript,javascriptreact nnoremap...
-
 -- Execute keyboard command
 -- :exe "normal \<C-W>\<C-w>"
+
+-- enters diff mode, you can find text differences between two buffers. You need the two buffers & windows opened
+-- :wind diffthis

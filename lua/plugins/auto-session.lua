@@ -27,6 +27,7 @@ function M.config()
 		-- post_restore_cmds
 		-- pre_delete_cmds
 		-- post_delete_cmds
+		-- no_restore_cmds
 		session_lens = {
 			load_on_setup = false,
 		},

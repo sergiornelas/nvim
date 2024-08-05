@@ -31,9 +31,10 @@ function M.config()
 	end
 
 	grapple.setup({
+		name_pos = "start",
+		style = "basename",
 		win_opts = {
-			width = 120,
-			height = 14,
+			width = 70,
 		},
 		scopes = {
 			{
