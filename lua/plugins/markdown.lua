@@ -1,6 +1,6 @@
 return {
 	{
-		"MeanderingProgrammer/markdown.nvim",
+		"MeanderingProgrammer/render-markdown.nvim",
 		main = "render-markdown",
 		ft = "markdown",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
@@ -8,6 +8,7 @@ return {
 			require("render-markdown").setup({
 				heading = {
 					width = "block",
+					right_pad = 2,
 				},
 				code = {
 					style = "normal",

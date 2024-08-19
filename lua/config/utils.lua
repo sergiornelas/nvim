@@ -1,3 +1,10 @@
+-- Toggle true/false
+function _G.toggle_boolean()
+	local line = vim.api.nvim_get_current_line()
+	local new_line = line:gsub("true", "TEMP"):gsub("false", "true"):gsub("TEMP", "false")
+	vim.api.nvim_set_current_line(new_line)
+end
+
 -- Closes TSContext and Fidget (floating windows) when exit (auto-session)
 function _G.close_floating_windows()
 	for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -55,51 +62,6 @@ function _G.toggle_file_in_split(filepath)
 	-- Update window ID in file_windows table
 	_G.file_windows[current_tab_id].window_id = window_id and vim.api.nvim_win_is_valid(window_id) and window_id or nil
 end
-
--- Pretty quickfix
-local fn = vim.fn
-function _G.qftf(info)
-	local items
-	local ret = {}
-	if info.quickfix == 1 then
-		items = fn.getqflist({ id = info.id, items = 0 }).items
-	else
-		items = fn.getloclist(info.winid, { id = info.id, items = 0 }).items
-	end
-	local limit = 55 -- file path limit
-	local fnameFmt1, fnameFmt2 = "%-" .. limit .. "s", "…%." .. (limit - 1) .. "s"
-	local validFmt = "%s │%5d:%-3d│%s %s"
-	for i = info.start_idx, info.end_idx do
-		local e = items[i]
-		local fname = ""
-		local str
-		if e.valid == 1 then
-			if e.bufnr > 0 then
-				fname = fn.bufname(e.bufnr)
-				if fname == "" then
-					fname = "[No Name]"
-				else
-					fname = fname:gsub("^" .. vim.env.HOME, "~")
-				end
-				-- char in fname may occur more than 1 width, ignore this issue in order to keep performance
-				if #fname <= limit then
-					fname = fnameFmt1:format(fname)
-				else
-					fname = fnameFmt2:format(fname:sub(1 - limit))
-				end
-			end
-			local lnum = e.lnum > 99999 and -1 or e.lnum
-			local col = e.col > 999 and -1 or e.col
-			local qtype = e.type == "" and "" or " " .. e.type:sub(1, 1):upper()
-			str = validFmt:format(fname, lnum, col, qtype, e.text)
-		else
-			str = e.text
-		end
-		table.insert(ret, str)
-	end
-	return ret
-end
-vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
 
 -- Equalize windows width (not height) through all tabs when resizing Vim
 vim.cmd([[

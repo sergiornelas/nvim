@@ -4,21 +4,8 @@ local keymap = vim.keymap.set
 local methods = vim.lsp.protocol.Methods
 
 keymap("n", "gB", '<cmd>lua vim.diagnostic.open_float(0, { scope = "buffer", border = "double" })<CR>')
-keymap("n", "[d", vim.diagnostic.goto_prev) -- (vim: go to prev diagnostic no float w. (nvim 0.10))
-keymap("n", "]d", vim.diagnostic.goto_next) -- (vim: go to next diagnostic no float w. (nvim 0.10))
-keymap(
-	"n",
-	"[e",
-	"<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR, float = { border = { '┌', '~', '┐', '│', '┘', '─', '└', '│' } } })<CR>"
-)
-keymap(
-	"n",
-	"]e",
-	"<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR, float = { border = { '┌', '~', '┐', '│', '┘', '─', '└', '│' } } })<CR>"
-)
-
 keymap("n", "<leader>ld", vim.diagnostic.setloclist)
-keymap("n", "<leader>qd", vim.diagnostic.setqflist)
+keymap("n", "<leader>lD", vim.diagnostic.setqflist)
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),

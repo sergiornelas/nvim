@@ -17,6 +17,7 @@ autocmd("ColorScheme", {
 			{ "Visual", { bg = "#52524e" } },
 			{ "MsgArea", { fg = "#DACBA5" } },
 			{ "CursorLine", { bg = "#25424D" } },
+			{ "IndentLine", { fg = "#525050" } },
 			{ "TreesitterContext", { bg = "#34312F" } },
 			{ "MiniIndentscopeSymbol", { fg = "#DACBA5" } },
 			{ "ContextVt", { fg = "#807B7B", italic = true } },
@@ -39,8 +40,6 @@ autocmd("FileType", {
 		vim.opt_local.wrap = true
 		map("i", "<c-g><c-[>", "<esc>o- [ ] ")
 		map("i", "<c-g><c-]>", "<Esc>O- [ ] ")
-		map("n", "]e", "<cmd>silent! /^##\\+\\s.*$<cr><cmd>nohlsearch<cr>")
-		map("n", "[e", "<cmd>silent! ?^##\\+\\s.*$<cr> <cmd>nohlsearch<cr>")
 		map("n", "gf", "<cmd>normal! $<cr><cmd>normal! h<cr><cmd>normal! gf<cr>")
 	end,
 })

@@ -62,6 +62,7 @@ yioneko/nvim-vtsls                                   replacement for typescript-
 neoclide/coc.nvim                                    replacement for typescript-tools
 Redoxahmii/json-to-types.nvim                        convert JSON to TypeScript types
 cjodo/convert.nvim                                    convert px to rem and viceversa
+Julien-cpsn/ATAC                                           Postman in your terminal!!
 
 ARTIFICIAL INTELIGENCE --------------------------------------------------------------
 zbirenbaum/copilot-cmp
@@ -81,6 +82,7 @@ gsuuon/llm.nvim                                                   use LLM's in N
 David-Kunz/gen.nvim                                                          llama IA
 gsuuon/model.nvim                                                   another IA plugin
 olimorris/codecompanion.nvim                copilot chat like experience via a buffer
+yetone/avante.nvim                                     cursor AI IDE (very powerful!)
 
 COMPETITIVE CODING ------------------------------------------------------------------
 0x100101/lab.nvim                                     visual text output (dissapears)
@@ -95,6 +97,8 @@ NOTES --------------------------------------------------------------------------
 folke/todo-comments.nvim                                                 pretty notes
 Chaitanyabsprip/present.nvim                                 power point presentation
 JellyApple102/easyread.nvim                                      text colors readable
+elijah-potter/harper                english grammar checker designed to be just right
+3rd/diagram.nvim                               UML kind of diagrams in markdown files
 
 UTILS -------------------------------------------------------------------------------
 danymat/neogen                                    comments on files for documentation
@@ -128,7 +132,7 @@ Last time revisited all these plugins
 
 ====================
 Last time checked this-week-in-neovim
-Jul 23
+Aug 06
 
 Last time checked awesome-neovim
-Ago 04
+Ago 18

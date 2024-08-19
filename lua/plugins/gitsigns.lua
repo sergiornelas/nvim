@@ -19,7 +19,7 @@ function M.config()
 			local function map(mode, l, r, opts)
 				opts = opts or {}
 				opts.buffer = bufnr
-				vim.keymap.set(mode, l, r, opts)
+				vim.keymap.set(mode, l, r)
 			end
 
 			-- Navigation
