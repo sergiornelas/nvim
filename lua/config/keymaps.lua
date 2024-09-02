@@ -21,6 +21,7 @@ map("n", "y<leader>", "^f:llyE") --                      yank secret password
 map({ "n", "x" }, "<c-w><c-e>", "<cmd>vnew<cr>") -- new buffer vertical split
 map("t", "<esc>", "<c-\\><c-n>") --               escape insert mode terminal
 map("c", "<c-o>", "<c-p>") --             command prev option (vim: not used)
+map("n", "<leader>gj", "<cmd>Gitsigns stage_hunk<cr><cmd>w<cr>") -- save changes and file
 map("n", "<leader>n", '<cmd>lua toggle_file_in_split("~/notes/scratch/main.md")<cr>') -- toggle scratch file
 map("n", "<c-q>", "<cmd>qa<cr>") -- 	 exit vim safely (vim: not used, or used for terminal control flow, visual block)
 

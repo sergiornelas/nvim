@@ -15,6 +15,7 @@ return {
 				javascriptreact = { "prettierd" },
 				typescript = { "prettierd" },
 				typescriptreact = { "prettierd" },
+				markdown = { "markdownlint" },
 			},
 		})
 

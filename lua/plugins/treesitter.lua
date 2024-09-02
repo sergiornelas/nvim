@@ -161,6 +161,7 @@ return {
 				"regex",
 				"scss",
 				"styled",
+				"tmux",
 				"tsx",
 				"typescript",
 				"vim",
@@ -214,7 +215,8 @@ return {
 						["ax"] = "@loop.outer",
 					},
 					selection_modes = {
-						["@function.outer"] = "V", -- linewise
+						["@function.outer"] = "V",
+						["@conditional.outer"] = "V",
 					},
 				},
 				swap = {

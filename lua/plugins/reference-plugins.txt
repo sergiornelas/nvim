@@ -135,4 +135,4 @@ Last time checked this-week-in-neovim
 Aug 06
 
 Last time checked awesome-neovim
-Ago 18
+Sep 01

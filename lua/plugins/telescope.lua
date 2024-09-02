@@ -47,15 +47,15 @@ return {
 				path_display = { "smart" },
 				mappings = {
 					i = {
-						["<c-i>"] = actions.move_selection_next,
-						["<c-o>"] = actions.move_selection_previous,
+						["<c-n>"] = actions.move_selection_next,
+						["<c-p>"] = actions.move_selection_previous,
 						["<c-j>"] = actions.select_default,
 						["<c-m>"] = actions.cycle_history_next,
 						["<c-;>"] = actions.cycle_history_prev,
 						["<c-z>"] = actions.to_fuzzy_refine,
 						["<esc>"] = actions.close,
-						["<c-n>"] = actions.toggle_selection + actions.move_selection_worse,
-						["<c-p>"] = actions.toggle_selection + actions.move_selection_better,
+						["<c-i>"] = actions.toggle_selection + actions.move_selection_worse,
+						["<c-o>"] = actions.toggle_selection + actions.move_selection_better,
 						-- ["<c-q>"] = actions.send_to_qflist + actions.open_qflist,
 						["<c-b>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						-- select_all, -- select all telescope results

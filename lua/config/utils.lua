@@ -16,6 +16,7 @@ function _G.close_floating_windows()
 end
 
 -- TODO: Persistent last_file after closing neovim
+-- TODO: sometimes mark is not set
 -- Toggle scratch file
 function _G.toggle_file_in_split(filepath)
 	local RESIZE_AMOUNT = 6
