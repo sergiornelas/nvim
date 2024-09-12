@@ -33,17 +33,19 @@ return {
 				["gx"] = "actions.open_external",
 				["g."] = "actions.toggle_hidden",
 				["g\\"] = "actions.toggle_trash",
-				["yp"] = {
-					callback = function()
-						local entry = oil.get_cursor_entry()
-						local dir = oil.get_current_dir()
-						if not entry or not dir then
-							return
-						end
-						local relpath = vim.fn.fnamemodify(dir, ":.")
-						vim.fn.setreg("+", relpath .. entry.name)
-					end,
-				},
+				-- TODO
+				-- look for another map not y
+				-- ["yp"] = {
+				-- 	callback = function()
+				-- 		local entry = oil.get_cursor_entry()
+				-- 		local dir = oil.get_current_dir()
+				-- 		if not entry or not dir then
+				-- 			return
+				-- 		end
+				-- 		local relpath = vim.fn.fnamemodify(dir, ":.")
+				-- 		vim.fn.setreg("+", relpath .. entry.name)
+				-- 	end,
+				-- },
 				["gd"] = {
 					callback = function()
 						---@diagnostic disable-next-line: lowercase-global

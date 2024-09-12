@@ -9,7 +9,7 @@ return {
 				lua = { "stylua" },
 				json = { "prettierd" },
 				css = { "prettierd" },
-				-- html = { "prettierd" },
+				html = { "prettierd" },
 				-- mjml = { "prettierd" },
 				javascript = { "prettierd" },
 				javascriptreact = { "prettierd" },

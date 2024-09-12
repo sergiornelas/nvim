@@ -46,6 +46,10 @@ local M = {
 			})
 
 			cmp.setup({
+				-- performance = {
+				-- 	debounce = 0, -- default is 60ms
+				-- 	throttle = 0, -- default is 30ms
+				-- },
 				view = {
 					entries = {
 						follow_cursor = true,

@@ -1,6 +1,7 @@
 local M = {
 	"lewis6991/gitsigns.nvim",
 	event = "BufReadPre",
+	commit = "805610a9393fa231f2c2b49cb521bfa413fadb3d",
 }
 
 function M.config()
@@ -13,8 +14,10 @@ function M.config()
 		current_line_blame_opts = {
 			delay = 400,
 		},
+		signs_staged_enable = false,
 		signcolumn = false,
 		numhl = true,
+		-- update_debounce = 0,
 		on_attach = function(bufnr)
 			local function map(mode, l, r, opts)
 				opts = opts or {}

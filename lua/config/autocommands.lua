@@ -125,3 +125,18 @@ vim.g.n = "mxyGo\\<esc>pVGJ0y$:execute('let @t=\\<c-r>0')\\<cr>dd`x"
 
 -- enters diff mode, you can find text differences between two buffers. You need the two buffers & windows opened
 -- :wind diffthis
+
+-- TODO define gitsigns colors:
+-- GitSignsStagedAdd xxx guifg=#5c5d13
+-- GitSignsStagedChange xxx guifg=#7f400c
+-- GitSignsStagedDelete xxx guifg=#7d241a
+-- GitSignsStagedChangedelete xxx guifg=#7f400c
+-- GitSignsStagedTopdelete xxx guifg=#7d241a
+-- GitSignsStagedAddNr xxx guifg=#5c5d13
+-- GitSignsStagedChangeNr xxx guifg=#7f400c
+-- GitSignsStagedDeleteNr xxx guifg=#7d241a
+-- GitSignsStagedChangedeleteNr xxx guifg=#7f400c
+-- GitSignsStagedTopdeleteNr xxx guifg=#7d241a
+-- GitSignsStagedAddLn xxx guibg=#5a633a
+-- GitSignsStagedChangeLn xxx guibg=#3e4934
+-- GitSignsStagedChangedeleteLn xxx guibg=#3e4934

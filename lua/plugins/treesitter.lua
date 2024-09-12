@@ -7,10 +7,10 @@ return {
 			"nvim-treesitter/nvim-treesitter-context",
 			config = function()
 				require("treesitter-context").setup({
-					enable = true,
-					max_lines = 0,
+					enable = false,
+					max_lines = 0, -- maybe adjusting this fix tmux
 					line_numbers = true,
-					multiline_threshold = 20, -- Maximum number of lines to show for a single context
+					multiline_threshold = 20, -- Maximum number of lines to show for a single context (maybe adjusting this fix tmux)
 				})
 				local keymap = vim.keymap.set
 				local opts = { noremap = true, silent = true }
@@ -110,6 +110,13 @@ return {
 		local next_loclist_el, prev_loclist_el =
 			ts_repeat_move.make_repeatable_move_pair(safe_fix_nav("lne"), safe_fix_nav("lp"))
 
+		-- TODO
+		local next_spell, prev_spell = ts_repeat_move.make_repeatable_move_pair(function()
+			vim.cmd("normal " .. vim.v.count1 .. "[s")
+		end, function()
+			vim.cmd("normal " .. vim.v.count1 .. "]s")
+		end)
+
 		-- Repeatable move mappings
 		map(mode, ";", ts_repeat_move.repeat_last_move)
 		map(mode, ",", ts_repeat_move.repeat_last_move_opposite)
@@ -131,6 +138,8 @@ return {
 		map(mode, "[w", prev_illuminate)
 		map(mode, "[t", next_indentscope)
 		map(mode, "]t", prev_indentscope)
+		-- map(mode, "[s", next_spell)
+		-- map(mode, "]s", prev_spell)
 
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = { "markdown" },
@@ -204,8 +213,8 @@ return {
 						["ac"] = "@conditional.outer",
 						["if"] = "@function.inner",
 						["af"] = "@function.outer",
-						["ig"] = "@call.inner",
-						["ag"] = "@call.outer",
+						-- ["ig"] = "@call.inner",
+						-- ["ag"] = "@call.outer",
 						["ak"] = "@comment.outer",
 						["ir"] = "@number.inner",
 						["at"] = "@assignment.outer",

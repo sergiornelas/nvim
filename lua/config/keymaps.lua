@@ -16,7 +16,7 @@ map("n", "]<leader>", "mxo<esc>`x") --       	                break line down
 map("n", "[<leader>", "mxO<esc>`x") --       	               break line above
 map("n", "gG", "<cmd>%y<cr>") --            	               yank full buffer
 map("n", "<leader><c-q>", "<cmd>qa!<cr>") -- 	              force exit neovim
-map("n", "<leader>L", "<cmd>Lazy<cr>") --    	             Lazy plugin status
+-- map("n", "<leader>L", "<cmd>Lazy<cr>") --    	             Lazy plugin status
 map("n", "y<leader>", "^f:llyE") --                      yank secret password
 map({ "n", "x" }, "<c-w><c-e>", "<cmd>vnew<cr>") -- new buffer vertical split
 map("t", "<esc>", "<c-\\><c-n>") --               escape insert mode terminal
@@ -46,3 +46,15 @@ map("i", "<c-g><c-b>", "<cmd>set nu!<cr>")
 map({ "n", "x" }, "<leader>p", "<cmd>set spell!<cr>")
 map({ "n", "x" }, "<leader>a", "<cmd>set wrap!<cr>")
 map({ "n", "x" }, "<leader>b", "<cmd>set nu!<cr>")
+
+-- remember that Q visual mode execute last macro in selected portion
+
+-- leader free: h, v, m, o
+-- h chatgpt?
+-- o obisidan
+-- c-c
+
+-- [ maps available
+-- y, o, u
+-- h, j
+-- b, m?

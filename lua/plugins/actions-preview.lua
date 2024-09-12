@@ -22,4 +22,23 @@ return {
 			},
 		},
 	},
+	-- doesn't work with pmizio/typescript-tools.nvim
+	-- {
+	-- 	"rachartier/tiny-code-action.nvim",
+	-- 	dependencies = {
+	-- 		{ "nvim-lua/plenary.nvim" },
+	-- 		{ "nvim-telescope/telescope.nvim" },
+	-- 	},
+	-- 	keys = {
+	-- 		{
+	-- 			"gl",
+	-- 			"<cmd>lua require('tiny-code-action').code_action()<cr>",
+	-- 			mode = { "n", "v" },
+	-- 		},
+	-- 	},
+	-- 	event = "LspAttach",
+	-- 	config = function()
+	-- 		require("tiny-code-action").setup()
+	-- 	end,
+	-- },
 }

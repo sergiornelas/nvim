@@ -30,6 +30,7 @@ return {
 						urgent = { raw = "[!]", rendered = " ", highlight = "RenderMarkdownH2" },
 					},
 				},
+				indent = { enabled = true, per_level = 1 },
 			})
 		end,
 	},
