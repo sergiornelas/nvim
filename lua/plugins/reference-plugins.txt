@@ -10,6 +10,7 @@ jdrupal-dev/code-refactor.nvim                          more javascripts code ac
 artemave/workspace-diagnostics.nvim            Populates project-wide lsp diagnostics
 marilari88/twoslash-queries.nvim               print typescript types as virtual text
 mfussenegger/nvim-lint                                  linters like eslint (popular)
+esmuellert/nvim-eslint                           more native VSCode eslint for neovim
 
 TREESITTER --------------------------------------------------------------------------
 CKolkey/ts-node-action                                           (mature for jsx/tsx)
@@ -83,6 +84,8 @@ David-Kunz/gen.nvim                                                          lla
 gsuuon/model.nvim                                                   another IA plugin
 olimorris/codecompanion.nvim                copilot chat like experience via a buffer
 yetone/avante.nvim                                     cursor AI IDE (very powerful!)
+neocodeium                                  provides AI completion powered by Codeium
+supermaven-inc/supermaven-nvim                                   supermaven in neovim
 
 COMPETITIVE CODING ------------------------------------------------------------------
 0x100101/lab.nvim                                     visual text output (dissapears)
@@ -126,13 +129,16 @@ VoxelPrismatic/rabbit.nvim                               remembers history per w
 imNel/monorepo.nvim                         create multiple projects inside a project
 tristone13th/lspmark.nvim                            bookmark persistent based on lsp
 LintaoAmons/bookmarks.nvim                                notes bookmark project tree
+aliqyan-21/wit.nvim                                  visit visual selected on browser
+azratul/live-share.nvim                    share your changes real time with coworker
+hat0uma/csvview.nvim                                       show csv spreadsheet files
 
 Last time revisited all these plugins
 20/05/2024
 
 ====================
 Last time checked this-week-in-neovim
-Aug 06
+10/8/2024
 
 Last time checked awesome-neovim
-Sep 08
+Nov 16

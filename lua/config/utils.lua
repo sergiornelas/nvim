@@ -15,13 +15,13 @@ function _G.close_floating_windows()
 	end
 end
 
--- -- Create a custom function to scroll down and print "Hello World"
+-- Create a custom function to scroll down and print "Hello World"
 -- function _G.scroll_down_and_print()
 -- 	print("Hello World")
 -- 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-e>", true, true, true), "n", true)
 -- end
---
--- -- Map the Ctrl-e keybinding to the custom function
+
+-- Map the Ctrl-e keybinding to the custom function
 -- vim.api.nvim_set_keymap("n", "<C-e>", ":lua scroll_down_and_print()<CR>", { noremap = true, silent = true })
 
 -- TODO: sometimes mark is not set

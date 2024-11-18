@@ -7,7 +7,7 @@ return {
 			"nvim-treesitter/nvim-treesitter-context",
 			config = function()
 				require("treesitter-context").setup({
-					enable = false,
+					enable = true,
 					max_lines = 0, -- maybe adjusting this fix tmux
 					line_numbers = true,
 					multiline_threshold = 20, -- Maximum number of lines to show for a single context (maybe adjusting this fix tmux)
@@ -111,11 +111,11 @@ return {
 			ts_repeat_move.make_repeatable_move_pair(safe_fix_nav("lne"), safe_fix_nav("lp"))
 
 		-- TODO
-		local next_spell, prev_spell = ts_repeat_move.make_repeatable_move_pair(function()
-			vim.cmd("normal " .. vim.v.count1 .. "[s")
-		end, function()
-			vim.cmd("normal " .. vim.v.count1 .. "]s")
-		end)
+		-- local next_spell, prev_spell = ts_repeat_move.make_repeatable_move_pair(function()
+		-- 	vim.cmd("normal " .. vim.v.count1 .. "[s")
+		-- end, function()
+		-- 	vim.cmd("normal " .. vim.v.count1 .. "]s")
+		-- end)
 
 		-- Repeatable move mappings
 		map(mode, ";", ts_repeat_move.repeat_last_move)

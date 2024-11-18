@@ -10,7 +10,6 @@ return {
 				json = { "prettierd" },
 				css = { "prettierd" },
 				html = { "prettierd" },
-				-- mjml = { "prettierd" },
 				javascript = { "prettierd" },
 				javascriptreact = { "prettierd" },
 				typescript = { "prettierd" },

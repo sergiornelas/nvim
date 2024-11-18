@@ -31,7 +31,6 @@ local M = {
 			luasnip.filetype_extend("javascriptreact", { "html", "css" })
 			luasnip.filetype_extend("typescript", { "html", "css" })
 			luasnip.filetype_extend("typescriptreact", { "html", "css" })
-			luasnip.filetype_extend("mjml", { "html", "css" })
 
 			require("luasnip.loaders.from_vscode").lazy_load()
 
