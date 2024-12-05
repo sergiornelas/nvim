@@ -231,9 +231,9 @@ return {
 						["]g"] = "@call.outer",
 						["]k"] = "@comment.outer",
 						["]n"] = "@assignment.lhs",
+						["]o"] = "@loop.outer",
 						["]r"] = "@number.inner",
 						["]v"] = "@assignment.rhs",
-						["]o"] = "@loop.outer",
 					},
 					goto_next_end = {
 						["]A"] = "@parameter.inner",
@@ -242,9 +242,9 @@ return {
 						["]G"] = "@call.outer",
 						["]K"] = "@comment.outer",
 						["]N"] = "@assignment.lhs",
+						["]O"] = "@loop.outer",
 						["]R"] = "@number.inner",
 						["]V"] = "@assignment.rhs",
-						["]O"] = "@loop.outer",
 					},
 					goto_previous_start = {
 						["[a"] = "@parameter.inner",
@@ -253,9 +253,9 @@ return {
 						["[g"] = "@call.outer",
 						["[k"] = "@comment.outer",
 						["[n"] = "@assignment.lhs",
+						["[o"] = "@loop.outer",
 						["[r"] = "@number.inner",
 						["[v"] = "@assignment.rhs",
-						["[o"] = "@loop.outer",
 					},
 					goto_previous_end = {
 						["[A"] = "@parameter.inner",
@@ -264,9 +264,9 @@ return {
 						["[G"] = "@call.outer",
 						["[K"] = "@comment.outer",
 						["[N"] = "@assignment.lhs",
+						["[O"] = "@loop.outer",
 						["[R"] = "@number.inner",
 						["[V"] = "@assignment.rhs",
-						["[O"] = "@loop.outer",
 					},
 				},
 				lsp_interop = {

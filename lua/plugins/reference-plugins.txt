@@ -96,7 +96,6 @@ p00f/cphelper.nvim                                                    code chall
 xeluxee/competitest.nvim                                              code challenges
 Vigemus/iron.nvim                              run selected area, buggy, watch works?
 kawre/leetcode.nvim                                     leetcode problems with neovim
-typed-rocks/ts-worksheet-neovim                       js ts show virtual text results
 
 NOTES -------------------------------------------------------------------------------
 folke/todo-comments.nvim                                                 pretty notes
