@@ -8,9 +8,9 @@ return {
 			config = function()
 				require("treesitter-context").setup({
 					enable = true,
-					max_lines = 0, -- maybe adjusting this fix tmux
+					max_lines = 0,
 					line_numbers = true,
-					multiline_threshold = 20, -- Maximum number of lines to show for a single context (maybe adjusting this fix tmux)
+					multiline_threshold = 20,
 				})
 				local keymap = vim.keymap.set
 				local opts = { noremap = true, silent = true }
@@ -67,23 +67,15 @@ return {
 
 		local map = vim.keymap.set
 		local mode = { "n", "x", "o" }
-		local error_severity = { severity = vim.diagnostic.severity.ERROR }
 		local illuminate = require("illuminate")
 		local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-		local function safe_fix_nav(command)
-			return function()
-				if not pcall(vim.api.nvim_command, vim.v.count1 .. command) then
-					print("No more items")
-				end
-			end
-		end
 		local function goto_diagnostic(direction, error)
 			local navigate = direction == "next" and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
 			for _ = 1, vim.v.count1 do
 				if error then
-					navigate(error)
+					navigate({ severity = vim.diagnostic.severity.ERROR, float = false })
 				else
-					navigate()
+					navigate({ float = false })
 				end
 			end
 		end
@@ -94,9 +86,9 @@ return {
 			goto_diagnostic("prev")
 		end)
 		local next_error, prev_error = ts_repeat_move.make_repeatable_move_pair(function()
-			goto_diagnostic("next", error_severity)
+			goto_diagnostic("next", true)
 		end, function()
-			goto_diagnostic("prev", error_severity)
+			goto_diagnostic("prev", true)
 		end)
 		local next_illuminate, prev_illuminate =
 			ts_repeat_move.make_repeatable_move_pair(illuminate.goto_next_reference, illuminate.goto_prev_reference)
@@ -105,10 +97,6 @@ return {
 		end, function()
 			vim.cmd("normal " .. vim.v.count1 .. "]-")
 		end)
-		local next_quickfix_el, prev_quickfix_el =
-			ts_repeat_move.make_repeatable_move_pair(safe_fix_nav("cnext"), safe_fix_nav("cprev"))
-		local next_loclist_el, prev_loclist_el =
-			ts_repeat_move.make_repeatable_move_pair(safe_fix_nav("lne"), safe_fix_nav("lp"))
 
 		-- TODO
 		-- local next_spell, prev_spell = ts_repeat_move.make_repeatable_move_pair(function()
@@ -126,10 +114,6 @@ return {
 		map(mode, "T", ts_repeat_move.builtin_T_expr, { expr = true })
 
 		-- Navigation mappings
-		map(mode, "]q", next_quickfix_el)
-		map(mode, "[q", prev_quickfix_el)
-		map(mode, "]l", next_loclist_el)
-		map(mode, "[l", prev_loclist_el)
 		map(mode, "]e", next_error)
 		map(mode, "[e", prev_error)
 		map(mode, "]d", next_diagnostic) -- (vim: go to prev diagnostic no float w. (nvim 0.10))
@@ -246,10 +230,10 @@ return {
 						["]f"] = "@function.outer", -- (vim: same as "gf")
 						["]g"] = "@call.outer",
 						["]k"] = "@comment.outer",
+						["]n"] = "@assignment.lhs",
 						["]r"] = "@number.inner",
 						["]v"] = "@assignment.rhs",
-						["]n"] = "@assignment.lhs",
-						["]x"] = "@loop.outer",
+						["]o"] = "@loop.outer",
 					},
 					goto_next_end = {
 						["]A"] = "@parameter.inner",
@@ -257,10 +241,10 @@ return {
 						["]F"] = "@function.outer",
 						["]G"] = "@call.outer",
 						["]K"] = "@comment.outer",
+						["]N"] = "@assignment.lhs",
 						["]R"] = "@number.inner",
 						["]V"] = "@assignment.rhs",
-						["]N"] = "@assignment.lhs",
-						["]X"] = "@loop.outer",
+						["]O"] = "@loop.outer",
 					},
 					goto_previous_start = {
 						["[a"] = "@parameter.inner",
@@ -268,10 +252,10 @@ return {
 						["[f"] = "@function.outer", -- (vim: same as "gf")
 						["[g"] = "@call.outer",
 						["[k"] = "@comment.outer",
+						["[n"] = "@assignment.lhs",
 						["[r"] = "@number.inner",
 						["[v"] = "@assignment.rhs",
-						["[n"] = "@assignment.lhs",
-						["[x"] = "@loop.outer",
+						["[o"] = "@loop.outer",
 					},
 					goto_previous_end = {
 						["[A"] = "@parameter.inner",
@@ -279,10 +263,10 @@ return {
 						["[F"] = "@function.outer",
 						["[G"] = "@call.outer",
 						["[K"] = "@comment.outer",
+						["[N"] = "@assignment.lhs",
 						["[R"] = "@number.inner",
 						["[V"] = "@assignment.rhs",
-						["[N"] = "@assignment.lhs",
-						["[X"] = "@loop.outer",
+						["[O"] = "@loop.outer",
 					},
 				},
 				lsp_interop = {

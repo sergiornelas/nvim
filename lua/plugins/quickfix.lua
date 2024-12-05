@@ -69,7 +69,7 @@ return {
 				},
 				-- slow with long reference list:
 				highlight = {
-					treesitter = true,
+					treesitter = false,
 					lsp = false,
 					load_buffers = false,
 				},

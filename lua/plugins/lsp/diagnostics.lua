@@ -22,10 +22,7 @@ function M.setup()
 		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 	end
 	vim.diagnostic.config({
-		virtual_text = {
-			source = false,
-			prefix = " ",
-		},
+		virtual_text = false,
 		signs = {
 			active = signs,
 		},

@@ -8,7 +8,7 @@ o.ignorecase = true --         ignore case in search patterns
 o.inccommand = "split" --      shows partial off-screen results in a preview window when you type a command
 o.linebreak = true --          avoid wrapping a line in the middle of a word.
 o.number = true --             show lines number
-o.numberwidth = 1 --           minimal number of columns to use for the line number
+o.numberwidth = 3 --           minimal number of columns to use for the line number
 o.pumheight = 10 --            pop up menu height
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,globals,localoptions" -- session start options
 o.shiftwidth = 2 --            the number of spaces inserted for each indentation
@@ -25,21 +25,3 @@ o.tabstop = 2 --               insert 2 spaces for a tab
 o.termguicolors = true --      set term gui colors (most terminals support this)
 o.undofile = true --           enable persistent undo
 o.wrap = false --              display lines as one long line
-
--- vim.opt.guicursor = "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
-
--- o.listchars = { tab = "» ", trail = "·", extends = ">", precedes = "<", nbsp = "␣" } -- display special characters
-
--- vim.opt.listchars = { tab = "»¬", trail = "·", extends = ">", precedes = "<", nbsp = "␣" }
-
--- vim.opt.list = true
--- vim.opt.listchars = { tab = ">-", trail = ".", extends = ">", precedes = "<", nbsp = "_" }
-
--- vim.opt.listchars = "tab:>-,trail:.,extends:>,precedes:<,nbsp:_"
--- vim.opt.list = true
-
--- set -g default-terminal "screen-256color" # Upgrade $TERM
--- set -ga terminal-overrides ",xterm-256color:Tc"
-
--- set -g default-terminal "screen-256color"
--- set -ga terminal-overrides ",xterm-256color:Tc"

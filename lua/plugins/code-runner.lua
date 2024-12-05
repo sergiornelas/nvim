@@ -14,10 +14,10 @@ return {
 				size = 13,
 			},
 			filetype = {
-				javascript = "nvm use 20 && node --watch",
-				typescript = "nvm use 20 && node --watch",
-				javascriptreact = "nvm use 20 && node --watch",
-				typescriptreact = "nvm use 20 && node --watch",
+				javascript = "nvm use lts && node --watch",
+				typescript = "nvm use lts && node --watch",
+				javascriptreact = "nvm use lts && node --watch",
+				typescriptreact = "nvm use lts && node --watch",
 			},
 			-- SyntaxError: Cannot use import statement outside a module
 			-- project = {

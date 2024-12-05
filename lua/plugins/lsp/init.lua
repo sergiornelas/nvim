@@ -28,6 +28,16 @@ function M.config()
 	local on_attach = require("plugins.lsp.handlers").on_attach
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+	-- npm init @eslint/config@latest
+	-- some code actions doesn't show in the preview
+	-- lspconfig.ts_ls.setup({
+	-- 	server = {
+	-- 		on_attach = on_attach,
+	-- 		capabilities = capabilities,
+	-- 		settings = require("plugins.lsp.settings.tsserver").settings,
+	-- 	},
+	-- })
+
 	lspconfig.eslint.setup({
 		capabilities = capabilities,
 		settings = require("plugins.lsp.settings.eslint").settings,

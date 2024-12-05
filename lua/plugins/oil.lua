@@ -6,7 +6,7 @@ return {
 	dependencies = {
 		"echasnovski/mini.icons",
 		opts = {},
-		-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/ui.lua#L320
+		-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/ui.lua#L287
 		init = function()
 			package.preload["nvim-web-devicons"] = function()
 				require("mini.icons").mock_nvim_web_devicons()
@@ -19,33 +19,31 @@ return {
 
 		oil.setup({
 			keymaps = {
-				["g?"] = "actions.show_help",
+				["g?"] = { "actions.show_help", mode = "n" },
 				["<c-j>"] = "actions.select",
-				["<c-s>"] = { "actions.select_split", opts = { vertical = true } },
-				["<c-h>"] = { "actions.select_split", opts = { horizontal = true } },
-				["<c-t>"] = { "actions.select_split", opts = { tab = true } },
-				["<c-space>"] = "actions.close",
-				["<c-k>"] = "actions.parent",
-				["_"] = "actions.open_cwd",
-				["`"] = "actions.cd",
-				["~"] = { "actions.cd", opts = { scope = "tab" } },
-				["gs"] = "actions.change_sort",
+				["<c-s>"] = { "actions.select", opts = { vertical = true } },
+				["<c-h>"] = { "actions.select", opts = { horizontal = true } },
+				["<c-t>"] = { "actions.select", opts = { tab = true } },
+				["<c-space>"] = { "actions.close", mode = "n" },
+				["<c-k>"] = { "actions.parent", mode = "n" },
+				["<c-g>"] = { "actions.open_cwd", mode = "n" },
+				["<c-;>"] = { "actions.cd", mode = "n" },
+				["<c-'>"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
+				["gs"] = { "actions.change_sort", mode = "n" },
 				["gx"] = "actions.open_external",
-				["g."] = "actions.toggle_hidden",
-				["g\\"] = "actions.toggle_trash",
-				-- TODO
-				-- look for another map not y
-				-- ["yp"] = {
-				-- 	callback = function()
-				-- 		local entry = oil.get_cursor_entry()
-				-- 		local dir = oil.get_current_dir()
-				-- 		if not entry or not dir then
-				-- 			return
-				-- 		end
-				-- 		local relpath = vim.fn.fnamemodify(dir, ":.")
-				-- 		vim.fn.setreg("+", relpath .. entry.name)
-				-- 	end,
-				-- },
+				["g."] = { "actions.toggle_hidden", mode = "n" },
+				["g\\"] = { "actions.toggle_trash", mode = "n" },
+				["gy"] = {
+					callback = function()
+						local entry = oil.get_cursor_entry()
+						local dir = oil.get_current_dir()
+						if not entry or not dir then
+							return
+						end
+						local relpath = vim.fn.fnamemodify(dir, ":.")
+						vim.fn.setreg("+", relpath .. entry.name)
+					end,
+				},
 				["gd"] = {
 					callback = function()
 						---@diagnostic disable-next-line: lowercase-global
@@ -69,10 +67,10 @@ return {
 				-- 	winblend = 0, -- bug, only works with initial dir
 				-- },
 			},
-			preview = {
+			progress = {
 				border = "single",
 			},
-			progress = {
+			ssh = {
 				border = "single",
 			},
 			keymaps_help = {

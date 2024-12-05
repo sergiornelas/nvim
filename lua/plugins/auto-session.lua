@@ -15,6 +15,7 @@ function M.config()
 			"ccl",
 			"lclose",
 			"lua toggle_file_in_split(false)",
+			"RunClose",
 		},
 		save_extra_cmds = {
 			-- load last colorscheme by session

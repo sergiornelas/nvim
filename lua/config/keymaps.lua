@@ -8,12 +8,12 @@ end
 map("n", "<leader>y", "<cmd>tabclose<cr>") --                       tab close
 map("n", "d<leader>", "cc<esc>") --          	                     clear line
 map("n", "<leader><leader>", "i<space><esc>") --                 adds a space
+map("n", "<leader>lo", "<cmd>lopen<cr>") --                      open loclist
+map("n", "<leader>q", "<cmd>copen<cr>") --                      open quickfix
 map("n", "<leader>x", "<cmd>lua toggle_boolean()<cr>") --      toggle boolean
 map("i", "<c-z>", "<c-g>u<Esc>[s1z=`]a<c-g>u") --              fix last spell
 map("n", "<leader>j", "i<c-g>u<Esc>]s1z=`]a<c-g>u<esc>") --    fix next spell
 map("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>") --    fix prev spell
-map("n", "]<leader>", "mxo<esc>`x") --       	                break line down
-map("n", "[<leader>", "mxO<esc>`x") --       	               break line above
 map("n", "gG", "<cmd>%y<cr>") --            	               yank full buffer
 map("n", "<leader><c-q>", "<cmd>qa!<cr>") -- 	              force exit neovim
 -- map("n", "<leader>L", "<cmd>Lazy<cr>") --    	             Lazy plugin status
@@ -25,13 +25,13 @@ map("n", "<leader>gj", "<cmd>Gitsigns stage_hunk<cr><cmd>w<cr>") -- save changes
 map("n", "<leader>n", '<cmd>lua toggle_file_in_split("~/notes/scratch/main.md")<cr>') -- toggle scratch file
 map("n", "<c-q>", "<cmd>qa<cr>") -- 	 exit vim safely (vim: not used, or used for terminal control flow, visual block)
 
--- QUICK FIX / LOCLIST ============================
-map("n", "<leader>q", "<cmd>copen<cr>") --    open quickfix
-map("n", "]Q", "<cmd>clast<cr>") --   quickfix last element
-map("n", "[Q", "<cmd>cfirst<cr>") -- quickfix first element
-map("n", "<leader>lo", "<cmd>lopen<cr>") --    open loclist
-map("n", "]L", "<cmd>llast<cr>") --    loclist last element
-map("n", "[L", "<cmd>lfirst<cr>") --  loclist first element
+-- TOGGLE OPTIONS =================================
+map("i", "<c-g><c-p>", "<cmd>set spell!<cr>")
+map("i", "<c-g><c-a>", "<cmd>set wrap!<cr>")
+map("i", "<c-g><c-b>", "<cmd>set nu!<cr>")
+map("x", "<leader>p", "<cmd>set spell!<cr>")
+map("x", "<leader>a", "<cmd>set wrap!<cr>")
+map("x", "<leader>b", "<cmd>set nu!<cr>")
 
 -- RESIZE WINDOW ==================================
 map({ "n", "x" }, "<c-p>", "<cmd>resize +6<cr>") --                    resize up (vim: same as "k")
@@ -39,22 +39,16 @@ map({ "n", "x" }, "<c-n>", "<cmd>resize -6<cr>") --                  resize down
 map({ "n", "x" }, "<c-h>", "<cmd>vertical resize +6<cr>") -- resize left (vim: same as "h", "<BS>")
 map({ "n", "x" }, "<c-;>", "<cmd>vertical resize -6<cr>") --                           resize right
 
--- TOGGLE OPTIONS =================================
-map("i", "<c-g><c-p>", "<cmd>set spell!<cr>")
-map("i", "<c-g><c-a>", "<cmd>set wrap!<cr>")
-map("i", "<c-g><c-b>", "<cmd>set nu!<cr>")
-map({ "n", "x" }, "<leader>p", "<cmd>set spell!<cr>")
-map({ "n", "x" }, "<leader>a", "<cmd>set wrap!<cr>")
-map({ "n", "x" }, "<leader>b", "<cmd>set nu!<cr>")
-
 -- remember that Q visual mode execute last macro in selected portion
 
 -- leader free: h, v, m, o
 -- h chatgpt?
 -- o obisidan
+
+-- ctrl free:
 -- c-c
 
 -- [ maps available
--- y, o, u
+-- y, u
 -- h, j
--- b, m?
+-- m?

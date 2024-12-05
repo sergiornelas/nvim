@@ -1,14 +1,13 @@
 return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		main = "render-markdown",
 		ft = "markdown",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
 			require("render-markdown").setup({
 				heading = {
 					width = "block",
-					right_pad = 2,
+					right_pad = 1,
 				},
 				code = {
 					style = "normal",
