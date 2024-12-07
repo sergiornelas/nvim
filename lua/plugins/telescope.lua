@@ -9,8 +9,9 @@ return {
 		},
 	},
 	config = function()
-		local actions = require("telescope.actions")
 		local telescope = require("telescope")
+		local builtin = require("telescope.builtin")
+		local actions = require("telescope.actions")
 
 		local send_find_files_to_live_grep = function()
 			local files = {}
@@ -18,8 +19,25 @@ return {
 			require("telescope.actions.utils").map_entries(prompt_bufnr, function(entry, _, _)
 				table.insert(files, entry[0] or entry[1])
 			end)
-			require("telescope.builtin").live_grep({
+			builtin.live_grep({
 				search_dirs = files,
+			})
+		end
+
+		function Paste_image()
+			builtin.find_files({
+				attach_mappings = function(_, map)
+					local function embed_image(prompt_bufnr)
+						local entry = require("telescope.actions.state").get_selected_entry()
+						local filepath = entry[1]
+						actions.close(prompt_bufnr)
+						local img_clip = require("img-clip")
+						img_clip.paste_image(nil, filepath)
+					end
+					map("i", "<c-j>", embed_image)
+					map("n", "<c-j>", embed_image)
+					return true
+				end,
 			})
 		end
 
@@ -198,5 +216,6 @@ return {
 		-- Plugins
 		{ "<c-g><c-e>", "<cmd>Telescope emoji theme=cursor layout_config={height=14}<cr>", mode = { "i" } },
 		{ "<leader>fh", "<cmd>Telescope heading<cr>" },
+		{ "<leader>fP", "<cmd>lua Paste_image()<cr>" },
 	},
 }

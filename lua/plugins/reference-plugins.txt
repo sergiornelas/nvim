@@ -110,7 +110,6 @@ potamides/pantran.nvim                                              google trans
 jghauser/kitty-runner.nvim                                   kitty commands from nvim
 smjonas/live-command.nvim              visual feedback for vim search/global commands
 debugloop/telescope-undo.nvim                                          telescope undo
-3rd/image.nvim                                              images render on markdown
 axkirillov/easypick.nvim                            telescope with arbitrary commands
 tiagovla/scope.nvim                               workspace by tab (very interesting)
 LunarVim/bigfile.nvim             disables certain features if the opened file is big
