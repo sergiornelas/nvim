@@ -15,7 +15,7 @@
 ## Showcase
 
 <img width="1450" alt="image" src="gruvby.png">
-<img width="1450" alt="image" src="darky.png">
+<img width="1450" alt="image" src="darkz.png">
 
 ## Install Instructions
 
