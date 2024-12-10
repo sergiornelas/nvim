@@ -16,6 +16,7 @@ autocmd("ColorScheme", {
 			{ "LineNr", { fg = "#807B7B" } },
 			{ "Visual", { bg = "#52524e" } },
 			{ "MsgArea", { fg = "#DACBA5" } },
+			{ "ContextVt", { fg = "#89867f" } },
 			{ "CursorLine", { bg = "#25424D" } },
 			{ "IndentLine", { fg = "#525050" } },
 			{ "TreesitterContext", { bg = "#34312F" } },
@@ -23,7 +24,7 @@ autocmd("ColorScheme", {
 			{ "ContextVt", { fg = "#807B7B", italic = true } },
 			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#f3971b" } },
 			{ "TreesitterContextBottom", { underline = true, sp = "#887F68" } },
-			{ "LspInlayHint", { fg = "#74716A", bg = "#161514", italic = true } },
+			{ "LspInlayHint", { fg = "#74716A", italic = true } },
 		}
 		for _, highlight in ipairs(highlights) do
 			vim.api.nvim_set_hl(0, highlight[1], highlight[2])

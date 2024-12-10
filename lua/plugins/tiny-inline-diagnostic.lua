@@ -12,7 +12,7 @@ return {
 				},
 			},
 			signs = {
-				arrow = "   ",
+				arrow = "    ",
 				up_arrow = "    ",
 			},
 		})

@@ -35,8 +35,9 @@ return {
 	},
 	{
 		"HakonHarnes/img-clip.nvim",
+		-- press yi to copy an image from the clipboard (vimium C)
 		keys = {
-			{ "<leader>P", "<cmd>PasteImage<cr>" },
+			{ "<leader>P", "o<esc>k<cmd>PasteImage<cr>" },
 		},
 		opts = {
 			default = {

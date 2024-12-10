@@ -5,6 +5,7 @@ local M = {
 		{
 			"kosayoda/nvim-lightbulb",
 			opts = {
+				priority = 4501,
 				autocmd = { enabled = true, updatetime = 50 },
 				sign = {
 					enabled = false,

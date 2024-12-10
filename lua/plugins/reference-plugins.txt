@@ -141,4 +141,4 @@ Last time checked this-week-in-neovim
 10/8/2024
 
 Last time checked awesome-neovim
-Nov 29, 2024
+Dec 7 2024

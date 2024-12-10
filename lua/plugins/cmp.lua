@@ -97,6 +97,7 @@ local M = {
 					{ name = "buffer" },
 					{ name = "calc" },
 					{ name = "path" },
+					{ name = "render-markdown" },
 					-- { name = "buffer", keyword_length = 5 },
 				},
 				sorting = {
