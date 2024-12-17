@@ -5,13 +5,13 @@ return {
 		cmd = { "RunCode", "RunFile" },
 		keys = {
 			{ "<leader><cr>", "<cmd>RunCode<cr>" },
-			{ "<leader>J", "<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>RunCode<cr>" },
+			{ "<leader>J", "<cmd>tabnew ~/scratchFiles/scratch.js<cr><cmd>RunCode<cr>" },
 		},
 		opts = {
 			focus = false,
 			startinsert = false,
 			term = {
-				size = 13,
+				size = 19,
 			},
 			filetype = {
 				javascript = "nvm use lts && node --watch",

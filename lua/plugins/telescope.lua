@@ -7,6 +7,12 @@ return {
 		{
 			"crispgm/telescope-heading.nvim",
 		},
+		{
+			"allaman/emoji.nvim",
+			opts = {
+				enable_cmp_integration = false,
+			},
+		},
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -84,10 +90,11 @@ return {
 						-- actions.delete_mark, -- eliminate element/s from telescope results
 					},
 				},
-				-- https://www.squash.io/how-to-git-ignore-node-modules-folder-everywhere/
-				-- file_ignore_patterns = {
-				-- 	"node_modules/.*", -- Ignore the node_modules folder
-				-- },
+				file_ignore_patterns = {
+					"%.sc",
+					-- https://www.squash.io/how-to-git-ignore-node-modules-folder-everywhere/
+					-- "node_modules/.*",
+				},
 			},
 			pickers = {
 				find_files = {

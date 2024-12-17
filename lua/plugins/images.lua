@@ -12,7 +12,7 @@ return {
 		opts = {
 			integrations = {
 				markdown = {
-					only_render_image_at_cursor = false,
+					only_render_image_at_cursor = true,
 					floating_windows = false,
 					filetypes = { "markdown", "vimwiki" },
 				},

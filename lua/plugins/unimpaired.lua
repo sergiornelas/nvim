@@ -27,16 +27,8 @@ return {
 				description = "Jump to last buffer",
 				dot_repeat = false,
 			},
-			lprevious = {
-				mapping = "[l",
-				description = "Jump to [count] previous entry in loclist",
-				dot_repeat = true,
-			},
-			lnext = {
-				mapping = "]l",
-				description = "Jump to [count] next entry in loclist",
-				dot_repeat = true,
-			},
+			lprevious = false,
+			lnext = false,
 			lfirst = {
 				mapping = "[L",
 				description = "Jump to first entry in loclist",
@@ -57,16 +49,8 @@ return {
 				description = "Jump to first entry of [count] next file in loclist",
 				dot_repeat = true,
 			},
-			cprevious = {
-				mapping = "[q",
-				description = "Jump to [count] previous entry in qflist",
-				dot_repeat = true,
-			},
-			cnext = {
-				mapping = "]q",
-				description = "Jump to [count] next entry in qflist",
-				dot_repeat = true,
-			},
+			cprevious = false,
+			cnext = false,
 			cfirst = {
 				mapping = "[Q",
 				description = "Jump to first entry in qflist",

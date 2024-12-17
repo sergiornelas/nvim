@@ -96,6 +96,7 @@ p00f/cphelper.nvim                                                    code chall
 xeluxee/competitest.nvim                                              code challenges
 Vigemus/iron.nvim                              run selected area, buggy, watch works?
 kawre/leetcode.nvim                                     leetcode problems with neovim
+Goose97/timber.nvim              insert log statements and capture log results inline
 
 NOTES -------------------------------------------------------------------------------
 folke/todo-comments.nvim                                                 pretty notes
@@ -131,7 +132,6 @@ LintaoAmons/bookmarks.nvim                                notes bookmark project
 aliqyan-21/wit.nvim                                  visit visual selected on browser
 azratul/live-share.nvim                    share your changes real time with coworker
 hat0uma/csvview.nvim                                       show csv spreadsheet files
-Saghen/blink.cmp                                        cmp alternative, (1.5k stars)
 
 Last time revisited all these plugins
 20/05/2024
@@ -141,4 +141,4 @@ Last time checked this-week-in-neovim
 10/8/2024
 
 Last time checked awesome-neovim
-Dec 7 2024
+Dec 12 2024

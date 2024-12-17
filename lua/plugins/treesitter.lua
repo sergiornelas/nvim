@@ -69,6 +69,13 @@ return {
 		local mode = { "n", "x", "o" }
 		local illuminate = require("illuminate")
 		local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+		local function safe_fix_nav(command)
+			return function()
+				if not pcall(vim.api.nvim_command, vim.v.count1 .. command) then
+					print("No more items")
+				end
+			end
+		end
 		local function goto_diagnostic(direction, error)
 			local navigate = direction == "next" and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
 			for _ = 1, vim.v.count1 do
@@ -97,6 +104,10 @@ return {
 		end, function()
 			vim.cmd("normal " .. vim.v.count1 .. "]-")
 		end)
+		local next_quickfix_el, prev_quickfix_el =
+			ts_repeat_move.make_repeatable_move_pair(safe_fix_nav("cnext"), safe_fix_nav("cprev"))
+		local next_loclist_el, prev_loclist_el =
+			ts_repeat_move.make_repeatable_move_pair(safe_fix_nav("lne"), safe_fix_nav("lp"))
 
 		-- TODO
 		-- local next_spell, prev_spell = ts_repeat_move.make_repeatable_move_pair(function()
@@ -114,6 +125,10 @@ return {
 		map(mode, "T", ts_repeat_move.builtin_T_expr, { expr = true })
 
 		-- Navigation mappings
+		map(mode, "]q", next_quickfix_el)
+		map(mode, "[q", prev_quickfix_el)
+		map(mode, "]l", next_loclist_el)
+		map(mode, "[l", prev_loclist_el)
 		map(mode, "]e", next_error)
 		map(mode, "[e", prev_error)
 		map(mode, "]d", next_diagnostic) -- (vim: go to prev diagnostic no float w. (nvim 0.10))

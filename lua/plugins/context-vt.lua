@@ -4,7 +4,7 @@ return {
 	config = function()
 		require("nvim_context_vt").setup({
 			prefix = " ->",
-			min_rows = 10,
+			min_rows = 8,
 		})
 	end,
 }

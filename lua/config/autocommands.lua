@@ -5,26 +5,31 @@ local function map(mode, key, command)
 	vim.api.nvim_buf_set_keymap(0, mode, key, command, { noremap = true, silent = true })
 end
 local autocmd = vim.api.nvim_create_autocmd
+local create_group = vim.api.nvim_create_augroup
 
 -- Set group colors
-vim.api.nvim_create_augroup("MyColors", { clear = true })
+create_group("MyColors", { clear = true })
 autocmd("ColorScheme", {
 	group = "MyColors",
 	pattern = "*",
 	callback = function()
 		local highlights = {
-			{ "LineNr", { fg = "#807B7B" } },
-			{ "Visual", { bg = "#52524e" } },
-			{ "MsgArea", { fg = "#DACBA5" } },
-			{ "ContextVt", { fg = "#89867f" } },
-			{ "CursorLine", { bg = "#25424D" } },
-			{ "IndentLine", { fg = "#525050" } },
-			{ "TreesitterContext", { bg = "#34312F" } },
-			{ "MiniIndentscopeSymbol", { fg = "#DACBA5" } },
+			{ "BlinkCmpDoc", { bg = "#151413", fg = "#efe4ca" } },
+			{ "BlinkCmpLabel", { fg = "#efe4ca" } },
+			{ "BlinkCmpLabelMatch", { fg = "#70afb0" } },
+			{ "BlinkCmpMenu", { bg = "#1f1e1c" } },
+			{ "BlinkCmpMenuSelection", { bg = "#4b4a48" } },
 			{ "ContextVt", { fg = "#807B7B", italic = true } },
-			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#f3971b" } },
-			{ "TreesitterContextBottom", { underline = true, sp = "#887F68" } },
+			{ "CursorLine", { bg = "#25424D" } },
+			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#efe4ca" } },
+			{ "IndentLine", { fg = "#525050" } },
+			{ "LineNr", { fg = "#807B7B" } },
 			{ "LspInlayHint", { fg = "#74716A", italic = true } },
+			{ "MiniIndentscopeSymbol", { fg = "#DACBA5" } },
+			{ "MsgArea", { fg = "#DACBA5" } },
+			{ "TreesitterContext", { bg = "#34312F" } },
+			{ "TreesitterContextBottom", { underline = true, sp = "#887F68" } },
+			{ "Visual", { bg = "#52524e" } },
 		}
 		for _, highlight in ipairs(highlights) do
 			vim.api.nvim_set_hl(0, highlight[1], highlight[2])
@@ -80,10 +85,33 @@ autocmd("BufEnter", {
 })
 
 -- Jump to the last place you’ve visited in a file before exiting
-autocmd(
-	"BufReadPost",
-	{ command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
-)
+local function augroup(name)
+	return create_group("lazyvim_" .. name, { clear = true })
+end
+autocmd("BufReadPost", {
+	group = augroup("last_loc"),
+	callback = function(event)
+		local exclude = { "gitcommit" }
+		local buf = event.buf
+		if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
+			return
+		end
+		vim.b[buf].lazyvim_last_loc = true
+		local mark = vim.api.nvim_buf_get_mark(buf, '"')
+		local lcount = vim.api.nvim_buf_line_count(buf)
+		if mark[1] > 0 and mark[1] <= lcount then
+			pcall(vim.api.nvim_win_set_cursor, 0, mark)
+		end
+	end,
+})
+
+-- Trigger equalize windows function
+autocmd("VimResized", {
+	group = create_group("resize_splits", { clear = true }),
+	callback = function()
+		auto_equalize_window_widths()
+	end,
+})
 
 -- Abbreviations
 -- <c-v>+space skip the abbreviation"
