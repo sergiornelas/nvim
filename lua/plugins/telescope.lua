@@ -51,7 +51,7 @@ return {
 			defaults = {
 				layout_strategy = "vertical", --horizontal/vertical/flex
 				sorting_strategy = "ascending", --important
-				winblend = 12,
+				winblend = 6,
 				results_title = "",
 				layout_config = {
 					vertical = {
@@ -92,6 +92,7 @@ return {
 				},
 				file_ignore_patterns = {
 					"%.sc",
+					"%.png",
 					-- https://www.squash.io/how-to-git-ignore-node-modules-folder-everywhere/
 					-- "node_modules/.*",
 				},

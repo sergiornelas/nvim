@@ -9,8 +9,10 @@ return {
 			enable_cmp_source = false,
 			virtual_text = {
 				enabled = true,
-				manual = true,
-				filetypes = {},
+				manual = false,
+				filetypes = {
+					TelescopePrompt = false,
+				},
 				default_filetype_enabled = true,
 				idle_delay = 75,
 				virtual_text_priority = 65535,

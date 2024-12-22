@@ -66,6 +66,7 @@ esmuellert/nvim-eslint                           more native VSCode eslint for n
 marilari88/twoslash-queries.nvim               print typescript types as virtual text
 jdrupal-dev/code-refactor.nvim                          more javascripts code actions
 jellydn/typecheck.nvim               seamless TypeScript type checking using quickfix
+Jezda1337/nvim-html-css                        HTML id and class attribute completion
 
 ARTIFICIAL INTELIGENCE --------------------------------------------------------------
 zbirenbaum/copilot-cmp
@@ -132,6 +133,7 @@ LintaoAmons/bookmarks.nvim                                notes bookmark project
 aliqyan-21/wit.nvim                                  visit visual selected on browser
 azratul/live-share.nvim                    share your changes real time with coworker
 hat0uma/csvview.nvim                                       show csv spreadsheet files
+sphamba/smear-cursor.nvim                          neovide cursor animation in neovim
 
 Last time revisited all these plugins
 20/05/2024
@@ -141,4 +143,4 @@ Last time checked this-week-in-neovim
 10/8/2024
 
 Last time checked awesome-neovim
-Dec 12 2024
+Dec 19 2024
