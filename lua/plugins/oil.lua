@@ -1,7 +1,7 @@
 return {
 	"stevearc/oil.nvim",
 	keys = {
-		{ "<c-space>", "<cmd>Oil --float<cr>" },
+		{ "<c-c>", "<cmd>Oil --float<cr>" },
 	},
 	dependencies = {
 		"echasnovski/mini.icons",
@@ -24,7 +24,7 @@ return {
 				["<c-s>"] = { "actions.select", opts = { vertical = true } },
 				["<c-h>"] = { "actions.select", opts = { horizontal = true } },
 				["<c-t>"] = { "actions.select", opts = { tab = true } },
-				["<c-space>"] = { "actions.close", mode = "n" },
+				["<c-c>"] = { "actions.close", mode = "n" },
 				["<c-k>"] = { "actions.parent", mode = "n" },
 				["<c-g>"] = { "actions.open_cwd", mode = "n" },
 				["<c-;>"] = { "actions.cd", mode = "n" },

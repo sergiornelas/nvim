@@ -19,6 +19,7 @@ autocmd("ColorScheme", {
 			{ "BlinkCmpLabelMatch", { fg = "#70afb0" } },
 			{ "BlinkCmpMenu", { bg = "#1f1e1c" } },
 			{ "BlinkCmpMenuSelection", { bg = "#4b4a48" } },
+			{ "Comment", { fg = "#928374", italic = true } },
 			{ "ContextVt", { fg = "#807B7B", italic = true } },
 			{ "CursorLine", { bg = "#25424D" } },
 			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#efe4ca" } },

@@ -179,7 +179,9 @@ return {
 		keys = lazy_map,
 		config = function()
 			require("flow").setup({
-				transparent = true,
+				theme = {
+					transparent = true,
+				},
 			})
 		end,
 	},

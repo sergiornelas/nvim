@@ -78,6 +78,7 @@ return {
 						["<c-;>"] = actions.cycle_history_prev,
 						["<c-z>"] = actions.to_fuzzy_refine,
 						["<esc>"] = actions.close,
+						["<c-space>"] = actions.close,
 						["<c-n>"] = actions.toggle_selection + actions.move_selection_worse,
 						["<c-p>"] = actions.toggle_selection + actions.move_selection_better,
 						-- ["<c-q>"] = actions.send_to_qflist + actions.open_qflist,
@@ -225,5 +226,6 @@ return {
 		{ "<c-g><c-e>", "<cmd>Telescope emoji theme=cursor layout_config={height=14}<cr>", mode = { "i" } },
 		{ "<leader>fh", "<cmd>Telescope heading<cr>" },
 		{ "<leader>fP", "<cmd>lua Paste_image()<cr>" },
+		{ "<c-space>", "<cmd>Telescope session-lens<cr>" },
 	},
 }
