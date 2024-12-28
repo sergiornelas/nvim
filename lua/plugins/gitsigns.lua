@@ -14,7 +14,7 @@ function M.config()
 		current_line_blame_opts = {
 			delay = 400,
 		},
-		signs_staged_enable = false,
+		-- signs_staged_enable = false, -- doesn't exist yet (commit)
 		signcolumn = false,
 		numhl = true,
 		-- update_debounce = 0,

@@ -6,6 +6,7 @@ local M = {
 
 function M.config()
 	require("auto-session").setup({
+		lsp_stop_on_restore = false, -- managed by garbage-day.nvim
 		pre_save_cmds = {
 			function()
 				toggle_file_in_split(false)
@@ -30,7 +31,7 @@ function M.config()
 		-- post_delete_cmds
 		-- no_restore_cmds
 		session_lens = {
-			load_on_setup = true,
+			load_on_setup = false,
 			prompt_title = "~ Teleport ~",
 			theme_conf = { layout_config = { width = 0.35 }, prompt_prefix = "󱓞  " },
 			mappings = {

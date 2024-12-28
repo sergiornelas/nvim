@@ -118,7 +118,10 @@ return {
 		"AlexvZyl/nordic.nvim",
 		keys = lazy_map,
 		opts = {
-			transparent_bg = true,
+			transparent = {
+				bg = true,
+				float = false,
+			},
 		},
 	},
 	{

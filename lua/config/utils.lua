@@ -9,7 +9,7 @@ function _G.toggle_boolean()
 	api.nvim_set_current_line(new_line)
 end
 
--- Close all terminal buffers (auto-session)
+-- Close all terminal buffers when exit (auto-session)
 function _G.close_all_terminals()
 	for _, buf in ipairs(api.nvim_list_bufs()) do
 		if vim.bo[buf].buftype == "terminal" then

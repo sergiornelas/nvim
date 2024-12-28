@@ -16,6 +16,23 @@ return {
 				},
 			},
 		},
+		{
+			"zeioth/garbage-day.nvim",
+			dependencies = "neovim/nvim-lspconfig",
+			opts = {
+				aggressive_mode = true,
+				excluded_lsp_clients = {
+					"typescript-tools",
+					"eslint",
+				},
+				-- grace_period = 60*15, -- is ignored by aggresive_mode
+				aggresive_mode_ignore = {
+					filetype = { "", "markdown", "text", "oil" },
+					buftype = { "nofile" },
+				},
+				notifications = false,
+			},
+		},
 	},
 	config = function()
 		local lspconfig_ok, lspconfig = pcall(require, "lspconfig")

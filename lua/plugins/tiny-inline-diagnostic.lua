@@ -1,6 +1,6 @@
 return {
 	"rachartier/tiny-inline-diagnostic.nvim",
-	event = "VeryLazy",
+	event = "LspAttach",
 	config = function()
 		require("tiny-inline-diagnostic").setup({
 			preset = "powerline",
