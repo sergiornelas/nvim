@@ -88,6 +88,7 @@ olimorris/codecompanion.nvim                copilot chat like experience via a b
 yetone/avante.nvim                                     cursor AI IDE (very powerful!)
 neocodeium                                  provides AI completion powered by Codeium
 supermaven-inc/supermaven-nvim                                   supermaven in neovim
+milanglacier/yarepl.nvim/blob/main/extensions/README.md  ai terminal (generate files)
 
 COMPETITIVE CODING ------------------------------------------------------------------
 0x100101/lab.nvim                                     visual text output (dissapears)
@@ -143,4 +144,4 @@ Last time checked this-week-in-neovim
 10/8/2024
 
 Last time checked awesome-neovim
-Dec 19 2024
+Dec 25 2024

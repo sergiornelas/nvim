@@ -97,8 +97,15 @@ local function equalize_window_widths()
 		cmd("tabnext " .. cur_tab) -- Stay on the current tab
 	end
 end
+local toggle_status = true
+function _G.toggle_window_resize()
+	toggle_status = not toggle_status
+end
 -- Main function to handle all cases of equalizing window widths and locking heights
 function _G.auto_equalize_window_widths()
+	if not toggle_status then
+		return
+	end
 	local num_tabs = fn.tabpagenr("$")
 	local num_windows = fn.winnr("$")
 	-- Case 1: Single window, no tabs, do nothing

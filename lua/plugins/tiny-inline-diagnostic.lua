@@ -7,7 +7,6 @@ return {
 			options = {
 				show_source = false,
 				-- Enable diagnostic message on all lines.
-				multilines = true,
 				virt_texts = {
 					priority = 4500,
 				},

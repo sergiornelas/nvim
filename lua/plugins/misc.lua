@@ -10,6 +10,28 @@ return {
 		},
 	},
 	{
+		"alanfortlink/animatedbg.nvim",
+		config = true,
+		keys = {
+			{
+				"<leader>F",
+				"<cmd>lua require('animatedbg-nvim').play({ animation = 'fireworks' })<cr>",
+			},
+			{
+				"<leader>M",
+				"<cmd>lua require('animatedbg-nvim').play({ animation = 'matrix' })<cr>",
+			},
+			{
+				"<leader>B",
+				"<cmd>lua require('animatedbg-nvim').play({ animation = 'demo' })<cr>",
+			},
+			{
+				"<leader>S",
+				"<cmd>lua require('animatedbg-nvim').stop_all()<cr>",
+			},
+		},
+	},
+	{
 		"seandewar/killersheep.nvim",
 		keys = {
 			{
