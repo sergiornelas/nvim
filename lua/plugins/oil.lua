@@ -1,7 +1,13 @@
 return {
 	"stevearc/oil.nvim",
 	keys = {
-		{ "<c-c>", "<cmd>Oil --float<cr>" },
+		{
+			"<c-c>",
+			function()
+				vim.cmd("Oil --float")
+				require("beepboop").play_audio("menu")
+			end,
+		},
 	},
 	dependencies = {
 		"echasnovski/mini.icons",

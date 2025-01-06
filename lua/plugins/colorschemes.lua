@@ -188,4 +188,11 @@ return {
 			})
 		end,
 	},
+	{
+		"ficcdaf/ashen.nvim",
+		keys = lazy_map,
+		opts = {
+			transparent = true,
+		},
+	},
 }

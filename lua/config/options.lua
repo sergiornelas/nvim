@@ -5,7 +5,6 @@ o.conceallevel = 2 --          so that `` is visible in markdown files, useful f
 o.cursorline = true --         highlight the current line
 o.expandtab = true --          convert tabs to spaces (useful for markdown extraspaces)
 o.ignorecase = true --         ignore case in search patterns
-o.inccommand = "split" --      shows partial off-screen results in a preview window when you type a command
 o.linebreak = true --          avoid wrapping a line in the middle of a word.
 o.number = true --             show lines number
 o.numberwidth = 3 --           minimal number of columns to use for the line number

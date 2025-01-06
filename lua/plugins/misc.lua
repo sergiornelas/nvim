@@ -40,6 +40,28 @@ return {
 			},
 		},
 	},
+	{
+		"EggbertFluffle/beepboop.nvim",
+		lazy = false,
+		opts = {
+			audio_player = "afplay",
+			max_sounds = 20,
+			sound_map = {
+				{ auto_command = "VimEnter", sound = "dsbdopn.wav" },
+				{ auto_command = "VimLeavePre", sound = "dsswtchx.wav" },
+				{ auto_command = "SessionWritePost", sound = "dspstop.wav" },
+				{
+					auto_command = { "InsertCharPre", "InsertEnter" },
+					sounds = { "stone1.mp3", "stone2.mp3", "stone3.mp3" },
+				},
+				{ auto_command = "BufWritePost", sound = "dsitemup.wav" },
+				{
+					trigger_name = "menu",
+					sound = "dsswtchn.wav",
+				},
+			},
+		},
+	},
 	-- {
 	-- 	"stevearc/aerial.nvim",
 	-- 	opts = {},

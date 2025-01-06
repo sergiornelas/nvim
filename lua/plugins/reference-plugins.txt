@@ -89,6 +89,7 @@ yetone/avante.nvim                                     cursor AI IDE (very power
 neocodeium                                  provides AI completion powered by Codeium
 supermaven-inc/supermaven-nvim                                   supermaven in neovim
 milanglacier/yarepl.nvim/blob/main/extensions/README.md  ai terminal (generate files)
+dlants/magenta.nvim                      ai code genereator, designed for typescript?
 
 COMPETITIVE CODING ------------------------------------------------------------------
 0x100101/lab.nvim                                     visual text output (dissapears)
@@ -135,6 +136,7 @@ aliqyan-21/wit.nvim                                  visit visual selected on br
 azratul/live-share.nvim                    share your changes real time with coworker
 hat0uma/csvview.nvim                                       show csv spreadsheet files
 sphamba/smear-cursor.nvim                          neovide cursor animation in neovim
+desdic/agrolens.nvim                                      telescope filter TS symbols
 
 Last time revisited all these plugins
 20/05/2024
@@ -144,4 +146,4 @@ Last time checked this-week-in-neovim
 10/8/2024
 
 Last time checked awesome-neovim
-Dec 25 2024
+Jan 05 2025

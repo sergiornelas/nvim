@@ -116,7 +116,6 @@ autocmd("VimResized", {
 
 -- Abbreviations
 -- <c-v>+space skip the abbreviation"
-vim.cmd("iabbrev snext sergio.ornelas@nextiva.com")
 vim.cmd("cabbrev sss SessionSave<cr>")
 vim.cmd("cabbrev ssd SessionDelete<cr>")
 
@@ -126,20 +125,6 @@ vim.cmd("cabbrev ssd SessionDelete<cr>")
 vim.g.n = "mxyGo\\<esc>pVGJ0y$:execute('let @t=\\<c-r>0')\\<cr>dd`x"
 
 -- Reference commands ========================
--- Symbols listchars
--- opt.listchars = {
--- 	tab = "│ ",
--- 	extends = "→",
--- 	precedes = "←",
--- 	trail = "·",
--- 	nbsp = "␣",
--- 	-- eol = "¬",
--- }
--- opt.list = true
-
--- Execute command when vim leave
--- autocmd VimLeave * NvimTreeClose
-
 -- Execute command when VimEnter and after some miliseconds
 -- autocmd VimEnter * call timer_start(10, {-> execute("unmap [%")})
 
@@ -149,9 +134,6 @@ vim.g.n = "mxyGo\\<esc>pVGJ0y$:execute('let @t=\\<c-r>0')\\<cr>dd`x"
 --   execute 'lua require("colorful-winsep").NvimSeparatorDel()'
 -- endfunction
 -- nnoremap <leader>sp :Codi <bar> call timer_start(200, CodeRunner())<cr>
-
--- Execute keyboard command
--- :exe "normal \<C-W>\<C-w>"
 
 -- enters diff mode, you can find text differences between two buffers. You need the two buffers & windows opened
 -- :wind diffthis

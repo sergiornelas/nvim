@@ -57,7 +57,7 @@ local M = {}
 M.on_attach = function(client, bufnr)
 	require("nvim-navic").attach(client, bufnr)
 	if client.supports_method(methods.textDocument_inlayHint) then
-		vim.lsp.inlay_hint.enable(true)
+		vim.lsp.inlay_hint.enable(false)
 		-- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
 	end
 	if client.name == "typescript-tools" then

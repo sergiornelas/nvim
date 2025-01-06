@@ -1,6 +1,6 @@
 return {
 	"Exafunction/codeium.nvim",
-  event = "InsertEnter",
+	event = "InsertEnter",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
@@ -28,9 +28,16 @@ return {
 			},
 		})
 
+		local toggle_codeium = true
+
 		vim.keymap.set("i", "<c-space>", function()
 			require("blink.cmp").cancel()
 			require("codeium.virtual_text").cycle_or_complete()
+		end)
+
+		vim.keymap.set("i", "<c-c>", function()
+			toggle_codeium = not toggle_codeium
+			require("codeium.config").options.virtual_text.manual = toggle_codeium
 		end)
 	end,
 }

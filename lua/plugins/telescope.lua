@@ -94,6 +94,10 @@ return {
 				file_ignore_patterns = {
 					"%.sc",
 					"%.png",
+					"%.mp3",
+					"%.wav",
+					"%.oga",
+					"%.ogg",
 					-- https://www.squash.io/how-to-git-ignore-node-modules-folder-everywhere/
 					-- "node_modules/.*",
 				},
