@@ -42,6 +42,7 @@ autocmd("ColorScheme", {
 autocmd("FileType", {
 	pattern = { "markdown" },
 	callback = function()
+		-- manual setting: set cc=80
 		vim.opt_local.colorcolumn = "80"
 		vim.opt_local.textwidth = 80
 		vim.opt_local.wrap = true

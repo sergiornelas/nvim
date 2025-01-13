@@ -46,7 +46,7 @@ SuperBo/fugit2.nvim                                                    neovim gi
 isakbm/gitgraph.nvim                                      git graph plugin for neovim
 
 FRONTEND ----------------------------------------------------------------------------
-vuki656/package-info.nvim                                                        node
+vuki656/package-info.nvim                show packages latest version in package.json
 b0o/SchemaStore.nvim                                                      json schema
 gennaro-tedesco/nvim-jqx                                             json in quickfix
 rest-nvim/rest.nvim                                                           postman
@@ -137,13 +137,14 @@ azratul/live-share.nvim                    share your changes real time with cow
 hat0uma/csvview.nvim                                       show csv spreadsheet files
 sphamba/smear-cursor.nvim                          neovide cursor animation in neovim
 desdic/agrolens.nvim                                      telescope filter TS symbols
+jake-stewart/multicursor.nvim                             multiple cursors for neovim
 
 Last time revisited all these plugins
 20/05/2024
 
 ====================
 Last time checked this-week-in-neovim
-10/8/2024
+1/6/2025
 
 Last time checked awesome-neovim
-Jan 05 2025
+Jan 11 2025

@@ -55,6 +55,9 @@ return {
 							width = { fill = true, max = 33 },
 						},
 					},
+					treesitter = {
+						"lsp",
+					},
 				},
 			},
 			documentation = {
