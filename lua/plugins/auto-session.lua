@@ -35,7 +35,7 @@ function M.config()
 			prompt_title = "~ Teleport ~",
 			theme_conf = { layout_config = { width = 0.35 }, prompt_prefix = "󱓞  " },
 			mappings = {
-				delete_session = { "i", "<c-f>" },
+				delete_session = { "i", "<c-x>" },
 				alternate_session = { "i", "<c-k>" },
 			},
 			path_display = { "shorten" },

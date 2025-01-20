@@ -147,4 +147,4 @@ Last time checked this-week-in-neovim
 1/6/2025
 
 Last time checked awesome-neovim
-Jan 11 2025
+Jan 18 2025

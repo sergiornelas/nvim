@@ -27,7 +27,7 @@ return {
 				},
 				-- grace_period = 60*15, -- is ignored by aggresive_mode
 				aggresive_mode_ignore = {
-					filetype = { "", "markdown", "text", "oil" },
+					filetype = { "", "markdown", "text", "oil", "snacks_picker_input" },
 					buftype = { "nofile" },
 				},
 				notifications = false,

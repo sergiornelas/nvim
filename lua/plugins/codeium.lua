@@ -12,6 +12,7 @@ return {
 				manual = false,
 				filetypes = {
 					TelescopePrompt = false,
+					snacks_picker_input = false,
 				},
 				default_filetype_enabled = true,
 				idle_delay = 75,

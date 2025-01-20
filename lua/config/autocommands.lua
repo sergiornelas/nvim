@@ -23,7 +23,7 @@ autocmd("ColorScheme", {
 			{ "ContextVt", { fg = "#807B7B", italic = true } },
 			{ "CursorLine", { bg = "#25424D" } },
 			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#efe4ca" } },
-			{ "IndentLine", { fg = "#525050" } },
+			{ "SnacksIndent", { fg = "#525050" } },
 			{ "LineNr", { fg = "#807B7B" } },
 			{ "LspInlayHint", { fg = "#74716A", italic = true } },
 			{ "MiniIndentscopeSymbol", { fg = "#DACBA5" } },
@@ -48,7 +48,7 @@ autocmd("FileType", {
 		vim.opt_local.wrap = true
 		map("i", "<c-g><c-]>", "<esc>o- [ ] ")
 		map("i", "<c-g><c-[>", "<Esc>O- [ ] ")
-		map("n", "gf", "<cmd>normal! $<cr><cmd>normal! h<cr><cmd>normal! gf<cr>")
+		map("n", "gf", "<cmd>normal! $hgf<cr>")
 	end,
 })
 
@@ -112,6 +112,15 @@ autocmd("VimResized", {
 	group = create_group("resize_splits", { clear = true }),
 	callback = function()
 		auto_equalize_window_widths()
+	end,
+})
+
+-- Reduce volume to BeepBoop
+autocmd("VimEnter", {
+	group = create_group("BeepBoopVolume", { clear = true }),
+	callback = function()
+		auto_equalize_window_widths()
+		vim.cmd("BeepBoopVolume 30")
 	end,
 })
 
