@@ -37,7 +37,7 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 ### ai
 
-+ [Exafunction/codeium.nvim](https://dotfyle.com/plugins/Exafunction/codeium.nvim)
++ [supermaven-inc/supermaven-nvim](https://dotfyle.com/plugins/supermaven-inc/supermaven-nvim)
 
 ### bars-and-lines
 
@@ -58,8 +58,10 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + [sho-87/kanagawa-paper.nvim](https://dotfyle.com/plugins/sho-87/kanagawa-paper.nvim)
 + [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
 + [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
++ [comfysage/evergarden](https://dotfyle.com/plugins/comfysage/evergarden)
 + [sainnhe/gruvbox-material](https://dotfyle.com/plugins/sainnhe/gruvbox-material)
 + [rebelot/kanagawa.nvim](https://dotfyle.com/plugins/rebelot/kanagawa.nvim)
++ [ficcdaf/ashen.nvim](https://dotfyle.com/plugins/ficcdaf/ashen.nvim)
 + [craftzdog/solarized-osaka.nvim](https://dotfyle.com/plugins/craftzdog/solarized-osaka.nvim)
 + [0xstepit/flow.nvim](https://dotfyle.com/plugins/0xstepit/flow.nvim)
 + [ribru17/bamboo.nvim](https://dotfyle.com/plugins/ribru17/bamboo.nvim)
@@ -79,8 +81,8 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 ### editing-support
 
++ [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
 + [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
-+ [tzachar/highlight-undo.nvim](https://dotfyle.com/plugins/tzachar/highlight-undo.nvim)
 + [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
 + [tummetott/unimpaired.nvim](https://dotfyle.com/plugins/tummetott/unimpaired.nvim)
 + [andersevenrud/nvim_context_vt](https://dotfyle.com/plugins/andersevenrud/nvim_context_vt)
@@ -93,6 +95,10 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 + [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
 + [lewis6991/spaceless.nvim](https://dotfyle.com/plugins/lewis6991/spaceless.nvim)
+
+### fun
+
++ [EggbertFluffle/beepboop.nvim](https://dotfyle.com/plugins/EggbertFluffle/beepboop.nvim)
 
 ### fuzzy-finder
 
@@ -110,18 +116,17 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 ### icon
 
-+ [allaman/emoji.nvim](https://dotfyle.com/plugins/allaman/emoji.nvim)
 + [echasnovski/mini.icons](https://dotfyle.com/plugins/echasnovski/mini.icons)
 
 ### indent
 
-+ [lukas-reineke/indent-blankline.nvim](https://dotfyle.com/plugins/lukas-reineke/indent-blankline.nvim)
 + [echasnovski/mini.indentscope](https://dotfyle.com/plugins/echasnovski/mini.indentscope)
 
 ### lsp
 
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 + [kosayoda/nvim-lightbulb](https://dotfyle.com/plugins/kosayoda/nvim-lightbulb)
++ [zeioth/garbage-day.nvim](https://dotfyle.com/plugins/zeioth/garbage-day.nvim)
 + [rachartier/tiny-inline-diagnostic.nvim](https://dotfyle.com/plugins/rachartier/tiny-inline-diagnostic.nvim)
 + [aznhe21/actions-preview.nvim](https://dotfyle.com/plugins/aznhe21/actions-preview.nvim)
 + [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
@@ -147,6 +152,10 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 + [3rd/image.nvim](https://dotfyle.com/plugins/3rd/image.nvim)
 + [HakonHarnes/img-clip.nvim](https://dotfyle.com/plugins/HakonHarnes/img-clip.nvim)
+
+### motion
+
++ [folke/flash.nvim](https://dotfyle.com/plugins/folke/flash.nvim)
 
 ### nvim-dev
 
