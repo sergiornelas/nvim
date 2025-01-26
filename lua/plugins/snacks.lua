@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 local layout = {
 	layout = {
 		backdrop = false,
@@ -30,7 +28,8 @@ return {
 	priority = 1000,
 	lazy = false,
 	config = function()
-		require("snacks").setup({
+		local snacks = require("snacks")
+		snacks.setup({
 			indent = {
 				scope = {
 					enabled = false,
@@ -58,9 +57,12 @@ return {
 							["<c-p>"] = { "select_and_prev", mode = { "i", "n" } },
 							["<c-i>"] = { "list_down", mode = { "i", "n" } },
 							["<c-o>"] = { "list_up", mode = { "i", "n" } },
+							["<c-k>"] = { "preview_scroll_left", mode = { "i", "n" } },
+							["<c-l>"] = { "preview_scroll_right", mode = { "i", "n" } },
 							["<c-g>"] = { "toggle_live", mode = { "i", "n" } },
 							["<c-t><c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
 							["<c-t><c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+							["<c-h>"] = "",
 						},
 					},
 					preview = {
@@ -80,9 +82,11 @@ return {
 			vim.keymap.set(mode, key, command, { noremap = true, silent = true })
 		end
 
+		-- list of layouts: default, dropdown, ivy, select, telescope, vertical, vscode
+
 		-- map("n", "<leader>", "<cmd>lua Snacks.picker.autocmds()<cr>")
 		map("n", "<leader>fo", function()
-			Snacks.picker.buffers({
+			snacks.picker.buffers({
 				current = false,
 				layout = buffers_layout,
 			})
@@ -96,7 +100,7 @@ return {
 		-- map("n", "<leader>", "<cmd>lua Snacks.picker.diagnostics()<cr>")
 		-- map("n", "<leader>", "<cmd>lua Snacks.picker.diagnostics_buffer()<cr>")
 		map("n", "<leader>fi", function()
-			Snacks.picker.files({
+			snacks.picker.files({
 				exclude = {
 					"/images",
 					"/sounds",
@@ -104,11 +108,11 @@ return {
 			})
 		end)
 		-- map("n", "<leader>", "<cmd>lua Snacks.picker.git_branches()<cr>")
-		map("n", "<leader>gs", "<cmd>lua Snacks.picker.git_diff()<cr>")
-		-- map("n", "<leader>", "<cmd>lua Snacks.picker.git_files()<cr>")
-		-- map("n", "<leader>", "<cmd>lua Snacks.picker.git_log()<cr>")
+		map("n", "<leader>gs", "<cmd>lua Snacks.picker.git_diff({layout = 'ivy'})<cr>")
+		map("n", "<leader>gf", "<cmd>lua Snacks.picker.git_files()<cr>")
+		map("n", "<leader>gc", "<cmd>lua Snacks.picker.git_log()<cr>")
 		-- no results found for git_log_file:
-		-- map("n", "<leader>", "<cmd>lua Snacks.picker.git_log_file()<cr>")
+		map("n", "<leader>gm", "<cmd>lua Snacks.picker.git_log_file()<cr>")
 		-- command failed:
 		-- map("n", "<leader>", "<cmd>lua Snacks.picker.git_log_line()<cr>")
 		-- show other project status:
@@ -118,8 +122,10 @@ return {
 		map({ "n", "x" }, "<leader>fw", "<cmd>lua Snacks.picker.grep_word()<cr>")
 		map("n", "<leader>fh", "<cmd>lua Snacks.picker.help()<cr>")
 		map("n", "<leader>H", "<cmd>lua Snacks.picker.highlights()<cr>")
+		map("i", "<c-g><c-e>", "<cmd>lua Snacks.picker.icons({layout = 'select'})<cr>")
 		map("n", "<leader>fj", "<cmd>lua Snacks.picker.jumps()<cr>")
-		map("n", "<leader>fk", "<cmd>lua Snacks.picker.keymaps()<cr>")
+		map("n", "<leader>fk", "<cmd>lua Snacks.picker.keymaps({layout = {fullscreen = true}})<cr>")
+		map("n", "<leader>fz", "<cmd>lua Snacks.picker.lazy()<cr>")
 		map("n", "<leader>ff", "<cmd>lua Snacks.picker.lines()<cr>")
 		-- map("n", "<leader>", "<cmd>lua Snacks.picker.loclist()<cr>")
 		-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_declarations()<cr>")

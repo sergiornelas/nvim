@@ -35,7 +35,7 @@ return {
 		"seandewar/killersheep.nvim",
 		keys = {
 			{
-				"<leader>K",
+				"<leader>`",
 				"<cmd>KillKillKill<cr>",
 			},
 		},

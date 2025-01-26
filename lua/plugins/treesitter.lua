@@ -15,7 +15,7 @@ return {
 				local keymap = vim.keymap.set
 				local opts = { noremap = true, silent = true }
 				keymap({ "n", "x" }, "<leader>u", "<cmd>TSContextToggle<cr>", opts)
-				keymap("i", "<c-g><c-t>", "<cmd>TSContextToggle<cr>", opts)
+				keymap("i", "<c-g><c-c>", "<cmd>TSContextToggle<cr>", opts)
 				keymap("n", "<leader>t0", "<cmd>lua require('treesitter-context').go_to_context(1)<cr>", opts)
 				for i = 1, 9 do
 					local cmd = "<cmd>lua require('treesitter-context').go_to_context(" .. i .. ")<cr>"
@@ -247,7 +247,7 @@ return {
 						["]k"] = "@comment.outer",
 						["]n"] = "@assignment.lhs",
 						["]o"] = "@loop.outer",
-						["]r"] = "@number.inner",
+						["]x"] = "@number.inner",
 						["]v"] = "@assignment.rhs",
 					},
 					goto_next_end = {
@@ -258,7 +258,7 @@ return {
 						["]K"] = "@comment.outer",
 						["]N"] = "@assignment.lhs",
 						["]O"] = "@loop.outer",
-						["]R"] = "@number.inner",
+						["]X"] = "@number.inner",
 						["]V"] = "@assignment.rhs",
 					},
 					goto_previous_start = {
@@ -269,7 +269,7 @@ return {
 						["[k"] = "@comment.outer",
 						["[n"] = "@assignment.lhs",
 						["[o"] = "@loop.outer",
-						["[r"] = "@number.inner",
+						["[x"] = "@number.inner",
 						["[v"] = "@assignment.rhs",
 					},
 					goto_previous_end = {
@@ -280,7 +280,7 @@ return {
 						["[K"] = "@comment.outer",
 						["[N"] = "@assignment.lhs",
 						["[O"] = "@loop.outer",
-						["[R"] = "@number.inner",
+						["[X"] = "@number.inner",
 						["[V"] = "@assignment.rhs",
 					},
 				},
@@ -289,7 +289,7 @@ return {
 					border = "single",
 					floating_preview_opts = {},
 					peek_definition_code = {
-						["<leader>v"] = "@function.outer",
+						["<leader>K"] = "@function.outer",
 					},
 				},
 			},

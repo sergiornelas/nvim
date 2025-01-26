@@ -90,6 +90,8 @@ neocodeium                                  provides AI completion powered by Co
 supermaven-inc/supermaven-nvim                                   supermaven in neovim
 milanglacier/yarepl.nvim/blob/main/extensions/README.md  ai terminal (generate files)
 dlants/magenta.nvim                      ai code genereator, designed for typescript?
+kbwo/vim-shareedit   shares open files and cursor positions between Neovim and VSCode!!!
+https://aider.chat/                check this, it's the best competitor vs cursor IDE
 
 COMPETITIVE CODING ------------------------------------------------------------------
 0x100101/lab.nvim                                     visual text output (dissapears)
@@ -147,4 +149,4 @@ Last time checked this-week-in-neovim
 1/6/2025
 
 Last time checked awesome-neovim
-Jan 18 2025
+Jan 23 2025

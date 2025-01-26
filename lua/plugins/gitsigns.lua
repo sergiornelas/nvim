@@ -72,6 +72,13 @@ function M.config()
 			map({ "o", "x" }, "ig", ":<c-u>Gitsigns select_hunk<cr>")
 			-- Extras
 			map("n", "<leader>ge", gitsigns.preview_hunk_inline)
+			-- save changes and file
+			vim.keymap.set(
+				"n",
+				"<leader>gj",
+				"<cmd>Gitsigns stage_hunk<cr><cmd>w<cr>",
+				{ noremap = true, silent = true }
+			)
 		end,
 	})
 end

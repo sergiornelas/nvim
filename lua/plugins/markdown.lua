@@ -33,6 +33,9 @@ return {
 		end,
 	},
 	{
+		-- to work with this:
+		-- cd ~/.local/share/nvim/lazy/markdown-preview.nvim
+		-- npm install
 		"iamcco/markdown-preview.nvim",
 		ft = { "markdown" },
 		build = function()
@@ -77,7 +80,7 @@ return {
 		"opdavies/toggle-checkbox.nvim",
 		keys = {
 			{
-				"<c-]>", -- (vim :ta to ident under cursor)
+				"<c-c>", -- (vim :interrupt current (search) command)
 				"<cmd>lua require('toggle-checkbox').toggle()<CR>",
 			},
 		},

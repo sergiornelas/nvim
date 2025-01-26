@@ -6,7 +6,7 @@ local M = {
 
 function M.config()
 	require("auto-session").setup({
-		lsp_stop_on_restore = false, -- managed by garbage-day.nvim
+		lsp_stop_on_restore = false, -- managed by garbage-day.nvim. Not working as expected.
 		pre_save_cmds = {
 			function()
 				toggle_file_in_split(false)

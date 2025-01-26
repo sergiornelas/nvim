@@ -1,3 +1,11 @@
+-- I still need telescope for:
+-- 1) aznhe21/actions-preview.nvim
+-- 2) rmagatti/auto-session
+-- 3) crispgm/telescope-heading.nvim
+-- 4) spell_suggest command
+-- 5) colorscheme command
+-- 6) Paste_image()
+
 return {
 	"nvim-telescope/telescope.nvim",
 	cmd = "Telescope",
@@ -5,12 +13,6 @@ return {
 	dependencies = {
 		{
 			"crispgm/telescope-heading.nvim",
-		},
-		{
-			"allaman/emoji.nvim",
-			opts = {
-				enable_cmp_integration = false,
-			},
 		},
 	},
 	config = function()
@@ -93,26 +95,20 @@ return {
 		})
 
 		telescope.load_extension("heading")
-		telescope.load_extension("emoji")
 	end,
 	keys = {
-		-- File Pickers
-		{ "<leader>gf", "<cmd>Telescope git_files<cr>" },
 		-- Vim pickers
 		{ "<leader>fQ", "<cmd>Telescope quickfixhistory<cr>" },
 		{ "<leader>fv", "<cmd>Telescope vim_options<cr>" },
 		{ "<leader>fp", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
 		{ "<leader>fy", "<cmd>Telescope filetypes<cr>" },
 		-- Git Pickers
-		{ "<leader>gc", "<cmd>Telescope git_commits<cr>" },
-		{ "<leader>gm", "<cmd>Telescope git_bcommits<cr>" },
 		{ "<leader>gM", "<cmd>Telescope git_bcommits_range<cr>" },
 		{ "<leader>gr", "<cmd>Telescope git_branches<cr>" },
 		{ "<leader>gh", "<cmd>Telescope git_stash<cr>" },
 		-- Treesitter Pickers
 		{ "<leader>ft", "<cmd>Telescope treesitter<cr>" },
 		-- Plugins
-		{ "<c-g><c-e>", "<cmd>Telescope emoji theme=cursor layout_config={height=14}<cr>", mode = { "i" } },
 		{ "<leader>fh", "<cmd>Telescope heading<cr>" },
 		{ "<leader>fP", "<cmd>lua Paste_image()<cr>" },
 		{ "<c-space>", "<cmd>Telescope session-lens<cr>" },

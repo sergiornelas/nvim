@@ -16,12 +16,10 @@ map("n", "<leader>j", "i<c-g>u<Esc>]s1z=`]a<c-g>u<esc>") --    fix next spell
 map("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>") --    fix prev spell
 map("n", "gG", "<cmd>%y<cr>") --            	               yank full buffer
 map("n", "<leader><c-q>", "<cmd>qa!<cr>") -- 	              force exit neovim
--- map("n", "<leader>L", "<cmd>Lazy<cr>") --    	             Lazy plugin status
 map("n", "y<leader>", "^f:llyE") --                      yank secret password
 map({ "n", "x" }, "<c-w><c-e>", "<cmd>vnew<cr>") -- new buffer vertical split
 map("t", "<esc>", "<c-\\><c-n>") --               escape insert mode terminal
 map("c", "<c-o>", "<c-p>") --             command prev option (vim: not used)
-map("n", "<leader>gj", "<cmd>Gitsigns stage_hunk<cr><cmd>w<cr>") -- save changes and file
 map("n", "<leader>n", '<cmd>lua toggle_file_in_split("~/notes/scratch/main.md")<cr>') -- toggle scratch file
 map("n", "<leader>R", "<cmd>lua toggle_window_resize()<cr>") -- toggle auto resize window mode
 map("n", "<c-q>", "<cmd>qa<cr>") -- 	 exit vim safely (vim: not used, or used for terminal control flow, visual block)

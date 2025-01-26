@@ -46,8 +46,8 @@ autocmd("FileType", {
 		vim.opt_local.colorcolumn = "80"
 		vim.opt_local.textwidth = 80
 		vim.opt_local.wrap = true
-		map("i", "<c-g><c-]>", "<esc>o- [ ] ")
-		map("i", "<c-g><c-[>", "<Esc>O- [ ] ")
+		map("i", "<c-g><c-g>", "<esc>o- [ ] ")
+		map("i", "<c-g><c-t>", "<Esc>O- [ ] ")
 		map("n", "gf", "<cmd>normal! $hgf<cr>")
 	end,
 })
@@ -119,8 +119,7 @@ autocmd("VimResized", {
 autocmd("VimEnter", {
 	group = create_group("BeepBoopVolume", { clear = true }),
 	callback = function()
-		auto_equalize_window_widths()
-		vim.cmd("BeepBoopVolume 30")
+		vim.cmd("BeepBoopVolume 28")
 	end,
 })
 

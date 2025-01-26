@@ -21,7 +21,7 @@ return {
 			preset = "none",
 			-- Important!: use C-x in caps, c-x doesn't work
 			["<C-'>"] = { "show", "show_documentation", "hide_documentation" },
-			["<C-l>"] = { "hide", "fallback" },
+			["<C-space>"] = { "hide", "fallback" },
 			["<C-j>"] = { "select_and_accept", "fallback" },
 
 			["<C-p>"] = { "select_prev", "fallback" },
