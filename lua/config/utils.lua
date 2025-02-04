@@ -2,6 +2,12 @@ local cmd = vim.cmd
 local api = vim.api
 local fn = vim.fn
 
+-- Save file with sound
+function _G.save_with_sound()
+	cmd("w")
+	require("beepboop").play_audio("save_sound")
+end
+
 -- Toggle true/false
 function _G.toggle_boolean()
 	local line = api.nvim_get_current_line()
@@ -34,12 +40,11 @@ function _G.toggle_file_in_split(filepath)
 	if not filepath then
 		local path = "~/notes/scratch/main.md"
 		if fn.bufnr(path) ~= -1 then
-			-- it exists
-			cmd("normal! mz")
 			cmd("bd" .. path)
 		end
 		return
 	end
+	require("beepboop").play_audio("open_notes")
 	_G.file_windows = _G.file_windows or {}
 	local current_tab_id = api.nvim_get_current_tabpage()
 	_G.file_windows[current_tab_id] = _G.file_windows[current_tab_id] or {}
@@ -47,10 +52,8 @@ function _G.toggle_file_in_split(filepath)
 	local last_file = _G.file_windows[current_tab_id].last_file or filepath
 	-- Close window
 	if window_id and api.nvim_win_is_valid(window_id) then
-		cmd("w")
 		-- Store the current file path before closing the window
 		_G.file_windows[current_tab_id].last_file = api.nvim_buf_get_name(api.nvim_win_get_buf(window_id))
-		cmd("normal! mz")
 		api.nvim_win_close(window_id, true)
 		cmd("wincmd p")
 	else
@@ -60,7 +63,6 @@ function _G.toggle_file_in_split(filepath)
 		cmd("keepalt split " .. filepath)
 		cmd("e" .. full_filepath)
 		window_id = api.nvim_get_current_win()
-		cmd("keepjumps normal! `z")
 		cmd("wincmd J")
 		cmd("resize +" .. RESIZE_AMOUNT .. " | wincmd p | wincmd p")
 		cmd("normal! zz")

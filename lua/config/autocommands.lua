@@ -20,14 +20,15 @@ autocmd("ColorScheme", {
 			{ "BlinkCmpMenu", { bg = "#1f1e1c" } },
 			{ "BlinkCmpMenuSelection", { bg = "#4b4a48" } },
 			{ "Comment", { fg = "#928374", italic = true } },
-			{ "ContextVt", { fg = "#807B7B", italic = true } },
+			{ "ContextVt", { fg = "#716a56", italic = true } },
 			{ "CursorLine", { bg = "#25424D" } },
 			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#efe4ca" } },
-			{ "SnacksIndent", { fg = "#525050" } },
+			{ "HighlightUndo", { bg = "#525050" } },
 			{ "LineNr", { fg = "#807B7B" } },
 			{ "LspInlayHint", { fg = "#74716A", italic = true } },
 			{ "MiniIndentscopeSymbol", { fg = "#DACBA5" } },
 			{ "MsgArea", { fg = "#DACBA5" } },
+			{ "SnacksIndent", { fg = "#525050" } },
 			{ "TreesitterContext", { bg = "#34312F" } },
 			{ "TreesitterContextBottom", { underline = true, sp = "#887F68" } },
 			{ "Visual", { bg = "#52524e" } },
@@ -46,9 +47,10 @@ autocmd("FileType", {
 		vim.opt_local.colorcolumn = "80"
 		vim.opt_local.textwidth = 80
 		vim.opt_local.wrap = true
-		map("i", "<c-g><c-g>", "<esc>o- [ ] ")
-		map("i", "<c-g><c-t>", "<Esc>O- [ ] ")
-		map("n", "gf", "<cmd>normal! $hgf<cr>")
+		map("i", "<c-g><c-g>", "<esc>o- [ ] ") -- create a checkbox below
+		map("i", "<c-g><c-t>", "<Esc>O- [ ] ") -- create a checkbox above
+		map("n", "gf", "<cmd>normal! $hgf<cr>") -- go to file under cursor
+		map("n", "<leader><esc>", "Gmxo<esc>`xgwj") -- break line down and format the lines below
 	end,
 })
 

@@ -12,6 +12,7 @@ return {
 				code = {
 					style = "normal",
 					width = "block",
+					border = "thick",
 				},
 				dash = {
 					width = 80,
@@ -75,6 +76,20 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"okuuva/auto-save.nvim",
+		version = "^1.0.0",
+		cmd = "ASToggle",
+		event = { "InsertLeave" },
+		opts = {
+			condition = function()
+				if vim.bo.filetype == "markdown" then
+					return true
+				end
+			end,
+			debounce_delay = 700,
+		},
 	},
 	{
 		"opdavies/toggle-checkbox.nvim",

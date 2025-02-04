@@ -49,27 +49,20 @@ return {
 			sound_map = {
 				{ auto_command = "VimEnter", sound = "dsbdopn.wav" },
 				{ auto_command = "VimLeavePre", sound = "dsswtchx.wav" },
-				{ auto_command = "SessionWritePost", sound = "dspstop.wav" },
+				{ auto_command = "SessionWritePost", sound = "dsswtchn.wav" },
 				{
 					auto_command = { "InsertCharPre", "InsertEnter" },
 					sounds = { "stone1.mp3", "stone2.mp3", "stone3.mp3" },
 				},
-				{ auto_command = "BufWritePost", sound = "dsitemup.wav" },
 				{
-					trigger_name = "menu",
-					sound = "dsswtchn.wav",
+					trigger_name = "save_sound",
+					sound = "dsitemup.wav",
+				},
+				{
+					trigger_name = "open_notes",
+					sound = "dspstop.wav",
 				},
 			},
 		},
 	},
-	-- {
-	-- 	"stevearc/aerial.nvim",
-	-- 	opts = {},
-	-- 	lazy = false,
-	-- 	-- Optional dependencies
-	-- 	dependencies = {
-	-- 		"nvim-treesitter/nvim-treesitter",
-	-- 		"nvim-tree/nvim-web-devicons",
-	-- 	},
-	-- },
 }

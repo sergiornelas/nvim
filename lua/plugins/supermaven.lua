@@ -8,7 +8,7 @@ return {
 				clear_suggestion = "<c-space>",
 				accept_word = "<c-l>",
 			},
-			ignore_filetypes = { cpp = true }, -- or { "cpp", }
+			ignore_filetypes = { cpp = true, snacks_picker_input = true, oil = true }, -- or { "cpp", }
 			color = {
 				suggestion_color = "#b658cb",
 				cterm = 244,
@@ -23,11 +23,8 @@ return {
 		local function accept_line(suggestion_function)
 			local line = vim.fn.line(".")
 			local line_count = vim.fn.line("$")
-
 			suggestion_function()
-
 			local added_lines = vim.fn.line("$") - line_count
-
 			if added_lines > 1 then
 				vim.api.nvim_buf_set_lines(0, line + 1, line + added_lines, false, {})
 				local last_col = #vim.api.nvim_buf_get_lines(0, line, line + 1, true)[1] or 0

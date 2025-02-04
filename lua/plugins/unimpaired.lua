@@ -145,7 +145,7 @@ return {
 			toggle_number = {
 				mapping = "<leader>b",
 				description = "Toggle line numbers",
-				dot_repeat = true,
+				dot_repeat = false,
 			},
 			enable_relativenumber = false,
 			disable_relativenumber = false,
@@ -159,7 +159,7 @@ return {
 			toggle_spell = {
 				mapping = "<leader>p",
 				description = "Toggle spell check",
-				dot_repeat = true,
+				dot_repeat = false,
 			},
 			enable_background = false,
 			disable_background = false,
@@ -201,7 +201,7 @@ return {
 			toggle_wrap = {
 				mapping = "<leader>a",
 				description = "Toggle line wrapping",
-				dot_repeat = true,
+				dot_repeat = false,
 			},
 			enable_cursorcross = false,
 			disable_cursorcross = false,

@@ -140,6 +140,7 @@ return {
 		-- map(mode, "[s", next_spell)
 		-- map(mode, "]s", prev_spell)
 
+		-- navigate through markdown headers
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = { "markdown" },
 			callback = function()
@@ -241,10 +242,10 @@ return {
 					set_jumps = true, -- whether to set jumps in the jumplist
 					goto_next_start = {
 						["]a"] = "@parameter.inner",
-						["]c"] = "@conditional.outer", -- (vim: cursor N times forward to start of change)
+						["]k"] = "@conditional.outer", -- (vim: cursor N times forward to start of change)
 						["]f"] = "@function.outer", -- (vim: same as "gf")
 						["]g"] = "@call.outer",
-						["]k"] = "@comment.outer",
+						["]c"] = "@comment.outer",
 						["]n"] = "@assignment.lhs",
 						["]o"] = "@loop.outer",
 						["]x"] = "@number.inner",
@@ -252,10 +253,10 @@ return {
 					},
 					goto_next_end = {
 						["]A"] = "@parameter.inner",
-						["]C"] = "@conditional.outer",
+						["]K"] = "@conditional.outer",
 						["]F"] = "@function.outer",
 						["]G"] = "@call.outer",
-						["]K"] = "@comment.outer",
+						["]C"] = "@comment.outer",
 						["]N"] = "@assignment.lhs",
 						["]O"] = "@loop.outer",
 						["]X"] = "@number.inner",
@@ -263,10 +264,10 @@ return {
 					},
 					goto_previous_start = {
 						["[a"] = "@parameter.inner",
-						["[c"] = "@conditional.outer", -- (vim: cursor N times backwards to start of change)
+						["[k"] = "@conditional.outer", -- (vim: cursor N times backwards to start of change)
 						["[f"] = "@function.outer", -- (vim: same as "gf")
 						["[g"] = "@call.outer",
-						["[k"] = "@comment.outer",
+						["[c"] = "@comment.outer",
 						["[n"] = "@assignment.lhs",
 						["[o"] = "@loop.outer",
 						["[x"] = "@number.inner",
@@ -274,10 +275,10 @@ return {
 					},
 					goto_previous_end = {
 						["[A"] = "@parameter.inner",
-						["[C"] = "@conditional.outer",
+						["[K"] = "@conditional.outer",
 						["[F"] = "@function.outer",
 						["[G"] = "@call.outer",
-						["[K"] = "@comment.outer",
+						["[C"] = "@comment.outer",
 						["[N"] = "@assignment.lhs",
 						["[O"] = "@loop.outer",
 						["[X"] = "@number.inner",

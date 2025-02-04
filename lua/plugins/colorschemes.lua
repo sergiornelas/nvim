@@ -1,7 +1,7 @@
 local lazy_map = {
 	{
 		"<leader>fc",
-		"<cmd>Telescope colorscheme prompt_title=Colorscheme layout_config={width=50}<cr>",
+		"<cmd>Telescope colorscheme prompt_title=Colorscheme layout_config={width=50} previewer=false<cr>",
 	},
 }
 

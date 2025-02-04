@@ -44,6 +44,7 @@ FabijanZulj/blame.nvim                                         git blame in all 
 echasnovski/mini-git                                          vim-fugitive for neovim
 SuperBo/fugit2.nvim                                                    neovim git GUI
 isakbm/gitgraph.nvim                                      git graph plugin for neovim
+tanvirtin/vgit.nvim/tree/v1.0.x                           enhance your git experience
 
 FRONTEND ----------------------------------------------------------------------------
 vuki656/package-info.nvim                show packages latest version in package.json
@@ -140,6 +141,7 @@ hat0uma/csvview.nvim                                       show csv spreadsheet 
 sphamba/smear-cursor.nvim                          neovide cursor animation in neovim
 desdic/agrolens.nvim                                      telescope filter TS symbols
 jake-stewart/multicursor.nvim                             multiple cursors for neovim
+lfilho/note2cal.nvim                                  schedule events to calendar.app
 
 Last time revisited all these plugins
 20/05/2024
@@ -149,4 +151,7 @@ Last time checked this-week-in-neovim
 1/6/2025
 
 Last time checked awesome-neovim
-Jan 23 2025
+Feb 02 2025
+
+New neovim plugins
+brianhuster/snipexec.nvim

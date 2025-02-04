@@ -1,8 +1,9 @@
 return {
 	"stevearc/conform.nvim",
 	keys = {
-		{ "<leader>w", "<cmd>w<cr>" },
+		{ "<leader>w", "<cmd>lua save_with_sound()<cr>" },
 	},
+	event = "InsertLeave",
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {

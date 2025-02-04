@@ -1,20 +1,14 @@
 -- I still need telescope for:
 -- 1) aznhe21/actions-preview.nvim
 -- 2) rmagatti/auto-session
--- 3) crispgm/telescope-heading.nvim
--- 4) spell_suggest command
--- 5) colorscheme command
--- 6) Paste_image()
+-- 3) spell_suggest command
+-- 4) colorscheme command
+-- 5) Paste_image()
 
 return {
 	"nvim-telescope/telescope.nvim",
 	cmd = "Telescope",
 	build = "make",
-	dependencies = {
-		{
-			"crispgm/telescope-heading.nvim",
-		},
-	},
 	config = function()
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
@@ -83,20 +77,10 @@ return {
 					ignore_builtins = true,
 				},
 			},
-			extensions = {
-				heading = {
-					treesitter = true,
-					picker_opts = {
-						layout_config = { width = 0.6, preview_width = 0.5 },
-						layout_strategy = "vertical",
-					},
-				},
-			},
 		})
-
-		telescope.load_extension("heading")
 	end,
 	keys = {
+		{ "<leader>f;", "<cmd>Telescope resume<cr>" },
 		-- Vim pickers
 		{ "<leader>fQ", "<cmd>Telescope quickfixhistory<cr>" },
 		{ "<leader>fv", "<cmd>Telescope vim_options<cr>" },
@@ -105,11 +89,9 @@ return {
 		-- Git Pickers
 		{ "<leader>gM", "<cmd>Telescope git_bcommits_range<cr>" },
 		{ "<leader>gr", "<cmd>Telescope git_branches<cr>" },
-		{ "<leader>gh", "<cmd>Telescope git_stash<cr>" },
 		-- Treesitter Pickers
 		{ "<leader>ft", "<cmd>Telescope treesitter<cr>" },
 		-- Plugins
-		{ "<leader>fh", "<cmd>Telescope heading<cr>" },
 		{ "<leader>fP", "<cmd>lua Paste_image()<cr>" },
 		{ "<c-space>", "<cmd>Telescope session-lens<cr>" },
 	},

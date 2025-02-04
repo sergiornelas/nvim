@@ -7,7 +7,7 @@ return {
 		},
 		modes = {
 			search = {
-				enabled = true,
+				enabled = false,
 			},
 			char = {
 				enabled = false,
@@ -36,14 +36,5 @@ return {
 				require("flash").remote()
 			end,
 		},
-		{
-			"<c-s>",
-			mode = { "c" },
-			function()
-				require("flash").toggle()
-			end,
-		},
-		{ "/" },
-		{ "?" },
 	},
 }
