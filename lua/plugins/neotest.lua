@@ -9,6 +9,13 @@ return {
 			-- "nvim-neotest/neotest-jest",
 		},
 		keys = {
+			-- current test
+			{
+				"<leader>tj",
+				function()
+					require("neotest").run.run()
+				end,
+			},
 			-- run the current file
 			{
 				"<leader>tf",
@@ -23,13 +30,6 @@ return {
 					require("neotest").run.run(vim.loop.cwd())
 				end,
 			},
-			-- current test
-			{
-				"<leader>tj",
-				function()
-					require("neotest").run.run()
-				end,
-			},
 			{
 				"<leader>ts",
 				function()
@@ -42,7 +42,7 @@ return {
 					require("neotest").output.open({ enter = true, auto_close = true })
 				end,
 			},
-			-- open output panel into a new window in left side
+			-- open output panel into a new window in new tab
 			{
 				"<leader>t;",
 				function()
@@ -71,7 +71,7 @@ return {
 				end,
 			},
 			-- {
-			-- 	"<leader>tj",
+			-- 	"<leader>",
 			-- 	function()
 			-- 		require("neotest").run.run_last()
 			-- 	end,

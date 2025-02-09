@@ -83,13 +83,11 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 + [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
 + [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
++ [tzachar/highlight-undo.nvim](https://dotfyle.com/plugins/tzachar/highlight-undo.nvim)
++ [okuuva/auto-save.nvim](https://dotfyle.com/plugins/okuuva/auto-save.nvim)
 + [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
 + [tummetott/unimpaired.nvim](https://dotfyle.com/plugins/tummetott/unimpaired.nvim)
 + [andersevenrud/nvim_context_vt](https://dotfyle.com/plugins/andersevenrud/nvim_context_vt)
-
-### file-explorer
-
-+ [stevearc/oil.nvim](https://dotfyle.com/plugins/stevearc/oil.nvim)
 
 ### formatting
 
@@ -102,7 +100,6 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 ### fuzzy-finder
 
-+ [crispgm/telescope-heading.nvim](https://dotfyle.com/plugins/crispgm/telescope-heading.nvim)
 + [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
 
 ### game
@@ -126,6 +123,7 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 + [kosayoda/nvim-lightbulb](https://dotfyle.com/plugins/kosayoda/nvim-lightbulb)
++ [rachartier/tiny-code-action.nvim](https://dotfyle.com/plugins/rachartier/tiny-code-action.nvim)
 + [zeioth/garbage-day.nvim](https://dotfyle.com/plugins/zeioth/garbage-day.nvim)
 + [rachartier/tiny-inline-diagnostic.nvim](https://dotfyle.com/plugins/rachartier/tiny-inline-diagnostic.nvim)
 + [aznhe21/actions-preview.nvim](https://dotfyle.com/plugins/aznhe21/actions-preview.nvim)
