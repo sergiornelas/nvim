@@ -22,12 +22,13 @@ autocmd("ColorScheme", {
 			{ "Comment", { fg = "#928374", italic = true } },
 			{ "ContextVt", { fg = "#716a56", italic = true } },
 			{ "CursorLine", { bg = "#25424D" } },
-			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#efe4ca" } },
+			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#afacac" } },
 			{ "HighlightUndo", { bg = "#525050" } },
 			{ "LineNr", { fg = "#807B7B" } },
 			{ "LspInlayHint", { fg = "#74716A", italic = true } },
 			{ "MiniIndentscopeSymbol", { fg = "#DACBA5" } },
 			{ "MsgArea", { fg = "#DACBA5" } },
+			{ "RenderMarkdownCode", { bg = "#1b1a18" } },
 			{ "SnacksIndent", { fg = "#525050" } },
 			{ "TreesitterContext", { bg = "#34312F" } },
 			{ "TreesitterContextBottom", { underline = true, sp = "#887F68" } },
@@ -47,8 +48,9 @@ autocmd("FileType", {
 		vim.opt_local.colorcolumn = "80"
 		vim.opt_local.textwidth = 80
 		vim.opt_local.wrap = true
+		map("i", "<c-g><c-space>", "- [ ] ") -- create a checkbox current line
 		map("i", "<c-g><c-g>", "<esc>o- [ ] ") -- create a checkbox below
-		map("i", "<c-g><c-t>", "<Esc>O- [ ] ") -- create a checkbox above
+		map("i", "<c-g><c-t>", "<esc>O- [ ] ") -- create a checkbox above
 		map("n", "gf", "<cmd>normal! $hgf<cr>") -- go to file under cursor
 		map("n", "<leader><esc>", "Gmxo<esc>`xgwj") -- break line down and format the lines below
 	end,

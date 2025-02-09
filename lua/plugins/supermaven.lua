@@ -4,9 +4,9 @@ return {
 	config = function()
 		require("supermaven-nvim").setup({
 			keymaps = {
-				accept_suggestion = "<c-f>", -- (vim: not used (but by default it's in 'cinkeys' to re-indent the current line))
+				accept_suggestion = "<c-;>",
 				clear_suggestion = "<c-space>",
-				accept_word = "<c-l>",
+				accept_word = "<c-f>", -- (vim: not used (but by default it's in 'cinkeys' to re-indent the current line))
 			},
 			ignore_filetypes = { cpp = true, snacks_picker_input = true, oil = true }, -- or { "cpp", }
 			color = {
@@ -35,7 +35,7 @@ return {
 		local keymap = vim.keymap.set
 		local opts = { noremap = true, silent = true }
 		keymap("n", "<leader>v", "<cmd>SupermavenToggle<cr>", opts)
-		keymap("i", "<c-;>", function()
+		keymap("i", "<c-l>", function()
 			accept_line(require("supermaven-nvim.completion_preview").on_accept_suggestion)
 		end, opts)
 	end,

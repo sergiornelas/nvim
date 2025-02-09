@@ -87,7 +87,6 @@ David-Kunz/gen.nvim                                                          lla
 gsuuon/model.nvim                                                   another IA plugin
 olimorris/codecompanion.nvim                copilot chat like experience via a buffer
 yetone/avante.nvim                                     cursor AI IDE (very powerful!)
-neocodeium                                  provides AI completion powered by Codeium
 supermaven-inc/supermaven-nvim                                   supermaven in neovim
 milanglacier/yarepl.nvim/blob/main/extensions/README.md  ai terminal (generate files)
 dlants/magenta.nvim                      ai code genereator, designed for typescript?
@@ -151,7 +150,7 @@ Last time checked this-week-in-neovim
 1/6/2025
 
 Last time checked awesome-neovim
-Feb 02 2025
+Feb 07 2025
 
 New neovim plugins
-brianhuster/snipexec.nvim
+Toprun123/PicVim

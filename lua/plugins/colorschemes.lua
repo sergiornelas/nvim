@@ -198,7 +198,6 @@ return {
 	{
 		"comfysage/evergarden",
 		keys = lazy_map,
-		commit = "d560ef6794755ae6cc801377acbb2a45ae8ffc16",
 		opts = {
 			transparent_background = true,
 		},

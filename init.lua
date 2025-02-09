@@ -23,7 +23,7 @@ require("config.autocommands")
 require("config.utils")
 require("config.keymaps")
 
--- vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { noremap = true, silent = true })
 
 require("lazy").setup({
 	defaults = {
@@ -36,7 +36,7 @@ require("lazy").setup({
 		timeout = 20, -- kill processes that take more than 20 seconds
 	},
 	ui = {
-		size = { width = 0.1, height = 0.1 },
+		size = { width = 0.8, height = 0.8 },
 		border = "single",
 		title = " Lazy",
 		browser = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",

@@ -85,12 +85,9 @@ return {
 		{ "<leader>fQ", "<cmd>Telescope quickfixhistory<cr>" },
 		{ "<leader>fv", "<cmd>Telescope vim_options<cr>" },
 		{ "<leader>fp", "<cmd>Telescope spell_suggest theme=cursor layout_config={height=15}<cr>" },
-		{ "<leader>fy", "<cmd>Telescope filetypes<cr>" },
 		-- Git Pickers
 		{ "<leader>gM", "<cmd>Telescope git_bcommits_range<cr>" },
 		{ "<leader>gr", "<cmd>Telescope git_branches<cr>" },
-		-- Treesitter Pickers
-		{ "<leader>ft", "<cmd>Telescope treesitter<cr>" },
 		-- Plugins
 		{ "<leader>fP", "<cmd>lua Paste_image()<cr>" },
 		{ "<c-space>", "<cmd>Telescope session-lens<cr>" },
