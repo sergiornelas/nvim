@@ -30,6 +30,6 @@ return {
 			},
 		})
 	end,
-	-- alternative: rachartier/tiny-code-action.nvim
+	-- alternative: tiny-code-action (rachartier author)
 	-- but doesn't allow me to personalize delta args
 }

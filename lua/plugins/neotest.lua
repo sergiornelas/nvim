@@ -23,6 +23,10 @@ return {
 					require("neotest").run.run(vim.fn.expand("%"))
 				end,
 			},
+			{
+				"<leader>tw",
+				"<cmd>lua require('neotest').watch.toggle()<cr>",
+			},
 			-- whole project
 			{
 				"<leader>tC",
@@ -75,10 +79,6 @@ return {
 			-- 	function()
 			-- 		require("neotest").run.run_last()
 			-- 	end,
-			-- },
-			-- {
-			-- 	"<leader>tw",
-			-- 	"<cmd>lua require('neotest').run.run({ vitestCommand = './node_modules/.bin/vitest --watch' })<cr>",
 			-- },
 			-- attach needs --watch to work
 			-- {
