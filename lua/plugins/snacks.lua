@@ -8,11 +8,21 @@ return {
 				enabled = false,
 			},
 		},
-		-- image = {}, -- wait
+		image = {
+			-- > brew install imagemagick
+			-- > brew info imagemagick
+			-- if pkgconf is missing:
+			-- > brew install pkg-config
+			doc = {
+				inline = true, -- render the image inline in the buffer
+				float = true, -- render the image in a floating window, only if doc.inline is disabled
+				max_width = 80,
+				max_height = 40,
+			},
+		},
 		input = {},
 		styles = {
 			input = {
-				width = 35,
 				border = "single",
 				relative = "cursor",
 				bo = {
@@ -26,6 +36,10 @@ return {
 					i_up = { "<c-p>", { "hist_up" }, mode = { "i", "n" } },
 					i_down = { "<c-n>", { "hist_down" }, mode = { "i", "n" } },
 				},
+			},
+			snacks_image = {
+				relative = "cursor", -- editor
+				border = "single",
 			},
 		},
 	},

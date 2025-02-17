@@ -5,13 +5,6 @@ return {
 	dependencies = {
 		{ "L3MON4D3/LuaSnip", version = "v2.*" },
 		{ "rafamadriz/friendly-snippets" },
-		{
-			"saghen/blink.compat",
-			version = "*",
-			lazy = true,
-			opts = {},
-		},
-		{ "hrsh7th/cmp-calc" },
 	},
 	---@module 'blink.cmp'
 	---@diagnostic disable-next-line: undefined-doc-name
@@ -49,6 +42,9 @@ return {
 		},
 		completion = {
 			menu = {
+				auto_show = function(ctx)
+					return ctx.mode ~= "cmdline"
+				end,
 				draw = {
 					components = {
 						label = {
@@ -74,11 +70,10 @@ return {
 		},
 		sources = {
 			-- Static list of providers to enable, or a function to dynamically enable/disable providers based on the context
-			default = { "lsp", "path", "snippets", "buffer", "calc" },
+			default = { "lsp", "path", "snippets", "buffer" },
 			-- per_filetype = {
 			-- 	markdown = { "snippets", "buffer" },
 			-- },
-			cmdline = {},
 			providers = {
 				path = {
 					opts = {
@@ -107,10 +102,6 @@ return {
 							return vim.bo.filetype
 						end,
 					},
-				},
-				calc = {
-					name = "calc",
-					module = "blink.compat.source",
 				},
 			},
 		},

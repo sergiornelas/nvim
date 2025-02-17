@@ -1,4 +1,4 @@
-local layout = {
+local custom_layout = {
 	layout = {
 		backdrop = false,
 		row = 1,
@@ -19,7 +19,7 @@ local layout = {
 	},
 }
 
-local buffers_layout = vim.deepcopy(layout)
+local buffers_layout = vim.deepcopy(custom_layout)
 buffers_layout.layout.height = 0.62
 buffers_layout.layout.width = 0.2
 
@@ -64,7 +64,7 @@ map("n", "<leader>o", function() -- install fd
 end)
 map("n", "<leader>fi", function()
 	snacks.picker.files({
-		layout = layout,
+		layout = custom_layout,
 		exclude = {
 			"/images",
 			"/sounds",
@@ -85,13 +85,13 @@ map("n", "<leader>gh", "<cmd>lua Snacks.picker.git_stash()<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.git_status()<cr>")
 map("n", "<leader>fl", function()
 	snacks.picker.grep({
-		layout = layout,
+		layout = custom_layout,
 	})
 end)
 map("n", "<leader>fL", "<cmd>lua Snacks.picker.grep_buffers()<cr>")
 map({ "n", "x" }, "<leader>fw", function()
 	snacks.picker.grep_word({
-		layout = layout,
+		layout = custom_layout,
 	})
 end)
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.help()<cr>")
@@ -102,6 +102,7 @@ map("n", "<leader>fk", "<cmd>lua Snacks.picker.keymaps({layout = 'ivy_split'})<c
 map("n", "<leader>fz", "<cmd>lua Snacks.picker.lazy({layout = 'ivy'})<cr>")
 map("n", "<leader>ff", "<cmd>lua Snacks.picker.lines({layout = 'ivy_split'})<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.loclist()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_config()<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_declarations()<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_definitions()<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_implementations()<cr>")
@@ -136,32 +137,14 @@ map("n", "<leader>fu", "<cmd>lua Snacks.picker.undo({ layout = 'sidebar' })<cr>"
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.zoxide()<cr>")
 -- custom pickers:
 -- markdown headings
-map("n", "<leader>fh", function()
-	vim.cmd("RenderMarkdown disable")
-	vim.defer_fn(function()
-		snacks.picker.lines({
-			layout = "sidebar",
-			-- layout = {
-			-- 	preview = "",
-			-- 	-- fullscreen = true,
-			-- },
-			title = "Headings",
-			pattern = "## ",
-			on_show = function(picker)
-				picker:show_preview()
-			end,
-			on_close = function()
-				vim.cmd("RenderMarkdown enable")
-			end,
-		})
-	end, 5)
-end)
+map("n", "<leader>h", "<cmd>lua markdown_headings_index()<cr>")
 
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
-	-- Lazy.nvim merges opts tables together. So it will be like you had them under one opts table.
+	-- Lazy.nvim merges opts tables together.
+	-- So it will be like you had them under one opts table.
 	opts = {
 		picker = {
 			formatters = {
@@ -173,29 +156,36 @@ return {
 				input = {
 					keys = {
 						["<esc>"] = { "close", mode = { "n", "i" } },
-						["<c-j>"] = { "confirm", mode = { "n", "i" } },
-						["<c-a>"] = { "select_all", mode = { "n", "i" } },
-						["<c-space>"] = { "toggle_maximize", mode = { "i", "n" } },
-						["<c-c>"] = { "toggle_preview", mode = { "i", "n" } },
-						["<c-y>"] = { "cycle_win", mode = { "i", "n" } },
-						["<s-cr>"] = { { "pick_win", "jump" }, mode = { "n", "i" } },
-						["<c-;>"] = { "history_back", mode = { "i", "n" } },
+						["<c-e>"] = { "toggle_focus", mode = { "i" } },
 						["<c-'>"] = { "history_forward", mode = { "i", "n" } },
-						["<c-n>"] = { "select_and_next", mode = { "i", "n" } },
-						["<c-p>"] = { "select_and_prev", mode = { "i", "n" } },
+						["<c-;>"] = { "history_back", mode = { "i", "n" } },
+						["<c-j>"] = { "confirm", mode = { "n", "i" } },
 						["<c-i>"] = { "list_down", mode = { "i", "n" } },
+						["<c-p>"] = { "select_and_prev", mode = { "i", "n" } },
+						["<c-n>"] = { "select_and_next", mode = { "i", "n" } },
 						["<c-o>"] = { "list_up", mode = { "i", "n" } },
+						["<c-space><c-f>"] = { "toggle_follow", mode = { "i", "n" } },
+						["<c-space><c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+						["<c-space><c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+						["<c-space><c-m>"] = { "toggle_maximize", mode = { "i", "n" } },
+						["<c-space><c-p>"] = { "toggle_preview", mode = { "i", "n" } },
+						["<c-y>"] = { "cycle_win", mode = { "i", "n" } },
+						["<c-space><c-g>"] = { "list_bottom", mode = { "i", "n" } },
+						["<c-space><c-t>"] = { "list_top", mode = { "i", "n" } },
 						["<c-k>"] = { "preview_scroll_left", mode = { "i", "n" } },
 						["<c-l>"] = { "preview_scroll_right", mode = { "i", "n" } },
-						["<c-g>"] = { "toggle_live", mode = { "i", "n" } },
-						["<c-t><c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
-						["<c-t><c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
-						["<c-h>"] = "",
+						["<c-c>"] = { "list_scroll_center", mode = { "i", "n" } },
+						-- free: c-z, c-m
 					},
 				},
 				preview = {
 					keys = {
-						["a"] = "focus_input",
+						["<c-j>"] = { "confirm", mode = { "n", "i" } },
+					},
+				},
+				list = {
+					keys = {
+						["<c-j>"] = { "confirm", mode = { "n", "i" } },
 					},
 				},
 			},

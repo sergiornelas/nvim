@@ -27,11 +27,16 @@ return {
 				"<leader>tw",
 				"<cmd>lua require('neotest').watch.toggle()<cr>",
 			},
-			-- whole project
+			-- watch current file tests
+			{
+				"<leader>tW",
+				"<cmd>lua require('neotest').watch.toggle(vim.fn.expand('%'))<cr>",
+			},
+			-- all test files
 			{
 				"<leader>tC",
 				function()
-					require("neotest").run.run(vim.loop.cwd())
+					require("neotest").run.run(vim.uv.cwd())
 				end,
 			},
 			{

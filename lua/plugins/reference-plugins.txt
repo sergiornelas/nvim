@@ -146,11 +146,11 @@ Last time revisited all these plugins
 20/05/2024
 
 ====================
-Last time checked this-week-in-neovim
+https://dotfyle.com/this-week-in-neovim
 1/6/2025
 
-Last time checked awesome-neovim
-Feb 07 2025
+https://github.com/rockerBOO/awesome-neovim/commits/main/
+Feb 16 2025
 
-New neovim plugins
-Toprun123/PicVim
+https://dotfyle.com/neovim/plugins/new
+y3owk1n/tailwind-autosort.nvim

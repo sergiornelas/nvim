@@ -12,7 +12,6 @@ return {
 				code = {
 					style = "normal",
 					width = "block",
-					-- border = "thick",
 				},
 				dash = {
 					width = 80,
