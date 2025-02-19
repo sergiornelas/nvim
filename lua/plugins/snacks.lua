@@ -46,7 +46,7 @@ return {
 			},
 		},
 		words = {
-			debounce = 0,
+			debounce = 170, -- 200
 		},
 	},
 }

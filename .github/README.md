@@ -53,40 +53,35 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 ### colorscheme
 
-+ [eldritch-theme/eldritch.nvim](https://dotfyle.com/plugins/eldritch-theme/eldritch.nvim)
-+ [rose-pine/neovim](https://dotfyle.com/plugins/rose-pine/neovim)
-+ [sho-87/kanagawa-paper.nvim](https://dotfyle.com/plugins/sho-87/kanagawa-paper.nvim)
 + [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
-+ [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
 + [comfysage/evergarden](https://dotfyle.com/plugins/comfysage/evergarden)
-+ [sainnhe/gruvbox-material](https://dotfyle.com/plugins/sainnhe/gruvbox-material)
-+ [rebelot/kanagawa.nvim](https://dotfyle.com/plugins/rebelot/kanagawa.nvim)
-+ [ficcdaf/ashen.nvim](https://dotfyle.com/plugins/ficcdaf/ashen.nvim)
++ [rose-pine/neovim](https://dotfyle.com/plugins/rose-pine/neovim)
 + [craftzdog/solarized-osaka.nvim](https://dotfyle.com/plugins/craftzdog/solarized-osaka.nvim)
-+ [0xstepit/flow.nvim](https://dotfyle.com/plugins/0xstepit/flow.nvim)
-+ [ribru17/bamboo.nvim](https://dotfyle.com/plugins/ribru17/bamboo.nvim)
-+ [navarasu/onedark.nvim](https://dotfyle.com/plugins/navarasu/onedark.nvim)
-+ [EdenEast/nightfox.nvim](https://dotfyle.com/plugins/EdenEast/nightfox.nvim)
 + [sainnhe/edge](https://dotfyle.com/plugins/sainnhe/edge)
++ [rebelot/kanagawa.nvim](https://dotfyle.com/plugins/rebelot/kanagawa.nvim)
++ [navarasu/onedark.nvim](https://dotfyle.com/plugins/navarasu/onedark.nvim)
++ [ribru17/bamboo.nvim](https://dotfyle.com/plugins/ribru17/bamboo.nvim)
++ [EdenEast/nightfox.nvim](https://dotfyle.com/plugins/EdenEast/nightfox.nvim)
++ [0xstepit/flow.nvim](https://dotfyle.com/plugins/0xstepit/flow.nvim)
 + [scottmckendry/cyberdream.nvim](https://dotfyle.com/plugins/scottmckendry/cyberdream.nvim)
++ [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
++ [eldritch-theme/eldritch.nvim](https://dotfyle.com/plugins/eldritch-theme/eldritch.nvim)
++ [sho-87/kanagawa-paper.nvim](https://dotfyle.com/plugins/sho-87/kanagawa-paper.nvim)
 + [AlexvZyl/nordic.nvim](https://dotfyle.com/plugins/AlexvZyl/nordic.nvim)
++ [sainnhe/gruvbox-material](https://dotfyle.com/plugins/sainnhe/gruvbox-material)
++ [ficcdaf/ashen.nvim](https://dotfyle.com/plugins/ficcdaf/ashen.nvim)
 
 ### comment
 
 + [folke/ts-comments.nvim](https://dotfyle.com/plugins/folke/ts-comments.nvim)
 
-### cursorline
-
-+ [RRethy/vim-illuminate](https://dotfyle.com/plugins/RRethy/vim-illuminate)
-
 ### editing-support
 
-+ [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
-+ [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
-+ [tzachar/highlight-undo.nvim](https://dotfyle.com/plugins/tzachar/highlight-undo.nvim)
-+ [okuuva/auto-save.nvim](https://dotfyle.com/plugins/okuuva/auto-save.nvim)
 + [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
++ [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
++ [okuuva/auto-save.nvim](https://dotfyle.com/plugins/okuuva/auto-save.nvim)
 + [tummetott/unimpaired.nvim](https://dotfyle.com/plugins/tummetott/unimpaired.nvim)
++ [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
 + [andersevenrud/nvim_context_vt](https://dotfyle.com/plugins/andersevenrud/nvim_context_vt)
 
 ### formatting
@@ -108,8 +103,8 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 ### git
 
-+ [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
 + [sindrets/diffview.nvim](https://dotfyle.com/plugins/sindrets/diffview.nvim)
++ [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
 
 ### icon
 
@@ -121,12 +116,12 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 ### lsp
 
-+ [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-+ [kosayoda/nvim-lightbulb](https://dotfyle.com/plugins/kosayoda/nvim-lightbulb)
-+ [zeioth/garbage-day.nvim](https://dotfyle.com/plugins/zeioth/garbage-day.nvim)
-+ [rachartier/tiny-inline-diagnostic.nvim](https://dotfyle.com/plugins/rachartier/tiny-inline-diagnostic.nvim)
 + [aznhe21/actions-preview.nvim](https://dotfyle.com/plugins/aznhe21/actions-preview.nvim)
++ [zeioth/garbage-day.nvim](https://dotfyle.com/plugins/zeioth/garbage-day.nvim)
 + [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
++ [rachartier/tiny-inline-diagnostic.nvim](https://dotfyle.com/plugins/rachartier/tiny-inline-diagnostic.nvim)
++ [kosayoda/nvim-lightbulb](https://dotfyle.com/plugins/kosayoda/nvim-lightbulb)
++ [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 
 ### lsp-installer
 
@@ -147,7 +142,6 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 ### media
 
-+ [3rd/image.nvim](https://dotfyle.com/plugins/3rd/image.nvim)
 + [HakonHarnes/img-clip.nvim](https://dotfyle.com/plugins/HakonHarnes/img-clip.nvim)
 
 ### motion
@@ -169,8 +163,8 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 ### quickfix
 
-+ [kevinhwang91/nvim-bqf](https://dotfyle.com/plugins/kevinhwang91/nvim-bqf)
 + [stevearc/quicker.nvim](https://dotfyle.com/plugins/stevearc/quicker.nvim)
++ [kevinhwang91/nvim-bqf](https://dotfyle.com/plugins/kevinhwang91/nvim-bqf)
 
 ### session
 
@@ -187,13 +181,17 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 
 ### syntax
 
++ [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
 + [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
 + [kylechui/nvim-surround](https://dotfyle.com/plugins/kylechui/nvim-surround)
-+ [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
 
 ### test
 
 + [nvim-neotest/neotest](https://dotfyle.com/plugins/nvim-neotest/neotest)
+
+### utility
+
++ [rachartier/tiny-glimmer.nvim](https://dotfyle.com/plugins/rachartier/tiny-glimmer.nvim)
 
 ## Language Servers
 

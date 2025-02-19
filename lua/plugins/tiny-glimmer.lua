@@ -47,7 +47,7 @@ return {
 		},
 		-- Only use if you have a transparent background
 		-- It will override the highlight group background color for `to_color` in all animations
-		transparency_color = "#393736",
+		transparency_color = "#2d2c2b",
 		animations = {
 			hijack_ft_disabled = {
 				"alpha",
