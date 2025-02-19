@@ -1,9 +1,10 @@
 return {
 	-- brew install nikolaeu/numi/numi-cli
 	"josephburgess/nvumi",
+	dependencies = { "folke/snacks.nvim" },
 	keys = {
 		{
-			"<leader>u",
+			"<leader>v",
 			"<cmd>Nvumi<cr>",
 		},
 	},
@@ -14,5 +15,4 @@ return {
 			reset = "<c-c><c-c>",
 		},
 	},
-	dependencies = { "folke/snacks.nvim" },
 }

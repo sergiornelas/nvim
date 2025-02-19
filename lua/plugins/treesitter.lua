@@ -66,7 +66,6 @@ return {
 
 		local map = vim.keymap.set
 		local mode = { "n", "x", "o" }
-		local illuminate = require("illuminate")
 		local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 		local function safe_fix_nav(command)
 			return function()
@@ -96,8 +95,6 @@ return {
 		end, function()
 			goto_diagnostic("prev", true)
 		end)
-		local next_illuminate, prev_illuminate =
-			ts_repeat_move.make_repeatable_move_pair(illuminate.goto_next_reference, illuminate.goto_prev_reference)
 		local next_indentscope, prev_indentscope = ts_repeat_move.make_repeatable_move_pair(function()
 			vim.cmd("normal " .. vim.v.count1 .. "[-")
 		end, function()
@@ -132,8 +129,6 @@ return {
 		map(mode, "[e", prev_error)
 		map(mode, "]d", next_diagnostic) -- (vim: go to prev diagnostic no float w. (nvim 0.10))
 		map(mode, "[d", prev_diagnostic) -- (vim: go to next diagnostic no float w. (nvim 0.10))
-		map(mode, "]w", next_illuminate)
-		map(mode, "[w", prev_illuminate)
 		map(mode, "[t", next_indentscope)
 		map(mode, "]t", prev_indentscope)
 		-- map(mode, "[s", next_spell)

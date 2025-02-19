@@ -17,7 +17,7 @@ map("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>") --    fix prev spell
 map("n", "gG", "<cmd>%y<cr>") --            	               yank full buffer
 map("n", "<leader><c-q>", "<cmd>qa!<cr>") -- 	              force exit neovim
 map("n", "y<leader>", "^f:llyE") --                      yank secret password
-map({ "n", "x" }, "<c-w><c-e>", "<cmd>vnew<cr>") -- new buffer vertical split
+map({ "n", "x" }, "<c-w><c-u>", "<cmd>vnew<cr>") -- new buffer vertical split
 map("t", "<esc>", "<c-\\><c-n>") --               escape insert mode terminal
 map("c", "<c-o>", "<c-p>") --             command prev option (vim: not used)
 map("n", "<leader>n", '<cmd>lua toggle_file_in_split("~/notes/scratch/main.md")<cr>') -- toggle scratch file
@@ -33,10 +33,13 @@ map("x", "<leader>a", "<cmd>set wrap!<cr>")
 map("x", "<leader>b", "<cmd>set nu!<cr>")
 
 -- RESIZE WINDOW ==================================
-map({ "n", "x" }, "<c-p>", "<cmd>resize +6<cr>") --                    resize up (vim: same as "k")
-map({ "n", "x" }, "<c-n>", "<cmd>resize -6<cr>") --                  resize down (vim: same as "j")
-map({ "n", "x" }, "<c-h>", "<cmd>vertical resize +6<cr>") -- resize left (vim: same as "h", "<BS>")
-map({ "n", "x" }, "<c-;>", "<cmd>vertical resize -6<cr>") --                           resize right
+map({ "n", "x" }, "<c-w><c-y>", "<cmd>resize +6<cr>") --          resize up
+map({ "n", "x" }, "<c-w><c-e>", "<cmd>resize -6<cr>") --          resize down
+map({ "n", "x" }, "<c-w><c-m>", "<cmd>vertical resize +6<cr>") -- resize left
+map({ "n", "x" }, "<c-w><c-;>", "<cmd>vertical resize -5<cr>") -- resize right
+
+-- wincmd: a, spacebar
+-- [w, ]w
 
 -- remember that Q visual mode execute last macro in selected portion
 
@@ -45,7 +48,7 @@ map({ "n", "x" }, "<c-;>", "<cmd>vertical resize -6<cr>") --                    
 -- o obisidan
 
 -- ctrl free:
--- c-c
+-- c-h (vim: same as "h", "<BS>"), c-;
 
 -- [ maps available
 -- y, o, u

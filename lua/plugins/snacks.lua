@@ -1,3 +1,6 @@
+vim.keymap.set("n", "<c-n>", "<cmd>lua Snacks.words.jump(1, true)<cr>", { noremap = true, silent = true }) -- (vim: same as "j")
+vim.keymap.set("n", "<c-p>", "<cmd>lua Snacks.words.jump(-1, true)<cr>", { noremap = true, silent = true }) -- (vim: same as "k")
+
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -41,6 +44,9 @@ return {
 				relative = "cursor", -- editor
 				border = "single",
 			},
+		},
+		words = {
+			debounce = 0,
 		},
 	},
 }

@@ -3,6 +3,12 @@
 local keymap = vim.keymap.set
 local methods = vim.lsp.protocol.Methods
 
+local function setup_highlights_references()
+	vim.api.nvim_set_hl(0, "LspReferenceWrite", { fg = "#DACBA5", bg = "#403e3e" })
+	vim.api.nvim_set_hl(0, "LspReferenceRead", { fg = "#DACBA5", bg = "#403e3e" })
+	vim.api.nvim_set_hl(0, "LspReferenceText", { fg = "#DACBA5", bg = "#403e3e" })
+end
+
 keymap("n", "gB", '<cmd>lua vim.diagnostic.open_float(0, { scope = "buffer", border = "double" })<CR>')
 keymap("n", "<leader>ld", vim.diagnostic.setloclist)
 keymap("n", "<leader>lD", vim.diagnostic.setqflist)
@@ -10,6 +16,7 @@ keymap("n", "<leader>lD", vim.diagnostic.setqflist)
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
+		setup_highlights_references()
 		-- Enable completion triggered by <c-x><c-o>
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 		local lsp = vim.lsp.buf

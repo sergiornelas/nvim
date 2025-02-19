@@ -34,7 +34,7 @@ return {
 
 		local keymap = vim.keymap.set
 		local opts = { noremap = true, silent = true }
-		keymap("n", "<leader>v", "<cmd>SupermavenToggle<cr>", opts)
+		keymap("n", "<leader>u", "<cmd>SupermavenToggle<cr>", opts)
 		keymap("i", "<c-l>", function()
 			accept_line(require("supermaven-nvim.completion_preview").on_accept_suggestion)
 		end, opts)

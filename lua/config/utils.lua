@@ -192,10 +192,12 @@ function _G.markdown_headings_index()
 					end
 				end
 			end,
+			on_close = function()
+				vim.cmd("RenderMarkdown enable")
+			end,
 		})
 		vim.cmd("set hlsearch")
 		vim.cmd("noh")
-		vim.cmd("RenderMarkdown enable")
 		vim.cmd("normal! `z")
 	end, 50)
 end

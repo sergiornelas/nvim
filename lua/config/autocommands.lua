@@ -73,13 +73,6 @@ autocmd("FileType", {
 	end,
 })
 
--- Show yank line highlight
-autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-})
-
 -- Show cursor line only in active window
 autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline" })
 autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline" })

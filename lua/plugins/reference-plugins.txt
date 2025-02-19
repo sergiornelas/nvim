@@ -141,6 +141,7 @@ sphamba/smear-cursor.nvim                          neovide cursor animation in n
 desdic/agrolens.nvim                                      telescope filter TS symbols
 jake-stewart/multicursor.nvim                             multiple cursors for neovim
 lfilho/note2cal.nvim                                  schedule events to calendar.app
+carlosrocha/chrome-remote.nvim              run browser current page HTML into neovim
 
 Last time revisited all these plugins
 20/05/2024
