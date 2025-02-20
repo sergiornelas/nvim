@@ -1,36 +1,134 @@
 return {
 	{
-		"MeanderingProgrammer/render-markdown.nvim",
+		"OXY2DEV/markview.nvim",
 		ft = "markdown",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		config = function()
-			require("render-markdown").setup({
-				heading = {
-					width = "block",
-					right_pad = 1,
+		opts = {
+			preview = {
+				-- modes = { "n", "no", "c" },
+				-- hybrid_modes = { "n" },
+				-- debounce = 0,
+			},
+			markdown = {
+				code_blocks = {
+					min_width = 80,
+					sign = false,
 				},
-				code = {
-					style = "normal",
-					width = "block",
+				headings = {
+					heading_1 = {
+						style = "label",
+					},
+					heading_2 = {
+						style = "label",
+					},
+					heading_3 = {
+						style = "label",
+						sign = "󰌖 ",
+					},
+					heading_4 = {
+						style = "label",
+						sign = "󰌖 ",
+					},
+					heading_5 = {
+						style = "label",
+						sign = "󰌖 ",
+					},
+					heading_6 = {
+						style = "label",
+						sign = "󰌖 ",
+					},
 				},
-				dash = {
-					width = 80,
+				horizontal_rules = {
+					parts = {
+						{
+							type = "repeating",
+							repeat_amount = function(buffer)
+								local utils = require("markview.utils")
+								local window = utils.buf_getwin(buffer)
+								local width = 80
+								local textoff = vim.fn.getwininfo(window)[1].textoff
+								return math.floor((width - textoff - 3) / 2)
+							end,
+							text = "─",
+							hl = {
+								"MarkviewGradient1",
+								"MarkviewGradient1",
+								"MarkviewGradient2",
+								"MarkviewGradient2",
+								"MarkviewGradient3",
+								"MarkviewGradient3",
+								"MarkviewGradient4",
+								"MarkviewGradient4",
+								"MarkviewGradient5",
+								"MarkviewGradient5",
+								"MarkviewGradient6",
+								"MarkviewGradient6",
+								"MarkviewGradient7",
+								"MarkviewGradient7",
+								"MarkviewGradient8",
+								"MarkviewGradient8",
+								"MarkviewGradient9",
+								"MarkviewGradient9",
+							},
+						},
+						{
+							type = "text",
+							text = "  ",
+							hl = "MarkviewIcon3Fg",
+						},
+						{
+							type = "repeating",
+							repeat_amount = function(buffer)
+								local utils = require("markview.utils")
+								local window = utils.buf_getwin(buffer)
+								local width = 80
+								local textoff = vim.fn.getwininfo(window)[1].textoff
+								return math.ceil((width - textoff - 3) / 2)
+							end,
+							direction = "right",
+							text = "─",
+							hl = {
+								"MarkviewGradient1",
+								"MarkviewGradient1",
+								"MarkviewGradient2",
+								"MarkviewGradient2",
+								"MarkviewGradient3",
+								"MarkviewGradient3",
+								"MarkviewGradient4",
+								"MarkviewGradient4",
+								"MarkviewGradient5",
+								"MarkviewGradient5",
+								"MarkviewGradient6",
+								"MarkviewGradient6",
+								"MarkviewGradient7",
+								"MarkviewGradient7",
+								"MarkviewGradient8",
+								"MarkviewGradient8",
+								"MarkviewGradient9",
+								"MarkviewGradient9",
+							},
+						},
+					},
 				},
-				checkbox = {
+				list_items = {
+					indent_size = 1,
+					shift_width = 2,
+					marker_minus = {
+						text = "󰧞",
+					},
+				},
+			},
+			markdown_inline = {
+				checkboxes = {
+					checked = { text = " " },
 					unchecked = {
-						icon = " ",
+						text = " ",
 					},
-					checked = {
-						icon = " ",
-					},
-					custom = {
-						todo = { raw = "[-]", rendered = " ", highlight = "RenderMarkdownTodo" },
-						uncertain = { raw = "[?]", rendered = " ", highlight = "RenderMarkdownH6" },
-						urgent = { raw = "[!]", rendered = " ", highlight = "RenderMarkdownH2" },
-					},
+					["-"] = { text = "" },
+					["?"] = { text = "" },
+					["!"] = { text = "" },
 				},
-			})
-		end,
+			},
+		},
 	},
 	{
 		-- to work with this:

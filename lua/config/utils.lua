@@ -150,7 +150,6 @@ function _G.markdown_headings_index()
 		print("no headings")
 		return
 	end
-	vim.cmd("RenderMarkdown disable")
 	vim.cmd("set nohlsearch")
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("$?## <CR>", true, true, true), "n", false)
 	vim.defer_fn(function()
@@ -160,7 +159,7 @@ function _G.markdown_headings_index()
 				preview = "main",
 				layout = {
 					backdrop = false,
-					width = 50,
+					width = 45,
 					min_width = 40,
 					height = 0,
 					position = "left",
@@ -191,9 +190,6 @@ function _G.markdown_headings_index()
 						return
 					end
 				end
-			end,
-			on_close = function()
-				vim.cmd("RenderMarkdown enable")
 			end,
 		})
 		vim.cmd("set hlsearch")

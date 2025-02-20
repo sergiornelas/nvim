@@ -50,7 +50,6 @@ autocmd("FileType", {
 		-- manual setting: set cc=80
 		vim.opt_local.colorcolumn = "80"
 		vim.opt_local.textwidth = 80
-		vim.opt_local.wrap = true
 		map("i", "<c-g><c-space>", "- [ ] ") -- create a checkbox current line
 		map("i", "<c-g><c-g>", "<esc>o- [ ] ") -- create a checkbox below
 		map("i", "<c-g><c-t>", "<esc>O- [ ] ") -- create a checkbox above
