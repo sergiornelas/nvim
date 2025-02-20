@@ -9,10 +9,14 @@ return {
 		},
 	},
 	opts = {
-		virtual_text = "inline", -- or "newline"
+		virtual_text = "inline", -- "newline"
+		prefix = "= ",
+		date_format = "uk", -- uk, us, long
 		keys = {
 			run = "<c-j>",
 			reset = "<c-c><c-c>",
+			yank = "<leader>y", -- yank output of current line
+			yank_all = "<leader>Y", -- yank all outputs
 		},
 	},
 }

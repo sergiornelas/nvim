@@ -1,5 +1,7 @@
-vim.keymap.set("n", "<c-n>", "<cmd>lua Snacks.words.jump(1, true)<cr>", { noremap = true, silent = true }) -- (vim: same as "j")
-vim.keymap.set("n", "<c-p>", "<cmd>lua Snacks.words.jump(-1, true)<cr>", { noremap = true, silent = true }) -- (vim: same as "k")
+local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
+map("n", "<c-n>", "<cmd>lua Snacks.words.jump(1, true)<cr>", opts) -- (vim: same as "j")
+map("n", "<c-p>", "<cmd>lua Snacks.words.jump(-1, true)<cr>", opts) -- (vim: same as "k")
 
 return {
 	"folke/snacks.nvim",

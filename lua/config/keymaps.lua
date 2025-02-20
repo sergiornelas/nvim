@@ -24,7 +24,7 @@ map("n", "<leader>n", '<cmd>lua toggle_file_in_split("~/notes/scratch/main.md")<
 map("n", "<leader>R", "<cmd>lua toggle_window_resize()<cr>") -- toggle auto resize window mode
 map("n", "<c-q>", "<cmd>qa<cr>") -- 	 exit vim safely (vim: not used, or used for terminal control flow, visual block)
 
--- TOGGLE OPTIONS =================================
+-- Toggle options =================================
 map("i", "<c-g><c-p>", "<cmd>set spell!<cr>")
 map("i", "<c-g><c-a>", "<cmd>set wrap!<cr>")
 map("i", "<c-g><c-b>", "<cmd>set nu!<cr>")
@@ -32,7 +32,7 @@ map("x", "<leader>p", "<cmd>set spell!<cr>")
 map("x", "<leader>a", "<cmd>set wrap!<cr>")
 map("x", "<leader>b", "<cmd>set nu!<cr>")
 
--- RESIZE WINDOW ==================================
+-- Resize window ==================================
 map({ "n", "x" }, "<c-w><c-y>", "<cmd>resize +6<cr>") --          resize up
 map({ "n", "x" }, "<c-w><c-e>", "<cmd>resize -6<cr>") --          resize down
 map({ "n", "x" }, "<c-w><c-m>", "<cmd>vertical resize +6<cr>") -- resize left
