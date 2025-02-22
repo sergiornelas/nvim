@@ -146,6 +146,7 @@ return {
 	-- Lazy.nvim merges opts tables together.
 	-- So it will be like you had them under one opts table.
 	opts = {
+		-- telescope
 		picker = {
 			formatters = {
 				file = {
@@ -194,7 +195,7 @@ return {
 					Error = " ",
 					Warn = " ",
 					Hint = " ",
-					Info = " ",
+					Info = " ",
 				},
 			},
 		},

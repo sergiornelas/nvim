@@ -4,7 +4,7 @@ function M.setup()
 	local signs = {
 		{ name = "DiagnosticSignError", text = "" },
 		{ name = "DiagnosticSignHint", text = "" },
-		{ name = "DiagnosticSignInfo", text = "" },
+		{ name = "DiagnosticSignInfo", text = " " },
 		{ name = "DiagnosticSignWarn", text = "" },
 	}
 	local hoverBorder = {

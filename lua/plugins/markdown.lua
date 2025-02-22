@@ -10,6 +10,7 @@ return {
 			},
 			markdown = {
 				code_blocks = {
+					-- set nowrap to work
 					min_width = 80,
 					sign = false,
 				},

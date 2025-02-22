@@ -30,6 +30,6 @@ return {
 			},
 		})
 	end,
-	-- alternative: tiny-code-action (rachartier author)
+	-- alternative: tiny-code-action
 	-- but doesn't allow me to personalize delta args
 }

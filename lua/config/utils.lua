@@ -142,24 +142,25 @@ function _G.markdown_headings_index()
 		return
 	end
 	local snacks = require("snacks")
-	vim.cmd("normal! mz")
+	cmd("normal! mz")
 	local status, headings_count = pcall(function()
-		return tonumber(vim.fn.execute("%s/## //gn"):match("%d+"))
+		return tonumber(fn.execute("%s/## //gn"):match("%d+"))
 	end)
 	if not status then
 		print("no headings")
 		return
 	end
-	vim.cmd("set nohlsearch")
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("$?## <CR>", true, true, true), "n", false)
+	cmd("set nohlsearch")
+	cmd('silent execute "normal! $?## \\<CR>"')
 	vim.defer_fn(function()
-		local current_context_heading = vim.api.nvim_get_current_line()
+		local current_context_heading = api.nvim_get_current_line()
 		snacks.picker.lines({
 			layout = {
+				cycle = false,
 				preview = "main",
 				layout = {
 					backdrop = false,
-					width = 45,
+					width = 47,
 					min_width = 40,
 					height = 0,
 					position = "left",
@@ -181,19 +182,24 @@ function _G.markdown_headings_index()
 			on_show = function(picker)
 				picker:show_preview()
 				snacks.picker.actions.toggle_focus(picker)
+				api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+					buffer = api.nvim_get_current_buf(),
+					callback = function()
+						snacks.picker.actions.list_scroll_center(picker)
+					end,
+				})
 				for _ = 1, headings_count do
-					local snacks_list_heading = vim.api.nvim_get_current_line():match("^%s*(.-)%s*$")
+					local snacks_list_heading = api.nvim_get_current_line():match("^%s*(.-)%s*$")
 					if snacks_list_heading ~= current_context_heading then
 						snacks.picker.actions.list_down(picker)
 					else
-						snacks.picker.actions.list_scroll_center(picker)
 						return
 					end
 				end
 			end,
 		})
-		vim.cmd("set hlsearch")
-		vim.cmd("noh")
-		vim.cmd("normal! `z")
+		cmd("set hlsearch")
+		cmd("noh")
+		cmd("normal! `z")
 	end, 50)
 end
