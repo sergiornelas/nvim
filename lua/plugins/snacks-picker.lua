@@ -1,6 +1,6 @@
 local custom_layout = {
 	layout = {
-		backdrop = false,
+		backdrop = true, -- doesn't work with transparent background
 		row = 1,
 		width = 0.4,
 		min_width = 85,

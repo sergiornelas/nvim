@@ -181,13 +181,14 @@ function _G.markdown_headings_index()
 		on_show = function(picker)
 			picker:show_preview()
 			snacks.picker.actions.toggle_focus(picker)
-			for _ = 1, headings_count do
+			while headings_count > 0 do
 				local snacks_list_heading = api.nvim_get_current_line():match("^%s*(.-)%s*$")
 				if snacks_list_heading ~= current_context_heading then
 					snacks.picker.actions.list_down(picker)
 				else
 					break
 				end
+				headings_count = headings_count - 1
 			end
 			api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
 				buffer = api.nvim_get_current_buf(),
