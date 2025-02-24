@@ -11,12 +11,8 @@ map("n", "<leader><leader>", "i<space><esc>") --                 adds a space
 map("n", "<leader>lo", "<cmd>lopen<cr>") --                      open loclist
 map("n", "<leader>q", "<cmd>copen<cr>") --                      open quickfix
 map("n", "<leader>x", "<cmd>lua toggle_boolean()<cr>") --      toggle boolean
-map("i", "<c-z>", "<c-g>u<Esc>[s1z=`]a<c-g>u") --              fix last spell
-map("n", "<leader>j", "i<c-g>u<Esc>]s1z=`]a<c-g>u<esc>") --    fix next spell
-map("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>") --    fix prev spell
 map("n", "gG", "<cmd>%y<cr>") --            	               yank full buffer
 map("n", "<leader><c-q>", "<cmd>qa!<cr>") -- 	              force exit neovim
-map("n", "y<leader>", "^f:llyE") --                      yank secret password
 map({ "n", "x" }, "<c-w><c-u>", "<cmd>vnew<cr>") -- new buffer vertical split
 map("t", "<esc>", "<c-\\><c-n>") --               escape insert mode terminal
 map("c", "<c-o>", "<c-p>") --             command prev option (vim: not used)

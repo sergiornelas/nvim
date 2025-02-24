@@ -23,7 +23,6 @@ autocmd("ColorScheme", {
 			{ "ContextVt", { fg = "#716a56", italic = true } },
 			{ "CursorLine", { bg = "#25424D" } },
 			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#afacac" } },
-			{ "HighlightUndo", { bg = "#525050" } },
 			{ "LineNr", { fg = "#807B7B" } },
 			{ "LspInlayHint", { fg = "#74716A", italic = true } },
 			{ "LspReferenceRead", { fg = "#DACBA5", bg = "#403e3e" } },
@@ -31,7 +30,6 @@ autocmd("ColorScheme", {
 			{ "LspReferenceWrite", { fg = "#DACBA5", bg = "#403e3e" } },
 			{ "MiniIndentscopeSymbol", { fg = "#DACBA5" } },
 			{ "MsgArea", { fg = "#DACBA5" } },
-			{ "RenderMarkdownCode", { bg = "#1b1a18" } },
 			{ "SnacksIndent", { fg = "#525050" } },
 			{ "TreesitterContext", { bg = "#34312F" } },
 			{ "TreesitterContextBottom", { underline = true, sp = "#887F68" } },
@@ -50,11 +48,15 @@ autocmd("FileType", {
 		-- manual setting: set cc=80
 		vim.opt_local.colorcolumn = "80"
 		vim.opt_local.textwidth = 80
+		map("n", "y<leader>", "^f:llyE") -- yank secret password
 		map("i", "<c-g><c-space>", "- [ ] ") -- create a checkbox current line
 		map("i", "<c-g><c-g>", "<esc>o- [ ] ") -- create a checkbox below
 		map("i", "<c-g><c-t>", "<esc>O- [ ] ") -- create a checkbox above
 		map("n", "gf", "<cmd>normal! $hgf<cr>") -- go to file under cursor
 		map("n", "<leader><esc>", "Gmxo<esc>`xgwj") -- break line down and format the lines below
+		map("i", "<c-z>", "<c-g>u<Esc>[s1z=`]a<c-g>u") -- fix last spell
+		map("n", "<leader>j", "i<c-g>u<Esc>]s1z=`]a<c-g>u<esc>") -- fix next spell
+		map("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>") -- fix prev spell
 	end,
 })
 
@@ -125,7 +127,7 @@ autocmd("VimEnter", {
 -- Show LSP progress
 ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
 local progress = vim.defaulttable()
-vim.api.nvim_create_autocmd("LspProgress", {
+autocmd("LspProgress", {
 	---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
 	callback = function(ev)
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)

@@ -24,7 +24,7 @@ function _G.close_all_terminals()
 	end
 end
 
--- Closes TSContext and Fidget (floating windows) when exit (auto-session)
+-- Closes TSContext (floating windows) when exit (auto-session)
 function _G.close_floating_windows()
 	for _, win in ipairs(api.nvim_list_wins()) do
 		local config = api.nvim_win_get_config(win)
@@ -141,7 +141,6 @@ function _G.markdown_headings_index()
 	if vim.bo.filetype ~= "markdown" then
 		return
 	end
-	local snacks = require("snacks")
 	cmd("normal! mz")
 	local status, headings_count = pcall(function()
 		return tonumber(fn.execute("%s/## //gn"):match("%d+"))
@@ -150,56 +149,55 @@ function _G.markdown_headings_index()
 		print("no headings")
 		return
 	end
+	local snacks = require("snacks")
 	cmd("set nohlsearch")
 	cmd('silent execute "normal! $?## \\<CR>"')
-	vim.defer_fn(function()
-		local current_context_heading = api.nvim_get_current_line()
-		snacks.picker.lines({
+	local current_context_heading = api.nvim_get_current_line()
+	snacks.picker.lines({
+		layout = {
+			cycle = false,
+			preview = "main",
 			layout = {
-				cycle = false,
-				preview = "main",
-				layout = {
-					backdrop = false,
-					width = 47,
-					min_width = 40,
-					height = 0,
-					position = "left",
-					border = "none",
-					box = "vertical",
-					{
-						win = "input",
-						height = 1,
-						border = "single",
-						title = "{title} {live} {flags}",
-						title_pos = "center",
-					},
-					{ win = "list", border = "none" },
-					{ win = "preview", title = "{preview}", height = 0.4, border = "top" },
+				backdrop = false,
+				width = 47,
+				min_width = 40,
+				height = 0,
+				position = "left",
+				border = "none",
+				box = "vertical",
+				{
+					win = "input",
+					height = 1,
+					border = "single",
+					title = "{title} {live} {flags}",
+					title_pos = "center",
 				},
+				{ win = "list", border = "none" },
+				{ win = "preview", title = "{preview}", height = 0.4, border = "top" },
 			},
-			title = "Headings",
-			pattern = "## ",
-			on_show = function(picker)
-				picker:show_preview()
-				snacks.picker.actions.toggle_focus(picker)
-				api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-					buffer = api.nvim_get_current_buf(),
-					callback = function()
-						snacks.picker.actions.list_scroll_center(picker)
-					end,
-				})
-				for _ = 1, headings_count do
-					local snacks_list_heading = api.nvim_get_current_line():match("^%s*(.-)%s*$")
-					if snacks_list_heading ~= current_context_heading then
-						snacks.picker.actions.list_down(picker)
-					else
-						return
-					end
+		},
+		title = "Headings",
+		pattern = "## ",
+		on_show = function(picker)
+			picker:show_preview()
+			snacks.picker.actions.toggle_focus(picker)
+			for _ = 1, headings_count do
+				local snacks_list_heading = api.nvim_get_current_line():match("^%s*(.-)%s*$")
+				if snacks_list_heading ~= current_context_heading then
+					snacks.picker.actions.list_down(picker)
+				else
+					break
 				end
-			end,
-		})
-		cmd("set hlsearch")
-		cmd("noh")
-		cmd("normal! `z")
-	end, 50)
+			end
+			api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+				buffer = api.nvim_get_current_buf(),
+				callback = function()
+					snacks.picker.actions.list_scroll_center(picker)
+				end,
+			})
+		end,
+	})
+	cmd("set hlsearch")
+	cmd("noh")
+	cmd("normal! `z")
 end

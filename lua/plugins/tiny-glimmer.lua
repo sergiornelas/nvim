@@ -10,7 +10,7 @@ return {
 			},
 			search = {
 				enabled = true,
-				default_animation = "pulse",
+				default_animation = "fade",
 				next_mapping = "n",
 				prev_mapping = "N",
 			},

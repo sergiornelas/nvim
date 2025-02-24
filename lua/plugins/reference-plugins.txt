@@ -151,7 +151,7 @@ https://dotfyle.com/this-week-in-neovim
 1/6/2025
 
 https://github.com/rockerBOO/awesome-neovim/commits/main/
-Feb 16 2025
+Feb 23 2025
 
 https://dotfyle.com/neovim/plugins/new
-y3owk1n/tailwind-autosort.nvim
+wsdjeg/tabline.nvim

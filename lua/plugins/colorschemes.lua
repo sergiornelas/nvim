@@ -49,7 +49,7 @@ return {
 		},
 	},
 	{
-		"sho-87/kanagawa-paper.nvim",
+		"thesimonho/kanagawa-paper.nvim",
 		keys = lazy_map,
 		config = function()
 			require("kanagawa-paper").setup({
