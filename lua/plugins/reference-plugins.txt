@@ -115,8 +115,6 @@ danymat/neogen                                    comments on files for document
 potamides/pantran.nvim                                              google translator
 jghauser/kitty-runner.nvim                                   kitty commands from nvim
 smjonas/live-command.nvim              visual feedback for vim search/global commands
-debugloop/telescope-undo.nvim                                          telescope undo
-axkirillov/easypick.nvim                            telescope with arbitrary commands
 tiagovla/scope.nvim                               workspace by tab (very interesting)
 LunarVim/bigfile.nvim             disables certain features if the opened file is big
 chrisgrieser/nvim-scissors               automagical editing and creation of snippets
@@ -127,7 +125,6 @@ altermo/nwm                     allows you to use x11 windows as if they were bu
 NStefan002/screenkey.nvim       displays the keys you are typing in a floating window
 nvim-focus/focus.nvim                                              autoresize windows
 nfrid/due.nvim                simple plugin that provides you due for the date string
-sshelll/telescope-switch.nvim       switch between buffers using some defined filters
 luckasRanarison/clear-action.nvim code actions with fully customizable signs, actions
 MagicDuck/grug-far.nvim                            find and replace plugin for neovim
 VoxelPrismatic/rabbit.nvim                               remembers history per window
@@ -138,7 +135,6 @@ aliqyan-21/wit.nvim                                  visit visual selected on br
 azratul/live-share.nvim                    share your changes real time with coworker
 hat0uma/csvview.nvim                                       show csv spreadsheet files
 sphamba/smear-cursor.nvim                          neovide cursor animation in neovim
-desdic/agrolens.nvim                                      telescope filter TS symbols
 jake-stewart/multicursor.nvim                             multiple cursors for neovim
 lfilho/note2cal.nvim                                  schedule events to calendar.app
 carlosrocha/chrome-remote.nvim              run browser current page HTML into neovim

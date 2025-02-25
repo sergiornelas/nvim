@@ -23,6 +23,7 @@ autocmd("ColorScheme", {
 			{ "ContextVt", { fg = "#716a56", italic = true } },
 			{ "CursorLine", { bg = "#25424D" } },
 			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#afacac" } },
+			{ "HlSearchLensNear", { fg = "#ebdbb2", bg = "#4f0000" } },
 			{ "LineNr", { fg = "#807B7B" } },
 			{ "LspInlayHint", { fg = "#74716A", italic = true } },
 			{ "LspReferenceRead", { fg = "#DACBA5", bg = "#403e3e" } },

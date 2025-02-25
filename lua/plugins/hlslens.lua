@@ -19,6 +19,12 @@ return {
 		{
 			"g#",
 		},
+		{
+			"/",
+		},
+		{
+			"?",
+		},
 	},
 	config = function()
 		require("hlslens").setup({

@@ -8,7 +8,7 @@ return {
 		end
 		nvim_autopairs.setup({
 			check_ts = true, -- treesitter integration
-			disable_filetype = { "TelescopePrompt", "snacks_picker_input" },
+			disable_filetype = { "snacks_picker_input" },
 			map_c_h = true,
 			map_c_w = true,
 			fast_wrap = {
