@@ -8,24 +8,31 @@ return {
 		},
 	},
 	config = function()
-		local hl = require("actions-preview.highlight")
 		require("actions-preview").setup({
 			highlight_command = {
-				hl.delta(
+				require("actions-preview.highlight").delta(
 					"delta --no-gitconfig --hunk-header-style raw --hunk-header-decoration-style none --file-style omit"
 				),
 			},
-			telescope = {
-				sorting_strategy = "ascending",
-				layout_strategy = "vertical",
-				layout_config = {
-					width = 0.6,
-					height = 0.6,
-					prompt_position = "top",
-					preview_cutoff = 10,
-					preview_height = function(_, _, max_lines)
-						return max_lines - 14
-					end,
+			backend = { "snacks" },
+			snacks = {
+				layout = {
+					layout = {
+						box = "vertical",
+						backdrop = false,
+						row = -1,
+						width = 0,
+						height = 0.4,
+						border = "top",
+						title = " {title} {live} {flags}",
+						title_pos = "left",
+						{ win = "input", height = 1, border = "bottom" },
+						{
+							box = "horizontal",
+							{ win = "list", border = "none" },
+							{ win = "preview", title = "{preview}", width = 0.65, border = "left" },
+						},
+					},
 				},
 			},
 		})

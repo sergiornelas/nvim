@@ -1,7 +1,26 @@
 local lazy_map = {
 	{
 		"<leader>fc",
-		"<cmd>Telescope colorscheme prompt_title=Colorscheme layout_config={width=50} previewer=false<cr>",
+		function()
+			require("snacks").picker.colorschemes({
+				layout = {
+					layout = {
+						backdrop = false,
+						width = 0.2,
+						min_width = 30,
+						height = 0.3,
+						min_height = 25,
+						box = "vertical",
+						border = "single",
+						title = "{title} {live} {flags}",
+						title_pos = "center",
+						{ win = "input", height = 1, border = "bottom" },
+						{ win = "list", border = "none" },
+						{ win = "preview", title = "{preview}", height = 0.09, border = "top" },
+					},
+				},
+			})
+		end,
 	},
 }
 

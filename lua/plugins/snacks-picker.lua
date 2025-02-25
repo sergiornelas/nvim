@@ -31,7 +31,7 @@ local function map(mode, key, command)
 end
 local snacks = require("snacks")
 
--- list of layouts: default, dropdown, ivy, ivy_split, select, sidebar, telescope, vertical, vscode
+-- list of layouts: bottom, default, dropdown, ivy, ivy_split, left, right, select, sidebar, telescope, top, vertical, vscode
 
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.autocmds()<cr>")
 map("n", "<leader>fo", function()
@@ -71,7 +71,7 @@ map("n", "<leader>fi", function()
 		},
 	})
 end)
--- map("n", "<leader>", "<cmd>lua Snacks.picker.git_branches()<cr>")
+map("n", "<leader>gr", "<cmd>lua Snacks.picker.git_branches()<cr>")
 map("n", "<leader>gs", "<cmd>lua Snacks.picker.git_diff({layout = 'ivy'})<cr>")
 map("n", "<leader>gf", "<cmd>lua Snacks.picker.git_files({layout = 'ivy'})<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.git_grep()<cr>")
@@ -129,8 +129,18 @@ map("n", "<leader>/", "<cmd>lua Snacks.picker.search_history({ layout = 'vscode'
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.select()<cr>")
 -- uses a fast frecency impl based on exponential decay and combines results from multiple finders (buffers, files and recent):
 map("n", "<leader>fs", "<cmd>lua Snacks.picker.smart()<cr>")
--- not cursor layout capacity:
--- map("n", "<leader>fp", "<cmd>lua Snacks.picker.spelling({layout = 'select'})<cr>")
+map("n", "<leader>fp", function()
+	snacks.picker.spelling({
+		layout = {
+			preset = "select",
+			layout = {
+				width = 0.20,
+				min_width = 20,
+				border = "single",
+			},
+		},
+	})
+end)
 map("n", "<leader>ft", "<cmd>lua Snacks.picker.treesitter({layout = 'ivy_split'})<cr>")
 map("n", "<leader>fu", "<cmd>lua Snacks.picker.undo({ layout = 'sidebar' })<cr>")
 -- not working:
