@@ -28,15 +28,8 @@ return {
 	},
 	config = function()
 		require("hlslens").setup({
-			calm_down = {
-				default = true,
-			},
-			nearest_only = {
-				default = true,
-			},
-			nearest_float_when = {
-				default = "never",
-			},
+			nearest_only = true,
+			nearest_float_when = "never",
 		})
 
 		local opts = { noremap = true, silent = true }

@@ -14,9 +14,9 @@ local lazy_map = {
 						border = "single",
 						title = "{title} {live} {flags}",
 						title_pos = "center",
-						{ win = "input", height = 1, border = "bottom" },
-						{ win = "list", border = "none" },
-						{ win = "preview", title = "{preview}", height = 0.09, border = "top" },
+						{ win = "input", height = 1 },
+						{ win = "list", border = "single" },
+						{ win = "preview", title = "{preview}", height = 0.06 },
 					},
 				},
 			})

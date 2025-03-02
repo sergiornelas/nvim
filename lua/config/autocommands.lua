@@ -24,6 +24,7 @@ autocmd("ColorScheme", {
 			{ "CursorLine", { bg = "#25424D" } },
 			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#afacac" } },
 			{ "HlSearchLensNear", { fg = "#ebdbb2", bg = "#4f0000" } },
+			{ "HlSearchNear", { link = "None" } },
 			{ "LineNr", { fg = "#807B7B" } },
 			{ "LspInlayHint", { fg = "#74716A", italic = true } },
 			{ "LspReferenceRead", { fg = "#DACBA5", bg = "#403e3e" } },

@@ -10,41 +10,14 @@ return {
 	---@diagnostic disable-next-line: undefined-doc-name
 	---@type blink.cmp.Config
 	opts = {
-		keymap = {
-			preset = "none",
-			-- Important!: use C-x in caps, c-x doesn't work
-			["<C-'>"] = { "show", "show_documentation", "hide_documentation" },
-			["<C-space>"] = { "hide", "fallback" },
-			["<C-j>"] = { "select_and_accept", "fallback" },
-
-			["<C-p>"] = { "select_prev", "fallback" },
-			["<C-n>"] = { "select_next", "fallback" },
-
-			["<C-,>"] = { "scroll_documentation_up", "fallback" },
-			["<C-.>"] = { "scroll_documentation_down", "fallback" },
-
-			["<C-v>"] = { "snippet_forward", "fallback" },
-			["<C-b>"] = { "snippet_backward", "fallback" },
-		},
-		snippets = {
-			expand = function(snippet)
-				require("luasnip").lsp_expand(snippet)
-			end,
-			active = function(filter)
-				if filter and filter.direction then
-					return require("luasnip").jumpable(filter.direction)
-				end
-				return require("luasnip").in_snippet()
-			end,
-			jump = function(direction)
-				require("luasnip").jump(direction)
-			end,
+		cmdline = {
+			enabled = true,
+			keymap = {
+				["<c-o>"] = { "select_prev" },
+			},
 		},
 		completion = {
 			menu = {
-				auto_show = function(ctx)
-					return ctx.mode ~= "cmdline"
-				end,
 				draw = {
 					components = {
 						label = {
@@ -63,10 +36,6 @@ return {
 			ghost_text = {
 				enabled = false,
 			},
-		},
-		-- Experimental signature help support
-		signature = {
-			enabled = false,
 		},
 		sources = {
 			-- Static list of providers to enable, or a function to dynamically enable/disable providers based on the context
@@ -104,6 +73,44 @@ return {
 					},
 				},
 			},
+		},
+		snippets = {
+			expand = function(snippet)
+				require("luasnip").lsp_expand(snippet)
+			end,
+			active = function(filter)
+				if filter and filter.direction then
+					return require("luasnip").jumpable(filter.direction)
+				end
+				return require("luasnip").in_snippet()
+			end,
+			jump = function(direction)
+				require("luasnip").jump(direction)
+			end,
+		},
+		-- Experimental signature help support
+		signature = {
+			enabled = true,
+		},
+		keymap = {
+			preset = "none",
+			-- Important!: use C-x in caps, c-x doesn't work
+			["<C-'>"] = { "show", "show_documentation", "hide_documentation" },
+			["<C-space>"] = { "hide", "fallback" },
+			["<C-j>"] = { "select_and_accept", "fallback" },
+
+			["<C-p>"] = { "select_prev", "fallback" },
+			["<C-n>"] = { "select_next", "fallback" },
+
+			["<C-,>"] = { "scroll_documentation_up", "fallback" },
+			["<C-.>"] = { "scroll_documentation_down", "fallback" },
+
+			["<C-v>"] = { "snippet_forward", "fallback" },
+			["<C-b>"] = { "snippet_backward", "fallback" },
+
+			["<C-k>"] = { "show_signature", "hide_signature", "fallback" }, -- (vim: enter digraph)
+			-- free: v, b (you could use one for signature)
+			-- or you can use b,v for documentation
 		},
 		appearance = {
 			-- Sets the fallback highlight groups to nvim-cmp's highlight groups

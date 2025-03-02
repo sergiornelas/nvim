@@ -15,6 +15,7 @@ return {
 				),
 			},
 			backend = { "snacks" },
+			-- not working properly in typescript-tools, only ivy is working
 			snacks = {
 				layout = {
 					layout = {

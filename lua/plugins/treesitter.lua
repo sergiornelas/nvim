@@ -104,13 +104,11 @@ return {
 			ts_repeat_move.make_repeatable_move_pair(safe_fix_nav("cnext"), safe_fix_nav("cprev"))
 		local next_loclist_el, prev_loclist_el =
 			ts_repeat_move.make_repeatable_move_pair(safe_fix_nav("lne"), safe_fix_nav("lp"))
-
-		-- TODO
-		-- local next_spell, prev_spell = ts_repeat_move.make_repeatable_move_pair(function()
-		-- 	vim.cmd("normal " .. vim.v.count1 .. "[s")
-		-- end, function()
-		-- 	vim.cmd("normal " .. vim.v.count1 .. "]s")
-		-- end)
+		local next_spell, prev_spell = ts_repeat_move.make_repeatable_move_pair(function()
+			vim.cmd("normal! " .. vim.v.count1 .. "[s")
+		end, function()
+			vim.cmd("normal! " .. vim.v.count1 .. "]s")
+		end)
 
 		-- Repeatable move mappings
 		map(mode, ";", ts_repeat_move.repeat_last_move)
@@ -131,8 +129,8 @@ return {
 		map(mode, "[d", prev_diagnostic) -- (vim: go to next diagnostic no float w. (nvim 0.10))
 		map(mode, "[t", next_indentscope)
 		map(mode, "]t", prev_indentscope)
-		-- map(mode, "[s", next_spell)
-		-- map(mode, "]s", prev_spell)
+		map(mode, "[s", next_spell) -- (vim: move to the previous misspelled word)
+		map(mode, "]s", prev_spell) -- (vim: move to the next misspelled word)
 
 		-- navigate through markdown headers
 		vim.api.nvim_create_autocmd("FileType", {
