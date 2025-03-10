@@ -34,6 +34,7 @@ return {
 		opts = {
 			audio_player = "afplay",
 			max_sounds = 20,
+			sound_directory = "~/.config/nvim/sounds-nvim",
 			sound_map = {
 				{ auto_command = "VimEnter", sound = "dsbdopn.wav" },
 				{ auto_command = "VimLeavePre", sound = "dsswtchx.wav" },

@@ -66,8 +66,9 @@ map("n", "<leader>fi", function()
 	snacks.picker.files({
 		layout = custom_layout,
 		exclude = {
-			"/images",
-			"/sounds",
+			"/images-storage",
+			"/sounds-nvim",
+			"spreadsheet.sc",
 		},
 	})
 end)
@@ -86,6 +87,9 @@ map("n", "<leader>gh", "<cmd>lua Snacks.picker.git_stash()<cr>")
 map("n", "<leader>fl", function()
 	snacks.picker.grep({
 		layout = custom_layout,
+		exclude = {
+			"spreadsheet.sc",
+		},
 	})
 end)
 map("n", "<leader>fL", "<cmd>lua Snacks.picker.grep_buffers()<cr>")

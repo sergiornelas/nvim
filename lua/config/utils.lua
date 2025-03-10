@@ -162,6 +162,13 @@ function _G.markdown_headings_index()
 			},
 		},
 		title = "Headings",
+		win = {
+			list = {
+				keys = {
+					["l"] = { "confirm", mode = { "n" } },
+				},
+			},
+		},
 		pattern = "## ",
 		on_show = function(picker)
 			picker:show_preview()

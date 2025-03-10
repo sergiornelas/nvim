@@ -23,6 +23,7 @@ ravenxrz/DAPInstall.nvim
 Lommix/godot.nvim
 niuiic/dap-utils.nvim
 andrewferrier/debugprint.nvim
+igorlfs/nvim-dap-view                                         more modern debugger UI
 
 TESTING -----------------------------------------------------------------------------
 David-Kunz/jester
@@ -68,6 +69,7 @@ marilari88/twoslash-queries.nvim               print typescript types as virtual
 jdrupal-dev/code-refactor.nvim                          more javascripts code actions
 jellydn/typecheck.nvim               seamless TypeScript type checking using quickfix
 Jezda1337/nvim-html-css                        HTML id and class attribute completion
+redoxahmii/json-to-types.nvim     generating type definitions from JSON to TypeScript
 
 ARTIFICIAL INTELIGENCE --------------------------------------------------------------
 zbirenbaum/copilot-cmp
@@ -92,6 +94,7 @@ milanglacier/yarepl.nvim/blob/main/extensions/README.md  ai terminal (generate f
 dlants/magenta.nvim                      ai code genereator, designed for typescript?
 kbwo/vim-shareedit   shares open files and cursor positions between Neovim and VSCode!!!
 https://aider.chat/                check this, it's the best competitor vs cursor IDE
+davidyz/vectorcode better prompt for your LLMs by providing info about the repository!!!
 
 COMPETITIVE CODING ------------------------------------------------------------------
 0x100101/lab.nvim                                     visual text output (dissapears)
@@ -138,6 +141,7 @@ sphamba/smear-cursor.nvim                          neovide cursor animation in n
 jake-stewart/multicursor.nvim                             multiple cursors for neovim
 lfilho/note2cal.nvim                                  schedule events to calendar.app
 carlosrocha/chrome-remote.nvim              run browser current page HTML into neovim
+mfontanini/presenterm                              powerpoint presentations in neovim
 
 Last time revisited all these plugins
 20/05/2024
@@ -147,7 +151,7 @@ https://dotfyle.com/this-week-in-neovim
 1/6/2025
 
 https://github.com/rockerBOO/awesome-neovim/commits/main/
-Mar 2, 2025
+Mar 6, 2025
 
 https://dotfyle.com/neovim/plugins/new
-wsdjeg/todo.nvim
+redoxahmii/json-to-types.nvim

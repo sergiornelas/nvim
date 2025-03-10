@@ -138,11 +138,9 @@ return {
 			callback = function()
 				local keymap_opts = { noremap = true, silent = true, buffer = vim.api.nvim_get_current_buf() }
 				local next_md_header, prev_md_header = ts_repeat_move.make_repeatable_move_pair(function()
-					vim.cmd("silent! /^##\\+\\s.*$")
-					vim.cmd("nohlsearch")
+					vim.cmd([[call search('\%(^#\{1,5}\s\+\S\|^\S.*\n^[=-]\+$\)', 'sW')]])
 				end, function()
-					vim.cmd("silent! ?^##\\+\\s.*$")
-					vim.cmd("nohlsearch")
+					vim.cmd([[call search('\%(^#\{1,5}\s\+\S\|^\S.*\n^[=-]\+$\)', 'bsW')]])
 				end)
 				map(mode, "]e", next_md_header, keymap_opts)
 				map(mode, "[e", prev_md_header, keymap_opts)

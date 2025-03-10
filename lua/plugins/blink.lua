@@ -109,8 +109,6 @@ return {
 			["<C-b>"] = { "snippet_backward", "fallback" },
 
 			["<C-k>"] = { "show_signature", "hide_signature", "fallback" }, -- (vim: enter digraph)
-			-- free: v, b (you could use one for signature)
-			-- or you can use b,v for documentation
 		},
 		appearance = {
 			-- Sets the fallback highlight groups to nvim-cmp's highlight groups
