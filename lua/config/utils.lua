@@ -188,6 +188,15 @@ function _G.markdown_headings_index()
 					snacks.picker.actions.list_scroll_center(picker)
 				end,
 			})
+			api.nvim_create_autocmd("VimResized", {
+				buffer = api.nvim_get_current_buf(),
+				callback = function()
+					cmd("set wrap")
+				end,
+			})
+			vim.defer_fn(function()
+				cmd("set wrap")
+			end, 90)
 		end,
 	})
 	cmd("set hlsearch")
