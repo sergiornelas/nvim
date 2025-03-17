@@ -57,6 +57,14 @@ return {
 		{
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
+		{
+			"mawkler/jsx-element.nvim",
+			opts = {
+				keymaps = {
+					jsx_element = "j",
+				},
+			},
+		},
 	},
 	config = function()
 		local configs_ok, configs = pcall(require, "nvim-treesitter.configs")
@@ -109,6 +117,11 @@ return {
 		end, function()
 			vim.cmd("normal! " .. vim.v.count1 .. "]s")
 		end)
+		local next_buffer, prev_buffer = ts_repeat_move.make_repeatable_move_pair(function()
+			require("buftrack").next_buffer()
+		end, function()
+			require("buftrack").prev_buffer()
+		end)
 
 		-- Repeatable move mappings
 		map(mode, ";", ts_repeat_move.repeat_last_move)
@@ -131,6 +144,8 @@ return {
 		map(mode, "]t", prev_indentscope)
 		map(mode, "[s", next_spell) -- (vim: move to the previous misspelled word)
 		map(mode, "]s", prev_spell) -- (vim: move to the next misspelled word)
+		map(mode, "]b", next_buffer)
+		map(mode, "[b", prev_buffer)
 
 		-- navigate through markdown headers
 		vim.api.nvim_create_autocmd("FileType", {

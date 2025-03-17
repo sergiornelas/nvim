@@ -7,16 +7,8 @@ return {
 			next = false,
 			first = false,
 			last = false,
-			bprevious = {
-				mapping = "[b",
-				description = "Jump to [count] previous buffer",
-				dot_repeat = true,
-			},
-			bnext = {
-				mapping = "]b",
-				description = "Jump to [count] next buffer",
-				dot_repeat = true,
-			},
+			bprevious = false,
+			bnext = false,
 			bfirst = {
 				mapping = "[B",
 				description = "Jump to first buffer",

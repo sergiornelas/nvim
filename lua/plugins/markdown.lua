@@ -124,7 +124,7 @@ return {
 					unchecked = {
 						text = " ",
 					},
-					["-"] = { text = "" },
+					["l"] = { text = "" },
 					["?"] = { text = "" },
 					["!"] = { text = "" },
 				},

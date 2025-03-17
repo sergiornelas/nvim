@@ -59,7 +59,6 @@ barrett-ruth/import-cost.nvim                                  cost memory of im
 tomiis4/hypersonic.nvim                                         explanation for regex
 yioneko/nvim-vtsls                                   replacement for typescript-tools
 neoclide/coc.nvim                                    replacement for typescript-tools
-Redoxahmii/json-to-types.nvim                        convert JSON to TypeScript types
 cjodo/convert.nvim                                    convert px to rem and viceversa
 Julien-cpsn/ATAC                                           Postman in your terminal!!
 typed-rocks/ts-worksheet-neovim                 live Results In Neovim in js/ts files
@@ -147,11 +146,12 @@ Last time revisited all these plugins
 20/05/2024
 
 ====================
+
+https://github.com/rockerBOO/awesome-neovim/commits/main/
+Mar 10, 2025
+
 https://dotfyle.com/this-week-in-neovim
 1/6/2025
 
-https://github.com/rockerBOO/awesome-neovim/commits/main/
-Mar 6, 2025
-
 https://dotfyle.com/neovim/plugins/new
-redoxahmii/json-to-types.nvim
+bloznelis/buftrack.nvim
