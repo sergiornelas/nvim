@@ -1,135 +1,163 @@
+local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
+
 return {
 	{
 		"OXY2DEV/markview.nvim",
 		ft = "markdown",
-		opts = {
-			preview = {
-				-- modes = { "n", "no", "c" },
-				-- hybrid_modes = { "n" },
-				-- debounce = 0,
-			},
-			markdown = {
-				code_blocks = {
-					-- set nowrap to work
-					min_width = 80,
-					sign = false,
+		config = function()
+			require("markview").setup({
+				preview = {
+					-- modes = { "n", "no", "c" },
+					-- hybrid_modes = { "n" },
+					-- debounce = 0,
 				},
-				headings = {
-					heading_1 = {
-						style = "label",
+				markdown = {
+					code_blocks = {
+						-- set nowrap to work
+						min_width = 80,
+						sign = false,
 					},
-					heading_2 = {
-						style = "label",
+					headings = {
+						heading_1 = {
+							style = "label",
+						},
+						heading_2 = {
+							style = "label",
+						},
+						heading_3 = {
+							style = "label",
+							sign = "󰌖 ",
+						},
+						heading_4 = {
+							style = "label",
+							sign = "󰌖 ",
+						},
+						heading_5 = {
+							style = "label",
+							sign = "󰌖 ",
+						},
+						heading_6 = {
+							style = "label",
+							sign = "󰌖 ",
+						},
 					},
-					heading_3 = {
-						style = "label",
-						sign = "󰌖 ",
-					},
-					heading_4 = {
-						style = "label",
-						sign = "󰌖 ",
-					},
-					heading_5 = {
-						style = "label",
-						sign = "󰌖 ",
-					},
-					heading_6 = {
-						style = "label",
-						sign = "󰌖 ",
-					},
-				},
-				horizontal_rules = {
-					parts = {
-						{
-							type = "repeating",
-							repeat_amount = function(buffer)
-								local utils = require("markview.utils")
-								local window = utils.buf_getwin(buffer)
-								local width = 80
-								local textoff = vim.fn.getwininfo(window)[1].textoff
-								return math.floor((width - textoff - 3) / 2)
-							end,
-							text = "─",
-							hl = {
-								"MarkviewGradient1",
-								"MarkviewGradient1",
-								"MarkviewGradient2",
-								"MarkviewGradient2",
-								"MarkviewGradient3",
-								"MarkviewGradient3",
-								"MarkviewGradient4",
-								"MarkviewGradient4",
-								"MarkviewGradient5",
-								"MarkviewGradient5",
-								"MarkviewGradient6",
-								"MarkviewGradient6",
-								"MarkviewGradient7",
-								"MarkviewGradient7",
-								"MarkviewGradient8",
-								"MarkviewGradient8",
-								"MarkviewGradient9",
-								"MarkviewGradient9",
+					horizontal_rules = {
+						parts = {
+							{
+								type = "repeating",
+								repeat_amount = function(buffer)
+									local utils = require("markview.utils")
+									local window = utils.buf_getwin(buffer)
+									local width = 80
+									local textoff = vim.fn.getwininfo(window)[1].textoff
+									return math.floor((width - textoff - 3) / 2)
+								end,
+								text = "─",
+								hl = {
+									"MarkviewGradient1",
+									"MarkviewGradient1",
+									"MarkviewGradient2",
+									"MarkviewGradient2",
+									"MarkviewGradient3",
+									"MarkviewGradient3",
+									"MarkviewGradient4",
+									"MarkviewGradient4",
+									"MarkviewGradient5",
+									"MarkviewGradient5",
+									"MarkviewGradient6",
+									"MarkviewGradient6",
+									"MarkviewGradient7",
+									"MarkviewGradient7",
+									"MarkviewGradient8",
+									"MarkviewGradient8",
+									"MarkviewGradient9",
+									"MarkviewGradient9",
+								},
+							},
+							{
+								type = "text",
+								text = "  ",
+								hl = "MarkviewIcon3Fg",
+							},
+							{
+								type = "repeating",
+								repeat_amount = function(buffer)
+									local utils = require("markview.utils")
+									local window = utils.buf_getwin(buffer)
+									local width = 80
+									local textoff = vim.fn.getwininfo(window)[1].textoff
+									return math.ceil((width - textoff - 3) / 2)
+								end,
+								direction = "right",
+								text = "─",
+								hl = {
+									"MarkviewGradient1",
+									"MarkviewGradient1",
+									"MarkviewGradient2",
+									"MarkviewGradient2",
+									"MarkviewGradient3",
+									"MarkviewGradient3",
+									"MarkviewGradient4",
+									"MarkviewGradient4",
+									"MarkviewGradient5",
+									"MarkviewGradient5",
+									"MarkviewGradient6",
+									"MarkviewGradient6",
+									"MarkviewGradient7",
+									"MarkviewGradient7",
+									"MarkviewGradient8",
+									"MarkviewGradient8",
+									"MarkviewGradient9",
+									"MarkviewGradient9",
+								},
 							},
 						},
-						{
-							type = "text",
-							text = "  ",
-							hl = "MarkviewIcon3Fg",
-						},
-						{
-							type = "repeating",
-							repeat_amount = function(buffer)
-								local utils = require("markview.utils")
-								local window = utils.buf_getwin(buffer)
-								local width = 80
-								local textoff = vim.fn.getwininfo(window)[1].textoff
-								return math.ceil((width - textoff - 3) / 2)
-							end,
-							direction = "right",
-							text = "─",
-							hl = {
-								"MarkviewGradient1",
-								"MarkviewGradient1",
-								"MarkviewGradient2",
-								"MarkviewGradient2",
-								"MarkviewGradient3",
-								"MarkviewGradient3",
-								"MarkviewGradient4",
-								"MarkviewGradient4",
-								"MarkviewGradient5",
-								"MarkviewGradient5",
-								"MarkviewGradient6",
-								"MarkviewGradient6",
-								"MarkviewGradient7",
-								"MarkviewGradient7",
-								"MarkviewGradient8",
-								"MarkviewGradient8",
-								"MarkviewGradient9",
-								"MarkviewGradient9",
-							},
+					},
+					list_items = {
+						indent_size = 1,
+						shift_width = 2,
+						marker_minus = {
+							text = "󰧞",
 						},
 					},
 				},
-				list_items = {
-					indent_size = 1,
-					shift_width = 2,
-					marker_minus = {
-						text = "󰧞",
+				markdown_inline = {
+					checkboxes = {
+						["?"] = { text = "" },
+						["!"] = { text = "" },
 					},
 				},
-			},
-			markdown_inline = {
-				checkboxes = {
-					checked = { text = " " },
-					unchecked = {
-						text = " ",
+			})
+			require("markview.extras.checkboxes").setup()
+			require("markview.extras.headings").setup()
+			require("markview.extras.editor").setup({
+				max_height = 12,
+				create = {
+					["markdown"] = {
+						init = function(buffer)
+							local win = require("markview.utils").buf_getwin(buffer)
+							local row = vim.api.nvim_win_get_cursor(win)[1]
+							return { "```typescript", "```" }, "typescript", { row - 1, 0, row, 0 }
+						end,
+						language = function(input)
+							if input:match("^```%s*%{(%a+)(.*)%}") then
+								return input:match("^```%s*%{(%a+)(.*)%}")
+							elseif input:match("^```(%a+)") then
+								return input:match("^```(%a+)")
+							else
+								return "typescript"
+							end
+						end,
 					},
-					["l"] = { text = "" },
-					["?"] = { text = "" },
-					["!"] = { text = "" },
 				},
-			},
-		},
+			})
+			map({ "n", "x" }, "<c-c>", "<cmd>Checkbox toggle<cr>", opts) -- (vim :interrupt current (search) command)
+			map("n", "<leader>I", "<cmd>Checkbox interactive<cr>", opts)
+			map("n", "<leader>H", "<cmd>Heading decrease<cr>", opts)
+			map("n", "<leader>L", "<cmd>Heading increase<cr>", opts)
+			map("n", "<leader>C", "<cmd>CodeCreate<cr>", opts)
+		end,
 	},
 	{
 		-- to work with this:
@@ -148,7 +176,7 @@ return {
         \ 'disable_sync_scroll': 1,
         \ }
       ]])
-			vim.keymap.set("n", "<leader>m", "<cmd>MarkdownPreview<cr>", { noremap = true, silent = true })
+			map("n", "<leader>m", "<cmd>MarkdownPreview<cr>", opts)
 		end,
 	},
 	{
@@ -190,12 +218,10 @@ return {
 		},
 	},
 	{
-		"opdavies/toggle-checkbox.nvim",
-		keys = {
-			{
-				"<c-c>", -- (vim :interrupt current (search) command)
-				"<cmd>lua require('toggle-checkbox').toggle()<CR>",
-			},
+		"lukas-reineke/virt-column.nvim",
+		ft = "markdown",
+		opts = {
+			char = "⋮",
 		},
 	},
 }

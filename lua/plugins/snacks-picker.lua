@@ -57,6 +57,7 @@ map("n", "<leader>o", function() -- install fd
 					["<c-k>"] = "explorer_up",
 					["<c-j>"] = "confirm",
 					["p"] = "toggle_preview",
+					["<c-t>"] = "tab",
 				},
 			},
 		},
@@ -99,7 +100,7 @@ map({ "n", "x" }, "<leader>fw", function()
 	})
 end)
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.help()<cr>")
-map("n", "<leader>H", "<cmd>lua Snacks.picker.highlights()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.highlights()<cr>")
 map("i", "<c-g><c-e>", "<cmd>lua Snacks.picker.icons({layout = 'select'})<cr>")
 map("n", "<leader>fj", "<cmd>lua Snacks.picker.jumps({layout = 'vertical'})<cr>")
 map("n", "<leader>fk", "<cmd>lua Snacks.picker.keymaps({layout = 'ivy_split'})<cr>")

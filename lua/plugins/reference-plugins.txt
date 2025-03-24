@@ -94,6 +94,7 @@ dlants/magenta.nvim                      ai code genereator, designed for typesc
 kbwo/vim-shareedit   shares open files and cursor positions between Neovim and VSCode!!!
 https://aider.chat/                check this, it's the best competitor vs cursor IDE
 davidyz/vectorcode better prompt for your LLMs by providing info about the repository!!!
+ravitemer/mcphub.nvim                                              avante integration
 
 COMPETITIVE CODING ------------------------------------------------------------------
 0x100101/lab.nvim                                     visual text output (dissapears)
@@ -148,10 +149,10 @@ Last time revisited all these plugins
 ====================
 
 https://github.com/rockerBOO/awesome-neovim/commits/main/
-Mar 10, 2025
+Mar 22, 2025
 
 https://dotfyle.com/this-week-in-neovim
 1/6/2025
 
 https://dotfyle.com/neovim/plugins/new
-bloznelis/buftrack.nvim
+Rimkomatic/switchscheme.nvim

@@ -7,7 +7,7 @@ end
 
 map("n", "<leader>y", "<cmd>tabclose<cr>") --                       tab close
 map("n", "d<leader>", "cc<esc>") --          	                     clear line
-map("n", "<leader><leader>", "i<space><esc>") --                 adds a space
+map("n", "<leader><leader>", "i<leader><esc>") --                adds a space
 map("n", "<leader>lo", "<cmd>lopen<cr>") --                      open loclist
 map("n", "<leader>q", "<cmd>copen<cr>") --                      open quickfix
 map("n", "<leader>x", "<cmd>lua toggle_boolean()<cr>") --      toggle boolean
@@ -18,6 +18,7 @@ map("t", "<esc>", "<c-\\><c-n>") --               escape insert mode terminal
 map("n", "<leader>n", '<cmd>lua toggle_file_in_split("~/notes/scratch/main.md")<cr>') -- toggle scratch file
 map("n", "<leader>R", "<cmd>lua toggle_window_resize()<cr>") -- toggle auto resize window mode
 map("n", "<c-q>", "<cmd>qa<cr>") -- 	 exit vim safely (vim: not used, or used for terminal control flow, visual block)
+map("i", "<c-c>", "<esc>^y$:execute 'read !echo \"scale=2; ' . @0 . '\" | bc'<cr>kA =<esc>J") -- calculate current math expression
 
 -- Toggle options =================================
 map("i", "<c-g><c-p>", "<cmd>set spell!<cr>")
@@ -34,18 +35,16 @@ map({ "n", "x" }, "<c-w><c-m>", "<cmd>vertical resize +6<cr>") -- resize left
 map({ "n", "x" }, "<c-w><c-;>", "<cmd>vertical resize -5<cr>") -- resize right
 
 -- wincmd: a, spacebar
--- [w, ]w
 
 -- remember that Q visual mode execute last macro in selected portion
 
--- leader free: h, v, m, o
+-- leader free: h, v, m
 -- h chatgpt?
--- o obisidan
 
 -- ctrl free:
 -- c-h (vim: same as "h", "<BS>"), c-;
 
 -- [ maps available
--- y, o, u
--- h, j
+-- w, y, o, u
+-- h
 -- m?

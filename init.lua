@@ -23,8 +23,6 @@ require("config.autocommands")
 require("config.utils")
 require("config.keymaps")
 
-vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { noremap = true, silent = true })
-
 require("lazy").setup({
 	defaults = {
 		lazy = true,
