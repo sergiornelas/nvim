@@ -4,8 +4,8 @@ local keymap = vim.keymap.set
 local methods = vim.lsp.protocol.Methods
 
 keymap("n", "gB", '<cmd>lua vim.diagnostic.open_float(0, { scope = "buffer", border = "double" })<CR>')
-keymap("n", "<leader>ld", vim.diagnostic.setloclist)
-keymap("n", "<leader>lD", vim.diagnostic.setqflist)
+keymap("n", "<leader>ls", vim.diagnostic.setloclist)
+keymap("n", "<leader>lS", vim.diagnostic.setqflist)
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -16,7 +16,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf }
 		-- keymap("n", "gh", lsp.declaration, opts) -- not supported by any of the servers registered: (lua, ts) (vim: start Select mode)
 		keymap("n", "gd", lsp.definition, opts) -- (vim: go to definition of word under the cursor in current function)
-		keymap("n", "ga", lsp.implementation, opts) -- (vim: print ascii value of character under the cursor)
 		keymap("n", "gs", lsp.signature_help, opts) -- (vim: go to sleep for N seconds (default 1))
 		keymap("i", "<c-g><c-s>", lsp.signature_help, opts)
 		keymap("n", "<leader>lA", lsp.add_workspace_folder, opts)
@@ -25,15 +24,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			print(vim.inspect(lsp.list_workspace_folders()))
 		end, opts)
 		keymap("n", "<leader>D", lsp.type_definition, opts)
-		keymap("n", "<leader>le", lsp.rename, opts)
-		-- keymap({ "n", "x" }, "<leader>la", lsp.code_action, opts) -- using plugin actions-preview
-		keymap("n", "<leader>lr", lsp.references, opts)
 		keymap("n", "<leader>lf", function()
 			lsp.format({ async = true })
 		end, opts)
 		keymap("n", "<leader>lI", lsp.incoming_calls, opts)
 		keymap("n", "<leader>lO", lsp.outgoing_calls, opts)
-		keymap("n", "<leader>ls", lsp.document_symbol, opts)
 		keymap("n", "<leader>lw", lsp.workspace_symbol, opts)
 		keymap({ "n", "x" }, "<leader>i", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))

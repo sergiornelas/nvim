@@ -1,6 +1,6 @@
 --- @param mode string|table
 --- @param key string
---- @param command string
+--- @param command string|function
 local function map(mode, key, command)
 	vim.keymap.set(mode, key, command, { noremap = true, silent = true })
 end
@@ -21,12 +21,16 @@ map("n", "<c-q>", "<cmd>qa<cr>") -- 	 exit vim safely (vim: not used, or used fo
 map("i", "<c-c>", "<esc>^y$:execute 'read !echo \"scale=2; ' . @0 . '\" | bc'<cr>kA =<esc>J") -- calculate current math expression
 
 -- Toggle options =================================
+map({ "n", "x" }, "<leader>p", "<cmd>set spell!<cr>")
+map({ "n", "x" }, "<leader>a", "<cmd>set wrap!<cr>")
+map({ "n", "x" }, "<leader>b", "<cmd>set nu!<cr>")
 map("i", "<c-g><c-p>", "<cmd>set spell!<cr>")
 map("i", "<c-g><c-a>", "<cmd>set wrap!<cr>")
 map("i", "<c-g><c-b>", "<cmd>set nu!<cr>")
-map("x", "<leader>p", "<cmd>set spell!<cr>")
-map("x", "<leader>a", "<cmd>set wrap!<cr>")
-map("x", "<leader>b", "<cmd>set nu!<cr>")
+map("n", "<leader>v", function()
+	---@diagnostic disable-next-line: undefined-field
+	vim.opt.virtualedit = vim.opt.virtualedit:get()[1] == "all" and "" or "all"
+end)
 
 -- Resize window ==================================
 map({ "n", "x" }, "<c-w><c-y>", "<cmd>resize +6<cr>") --          resize up
@@ -38,13 +42,10 @@ map({ "n", "x" }, "<c-w><c-;>", "<cmd>vertical resize -5<cr>") -- resize right
 
 -- remember that Q visual mode execute last macro in selected portion
 
--- leader free: h, v, m
--- h chatgpt?
-
 -- ctrl free:
 -- c-h (vim: same as "h", "<BS>"), c-;
 
 -- [ maps available
--- w, y, o, u
+-- w, r, y, o, u
 -- h
 -- m?

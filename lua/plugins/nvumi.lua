@@ -4,7 +4,7 @@ return {
 	dependencies = { "folke/snacks.nvim" },
 	keys = {
 		{
-			"<leader>v",
+			"<leader>m",
 			"<cmd>Nvumi<cr>",
 		},
 	},

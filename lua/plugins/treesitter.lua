@@ -79,26 +79,16 @@ return {
 				end
 			end
 		end
-		local function goto_diagnostic(direction, error)
-			local navigate = direction == "next" and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-			for _ = 1, vim.v.count1 do
-				if error then
-					navigate({ severity = vim.diagnostic.severity.ERROR, float = false })
-				else
-					navigate({ float = false })
-				end
-			end
-		end
 
 		local next_diagnostic, prev_diagnostic = ts_repeat_move.make_repeatable_move_pair(function()
-			goto_diagnostic("next")
+			vim.diagnostic.jump({ count = 1, float = true })
 		end, function()
-			goto_diagnostic("prev")
+			vim.diagnostic.jump({ count = -1, float = true })
 		end)
 		local next_error, prev_error = ts_repeat_move.make_repeatable_move_pair(function()
-			goto_diagnostic("next", true)
+			vim.diagnostic.jump({ count = 1, float = true, severity = vim.diagnostic.severity.ERROR })
 		end, function()
-			goto_diagnostic("prev", true)
+			vim.diagnostic.jump({ count = -1, float = true, severity = vim.diagnostic.severity.ERROR })
 		end)
 		local next_indentscope, prev_indentscope = ts_repeat_move.make_repeatable_move_pair(function()
 			vim.cmd("normal " .. vim.v.count1 .. "[-")
@@ -119,6 +109,16 @@ return {
 		end, function()
 			require("buftrack").prev_buffer()
 		end)
+		local move_down, move_up = ts_repeat_move.make_repeatable_move_pair(function()
+			vim.cmd("normal " .. vim.v.count1 .. "]+")
+		end, function()
+			vim.cmd("normal " .. vim.v.count1 .. "[+")
+		end)
+		local move_right, move_left = ts_repeat_move.make_repeatable_move_pair(function()
+			vim.cmd("normal " .. vim.v.count1 .. "]\\")
+		end, function()
+			vim.cmd("normal " .. vim.v.count1 .. "[\\")
+		end)
 
 		-- Repeatable move mappings
 		map(mode, ";", ts_repeat_move.repeat_last_move)
@@ -129,20 +129,24 @@ return {
 		map(mode, "T", ts_repeat_move.builtin_T_expr, { expr = true })
 
 		-- Navigation mappings
-		map(mode, "]q", next_quickfix_el)
-		map(mode, "[q", prev_quickfix_el)
-		map(mode, "]l", next_loclist_el)
-		map(mode, "[l", prev_loclist_el)
+		map(mode, "]q", next_quickfix_el) -- (vim: go to next quickfix item (v0.11))
+		map(mode, "[q", prev_quickfix_el) -- (vim: go to prev quickfix item (v0.11))
+		map(mode, "]l", next_loclist_el) -- (vim: go to next loclist item (v0.11))
+		map(mode, "[l", prev_loclist_el) -- (vim: go to prev loclist item (v0.11))
 		map(mode, "]e", next_error)
 		map(mode, "[e", prev_error)
-		map(mode, "]d", next_diagnostic) -- (vim: go to prev diagnostic no float w. (nvim 0.10))
-		map(mode, "[d", prev_diagnostic) -- (vim: go to next diagnostic no float w. (nvim 0.10))
-		map(mode, "[t", next_indentscope)
-		map(mode, "]t", prev_indentscope)
+		map(mode, "]d", next_diagnostic) -- (vim: go to prev diagnostic no float window (v0.10))
+		map(mode, "[d", prev_diagnostic) -- (vim: go to next diagnostic no float window (v0.10))
+		map(mode, "[t", next_indentscope) -- (vim: next tag (v0.11))
+		map(mode, "]t", prev_indentscope) -- (vim: prev tag (v0.11))
 		map(mode, "[s", next_spell) -- (vim: move to the previous misspelled word)
 		map(mode, "]s", prev_spell) -- (vim: move to the next misspelled word)
-		map(mode, "]b", next_buffer)
-		map(mode, "[b", prev_buffer)
+		map(mode, "]b", next_buffer) -- (vim: next buffer element in list (v0.11))
+		map(mode, "[b", prev_buffer) -- (vim: prev buffer element in list (v0.11))
+		map(mode, "]r", move_down)
+		map(mode, "[r", move_up)
+		map(mode, "]w", move_right)
+		map(mode, "[w", move_left)
 
 		-- navigate through markdown headers
 		vim.api.nvim_create_autocmd("FileType", {
@@ -243,7 +247,7 @@ return {
 					enable = true,
 					set_jumps = true, -- whether to set jumps in the jumplist
 					goto_next_start = {
-						["]a"] = "@parameter.inner",
+						["]a"] = "@parameter.inner", -- (vim: next argument list (v0.11)
 						["]k"] = "@conditional.outer", -- (vim: cursor N times forward to start of change)
 						["]f"] = "@function.outer", -- (vim: same as "gf")
 						["]g"] = "@call.outer",
@@ -254,7 +258,7 @@ return {
 						["]v"] = "@assignment.rhs",
 					},
 					goto_next_end = {
-						["]A"] = "@parameter.inner",
+						["]A"] = "@parameter.inner", -- (vim: last argument list (v0.11)
 						["]K"] = "@conditional.outer",
 						["]F"] = "@function.outer",
 						["]G"] = "@call.outer",
@@ -265,7 +269,7 @@ return {
 						["]V"] = "@assignment.rhs",
 					},
 					goto_previous_start = {
-						["[a"] = "@parameter.inner",
+						["[a"] = "@parameter.inner", -- (vim: prev argument list (v0.11)
 						["[k"] = "@conditional.outer", -- (vim: cursor N times backwards to start of change)
 						["[f"] = "@function.outer", -- (vim: same as "gf")
 						["[g"] = "@call.outer",
@@ -276,7 +280,7 @@ return {
 						["[v"] = "@assignment.rhs",
 					},
 					goto_previous_end = {
-						["[A"] = "@parameter.inner",
+						["[A"] = "@parameter.inner", -- (vim: first argument list (v0.11)
 						["[K"] = "@conditional.outer",
 						["[F"] = "@function.outer",
 						["[G"] = "@call.outer",

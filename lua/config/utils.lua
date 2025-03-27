@@ -158,6 +158,7 @@ function _G.markdown_headings_index()
 			preset = "sidebar",
 			cycle = false,
 			layout = {
+				position = "right",
 				width = 47,
 			},
 		},

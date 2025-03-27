@@ -8,7 +8,7 @@ return {
 	opts = {
 		default = {
 			dir_path = function()
-				return vim.fn.expand("~") .. "/notes/images/"
+				return vim.fn.expand("~") .. "/notes/images-storage/"
 			end,
 		},
 	},

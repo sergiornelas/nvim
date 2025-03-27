@@ -18,9 +18,24 @@ function M.config()
 			"lclose",
 		},
 		save_extra_cmds = {
-			-- load last colorscheme by session
 			function()
-				return "colorscheme " .. vim.g.colors_name
+				local qflist = vim.fn.getqflist()
+				-- return nil to clear any old qflist
+				if #qflist == 0 then
+					return nil
+				end
+				local qfinfo = vim.fn.getqflist({ title = 1 })
+				for _, entry in ipairs(qflist) do
+					-- use filename instead of bufnr so it can be reloaded
+					entry.filename = vim.api.nvim_buf_get_name(entry.bufnr)
+					entry.bufnr = nil
+				end
+				-- Save quickfix list and open it when restoring the session
+				local setqflist = "call setqflist(" .. vim.fn.string(qflist) .. ")"
+				local setqfinfo = 'call setqflist([], "a", ' .. vim.fn.string(qfinfo) .. ")"
+				-- load last colorscheme by session
+				local colorscheme = "colorscheme " .. vim.g.colors_name
+				return { setqflist, setqfinfo, "colorscheme", colorscheme }
 			end,
 		},
 		-- post_save_cmds

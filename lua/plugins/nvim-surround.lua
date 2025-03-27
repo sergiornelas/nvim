@@ -26,8 +26,8 @@ function M.config()
 
 	nvim_surround.setup({
 		keymaps = {
-			insert = "<c-s>", -- (vim: not used or used for terminal control flow)
-			insert_line = "<c-s><c-s>", -- (vim: not used or used for terminal control flow)
+			insert = "<c-s>", -- (vim: toggles vim.lsp.buf.signature_help() (v0.11), handled by blink.cmp)
+			insert_line = "<c-s><c-s>", -- (vim: toggles vim.lsp.buf.signature_help() (v0.11), handled by blink.cmp)
 			--
 			normal = "<c-s>", -- (vim: not used, or used for terminal control flow)
 			normal_line = "<c-s><c-s>", -- (vim: not used, or used for terminal control flow)

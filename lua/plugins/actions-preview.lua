@@ -2,7 +2,7 @@ return {
 	"aznhe21/actions-preview.nvim",
 	keys = {
 		{
-			"gl",
+			"gra", -- (vim: vim.lsp.buf.code_action() (v0.11))
 			"<cmd>lua require('actions-preview').code_actions()<cr>",
 			mode = { "n", "v" },
 		},

@@ -95,6 +95,7 @@ kbwo/vim-shareedit   shares open files and cursor positions between Neovim and V
 https://aider.chat/                check this, it's the best competitor vs cursor IDE
 davidyz/vectorcode better prompt for your LLMs by providing info about the repository!!!
 ravitemer/mcphub.nvim                                              avante integration
+banjo/contextfiles.nvim                                                  cursor rules
 
 COMPETITIVE CODING ------------------------------------------------------------------
 0x100101/lab.nvim                                     visual text output (dissapears)
