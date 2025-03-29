@@ -118,14 +118,6 @@ autocmd("VimResized", {
 	end,
 })
 
--- Reduce volume to BeepBoop
-autocmd("VimEnter", {
-	group = create_group("BeepBoopVolume", { clear = true }),
-	callback = function()
-		vim.cmd("BeepBoopVolume 28")
-	end,
-})
-
 -- Show LSP progress
 ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
 local progress = vim.defaulttable()

@@ -1,7 +1,7 @@
 return {
 	"stevearc/conform.nvim",
 	keys = {
-		{ "<leader>w", "<cmd>lua save_with_sound()<cr>" },
+		{ "<leader>w", "<cmd>w<cr>" },
 	},
 	event = "InsertLeave",
 	config = function()

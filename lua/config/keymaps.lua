@@ -46,6 +46,6 @@ map({ "n", "x" }, "<c-w><c-;>", "<cmd>vertical resize -5<cr>") -- resize right
 -- c-h (vim: same as "h", "<BS>"), c-;
 
 -- [ maps available
--- w, r, y, o, u
+-- y, o, u
 -- h
 -- m?

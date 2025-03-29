@@ -129,7 +129,13 @@ return {
 					},
 				},
 			})
-			require("markview.extras.checkboxes").setup()
+			require("markview.extras.checkboxes").setup({
+				-- remove_style = "list_item", -- Removes the list item markers too.
+				states = {
+					{ " ", "X", "/", "l", "?", "!" },
+					{ "*", "b", "i" },
+				},
+			})
 			require("markview.extras.headings").setup()
 			require("markview.extras.editor").setup({
 				max_height = 12,

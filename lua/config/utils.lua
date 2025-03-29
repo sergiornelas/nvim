@@ -2,12 +2,6 @@ local cmd = vim.cmd
 local api = vim.api
 local fn = vim.fn
 
--- Save file with sound
-function _G.save_with_sound()
-	cmd("w")
-	require("beepboop").play_audio("save_sound")
-end
-
 -- Toggle true/false
 function _G.toggle_boolean()
 	local line = api.nvim_get_current_line()
@@ -44,7 +38,6 @@ function _G.toggle_file_in_split(filepath)
 		end
 		return
 	end
-	require("beepboop").play_audio("open_notes")
 	_G.file_windows = _G.file_windows or {}
 	local current_tab_id = api.nvim_get_current_tabpage()
 	_G.file_windows[current_tab_id] = _G.file_windows[current_tab_id] or {}
