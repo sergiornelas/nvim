@@ -150,10 +150,10 @@ Last time revisited all these plugins
 ====================
 
 https://github.com/rockerBOO/awesome-neovim/commits/main/
-Mar 22, 2025
+Mar 28, 2025
 
 https://dotfyle.com/this-week-in-neovim
 1/6/2025
 
 https://dotfyle.com/neovim/plugins/new
-Rimkomatic/switchscheme.nvim
+amekusa/auto-input-switch.nvim

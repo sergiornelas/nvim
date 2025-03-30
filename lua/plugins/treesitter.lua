@@ -81,14 +81,14 @@ return {
 		end
 
 		local next_diagnostic, prev_diagnostic = ts_repeat_move.make_repeatable_move_pair(function()
-			vim.diagnostic.jump({ count = 1 })
+			vim.diagnostic.jump({ count = vim.v.count1 })
 		end, function()
-			vim.diagnostic.jump({ count = -1 })
+			vim.diagnostic.jump({ count = -vim.v.count1 })
 		end)
 		local next_error, prev_error = ts_repeat_move.make_repeatable_move_pair(function()
-			vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
+			vim.diagnostic.jump({ count = vim.v.count1, severity = vim.diagnostic.severity.ERROR })
 		end, function()
-			vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
+			vim.diagnostic.jump({ count = -vim.v.count1, severity = vim.diagnostic.severity.ERROR })
 		end)
 		local next_indentscope, prev_indentscope = ts_repeat_move.make_repeatable_move_pair(function()
 			vim.cmd("normal " .. vim.v.count1 .. "[-")
