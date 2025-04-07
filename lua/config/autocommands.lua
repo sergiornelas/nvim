@@ -36,6 +36,7 @@ autocmd("ColorScheme", {
 			{ "TreesitterContext", { bg = "#34312F" } },
 			{ "TreesitterContextBottom", { underline = true, sp = "#887F68" } },
 			{ "Visual", { bg = "#52524e" } },
+			{ "VisualNonText", { fg = "#9d9681", bg = "#52524e" } },
 		}
 		for _, highlight in ipairs(highlights) do
 			vim.api.nvim_set_hl(0, highlight[1], highlight[2])

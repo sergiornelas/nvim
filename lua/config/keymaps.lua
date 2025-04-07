@@ -27,7 +27,7 @@ map({ "n", "x" }, "<leader>b", "<cmd>set nu!<cr>")
 map("i", "<c-g><c-p>", "<cmd>set spell!<cr>")
 map("i", "<c-g><c-a>", "<cmd>set wrap!<cr>")
 map("i", "<c-g><c-b>", "<cmd>set nu!<cr>")
-map("n", "<leader>v", function()
+map({ "n", "x" }, "<leader>v", function()
 	---@diagnostic disable-next-line: undefined-field
 	vim.opt.virtualedit = vim.opt.virtualedit:get()[1] == "all" and "" or "all"
 end)

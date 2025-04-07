@@ -28,8 +28,7 @@ return {
 			},
 		},
 	},
-	-- {
-	-- 	"lafarr/hierarchy.nvim",
-	-- 	lazy = false,
-	-- },
+	-- TODO:
+	-- https://github.com/Jezda1337/nvim-html-css
+	-- https://github.com/Sebastian-Nielsen/better-type-hover
 }

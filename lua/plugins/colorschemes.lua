@@ -195,7 +195,9 @@ return {
 		"comfysage/evergarden",
 		keys = lazy_map,
 		opts = {
-			transparent_background = true,
+			editor = {
+				transparent_background = true,
+			},
 		},
 	},
 }

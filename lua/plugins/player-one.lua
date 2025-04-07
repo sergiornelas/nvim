@@ -101,6 +101,8 @@ return {
 			},
 		}
 
+		vim.keymap.set("n", "<leader>Y", "<cmd>PlayerOneToggle<cr>", { noremap = true, silent = true })
+
 		require("player-one").setup({
 			-- 	---Available presets: "chiptune", "crystal", "synth"
 			theme = my_theme,

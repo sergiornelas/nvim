@@ -73,6 +73,19 @@ map("n", "<leader>fi", function()
 		},
 	})
 end)
+map("n", "<leader>fI", function()
+	snacks.picker.files({
+		layout = custom_layout,
+		ft = { "jpg", "jpeg", "png", "webp" },
+		confirm = function(self, item, _)
+			self:close()
+			require("img-clip").paste_image({}, "./" .. item.file) -- ./ is necessary for img-clip to recognize it as path
+		end,
+		on_show = function(picker)
+			snacks.picker.actions.toggle_maximize(picker)
+		end,
+	})
+end)
 map("n", "<leader>gr", "<cmd>lua Snacks.picker.git_branches()<cr>")
 map("n", "<leader>gs", "<cmd>lua Snacks.picker.git_diff({layout = 'ivy'})<cr>")
 map("n", "<leader>gf", "<cmd>lua Snacks.picker.git_files({layout = 'ivy'})<cr>")
@@ -100,7 +113,7 @@ map({ "n", "x" }, "<leader>fw", function()
 	})
 end)
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.help()<cr>")
--- map("n", "<leader>", "<cmd>lua Snacks.picker.highlights()<cr>")
+map("n", "<leader>fh", "<cmd>lua Snacks.picker.highlights()<cr>")
 map("i", "<c-g><c-e>", "<cmd>lua Snacks.picker.icons({layout = 'select'})<cr>")
 map("n", "<leader>fj", "<cmd>lua Snacks.picker.jumps({layout = 'vertical'})<cr>")
 map("n", "<leader>fk", "<cmd>lua Snacks.picker.keymaps({layout = 'ivy_split'})<cr>")

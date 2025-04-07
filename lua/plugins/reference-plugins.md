@@ -1,4 +1,7 @@
-LSP ---------------------------------------------------------------------------------
+# Reference plugins
+
+## LSP
+
 hedyhli/outline.nvim                                    enhanced symbols-outline.nvim
 stevearc/aerial.nvim                                                 LSP Diagram menu
 ray-x/navigator.lua                                                      LSP hardcore
@@ -8,11 +11,13 @@ joechrisellis/lsp-format-modifications.nvim  run autoformatter over the changed 
 ThePrimeagen/refactoring.nvim                                             refactoring
 artemave/workspace-diagnostics.nvim            Populates project-wide lsp diagnostics
 
-TREESITTER --------------------------------------------------------------------------
+## Treesitter
+
 CKolkey/ts-node-action                                           (mature for jsx/tsx)
 filNaj/tree-setter  typescript space bar snippets (wait for compatibility for js/tsx)
 
-DEBUGGING ---------------------------------------------------------------------------
+## Debugging
+
 mfusseneger/nvim-dap
 sakhnik/nvim-gdb
 rcarriga/nvim-dap-ui
@@ -25,13 +30,15 @@ niuiic/dap-utils.nvim
 andrewferrier/debugprint.nvim
 igorlfs/nvim-dap-view                                         more modern debugger UI
 
-TESTING -----------------------------------------------------------------------------
+## Testing
+
 David-Kunz/jester
 EthanJWright/vs-tasks.nvim                                      terminal test results
 stevearc/overseer.nvim                                         ttr (exe cmds on save)
 andythigpen/nvim-coverage                                                    coverage
 
-GIT ---------------------------------------------------------------------------------
+## Git
+
 tpope/vim-fugitive                                                        most robust
 NeogitOrg/neogit                                                                magit
 akinsho/git-conflict.nvim                                                   conflicts
@@ -47,7 +54,8 @@ SuperBo/fugit2.nvim                                                    neovim gi
 isakbm/gitgraph.nvim                                      git graph plugin for neovim
 tanvirtin/vgit.nvim/tree/v1.0.x                           enhance your git experience
 
-FRONTEND ----------------------------------------------------------------------------
+## Frontend
+
 vuki656/package-info.nvim                show packages latest version in package.json
 b0o/SchemaStore.nvim                                                      json schema
 gennaro-tedesco/nvim-jqx                                             json in quickfix
@@ -70,7 +78,8 @@ jellydn/typecheck.nvim               seamless TypeScript type checking using qui
 Jezda1337/nvim-html-css                        HTML id and class attribute completion
 redoxahmii/json-to-types.nvim     generating type definitions from JSON to TypeScript
 
-ARTIFICIAL INTELIGENCE --------------------------------------------------------------
+## Artificial
+
 zbirenbaum/copilot-cmp
 zbirenbaum/copilot.lua
 tzachar/cmp-tabnine
@@ -92,12 +101,19 @@ supermaven-inc/supermaven-nvim                                   supermaven in n
 milanglacier/yarepl.nvim/blob/main/extensions/README.md  ai terminal (generate files)
 dlants/magenta.nvim                      ai code genereator, designed for typescript?
 kbwo/vim-shareedit   shares open files and cursor positions between Neovim and VSCode!!!
-https://aider.chat/                check this, it's the best competitor vs cursor IDE
-davidyz/vectorcode better prompt for your LLMs by providing info about the repository!!!
+<https://aider.chat/>                check this, it's the best competitor vs cursor IDE
+davidyz/vectorcode better prompt for your LLMs by providing info about the repository
 ravitemer/mcphub.nvim                                              avante integration
+
+> Make sure you integrate the `MCPHub plugin` into `Avante` and install the
+> '`memory`' and '`sequentialthinkng`' MCP servers. It’s really quite incredible
+> the quality of code that Avante can generate with this `MCPHub` plugin.
+> <https://github.com/yetone/avante.nvim/blob/main/cursor-planning-mode.md>
+
 banjo/contextfiles.nvim                                                  cursor rules
 
-COMPETITIVE CODING ------------------------------------------------------------------
+## Competitive
+
 0x100101/lab.nvim                                     visual text output (dissapears)
 michaelb/sniprun                           blockvisualrun, virtual textlost, nowatch?
 arjunmahishi/flow.nvim                                block visual run, fish problems
@@ -107,14 +123,16 @@ Vigemus/iron.nvim                              run selected area, buggy, watch w
 kawre/leetcode.nvim                                     leetcode problems with neovim
 Goose97/timber.nvim              insert log statements and capture log results inline
 
-NOTES -------------------------------------------------------------------------------
+## Notes
+
 folke/todo-comments.nvim                                                 pretty notes
 Chaitanyabsprip/present.nvim                                 power point presentation
 JellyApple102/easyread.nvim                                      text colors readable
 elijah-potter/harper                english grammar checker designed to be just right
 3rd/diagram.nvim                               UML kind of diagrams in markdown files
 
-UTILS -------------------------------------------------------------------------------
+## Utils
+
 danymat/neogen                                    comments on files for documentation
 potamides/pantran.nvim                                              google translator
 jghauser/kitty-runner.nvim                                   kitty commands from nvim
@@ -147,13 +165,13 @@ mfontanini/presenterm                              powerpoint presentations in n
 Last time revisited all these plugins
 20/05/2024
 
-====================
+---
 
-https://github.com/rockerBOO/awesome-neovim/commits/main/
-Mar 28, 2025
+<https://github.com/rockerBOO/awesome-neovim/commits/main/>
+Apr 02, 2025
 
-https://dotfyle.com/this-week-in-neovim
+<https://dotfyle.com/this-week-in-neovim>
 1/6/2025
 
-https://dotfyle.com/neovim/plugins/new
-amekusa/auto-input-switch.nvim
+<https://dotfyle.com/neovim/plugins/new>
+wsdjeg/git.nvim

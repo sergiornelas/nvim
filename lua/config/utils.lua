@@ -152,7 +152,7 @@ function _G.markdown_headings_index()
 			cycle = false,
 			layout = {
 				position = "right",
-				width = 47,
+				width = 50,
 			},
 		},
 		title = "Headings",
@@ -185,7 +185,9 @@ function _G.markdown_headings_index()
 			api.nvim_create_autocmd("VimResized", {
 				buffer = api.nvim_get_current_buf(),
 				callback = function()
-					cmd("set wrap")
+					vim.defer_fn(function()
+						cmd("set wrap")
+					end, 90)
 				end,
 			})
 			vim.defer_fn(function()

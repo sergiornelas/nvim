@@ -132,7 +132,7 @@ return {
 			require("markview.extras.checkboxes").setup({
 				-- remove_style = "list_item", -- Removes the list item markers too.
 				states = {
-					{ " ", "X", "/", "l", "?", "!" },
+					{ " ", "X", "/", "l", "?", "!", "-" },
 					{ "*", "b", "i" },
 				},
 			})
