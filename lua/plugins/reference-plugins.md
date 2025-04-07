@@ -96,21 +96,30 @@ gsuuon/llm.nvim                                                   use LLM's in N
 David-Kunz/gen.nvim                                                          llama IA
 gsuuon/model.nvim                                                   another IA plugin
 olimorris/codecompanion.nvim                copilot chat like experience via a buffer
-yetone/avante.nvim                                     cursor AI IDE (very powerful!)
-supermaven-inc/supermaven-nvim                                   supermaven in neovim
 milanglacier/yarepl.nvim/blob/main/extensions/README.md  ai terminal (generate files)
 dlants/magenta.nvim                      ai code genereator, designed for typescript?
-kbwo/vim-shareedit   shares open files and cursor positions between Neovim and VSCode!!!
-<https://aider.chat/>                check this, it's the best competitor vs cursor IDE
 davidyz/vectorcode better prompt for your LLMs by providing info about the repository
-ravitemer/mcphub.nvim                                              avante integration
 
+### Avante
+
+yetone/avante.nvim                                                      cursor AI IDE
+ravitemer/mcphub.nvim                                              avante integration
 > Make sure you integrate the `MCPHub plugin` into `Avante` and install the
 > '`memory`' and '`sequentialthinkng`' MCP servers. It’s really quite incredible
 > the quality of code that Avante can generate with this `MCPHub` plugin.
-> <https://github.com/yetone/avante.nvim/blob/main/cursor-planning-mode.md>
+
+> - Me: Do you think there will be a point where avante.nvim matches the
+>       features that Cursor IDE offers?
+> - A guy: It’s getting damn close. But it requires a quite a bit of
+>       post-install configuration to get it “damn close”.
+> - Me: What kind of post-installation configuration is needed?
+> - A guy:
+<https://github.com/yetone/avante.nvim/blob/main/cursor-planning-mode.md>
 
 banjo/contextfiles.nvim                                                  cursor rules
+kbwo/vim-shareedit        shares open files and cursor positions in Neovim and VSCode
+<https://aider.chat/>              check this, it's the best competitor vs cursor IDE
+<https://l-o-o-s-e-d.net/vibe-coding>        cool article about vibe coding in neovim
 
 ## Competitive
 
