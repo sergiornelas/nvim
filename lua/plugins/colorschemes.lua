@@ -200,4 +200,12 @@ return {
 			},
 		},
 	},
+	{
+		"datsfilipe/vesper.nvim",
+		keys = lazy_map,
+		opts = {
+			transparent = true,
+		},
+	},
+	{ "Mofiqul/vscode.nvim", keys = lazy_map, opts = { transparent = true } },
 }

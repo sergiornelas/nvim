@@ -78,7 +78,7 @@ jellydn/typecheck.nvim               seamless TypeScript type checking using qui
 Jezda1337/nvim-html-css                        HTML id and class attribute completion
 redoxahmii/json-to-types.nvim     generating type definitions from JSON to TypeScript
 
-## Artificial
+## Artificial Intelligence
 
 zbirenbaum/copilot-cmp
 zbirenbaum/copilot.lua
@@ -119,7 +119,10 @@ ravitemer/mcphub.nvim                                              avante integr
 banjo/contextfiles.nvim                                                  cursor rules
 kbwo/vim-shareedit        shares open files and cursor positions in Neovim and VSCode
 <https://aider.chat/>              check this, it's the best competitor vs cursor IDE
-<https://l-o-o-s-e-d.net/vibe-coding>        cool article about vibe coding in neovim
+<https://l-o-o-s-e-d.net/vibe-coding>      article vibe coding in neovim (voice chat)
+yuucu/cursor_open.nvim                      open files in Cursor directly from Neovim
+reachingforthejack/cursortab.nvim                       cursor tab reverse engineered
+<https://www.reddit.com/r/neovim/comments/1jw7pmm/use_lsp_as_context_provider_in_codecompanion/>
 
 ## Competitive
 
@@ -139,6 +142,7 @@ Chaitanyabsprip/present.nvim                                 power point present
 JellyApple102/easyread.nvim                                      text colors readable
 elijah-potter/harper                english grammar checker designed to be just right
 3rd/diagram.nvim                               UML kind of diagrams in markdown files
+obsidian-nvim/obsidian.nvim                           obsidian notes (community fork)
 
 ## Utils
 
@@ -177,10 +181,10 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Apr 02, 2025
+Apr 08, 2025
 
 <https://dotfyle.com/this-week-in-neovim>
 1/6/2025
 
 <https://dotfyle.com/neovim/plugins/new>
-wsdjeg/git.nvim
+typicode/bg.nvim
