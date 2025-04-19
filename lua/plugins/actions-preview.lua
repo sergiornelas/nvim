@@ -1,5 +1,6 @@
 return {
 	"aznhe21/actions-preview.nvim",
+	cond = not vim.g.vscode,
 	keys = {
 		{
 			"gra", -- (vim: vim.lsp.buf.code_action() (v0.11))

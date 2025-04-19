@@ -105,13 +105,13 @@ davidyz/vectorcode better prompt for your LLMs by providing info about the repos
 yetone/avante.nvim                                                      cursor AI IDE
 ravitemer/mcphub.nvim                                              avante integration
 > Make sure you integrate the `MCPHub plugin` into `Avante` and install the
-> '`memory`' and '`sequentialthinkng`' MCP servers. It’s really quite incredible
+> `memory` and `sequentialthinkng` MCP servers. It’s really quite incredible
 > the quality of code that Avante can generate with this `MCPHub` plugin.
 
 > - Me: Do you think there will be a point where avante.nvim matches the
 >       features that Cursor IDE offers?
 > - A guy: It’s getting damn close. But it requires a quite a bit of
->       post-install configuration to get it “damn close”.
+>       post-install configuration to get it "damn close".
 > - Me: What kind of post-installation configuration is needed?
 > - A guy:
 <https://github.com/yetone/avante.nvim/blob/main/cursor-planning-mode.md>

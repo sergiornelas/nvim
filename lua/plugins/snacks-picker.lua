@@ -170,6 +170,7 @@ map("n", "<leader>h", "<cmd>lua markdown_headings_index()<cr>")
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
+	cond = not vim.g.vscode,
 	lazy = false,
 	-- Lazy.nvim merges opts tables together.
 	-- So it will be like you had them under one opts table.

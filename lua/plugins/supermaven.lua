@@ -1,6 +1,7 @@
 return {
 	"supermaven-inc/supermaven-nvim",
 	event = "BufRead",
+	cond = not vim.g.vscode,
 	config = function()
 		require("supermaven-nvim").setup({
 			keymaps = {

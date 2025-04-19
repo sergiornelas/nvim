@@ -1,6 +1,6 @@
 return {
 	"echasnovski/mini.indentscope",
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufReadPre", "BufNewFile", "BufReadPost" },
 	opts = {
 		draw = {
 			animation = function()

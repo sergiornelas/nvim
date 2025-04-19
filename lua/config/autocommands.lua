@@ -72,13 +72,14 @@ autocmd("FileType", {
 	end,
 })
 
--- Set mark and close Copilot chat
-autocmd("FileType", {
-	pattern = { "copilot-chat" },
-	callback = function()
-		map("n", "q", "mz<cmd>CopilotChatClose<cr>")
-	end,
-})
+-- Show yank line highlight
+if vim.g.vscode then
+	autocmd("TextYankPost", {
+		callback = function()
+			vim.highlight.on_yank()
+		end,
+	})
+end
 
 -- Show cursor line only in active window
 autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline" })
@@ -90,7 +91,7 @@ autocmd("BufEnter", {
 	command = "set fo-=cro",
 })
 
--- Jump to the last place you’ve visited in a file before exiting
+-- Jump to the last place you've visited in a file before exiting
 local function augroup(name)
 	return create_group("lazyvim_" .. name, { clear = true })
 end

@@ -48,4 +48,4 @@ map({ "n", "x" }, "<c-w><c-;>", "<cmd>vertical resize -5<cr>") -- resize right
 -- [ maps available
 -- y, o, u
 -- h
--- m?
+-- n, m?

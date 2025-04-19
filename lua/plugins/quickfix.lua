@@ -11,6 +11,7 @@ return {
 	{
 		"kevinhwang91/nvim-bqf",
 		ft = "qf",
+		cond = not vim.g.vscode,
 		-- dependencies = { "junegunn/fzf" },
 		config = function()
 			require("bqf").setup({
@@ -62,6 +63,7 @@ return {
 	{
 		"stevearc/quicker.nvim",
 		event = "FileType qf",
+		cond = not vim.g.vscode,
 		config = function()
 			require("quicker").setup({
 				edit = {

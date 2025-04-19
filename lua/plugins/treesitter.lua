@@ -5,6 +5,7 @@ return {
 	dependencies = {
 		{
 			"nvim-treesitter/nvim-treesitter-context",
+			cond = not vim.g.vscode,
 			config = function()
 				require("treesitter-context").setup({
 					enable = true,
@@ -25,6 +26,7 @@ return {
 		},
 		{
 			"hiphish/rainbow-delimiters.nvim",
+			cond = not vim.g.vscode,
 			config = function()
 				vim.g.rainbow_delimiters = {
 					strategy = {
@@ -56,6 +58,7 @@ return {
 		},
 		{
 			"mawkler/jsx-element.nvim",
+			ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 			opts = {
 				keymaps = {
 					jsx_element = "j",
@@ -114,11 +117,6 @@ return {
 		end, function()
 			vim.cmd("normal " .. vim.v.count1 .. "[+")
 		end)
-		local move_right, move_left = ts_repeat_move.make_repeatable_move_pair(function()
-			vim.cmd("normal " .. vim.v.count1 .. "]\\")
-		end, function()
-			vim.cmd("normal " .. vim.v.count1 .. "[\\")
-		end)
 
 		-- Repeatable move mappings
 		map(mode, ";", ts_repeat_move.repeat_last_move)
@@ -145,8 +143,6 @@ return {
 		map(mode, "[b", prev_buffer) -- (vim: prev buffer element in list (v0.11))
 		map(mode, "]r", move_down)
 		map(mode, "[r", move_up)
-		map(mode, "]w", move_right)
-		map(mode, "[w", move_left)
 
 		-- navigate through markdown headers
 		vim.api.nvim_create_autocmd("FileType", {
@@ -252,7 +248,7 @@ return {
 						["]f"] = "@function.outer", -- (vim: same as "gf")
 						["]g"] = "@call.outer",
 						["]c"] = "@comment.outer",
-						["]n"] = "@assignment.lhs",
+						["]w"] = "@assignment.lhs",
 						["]o"] = "@loop.outer",
 						["]x"] = "@number.inner",
 						["]v"] = "@assignment.rhs",
@@ -263,7 +259,7 @@ return {
 						["]F"] = "@function.outer",
 						["]G"] = "@call.outer",
 						["]C"] = "@comment.outer",
-						["]N"] = "@assignment.lhs",
+						["]W"] = "@assignment.lhs",
 						["]O"] = "@loop.outer",
 						["]X"] = "@number.inner",
 						["]V"] = "@assignment.rhs",
@@ -274,7 +270,7 @@ return {
 						["[f"] = "@function.outer", -- (vim: same as "gf")
 						["[g"] = "@call.outer",
 						["[c"] = "@comment.outer",
-						["[n"] = "@assignment.lhs",
+						["[w"] = "@assignment.lhs",
 						["[o"] = "@loop.outer",
 						["[x"] = "@number.inner",
 						["[v"] = "@assignment.rhs",
@@ -285,7 +281,7 @@ return {
 						["[F"] = "@function.outer",
 						["[G"] = "@call.outer",
 						["[C"] = "@comment.outer",
-						["[N"] = "@assignment.lhs",
+						["[W"] = "@assignment.lhs",
 						["[O"] = "@loop.outer",
 						["[X"] = "@number.inner",
 						["[V"] = "@assignment.rhs",

@@ -1,6 +1,7 @@
 return {
 	-- brew install nikolaeu/numi/numi-cli
 	"josephburgess/nvumi",
+	cond = not vim.g.vscode,
 	dependencies = { "folke/snacks.nvim" },
 	keys = {
 		{

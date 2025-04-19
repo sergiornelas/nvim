@@ -1,5 +1,6 @@
 local M = {
 	"sindrets/diffview.nvim",
+	cond = not vim.g.vscode,
 	keys = {
 		{ "<leader>do", "<cmd>DiffviewOpen<cr>" },
 		{ "<leader>dc", "<cmd>DiffviewClose<cr>" },

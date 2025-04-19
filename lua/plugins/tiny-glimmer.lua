@@ -1,6 +1,7 @@
 return {
 	"rachartier/tiny-glimmer.nvim",
 	event = "VeryLazy",
+	cond = not vim.g.vscode,
 	opts = {
 		enabled = true,
 		overwrite = {

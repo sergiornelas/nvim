@@ -1,6 +1,7 @@
 return {
 	"williamboman/mason.nvim",
 	ft = { "lua", "html", "css", "json", "javascript", "javascriptreact", "typescript", "typescriptreact", "markdown" },
+	cond = not vim.g.vscode,
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 	},

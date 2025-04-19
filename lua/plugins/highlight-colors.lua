@@ -1,5 +1,6 @@
 return {
 	"brenoprata10/nvim-highlight-colors",
+	cond = not vim.g.vscode,
 	event = "BufReadPre",
 	config = function()
 		require("nvim-highlight-colors").setup({

@@ -2,8 +2,6 @@ return {
 	"echasnovski/mini.move",
 	version = "*",
 	keys = {
-		{ "[\\", mode = { "n", "x" } },
-		{ "]\\", mode = { "n", "x" } },
 		{ "[+", mode = { "n", "x" } },
 		{ "]+", mode = { "n", "x" } },
 	},
