@@ -28,6 +28,7 @@ return {
 	{
 		"EdenEast/nightfox.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		opts = {
 			options = {
 				transparent = true,
@@ -37,6 +38,7 @@ return {
 	{
 		"catppuccin/nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		config = function()
 			require("catppuccin").setup({
 				transparent_background = true,
@@ -46,6 +48,7 @@ return {
 	{
 		"loctvl842/monokai-pro.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		opts = {
 			transparent_background = true,
 		},
@@ -53,6 +56,7 @@ return {
 	{
 		"folke/tokyonight.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		opts = {
 			transparent = true,
 		},
@@ -60,6 +64,7 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		opts = {
 			transparent = true,
 			background = {
@@ -70,6 +75,7 @@ return {
 	{
 		"thesimonho/kanagawa-paper.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		config = function()
 			require("kanagawa-paper").setup({
 				transparent = true,
@@ -87,6 +93,7 @@ return {
 	{
 		"rose-pine/neovim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		config = function()
 			require("rose-pine").setup({
 				styles = {
@@ -98,6 +105,7 @@ return {
 	{
 		"sainnhe/edge",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		config = function()
 			vim.g.edge_transparent_background = 1
 		end,
@@ -105,6 +113,7 @@ return {
 	{
 		"sainnhe/gruvbox-material",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		config = function()
 			vim.g.gruvbox_material_transparent_background = 1
 		end,
@@ -112,6 +121,7 @@ return {
 	{
 		"ellisonleao/gruvbox.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		config = function()
 			require("gruvbox").setup({
 				contrast = "hard",
@@ -123,6 +133,7 @@ return {
 	{
 		"navarasu/onedark.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		opts = {
 			style = "deep",
 			transparent = true,
@@ -136,6 +147,7 @@ return {
 	{
 		"AlexvZyl/nordic.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		opts = {
 			transparent = {
 				bg = true,
@@ -146,6 +158,7 @@ return {
 	{
 		"ribru17/bamboo.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		config = function()
 			require("bamboo").setup({
 				transparent = true,
@@ -155,6 +168,7 @@ return {
 	{
 		"craftzdog/solarized-osaka.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		config = function()
 			require("solarized-osaka").setup()
 		end,
@@ -162,6 +176,7 @@ return {
 	{
 		"eldritch-theme/eldritch.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		opts = {
 			transparent = true,
 		},
@@ -169,6 +184,7 @@ return {
 	{
 		"scottmckendry/cyberdream.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		opts = {
 			transparent = true,
 		},
@@ -176,6 +192,7 @@ return {
 	{
 		"0xstepit/flow.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		config = function()
 			require("flow").setup({
 				theme = {
@@ -187,6 +204,7 @@ return {
 	{
 		"ficcdaf/ashen.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		opts = {
 			transparent = true,
 		},
@@ -194,6 +212,7 @@ return {
 	{
 		"comfysage/evergarden",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		opts = {
 			editor = {
 				transparent_background = true,
@@ -203,9 +222,10 @@ return {
 	{
 		"datsfilipe/vesper.nvim",
 		keys = lazy_map,
+		cond = not vim.g.vscode,
 		opts = {
 			transparent = true,
 		},
 	},
-	{ "Mofiqul/vscode.nvim", keys = lazy_map, opts = { transparent = true } },
+	{ "Mofiqul/vscode.nvim", keys = lazy_map, opts = { transparent = true }, cond = not vim.g.vscode },
 }

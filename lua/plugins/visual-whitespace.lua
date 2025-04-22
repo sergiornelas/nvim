@@ -1,6 +1,6 @@
 return {
 	"mcauley-penney/visual-whitespace.nvim",
-	event = "ModeChanged *:[vV\x16]",
-	cond = not vim.g.vscode,
 	config = true,
+	event = "ModeChanged *:[vV\22]",
+	cond = not vim.g.vscode,
 }

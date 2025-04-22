@@ -89,9 +89,17 @@ return {
 			vim.diagnostic.jump({ count = -vim.v.count1 })
 		end)
 		local next_error, prev_error = ts_repeat_move.make_repeatable_move_pair(function()
-			vim.diagnostic.jump({ count = vim.v.count1, severity = vim.diagnostic.severity.ERROR })
+			if vim.g.vscode then
+				vim.fn.VSCodeNotify("editor.action.marker.next")
+			else
+				vim.diagnostic.jump({ count = vim.v.count1, severity = vim.diagnostic.severity.ERROR })
+			end
 		end, function()
-			vim.diagnostic.jump({ count = -vim.v.count1, severity = vim.diagnostic.severity.ERROR })
+			if vim.g.vscode then
+				vim.fn.VSCodeNotify("editor.action.marker.prev")
+			else
+				vim.diagnostic.jump({ count = -vim.v.count1, severity = vim.diagnostic.severity.ERROR })
+			end
 		end)
 		local next_indentscope, prev_indentscope = ts_repeat_move.make_repeatable_move_pair(function()
 			vim.cmd("normal " .. vim.v.count1 .. "[-")

@@ -122,6 +122,7 @@ kbwo/vim-shareedit        shares open files and cursor positions in Neovim and V
 <https://l-o-o-s-e-d.net/vibe-coding>      article vibe coding in neovim (voice chat)
 yuucu/cursor_open.nvim                      open files in Cursor directly from Neovim
 reachingforthejack/cursortab.nvim                       cursor tab reverse engineered
+copilotlsp-nvim/copilot-lsp                      Copilot LSP Configuration for Neovim
 <https://www.reddit.com/r/neovim/comments/1jw7pmm/use_lsp_as_context_provider_in_codecompanion/>
 
 ## Competitive

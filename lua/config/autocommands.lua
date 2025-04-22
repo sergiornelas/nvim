@@ -72,7 +72,7 @@ autocmd("FileType", {
 	end,
 })
 
--- Show yank line highlight
+-- Show yank line highlight in vscode
 if vim.g.vscode then
 	autocmd("TextYankPost", {
 		callback = function()
@@ -81,36 +81,38 @@ if vim.g.vscode then
 	})
 end
 
--- Show cursor line only in active window
-autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline" })
-autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline" })
-
 -- Stop automatic comment when break line in insert mode
 autocmd("BufEnter", {
 	pattern = "*",
 	command = "set fo-=cro",
 })
 
--- Jump to the last place you've visited in a file before exiting
-local function augroup(name)
-	return create_group("lazyvim_" .. name, { clear = true })
+if not vim.g.vscode then
+	-- Show cursor line only in active window
+	autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline" })
+	autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline" })
+
+	-- Jump to the last place you've visited in a file before exiting
+	local function augroup(name)
+		return create_group("lazyvim_" .. name, { clear = true })
+	end
+	autocmd("BufReadPost", {
+		group = augroup("last_loc"),
+		callback = function(event)
+			local exclude = { "gitcommit" }
+			local buf = event.buf
+			if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
+				return
+			end
+			vim.b[buf].lazyvim_last_loc = true
+			local mark = vim.api.nvim_buf_get_mark(buf, '"')
+			local lcount = vim.api.nvim_buf_line_count(buf)
+			if mark[1] > 0 and mark[1] <= lcount then
+				pcall(vim.api.nvim_win_set_cursor, 0, mark)
+			end
+		end,
+	})
 end
-autocmd("BufReadPost", {
-	group = augroup("last_loc"),
-	callback = function(event)
-		local exclude = { "gitcommit" }
-		local buf = event.buf
-		if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
-			return
-		end
-		vim.b[buf].lazyvim_last_loc = true
-		local mark = vim.api.nvim_buf_get_mark(buf, '"')
-		local lcount = vim.api.nvim_buf_line_count(buf)
-		if mark[1] > 0 and mark[1] <= lcount then
-			pcall(vim.api.nvim_win_set_cursor, 0, mark)
-		end
-	end,
-})
 
 -- Trigger equalize windows function
 autocmd("VimResized", {
@@ -171,8 +173,6 @@ vim.cmd("cabbrev ssd SessionDelete<cr>")
 
 -- Macros
 -- switch ^[ to \<esc>, switch ^M to \<cr>, switch ^R to \<c-r>
--- sum columns visual selection
-vim.g.n = "mxyGo\\<esc>pVGJ0y$:execute('let @t=\\<c-r>0')\\<cr>dd`x"
 
 -- Reference commands ========================
 -- Execute command when VimEnter and after some miliseconds
