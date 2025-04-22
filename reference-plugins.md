@@ -100,31 +100,6 @@ milanglacier/yarepl.nvim/blob/main/extensions/README.md  ai terminal (generate f
 dlants/magenta.nvim                      ai code genereator, designed for typescript?
 davidyz/vectorcode better prompt for your LLMs by providing info about the repository
 
-### Avante
-
-yetone/avante.nvim                                                      cursor AI IDE
-ravitemer/mcphub.nvim                                              avante integration
-> Make sure you integrate the `MCPHub plugin` into `Avante` and install the
-> `memory` and `sequentialthinkng` MCP servers. It’s really quite incredible
-> the quality of code that Avante can generate with this `MCPHub` plugin.
-
-> - Me: Do you think there will be a point where avante.nvim matches the
->       features that Cursor IDE offers?
-> - A guy: It’s getting damn close. But it requires a quite a bit of
->       post-install configuration to get it "damn close".
-> - Me: What kind of post-installation configuration is needed?
-> - A guy:
-<https://github.com/yetone/avante.nvim/blob/main/cursor-planning-mode.md>
-
-banjo/contextfiles.nvim                                                  cursor rules
-kbwo/vim-shareedit        shares open files and cursor positions in Neovim and VSCode
-<https://aider.chat/>              check this, it's the best competitor vs cursor IDE
-<https://l-o-o-s-e-d.net/vibe-coding>      article vibe coding in neovim (voice chat)
-yuucu/cursor_open.nvim                      open files in Cursor directly from Neovim
-reachingforthejack/cursortab.nvim                       cursor tab reverse engineered
-copilotlsp-nvim/copilot-lsp                      Copilot LSP Configuration for Neovim
-<https://www.reddit.com/r/neovim/comments/1jw7pmm/use_lsp_as_context_provider_in_codecompanion/>
-
 ## Competitive
 
 0x100101/lab.nvim                                     visual text output (dissapears)
@@ -188,4 +163,4 @@ Apr 08, 2025
 1/6/2025
 
 <https://dotfyle.com/neovim/plugins/new>
-typicode/bg.nvim
+johnseth97/codex.nvim

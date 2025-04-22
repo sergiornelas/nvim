@@ -143,4 +143,14 @@ return {
 			require("ts-error-translator").setup()
 		end,
 	},
+	{
+		"Sebastian-Nielsen/better-type-hover",
+		ft = { "typescript", "typescriptreact" },
+		cond = not vim.g.vscode,
+		config = function()
+			require("better-type-hover").setup({
+				openTypeDocKeymap = "<c-\\>",
+			})
+		end,
+	},
 }

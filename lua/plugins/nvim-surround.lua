@@ -1,6 +1,6 @@
 local M = {
 	"kylechui/nvim-surround",
-	version = "*",
+	version = "^3.0.0",
 	keys = {
 		{
 			"<c-s>",

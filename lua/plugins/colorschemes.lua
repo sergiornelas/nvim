@@ -228,4 +228,12 @@ return {
 		},
 	},
 	{ "Mofiqul/vscode.nvim", keys = lazy_map, opts = { transparent = true }, cond = not vim.g.vscode },
+	{
+		"cdmill/neomodern.nvim",
+		keys = lazy_map,
+		cond = not vim.g.vscode,
+		opts = {
+			transparent = true,
+		},
+	},
 }
