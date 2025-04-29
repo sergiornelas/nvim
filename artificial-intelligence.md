@@ -53,3 +53,4 @@ copilotlsp-nvim/copilot-lsp                      Copilot LSP Configuration for N
 ## Misc
 
 <https://l-o-o-s-e-d.net/vibe-coding>      article vibe coding in neovim (voice chat)
+kyza0d/vocal.nvim           speech-to-text transcription using the OpenAI Whisper API

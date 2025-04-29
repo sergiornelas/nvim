@@ -66,6 +66,8 @@ return {
 		-- 		settings = require("plugins.lsp.settings.tsserver").settings,
 		-- 	},
 		-- })
+		-- 21f7583 feat(ts_ls): add :LspTypescriptSourceAction command #3780 (3 days ago)
+		-- 9b45d86 feat(ts_ls): add _typescript.rename handler #3779 (3 days ago)
 
 		lspconfig.eslint.setup({
 			settings = require("plugins.lsp.settings.eslint").settings,

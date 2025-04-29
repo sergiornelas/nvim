@@ -20,19 +20,21 @@ return {
 			snacks = {
 				layout = {
 					layout = {
+						backdrop = true, -- doesn't work with transparent background
+						row = 1,
+						width = 0.4,
+						min_width = 85,
+						height = 0.65,
+						border = "none",
 						box = "vertical",
-						backdrop = false,
-						row = -1,
-						width = 0,
-						height = 0.4,
-						border = "top",
-						title = " {title} {live} {flags}",
-						title_pos = "left",
-						{ win = "input", height = 1, border = "bottom" },
+						{ win = "preview", title = "{preview}", height = 0.7, border = "single" },
 						{
-							box = "horizontal",
+							box = "vertical",
+							border = "single",
+							title = "{title} {live} {flags}",
+							title_pos = "center",
+							{ win = "input", height = 1, border = "bottom" },
 							{ win = "list", border = "none" },
-							{ win = "preview", title = "{preview}", width = 0.65, border = "left" },
 						},
 					},
 				},

@@ -157,10 +157,10 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Apr 08, 2025
+Apr 27, 2025 (Fix typos running on main)
 
 <https://dotfyle.com/this-week-in-neovim>
 1/6/2025
 
 <https://dotfyle.com/neovim/plugins/new>
-johnseth97/codex.nvim
+bassamsdata/neaterminal.nvim

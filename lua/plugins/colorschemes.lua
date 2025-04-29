@@ -236,4 +236,12 @@ return {
 			transparent = true,
 		},
 	},
+	{
+		"thallada/farout.nvim",
+		cond = not vim.g.vscode,
+		keys = lazy_map,
+		opts = {
+			transparent = true,
+		},
+	},
 }
