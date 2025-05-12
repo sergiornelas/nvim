@@ -29,6 +29,7 @@ Lommix/godot.nvim
 niuiic/dap-utils.nvim
 andrewferrier/debugprint.nvim
 igorlfs/nvim-dap-view                                         more modern debugger UI
+miroshQa/debugmaster.nvim                        dap-ui alternativedap-ui alternative
 
 ## Testing
 
@@ -163,4 +164,4 @@ Apr 27, 2025 (Fix typos running on main)
 1/6/2025
 
 <https://dotfyle.com/neovim/plugins/new>
-bassamsdata/neaterminal.nvim
+KoolieAid/pastevim.nvim

@@ -63,6 +63,9 @@ if not vim.g.vscode then
 				},
 			},
 		})
+		vim.defer_fn(function()
+			vim.cmd("normal zz")
+		end, 30)
 	end)
 	map("n", "<leader>fi", function()
 		snacks.picker.files({
@@ -181,7 +184,7 @@ return {
 		picker = {
 			formatters = {
 				file = {
-					filename_first = true,
+					filename_first = false,
 				},
 			},
 			win = {

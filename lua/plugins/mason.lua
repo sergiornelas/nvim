@@ -1,9 +1,9 @@
 return {
-	"williamboman/mason.nvim",
+	"mason-org/mason.nvim",
 	ft = { "lua", "html", "css", "json", "javascript", "javascriptreact", "typescript", "typescriptreact", "markdown" },
 	cond = not vim.g.vscode,
 	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
 	},
 	config = function()
 		local mason_ok, mason = pcall(require, "mason")
@@ -29,7 +29,6 @@ return {
 		-- You have to install them manually with MasonInstall.
 		mason_lspconfig.setup({
 			ensure_installed = servers,
-			automatic_installation = true,
 		})
 	end,
 }
