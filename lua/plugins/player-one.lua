@@ -1,6 +1,7 @@
 return {
 	"jackplus-xyz/player-one.nvim",
 	cond = not vim.g.vscode,
+	commit = "c34d07d1c2f45054a96b23b7d0cf58f8db3d89ed",
 	lazy = false,
 	config = function()
 		local Utils = require("player-one.utils")

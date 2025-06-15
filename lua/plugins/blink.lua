@@ -42,7 +42,7 @@ return {
 			-- Static list of providers to enable, or a function to dynamically enable/disable providers based on the context
 			default = { "lsp", "path", "snippets", "buffer" },
 			per_filetype = {
-				markdown = { "markview", "path", "snippets", "buffer" },
+				markdown = { "path", "snippets", "buffer" },
 			},
 			providers = {
 				path = {

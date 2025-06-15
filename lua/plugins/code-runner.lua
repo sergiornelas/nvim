@@ -7,8 +7,8 @@ return {
 		cmd = { "RunCode", "RunFile" },
 		cond = not vim.g.vscode,
 		keys = {
-			{ "<cr>", "<cmd>RunCode<cr>" },
-			{ "<leader>J", "<cmd>tabnew ~/scratchFiles/scratch.ts<cr><cmd>RunCode<cr>" },
+			{ "<leader><cr>", "<cmd>RunCode<cr>" },
+			{ "<leader>J", "<cmd>tabnew ~/scratchFiles/scratch.js<cr><cmd>RunCode<cr>" },
 		},
 		opts = {
 			focus = false,

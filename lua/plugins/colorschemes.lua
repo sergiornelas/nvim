@@ -244,4 +244,12 @@ return {
 			transparent = true,
 		},
 	},
+	{
+		"vague2k/vague.nvim",
+		cond = not vim.g.vscode,
+		keys = lazy_map,
+		opts = {
+			transparent = true,
+		},
+	},
 }

@@ -158,10 +158,10 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Apr 27, 2025 (Fix typos running on main)
+May 16, 2025 (nk148v/slack.nvim)
 
 <https://dotfyle.com/this-week-in-neovim>
 1/6/2025
 
 <https://dotfyle.com/neovim/plugins/new>
-KoolieAid/pastevim.nvim
+drop-stones/fzf-lua-grep-context
