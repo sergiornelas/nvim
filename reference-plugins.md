@@ -158,10 +158,10 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-May 16, 2025 (nk148v/slack.nvim)
+Jun 19, 2025 (vodchella/hodur.nvim)
 
 <https://dotfyle.com/this-week-in-neovim>
 1/6/2025
 
 <https://dotfyle.com/neovim/plugins/new>
-drop-stones/fzf-lua-grep-context
+echaya/neowiki.nvim
