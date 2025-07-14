@@ -54,3 +54,17 @@ copilotlsp-nvim/copilot-lsp                      Copilot LSP Configuration for N
 
 <https://l-o-o-s-e-d.net/vibe-coding>      article vibe coding in neovim (voice chat)
 kyza0d/vocal.nvim           speech-to-text transcription using the OpenAI Whisper API
+
+## Claude code
+
+<https://github.com/samir-roy/code-bridge.nvim>
+
+## Open code
+
+<https://github.com/opencode-ai/opencode?tab=readme-ov-file>
+<https://www.reddit.com/r/neovim/comments/1lx9con/update_cursorwindsurf_for_neovim/>
+
+## Magenta
+
+<https://github.com/dlants/magenta.nvim>
+<https://www.reddit.com/r/neovim/comments/1ly71bv/my_neovim_ai_workflow/>

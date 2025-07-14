@@ -158,10 +158,10 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Jun 19, 2025 (vodchella/hodur.nvim)
+Jun 26, 2025 (folke/snacks.nvim#picker)
 
 <https://dotfyle.com/this-week-in-neovim>
 1/6/2025
 
 <https://dotfyle.com/neovim/plugins/new>
-echaya/neowiki.nvim
+joaomendoncaa/led.nvim
