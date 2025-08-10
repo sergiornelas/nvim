@@ -17,6 +17,9 @@
 reachingforthejack/cursortab.nvim                       cursor tab reverse engineered
 <https://www.reddit.com/r/neovim/comments/1jwj0h2/reverse_engineered_cursor_tab_api_in_neovim/>
 
+Next prediction features, (Really cool):
+<https://github.com/copilotlsp-nvim/copilot-lsp>
+
 ### Related plugins
 
 banjo/contextfiles.nvim                                                  cursor rules
@@ -43,6 +46,9 @@ outperforms!
 
 <https://aider.chat/>              check this, it's the best competitor vs cursor IDE
 GeorgesAlkhouri/nvim-aider                     seamlessly integrate Aider with Neovim
+<https://www.reddit.com/r/neovim/comments/1m66jxj/aider/>
+No need for a plugin imo. aider —watch-files in a separate terminal works pretty
+well.
 
 ## Copilot LSP
 
@@ -50,21 +56,26 @@ copilotlsp-nvim/copilot-lsp                      Copilot LSP Configuration for N
 <https://www.reddit.com/r/neovim/comments/1k4ad2z/copilotlsp_next_edit_suggestioncompletions_and/>
 <https://www.reddit.com/r/neovim/comments/1jw7pmm/use_lsp_as_context_provider_in_codecompanion/>
 
-## Misc
-
-<https://l-o-o-s-e-d.net/vibe-coding>      article vibe coding in neovim (voice chat)
-kyza0d/vocal.nvim           speech-to-text transcription using the OpenAI Whisper API
-
 ## Claude code
 
 <https://github.com/samir-roy/code-bridge.nvim>
+<https://github.com/S1M0N38/ccusage.nvim>
+<https://github.com/greggh/claude-code.nvim>
+<https://github.com/coder/claudecode.nvim>
 
 ## Open code
 
 <https://github.com/opencode-ai/opencode?tab=readme-ov-file>
 <https://www.reddit.com/r/neovim/comments/1lx9con/update_cursorwindsurf_for_neovim/>
+<https://github.com/NickvanDyke/opencode.nvim>
+<https://www.reddit.com/r/neovim/comments/1m2kapj/opencodenvim_my_issue_with_ai_tools_and_how_i/>
 
 ## Magenta
 
 <https://github.com/dlants/magenta.nvim>
 <https://www.reddit.com/r/neovim/comments/1ly71bv/my_neovim_ai_workflow/>
+
+## Misc
+
+<https://l-o-o-s-e-d.net/vibe-coding>      article vibe coding in neovim (voice chat)
+kyza0d/vocal.nvim           speech-to-text transcription using the OpenAI Whisper API

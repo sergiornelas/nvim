@@ -151,6 +151,7 @@ jake-stewart/multicursor.nvim                             multiple cursors for n
 lfilho/note2cal.nvim                                  schedule events to calendar.app
 carlosrocha/chrome-remote.nvim              run browser current page HTML into neovim
 mfontanini/presenterm                              powerpoint presentations in neovim
+WillianPaiva/jira-nvim                Jira REST API to manage Jira from within Neovim
 
 Last time revisited all these plugins
 20/05/2024
@@ -158,10 +159,12 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Jun 26, 2025 (folke/snacks.nvim#picker)
+Aug 10, 2025 (Add LuxVim/nvim-luxmotion)
+
+<https://dotfyle.com/neovim/plugins/new>
+y3owk1n/cmd.nvim
+
+---
 
 <https://dotfyle.com/this-week-in-neovim>
 1/6/2025
-
-<https://dotfyle.com/neovim/plugins/new>
-joaomendoncaa/led.nvim

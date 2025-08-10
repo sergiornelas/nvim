@@ -17,31 +17,6 @@ return {
 				},
 			},
 		},
-		{
-			"zeioth/garbage-day.nvim",
-			opts = {
-				aggressive_mode = true,
-				excluded_lsp_clients = {
-					"typescript-tools",
-					"eslint",
-				},
-				-- grace_period = 60*15, -- is ignored by aggresive_mode
-				aggresive_mode_ignore = {
-					filetype = {
-						"",
-						"help",
-						"markdown",
-						"nvumi",
-						"qf",
-						"snacks_picker_input",
-						"snacks_picker_preview",
-						"text",
-					},
-					buftype = { "nofile" },
-				},
-				notifications = false,
-			},
-		},
 	},
 	config = function()
 		-- Still using lspconfig instead of builtin vim.lsp.config (v0.11.0) because:
