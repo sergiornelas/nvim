@@ -1,6 +1,5 @@
 local M = {
 	"SmiteshP/nvim-navic",
-	cond = not vim.g.vscode,
 }
 
 function M.config()

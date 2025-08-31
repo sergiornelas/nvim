@@ -1,7 +1,6 @@
 return {
 	"rachartier/tiny-inline-diagnostic.nvim",
 	event = "LspAttach",
-	cond = not vim.g.vscode,
 	config = function()
 		require("tiny-inline-diagnostic").setup({
 			preset = "powerline",

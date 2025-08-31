@@ -5,7 +5,7 @@ local function map(mode, key, command)
 	vim.keymap.set(mode, key, command, { noremap = true, silent = true })
 end
 
-map("n", "<leader>y", "<cmd>tabclose<cr>") --                       tab close
+map("n", "<leader>T", "<cmd>tabclose<cr>") --                       tab close
 map("n", "d<leader>", "cc<esc>") --          	                     clear line
 map("n", "<leader><leader>", "i<leader><esc>") --                adds a space
 map("n", "<leader>lo", "<cmd>lopen<cr>") --                      open loclist
@@ -43,7 +43,7 @@ map({ "n", "x" }, "<c-w><c-;>", "<cmd>vertical resize -5<cr>") -- resize right
 -- remember that Q visual mode execute last macro in selected portion
 
 -- ctrl free:
--- c-h (vim: same as "h", "<BS>"), c-;
+-- c-h (vim: same as "h", "<BS>")
 
 -- [ maps available
 -- y, o, u

@@ -2,7 +2,6 @@ return {
 	{
 		"eandrju/cellular-automaton.nvim",
 		cmd = "CellularAutomaton",
-		cond = not vim.g.vscode,
 		keys = {
 			{
 				"<leader>\\",
@@ -12,7 +11,6 @@ return {
 	},
 	{
 		"alanfortlink/animatedbg.nvim",
-		cond = not vim.g.vscode,
 		config = true,
 		keys = {
 			{
@@ -23,7 +21,6 @@ return {
 	},
 	{
 		"seandewar/killersheep.nvim",
-		cond = not vim.g.vscode,
 		keys = {
 			{
 				"<leader>`",
@@ -42,4 +39,7 @@ return {
 	-- https://github.com/pwntester/octo.nvim (check prs from neovim)
 	-- https://github.com/yarospace/dev-tools.nvim
 	-- https://github.com/hachy/cmdpalette.nvim (wait until only insert mode is available)
+
+	-- https://www.reddit.com/r/neovim/comments/1n2bp12/psa_mininvim_has_moved_to_nvimmini_github/
+	-- https://github.com/Piotr1215/beam.nvim
 }

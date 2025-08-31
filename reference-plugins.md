@@ -159,10 +159,10 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Aug 10, 2025 (Add LuxVim/nvim-luxmotion)
+Aug 24, 2025 (Add iamt4nk/smm.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-y3owk1n/cmd.nvim
+iamt4nk/smm.nvim
 
 ---
 

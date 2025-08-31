@@ -5,7 +5,6 @@ return {
 	{
 		"CRAG666/code_runner.nvim",
 		cmd = { "RunCode", "RunFile" },
-		cond = not vim.g.vscode,
 		keys = {
 			{ "<leader><cr>", "<cmd>RunCode<cr>" },
 			{ "<leader>J", "<cmd>tabnew ~/scratchFiles/scratch.js<cr><cmd>RunCode<cr>" },

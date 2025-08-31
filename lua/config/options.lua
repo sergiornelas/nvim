@@ -24,9 +24,5 @@ o.tabstop = 2 --               insert 2 spaces for a tab
 o.termguicolors = true --      set term gui colors (most terminals support this)
 o.timeoutlen = 500 --          controls how long neovim waits for the next key in a mapping or key sequence
 o.undofile = true --           enable persistent undo
+o.winborder = "single" --      add borders to hover lsp
 o.wrap = false --              display lines as one long line
-
--- neovim 0.11
-if not vim.g.vscode then
-	o.winborder = "single" --    add borders to hover lsp
-end

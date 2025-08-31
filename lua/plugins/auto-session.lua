@@ -1,7 +1,6 @@
 local M = {
 	"sergiornelas/auto-session",
 	lazy = false,
-	cond = not vim.g.vscode,
 }
 
 function M.config()

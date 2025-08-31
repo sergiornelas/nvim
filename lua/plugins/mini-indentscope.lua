@@ -1,5 +1,6 @@
 return {
-	"echasnovski/mini.indentscope",
+	"nvim-mini/mini.indentscope",
+	version = "*",
 	event = { "BufReadPre", "BufNewFile", "BufReadPost" },
 	opts = {
 		draw = {
@@ -45,8 +46,16 @@ return {
 					move = "j"
 				end
 				local ns = vim.api.nvim_create_namespace("border")
-				vim.api.nvim_buf_add_highlight(0, ns, "Substitute", top - 1, 0, -1)
-				vim.api.nvim_buf_add_highlight(0, ns, "Substitute", bottom - 1, 0, -1)
+				vim.api.nvim_buf_set_extmark(0, ns, top - 1, 0, {
+					end_line = top,
+					hl_group = "Substitute",
+					hl_eol = true,
+				})
+				vim.api.nvim_buf_set_extmark(0, ns, bottom - 1, 0, {
+					end_line = bottom,
+					hl_group = "Substitute",
+					hl_eol = true,
+				})
 				vim.defer_fn(function()
 					vim.api.nvim_buf_set_text(0, top - 1, 0, top - 1, -1, {})
 					vim.api.nvim_buf_set_text(0, bottom - 1, 0, bottom - 1, -1, {})

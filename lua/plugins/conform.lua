@@ -1,6 +1,5 @@
 return {
 	"stevearc/conform.nvim",
-	cond = not vim.g.vscode,
 	keys = {
 		{ "<leader>w", "<cmd>w<cr>" },
 	},

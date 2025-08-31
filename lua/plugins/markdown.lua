@@ -5,7 +5,6 @@ return {
 	{
 		"OXY2DEV/markview.nvim",
 		ft = "markdown",
-		cond = not vim.g.vscode,
 		config = function()
 			require("markview").setup({
 				preview = {
@@ -188,7 +187,6 @@ return {
 	},
 	{
 		"sergiornelas/cloak.nvim",
-		cond = not vim.g.vscode,
 		ft = "markdown",
 		config = function()
 			require("cloak").setup({
@@ -213,7 +211,6 @@ return {
 	},
 	{
 		"okuuva/auto-save.nvim",
-		cond = not vim.g.vscode,
 		version = "^1.0.0",
 		cmd = "ASToggle",
 		event = { "InsertLeave" },
@@ -228,7 +225,6 @@ return {
 	},
 	{
 		"lukas-reineke/virt-column.nvim",
-		cond = not vim.g.vscode,
 		ft = "markdown",
 		opts = {
 			char = "⋮",

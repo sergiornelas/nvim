@@ -1,5 +1,10 @@
 # Artificial Intelligence
 
+## Avante
+
+You can use lualine to show the avante status in the statusline.
+Recognize avante "todo" and "code" sections
+
 ## Cursor IDE
 
 ### Avante vs Cursor IDE
@@ -17,8 +22,13 @@
 reachingforthejack/cursortab.nvim                       cursor tab reverse engineered
 <https://www.reddit.com/r/neovim/comments/1jwj0h2/reverse_engineered_cursor_tab_api_in_neovim/>
 
+<https://github.com/dlants/magenta.nvim>
+
 Next prediction features, (Really cool):
 <https://github.com/copilotlsp-nvim/copilot-lsp>
+
+Adding Next Edit Suggestions to (in process):
+<https://github.com/NickvanDyke/opencode.nvim>
 
 ### Related plugins
 
@@ -65,8 +75,6 @@ copilotlsp-nvim/copilot-lsp                      Copilot LSP Configuration for N
 
 ## Open code
 
-<https://github.com/opencode-ai/opencode?tab=readme-ov-file>
-<https://www.reddit.com/r/neovim/comments/1lx9con/update_cursorwindsurf_for_neovim/>
 <https://github.com/NickvanDyke/opencode.nvim>
 <https://www.reddit.com/r/neovim/comments/1m2kapj/opencodenvim_my_issue_with_ai_tools_and_how_i/>
 

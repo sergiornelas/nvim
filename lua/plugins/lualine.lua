@@ -1,7 +1,6 @@
 local M = {
 	"nvim-lualine/lualine.nvim",
 	event = "BufReadPost",
-	cond = not vim.g.vscode,
 }
 
 function M.config()

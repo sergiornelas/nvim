@@ -2,7 +2,6 @@ return {
 	{
 		"pmizio/typescript-tools.nvim",
 		event = { "BufReadPre *.ts,*.tsx,*.js,*.jsx", "BufNewFile *.ts,*.tsx,*.js,*.jsx" },
-		cond = not vim.g.vscode,
 		keys = {
 			{ "<leader>tto", "<cmd>TSToolsOrganizeImports<cr>" },
 			{ "<leader>tts", "<cmd>TSToolsSortImports<cr>" },
@@ -126,18 +125,16 @@ return {
 		-- tsserver has an experimental configuration option called: enableProjectDiagnostics. This has been "experimental"
 		-- for a few years at this point, and generally either locks up the editor or flat out doesn't work.
 		"dmmulroy/tsc.nvim",
-		cond = not vim.g.vscode,
 		config = true,
 		keys = {
 			{
-				"<leader>TP",
+				"<leader>X",
 				"<cmd>TSC<cr>",
 			},
 		},
 	},
 	{
 		"dmmulroy/ts-error-translator.nvim",
-		cond = not vim.g.vscode,
 		ft = { "typescript", "typescriptreact" },
 		config = function()
 			require("ts-error-translator").setup()
@@ -146,7 +143,6 @@ return {
 	{
 		"Sebastian-Nielsen/better-type-hover",
 		ft = { "typescript", "typescriptreact" },
-		cond = not vim.g.vscode,
 		config = function()
 			require("better-type-hover").setup({
 				openTypeDocKeymap = "<c-\\>",

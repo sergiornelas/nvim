@@ -1,6 +1,5 @@
 return {
 	"uga-rosa/translate.nvim",
-	cond = not vim.g.vscode,
 	keys = {
 		{
 			"<leader>\\e",

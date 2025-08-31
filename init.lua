@@ -97,6 +97,4 @@ require("lazy").setup({
 })
 
 -- Default colorscheme (lazygit)
-if not vim.g.vscode then
-	vim.cmd("colorscheme gruvbox-material")
-end
+vim.cmd("colorscheme gruvbox-material")

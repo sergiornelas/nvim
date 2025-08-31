@@ -33,149 +33,147 @@ local snacks = require("snacks")
 
 -- list of layouts: bottom, default, dropdown, ivy, ivy_split, left, right, select, sidebar, telescope, top, vertical, vscode
 
-if not vim.g.vscode then
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.autocmds()<cr>")
-	map("n", "<leader>fo", function()
-		snacks.picker.buffers({
-			current = false,
-			layout = buffers_layout,
-		})
-	end)
-	-- no results for cliphist:
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.cliphist()<cr>")
-	-- layout select not supported yet:
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.colorschemes()<cr>")
-	map("n", "<leader>:", "<cmd>lua Snacks.picker.command_history({ layout = 'vscode' })<cr>")
-	map("n", "<leader>fC", "<cmd>lua Snacks.picker.commands({ layout = 'select' })<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.diagnostics()<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.diagnostics_buffer()<cr>")
-	map("n", "<leader>o", function() -- install fd
-		snacks.picker.explorer({
-			auto_close = true,
-			win = {
-				list = {
-					keys = {
-						["<c-k>"] = "explorer_up",
-						["<c-j>"] = "confirm",
-						["p"] = "toggle_preview",
-						["<c-t>"] = "tab",
-					},
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.autocmds()<cr>")
+map("n", "<leader>fo", function()
+	snacks.picker.buffers({
+		current = false,
+		layout = buffers_layout,
+	})
+end)
+-- no results for cliphist:
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.cliphist()<cr>")
+-- layout select not supported yet:
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.colorschemes()<cr>")
+map("n", "<leader>:", "<cmd>lua Snacks.picker.command_history({ layout = 'vscode' })<cr>")
+map("n", "<leader>fC", "<cmd>lua Snacks.picker.commands({ layout = 'select' })<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.diagnostics()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.diagnostics_buffer()<cr>")
+map("n", "<leader>o", function() -- install fd
+	snacks.picker.explorer({
+		auto_close = true,
+		win = {
+			list = {
+				keys = {
+					["<c-k>"] = "explorer_up",
+					["<c-j>"] = "confirm",
+					["p"] = "toggle_preview",
+					["P"] = "explorer_paste",
+					["<c-t>"] = "tab",
 				},
 			},
-		})
-		vim.defer_fn(function()
-			vim.cmd("normal zz")
-		end, 30)
-	end)
-	map("n", "<leader>fi", function()
-		snacks.picker.files({
-			layout = custom_layout,
-			exclude = {
-				"/images-storage",
-				"/sounds-nvim",
-				"spreadsheet.sc",
-			},
-		})
-	end)
-	map("n", "<leader>fI", function()
-		snacks.picker.files({
-			layout = custom_layout,
-			ft = { "jpg", "jpeg", "png", "webp" },
-			confirm = function(self, item, _)
-				self:close()
-				require("img-clip").paste_image({}, "./" .. item.file) -- ./ is necessary for img-clip to recognize it as path
-			end,
-			on_show = function(picker)
-				snacks.picker.actions.toggle_maximize(picker)
-			end,
-		})
-	end)
-	map("n", "<leader>gr", "<cmd>lua Snacks.picker.git_branches()<cr>")
-	map("n", "<leader>gs", "<cmd>lua Snacks.picker.git_diff({layout = 'ivy'})<cr>")
-	map("n", "<leader>gf", "<cmd>lua Snacks.picker.git_files({layout = 'ivy'})<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.git_grep()<cr>")
-	map("n", "<leader>gc", "<cmd>lua Snacks.picker.git_log()<cr>")
-	-- no results found for git_log_file:
-	map("n", "<leader>gm", "<cmd>lua Snacks.picker.git_log_file({layout = 'ivy_split'})<cr>")
-	-- command failed:
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.git_log_line()<cr>")
-	map("n", "<leader>gh", "<cmd>lua Snacks.picker.git_stash()<cr>")
-	-- show other project status:
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.git_status()<cr>")
-	map("n", "<leader>fl", function()
-		snacks.picker.grep({
-			layout = custom_layout,
-			exclude = {
-				"spreadsheet.sc",
-			},
-		})
-	end)
-	map("n", "<leader>fL", "<cmd>lua Snacks.picker.grep_buffers()<cr>")
-	map({ "n", "x" }, "<leader>fw", function()
-		snacks.picker.grep_word({
-			layout = custom_layout,
-		})
-	end)
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.help()<cr>")
-	map("n", "<leader>fh", "<cmd>lua Snacks.picker.highlights()<cr>")
-	map("i", "<c-g><c-e>", "<cmd>lua Snacks.picker.icons({layout = 'select'})<cr>")
-	map("n", "<leader>fj", "<cmd>lua Snacks.picker.jumps({layout = 'vertical'})<cr>")
-	map("n", "<leader>fk", "<cmd>lua Snacks.picker.keymaps({layout = 'ivy_split'})<cr>")
-	map("n", "<leader>fz", "<cmd>lua Snacks.picker.lazy({layout = 'ivy'})<cr>")
-	map("n", "<leader>ff", "<cmd>lua Snacks.picker.lines({layout = 'ivy_split'})<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.loclist()<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_config()<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_declarations()<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_definitions()<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_implementations()<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_references()<cr>")
-	map("n", "<leader>fy", "<cmd>lua Snacks.picker.lsp_symbols({ layout = 'sidebar' })<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_type_definitions()<cr>")
-	-- not working:
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_workspace_symbols()<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.man()<cr>")
-	map("n", "<leader>fm", "<cmd>lua Snacks.picker.marks({ layout = 'ivy' })<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.notifications()<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.picker_actions()<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.picker_format()<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.picker_layouts()<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.picker_preview()<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.pickers()<cr>")
-	map("n", "<leader>f<leader>", "<cmd>lua Snacks.picker.projects()<cr>")
-	map("n", "<leader>fq", "<cmd>lua Snacks.picker.qflist()<cr>")
-	map("n", "<leader>fd", "<cmd>lua Snacks.picker.recent({ layout = 'ivy' })<cr>")
-	-- not working:
-	map("n", "<leader>fr", "<cmd>lua Snacks.picker.registers({layout = 'select'})<cr>")
-	map("n", "<leader>;", "<cmd>lua Snacks.picker.resume()<cr>")
-	map("n", "<leader>/", "<cmd>lua Snacks.picker.search_history({ layout = 'vscode' })<cr>")
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.select()<cr>")
-	-- uses a fast frecency impl based on exponential decay and combines results from multiple finders (buffers, files and recent):
-	map("n", "<leader>fs", "<cmd>lua Snacks.picker.smart()<cr>")
-	map("n", "<leader>fp", function()
-		snacks.picker.spelling({
+		},
+	})
+	vim.defer_fn(function()
+		vim.cmd("normal zz")
+	end, 30)
+end)
+map("n", "<leader>fi", function()
+	snacks.picker.files({
+		layout = custom_layout,
+		exclude = {
+			"/images-storage",
+			"/sounds-nvim",
+			"spreadsheet.sc",
+		},
+	})
+end)
+map("n", "<leader>fI", function()
+	snacks.picker.files({
+		layout = custom_layout,
+		ft = { "jpg", "jpeg", "png", "webp" },
+		confirm = function(self, item, _)
+			self:close()
+			require("img-clip").paste_image({}, "./" .. item.file) -- ./ is necessary for img-clip to recognize it as path
+		end,
+		on_show = function(picker)
+			snacks.picker.actions.toggle_maximize(picker)
+		end,
+	})
+end)
+map("n", "<leader>gr", "<cmd>lua Snacks.picker.git_branches()<cr>")
+map("n", "<leader>gs", "<cmd>lua Snacks.picker.git_diff({layout = 'ivy'})<cr>")
+map("n", "<leader>gf", "<cmd>lua Snacks.picker.git_files({layout = 'ivy'})<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.git_grep()<cr>")
+map("n", "<leader>gc", "<cmd>lua Snacks.picker.git_log()<cr>")
+-- no results found for git_log_file:
+map("n", "<leader>gm", "<cmd>lua Snacks.picker.git_log_file({layout = 'ivy_split'})<cr>")
+-- command failed:
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.git_log_line()<cr>")
+map("n", "<leader>gh", "<cmd>lua Snacks.picker.git_stash()<cr>")
+-- show other project status:
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.git_status()<cr>")
+map("n", "<leader>fl", function()
+	snacks.picker.grep({
+		layout = custom_layout,
+		exclude = {
+			"spreadsheet.sc",
+		},
+	})
+end)
+map("n", "<leader>fL", "<cmd>lua Snacks.picker.grep_buffers()<cr>")
+map({ "n", "x" }, "<leader>fw", function()
+	snacks.picker.grep_word({
+		layout = custom_layout,
+	})
+end)
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.help()<cr>")
+map("n", "<leader>fh", "<cmd>lua Snacks.picker.highlights()<cr>")
+map("i", "<c-g><c-e>", "<cmd>lua Snacks.picker.icons({layout = 'select'})<cr>")
+map("n", "<leader>fj", "<cmd>lua Snacks.picker.jumps({layout = 'vertical'})<cr>")
+map("n", "<leader>fk", "<cmd>lua Snacks.picker.keymaps({layout = 'ivy_split'})<cr>")
+map("n", "<leader>fz", "<cmd>lua Snacks.picker.lazy({layout = 'ivy'})<cr>")
+map("n", "<leader>ff", "<cmd>lua Snacks.picker.lines({layout = 'ivy_split'})<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.loclist()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_config()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_declarations()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_definitions()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_implementations()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_references()<cr>")
+map("n", "<leader>fy", "<cmd>lua Snacks.picker.lsp_symbols({ layout = 'sidebar' })<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_type_definitions()<cr>")
+-- not working:
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_workspace_symbols()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.man()<cr>")
+map("n", "<leader>fm", "<cmd>lua Snacks.picker.marks({ layout = 'ivy' })<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.notifications()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.picker_actions()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.picker_format()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.picker_layouts()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.picker_preview()<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.pickers()<cr>")
+map("n", "<leader>f<leader>", "<cmd>lua Snacks.picker.projects()<cr>")
+map("n", "<leader>fq", "<cmd>lua Snacks.picker.qflist()<cr>")
+map("n", "<leader>fd", "<cmd>lua Snacks.picker.recent({ layout = 'ivy' })<cr>")
+-- not working:
+map("n", "<leader>fr", "<cmd>lua Snacks.picker.registers({layout = 'select'})<cr>")
+map("n", "<leader>;", "<cmd>lua Snacks.picker.resume()<cr>")
+map("n", "<leader>/", "<cmd>lua Snacks.picker.search_history({ layout = 'vscode' })<cr>")
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.select()<cr>")
+-- uses a fast frecency impl based on exponential decay and combines results from multiple finders (buffers, files and recent):
+map("n", "<leader>fs", "<cmd>lua Snacks.picker.smart()<cr>")
+map("n", "<leader>fp", function()
+	snacks.picker.spelling({
+		layout = {
+			preset = "select",
 			layout = {
-				preset = "select",
-				layout = {
-					width = 0.20,
-					min_width = 20,
-					border = "single",
-				},
+				width = 0.20,
+				min_width = 20,
+				border = "single",
 			},
-		})
-	end)
-	map("n", "<leader>ft", "<cmd>lua Snacks.picker.treesitter({layout = 'ivy_split'})<cr>")
-	map("n", "<leader>fu", "<cmd>lua Snacks.picker.undo({ layout = 'sidebar' })<cr>")
-	-- not working:
-	-- map("n", "<leader>", "<cmd>lua Snacks.picker.zoxide()<cr>")
-	-- custom pickers:
-	-- markdown headings
-	map("n", "<leader>h", "<cmd>lua markdown_headings_index()<cr>")
-end
+		},
+	})
+end)
+map("n", "<leader>ft", "<cmd>lua Snacks.picker.treesitter({layout = 'ivy_split'})<cr>")
+map("n", "<leader>fu", "<cmd>lua Snacks.picker.undo({ layout = 'sidebar' })<cr>")
+-- not working:
+-- map("n", "<leader>", "<cmd>lua Snacks.picker.zoxide()<cr>")
+-- custom pickers:
+-- markdown headings
+map("n", "<leader>h", "<cmd>lua markdown_headings_index()<cr>")
 
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
-	cond = not vim.g.vscode,
 	lazy = false,
 	-- Lazy.nvim merges opts tables together.
 	-- So it will be like you had them under one opts table.

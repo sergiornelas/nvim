@@ -1,7 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
 	event = "BufReadPost",
-	cond = not vim.g.vscode,
 	dependencies = {
 		{
 			"kosayoda/nvim-lightbulb",
@@ -57,7 +56,7 @@ return {
 		lspconfig.lua_ls.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
-			settings = require("plugins.lsp.settings.sumneko_lua").settings,
+			settings = require("plugins.lsp.settings.lua_ls").settings,
 		})
 
 		for _, server in ipairs({ "html", "jsonls" }) do

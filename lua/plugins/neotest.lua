@@ -8,7 +8,6 @@ return {
 			"marilari88/neotest-vitest",
 			-- "nvim-neotest/neotest-jest",
 		},
-		cond = not vim.g.vscode,
 		keys = {
 			-- current test
 			{

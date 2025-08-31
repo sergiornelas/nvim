@@ -1,7 +1,6 @@
 return {
 	"windwp/nvim-autopairs",
 	event = "InsertEnter",
-	cond = not vim.g.vscode,
 	config = function()
 		local nvim_autopairs_ok, nvim_autopairs = pcall(require, "nvim-autopairs")
 		if not nvim_autopairs_ok then
