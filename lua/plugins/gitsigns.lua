@@ -11,12 +11,9 @@ function M.config()
 	end
 
 	gitsigns.setup({
-		current_line_blame_opts = {
-			delay = 400,
-		},
-		-- signs_staged_enable = false, -- doesn't exist yet (commit)
 		signcolumn = false,
 		numhl = true,
+		current_line_blame = true,
 		-- update_debounce = 0,
 		on_attach = function(bufnr)
 			local function map(mode, l, r, opts)

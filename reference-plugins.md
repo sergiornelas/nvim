@@ -120,6 +120,7 @@ JellyApple102/easyread.nvim                                      text colors rea
 elijah-potter/harper                english grammar checker designed to be just right
 3rd/diagram.nvim                               UML kind of diagrams in markdown files
 obsidian-nvim/obsidian.nvim                           obsidian notes (community fork)
+bngarren/checkmate.nvim                                          pretty TODO markdown
 
 ## Utils
 
@@ -159,10 +160,10 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Aug 24, 2025 (Add iamt4nk/smm.nvim)
+Aug 29, 2025 (Update echasnovski/mini.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-iamt4nk/smm.nvim
+TungstnBallon/formatlsp.nvim
 
 ---
 

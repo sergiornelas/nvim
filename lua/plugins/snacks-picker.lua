@@ -48,25 +48,6 @@ map("n", "<leader>:", "<cmd>lua Snacks.picker.command_history({ layout = 'vscode
 map("n", "<leader>fC", "<cmd>lua Snacks.picker.commands({ layout = 'select' })<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.diagnostics()<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.diagnostics_buffer()<cr>")
-map("n", "<leader>o", function() -- install fd
-	snacks.picker.explorer({
-		auto_close = true,
-		win = {
-			list = {
-				keys = {
-					["<c-k>"] = "explorer_up",
-					["<c-j>"] = "confirm",
-					["p"] = "toggle_preview",
-					["P"] = "explorer_paste",
-					["<c-t>"] = "tab",
-				},
-			},
-		},
-	})
-	vim.defer_fn(function()
-		vim.cmd("normal zz")
-	end, 30)
-end)
 map("n", "<leader>fi", function()
 	snacks.picker.files({
 		layout = custom_layout,

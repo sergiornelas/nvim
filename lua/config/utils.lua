@@ -18,16 +18,6 @@ function _G.close_all_terminals()
 	end
 end
 
--- Closes TSContext (floating windows) when exit (auto-session)
-function _G.close_floating_windows()
-	for _, win in ipairs(api.nvim_list_wins()) do
-		local config = api.nvim_win_get_config(win)
-		if config.relative ~= "" then
-			api.nvim_win_close(win, false)
-		end
-	end
-end
-
 -- Toggle scratch file
 function _G.toggle_file_in_split(filepath)
 	-- If filepath arg is not present (auto-session)
