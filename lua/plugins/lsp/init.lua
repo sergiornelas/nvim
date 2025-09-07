@@ -20,7 +20,6 @@ return {
 	config = function()
 		-- Still using lspconfig instead of builtin vim.lsp.config (v0.11.0) because:
 		-- + typescript-tools needs it
-		-- + garbage-day.nvim needs it
 		-- + I couldn't set the cssls server
 		local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
 		if not lspconfig_ok then

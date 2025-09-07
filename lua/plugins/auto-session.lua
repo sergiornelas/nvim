@@ -42,6 +42,7 @@ function M.config()
 					min_width = 0.5,
 					max_width = 70,
 					height = 0.25,
+					max_height = 15,
 				},
 			},
 			mappings = {

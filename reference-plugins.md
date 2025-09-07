@@ -160,10 +160,10 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Aug 29, 2025 (Update echasnovski/mini.nvim)
+Sep 1, 2025 (Move LazyDevHelper)
 
 <https://dotfyle.com/neovim/plugins/new>
-TungstnBallon/formatlsp.nvim
+cenk1cenk2/schema-companion.nvim
 
 ---
 

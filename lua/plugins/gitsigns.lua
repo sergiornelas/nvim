@@ -15,6 +15,11 @@ function M.config()
 		numhl = true,
 		current_line_blame = true,
 		-- update_debounce = 0,
+		current_line_blame_opts = {
+			virt_text_pos = "right_align",
+			delay = 750,
+		},
+		current_line_blame_formatter = "<author_time:%R>, <author>",
 		on_attach = function(bufnr)
 			local function map(mode, l, r, opts)
 				opts = opts or {}
