@@ -192,8 +192,8 @@ return {
 		},
 	},
 	{
-		"comfysage/evergarden",
-		keys = lazy_map,
+		"everviolet/nvim",
+		name = "evergarden",
 		opts = {
 			editor = {
 				transparent_background = true,

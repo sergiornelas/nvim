@@ -72,6 +72,7 @@ copilotlsp-nvim/copilot-lsp                      Copilot LSP Configuration for N
 <https://github.com/S1M0N38/ccusage.nvim>
 <https://github.com/greggh/claude-code.nvim>
 <https://github.com/coder/claudecode.nvim>
+<https://github.com/wtfox/claude-chat.nvim>
 
 ## Open code
 

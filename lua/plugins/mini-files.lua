@@ -101,6 +101,8 @@ return {
 					{ buffer = args.data.buf_id, desc = "Set cwd" }
 				)
 
+				map_split(buf_id, opts.mappings and opts.mappings.go_in_horizontal_plus or "<c-w>s", "horizontal")
+				map_split(buf_id, opts.mappings and opts.mappings.go_in_vertical_plus or "<c-w>v", "vertical")
 				map_split(buf_id, opts.mappings and opts.mappings.go_in_horizontal_plus or "<c-w><c-s>", "horizontal")
 				map_split(buf_id, opts.mappings and opts.mappings.go_in_vertical_plus or "<c-w><c-v>", "vertical")
 			end,

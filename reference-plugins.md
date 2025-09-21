@@ -160,10 +160,10 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Sep 1, 2025 (Move LazyDevHelper)
+Sep 17, 2025 (Add StackInTheWild/headhunter.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-cenk1cenk2/schema-companion.nvim
+hamidi-dev/org-super-agenda.nvim
 
 ---
 
