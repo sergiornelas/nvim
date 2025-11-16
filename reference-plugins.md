@@ -153,6 +153,10 @@ lfilho/note2cal.nvim                                  schedule events to calenda
 carlosrocha/chrome-remote.nvim              run browser current page HTML into neovim
 mfontanini/presenterm                              powerpoint presentations in neovim
 WillianPaiva/jira-nvim                Jira REST API to manage Jira from within Neovim
+A7Lavinraj/fyler.nvim                                                  oil + nvimtree
+folke/sidekick.nvim                              GitHub Copilot Next Edit Suggestions
+Kenzo-Wada/boundary.nvim                        react nextjs 'use client' inline text
+yousefhadder/markdown-plus.nvim                          markdown niceties for neovim
 
 Last time revisited all these plugins
 20/05/2024
@@ -160,10 +164,10 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Sep 17, 2025 (Add StackInTheWild/headhunter.nvim)
+Nov 14, 2025 (Update MAINTAINERS.md)
 
 <https://dotfyle.com/neovim/plugins/new>
-hamidi-dev/org-super-agenda.nvim
+Maelwalser/oil-bar.nvim
 
 ---
 

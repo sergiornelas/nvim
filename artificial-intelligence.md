@@ -30,6 +30,9 @@ Next prediction features, (Really cool):
 Adding Next Edit Suggestions to (in process):
 <https://github.com/NickvanDyke/opencode.nvim>
 
+Replicate Cursor tab functionality
+<https://github.com/zbirenbaum/copilot.lua/commit/2ac3ab31c73ebf4b91247962c6ab6efc22d1fdf7>
+
 ### Related plugins
 
 banjo/contextfiles.nvim                                                  cursor rules
@@ -78,11 +81,20 @@ copilotlsp-nvim/copilot-lsp                      Copilot LSP Configuration for N
 
 <https://github.com/NickvanDyke/opencode.nvim>
 <https://www.reddit.com/r/neovim/comments/1m2kapj/opencodenvim_my_issue_with_ai_tools_and_how_i/>
+<https://github.com/sudo-tee/opencode.nvim>
 
 ## Magenta
 
 <https://github.com/dlants/magenta.nvim>
 <https://www.reddit.com/r/neovim/comments/1ly71bv/my_neovim_ai_workflow/>
+
+## Windsurf
+
+<https://github.com/Exafunction/windsurf.nvim>
+
+## Folke
+
+<https://github.com/folke/sidekick.nvim>
 
 ## Misc
 

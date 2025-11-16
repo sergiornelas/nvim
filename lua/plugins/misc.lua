@@ -29,8 +29,6 @@ return {
 		},
 	},
 	-- TODO:
-	-- https://github.com/Jezda1337/nvim-html-css
-	-- cssls lspconfig ready?: 91cba77 feat(ccls): add vim.lsp.config support #3807 (4 days ago)
 	-- markdown checks: https://github.com/hamidi-dev/org-list.nvim
 	-- multiple keymaps actions: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-keymap.md
 	-- https://github.com/pwntester/octo.nvim (check prs from neovim)

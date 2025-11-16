@@ -223,10 +223,19 @@ return {
 		},
 	},
 	{
-		"vague2k/vague.nvim",
+		"vague-theme/vague.nvim",
 		keys = lazy_map,
 		opts = {
 			transparent = true,
+		},
+	},
+	{
+		"guillermodotn/nvim-earthsong",
+		keys = lazy_map,
+		opts = {
+			styles = {
+				transparency = true,
+			},
 		},
 	},
 }

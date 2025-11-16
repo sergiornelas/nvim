@@ -4,7 +4,19 @@ local M = {
 }
 
 function M.config()
-	vim.keymap.set("n", "<c-space>", "<cmd>AutoSession search<cr>", { noremap = true, silent = true })
+	local function map(mode, key, command)
+		vim.keymap.set(mode, key, command, { noremap = true, silent = true })
+	end
+
+	map(
+		"n",
+		"<c-space><c-i>",
+		"<cmd>AutoSession save<cr><cmd>AutoSession restore /Users/sergiornelas/Desktop/pn_frontend<cr>"
+	)
+	map("n", "<c-space><c-o>", "<cmd>AutoSession save<cr><cmd>AutoSession restore /Users/sergiornelas/notes<cr>")
+	map("n", "<c-space><c-n>", "<cmd>AutoSession save<cr><cmd>AutoSession restore /Users/sergiornelas/.config/nvim<cr>")
+	map("n", "<c-space><c-f>", "<cmd>AutoSession save<cr><cmd>AutoSession restore /Users/sergiornelas/.config<cr>")
+	map("n", "<c-space><c-space>", "<cmd>AutoSession search<cr>")
 
 	require("auto-session").setup({
 		-- preserve_buffer_on_restore = nil, -- Function that returns true if a buffer should be preserved when restoring a session (opencode?)
