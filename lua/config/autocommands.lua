@@ -158,8 +158,8 @@ autocmd("LspProgress", {
 
 -- Abbreviations
 -- <c-v>+space skip the abbreviation"
-vim.cmd("cabbrev sss SessionSave<cr>")
-vim.cmd("cabbrev ssd SessionDelete<cr>")
+vim.cmd("cabbrev sss AutoSession save<cr>")
+vim.cmd("cabbrev ssd AutoSession delete<cr>")
 
 -- Macros
 -- switch ^[ to \<esc>, switch ^M to \<cr>, switch ^R to \<c-r>

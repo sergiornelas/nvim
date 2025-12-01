@@ -45,14 +45,11 @@ return {
 				redo_mapping = "<c-r>",
 			},
 		},
-		-- Only use if you have a transparent background
-		-- It will override the highlight group background color for `to_color` in all animations
+		-- Override background color for animations (for transparent backgrounds)
 		transparency_color = "#2d2c2b",
-		animations = {
-			hijack_ft_disabled = {
-				"alpha",
-				"snacks_dashboard",
-			},
+		hijack_ft_disabled = {
+			"alpha",
+			"snacks_dashboard",
 		},
 	},
 }

@@ -76,6 +76,10 @@ copilotlsp-nvim/copilot-lsp                      Copilot LSP Configuration for N
 <https://github.com/greggh/claude-code.nvim>
 <https://github.com/coder/claudecode.nvim>
 <https://github.com/wtfox/claude-chat.nvim>
+<https://github.com/koushikxd/resu.nvim>
+<https://www.reddit.com/r/neovim/comments/1p9prpr/plugin_release_resunvim_plugin_to_see_live_file/>
+
+<https://www.reddit.com/r/neovim/comments/1pbi32i/tips_for_configuring_neovim_for_claude_code/>
 
 ## Open code
 

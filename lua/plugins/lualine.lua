@@ -66,7 +66,11 @@ function M.config()
 			lualine_c = { "navic" },
 			lualine_x = { "" },
 			lualine_y = { "diff" },
-			lualine_z = {},
+			lualine_z = {
+				{
+					require("opencode").statusline,
+				},
+			},
 		},
 		inactive_sections = {
 			lualine_a = { "filename" },

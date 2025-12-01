@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 		local lsp = vim.lsp.buf
 		local opts = { buffer = ev.buf }
-		-- keymap("n", "gh", lsp.declaration, opts) -- not supported by any of the servers registered: (lua, ts) (vim: start Select mode)
+		-- keymap("n", "", lsp.declaration, opts) -- not supported by any of the servers registered: (lua, ts)
 		keymap("n", "gd", lsp.definition, opts) -- (vim: go to definition of word under the cursor in current function)
 		keymap("n", "gs", lsp.signature_help, opts) -- (vim: go to sleep for N seconds (default 1))
 		keymap("i", "<c-g><c-s>", lsp.signature_help, opts)
@@ -55,9 +55,9 @@ M.on_attach = function(client, bufnr)
 		vim.lsp.inlay_hint.enable(false)
 		-- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
 	end
-	if client.name == "typescript-tools" then
-		keymap("n", "go", "<cmd>TSToolsGoToSourceDefinition<cr>") -- (vim: cursor to byte N in the buffer)
-	end
+	-- if client.name == "typescript-tools" then
+	-- 	keymap("n", "go", "<cmd>TSToolsGoToSourceDefinition<cr>") -- (vim: cursor to byte N in the buffer)
+	-- end
 end
 
 return M

@@ -33,4 +33,6 @@ return {
 	-- multiple keymaps actions: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-keymap.md
 	-- https://github.com/pwntester/octo.nvim (check prs from neovim)
 	-- https://github.com/hachy/cmdpalette.nvim (wait until only insert mode is available)
+	-- chriswritescode-dev/consolelog.nvim
+	-- https://github.com/esmuellert/vscode-diff.nvim
 }

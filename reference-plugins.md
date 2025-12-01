@@ -157,6 +157,7 @@ A7Lavinraj/fyler.nvim                                                  oil + nvi
 folke/sidekick.nvim                              GitHub Copilot Next Edit Suggestions
 Kenzo-Wada/boundary.nvim                        react nextjs 'use client' inline text
 yousefhadder/markdown-plus.nvim                          markdown niceties for neovim
+ahkohd/context.nvim                                     context files for claude code
 
 Last time revisited all these plugins
 20/05/2024
@@ -164,10 +165,10 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Nov 14, 2025 (Update MAINTAINERS.md)
+Nov 30, 2025 (Add pebeto/dookie.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-Maelwalser/oil-bar.nvim
+wsdjeg/keymap-guide.nvim
 
 ---
 
