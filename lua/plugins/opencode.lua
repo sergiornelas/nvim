@@ -43,10 +43,12 @@ return {
 			end, { desc = "Execute opencode action…" })
 
 			keymap("x", "gl", function()
+				tall_layout()
 				return require("opencode").operator("@this ")
 			end, { expr = true, desc = "Add range to opencode" })
 
 			keymap("n", "gll", function()
+				tall_layout()
 				return require("opencode").operator("@this ") .. "_"
 			end, { expr = true, desc = "Add line to opencode" })
 
