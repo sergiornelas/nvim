@@ -162,7 +162,11 @@ return {
 			map("n", "<leader>I", "<cmd>Checkbox interactive<cr>", opts)
 			map("n", "<leader>H", "<cmd>Heading decrease<cr>", opts)
 			map("n", "<leader>L", "<cmd>Heading increase<cr>", opts)
-			map("n", "<leader>C", "<cmd>CodeCreate<cr>", opts)
+
+			-- Code blocks
+			map("n", "<leader>Cj", "o```javascript```<esc>Tti<cr><c-o>O<esc>", opts)
+			map("n", "<leader>Ct", "o```typescript```<esc>Tti<cr><c-o>O<esc>", opts)
+			map("n", "<leader>Cl", "o```lua```<esc>Tai<cr><c-o>O<esc>", opts)
 		end,
 	},
 	{

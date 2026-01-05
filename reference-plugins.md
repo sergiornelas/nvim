@@ -158,6 +158,8 @@ folke/sidekick.nvim                              GitHub Copilot Next Edit Sugges
 Kenzo-Wada/boundary.nvim                        react nextjs 'use client' inline text
 yousefhadder/markdown-plus.nvim                          markdown niceties for neovim
 ahkohd/context.nvim                                     context files for claude code
+letieu/jira.nvim                              managing JIRA tasks with a beautiful UI
+Avi-D-coder/whisper.nvim                                  voice to text transcription
 
 Last time revisited all these plugins
 20/05/2024
@@ -165,10 +167,10 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Nov 30, 2025 (Add pebeto/dookie.nvim)
+Jan 05, 2025 (Update cuducos.me/yaml.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-wsdjeg/keymap-guide.nvim
+muhfaris/prayertime.nvim
 
 ---
 

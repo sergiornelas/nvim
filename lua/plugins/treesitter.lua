@@ -101,14 +101,17 @@ return {
 		local next_loclist_el, prev_loclist_el =
 			ts_repeat_move.make_repeatable_move_pair(safe_fix_nav("lne"), safe_fix_nav("lp"))
 		local next_spell, prev_spell = ts_repeat_move.make_repeatable_move_pair(function()
-			vim.cmd("normal! " .. vim.v.count1 .. "[s")
+			if vim.wo.spell then
+				vim.cmd("normal! " .. vim.v.count1 .. "[s")
+			else
+				print("Spell not enabled")
+			end
 		end, function()
-			vim.cmd("normal! " .. vim.v.count1 .. "]s")
-		end)
-		local next_buffer, prev_buffer = ts_repeat_move.make_repeatable_move_pair(function()
-			require("buftrack").next_buffer()
-		end, function()
-			require("buftrack").prev_buffer()
+			if vim.wo.spell then
+				vim.cmd("normal! " .. vim.v.count1 .. "]s")
+			else
+				print("Spell not enabled")
+			end
 		end)
 		local move_down, move_up = ts_repeat_move.make_repeatable_move_pair(function()
 			vim.cmd("normal " .. vim.v.count1 .. "]+")
@@ -125,6 +128,7 @@ return {
 		map(mode, "T", ts_repeat_move.builtin_T_expr, { expr = true })
 
 		-- Navigation mappings
+		-- free: [b
 		map(mode, "]q", next_quickfix_el) -- (vim: go to next quickfix item (v0.11))
 		map(mode, "[q", prev_quickfix_el) -- (vim: go to prev quickfix item (v0.11))
 		map(mode, "]l", next_loclist_el) -- (vim: go to next loclist item (v0.11))
@@ -137,8 +141,6 @@ return {
 		map(mode, "]t", prev_indentscope) -- (vim: prev tag (v0.11))
 		map(mode, "[s", next_spell) -- (vim: move to the previous misspelled word)
 		map(mode, "]s", prev_spell) -- (vim: move to the next misspelled word)
-		map(mode, "]b", next_buffer) -- (vim: next buffer element in list (v0.11))
-		map(mode, "[b", prev_buffer) -- (vim: prev buffer element in list (v0.11))
 		map(mode, "]r", move_down)
 		map(mode, "[r", move_up)
 

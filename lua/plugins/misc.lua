@@ -32,7 +32,14 @@ return {
 	-- markdown checks: https://github.com/hamidi-dev/org-list.nvim
 	-- multiple keymaps actions: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-keymap.md
 	-- https://github.com/pwntester/octo.nvim (check prs from neovim)
-	-- https://github.com/hachy/cmdpalette.nvim (wait until only insert mode is available)
 	-- chriswritescode-dev/consolelog.nvim
 	-- https://github.com/esmuellert/vscode-diff.nvim
+
+	-- TREE-SITTER
+	-- https://www.reddit.com/r/neovim/comments/1pndf9e/my_new_nvimtreesitter_configuration_for_the_main/
+	-- https://www.reddit.com/r/neovim/comments/1ppa4ag/nvimtreesitter_breaking_changes/
+
+	-- https://www.reddit.com/r/neovim/comments/1prctpf/integrating_snackspicker_with_vscodediffnvim_a/
+	-- https://www.reddit.com/r/neovim/comments/1puo5cm/any_way_to_speed_up_typescript_lsp_startup_or/
+	-- https://github.com/Avi-D-coder/whisper.nvim
 }

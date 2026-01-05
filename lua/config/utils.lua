@@ -189,3 +189,15 @@ function _G.markdown_headings_index()
 	cmd("noh")
 	cmd("normal! `z")
 end
+
+-- Neovim 0.12
+-- https://www.youtube.com/watch?v=QOk7fjgV8q0
+-- https://www.reddit.com/r/neovim/comments/1pvjiov/no_more_plugins_for_commandline_autocompletion_in/
+-- vim.opt.wildmode = "noselect"
+-- vim.api.nvim_create_autocmd("CmdlineChanged", {
+-- 	pattern = ":",
+-- 	callback = function()
+-- 		vim.fn.wildtrigger()
+-- 	end,
+-- })
+-- with this, you can potentially delete mini.cmdline and use blink cmdline

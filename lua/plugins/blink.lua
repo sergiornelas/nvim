@@ -11,7 +11,8 @@ return {
 	---@type blink.cmp.Config
 	opts = {
 		cmdline = {
-			enabled = true,
+			-- mini.cmdline does a better job (v0.11):
+			enabled = false,
 			keymap = {
 				["<c-o>"] = { "select_prev" },
 			},

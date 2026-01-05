@@ -24,16 +24,33 @@ return {
 			vim.o.autoread = true
 
 			local tall_layout = function()
+				-- instead of go-to-layout tall, go to previous layout
 				vim.fn.jobstart({ "kitty", "@", "goto-layout", "tall" })
 			end
 
+			-- gb free
+
 			local keymap = vim.keymap.set
 
-			keymap({ "n", "x" }, "gh", function() --  (vim: start Select mode)
+			keymap({ "n", "x" }, "ga", function() -- (vim: print ascii value of character under the cursor)
 				tall_layout()
 				require("opencode").ask("@this: ", { submit = true })
 			end, { desc = "Ask opencode" })
 
+			keymap({ "n", "x" }, "gh", function() -- (vim: start Select mode)
+				tall_layout()
+				require("opencode").select()
+			end, { desc = "Execute opencode action…" })
+
+			keymap("x", "gl", function()
+				return require("opencode").operator("@this ")
+			end, { expr = true, desc = "Add range to opencode" })
+
+			keymap("n", "gll", function()
+				return require("opencode").operator("@this ") .. "_"
+			end, { expr = true, desc = "Add line to opencode" })
+
+			-- Extras -----------------
 			keymap({ "n", "x" }, "go", function() -- (vim: cursor to byte N in the buffer)
 				tall_layout()
 				require("opencode").ask("@buffer: ", { submit = true })
@@ -49,21 +66,6 @@ return {
 				tall_layout()
 				require("opencode").ask("@grapple: ", { submit = true })
 			end, { desc = "Ask opencode current grappled files" })
-
-			keymap({ "n", "x" }, "gb", function()
-				tall_layout()
-				require("opencode").select()
-			end, { desc = "Execute opencode action…" })
-
-			keymap({ "n", "x" }, "ga", function() -- (vim: print ascii value of character under the cursor)
-				tall_layout()
-				require("opencode").prompt("@this")
-			end, { desc = "Add to opencode" })
-
-			keymap({ "n", "t" }, "<return>", function()
-				tall_layout()
-				require("opencode").prompt("")
-			end, { desc = "Open opencode" })
 		end,
 	},
 }
