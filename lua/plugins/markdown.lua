@@ -164,15 +164,17 @@ return {
 			map("n", "<leader>L", "<cmd>Heading increase<cr>", opts)
 
 			-- Code blocks
-			map("n", "<leader>Cj", "o```javascript```<esc>Tti<cr><c-o>O<esc>", opts)
-			map("n", "<leader>Ct", "o```typescript```<esc>Tti<cr><c-o>O<esc>", opts)
-			map("n", "<leader>Cl", "o```lua```<esc>Tai<cr><c-o>O<esc>", opts)
+			map("n", "<leader>CJ", "o```javascript```<esc>Tti<cr><c-o>O", opts)
+			map("n", "<leader>CT", "o```typescript```<esc>Tti<cr><c-o>O", opts)
+			map("n", "<leader>CL", "o```lua```<esc>Tai<cr><c-o>O", opts)
 		end,
 	},
 	{
 		-- to work with this:
 		-- cd ~/.local/share/nvim/lazy/markdown-preview.nvim
 		-- npm install
+		-- lua alterative:
+		-- brianhuster/live-preview.nvim
 		"iamcco/markdown-preview.nvim",
 		ft = { "markdown" },
 		build = function()

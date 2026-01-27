@@ -33,6 +33,11 @@ Adding Next Edit Suggestions to (in process):
 Replicate Cursor tab functionality
 <https://github.com/zbirenbaum/copilot.lua/commit/2ac3ab31c73ebf4b91247962c6ab6efc22d1fdf7>
 
+AI-powered next-edit suggestions (NES) for Neovim.
+<https://github.com/jim-at-jibba/nvim-stride>
+
+<https://github.com/leonardcser/cursortab.nvim>
+
 ### Related plugins
 
 banjo/contextfiles.nvim                                                  cursor rules
@@ -68,6 +73,8 @@ well.
 copilotlsp-nvim/copilot-lsp                      Copilot LSP Configuration for Neovim
 <https://www.reddit.com/r/neovim/comments/1k4ad2z/copilotlsp_next_edit_suggestioncompletions_and/>
 <https://www.reddit.com/r/neovim/comments/1jw7pmm/use_lsp_as_context_provider_in_codecompanion/>
+Satanic symbols when copilot is working in the background:
+<https://github.com/samiulsami/copilot-eldritch.nvim>
 
 ## Claude code
 
@@ -80,6 +87,10 @@ copilotlsp-nvim/copilot-lsp                      Copilot LSP Configuration for N
 <https://www.reddit.com/r/neovim/comments/1p9prpr/plugin_release_resunvim_plugin_to_see_live_file/>
 
 <https://www.reddit.com/r/neovim/comments/1pbi32i/tips_for_configuring_neovim_for_claude_code/>
+<https://www.reddit.com/r/neovim/comments/1q5vx0k/claudecontextnvim_send_buffer_context_to_claude/>
+
+<https://www.reddit.com/r/neovim/comments/1qdhwd2/forked_coderclaudecodenvim_and_added_some_nice/>
+<https://github.com/snirt/claudecode.nvim>
 
 ## Open code
 

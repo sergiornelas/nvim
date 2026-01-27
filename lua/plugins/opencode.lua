@@ -35,22 +35,34 @@ return {
 			keymap({ "n", "x" }, "ga", function() -- (vim: print ascii value of character under the cursor)
 				tall_layout()
 				require("opencode").ask("@this: ", { submit = true })
-			end, { desc = "Ask opencode" })
+			end, { desc = "Ask opencode…" })
 
 			keymap({ "n", "x" }, "gh", function() -- (vim: start Select mode)
 				tall_layout()
 				require("opencode").select()
 			end, { desc = "Execute opencode action…" })
 
+			-- keymap({ "n", "t" }, "<C-.>", function()
+			-- 	require("opencode").toggle()
+			-- end, { desc = "Toggle opencode" })
+
 			keymap("x", "gl", function()
 				tall_layout()
 				return require("opencode").operator("@this ")
-			end, { expr = true, desc = "Add range to opencode" })
+			end, { desc = "Add range to opencode", expr = true })
 
 			keymap("n", "gll", function()
 				tall_layout()
 				return require("opencode").operator("@this ") .. "_"
-			end, { expr = true, desc = "Add line to opencode" })
+			end, { desc = "Add line to opencode", expr = true })
+
+			-- keymap("n", "<S-C-u>", function()
+			-- 	require("opencode").command("session.half.page.up")
+			-- end, { desc = "Scroll opencode up" })
+
+			-- keymap("n", "<S-C-d>", function()
+			-- 	require("opencode").command("session.half.page.down")
+			-- end, { desc = "Scroll opencode down" })
 
 			-- Extras -----------------
 			keymap({ "n", "x" }, "go", function() -- (vim: cursor to byte N in the buffer)

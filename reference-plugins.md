@@ -160,6 +160,9 @@ yousefhadder/markdown-plus.nvim                          markdown niceties for n
 ahkohd/context.nvim                                     context files for claude code
 letieu/jira.nvim                              managing JIRA tasks with a beautiful UI
 Avi-D-coder/whisper.nvim                                  voice to text transcription
+cjodo/convert.nvim                              convert css px to rem and html colors
+ph1losof/shelter.nvim                         protect sensitive values in your dotenv
+ruicsh/tailwind-hover.nvim                 shows Tailwind CSS styles under the cursor (good)
 
 Last time revisited all these plugins
 20/05/2024
@@ -167,12 +170,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Jan 05, 2025 (Update cuducos.me/yaml.nvim)
+Jan 26, 2026 (Add stikypiston/unobtrusive-relnums.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-muhfaris/prayertime.nvim
-
----
-
-<https://dotfyle.com/this-week-in-neovim>
-1/6/2025
+Kaikacy/Lemons.nvim

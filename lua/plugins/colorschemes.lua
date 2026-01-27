@@ -238,4 +238,11 @@ return {
 			},
 		},
 	},
+	{
+		"serhez/teide.nvim",
+		keys = lazy_map,
+		opts = {
+			transparent = true,
+		},
+	},
 }

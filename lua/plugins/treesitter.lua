@@ -1,6 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	branch = "master", -- remove this once you want to update treesitter
 	event = "BufReadPost",
 	dependencies = {
 		{
@@ -162,6 +163,7 @@ return {
 		configs.setup({
 			ensure_installed = {
 				"bash",
+				"comment", -- todo highlight
 				"css",
 				"html",
 				"javascript",
