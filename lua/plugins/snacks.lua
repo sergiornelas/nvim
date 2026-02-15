@@ -9,7 +9,18 @@ map("n", "<c-;>", "<cmd>lua Snacks.zen()<cr>", opts)
 
 return {
 	"folke/snacks.nvim",
-	priority = 1000,
+	dependencies = {
+		"TKasperczyk/snacks-gallery.nvim",
+		opts = {},
+		keys = {
+			{
+				"<leader>gi",
+				function()
+					require("snacks-gallery").open()
+				end,
+			},
+		},
+	},
 	lazy = false,
 	opts = {
 		-- 3rd/image

@@ -3,12 +3,12 @@ return {
 		"cajames/copy-reference.nvim",
 		opts = {},
 		keys = {
-			{ "<leader>y", "<cmd>CopyReference file<cr>", mode = { "n", "v" }, desc = "Copy file path" },
-			{ "<leader>Y", "<cmd>CopyReference line<cr>", mode = { "n", "v" }, desc = "Copy file:line reference" },
+			{ "<leader>y", "<cmd>CopyReference file<cr>", mode = { "n", "v" } },
+			{ "<leader>Y", "<cmd>CopyReference line<cr>", mode = { "n", "v" } },
 		},
 	},
 	{
-		"NickvanDyke/opencode.nvim",
+		"nickjvandyke/opencode.nvim",
 		dependencies = {
 			---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
 			{ "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },

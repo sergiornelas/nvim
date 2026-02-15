@@ -33,11 +33,13 @@ return {
 	-- multiple keymaps actions: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-keymap.md
 	-- https://github.com/pwntester/octo.nvim (check prs from neovim)
 	-- chriswritescode-dev/consolelog.nvim
-	-- https://github.com/esmuellert/vscode-diff.nvim
 
 	-- TREE-SITTER
 	-- https://www.reddit.com/r/neovim/comments/1pndf9e/my_new_nvimtreesitter_configuration_for_the_main/
 	-- https://www.reddit.com/r/neovim/comments/1ppa4ag/nvimtreesitter_breaking_changes/
+	-- https://github.com/kiyoon/repeatable-move.nvim
+	-- Do you have the treesitter cli installed? It's a requirement now
+	-- I cannot believe the solution to my problem comes down to "read the first three lines of the `Requirements`
 
 	-- https://www.reddit.com/r/neovim/comments/1prctpf/integrating_snackspicker_with_vscodediffnvim_a/
 	-- https://www.reddit.com/r/neovim/comments/1puo5cm/any_way_to_speed_up_typescript_lsp_startup_or/

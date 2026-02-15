@@ -158,7 +158,7 @@ return {
 					},
 				},
 			})
-			map({ "n", "x" }, "<c-c>", "<cmd>Checkbox toggle<cr>", opts) -- (vim :interrupt current (search) command)
+			map({ "n", "x" }, "<c-c><c-c>", "<cmd>Checkbox toggle<cr>", opts) -- (vim :interrupt current (search) command)
 			map("n", "<leader>I", "<cmd>Checkbox interactive<cr>", opts)
 			map("n", "<leader>H", "<cmd>Heading decrease<cr>", opts)
 			map("n", "<leader>L", "<cmd>Heading increase<cr>", opts)
@@ -166,7 +166,12 @@ return {
 			-- Code blocks
 			map("n", "<leader>CJ", "o```javascript```<esc>Tti<cr><c-o>O", opts)
 			map("n", "<leader>CT", "o```typescript```<esc>Tti<cr><c-o>O", opts)
+			map("n", "<leader>CX", "o```typescriptreact```<esc>Tai<cr><c-o>O", opts)
 			map("n", "<leader>CL", "o```lua```<esc>Tai<cr><c-o>O", opts)
+			map("i", "<c-c><c-j>", "```javascript```<esc>Tti<cr><c-o>O", opts)
+			map("i", "<c-c><c-t>", "```typescript```<esc>Tti<cr><c-o>O", opts)
+			map("i", "<c-c><c-x>", "```typescriptreact```<esc>Tti<cr><c-o>O", opts)
+			map("i", "<c-c><c-l>", "```lua```<esc>Tai<cr><c-o>O", opts)
 		end,
 	},
 	{

@@ -163,6 +163,11 @@ Avi-D-coder/whisper.nvim                                  voice to text transcri
 cjodo/convert.nvim                              convert css px to rem and html colors
 ph1losof/shelter.nvim                         protect sensitive values in your dotenv
 ruicsh/tailwind-hover.nvim                 shows Tailwind CSS styles under the cursor (good)
+spacedentist/resolve.nvim                         resolving merge conflicts with ease
+Maxteabag/sqlit                                   user friendly TUI for SQL databases
+LionyxML/gitlineage.nvim                          view git history for selected lines
+TmLev/react-suspense-lens.nvim    highlights React components that require a Suspense
+zerochae/dbab.nvim                                           query databases directly
 
 Last time revisited all these plugins
 20/05/2024
@@ -170,7 +175,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Jan 26, 2026 (Add stikypiston/unobtrusive-relnums.nvim)
+Feb 14, 2026 (Add glyccogen/imprint.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-Kaikacy/Lemons.nvim
+zeybek/camouflage.nvim

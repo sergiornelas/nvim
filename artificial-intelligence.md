@@ -38,6 +38,9 @@ AI-powered next-edit suggestions (NES) for Neovim.
 
 <https://github.com/leonardcser/cursortab.nvim>
 
+<https://www.reddit.com/r/neovim/comments/1qqu3lw/we_built_a_purelua_cursor_alternative_for_neovim/>
+<https://github.com/BlinkResearchLabs/blink-edit.nvim>
+
 ### Related plugins
 
 banjo/contextfiles.nvim                                                  cursor rules
@@ -91,6 +94,9 @@ Satanic symbols when copilot is working in the background:
 
 <https://www.reddit.com/r/neovim/comments/1qdhwd2/forked_coderclaudecodenvim_and_added_some_nice/>
 <https://github.com/snirt/claudecode.nvim>
+
+<https://www.reddit.com/r/neovim/comments/1r37164/molenvim_plan_mode_for_humans/>
+<https://github.com/zion-off/mole.nvim>
 
 ## Open code
 
