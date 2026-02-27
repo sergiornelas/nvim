@@ -156,6 +156,23 @@ autocmd("LspProgress", {
 	end,
 })
 
+-- Render CV update PDF
+autocmd("BufWritePost", {
+	pattern = "**/CV/*_CV.yaml",
+	callback = function(args)
+		local cv_path = vim.api.nvim_buf_get_name(args.buf)
+		if not cv_path:match("_CV%.yaml$") then
+			return
+		end
+		vim.notify("🔄 RenderCV: rendering PDF...", vim.log.levels.INFO)
+		vim.fn.jobstart({
+			"rendercv",
+			"render",
+			cv_path,
+		})
+	end,
+})
+
 -- Abbreviations
 -- <c-v>+space skip the abbreviation"
 vim.cmd("cabbrev sss AutoSession save<cr>")

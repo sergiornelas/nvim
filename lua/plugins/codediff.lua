@@ -1,6 +1,5 @@
 return {
 	"esmuellert/codediff.nvim",
-	dependencies = { "MunifTanjim/nui.nvim" },
 	cmd = "CodeDiff",
 	keys = {
 		{ "<leader>d<leader>", "<cmd>CodeDiff<cr>" },

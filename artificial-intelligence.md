@@ -41,6 +41,10 @@ AI-powered next-edit suggestions (NES) for Neovim.
 <https://www.reddit.com/r/neovim/comments/1qqu3lw/we_built_a_purelua_cursor_alternative_for_neovim/>
 <https://github.com/BlinkResearchLabs/blink-edit.nvim>
 
+https://github.com/milanglacier/minuet-ai.nvim
+
+https://tabby.tabbyml.com/docs/welcome/
+
 ### Related plugins
 
 banjo/contextfiles.nvim                                                  cursor rules
@@ -103,6 +107,8 @@ Satanic symbols when copilot is working in the background:
 <https://github.com/NickvanDyke/opencode.nvim>
 <https://www.reddit.com/r/neovim/comments/1m2kapj/opencodenvim_my_issue_with_ai_tools_and_how_i/>
 <https://github.com/sudo-tee/opencode.nvim>
+
+https://www.reddit.com/r/neovim/comments/1rez717/opencode_neovim_integration/
 
 ## Magenta
 

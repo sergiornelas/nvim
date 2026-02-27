@@ -21,7 +21,7 @@ return {
 		require("plugins.lsp.diagnostics").setup()
 		local on_attach = require("plugins.lsp.handlers").on_attach
 
-		vim.lsp.enable({ "lua_ls", "eslint", "jsonls", "cssls", "html" })
+		vim.lsp.enable({ "lua_ls", "eslint", "jsonls", "cssls", "html", "yamlls" })
 
 		vim.lsp.config("lua_ls", {
 			on_attach = on_attach,

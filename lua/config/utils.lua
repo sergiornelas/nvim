@@ -9,12 +9,18 @@ function _G.toggle_boolean()
 	api.nvim_set_current_line(new_line)
 end
 
--- Close all terminal buffers when exit (auto-session)
-function _G.close_all_terminals()
-	for _, buf in ipairs(api.nvim_list_bufs()) do
-		if vim.bo[buf].buftype == "terminal" then
-			api.nvim_buf_delete(buf, { force = true })
+function _G.close_all_terminals_and_pdf()
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if not vim.api.nvim_buf_is_loaded(buf) then
+			goto continue
 		end
+		local is_terminal = vim.bo[buf].buftype == "terminal"
+		local name = vim.api.nvim_buf_get_name(buf)
+		local is_pdf = name ~= "" and name:lower():match("%.pdf$")
+		if is_terminal or is_pdf then
+			vim.api.nvim_buf_delete(buf, { force = true })
+		end
+		::continue::
 	end
 end
 

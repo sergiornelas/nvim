@@ -168,6 +168,7 @@ Maxteabag/sqlit                                   user friendly TUI for SQL data
 LionyxML/gitlineage.nvim                          view git history for selected lines
 TmLev/react-suspense-lens.nvim    highlights React components that require a Suspense
 zerochae/dbab.nvim                                           query databases directly
+tailwindcss-shades.nvim  generate Tailwind CSS color palettes from a single hex color
 
 Last time revisited all these plugins
 20/05/2024
@@ -175,7 +176,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Feb 14, 2026 (Add glyccogen/imprint.nvim)
+Feb 21, 2026 (Add aikhe/wrapped.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-zeybek/camouflage.nvim
+alex-k03/sudo-write.nvim

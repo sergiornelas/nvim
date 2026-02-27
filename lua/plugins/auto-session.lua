@@ -26,7 +26,7 @@ function M.config()
 			function()
 				toggle_file_in_split(false)
 			end,
-			close_all_terminals,
+			close_all_terminals_and_pdf,
 			"ccl",
 			"lclose",
 		},

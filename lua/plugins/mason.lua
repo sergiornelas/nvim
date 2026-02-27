@@ -1,6 +1,17 @@
 return {
 	"mason-org/mason.nvim",
-	ft = { "lua", "html", "css", "json", "javascript", "javascriptreact", "typescript", "typescriptreact", "markdown" },
+	ft = {
+		"lua",
+		"html",
+		"css",
+		"json",
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"markdown",
+		"yaml",
+	},
 	config = function()
 		local mason_ok, mason = pcall(require, "mason")
 
