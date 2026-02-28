@@ -1,25 +1,40 @@
-local DEBOUNCE_MS = 400
+-- Instructions
+-- Run this command inside a directory named "CV":
+-- > rendercv new "JohnDoe-Resume"
+-- Inside the "CV" directory create the settings.yaml file. Docs:
+-- https://docs.rendercv.com/user_guide/yaml_input_structure/settings/
+
+local DEBOUNCE_MS = 300
 local OUTPUT_DIR = "rendercv_output"
 local uv = vim.uv or vim.loop
 local render_timer = nil
 
 -- ─────────────────────────────────────────────────────────────
--- Helpers
+-- Config ⚙️
 -- ─────────────────────────────────────────────────────────────
-
+local DEFAULT_PDF_NAME = "SergioOrnelas-Resume.pdf"
+local RESUME_TITLE = "Sergio Lopez Ornelas"
 local PDF_BY_PROFILE = {
+	-- [keyword in yaml file name]                custom filename
 	Frontend = OUTPUT_DIR .. "/SergioOrnelas-Frontend-Resume.pdf",
 	Backend = OUTPUT_DIR .. "/SergioOrnelas-Backend-Resume.pdf",
 	Fullstack = OUTPUT_DIR .. "/SergioOrnelas-Fullstack-Resume.pdf",
+	-- Example:
+	-- Cloud = OUTPUT_DIR .. "/Cloud-resume.pdf",
+	-- Now, everytime you save Cloud*.yaml, it will generate/overwrite Cloud-resume.pdf
 }
 
+-- ─────────────────────────────────────────────────────────────
+-- Helpers
+-- ─────────────────────────────────────────────────────────────
 local function get_pdf_name(cv_path)
 	for key, pdf in pairs(PDF_BY_PROFILE) do
 		if cv_path:match(key) then
 			return pdf
 		end
 	end
-	return OUTPUT_DIR .. "/SergioOrnelas-Resume.pdf"
+	-- ⚠️ If you save a yaml file that doesn't match any PDF_BY_PROFILE, it will overwrite the DEFAULT_PDF_NAME
+	return OUTPUT_DIR .. "/" .. DEFAULT_PDF_NAME
 end
 
 local function get_settings_path(cv_path)
@@ -53,7 +68,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	--  ~ must end with _CV.yaml
 	pattern = "**/CV/*_CV.yaml",
 	callback = function(args)
-		local cv_path = vim.api.nvim_buf_get_name(args.buf)
+		local yaml_file_path = vim.api.nvim_buf_get_name(args.buf)
 
 		-- Debounce
 		if render_timer then
@@ -68,7 +83,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 			DEBOUNCE_MS,
 			0,
 			vim.schedule_wrap(function()
-				local settings_path = get_settings_path(cv_path)
+				local settings_path = get_settings_path(yaml_file_path)
 				if not settings_path then
 					vim.notify("❌ settings.yaml not found", vim.log.levels.ERROR)
 					return
@@ -76,16 +91,16 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 				vim.notify("🔄 RenderCV: rendering PDF...", vim.log.levels.INFO)
 
-				local pdf_name = get_pdf_name(cv_path)
-				local cv_dir = vim.fn.fnamemodify(cv_path, ":h")
+				local pdf_name = get_pdf_name(yaml_file_path)
+				local cv_dir = vim.fn.fnamemodify(yaml_file_path, ":h")
 				local expected_pdf_path = cv_dir .. "/" .. pdf_name
 
 				vim.fn.jobstart({
 					"rendercv",
 					"render",
-					cv_path,
+					yaml_file_path,
 					"--cv.name", -- resume title
-					"Sergio Lopez Ornelas",
+					RESUME_TITLE,
 					"--settings", -- settings.yaml
 					settings_path,
 					"--settings.render_command.pdf_path", -- pdf name
