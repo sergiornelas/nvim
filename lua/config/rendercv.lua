@@ -4,7 +4,6 @@
 -- Inside the "CV" directory create the settings.yaml file. Docs:
 -- https://docs.rendercv.com/user_guide/yaml_input_structure/settings/
 
-local DEBOUNCE_MS = 300
 local OUTPUT_DIR = "rendercv_output"
 local uv = vim.uv or vim.loop
 local render_timer = nil
@@ -12,6 +11,8 @@ local render_timer = nil
 -- ─────────────────────────────────────────────────────────────
 -- Config ⚙️
 -- ─────────────────────────────────────────────────────────────
+local DEBOUNCE_MS = 300
+local DEBOUNCE_VIM_RESIZE_MS = 600
 local DEFAULT_PDF_NAME = "SergioOrnelas-Resume.pdf"
 local RESUME_TITLE = "Sergio Lopez Ornelas"
 local PDF_BY_PROFILE = {
@@ -21,7 +22,7 @@ local PDF_BY_PROFILE = {
 	Fullstack = OUTPUT_DIR .. "/SergioOrnelas-Fullstack-Resume.pdf",
 	-- Example:
 	-- Cloud = OUTPUT_DIR .. "/Cloud-resume.pdf",
-	-- Now, everytime you save Cloud*.yaml, it will generate/overwrite Cloud-resume.pdf
+	-- Now, everytime you save *Cloud*.yaml, it will generate/overwrite Cloud-resume.pdf
 }
 
 -- ─────────────────────────────────────────────────────────────
@@ -59,7 +60,6 @@ end
 -- ─────────────────────────────────────────────────────────────
 -- Autocommand
 -- ─────────────────────────────────────────────────────────────
-
 vim.api.nvim_create_autocmd("BufWritePost", {
 	-- The file can be in any path (**/)
 	-- Inside a directory named exactly "CV"
@@ -117,6 +117,37 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 						end, 200)
 					end,
 				})
+			end)
+		)
+	end,
+})
+
+vim.api.nvim_create_autocmd("VimResized", {
+	pattern = "**/CV/*_CV.yaml",
+	callback = function(args)
+		local buf = args.buf
+		if not buf or not vim.api.nvim_buf_is_valid(buf) then
+			return
+		end
+		local yaml_file_path = vim.api.nvim_buf_get_name(buf)
+		if not yaml_file_path:match("CV/[^/]+_CV%.yaml$") then
+			return
+		end
+		-- Debounce
+		if render_timer then
+			render_timer:stop()
+			render_timer:close()
+			render_timer = nil
+		end
+		---@diagnostic disable-next-line: undefined-field
+		render_timer = vim.loop.new_timer()
+		render_timer:start(
+			DEBOUNCE_VIM_RESIZE_MS,
+			0,
+			vim.schedule_wrap(function()
+				local pdf_name = get_pdf_name(yaml_file_path)
+				local cv_dir = vim.fn.fnamemodify(yaml_file_path, ":h")
+				reload_pdf(cv_dir .. "/" .. pdf_name)
 			end)
 		)
 	end,
