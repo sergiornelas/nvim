@@ -22,7 +22,6 @@ require("config.options")
 require("config.autocommands")
 require("config.utils")
 require("config.keymaps")
-require("config.rendercv")
 
 require("lazy").setup({
 	defaults = {
