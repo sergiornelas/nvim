@@ -151,6 +151,13 @@ map("n", "<leader>fu", "<cmd>lua Snacks.picker.undo({ layout = 'sidebar' })<cr>"
 -- custom pickers:
 -- markdown headings
 map("n", "<leader>h", "<cmd>lua markdown_headings_index()<cr>")
+-- pdf files
+map("n", "<leader>f;", function()
+	snacks.picker.files({
+		pattern = ".pdf",
+		live = true,
+	})
+end)
 
 return {
 	"folke/snacks.nvim",
