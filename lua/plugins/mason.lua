@@ -1,15 +1,17 @@
 return {
 	"mason-org/mason.nvim",
 	ft = {
-		"lua",
-		"html",
 		"css",
-		"json",
+		"html",
 		"javascript",
 		"javascriptreact",
+		"json",
+		"lua",
+		"markdown",
+		"tsgo",
 		"typescript",
 		"typescriptreact",
-		"markdown",
+		"vtsls",
 		"yaml",
 	},
 	config = function()

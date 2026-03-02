@@ -55,9 +55,6 @@ M.on_attach = function(client, bufnr)
 		vim.lsp.inlay_hint.enable(false)
 		-- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
 	end
-	-- if client.name == "typescript-tools" then
-	-- 	keymap("n", "go", "<cmd>TSToolsGoToSourceDefinition<cr>") -- (vim: cursor to byte N in the buffer)
-	-- end
 end
 
 return M

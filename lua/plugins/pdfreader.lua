@@ -11,6 +11,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 
 return {
 	"r-pletnev/pdfreader.nvim",
+	-- ft = "image", -- TODO: run PDF only for all pdf
 	dependencies = {
 		"folke/snacks.nvim",
 	},
@@ -33,7 +34,7 @@ return {
 		local DEBOUNCE_MS = 300
 		local DEBOUNCE_VIM_RESIZE_MS = 600
 		local DEFAULT_PDF_NAME = "SergioOrnelas-Resume.pdf"
-		local RESUME_TITLE = "Sergio Lopez Ornelas"
+		local RESUME_TITLE = "Sergio López Ornelas"
 		local PDF_BY_PROFILE = {
 			-- [keyword in yaml file name]                custom filename
 			Frontend = OUTPUT_DIR .. "/SergioOrnelas-Frontend-Resume.pdf",

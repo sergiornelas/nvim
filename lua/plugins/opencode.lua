@@ -41,7 +41,6 @@ return {
 					enabled = "kitty",
 				},
 			}
-
 			-- Required for `opts.events.reload`.
 			vim.o.autoread = true
 

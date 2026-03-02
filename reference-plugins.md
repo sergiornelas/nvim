@@ -176,7 +176,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Feb 21, 2026 (Add aikhe/wrapped.nvim)
+Mar 1, 2026 (Add hadishahpuri/nvimlaunch)
 
 <https://dotfyle.com/neovim/plugins/new>
-alex-k03/sudo-write.nvim
+wsdjeg/tabman.nvim
