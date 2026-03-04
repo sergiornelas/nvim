@@ -31,76 +31,78 @@ return {
 							},
 						},
 					},
-					terminal = {}, -- Enables the `snacks` provider
 				},
 			},
 		},
 		config = function()
+			---@type opencode.Opts
 			vim.g.opencode_opts = {
-				provider = {
-					enabled = "kitty",
-				},
+				-- Your configuration, if any; goto definition on the type or field for details
 			}
-			-- Required for `opts.events.reload`.
-			vim.o.autoread = true
 
-			local tall_layout = function()
-				-- instead of go-to-layout tall, go to previous layout
-				vim.fn.jobstart({ "kitty", "@", "goto-layout", "tall" })
-			end
+			-- keymap: gb free
 
-			-- gb free
+			vim.o.autoread = true -- Required for `opts.events.reload`
+
+			local kitty = require("config.kitty-opencode")
 
 			local keymap = vim.keymap.set
 
-			keymap({ "n", "x" }, "ga", function() -- (vim: print ascii value of character under the cursor)
-				tall_layout()
-				require("opencode").ask("@this: ", { submit = true })
-			end, { desc = "Ask opencode…" })
+			keymap({ "n", "x" }, "ga", function()
+				kitty.with_opencode(function(opencode)
+					opencode.ask("@this: ", { submit = true })
+				end)
+			end, { desc = "Ask OpenCode @this" })
 
-			keymap({ "n", "x" }, "gh", function() -- (vim: start Select mode)
-				tall_layout()
-				require("opencode").select()
-			end, { desc = "Execute opencode action…" })
+			keymap({ "n", "x" }, "gh", function()
+				kitty.with_opencode(function(opencode)
+					opencode.select()
+				end)
+			end, { desc = "OpenCode select" })
 
 			-- keymap({ "n", "t" }, "<C-.>", function()
-			-- 	require("opencode").toggle()
+			-- 	opencode.toggle()
 			-- end, { desc = "Toggle opencode" })
 
 			keymap("x", "gl", function()
-				tall_layout()
-				return require("opencode").operator("@this ")
-			end, { desc = "Add range to opencode", expr = true })
+				return kitty.with_opencode_expr(function(opencode)
+					return opencode.operator("@this ")
+				end)
+			end, { expr = true, desc = "Add range to OpenCode" })
 
 			keymap("n", "gll", function()
-				tall_layout()
-				return require("opencode").operator("@this ") .. "_"
-			end, { desc = "Add line to opencode", expr = true })
+				return kitty.with_opencode_expr(function(opencode)
+					return opencode.operator("@this ") .. "_"
+				end)
+			end, { expr = true, desc = "Add line to OpenCode" })
 
 			-- keymap("n", "<S-C-u>", function()
-			-- 	require("opencode").command("session.half.page.up")
+			-- 	opencode.command("session.half.page.up")
 			-- end, { desc = "Scroll opencode up" })
 
 			-- keymap("n", "<S-C-d>", function()
-			-- 	require("opencode").command("session.half.page.down")
+			-- 	opencode.command("session.half.page.down")
 			-- end, { desc = "Scroll opencode down" })
 
 			-- Extras -----------------
-			keymap({ "n", "x" }, "go", function() -- (vim: cursor to byte N in the buffer)
-				tall_layout()
-				require("opencode").ask("@buffer: ", { submit = true })
-			end, { desc = "Ask opencode current buffer" })
+			keymap({ "n", "x" }, "go", function()
+				kitty.with_opencode(function(opencode)
+					opencode.ask("@buffer: ", { submit = true })
+				end)
+			end, { desc = "Ask OpenCode current buffer" })
 
 			-- BUG: doesn't use the current buffer list, only takes the current session opened buffers
 			keymap({ "n", "x" }, "gO", function()
-				tall_layout()
-				require("opencode").ask("@buffers: ", { submit = true })
-			end, { desc = "Ask opencode open buffers" })
+				kitty.with_opencode(function(opencode)
+					opencode.ask("@buffers: ", { submit = true })
+				end)
+			end, { desc = "Ask OpenCode open buffers" })
 
-			keymap({ "n", "x" }, "g<return>", function()
-				tall_layout()
-				require("opencode").ask("@grapple: ", { submit = true })
-			end, { desc = "Ask opencode current grappled files" })
+			keymap({ "n", "x" }, "g<CR>", function()
+				kitty.with_opencode(function(opencode)
+					opencode.ask("@grapple: ", { submit = true })
+				end)
+			end, { desc = "Ask OpenCode grappled files" })
 		end,
 	},
 }

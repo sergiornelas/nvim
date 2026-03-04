@@ -102,6 +102,9 @@ Satanic symbols when copilot is working in the background:
 <https://www.reddit.com/r/neovim/comments/1r37164/molenvim_plan_mode_for_humans/>
 <https://github.com/zion-off/mole.nvim>
 
+https://www.reddit.com/r/neovim/comments/1ri7891/claudepreviewnvim_see_a_diff_before_claude_code/
+https://github.com/Cannon07/claude-preview.nvim
+
 ## Open code
 
 <https://github.com/NickvanDyke/opencode.nvim>

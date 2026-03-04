@@ -36,6 +36,7 @@ autocmd("ColorScheme", {
 			{ "SnacksIndent", { fg = "#525050" } },
 			{ "TreesitterContext", { bg = "#34312F" } },
 			{ "TreesitterContextBottom", { underline = true, sp = "#887F68" } },
+			{ "TreesitterContextLineNumber", { fg = "#807B7B" } },
 			{ "Visual", { bg = "#52524e" } },
 			{ "VisualNonText", { fg = "#9d9681", bg = "#52524e" } },
 		}

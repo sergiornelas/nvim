@@ -1,7 +1,6 @@
 local M = {
 	"lewis6991/gitsigns.nvim",
 	event = "BufReadPre",
-	commit = "805610a9393fa231f2c2b49cb521bfa413fadb3d",
 }
 
 function M.config()
@@ -11,20 +10,21 @@ function M.config()
 	end
 
 	gitsigns.setup({
+		signs_staged_enable = true, -- multiple colors
 		signcolumn = false,
 		numhl = true,
 		current_line_blame = true,
-		-- update_debounce = 0,
 		current_line_blame_opts = {
 			virt_text_pos = "right_align",
 			delay = 750,
 		},
 		current_line_blame_formatter = "<author_time:%R>, <author>",
+		update_debounce = 0,
 		on_attach = function(bufnr)
 			local function map(mode, l, r, opts)
 				opts = opts or {}
 				opts.buffer = bufnr
-				vim.keymap.set(mode, l, r)
+				vim.keymap.set(mode, l, r, opts)
 			end
 
 			-- Navigation
@@ -47,29 +47,41 @@ function M.config()
 			-- Actions
 			map("n", "<leader>s", gitsigns.stage_hunk)
 			map("n", "<leader>r", gitsigns.reset_hunk)
+
 			map("v", "<leader>s", function()
 				gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end)
+
 			map("v", "<leader>r", function()
 				gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end)
+
 			map("n", "<leader>gS", gitsigns.stage_buffer)
-			map("n", "<leader>gu", gitsigns.undo_stage_hunk)
 			map("n", "<leader>gR", gitsigns.reset_buffer)
 			map("n", "<leader>e", gitsigns.preview_hunk)
+			map("n", "<leader>gg", gitsigns.preview_hunk_inline)
+
 			map("n", "<leader>gl", function()
 				gitsigns.blame_line({ full = true })
 			end)
-			map("n", "<leader>gt", gitsigns.toggle_current_line_blame)
+
 			map("n", "<leader>gd", gitsigns.diffthis)
+
 			map("n", "<leader>gD", function()
 				gitsigns.diffthis("~")
 			end)
-			map("n", "<leader>gg", gitsigns.toggle_deleted)
+
+			map("n", "<leader>gA", function()
+				gitsigns.setqflist("all")
+			end)
+			map("n", "<leader>gQ", gitsigns.setqflist)
+
+			-- Toggles
+			map("n", "<leader>gt", gitsigns.toggle_current_line_blame)
+			map("n", "<leader>gw", gitsigns.toggle_word_diff)
+
 			-- Text object
-			map({ "o", "x" }, "ig", ":<c-u>Gitsigns select_hunk<cr>")
-			-- Extras
-			map("n", "<leader>ge", gitsigns.preview_hunk_inline)
+			map({ "o", "x" }, "ig", gitsigns.select_hunk)
 		end,
 	})
 end

@@ -2,7 +2,7 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	branch = "master", -- remove this once you want to update treesitter
-	event = "BufReadPost",
+	lazy = false,
 	dependencies = {
 		{
 			"nvim-treesitter/nvim-treesitter-context",
@@ -191,9 +191,6 @@ return {
 			},
 			indent = { enable = true },
 			autopairs = { --automatic ({[]})
-				enable = true,
-			},
-			autotag = { --HTML/JSX tags autorename
 				enable = true,
 			},
 			incremental_selection = {

@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	event = "BufReadPost",
+	lazy = false,
 	dependencies = {
 		{
 			"kosayoda/nvim-lightbulb",
