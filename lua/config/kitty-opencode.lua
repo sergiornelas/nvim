@@ -107,25 +107,6 @@ function M.launch_opencode()
 end
 
 -- =========================
--- Notify (throttled)
--- =========================
-
-local notify_state = {}
-
-local function throttled_notify(msg, level, opts)
-	local now = vim.loop.now()
-	opts = opts or {}
-
-	local key = msg .. (level or "")
-	local last = notify_state[key]
-
-	if not last or (now - last > 1500) then
-		notify_state[key] = now
-		vim.notify(msg, level or vim.log.levels.INFO, opts)
-	end
-end
-
--- =========================
 -- Public API
 -- =========================
 
@@ -154,7 +135,6 @@ function M.with_opencode(fn)
 
 	if not M.is_opencode_running_in_tab() then
 		M.launch_opencode()
-		throttled_notify("Starting OpenCode", vim.log.levels.INFO, { title = "OpenCode" })
 		return
 	end
 

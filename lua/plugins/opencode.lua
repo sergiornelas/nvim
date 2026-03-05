@@ -40,21 +40,21 @@ return {
 				-- Your configuration, if any; goto definition on the type or field for details
 			}
 
-			-- keymap: gb free
-
 			vim.o.autoread = true -- Required for `opts.events.reload`
+
+			-- keymap: gb free
 
 			local kitty = require("config.kitty-opencode")
 
 			local keymap = vim.keymap.set
 
-			keymap({ "n", "x" }, "ga", function()
+			keymap({ "n", "x" }, "ga", function() -- (vim: print ascii value of character under the cursor)
 				kitty.with_opencode(function(opencode)
 					opencode.ask("@this: ", { submit = true })
 				end)
 			end, { desc = "Ask OpenCode @this" })
 
-			keymap({ "n", "x" }, "gh", function()
+			keymap({ "n", "x" }, "gh", function() -- (vim: start Select mode)
 				kitty.with_opencode(function(opencode)
 					opencode.select()
 				end)
@@ -85,7 +85,7 @@ return {
 			-- end, { desc = "Scroll opencode down" })
 
 			-- Extras -----------------
-			keymap({ "n", "x" }, "go", function()
+			keymap({ "n", "x" }, "go", function() -- (vim: cursor to byte N in the buffer)
 				kitty.with_opencode(function(opencode)
 					opencode.ask("@buffer: ", { submit = true })
 				end)

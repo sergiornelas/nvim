@@ -28,9 +28,10 @@ function M.apply(client)
 	caps.typeDefinitionProvider = false
 	caps.callHierarchyProvider = false
 	caps.selectionRangeProvider = false
+	caps.inlayHintProvider = false
 
 	-- diagnostics: no touch
-	-- textDocument/publishDiagnostics no depende de capabilities
+	-- textDocument/publishDiagnostics don't depend on capabilities
 end
 
 return M

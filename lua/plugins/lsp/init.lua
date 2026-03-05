@@ -28,16 +28,6 @@ return {
 			settings = require("plugins.lsp.settings.vtsls").settings,
 		})
 
-		-- Disable diagnostics from vtsls
-		local default_handler = vim.lsp.handlers["textDocument/publishDiagnostics"]
-		vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
-			local client = vim.lsp.get_client_by_id(ctx.client_id)
-			if client and client.name == "vtsls" then
-				return -- silence vtsls diagnostics
-			end
-			return default_handler(err, result, ctx, config)
-		end
-
 		vim.lsp.config("tsgo", {
 			on_attach = function(client)
 				require("plugins.lsp.capabilities.tsgo").apply(client)
