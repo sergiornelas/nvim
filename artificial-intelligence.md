@@ -41,9 +41,9 @@ AI-powered next-edit suggestions (NES) for Neovim.
 <https://www.reddit.com/r/neovim/comments/1qqu3lw/we_built_a_purelua_cursor_alternative_for_neovim/>
 <https://github.com/BlinkResearchLabs/blink-edit.nvim>
 
-https://github.com/milanglacier/minuet-ai.nvim
+<https://github.com/milanglacier/minuet-ai.nvim>
 
-https://tabby.tabbyml.com/docs/welcome/
+<https://tabby.tabbyml.com/docs/welcome/>
 
 ### Related plugins
 
@@ -102,8 +102,10 @@ Satanic symbols when copilot is working in the background:
 <https://www.reddit.com/r/neovim/comments/1r37164/molenvim_plan_mode_for_humans/>
 <https://github.com/zion-off/mole.nvim>
 
-https://www.reddit.com/r/neovim/comments/1ri7891/claudepreviewnvim_see_a_diff_before_claude_code/
-https://github.com/Cannon07/claude-preview.nvim
+<https://www.reddit.com/r/neovim/comments/1ri7891/claudepreviewnvim_see_a_diff_before_claude_code/>
+<https://github.com/Cannon07/claude-preview.nvim>
+
+<https://github.com/0xble/dotagent.nvim>
 
 ## Open code
 
@@ -111,7 +113,7 @@ https://github.com/Cannon07/claude-preview.nvim
 <https://www.reddit.com/r/neovim/comments/1m2kapj/opencodenvim_my_issue_with_ai_tools_and_how_i/>
 <https://github.com/sudo-tee/opencode.nvim>
 
-https://www.reddit.com/r/neovim/comments/1rez717/opencode_neovim_integration/
+<https://www.reddit.com/r/neovim/comments/1rez717/opencode_neovim_integration/>
 
 ## Magenta
 

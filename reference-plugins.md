@@ -169,6 +169,9 @@ LionyxML/gitlineage.nvim                          view git history for selected 
 TmLev/react-suspense-lens.nvim    highlights React components that require a Suspense
 zerochae/dbab.nvim                                           query databases directly
 tailwindcss-shades.nvim  generate Tailwind CSS color palettes from a single hex color
+emrearmagan/atlas.nvim                           manage Bitbucket PRs and Jira issues
+joryeugene/dadbod-grip.nvim editable database grids for Neovim. Connect to PostgreSQL
+go-johnnyhe/shadow                                     pairing vscode and neovim live
 
 Last time revisited all these plugins
 20/05/2024
@@ -176,7 +179,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Mar 1, 2026 (Add hadishahpuri/nvimlaunch)
+Mar 14, 2026 (Update links to indium114's projects)
 
 <https://dotfyle.com/neovim/plugins/new>
-wsdjeg/tabman.nvim
+kristoferssolo/jsonl.nvim

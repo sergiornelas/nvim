@@ -238,4 +238,13 @@ return {
 			transparent = true,
 		},
 	},
+	{
+		"aliqyan-21/pomatia.nvim",
+		keys = lazy_map,
+		config = function()
+			require("pomatia").setup({
+				transparent = true,
+			})
+		end,
+	},
 }

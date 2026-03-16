@@ -14,6 +14,7 @@ return {
 			view = {
 				quit = "q", -- Close diff tab
 				toggle_explorer = "<leader>b", -- Toggle explorer visibility (explorer mode only)
+				focus_explorer = "<leader>GA", -- Focus explorer panel (explorer mode only)
 				next_hunk = "]c", -- Jump to next change
 				prev_hunk = "[c", -- Jump to previous change
 				next_file = "<c-i>", -- Next file in explorer mode

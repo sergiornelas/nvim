@@ -11,9 +11,18 @@ return {
 			disable_filetype = { "snacks_picker_input" },
 			map_c_h = true,
 			map_c_w = true,
+			map_cr = false,
 			fast_wrap = {
 				map = "<c-->",
 			},
 		})
+
+		_G.MUtils = {}
+
+		MUtils.completion_confirm = function()
+			return nvim_autopairs.autopairs_cr()
+		end
+
+		vim.api.nvim_set_keymap("i", "<c-j>", "v:lua.MUtils.completion_confirm()", { expr = true, noremap = true })
 	end,
 }

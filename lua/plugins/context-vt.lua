@@ -5,6 +5,7 @@ return {
 		require("nvim_context_vt").setup({
 			prefix = " ->",
 			min_rows = 3,
+			disable_ft = { "yaml" },
 		})
 	end,
 }
