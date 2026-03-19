@@ -1,4 +1,4 @@
--- Disable diagnostics from vtsls
+-- Disable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx)
 	if vim.lsp.get_client_by_id(ctx.client_id) and vim.lsp.get_client_by_id(ctx.client_id).name == "vtsls" then
 		return
