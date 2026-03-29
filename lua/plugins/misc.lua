@@ -35,6 +35,7 @@ return {
 	-- chriswritescode-dev/consolelog.nvim
 	-- vim pack tutorial:
 	-- https://www.reddit.com/r/neovim/comments/1rsqnjy/a_guide_to_vimpack_neovim_builtin_plugin_manager/
+	-- https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html
 
 	-- TREE-SITTER
 	-- https://www.reddit.com/r/neovim/comments/1pndf9e/my_new_nvimtreesitter_configuration_for_the_main/

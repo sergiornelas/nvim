@@ -45,6 +45,8 @@ AI-powered next-edit suggestions (NES) for Neovim.
 
 <https://tabby.tabbyml.com/docs/welcome/>
 
+<https://github.com/nishu-murmu/cursor-inline>
+
 ### Related plugins
 
 banjo/contextfiles.nvim                                                  cursor rules
@@ -115,6 +117,8 @@ Satanic symbols when copilot is working in the background:
 
 <https://www.reddit.com/r/neovim/comments/1rez717/opencode_neovim_integration/>
 
+<https://github.com/Cannon07/claude-preview.nvim>
+
 ## Magenta
 
 <https://github.com/dlants/magenta.nvim>
@@ -134,3 +138,4 @@ Satanic symbols when copilot is working in the background:
 kyza0d/vocal.nvim           speech-to-text transcription using the OpenAI Whisper API
 <https://www.reddit.com/r/neovim/comments/1pugxem/best_plugin_and_workflows_for_integrating_llms/>
 <https://www.reddit.com/r/neovim/comments/1pqpo8h/release_agenticnvim_ai_chat_interface_for_claude/>
+<https://github.com/ajatdarojat45/commitmate.nvim>   automatic commit messages

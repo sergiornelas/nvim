@@ -172,6 +172,8 @@ tailwindcss-shades.nvim  generate Tailwind CSS color palettes from a single hex 
 emrearmagan/atlas.nvim                           manage Bitbucket PRs and Jira issues
 joryeugene/dadbod-grip.nvim editable database grids for Neovim. Connect to PostgreSQL
 go-johnnyhe/shadow                                     pairing vscode and neovim live
+chojs23/ec                                                beautiful git conflict view
+spacedentist/resolve.nvim                                 beautiful git conflict view
 
 Last time revisited all these plugins
 20/05/2024
@@ -179,7 +181,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Mar 14, 2026 (Update links to indium114's projects)
+Mar 26, 2026 (Update ymic9963/mdnotes.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-kristoferssolo/jsonl.nvim
+iamironz/android-nvim-plugin
