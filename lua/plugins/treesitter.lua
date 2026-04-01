@@ -1,8 +1,30 @@
+-- npm install -g tree-sitter-cli
 return {
 	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	branch = "master", -- remove this once you want to update treesitter
 	lazy = false,
+	build = ":TSUpdate",
+	config = function()
+		require("nvim-treesitter").install({
+			"bash",
+			"comment", -- todo highlight
+			"css",
+			"html",
+			"javascript",
+			"json",
+			"lua",
+			"markdown",
+			"markdown_inline",
+			"regex",
+			"scss",
+			"styled",
+			"tmux",
+			"tsx",
+			"typescript",
+			"vim",
+			"vimdoc",
+			"yaml",
+		})
+	end,
 	dependencies = {
 		{
 			"nvim-treesitter/nvim-treesitter-context",
@@ -52,249 +74,124 @@ return {
 				}
 			end,
 		},
+		-- {
+		-- 	"mawkler/jsx-element.nvim",
+		-- 	ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+		-- 	opts = {
+		-- 		keymaps = {
+		-- 			jsx_element = "j",
+		-- 		},
+		-- 	},
+		-- },
 		{
 			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
-		{
-			"mawkler/jsx-element.nvim",
-			ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-			opts = {
-				keymaps = {
-					jsx_element = "j",
-				},
-			},
+			branch = "main",
+			init = function()
+				-- Disable entire built-in ftplugin mappings to avoid conflicts.
+				-- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
+				vim.g.no_plugin_maps = true
+			end,
+			config = function()
+				require("nvim-treesitter-textobjects").setup({
+					move = {
+						-- whether to set jumps in the jumplist
+						set_jumps = true,
+					},
+				})
+
+				local function map(mode, key, command)
+					vim.keymap.set(mode, key, command, { noremap = true, silent = true })
+				end
+				local select = require("nvim-treesitter-textobjects.select").select_textobject
+				local swap = require("nvim-treesitter-textobjects.swap")
+				local move = require("nvim-treesitter-textobjects.move")
+
+				-- select
+				map({ "x", "o" }, "ia", function()
+					select("@parameter.inner", "textobjects")
+				end)
+				map({ "x", "o" }, "aa", function()
+					select("@parameter.outer", "textobjects")
+				end)
+				map({ "x", "o" }, "ic", function()
+					select("@conditional.inner", "textobjects")
+				end)
+				map({ "x", "o" }, "ac", function()
+					select("@conditional.outer", "textobjects")
+				end)
+				map({ "x", "o" }, "if", function()
+					select("@function.inner", "textobjects")
+				end)
+				map({ "x", "o" }, "af", function()
+					select("@function.outer", "textobjects")
+				end)
+				-- map({ "x", "o" }, "ig", function()
+				-- 	textobj("@call.inner", "textobjects")
+				-- end)
+				-- map({ "x", "o" }, "ag", function()
+				-- 	textobj("@call.outer", "textobjects")
+				-- end)
+				map({ "x", "o" }, "ak", function()
+					select("@comment.outer", "textobjects")
+				end)
+				map({ "x", "o" }, "ir", function()
+					select("@number.inner", "textobjects")
+				end)
+				-- map({ "x", "o" }, "at", function() -- we use 'at' for html/jsx/tsx elements
+				-- 	select("@assignment.outer", "textobjects")
+				-- end)
+				map({ "x", "o" }, "in", function()
+					select("@assignment.lhs", "textobjects")
+				end)
+				map({ "x", "o" }, "iv", function()
+					select("@assignment.rhs", "textobjects")
+				end)
+				map({ "x", "o" }, "ix", function()
+					select("@loop.inner", "textobjects")
+				end)
+				map({ "x", "o" }, "ax", function()
+					select("@loop.outer", "textobjects")
+				end)
+
+				-- swap
+				map("n", "<leader>.", function()
+					swap.swap_next("@parameter.inner")
+				end)
+				map("n", "<leader>,", function()
+					swap.swap_previous("@parameter.inner")
+				end)
+
+				-- move
+				local textobjects = {
+					a = "@parameter.inner", -- (vim: next/last/prev/first argument list (v0.11)
+					k = "@conditional.outer", -- (vim: cursor N times forward/backwards to start of change)
+					f = "@function.outer", -- (vim: same as "gf")
+					g = "@call.outer",
+					c = "@comment.outer",
+					w = "@assignment.lhs",
+					o = "@loop.outer",
+					x = "@number.inner",
+					v = "@assignment.rhs",
+				}
+
+				local motions = {
+					next_start = { fn = move.goto_next_start, prefix = "]", upper = false },
+					next_end = { fn = move.goto_next_end, prefix = "]", upper = true },
+					prev_start = { fn = move.goto_previous_start, prefix = "[", upper = false },
+					prev_end = { fn = move.goto_previous_end, prefix = "[", upper = true },
+				}
+
+				for _, motion in pairs(motions) do
+					for key, query in pairs(textobjects) do
+						local k = motion.upper and key:upper() or key
+						local lhs = motion.prefix .. k
+
+						map({ "n", "x", "o" }, lhs, function()
+							motion.fn(query, "textobjects")
+						end)
+					end
+				end
+			end,
 		},
 	},
-	config = function()
-		local configs_ok, configs = pcall(require, "nvim-treesitter.configs")
-		if not configs_ok then
-			return
-		end
-
-		local map = vim.keymap.set
-		local mode = { "n", "x", "o" }
-		local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-		local function safe_fix_nav(command)
-			return function()
-				if not pcall(vim.api.nvim_command, vim.v.count1 .. command) then
-					print("No more items")
-				end
-			end
-		end
-
-		local next_diagnostic, prev_diagnostic = ts_repeat_move.make_repeatable_move_pair(function()
-			vim.diagnostic.jump({ count = vim.v.count1 })
-		end, function()
-			vim.diagnostic.jump({ count = -vim.v.count1 })
-		end)
-		local next_error, prev_error = ts_repeat_move.make_repeatable_move_pair(function()
-			vim.diagnostic.jump({ count = vim.v.count1, severity = vim.diagnostic.severity.ERROR })
-		end, function()
-			vim.diagnostic.jump({ count = -vim.v.count1, severity = vim.diagnostic.severity.ERROR })
-		end)
-		local next_indentscope, prev_indentscope = ts_repeat_move.make_repeatable_move_pair(function()
-			vim.cmd("normal " .. vim.v.count1 .. "[-")
-		end, function()
-			vim.cmd("normal " .. vim.v.count1 .. "]-")
-		end)
-		local next_quickfix_el, prev_quickfix_el =
-			ts_repeat_move.make_repeatable_move_pair(safe_fix_nav("cnext"), safe_fix_nav("cprev"))
-		local next_loclist_el, prev_loclist_el =
-			ts_repeat_move.make_repeatable_move_pair(safe_fix_nav("lne"), safe_fix_nav("lp"))
-		local next_spell, prev_spell = ts_repeat_move.make_repeatable_move_pair(function()
-			if vim.wo.spell then
-				vim.cmd("normal! " .. vim.v.count1 .. "[s")
-			else
-				print("Spell not enabled")
-			end
-		end, function()
-			if vim.wo.spell then
-				vim.cmd("normal! " .. vim.v.count1 .. "]s")
-			else
-				print("Spell not enabled")
-			end
-		end)
-		local move_down, move_up = ts_repeat_move.make_repeatable_move_pair(function()
-			vim.cmd("normal " .. vim.v.count1 .. "]+")
-		end, function()
-			vim.cmd("normal " .. vim.v.count1 .. "[+")
-		end)
-
-		-- Repeatable move mappings
-		map(mode, ";", ts_repeat_move.repeat_last_move)
-		map(mode, ",", ts_repeat_move.repeat_last_move_opposite)
-		map(mode, "f", ts_repeat_move.builtin_f_expr, { expr = true })
-		map(mode, "F", ts_repeat_move.builtin_F_expr, { expr = true })
-		map(mode, "t", ts_repeat_move.builtin_t_expr, { expr = true })
-		map(mode, "T", ts_repeat_move.builtin_T_expr, { expr = true })
-
-		-- Navigation mappings
-		-- free: [b
-		map(mode, "]q", next_quickfix_el) -- (vim: go to next quickfix item (v0.11))
-		map(mode, "[q", prev_quickfix_el) -- (vim: go to prev quickfix item (v0.11))
-		map(mode, "]l", next_loclist_el) -- (vim: go to next loclist item (v0.11))
-		map(mode, "[l", prev_loclist_el) -- (vim: go to prev loclist item (v0.11))
-		map(mode, "]e", next_error)
-		map(mode, "[e", prev_error)
-		map(mode, "]d", next_diagnostic) -- (vim: go to prev diagnostic no float window (v0.10))
-		map(mode, "[d", prev_diagnostic) -- (vim: go to next diagnostic no float window (v0.10))
-		map(mode, "[t", next_indentscope) -- (vim: next tag (v0.11))
-		map(mode, "]t", prev_indentscope) -- (vim: prev tag (v0.11))
-		map(mode, "[s", next_spell) -- (vim: move to the previous misspelled word)
-		map(mode, "]s", prev_spell) -- (vim: move to the next misspelled word)
-		map(mode, "]r", move_down)
-		map(mode, "[r", move_up)
-
-		-- navigate through markdown headers
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = { "markdown" },
-			callback = function()
-				local keymap_opts = { noremap = true, silent = true, buffer = vim.api.nvim_get_current_buf() }
-				local next_md_header, prev_md_header = ts_repeat_move.make_repeatable_move_pair(function()
-					vim.cmd([[call search('\%(^#\{1,5}\s\+\S\|^\S.*\n^[=-]\+$\)', 'sW')]])
-				end, function()
-					vim.cmd([[call search('\%(^#\{1,5}\s\+\S\|^\S.*\n^[=-]\+$\)', 'bsW')]])
-				end)
-				map(mode, "]e", next_md_header, keymap_opts)
-				map(mode, "[e", prev_md_header, keymap_opts)
-			end,
-		})
-
-		configs.setup({
-			ensure_installed = {
-				"bash",
-				"comment", -- todo highlight
-				"css",
-				"html",
-				"javascript",
-				"json",
-				"lua",
-				"markdown",
-				"markdown_inline",
-				"regex",
-				"scss",
-				"styled",
-				"tmux",
-				"tsx",
-				"typescript",
-				"vim",
-				"vimdoc",
-				"yaml",
-			},
-			sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-			auto_install = true,
-			ignore_install = { "" }, -- List of parsers to ignore installing
-			highlight = {
-				enable = true, -- false will disable the whole extension
-				disable = { "" }, -- list of language that will be disabled
-				additional_vim_regex_highlighting = false,
-			},
-			indent = { enable = true },
-			autopairs = { --automatic ({[]})
-				enable = true,
-			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = false,
-					scope_incremental = false,
-					node_incremental = "<c-r>",
-					node_decremental = "<c-t>",
-				},
-			},
-			textobjects = {
-				select = {
-					enable = true,
-					-- You have to clear all mappings in the buffer to test updated mappings:
-					-- :mapclear <buffer>
-					keymaps = {
-						["ia"] = "@parameter.inner",
-						["aa"] = "@parameter.outer",
-						["ic"] = "@conditional.inner",
-						["ac"] = "@conditional.outer",
-						["if"] = "@function.inner",
-						["af"] = "@function.outer",
-						-- ["ig"] = "@call.inner",
-						-- ["ag"] = "@call.outer",
-						["ak"] = "@comment.outer",
-						["ir"] = "@number.inner",
-						["at"] = "@assignment.outer",
-						["in"] = "@assignment.lhs",
-						["iv"] = "@assignment.rhs",
-						["ix"] = "@loop.inner",
-						["ax"] = "@loop.outer",
-					},
-					selection_modes = {
-						["@function.outer"] = "V",
-						["@conditional.outer"] = "V",
-					},
-				},
-				swap = {
-					enable = true,
-					swap_next = {
-						["<leader>."] = "@parameter.inner",
-					},
-					swap_previous = {
-						["<leader>,"] = "@parameter.inner",
-					},
-				},
-				move = {
-					enable = true,
-					set_jumps = true, -- whether to set jumps in the jumplist
-					goto_next_start = {
-						["]a"] = "@parameter.inner", -- (vim: next argument list (v0.11)
-						["]k"] = "@conditional.outer", -- (vim: cursor N times forward to start of change)
-						["]f"] = "@function.outer", -- (vim: same as "gf")
-						["]g"] = "@call.outer",
-						["]c"] = "@comment.outer",
-						["]w"] = "@assignment.lhs",
-						["]o"] = "@loop.outer",
-						["]x"] = "@number.inner",
-						["]v"] = "@assignment.rhs",
-					},
-					goto_next_end = {
-						["]A"] = "@parameter.inner", -- (vim: last argument list (v0.11)
-						["]K"] = "@conditional.outer",
-						["]F"] = "@function.outer",
-						["]G"] = "@call.outer",
-						["]C"] = "@comment.outer",
-						["]W"] = "@assignment.lhs",
-						["]O"] = "@loop.outer",
-						["]X"] = "@number.inner",
-						["]V"] = "@assignment.rhs",
-					},
-					goto_previous_start = {
-						["[a"] = "@parameter.inner", -- (vim: prev argument list (v0.11)
-						["[k"] = "@conditional.outer", -- (vim: cursor N times backwards to start of change)
-						["[f"] = "@function.outer", -- (vim: same as "gf")
-						["[g"] = "@call.outer",
-						["[c"] = "@comment.outer",
-						["[w"] = "@assignment.lhs",
-						["[o"] = "@loop.outer",
-						["[x"] = "@number.inner",
-						["[v"] = "@assignment.rhs",
-					},
-					goto_previous_end = {
-						["[A"] = "@parameter.inner", -- (vim: first argument list (v0.11)
-						["[K"] = "@conditional.outer",
-						["[F"] = "@function.outer",
-						["[G"] = "@call.outer",
-						["[C"] = "@comment.outer",
-						["[W"] = "@assignment.lhs",
-						["[O"] = "@loop.outer",
-						["[X"] = "@number.inner",
-						["[V"] = "@assignment.rhs",
-					},
-				},
-				lsp_interop = {
-					enable = true,
-					border = "single",
-					floating_preview_opts = {},
-					peek_definition_code = {
-						["<leader>K"] = "@function.outer",
-					},
-				},
-			},
-		})
-	end,
 }

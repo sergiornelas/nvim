@@ -20,39 +20,40 @@ return {
 	config = function()
 		require("plugins.lsp.diagnostics").setup()
 		local on_attach = require("plugins.lsp.handlers").on_attach
+		local config = vim.lsp.config
 
 		vim.lsp.enable({ "lua_ls", "eslint", "jsonls", "cssls", "html", "yamlls", "vtsls", "tsgo" })
 
-		vim.lsp.config("vtsls", {
+		config("vtsls", {
 			on_attach = on_attach,
 			settings = require("plugins.lsp.settings.vtsls").settings,
 		})
 
-		vim.lsp.config("tsgo", {
+		config("tsgo", {
 			on_attach = function(client)
 				require("plugins.lsp.capabilities.tsgo").apply(client)
 			end,
 		})
 
-		vim.lsp.config("lua_ls", {
+		config("lua_ls", {
 			on_attach = on_attach,
 			settings = require("plugins.lsp.settings.lua_ls").settings,
 		})
 
-		vim.lsp.config("eslint", {
+		config("eslint", {
 			settings = require("plugins.lsp.settings.eslint").settings,
 		})
 
-		vim.lsp.config("jsonls", {
+		config("jsonls", {
 			on_attach = on_attach,
 			init_options = { provideFormatter = false },
 		})
 
-		vim.lsp.config("cssls", {
+		config("cssls", {
 			on_attach = on_attach,
 		})
 
-		vim.lsp.config("html", {
+		config("html", {
 			on_attach = on_attach,
 			init_options = { provideFormatter = false },
 		})
