@@ -41,12 +41,5 @@ return {
 				vim.cmd(":MasonInstall " .. v)
 			end
 		end
-
-		-- This plugin uses the lspconfig server names in the APIs it exposes,
-		-- not mason.nvim package names (prettierd, stylua, markdownlint).
-		-- You have to install them manually with MasonInstall.
-		-- mason_lspconfig.setup({
-		-- 	ensure_installed = servers,
-		-- })
 	end,
 }
