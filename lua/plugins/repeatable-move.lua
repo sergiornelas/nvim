@@ -137,5 +137,26 @@ return {
 		end)
 		map(mode, "]r", move_down)
 		map(mode, "[r", move_up)
+
+		-- ----------------
+		-- free: visual mode <c-r>/<c-t>
+		local function has_ts()
+			return vim.treesitter.get_parser(nil, nil, { error = false }) ~= nil
+		end
+		local select_parent, select_child = repeat_move.make_repeatable_move_pair(function()
+			if has_ts() then
+				require("vim.treesitter._select").select_parent(vim.v.count1)
+			else
+				vim.lsp.buf.selection_range(vim.v.count1)
+			end
+		end, function()
+			if has_ts() then
+				require("vim.treesitter._select").select_child(vim.v.count1)
+			else
+				vim.lsp.buf.selection_range(vim.v.count1)
+			end
+		end)
+		map({ "x", "o" }, "an", select_parent)
+		map({ "x", "o" }, "in", select_child)
 	end,
 }

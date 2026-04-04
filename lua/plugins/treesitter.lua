@@ -24,6 +24,11 @@ return {
 			"vimdoc",
 			"yaml",
 		})
+		-- folds
+		vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		vim.wo[0][0].foldmethod = "expr"
+		-- indentation
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 	end,
 	dependencies = {
 		{
@@ -97,6 +102,13 @@ return {
 						-- whether to set jumps in the jumplist
 						set_jumps = true,
 					},
+					select = {
+						selection_modes = {
+							["@function.outer"] = "V", -- linewise
+							["@conditional.outer"] = "V", -- linewise
+							-- ['@class.outer'] = '<c-v>', -- blockwise
+						},
+					},
 				})
 
 				local function map(mode, key, command)
@@ -113,10 +125,10 @@ return {
 				map({ "x", "o" }, "aa", function()
 					select("@parameter.outer", "textobjects")
 				end)
-				map({ "x", "o" }, "ic", function()
+				map({ "x", "o" }, "ik", function()
 					select("@conditional.inner", "textobjects")
 				end)
-				map({ "x", "o" }, "ac", function()
+				map({ "x", "o" }, "ak", function()
 					select("@conditional.outer", "textobjects")
 				end)
 				map({ "x", "o" }, "if", function()
@@ -126,30 +138,24 @@ return {
 					select("@function.outer", "textobjects")
 				end)
 				-- map({ "x", "o" }, "ig", function()
-				-- 	textobj("@call.inner", "textobjects")
+				-- 	select("@call.inner", "textobjects")
 				-- end)
 				-- map({ "x", "o" }, "ag", function()
-				-- 	textobj("@call.outer", "textobjects")
+				-- 	select("@call.outer", "textobjects")
 				-- end)
-				map({ "x", "o" }, "ak", function()
-					select("@comment.outer", "textobjects")
+				map({ "x", "o" }, "ag", function()
+					select("@assignment.outer", "textobjects")
 				end)
-				map({ "x", "o" }, "ir", function()
-					select("@number.inner", "textobjects")
-				end)
-				-- map({ "x", "o" }, "at", function() -- we use 'at' for html/jsx/tsx elements
-				-- 	select("@assignment.outer", "textobjects")
-				-- end)
-				map({ "x", "o" }, "in", function()
+				map({ "x", "o" }, "ic", function()
 					select("@assignment.lhs", "textobjects")
 				end)
 				map({ "x", "o" }, "iv", function()
 					select("@assignment.rhs", "textobjects")
 				end)
-				map({ "x", "o" }, "ix", function()
+				map({ "x", "o" }, "io", function()
 					select("@loop.inner", "textobjects")
 				end)
-				map({ "x", "o" }, "ax", function()
+				map({ "x", "o" }, "ao", function()
 					select("@loop.outer", "textobjects")
 				end)
 
