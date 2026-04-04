@@ -1,7 +1,10 @@
 -- Interesting LSP config:
 -- https://github.com/MariaSolOs/dotfiles/blob/597848ee02e6500454d6b5817a1ed0928e80dafa/.config/nvim/lua/lsp.lua#L105-L119
 local keymap = vim.keymap.set
-local methods = vim.lsp.protocol.Methods
+
+-- map 0.12
+-- defaults: map "grt" to LSP type_definition #34642 (useful for typescript)
+-- defaults: map "grx" to vim.lsp.codelens.run() #37689
 
 keymap("n", "gB", '<cmd>lua vim.diagnostic.open_float(0, { scope = "buffer", border = "double" })<CR>')
 keymap("n", "<leader>ls", vim.diagnostic.setloclist)
@@ -44,17 +47,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			end
 		end)
 	end,
-	keymap("n", "gL", "<cmd>LspInfo<cr>"),
+	keymap("n", "gL", "<cmd>checkhealth vim.lsp<cr>"),
 })
 
 local M = {}
 
 M.on_attach = function(client, bufnr)
 	require("nvim-navic").attach(client, bufnr)
-	if client.supports_method(methods.textDocument_inlayHint) then
-		vim.lsp.inlay_hint.enable(false)
-		-- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#747D83", bg = "#333232", italic = true })
-	end
 end
 
 return M

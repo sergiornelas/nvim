@@ -196,6 +196,35 @@ function _G.markdown_headings_index()
 	cmd("normal! `z")
 end
 
+-- UI2: no more press Enter
+-- g< check the full message
+require("vim._core.ui2").enable({
+	enable = true,
+	msg = { -- Options related to the message module.
+		---@type 'cmd'|'msg' Default message target, either in the
+		---cmdline or in a separate ephemeral message window.
+		---@type string|table<string, 'cmd'|'msg'|'pager'> Default message target
+		---or table mapping |ui-messages| kinds and triggers to a target.
+		targets = "cmd",
+		cmd = { -- Options related to messages in the cmdline window.
+			height = 0.5, -- Maximum height while expanded for messages beyond 'cmdheight'.
+		},
+		dialog = { -- Options related to dialog window.
+			height = 0.5, -- Maximum height.
+		},
+		msg = { -- Options related to msg window.
+			height = 0.5, -- Maximum height.
+			timeout = 4000, -- Time a message is visible in the message window.
+		},
+		pager = { -- Options related to message window.
+			height = 0.5, -- Maximum height.
+		},
+	},
+})
+
+-- Ghostty Progress Bar
+-- https://www.reddit.com/r/neovim/comments/1sacc91/ghostty_progress_bar_in_neovim_012_with/
+
 -- Neovim 0.12
 -- https://www.youtube.com/watch?v=QOk7fjgV8q0
 -- https://www.reddit.com/r/neovim/comments/1pvjiov/no_more_plugins_for_commandline_autocompletion_in/

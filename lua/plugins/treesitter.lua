@@ -29,6 +29,22 @@ return {
 		vim.wo[0][0].foldmethod = "expr"
 		-- indentation
 		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+		-- Enable nvim-treesitter and install parser if not installed
+		vim.api.nvim_create_autocmd("FileType", {
+			-- pattern = { "<filetype>" }, -- All files
+			group = vim.api.nvim_create_augroup("treesitter.setup", { clear = true }),
+			callback = function(args)
+				local treesitter = require("nvim-treesitter")
+				local lang = vim.treesitter.language.get_lang(args.match)
+				if vim.list_contains(treesitter.get_available(), lang) then
+					if not vim.list_contains(treesitter.get_installed(), lang) then
+						treesitter.install(lang):wait()
+					end
+					vim.treesitter.start(args.buf)
+				end
+			end,
+		})
 	end,
 	dependencies = {
 		{

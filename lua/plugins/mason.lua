@@ -8,10 +8,8 @@ return {
 		"json",
 		"lua",
 		"markdown",
-		"tsgo",
 		"typescript",
 		"typescriptreact",
-		"vtsls",
 		"yaml",
 	},
 	config = function()
@@ -21,16 +19,28 @@ return {
 			return
 		end
 
-		-- local servers = {
-		-- 	"cssls",
-		-- 	"eslint",
-		-- 	"html",
-		-- 	"jsonls",
-		-- 	"lua_ls",
-		-- 	-- "ts_ls",
-		-- }
-
 		mason.setup()
+
+		-- Names must be Mason package names
+		local ensure_installed = {
+			"css-lsp",
+			"html-lsp",
+			"json-lsp",
+			"lua-language-server",
+			"markdownlint",
+			"prettierd",
+			"stylua",
+			"tsgo",
+			"vtsls",
+			"yaml-language-server",
+		}
+
+		local installed_package_names = require("mason-registry").get_installed_package_names()
+		for _, v in ipairs(ensure_installed) do
+			if not vim.tbl_contains(installed_package_names, v) then
+				vim.cmd(":MasonInstall " .. v)
+			end
+		end
 
 		-- This plugin uses the lspconfig server names in the APIs it exposes,
 		-- not mason.nvim package names (prettierd, stylua, markdownlint).

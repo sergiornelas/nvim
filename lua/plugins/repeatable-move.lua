@@ -35,10 +35,10 @@ return {
 					vim.diagnostic.jump({ count = -vim.v.count1 })
 				end
 				local next_err = function()
-					vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
+					vim.diagnostic.jump({ count = vim.v.count1, severity = vim.diagnostic.severity.ERROR })
 				end
 				local prev_err = function()
-					vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
+					vim.diagnostic.jump({ count = -vim.v.count1, severity = vim.diagnostic.severity.ERROR })
 				end
 
 				-- make sure forward function comes first
