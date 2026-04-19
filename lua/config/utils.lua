@@ -222,6 +222,28 @@ require("vim._core.ui2").enable({
 	},
 })
 
+-- run pnpm build and yalc push command in the background if in hd-igniter project
+local function run_build()
+	vim.system({ "sh", "-c", "pnpm run build && yalc push" }, { detach = true }, function(obj)
+		if obj.code ~= 0 then
+			vim.notify("Build failed", vim.log.levels.ERROR)
+		else
+			vim.notify("Build + yalc OK")
+		end
+	end)
+end
+
+vim.keymap.set("n", "<leader>W", function()
+	local cwd = vim.fn.getcwd()
+
+	if cwd:match("hd%-igniter") then
+		vim.notify("Running igniter build", nil, { timeout = 4000 })
+		run_build()
+	else
+		vim.notify("You are not in hd-igniter", vim.log.levels.WARN, { timeout = 4000 })
+	end
+end, { desc = "Run igniter build (pnpm + yalc)" })
+
 -- Ghostty Progress Bar
 -- https://www.reddit.com/r/neovim/comments/1sacc91/ghostty_progress_bar_in_neovim_012_with/
 
@@ -236,3 +258,11 @@ require("vim._core.ui2").enable({
 -- 	end,
 -- })
 -- with this, you can potentially delete mini.cmdline and use blink cmdline
+
+-- Abbreviations
+-- <c-v>+space skip the abbreviation"
+vim.cmd("cabbrev sss AutoSession save<cr>")
+vim.cmd("cabbrev ssd AutoSession delete<cr>")
+
+-- Macros
+vim.fn.setreg("E", "A +\x1bJ")

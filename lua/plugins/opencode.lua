@@ -92,7 +92,7 @@ return {
 			end, { desc = "Ask OpenCode current buffer" })
 
 			-- BUG: doesn't use the current buffer list, only takes the current session opened buffers
-			keymap({ "n", "x" }, "gO", function()
+			keymap({ "n", "x" }, "gO", function() -- (vim: document symbols)
 				kitty.with_opencode(function(opencode)
 					opencode.ask("@buffers: ", { submit = true })
 				end)

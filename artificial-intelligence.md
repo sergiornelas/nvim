@@ -33,6 +33,8 @@ Adding Next Edit Suggestions to (in process):
 Replicate Cursor tab functionality
 <https://github.com/zbirenbaum/copilot.lua/commit/2ac3ab31c73ebf4b91247962c6ab6efc22d1fdf7>
 
+<https://github.com/github/copilot.vim>
+
 AI-powered next-edit suggestions (NES) for Neovim.
 <https://github.com/jim-at-jibba/nvim-stride>
 
@@ -46,6 +48,8 @@ AI-powered next-edit suggestions (NES) for Neovim.
 <https://tabby.tabbyml.com/docs/welcome/>
 
 <https://github.com/nishu-murmu/cursor-inline>
+
+<https://github.com/cursortab/cursortab.nvim>
 
 ### Related plugins
 
@@ -105,7 +109,7 @@ Satanic symbols when copilot is working in the background:
 <https://github.com/zion-off/mole.nvim>
 
 <https://www.reddit.com/r/neovim/comments/1ri7891/claudepreviewnvim_see_a_diff_before_claude_code/>
-<https://github.com/Cannon07/claude-preview.nvim>
+<https://github.com/Cannon07/code-preview.nvim>
 
 <https://github.com/0xble/dotagent.nvim>
 
@@ -117,7 +121,7 @@ Satanic symbols when copilot is working in the background:
 
 <https://www.reddit.com/r/neovim/comments/1rez717/opencode_neovim_integration/>
 
-<https://github.com/Cannon07/claude-preview.nvim>
+<https://github.com/Cannon07/code-preview.nvim>
 
 ## Magenta
 

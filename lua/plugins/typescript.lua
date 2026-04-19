@@ -1,17 +1,17 @@
 -- Organize imports on save
--- vim.api.nvim_create_autocmd("BufWritePre", {
--- 	pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
--- 	callback = function()
--- 		vim.lsp.buf.code_action({
--- 			context = {
--- 				diagnostics = {},
--- 				---@diagnostic disable-next-line: assign-type-mismatch
--- 				only = { "source.sortImports" },
--- 			},
--- 			apply = true,
--- 		})
--- 	end,
--- })
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+	callback = function()
+		vim.lsp.buf.code_action({
+			context = {
+				diagnostics = {},
+				---@diagnostic disable-next-line: assign-type-mismatch
+				only = { "source.sortImports" },
+			},
+			apply = true,
+		})
+	end,
+})
 
 local function ts_source_action(key, action)
 	vim.keymap.set("n", key, function()
@@ -68,8 +68,8 @@ return {
 			require("ts_expand_hover").setup({
 				keymaps = {
 					hover = false,
-					expand = ">",
-					collapse = "<",
+					expand = "J",
+					collapse = "K",
 				},
 				float = {
 					border = "single",

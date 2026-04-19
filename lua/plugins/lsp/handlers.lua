@@ -3,8 +3,9 @@
 local keymap = vim.keymap.set
 
 -- map 0.12
--- defaults: map "grt" to LSP type_definition #34642 (useful for typescript)
--- defaults: map "grx" to vim.lsp.codelens.run() #37689
+-- "gri" to LSP implementations
+-- "grt" to LSP type_definition
+-- "grx" to vim.lsp.codelens.run()
 
 keymap("n", "gB", '<cmd>lua vim.diagnostic.open_float(0, { scope = "buffer", border = "double" })<CR>')
 keymap("n", "<leader>ls", vim.diagnostic.setloclist)

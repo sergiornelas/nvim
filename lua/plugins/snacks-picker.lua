@@ -71,9 +71,9 @@ map("n", "<leader>fI", function()
 		end,
 	})
 end)
-map("n", "<leader>gr", "<cmd>lua Snacks.picker.git_branches()<cr>")
-map("n", "<leader>gs", "<cmd>lua Snacks.picker.git_diff({layout = 'ivy'})<cr>")
-map("n", "<leader>gf", "<cmd>lua Snacks.picker.git_files({layout = 'ivy'})<cr>")
+map("n", "<leader>gR", "<cmd>lua Snacks.picker.git_branches()<cr>")
+map("n", "<leader>gf", "<cmd>lua Snacks.picker.git_diff({layout = 'ivy'})<cr>")
+map("n", "<leader>gs", "<cmd>lua Snacks.picker.git_files({layout = 'ivy'})<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.git_grep()<cr>")
 map("n", "<leader>gc", "<cmd>lua Snacks.picker.git_log()<cr>")
 -- no results found for git_log_file:
@@ -152,7 +152,7 @@ map("n", "<leader>fu", "<cmd>lua Snacks.picker.undo({ layout = 'sidebar' })<cr>"
 -- markdown headings
 map("n", "<leader>h", "<cmd>lua markdown_headings_index()<cr>")
 -- pdf files
-map("n", "<leader>f;", function()
+map("n", "<leader>fP", function()
 	snacks.picker.files({
 		pattern = ".pdf",
 		live = true,

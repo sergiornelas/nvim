@@ -28,6 +28,11 @@ return {
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
+				local ft = vim.bo[args.buf].filetype
+				if vim.tbl_contains({ "markdown" }, ft) then
+					return
+				end
+
 				local next_warn = function()
 					vim.diagnostic.jump({ count = vim.v.count1 })
 				end

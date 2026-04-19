@@ -4,7 +4,7 @@ return {
 	lazy = false,
 	build = ":TSUpdate",
 	config = function()
-		local filetypes = {
+		require("nvim-treesitter").install({
 			"bash",
 			"comment", -- todo highlight
 			"css",
@@ -12,33 +12,40 @@ return {
 			"html",
 			"javascript",
 			"json",
+			"jsx",
 			"kitty",
 			"lua",
 			"markdown",
 			"markdown_inline",
+			"python",
 			"regex",
 			"scss",
 			"styled",
-			"tmux",
 			"tsx",
 			"typescript",
 			"vim",
 			"vimdoc",
 			"yaml",
-		}
-		-- Parsers are installed here:
-		-- ~/.local/share/nvim/site/parser
-		require("nvim-treesitter").install(filetypes)
+		})
 		-- highlighting
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = filetypes,
-			callback = function()
-				vim.treesitter.start()
+			callback = function(args)
+				local ft = vim.bo[args.buf].filetype
+				if not ft or ft == "" then
+					return
+				end
+
+				local lang = vim.treesitter.language.get_lang(ft)
+				if not lang or not vim.treesitter.language.add(lang) then
+					return
+				end
+
+				vim.treesitter.start(args.buf, lang)
 			end,
 		})
 		-- folds
-		vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-		vim.wo[0][0].foldmethod = "expr"
+		-- vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		-- vim.wo[0][0].foldmethod = "expr"
 		-- indentation
 		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 	end,

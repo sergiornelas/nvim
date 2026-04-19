@@ -174,6 +174,7 @@ joryeugene/dadbod-grip.nvim editable database grids for Neovim. Connect to Postg
 go-johnnyhe/shadow                                     pairing vscode and neovim live
 chojs23/ec                                                beautiful git conflict view
 spacedentist/resolve.nvim                                 beautiful git conflict view
+propilideno/buffer-preview.nvim                             preview pdf and shortcuts
 
 Last time revisited all these plugins
 20/05/2024
@@ -181,7 +182,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Mar 26, 2026 (Update ymic9963/mdnotes.nvim)
+Apr 17, 2026 (Add ryan-WORK/ohm)
 
 <https://dotfyle.com/neovim/plugins/new>
-iamironz/android-nvim-plugin
+retran/meow.yarn.nvim

@@ -162,14 +162,6 @@ autocmd("LspProgress", {
 	end,
 })
 
--- Abbreviations
--- <c-v>+space skip the abbreviation"
-vim.cmd("cabbrev sss AutoSession save<cr>")
-vim.cmd("cabbrev ssd AutoSession delete<cr>")
-
--- Macros
--- switch ^[ to \<esc>, switch ^M to \<cr>, switch ^R to \<c-r>
-
 -- Reference commands ========================
 -- Execute command when VimEnter and after some miliseconds
 -- autocmd VimEnter * call timer_start(10, {-> execute("unmap [%")})

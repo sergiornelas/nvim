@@ -1,3 +1,4 @@
+-- npm install -g @fsouza/prettierd
 return {
 	"stevearc/conform.nvim",
 	keys = {

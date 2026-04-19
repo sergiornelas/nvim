@@ -1,7 +1,6 @@
 local o = vim.opt
 
 o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-o.cmdheight = 0 --             minimal number of lines to keep below the last line when scrolling
 o.conceallevel = 2 --          so that `` is visible in markdown files, useful for markdown files
 o.cursorline = true --         highlight the current line
 o.expandtab = true --          convert tabs to spaces (useful for markdown extraspaces)

@@ -59,3 +59,12 @@ vim.api.nvim_create_user_command("Google", function(o)
 	vim.ui.open(url)
 end, { nargs = 1, desc = "just google it" })
 map("n", "<leader><c-j>", ":Google ")
+
+-- Add console.log to current line
+map("n", "<leader>z", function()
+	local word = vim.fn.expand("<cword>")
+	local line = vim.fn.line(".")
+	local indent = vim.fn.getline("."):match("^%s*")
+	local log_line = indent .. "console.log('" .. word .. "', " .. word .. ");"
+	vim.fn.append(line, log_line)
+end)

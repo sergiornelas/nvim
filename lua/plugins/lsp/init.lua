@@ -22,7 +22,8 @@ return {
 		local on_attach = require("plugins.lsp.handlers").on_attach
 		local config = vim.lsp.config
 
-		vim.lsp.enable({ "lua_ls", "eslint", "jsonls", "cssls", "html", "yamlls", "vtsls", "tsgo" })
+		-- npm install -g vscode-langservers-extracted
+		vim.lsp.enable({ "lua_ls", "eslint", "jsonls", "cssls", "html", "yamlls", "vtsls", "tsgo", "tailwindcss" })
 
 		config("vtsls", {
 			on_attach = on_attach,

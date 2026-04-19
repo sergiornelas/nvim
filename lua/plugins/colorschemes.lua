@@ -247,4 +247,18 @@ return {
 			})
 		end,
 	},
+	{
+		"miikanissi/modus-themes.nvim",
+		keys = lazy_map,
+		opts = { transparent = true },
+	},
+	{
+		"hyperb1iss/silkcircuit",
+		keys = lazy_map,
+		config = function()
+			require("silkcircuit").setup({
+				transparent = true,
+			})
+		end,
+	},
 }
