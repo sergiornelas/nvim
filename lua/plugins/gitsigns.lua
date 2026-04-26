@@ -56,7 +56,7 @@ function M.config()
 				gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end)
 
-			map("n", "<leader>gS", gitsigns.stage_buffer)
+			map("n", "<leader>S", gitsigns.stage_buffer)
 			map("n", "<leader>gr", gitsigns.reset_buffer)
 			map("n", "<leader>e", gitsigns.preview_hunk)
 			map("n", "<leader>gg", gitsigns.preview_hunk_inline)

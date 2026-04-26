@@ -2,7 +2,7 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 map("n", "<leader>G", "<cmd>lua Snacks.gitbrowse()<cr>", opts)
 map("n", "<leader>N", "<cmd>lua Snacks.scratch()<cr>", opts)
-map("n", "<leader>S", "<cmd>lua Snacks.scratch.select()<cr>", opts)
+-- map("n", "<leader>S", "<cmd>lua Snacks.scratch.select()<cr>", opts)
 map("n", "<c-n>", "<cmd>lua Snacks.words.jump(1, true)<cr>", opts) -- (vim: same as "j")
 map("n", "<c-p>", "<cmd>lua Snacks.words.jump(-1, true)<cr>", opts) -- (vim: same as "k")
 map("n", "<c-;>", "<cmd>lua Snacks.zen()<cr>", opts)

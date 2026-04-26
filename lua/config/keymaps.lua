@@ -16,6 +16,7 @@ map("n", "gG", "<cmd>%y<cr>") --            	               yank full buffer
 map("n", "<leader><c-q>", "<cmd>qa!<cr>") -- 	              force exit neovim
 map({ "n", "x" }, "<c-w><c-u>", "<cmd>vnew<cr>") -- new buffer vertical split
 map("t", "<esc>", "<c-\\><c-n>") --               escape insert mode terminal
+map("n", "<c-w><c-a>", "<cmd>vsplit #<cr>") -- split previous buffer vertical
 map("n", "<leader>n", '<cmd>lua toggle_file_in_split("~/notes/scratch/main.md")<cr>') -- toggle scratch file
 map("n", "<leader>R", "<cmd>lua toggle_window_resize()<cr>") -- toggle auto resize window mode
 map("c", "<c-o>", "<c-p>") --                 previous command (mini.cmdline)
@@ -60,11 +61,22 @@ vim.api.nvim_create_user_command("Google", function(o)
 end, { nargs = 1, desc = "just google it" })
 map("n", "<leader><c-j>", ":Google ")
 
--- Add console.log to current line
+-- Add console.log below current word
 map("n", "<leader>z", function()
 	local word = vim.fn.expand("<cword>")
 	local line = vim.fn.line(".")
 	local indent = vim.fn.getline("."):match("^%s*")
 	local log_line = indent .. "console.log('" .. word .. "', " .. word .. ");"
 	vim.fn.append(line, log_line)
+end)
+
+-- execute `pnpm run build && yalc push` command in the background if you are in  hd-igniter project
+map("n", "<leader>W", function()
+	local cwd = vim.fn.getcwd()
+	if cwd:match("hd%-igniter") then
+		vim.notify("Running igniter build", nil, { timeout = 4000 })
+		run_build()
+	else
+		vim.notify("You are not in hd-igniter", vim.log.levels.WARN, { timeout = 4000 })
+	end
 end)

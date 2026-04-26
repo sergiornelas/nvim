@@ -48,7 +48,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			end
 		end)
 	end,
-	keymap("n", "gL", "<cmd>checkhealth vim.lsp<cr>"),
 })
 
 local M = {}

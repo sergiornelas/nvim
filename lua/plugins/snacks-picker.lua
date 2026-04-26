@@ -105,7 +105,7 @@ map("n", "<leader>fk", "<cmd>lua Snacks.picker.keymaps({layout = 'ivy_split'})<c
 map("n", "<leader>fz", "<cmd>lua Snacks.picker.lazy({layout = 'ivy'})<cr>")
 map("n", "<leader>ff", "<cmd>lua Snacks.picker.lines({layout = 'ivy_split'})<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.loclist()<cr>")
--- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_config()<cr>")
+map("n", "gL", "<cmd>lua Snacks.picker.lsp_config()<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_declarations()<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_definitions()<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.lsp_implementations()<cr>")

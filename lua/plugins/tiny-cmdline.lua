@@ -1,8 +1,8 @@
 return {
 	"rachartier/tiny-cmdline.nvim",
+	enabled = false,
 	-- TODO:
 	-- It requires vim.opt.cmdheight = 0 to work, wait until updates
-	lazy = true,
 	config = function()
 		require("tiny-cmdline").setup({
 			width = {

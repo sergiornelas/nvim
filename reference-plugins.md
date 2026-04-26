@@ -182,7 +182,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Apr 17, 2026 (Add ryan-WORK/ohm)
+Apr 26, 2026 (Add saghen/blink.lib)
 
 <https://dotfyle.com/neovim/plugins/new>
-retran/meow.yarn.nvim
+plutowang/nvim.pack

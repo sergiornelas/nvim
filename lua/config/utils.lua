@@ -10,15 +10,15 @@ function _G.toggle_boolean()
 end
 
 function _G.close_all_terminals_and_pdf()
-	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-		if not vim.api.nvim_buf_is_loaded(buf) then
+	for _, buf in ipairs(api.nvim_list_bufs()) do
+		if not api.nvim_buf_is_loaded(buf) then
 			goto continue
 		end
 		local is_terminal = vim.bo[buf].buftype == "terminal"
-		local name = vim.api.nvim_buf_get_name(buf)
+		local name = api.nvim_buf_get_name(buf)
 		local is_pdf = name ~= "" and name:lower():match("%.pdf$")
 		if is_terminal or is_pdf then
-			vim.api.nvim_buf_delete(buf, { force = true })
+			api.nvim_buf_delete(buf, { force = true })
 		end
 		::continue::
 	end
@@ -196,6 +196,17 @@ function _G.markdown_headings_index()
 	cmd("normal! `z")
 end
 
+-- execute `pnpm run build && yalc push` command in the background if you are in  hd-igniter project
+function _G.run_build()
+	vim.system({ "sh", "-c", "pnpm run build && yalc push" }, { detach = true }, function(obj)
+		if obj.code ~= 0 then
+			vim.notify("Build failed", vim.log.levels.ERROR)
+		else
+			vim.notify("Build + yalc OK")
+		end
+	end)
+end
+
 -- UI2: no more press Enter
 -- g< check the full message
 require("vim._core.ui2").enable({
@@ -222,30 +233,13 @@ require("vim._core.ui2").enable({
 	},
 })
 
--- run pnpm build and yalc push command in the background if in hd-igniter project
-local function run_build()
-	vim.system({ "sh", "-c", "pnpm run build && yalc push" }, { detach = true }, function(obj)
-		if obj.code ~= 0 then
-			vim.notify("Build failed", vim.log.levels.ERROR)
-		else
-			vim.notify("Build + yalc OK")
-		end
-	end)
-end
+-- Abbreviations
+-- <c-v>+space skip the abbreviation"
+cmd("cabbrev sss AutoSession save<cr>")
+cmd("cabbrev ssd AutoSession delete<cr>")
 
-vim.keymap.set("n", "<leader>W", function()
-	local cwd = vim.fn.getcwd()
-
-	if cwd:match("hd%-igniter") then
-		vim.notify("Running igniter build", nil, { timeout = 4000 })
-		run_build()
-	else
-		vim.notify("You are not in hd-igniter", vim.log.levels.WARN, { timeout = 4000 })
-	end
-end, { desc = "Run igniter build (pnpm + yalc)" })
-
--- Ghostty Progress Bar
--- https://www.reddit.com/r/neovim/comments/1sacc91/ghostty_progress_bar_in_neovim_012_with/
+-- Macros
+fn.setreg("E", "A +\x1bJ")
 
 -- Neovim 0.12
 -- https://www.youtube.com/watch?v=QOk7fjgV8q0
@@ -259,10 +253,5 @@ end, { desc = "Run igniter build (pnpm + yalc)" })
 -- })
 -- with this, you can potentially delete mini.cmdline and use blink cmdline
 
--- Abbreviations
--- <c-v>+space skip the abbreviation"
-vim.cmd("cabbrev sss AutoSession save<cr>")
-vim.cmd("cabbrev ssd AutoSession delete<cr>")
-
--- Macros
-vim.fn.setreg("E", "A +\x1bJ")
+-- Ghostty Progress Bar
+-- https://www.reddit.com/r/neovim/comments/1sacc91/ghostty_progress_bar_in_neovim_012_with/

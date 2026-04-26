@@ -68,7 +68,7 @@ function M.config()
 			lualine_y = { "diff" },
 			lualine_z = {
 				{
-					require("opencode").statusline,
+					-- require("opencode").statusline,
 				},
 			},
 		},

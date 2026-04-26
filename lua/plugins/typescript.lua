@@ -1,17 +1,31 @@
--- Organize imports on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
-	callback = function()
-		vim.lsp.buf.code_action({
-			context = {
-				diagnostics = {},
-				---@diagnostic disable-next-line: assign-type-mismatch
-				only = { "source.sortImports" },
-			},
-			apply = true,
-		})
-	end,
-})
+-- Organize imports on save (buggy)
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+-- 	callback = function()
+-- 		vim.lsp.buf.code_action({
+-- 			context = {
+-- 				diagnostics = {},
+-- 				---@diagnostic disable-next-line: assign-type-mismatch
+-- 				only = { "source.sortImports" },
+-- 			},
+-- 			apply = true,
+-- 		})
+-- 	end,
+-- })
+
+-- vim.keymap.set("n", "<leader>tti", function()
+-- 	vim.lsp.buf.code_action({
+-- 		apply = true,
+-- 		context = {
+-- 			diagnostics = {},
+-- 			---@diagnostic disable-next-line: assign-type-mismatch
+-- 			only = { "source.fixAll.eslint" },
+-- 		},
+-- 	})
+-- 	-- vim.defer_fn(function()
+-- 	-- 	vim.cmd("write")
+-- 	-- end, 400)
+-- end)
 
 local function ts_source_action(key, action)
 	vim.keymap.set("n", key, function()
@@ -28,6 +42,8 @@ end
 -- Disable: Language server `vtsls` does not support command `_typescript.didOrganizeImports`.
 vim.lsp.commands["_typescript.didOrganizeImports"] = function() end
 
+-- Organize correctly the imports
+ts_source_action("<leader>tti", "source.fixAll.eslint")
 -- Organize Imports
 ts_source_action("<leader>tto", "source.organizeImports")
 -- Sort Imports

@@ -46,4 +46,19 @@ return {
 	-- https://www.reddit.com/r/neovim/comments/1prctpf/integrating_snackspicker_with_vscodediffnvim_a/
 	-- https://www.reddit.com/r/neovim/comments/1puo5cm/any_way_to_speed_up_typescript_lsp_startup_or/
 	-- https://github.com/Avi-D-coder/whisper.nvim
+	-- https://github.com/enochchau/nvim-pretty-ts-errors (seems like it's not working as the image (26/01/2026))
+	-- https://github.com/monkoose/neocodeium
+	-- https://www.reddit.com/r/neovim/comments/1qhubcr/hauntnvim_hear_the_ghosts_tell_you_where_you_were/
+	-- https://github.com/TheNoeTrevino/haunt.nvim
+	-- https://github.com/saghen/blink.pairs
+
+	-- TREESITTER
+	-- https://www.reddit.com/r/neovim/comments/1sj1ggo/treesitter_without_nvimtreesitter_a_guide/
+	-- https://github.com/romus204/tree-sitter-manager.nvim
+
+	-- https://www.reddit.com/r/neovim/comments/1shks8o/nvim_012s_new_restart_command_is_nice/
+
+	-- https://github.com/aurora0x27/popup.nvim/
+
+	-- https://github.com/Chiarandini/smart-actions.nvim
 }
