@@ -71,12 +71,12 @@ map("n", "<leader>z", function()
 end)
 
 -- execute `pnpm run build && yalc push` command in the background if you are in  hd-igniter project
-map("n", "<leader>W", function()
+map("n", "<leader>I", function()
 	local cwd = vim.fn.getcwd()
 	if cwd:match("hd%-igniter") then
-		vim.notify("Running igniter build", nil, { timeout = 4000 })
+		vim.notify("Running igniter build", nil)
 		run_build()
 	else
-		vim.notify("You are not in hd-igniter", vim.log.levels.WARN, { timeout = 4000 })
+		vim.notify("You are not in hd-igniter", vim.log.levels.WARN)
 	end
 end)

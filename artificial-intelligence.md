@@ -113,6 +113,8 @@ Satanic symbols when copilot is working in the background:
 
 <https://github.com/0xble/dotagent.nvim>
 
+<https://github.com/paulburgess1357/nvim-mcp>
+
 ## Open code
 
 <https://github.com/NickvanDyke/opencode.nvim>

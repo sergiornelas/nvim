@@ -58,7 +58,5 @@ return {
 
 	-- https://www.reddit.com/r/neovim/comments/1shks8o/nvim_012s_new_restart_command_is_nice/
 
-	-- https://github.com/aurora0x27/popup.nvim/
-
 	-- https://github.com/Chiarandini/smart-actions.nvim
 }

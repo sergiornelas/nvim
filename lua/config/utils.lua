@@ -199,11 +199,21 @@ end
 -- execute `pnpm run build && yalc push` command in the background if you are in  hd-igniter project
 function _G.run_build()
 	vim.system({ "sh", "-c", "pnpm run build && yalc push" }, { detach = true }, function(obj)
-		if obj.code ~= 0 then
-			vim.notify("Build failed", vim.log.levels.ERROR)
-		else
-			vim.notify("Build + yalc OK")
-		end
+		vim.schedule(function()
+			if obj.code ~= 0 then
+				fn.jobstart({
+					"osascript",
+					"-e",
+					'display notification "Build failed" with title "HD Igniter"',
+				})
+			else
+				fn.jobstart({
+					"osascript",
+					"-e",
+					'display notification "Build + yalc OK" with title "HD Igniter"',
+				})
+			end
+		end)
 	end)
 end
 

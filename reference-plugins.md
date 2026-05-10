@@ -182,7 +182,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Apr 26, 2026 (Add saghen/blink.lib)
+May 2, 2026 (Add DaFi-1/tasknvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-plutowang/nvim.pack
+adithyasource/spearmint.nvim
