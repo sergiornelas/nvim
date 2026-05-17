@@ -23,9 +23,6 @@ function M.config()
 		purge_after_minutes = 14400, -- delete sessions that haven't been accessed for more than 10 days
 		lsp_stop_on_restore = true,
 		pre_save_cmds = {
-			function()
-				toggle_file_in_split(false)
-			end,
 			close_all_terminals_and_pdf,
 			"ccl",
 			"lclose",

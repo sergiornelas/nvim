@@ -24,42 +24,6 @@ function _G.close_all_terminals_and_pdf()
 	end
 end
 
--- Toggle scratch file
-function _G.toggle_file_in_split(filepath)
-	-- If filepath arg is not present (auto-session)
-	if not filepath then
-		local path = "~/notes/scratch/main.md"
-		if fn.bufnr(path) ~= -1 then
-			cmd("bd" .. path)
-		end
-		return
-	end
-	_G.file_windows = _G.file_windows or {}
-	local current_tab_id = api.nvim_get_current_tabpage()
-	_G.file_windows[current_tab_id] = _G.file_windows[current_tab_id] or {}
-	local window_id = _G.file_windows[current_tab_id].window_id
-	local last_file = _G.file_windows[current_tab_id].last_file or filepath
-	-- Close window
-	if window_id and api.nvim_win_is_valid(window_id) then
-		-- Store the current file path before closing the window
-		_G.file_windows[current_tab_id].last_file = api.nvim_buf_get_name(api.nvim_win_get_buf(window_id))
-		api.nvim_win_close(window_id, true)
-		cmd("wincmd p")
-	else
-		-- Open file
-		local RESIZE_AMOUNT = 6
-		local full_filepath = fn.expand(last_file)
-		cmd("keepalt split " .. filepath)
-		cmd("e" .. full_filepath)
-		window_id = api.nvim_get_current_win()
-		cmd("wincmd J")
-		cmd("resize +" .. RESIZE_AMOUNT .. " | wincmd p | wincmd p")
-		cmd("normal! zz")
-	end
-	-- Update window ID in file_windows table
-	_G.file_windows[current_tab_id].window_id = window_id and api.nvim_win_is_valid(window_id) and window_id or nil
-end
-
 -- Equalize windows width (not height) through all tabs when resizing Vim
 -- Function to fix or unfix the window heights for all windows in a tab
 local function fix_window_heights(fix)

@@ -1,6 +1,6 @@
 local custom_layout = {
 	layout = {
-		backdrop = true, -- doesn't work with transparent background
+		backdrop = true, -- dim no funciona con Normal transparente (winblend no tiene bg contra qué mezclar)
 		row = 1,
 		width = 0.4,
 		min_width = 85,

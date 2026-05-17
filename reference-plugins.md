@@ -182,7 +182,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-May 2, 2026 (Add DaFi-1/tasknvim)
+May 15, 2026 (Add Toys section)
 
 <https://dotfyle.com/neovim/plugins/new>
-adithyasource/spearmint.nvim
+so1ve/code-action-menu.nvim

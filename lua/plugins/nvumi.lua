@@ -1,7 +1,7 @@
 return {
 	"josephburgess/nvumi",
 	keys = {
-		{ "<leader>V", "<cmd>Nvumi<cr>" },
+		{ "<leader>E", "<cmd>Nvumi<cr>" },
 	},
 	opts = {
 		virtual_text = "inline", -- or "inline"

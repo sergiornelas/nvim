@@ -21,6 +21,7 @@ vim.g.mapleader = " "
 require("config.options")
 require("config.autocommands")
 require("config.utils")
+require("config.file_in_float")
 require("config.keymaps")
 
 require("lazy").setup({
