@@ -4,7 +4,7 @@ local opts = { noremap = true, silent = true }
 return {
 	{
 		"OXY2DEV/markview.nvim",
-		ft = "markdown",
+		lazy = false,
 		config = function()
 			require("markview").setup({
 				preview = {

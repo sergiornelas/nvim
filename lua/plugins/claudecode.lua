@@ -1,11 +1,11 @@
--- TODO: If another claude code is running, it should be closed
-
 -- TODO: If user is in a different tab than claude code running, focusing in the window
 -- with neovim session should be ignored. Only triggers that if we are currently in the same tab
 -- where the claude code is running
+
 local kitty_pane_id = nil
 local diff_tab = nil
 local nvim_pane_id = tonumber(vim.fn.getenv("KITTY_WINDOW_ID"))
+local startup_check_done = false
 
 local function pane_exists(id)
 	if not id then
@@ -13,6 +13,39 @@ local function pane_exists(id)
 	end
 	vim.fn.system('kitty @ ls 2>/dev/null | grep -q \'"id": ' .. id .. "'")
 	return vim.v.shell_error == 0
+end
+
+-- Find an orphaned "claude" window in the same Kitty tab as Neovim.
+-- Returns the window id, or nil if none exists / not in Kitty.
+local function find_orphan_claude_in_nvim_tab()
+	if not nvim_pane_id then
+		return nil
+	end
+	local output = vim.fn.system("kitty @ ls 2>/dev/null")
+	if vim.v.shell_error ~= 0 then
+		return nil
+	end
+	local ok, os_windows = pcall(vim.json.decode, output)
+	if not ok or type(os_windows) ~= "table" then
+		return nil
+	end
+	for _, os_win in ipairs(os_windows) do
+		for _, tab in ipairs(os_win.tabs or {}) do
+			local has_nvim, claude_id = false, nil
+			for _, win in ipairs(tab.windows or {}) do
+				if win.id == nvim_pane_id then
+					has_nvim = true
+				end
+				if win.title == "claude" then
+					claude_id = win.id
+				end
+			end
+			if has_nvim and claude_id then
+				return claude_id
+			end
+		end
+	end
+	return nil
 end
 
 local function focus_pane()
@@ -29,6 +62,16 @@ local function close_pane()
 end
 
 local function launch_pane(cmd_string, env_table)
+	if not startup_check_done then
+		startup_check_done = true
+		local orphan_id = find_orphan_claude_in_nvim_tab()
+		if orphan_id then
+			vim.fn.system("kitty @ close-window --match id:" .. orphan_id)
+			if not cmd_string:match("%-%-continue") and not cmd_string:match("%-%-resume") then
+				cmd_string = cmd_string .. " --continue"
+			end
+		end
+	end
 	local env_args = ""
 	for k, v in pairs(env_table or {}) do
 		env_args = env_args .. "--env " .. k .. "=" .. vim.fn.shellescape(v) .. " "

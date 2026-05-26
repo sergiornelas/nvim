@@ -67,12 +67,13 @@ map("n", "<leader>fI", function()
 			require("img-clip").paste_image({}, "./" .. item.file) -- ./ is necessary for img-clip to recognize it as path
 		end,
 		on_show = function(picker)
+			_G.close_file_in_float()
 			snacks.picker.actions.toggle_maximize(picker)
 		end,
 	})
 end)
 map("n", "<leader>gR", "<cmd>lua Snacks.picker.git_branches()<cr>")
-map("n", "<leader>gf", "<cmd>lua Snacks.picker.git_diff({layout = 'ivy'})<cr>")
+-- map("n", "<leader>gf", "<cmd>lua Snacks.picker.git_diff({layout = 'ivy'})<cr>")
 map("n", "<leader>gs", "<cmd>lua Snacks.picker.git_files({layout = 'ivy'})<cr>")
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.git_grep()<cr>")
 map("n", "<leader>gc", "<cmd>lua Snacks.picker.git_log()<cr>")
@@ -82,7 +83,7 @@ map("n", "<leader>gm", "<cmd>lua Snacks.picker.git_log_file({layout = 'ivy_split
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.git_log_line()<cr>")
 map("n", "<leader>gh", "<cmd>lua Snacks.picker.git_stash()<cr>")
 -- show other project status:
--- map("n", "<leader>", "<cmd>lua Snacks.picker.git_status()<cr>")
+map("n", "<leader>gf", "<cmd>lua Snacks.picker.git_status()<cr>")
 map("n", "<leader>fl", function()
 	snacks.picker.grep({
 		layout = custom_layout,
@@ -168,6 +169,9 @@ return {
 	opts = {
 		-- telescope
 		picker = {
+			on_show = function()
+				_G.close_file_in_float()
+			end,
 			formatters = {
 				file = {
 					filename_first = false,

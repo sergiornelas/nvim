@@ -58,5 +58,7 @@ return {
 			on_attach = on_attach,
 			init_options = { provideFormatter = false },
 		})
+
+		require("plugins.lsp.progress").setup()
 	end,
 }

@@ -238,4 +238,3 @@ vim.api.nvim_create_autocmd("FileType", {
 - Maintains backward compatibility where possible
 - Values performance and startup speed
 - Uses transparent themes and custom highlights
-

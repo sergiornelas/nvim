@@ -3,31 +3,24 @@ local fn = vim.fn
 
 api.nvim_set_hl(0, "ScratchBackdrop", { bg = "#000000", default = true })
 
--- Persisted view state per file (cursor + scroll + fold) across nvim sessions
-local VIEW_FILE = fn.stdpath("data") .. "/scratch_views.json"
-
-local function load_views()
-	if fn.filereadable(VIEW_FILE) == 0 then
-		return {}
-	end
-	local ok, views = pcall(vim.json.decode, fn.readfile(VIEW_FILE)[1] or "")
-	return (ok and type(views) == "table") and views or {}
-end
-
-local function save_view(filepath, view)
-	local views = load_views()
-	views[filepath] = view
-	fn.writefile({ vim.json.encode(views) }, VIEW_FILE)
-end
-
 local window_id, backdrop_id, backdrop_buf
+
+function _G.close_file_in_float()
+	if not (window_id and api.nvim_win_is_valid(window_id)) then
+		return false
+	end
+	local w, b = window_id, backdrop_id
+	window_id, backdrop_id = nil, nil
+	pcall(api.nvim_win_close, w, true)
+	if b then
+		pcall(api.nvim_win_close, b, true)
+	end
+	return true
+end
 
 function _G.toggle_file_in_float(filepath)
 	-- Close
-	if window_id and api.nvim_win_is_valid(window_id) then
-		local file = api.nvim_buf_get_name(api.nvim_win_get_buf(window_id))
-		save_view(file, api.nvim_win_call(window_id, fn.winsaveview))
-		api.nvim_win_close(window_id, true)
+	if _G.close_file_in_float() then
 		return
 	end
 	-- Backdrop (dims the editor behind the float)
@@ -41,6 +34,7 @@ function _G.toggle_file_in_float(filepath)
 		width = vim.o.columns,
 		height = vim.o.lines,
 		style = "minimal",
+		border = "none",
 		focusable = false,
 		zindex = 49,
 	})
@@ -63,10 +57,8 @@ function _G.toggle_file_in_float(filepath)
 		title_pos = "center",
 		zindex = 50,
 	})
-	local view = load_views()[full_filepath]
-	if view then
-		fn.winrestview(view)
-	end
+	vim.wo[window_id].cursorline = true
+	vim.wo[window_id].colorcolumn = "80"
 	-- Cleanup backdrop and state when floating window is closed by any means
 	api.nvim_create_autocmd("WinClosed", {
 		pattern = tostring(window_id),

@@ -182,7 +182,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-May 15, 2026 (Add Toys section)
+May 20, 2026 (Update fosk/registers.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-so1ve/code-action-menu.nvim
+WantDead/theme-sync.nvim
