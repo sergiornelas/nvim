@@ -44,6 +44,8 @@ autocmd("ColorScheme", {
 			{ "TreesitterContextLineNumber", { fg = "#807B7B" } },
 			{ "Visual", { bg = "#52524e" } },
 			{ "VisualNonText", { fg = "#9d9681", bg = "#52524e" } },
+			{ "WinBar", { bg = "#151413", bold = true } },
+			{ "WinBarNC", { bg = "#151413", bold = true } },
 		}
 		for _, highlight in ipairs(highlights) do
 			vim.api.nvim_set_hl(0, highlight[1], highlight[2])

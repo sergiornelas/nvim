@@ -160,7 +160,7 @@ function _G.markdown_headings_index()
 	cmd("normal! `z")
 end
 
--- execute `pnpm run build && yalc push` command in the background if you are in  hd-igniter project
+-- execute `pnpm run build && yalc push` command in the background if you are in hd-igniter project
 function _G.run_build()
 	vim.system({ "sh", "-c", "pnpm run build && yalc push" }, { detach = true }, function(obj)
 		vim.schedule(function()

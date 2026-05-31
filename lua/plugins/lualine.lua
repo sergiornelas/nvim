@@ -23,6 +23,28 @@ function M.config()
 	-- 	return " 0 "
 	-- end
 
+	local function relative_dir()
+		return vim.fn.expand("%:.:h")
+	end
+
+	local progress_component = {
+		"progress",
+		color = { bg = "", fg = "#A39D9D" },
+		padding = { right = 1 },
+	}
+
+	local function grapple_component(color)
+		return {
+			function()
+				return "󰛢 " .. require("grapple").name_or_index()
+			end,
+			cond = function()
+				return package.loaded["grapple"] and require("grapple").exists()
+			end,
+			color = color,
+		}
+	end
+
 	lualine.setup({
 		options = {
 			icons_enabled = true,
@@ -40,30 +62,16 @@ function M.config()
 				-- {
 				-- 	custom_status,
 				-- },
-				{
-					"progress",
-					color = { bg = "", fg = "#A39D9D" },
-					padding = {
-						right = 1,
-					},
-				},
-				{
-					function()
-						return "󰛢 " .. require("grapple").name_or_index()
-					end,
-					cond = function()
-						return package.loaded["grapple"] and require("grapple").exists()
-					end,
-					color = { bg = "#151517", fg = "#ebdbb2" },
-				},
+				progress_component,
+				grapple_component({ bg = "#151517", fg = "#ebdbb2" }),
 				{
 					"filename",
 					color = { bg = "#4f0000", fg = "#ebdbb2" },
-					path = 4,
+					path = 0,
 				},
 			},
 			lualine_b = { "diagnostics" },
-			lualine_c = { "navic" },
+			lualine_c = { relative_dir },
 			lualine_x = { "" },
 			lualine_y = { "diff" },
 			lualine_z = {
@@ -72,9 +80,23 @@ function M.config()
 				},
 			},
 		},
+		winbar = {
+			lualine_c = { "navic" },
+		},
+		inactive_winbar = {
+			lualine_c = { "navic" },
+		},
 		inactive_sections = {
-			lualine_a = { "filename" },
-			lualine_c = {},
+			lualine_a = {
+				progress_component,
+				grapple_component({ bg = "#151517", fg = "#A39D9D" }),
+				{
+					"filename",
+					path = 0,
+					color = { bg = "#300000", fg = "#B0A994" },
+				},
+			},
+			lualine_c = { relative_dir },
 			lualine_x = {},
 		},
 		tabline = {},

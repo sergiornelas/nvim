@@ -70,7 +70,7 @@ map("n", "<leader>z", function()
 	vim.fn.append(line, log_line)
 end)
 
--- execute `pnpm run build && yalc push` command in the background if you are in  hd-igniter project
+-- execute `pnpm run build && yalc push` command in the background if you are in hd-igniter project
 map("n", "<leader>I", function()
 	local cwd = vim.fn.getcwd()
 	if cwd:match("hd%-igniter") then
