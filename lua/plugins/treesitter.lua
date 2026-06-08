@@ -55,9 +55,15 @@ return {
 			config = function()
 				require("treesitter-context").setup({
 					enable = true,
-					max_lines = 0,
+					max_lines = 7,
 					line_numbers = true,
 					multiline_threshold = 20,
+				})
+				vim.api.nvim_create_autocmd("FileType", {
+					pattern = { "markdown" },
+					callback = function()
+						vim.cmd("TSContext disable")
+					end,
 				})
 				local keymap = vim.keymap.set
 				local opts = { noremap = true, silent = true }

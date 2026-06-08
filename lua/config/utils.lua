@@ -94,6 +94,9 @@ function _G.markdown_headings_index()
 	if vim.bo.filetype ~= "markdown" then
 		return
 	end
+	if api.nvim_win_get_config(0).relative ~= "" then
+		_G.promote_file_in_float_to_split()
+	end
 	cmd("normal! mz")
 	local status, headings_count = pcall(function()
 		return tonumber(fn.execute("%s/## //gn"):match("%d+"))

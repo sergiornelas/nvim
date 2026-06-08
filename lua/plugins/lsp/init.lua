@@ -23,7 +23,18 @@ return {
 		local config = vim.lsp.config
 
 		-- npm install -g vscode-langservers-extracted
-		vim.lsp.enable({ "lua_ls", "eslint", "jsonls", "cssls", "html", "yamlls", "vtsls", "tsgo", "tailwindcss" })
+		vim.lsp.enable({
+			"lua_ls",
+			"eslint",
+			"jsonls",
+			"cssls",
+			"html",
+			"yamlls",
+			"vtsls",
+			"tsgo",
+			"tailwindcss",
+			"marksman",
+		})
 
 		config("vtsls", {
 			on_attach = on_attach,
@@ -57,6 +68,10 @@ return {
 		config("html", {
 			on_attach = on_attach,
 			init_options = { provideFormatter = false },
+		})
+
+		config("marksman", {
+			on_attach = on_attach,
 		})
 
 		require("plugins.lsp.progress").setup()

@@ -84,7 +84,7 @@ function M.config()
 				{ "NavicIconsTypeParameter", { fg = colors.green } },
 				{ "NavicIconsVariable", { fg = colors.blue } },
 				{ "NavicSeparator", { fg = colors.red } },
-				{ "NavicText", { fg = "#C7BBAB" } },
+				{ "NavicText", { fg = "#DBD2C5" } },
 			}
 			for _, highlight in ipairs(highlights) do
 				vim.api.nvim_set_hl(0, highlight[1], highlight[2])

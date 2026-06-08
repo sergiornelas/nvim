@@ -143,6 +143,8 @@ map("n", "<leader>fp", function()
 				border = "single",
 			},
 		},
+		-- keeps file_in_float open
+		on_show = function() end,
 	})
 end)
 map("n", "<leader>ft", "<cmd>lua Snacks.picker.treesitter({layout = 'ivy_split'})<cr>")

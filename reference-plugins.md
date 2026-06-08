@@ -175,6 +175,7 @@ go-johnnyhe/shadow                                     pairing vscode and neovim
 chojs23/ec                                                beautiful git conflict view
 spacedentist/resolve.nvim                                 beautiful git conflict view
 propilideno/buffer-preview.nvim                             preview pdf and shortcuts
+ChuYanLon/telegram.nvim                                           telegram for neovim
 
 Last time revisited all these plugins
 20/05/2024
@@ -182,7 +183,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-May 20, 2026 (Update fosk/registers.nvim)
+Jun 06, 2026 (Add kkew3/jieba.vim)
 
 <https://dotfyle.com/neovim/plugins/new>
-WantDead/theme-sync.nvim
+marekh19/meowsoot.nvim

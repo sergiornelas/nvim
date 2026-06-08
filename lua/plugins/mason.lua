@@ -8,6 +8,7 @@ return {
 		"json",
 		"lua",
 		"markdown",
+		"marksman",
 		"typescript",
 		"typescriptreact",
 		"yaml",

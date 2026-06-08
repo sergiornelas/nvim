@@ -18,6 +18,24 @@ function _G.close_file_in_float()
 	return true
 end
 
+function _G.promote_file_in_float_to_split()
+	if not (window_id and api.nvim_win_is_valid(window_id)) then
+		return false
+	end
+	local bufnr = api.nvim_win_get_buf(window_id)
+	local cursor = api.nvim_win_get_cursor(window_id)
+	if backdrop_id then
+		pcall(api.nvim_win_close, backdrop_id, true)
+		backdrop_id = nil
+	end
+	pcall(api.nvim_win_close, window_id, true)
+	vim.cmd("split")
+	window_id = api.nvim_get_current_win()
+	api.nvim_set_current_buf(bufnr)
+	api.nvim_win_set_cursor(window_id, cursor)
+	return true
+end
+
 function _G.toggle_file_in_float(filepath)
 	-- Close
 	if _G.close_file_in_float() then
@@ -52,13 +70,14 @@ function _G.toggle_file_in_float(filepath)
 		height = height,
 		row = math.floor((vim.o.lines - height) / 2),
 		col = math.floor((vim.o.columns - width) / 2),
-		border = "rounded",
+		border = "single",
 		title = " " .. fn.fnamemodify(full_filepath, ":t") .. " ",
 		title_pos = "center",
 		zindex = 50,
 	})
 	vim.wo[window_id].cursorline = true
 	vim.wo[window_id].colorcolumn = "80"
+	vim.wo[window_id].winbar = " %{%v:lua.require'nvim-navic'.get_location()%}"
 	-- Cleanup backdrop and state when floating window is closed by any means
 	api.nvim_create_autocmd("WinClosed", {
 		pattern = tostring(window_id),

@@ -45,6 +45,14 @@ function M.config()
 		}
 	end
 
+	local winbar_spacer = {
+		function()
+			return " "
+		end,
+		padding = 0,
+		color = { bg = "#423E3B" },
+	}
+
 	lualine.setup({
 		options = {
 			icons_enabled = true,
@@ -53,6 +61,10 @@ function M.config()
 			section_separators = "",
 			always_divide_middle = true,
 			globalstatus = false,
+			disabled_filetypes = {
+				winbar = {},
+				-- statusline = { "" },
+			},
 			refresh = {
 				statusline = 100,
 			},
@@ -81,10 +93,10 @@ function M.config()
 			},
 		},
 		winbar = {
-			lualine_c = { "navic" },
+			lualine_c = { winbar_spacer, "navic" },
 		},
 		inactive_winbar = {
-			lualine_c = { "navic" },
+			lualine_c = { winbar_spacer, "navic" },
 		},
 		inactive_sections = {
 			lualine_a = {
@@ -101,6 +113,36 @@ function M.config()
 		},
 		tabline = {},
 		extensions = { "quickfix" },
+	})
+
+	-- set winbar=
+	local allowed_winbar_filetypes = {
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact",
+		"html",
+		"css",
+		"scss",
+		"json",
+		"yaml",
+		"markdown",
+		"lua",
+	}
+	vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+		group = vim.api.nvim_create_augroup("LualineWinbarWhitelist", { clear = true }),
+		callback = function()
+			local ft = vim.bo.filetype
+			if vim.tbl_contains(allowed_winbar_filetypes, ft) then
+				return
+			end
+			local config = lualine.get_config()
+			local disabled = config.options.disabled_filetypes.winbar
+			if not vim.tbl_contains(disabled, ft) then
+				table.insert(disabled, ft)
+				lualine.setup(config)
+			end
+		end,
 	})
 end
 
