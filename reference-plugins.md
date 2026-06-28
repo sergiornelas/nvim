@@ -183,7 +183,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Jun 06, 2026 (Add kkew3/jieba.vim)
+Jun 17, 2026 (Add BRONZowl/codux.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-marekh19/meowsoot.nvim
+simonwinther/cppman.nvim

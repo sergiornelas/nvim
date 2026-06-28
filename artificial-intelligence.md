@@ -115,6 +115,8 @@ Satanic symbols when copilot is working in the background:
 
 <https://github.com/paulburgess1357/nvim-mcp>
 
+<https://github.com/memy85/claude-orchestra.nvim>
+
 ## Open code
 
 <https://github.com/NickvanDyke/opencode.nvim>

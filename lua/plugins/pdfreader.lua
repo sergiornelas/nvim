@@ -9,6 +9,15 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 	end,
 })
 
+-- Keybindings:
+-- n	Next page
+-- p	Previous page
+-- e	Reset zoom (recommended before zooming in/out)
+-- z	Zoom in
+-- q	Zoom out
+
+-- <leader>fP - Open snacks picker to select a PDF file
+
 return {
 	"r-pletnev/pdfreader.nvim",
 	-- ft = "image", -- TODO: run PDF only for all pdf

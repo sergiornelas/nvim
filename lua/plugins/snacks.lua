@@ -108,4 +108,15 @@ return {
 			end,
 		},
 	},
+	config = function(_, snacks_opts)
+		require("snacks").setup(snacks_opts)
+		-- Render inline SVGs inside .tsx (JSX) by stripping JSX expression
+		-- attributes like width={SizesMap[size]} / className={className} so the
+		-- remaining markup is valid SVG (resvg sizes it from viewBox).
+		require("snacks.image.doc").transforms.tsx = function(img)
+			if img.content then
+				img.content = (img.content:gsub("[%w:%-]+%s*=%s*%b{}", ""))
+			end
+		end
+	end,
 }

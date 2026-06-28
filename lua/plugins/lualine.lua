@@ -79,11 +79,15 @@ function M.config()
 				{
 					"filename",
 					color = { bg = "#4f0000", fg = "#ebdbb2" },
-					path = 0,
 				},
 			},
 			lualine_b = { "diagnostics" },
-			lualine_c = { relative_dir },
+			lualine_c = {
+				{
+					relative_dir,
+					color = { fg = "#CFC09B" },
+				},
+			},
 			lualine_x = { "" },
 			lualine_y = { "diff" },
 			lualine_z = {
@@ -96,7 +100,7 @@ function M.config()
 			lualine_c = { winbar_spacer, "navic" },
 		},
 		inactive_winbar = {
-			lualine_c = { winbar_spacer, "navic" },
+			lualine_c = { winbar_spacer },
 		},
 		inactive_sections = {
 			lualine_a = {

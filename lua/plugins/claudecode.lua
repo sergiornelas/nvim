@@ -2,6 +2,11 @@
 -- with neovim session should be ignored. Only triggers that if we are currently in the same tab
 -- where the claude code is running
 
+-- TODO: If the orphaned claude window has text in the input, that text should be sent to the
+-- new claude window
+
+-- TODO: when using gll, go, gl, add a break line
+
 local kitty_pane_id = nil
 local diff_tab = nil
 local nvim_pane_id = tonumber(vim.fn.getenv("KITTY_WINDOW_ID"))
