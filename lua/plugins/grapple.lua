@@ -43,6 +43,16 @@ function M.config()
 	grapple.setup({
 		name_pos = "start",
 		style = "basename",
+		icons = false, -- real-icons not supported
+		-- Avoid reloading the buffer (and re-attaching the LSP) when selecting
+		-- the file you're already in. Only :edit when the target differs.
+		command = function(path)
+			local target = vim.fn.fnamemodify(path, ":p")
+			local current = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":p")
+			if target ~= current then
+				vim.cmd.edit(vim.fn.fnameescape(path))
+			end
+		end,
 		win_opts = {
 			width = 70,
 		},

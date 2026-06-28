@@ -45,15 +45,74 @@ function M.config()
 		}
 	end
 
+	local real_icons = require("real-icons.integrations.lualine")
+
+	local filename_hls = {
+		LualineFilenameActive = { bg = "#4f0000", fg = "#ebdbb2" },
+		LualineFilenameInactive = { bg = "#300000", fg = "#B0A994" },
+	}
+	local function set_filename_hls()
+		for group, opts in pairs(filename_hls) do
+			vim.api.nvim_set_hl(0, group, opts)
+		end
+	end
+	set_filename_hls()
+	vim.api.nvim_create_autocmd("ColorScheme", {
+		group = vim.api.nvim_create_augroup("LualineFilenameHl", { clear = true }),
+		callback = set_filename_hls,
+	})
+
+	local function filename_with_icon(hl)
+		local bg = filename_hls[hl].bg
+		return {
+			function()
+				local name = vim.fn.expand("%:t")
+				if name == "" then
+					name = "[No Name]"
+				end
+				if vim.bo.modified then
+					name = name .. " [+]"
+				elseif vim.bo.readonly or not vim.bo.modifiable then
+					name = name .. " [-]"
+				end
+				-- Guard the real-icons call: if it ever errors we don't want the whole
+				-- statusline to throw on every redraw. Fall back to a generic file glyph.
+				local ok, icon = pcall(real_icons.component, { bg = bg })
+				if not ok then
+					icon = "%#" .. hl .. "#󰈔"
+				end
+				return icon .. "%#" .. hl .. "# " .. name
+			end,
+		}
+	end
+
+	local allowed_winbar_filetypes = {
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact",
+		"html",
+		"css",
+		"scss",
+		"json",
+		"yaml",
+		"markdown",
+		"lua",
+	}
+	local function winbar_enabled()
+		return vim.tbl_contains(allowed_winbar_filetypes, vim.bo.filetype)
+	end
+
 	local winbar_spacer = {
 		function()
 			return " "
 		end,
 		padding = 0,
 		color = { bg = "#423E3B" },
+		cond = winbar_enabled,
 	}
 
-	lualine.setup({
+	local lualine_config = {
 		options = {
 			icons_enabled = true,
 			theme = "gruvbox",
@@ -76,10 +135,7 @@ function M.config()
 				-- },
 				progress_component,
 				grapple_component({ bg = "#151517", fg = "#ebdbb2" }),
-				{
-					"filename",
-					color = { bg = "#4f0000", fg = "#ebdbb2" },
-				},
+				filename_with_icon("LualineFilenameActive"),
 			},
 			lualine_b = { "diagnostics" },
 			lualine_c = {
@@ -97,7 +153,7 @@ function M.config()
 			},
 		},
 		winbar = {
-			lualine_c = { winbar_spacer, "navic" },
+			lualine_c = { winbar_spacer, { "navic", cond = winbar_enabled } },
 		},
 		inactive_winbar = {
 			lualine_c = { winbar_spacer },
@@ -106,48 +162,16 @@ function M.config()
 			lualine_a = {
 				progress_component,
 				grapple_component({ bg = "#151517", fg = "#A39D9D" }),
-				{
-					"filename",
-					path = 0,
-					color = { bg = "#300000", fg = "#B0A994" },
-				},
+				filename_with_icon("LualineFilenameInactive"),
 			},
 			lualine_c = { relative_dir },
 			lualine_x = {},
 		},
 		tabline = {},
 		extensions = { "quickfix" },
-	})
-
-	-- set winbar=
-	local allowed_winbar_filetypes = {
-		"javascript",
-		"typescript",
-		"javascriptreact",
-		"typescriptreact",
-		"html",
-		"css",
-		"scss",
-		"json",
-		"yaml",
-		"markdown",
-		"lua",
 	}
-	vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
-		group = vim.api.nvim_create_augroup("LualineWinbarWhitelist", { clear = true }),
-		callback = function()
-			local ft = vim.bo.filetype
-			if vim.tbl_contains(allowed_winbar_filetypes, ft) then
-				return
-			end
-			local config = lualine.get_config()
-			local disabled = config.options.disabled_filetypes.winbar
-			if not vim.tbl_contains(disabled, ft) then
-				table.insert(disabled, ft)
-				lualine.setup(config)
-			end
-		end,
-	})
+
+	lualine.setup(lualine_config)
 end
 
 return M
