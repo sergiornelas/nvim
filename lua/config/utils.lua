@@ -24,6 +24,20 @@ function _G.close_all_terminals_and_pdf()
 	end
 end
 
+-- change markdown headings
+function _G.change_heading(delta)
+	local line = vim.api.nvim_get_current_line()
+	local markers = line:match("^(#+)")
+	if not markers then
+		return
+	end
+	local new_level = #markers + delta
+	if new_level < 1 or new_level > 6 then
+		return
+	end
+	vim.api.nvim_set_current_line(string.rep("#", new_level) .. line:sub(#markers + 1))
+end
+
 -- Equalize windows width (not height) through all tabs when resizing Vim
 -- Function to fix or unfix the window heights for all windows in a tab
 local function fix_window_heights(fix)

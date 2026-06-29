@@ -14,7 +14,8 @@ return {
 				x = "50%", -- horizontal: "0%" = left, "50%" = center, "100%" = right
 				y = "50%", -- vertical:   "0%" = top,  "50%" = center, "100%" = bottom
 			},
-			native_types = { "/", "?" },
+			-- native_types = { "/", "?" },
+			native_types = {},
 			on_reposition = require("tiny-cmdline").adapters.blink,
 		})
 	end,

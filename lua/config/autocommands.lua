@@ -1,8 +1,9 @@
+local opts = { noremap = true, silent = true }
 --- @param mode string
 --- @param key string
 --- @param command string
 local function map(mode, key, command)
-	vim.api.nvim_buf_set_keymap(0, mode, key, command, { noremap = true, silent = true })
+	vim.api.nvim_buf_set_keymap(0, mode, key, command, opts)
 end
 local autocmd = vim.api.nvim_create_autocmd
 local create_group = vim.api.nvim_create_augroup
@@ -69,6 +70,13 @@ autocmd("FileType", {
 		map("i", "<c-z>", "<c-g>u<Esc>[s1z=`]a<c-g>u") -- fix last spell
 		map("n", "<leader>j", "i<c-g>u<Esc>]s1z=`]a<c-g>u<esc>") -- fix next spell
 		map("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>") -- fix prev spell
+		-- change heading level
+		vim.keymap.set("n", "<leader>H", function()
+			change_heading(-1)
+		end, opts)
+		vim.keymap.set("n", "<leader>L", function()
+			change_heading(1)
+		end, opts)
 	end,
 })
 

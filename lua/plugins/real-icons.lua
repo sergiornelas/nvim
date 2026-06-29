@@ -1,7 +1,7 @@
 return {
 	"Mirsmog/real-icons.nvim",
 	build = ":RealIconsInstallPack material",
-	lazy = false,
+	event = "VeryLazy",
 	opts = {
 		pack = "material",
 		backend = "kitty",

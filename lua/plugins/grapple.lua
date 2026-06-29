@@ -40,10 +40,46 @@ function M.config()
 		return
 	end
 
+	-- Grapple's tag list only fetches icons from nvim-web-devicons. Feed it a shim whose
+	-- get_icon returns a real-icons terminal-image placeholder (text + highlight group)
+	-- via the public API (real-icons.get_icon, >= c5fc98c), which grapple drops into the
+	-- line and highlights.
+	local tc_ok, TagContent = pcall(require, "grapple.tag_content")
+	local ri_ok, real_icons = pcall(require, "real-icons")
+	-- Only enable grapple icons when the real-icons shim can actually be installed;
+	-- otherwise `icons = true` would error on open (it requires nvim-web-devicons).
+	local real_icons_available = tc_ok and ri_ok and type(real_icons.get_icon) == "function"
+	if real_icons_available and not TagContent._real_icons_wrapped then
+		local shim = {
+			setup = function() end,
+			has_loaded = function()
+				return true
+			end,
+			get_icon = function(name)
+				local ok, text, hl = pcall(real_icons.get_icon, "file", name or "")
+				if ok and text then
+					return text, hl
+				end
+			end,
+		}
+		local original_create_entry = TagContent.create_entry
+		TagContent.create_entry = function(self, ...)
+			local saved = package.loaded["nvim-web-devicons"]
+			package.loaded["nvim-web-devicons"] = shim
+			local ok, entry = pcall(original_create_entry, self, ...)
+			package.loaded["nvim-web-devicons"] = saved
+			if not ok then
+				error(entry, 0) -- re-raise without prepending this wrapper's location
+			end
+			return entry
+		end
+		TagContent._real_icons_wrapped = true
+	end
+
 	grapple.setup({
 		name_pos = "start",
 		style = "basename",
-		icons = false, -- real-icons not supported
+		icons = real_icons_available,
 		-- Avoid reloading the buffer (and re-attaching the LSP) when selecting
 		-- the file you're already in. Only :edit when the target differs.
 		command = function(path)

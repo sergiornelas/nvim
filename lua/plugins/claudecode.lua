@@ -8,7 +8,6 @@
 -- TODO: when using gll, go, gl, add a break line
 
 local kitty_pane_id = nil
-local diff_tab = nil
 local nvim_pane_id = tonumber(vim.fn.getenv("KITTY_WINDOW_ID"))
 local startup_check_done = false
 
@@ -95,48 +94,47 @@ end
 
 local augroup = vim.api.nvim_create_augroup("ClaudeCodeKitty", { clear = true })
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
+-- Al abrir un diff: traer el foco a Neovim y montar la navegación del hunk.
+-- ClaudeCodeDiffOpened se emite siempre y entrega diff_window, así que montamos los
+-- keymaps en el buffer correcto sin adivinar por el nombre "(proposed)".
+vim.api.nvim_create_autocmd("User", {
 	group = augroup,
-	callback = function()
-		local bufname = vim.api.nvim_buf_get_name(0)
-		if bufname:match("%(proposed%)") or bufname:match("%(NEW FILE %- proposed%)") then
-			diff_tab = vim.fn.tabpagenr()
-			if nvim_pane_id then
-				vim.fn.system("kitty @ focus-window --match id:" .. nvim_pane_id)
-				-- git diff in full screen:
-				-- vim.fn.system("kitty @ goto-layout stack")
-			end
-			local opts = { buffer = true }
-			vim.keymap.set("n", "<c-j>", function()
-				vim.cmd.normal({ "]c", bang = true })
-			end, opts)
-			vim.keymap.set("n", "<c-k>", function()
-				vim.cmd.normal({ "[c", bang = true })
-			end, opts)
-		end
-	end,
-})
-
-vim.api.nvim_create_autocmd("BufWinLeave", {
-	group = augroup,
-	callback = function()
-		local bufname = vim.api.nvim_buf_get_name(0)
-		if bufname:match("%(proposed%)") or bufname:match("%(NEW FILE %- proposed%)") then
-			-- Cuando aceptas/declinas los cambios, el layout vuelve a tall
-			-- vim.fn.system("kitty @ goto-layout tall")
-			-- ======================
-			-- El focus regresa al panel de claude code cuando aceptas/declinas los cambios
-			focus_pane()
-		end
-	end,
-})
-
--- Focus Claude Code back when accepting/declining changes
-vim.api.nvim_create_autocmd("TabClosed", {
-	group = augroup,
+	pattern = "ClaudeCodeDiffOpened",
 	callback = function(ev)
-		if tonumber(ev.file) == diff_tab then
-			diff_tab = nil
+		if nvim_pane_id then
+			vim.fn.system("kitty @ focus-window --match id:" .. nvim_pane_id)
+			-- git diff in full screen:
+			-- vim.fn.system("kitty @ goto-layout stack")
+		end
+		local diff_window = ev.data and ev.data.diff_window
+		if not (diff_window and vim.api.nvim_win_is_valid(diff_window)) then
+			return
+		end
+		local opts = { buffer = vim.api.nvim_win_get_buf(diff_window) }
+		vim.keymap.set("n", "<c-j>", function()
+			vim.cmd.normal({ "]c", bang = true })
+		end, opts)
+		vim.keymap.set("n", "<c-k>", function()
+			vim.cmd.normal({ "[c", bang = true })
+		end, opts)
+	end,
+})
+
+-- El foco regresa al pane de Claude al cerrarse el diff (aceptar/declinar/etc.).
+-- ClaudeCodeDiffClosed se emite siempre, sin importar cómo se cierre el diff, así que
+-- es más confiable que adivinar por el nombre del buffer "(proposed)" en BufWinLeave/TabClosed.
+vim.api.nvim_create_autocmd("User", {
+	group = augroup,
+	pattern = "ClaudeCodeDiffClosed",
+	callback = focus_pane,
+})
+
+-- Al aceptarse un send (gl/gll), llevar el foco al pane de Claude en kitty
+vim.api.nvim_create_autocmd("User", {
+	group = augroup,
+	pattern = "ClaudeCodeSendComplete",
+	callback = function()
+		if pane_exists(kitty_pane_id) then
 			focus_pane()
 		end
 	end,
@@ -190,6 +188,7 @@ return {
 		-- Diff Integration
 		diff_opts = {
 			layout = "vertical", -- "vertical" or "horizontal"
+			auto_resize_terminal = false, -- el ancho del pane lo maneja kitty, no Neovim
 			open_in_new_tab = true,
 			keep_terminal_focus = false, -- If true, moves focus back to terminal after diff opens. [Doesn't work with my current custom provider].
 			hide_terminal_in_new_tab = false,

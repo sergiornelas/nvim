@@ -45,7 +45,7 @@ function M.config()
 		}
 	end
 
-	local real_icons = require("real-icons.integrations.lualine")
+	local real_icons = require("real-icons")
 
 	local filename_hls = {
 		LualineFilenameActive = { bg = "#4f0000", fg = "#ebdbb2" },
@@ -77,8 +77,11 @@ function M.config()
 				end
 				-- Guard the real-icons call: if it ever errors we don't want the whole
 				-- statusline to throw on every redraw. Fall back to a generic file glyph.
-				local ok, icon = pcall(real_icons.component, { bg = bg })
-				if not ok then
+				local ok, text, icon_hl = pcall(real_icons.get_icon, "file", vim.fn.expand("%:p"), { bg = bg })
+				local icon
+				if ok and text then
+					icon = "%#" .. icon_hl .. "#" .. text
+				else
 					icon = "%#" .. hl .. "#󰈔"
 				end
 				return icon .. "%#" .. hl .. "# " .. name

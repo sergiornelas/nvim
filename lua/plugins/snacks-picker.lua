@@ -83,7 +83,11 @@ map("n", "<leader>gm", "<cmd>lua Snacks.picker.git_log_file({layout = 'ivy_split
 -- map("n", "<leader>", "<cmd>lua Snacks.picker.git_log_line()<cr>")
 map("n", "<leader>gh", "<cmd>lua Snacks.picker.git_stash()<cr>")
 -- show other project status:
-map("n", "<leader>gf", "<cmd>lua Snacks.picker.git_status()<cr>")
+map("n", "<leader>gf", function()
+	snacks.picker.git_status({
+		layout = { fullscreen = true },
+	})
+end)
 map("n", "<leader>fl", function()
 	snacks.picker.grep({
 		layout = custom_layout,

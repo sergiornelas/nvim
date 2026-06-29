@@ -183,7 +183,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Jun 17, 2026 (Add BRONZowl/codux.nvim)
+Jun 26, 2026 (Add batoaqaa/nvim-pio)
 
 <https://dotfyle.com/neovim/plugins/new>
-simonwinther/cppman.nvim
+hasansujon786/nvim-navbuddy

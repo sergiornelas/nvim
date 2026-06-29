@@ -160,8 +160,9 @@ return {
 			})
 			map({ "n", "x" }, "<c-c><c-c>", "<cmd>Checkbox toggle<cr>", opts) -- (vim :interrupt current (search) command)
 			map("n", "<leader>I", "<cmd>Checkbox interactive<cr>", opts)
-			map("n", "<leader>H", "<cmd>Heading decrease<cr>", opts)
-			map("n", "<leader>L", "<cmd>Heading increase<cr>", opts)
+			-- not working:
+			-- map("n", "<leader>H", "<cmd>Heading decrease<cr>", opts)
+			-- map("n", "<leader>L", "<cmd>Heading increase<cr>", opts)
 
 			-- Code blocks
 			map("n", "<leader>CJ", "o```javascript```<esc>Tti<cr><c-o>O", opts)
