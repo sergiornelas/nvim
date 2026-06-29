@@ -2,21 +2,44 @@
 -- with neovim session should be ignored. Only triggers that if we are currently in the same tab
 -- where the claude code is running
 
--- TODO: If the orphaned claude window has text in the input, that text should be sent to the
--- new claude window
-
--- TODO: when using gll, go, gl, add a break line
-
 local kitty_pane_id = nil
 local nvim_pane_id = tonumber(vim.fn.getenv("KITTY_WINDOW_ID"))
 local startup_check_done = false
 
+-- Decode `kitty @ ls` once into a Lua table, or nil if unavailable / not in Kitty.
+local function list_os_windows()
+	local output = vim.fn.system("kitty @ ls 2>/dev/null")
+	if vim.v.shell_error ~= 0 then
+		return nil
+	end
+	local ok, os_windows = pcall(vim.json.decode, output)
+	if not ok or type(os_windows) ~= "table" then
+		return nil
+	end
+	return os_windows
+end
+
+-- True only if a Kitty *window* (not a tab/os-window) with this id exists.
+-- Grepping the raw JSON gave false positives: "id": 1 matched "id": 18, and it
+-- also matched tab/os-window ids, so we walk the decoded window list instead.
 local function pane_exists(id)
 	if not id then
 		return false
 	end
-	vim.fn.system('kitty @ ls 2>/dev/null | grep -q \'"id": ' .. id .. "'")
-	return vim.v.shell_error == 0
+	local os_windows = list_os_windows()
+	if not os_windows then
+		return false
+	end
+	for _, os_win in ipairs(os_windows) do
+		for _, tab in ipairs(os_win.tabs or {}) do
+			for _, win in ipairs(tab.windows or {}) do
+				if win.id == id then
+					return true
+				end
+			end
+		end
+	end
+	return false
 end
 
 -- Find an orphaned "claude" window in the same Kitty tab as Neovim.
@@ -25,12 +48,8 @@ local function find_orphan_claude_in_nvim_tab()
 	if not nvim_pane_id then
 		return nil
 	end
-	local output = vim.fn.system("kitty @ ls 2>/dev/null")
-	if vim.v.shell_error ~= 0 then
-		return nil
-	end
-	local ok, os_windows = pcall(vim.json.decode, output)
-	if not ok or type(os_windows) ~= "table" then
+	local os_windows = list_os_windows()
+	if not os_windows then
 		return nil
 	end
 	for _, os_win in ipairs(os_windows) do
@@ -65,11 +84,18 @@ local function close_pane()
 	end
 end
 
+-- Captura el draft sin enviar del huérfano y lo re-pega en la sesión nueva.
+local input_handoff = require("claudecode_input_handoff")
+
 local function launch_pane(cmd_string, env_table)
+	local restored_input = nil
 	if not startup_check_done then
 		startup_check_done = true
 		local orphan_id = find_orphan_claude_in_nvim_tab()
 		if orphan_id then
+			-- No se puede re-vincular el huérfano (Claude fija su IDE al arrancar y no
+			-- re-escanea), así que rescatamos su draft y lo cerramos para relanzar.
+			restored_input = input_handoff.capture(orphan_id)
 			vim.fn.system("kitty @ close-window --match id:" .. orphan_id)
 			if not cmd_string:match("%-%-continue") and not cmd_string:match("%-%-resume") then
 				cmd_string = cmd_string .. " --continue"
@@ -90,6 +116,10 @@ local function launch_pane(cmd_string, env_table)
 			.. cmd_string
 	)
 	kitty_pane_id = tonumber(vim.trim(result))
+
+	if restored_input and kitty_pane_id then
+		input_handoff.restore(kitty_pane_id, restored_input)
+	end
 end
 
 local augroup = vim.api.nvim_create_augroup("ClaudeCodeKitty", { clear = true })
@@ -129,14 +159,26 @@ vim.api.nvim_create_autocmd("User", {
 	callback = focus_pane,
 })
 
--- Al aceptarse un send (gl/gll), llevar el foco al pane de Claude en kitty
+-- Tras cada send (go/gl/gll): enfocar el pane de Claude y dejar el cursor en una
+-- línea nueva del input, para que @mentions consecutivos no se concatenen.
 vim.api.nvim_create_autocmd("User", {
 	group = augroup,
 	pattern = "ClaudeCodeSendComplete",
 	callback = function()
-		if pane_exists(kitty_pane_id) then
-			focus_pane()
+		if not pane_exists(kitty_pane_id) then
+			return
 		end
+		focus_pane()
+		-- Cuando Claude está conectado el @mention se transmite síncronamente antes de
+		-- este evento, así que ya está renderizando; un defer corto basta para que el
+		-- salto aterrice justo después.
+		vim.defer_fn(function()
+			if pane_exists(kitty_pane_id) then
+				-- Alt/Meta+Enter (\e\r): un solo evento de tecla = salto de línea sin
+				-- enviar, evitando el repintado en dos fases del bracketed paste (flicker).
+				vim.fn.system("kitty @ send-text --match id:" .. kitty_pane_id .. " '\\e\\r'")
+			end
+		end, 40)
 	end,
 })
 
@@ -187,7 +229,7 @@ return {
 		},
 		-- Diff Integration
 		diff_opts = {
-			layout = "vertical", -- "vertical" or "horizontal"
+			layout = "vertical", -- "vertical", "horizontal" or "unified"
 			auto_resize_terminal = false, -- el ancho del pane lo maneja kitty, no Neovim
 			open_in_new_tab = true,
 			keep_terminal_focus = false, -- If true, moves focus back to terminal after diff opens. [Doesn't work with my current custom provider].
@@ -241,6 +283,11 @@ return {
 				local text = "@" .. filename .. "#L" .. lnum .. "\n" .. table.concat(lines, "\n")
 
 				local function send_text()
+					-- En la rama diferida el pane puede no haberse lanzado aún; sin id,
+					-- "kitty @ send-text --match id:" quedaría malformado, así que abortamos.
+					if not kitty_pane_id then
+						return
+					end
 					vim.fn.system("kitty @ send-text --match id:" .. kitty_pane_id .. " " .. vim.fn.shellescape(text))
 					focus_pane()
 				end
