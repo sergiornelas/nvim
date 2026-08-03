@@ -261,4 +261,15 @@ return {
 			})
 		end,
 	},
+	{
+		"maxmx03/fluoromachine.nvim",
+		keys = lazy_map,
+		config = function()
+			require("fluoromachine").setup({
+				glow = false,
+				theme = "delta",
+				transparent = true,
+			})
+		end,
+	},
 }

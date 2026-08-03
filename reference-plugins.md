@@ -176,6 +176,8 @@ chojs23/ec                                                beautiful git conflict
 spacedentist/resolve.nvim                                 beautiful git conflict view
 propilideno/buffer-preview.nvim                             preview pdf and shortcuts
 ChuYanLon/telegram.nvim                                           telegram for neovim
+justinmk/guh.nvim                             check PR from neovim, lighter than octo
+folke/snacks.nvim/blob/main/docs/gh.md                           check PR from neovim
 
 Last time revisited all these plugins
 20/05/2024
@@ -183,7 +185,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Jun 26, 2026 (Add batoaqaa/nvim-pio)
+Aug 02, 2026 (Add jaimeibanezrivera/zj-theme)
 
 <https://dotfyle.com/neovim/plugins/new>
-hasansujon786/nvim-navbuddy
+batoaqaa/nvim-pio

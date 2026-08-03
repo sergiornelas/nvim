@@ -51,6 +51,16 @@ return {
 	end,
 	dependencies = {
 		{
+			-- Original: https://github.com/mawkler/jsx-element.nvim/
+			"sergiornelas/jsx-element.nvim",
+			ft = { "typescriptreact", "javascriptreact" },
+			opts = {
+				keymaps = {
+					jsx_element = "j",
+				},
+			},
+		},
+		{
 			"nvim-treesitter/nvim-treesitter-context",
 			config = function()
 				require("treesitter-context").setup({
@@ -104,15 +114,6 @@ return {
 				}
 			end,
 		},
-		-- {
-		-- 	"mawkler/jsx-element.nvim",
-		-- 	ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-		-- 	opts = {
-		-- 		keymaps = {
-		-- 			jsx_element = "j",
-		-- 		},
-		-- 	},
-		-- },
 		{
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			branch = "main",

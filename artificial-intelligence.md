@@ -49,6 +49,10 @@ AI-powered next-edit suggestions (NES) for Neovim.
 
 <https://github.com/nishu-murmu/cursor-inline>
 
+you need cursor IDE, but it's the best approach:
+<https://www.reddit.com/r/neovim/comments/1v7t2sm/neocursornvim_cursors_actual_tab_model_in_neovim/>
+<https://github.com/teocns/neocursor.nvim>
+
 <https://github.com/cursortab/cursortab.nvim>
 
 ### Related plugins

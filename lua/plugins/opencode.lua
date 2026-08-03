@@ -1,3 +1,5 @@
+-- TODO: implement this for opencode
+-- https://github.com/S1M0N38/pibuf.nvim
 return {
 	"nickjvandyke/opencode.nvim",
 	enabled = false,

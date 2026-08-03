@@ -51,10 +51,6 @@ return {
 	-- https://github.com/TheNoeTrevino/haunt.nvim
 	-- https://github.com/saghen/blink.pairs
 
-	-- TREESITTER
-	-- https://www.reddit.com/r/neovim/comments/1sj1ggo/treesitter_without_nvimtreesitter_a_guide/
-	-- https://github.com/romus204/tree-sitter-manager.nvim
-
 	-- https://github.com/emrearmagan/atlas.nvim
 
 	-- oxc (way faster than pretter and eslint)

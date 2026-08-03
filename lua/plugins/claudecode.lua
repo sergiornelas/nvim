@@ -93,8 +93,17 @@ local function launch_pane(cmd_string, env_table)
 		startup_check_done = true
 		local orphan_id = find_orphan_claude_in_nvim_tab()
 		if orphan_id then
-			-- No se puede re-vincular el huérfano (Claude fija su IDE al arrancar y no
-			-- re-escanea), así que rescatamos su draft y lo cerramos para relanzar.
+			-- Un Claude huérfano (su Neovim murió/reinició) NO se puede re-vincular.
+			-- El proceso sigue vivo y aplica cambios, pero pierde el link IDE (el
+			-- WebSocket a Neovim), así que deja de mandar los diffs a Neovim. Y `/ide`
+			-- NO lo recupera: Claude fija su IDE objetivo al ARRANCAR —vía la env var
+			-- CLAUDE_CODE_SSE_PORT que el plugin le inyecta— y no re-escanea los
+			-- lockfiles de ~/.claude/ide en vivo. Comprobado empíricamente: un `claude`
+			-- fresco sí encuentra el Neovim por `/ide`, pero el huérfano responde
+			-- "No available IDEs detected" aunque exista un lockfile nuevo del Neovim
+			-- actual. Por eso el workaround es: rescatar su draft sin enviar, cerrar el
+			-- huérfano, y relanzar con --continue/--resume (recupera el historial de la
+			-- conversación, aunque no la ejecución que estuviera en vuelo).
 			restored_input = input_handoff.capture(orphan_id)
 			vim.fn.system("kitty @ close-window --match id:" .. orphan_id)
 			if not cmd_string:match("%-%-continue") and not cmd_string:match("%-%-resume") then
