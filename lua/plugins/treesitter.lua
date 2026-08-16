@@ -27,27 +27,40 @@ return {
 			"vimdoc",
 			"yaml",
 		})
-		-- highlighting
+		-- highlighting + indentation
+		local function ts_attach(buf)
+			local lang = vim.treesitter.language.get_lang(vim.bo[buf].filetype)
+			if not lang or not vim.treesitter.language.add(lang) then
+				return
+			end
+
+			vim.treesitter.start(buf, lang)
+
+			-- must run after the runtime ftplugin/indent files, otherwise they win
+			if vim.treesitter.query.get(lang, "indents") then
+				vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end
+		end
+
 		vim.api.nvim_create_autocmd("FileType", {
 			callback = function(args)
-				local ft = vim.bo[args.buf].filetype
-				if not ft or ft == "" then
-					return
+				ts_attach(args.buf)
+			end,
+		})
+		-- sessions restore 'localoptions' (see 'sessionoptions'), which brings back the
+		-- indentexpr saved by the runtime ftplugin, so re-apply it after loading one
+		vim.api.nvim_create_autocmd("SessionLoadPost", {
+			callback = function()
+				for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+					if vim.api.nvim_buf_is_loaded(buf) then
+						ts_attach(buf)
+					end
 				end
-
-				local lang = vim.treesitter.language.get_lang(ft)
-				if not lang or not vim.treesitter.language.add(lang) then
-					return
-				end
-
-				vim.treesitter.start(args.buf, lang)
 			end,
 		})
 		-- folds
 		-- vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 		-- vim.wo[0][0].foldmethod = "expr"
-		-- indentation
-		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 	end,
 	dependencies = {
 		{
