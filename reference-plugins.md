@@ -185,7 +185,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Aug 02, 2026 (Add jaimeibanezrivera/zj-theme)
+Aug 15, 2026 (Remove IndianBoy42/tree-sitter-just)
 
 <https://dotfyle.com/neovim/plugins/new>
-batoaqaa/nvim-pio
+yahddyyp/mauve.nvim

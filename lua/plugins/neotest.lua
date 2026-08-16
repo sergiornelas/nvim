@@ -2,6 +2,7 @@
 return {
 	{
 		"nvim-neotest/neotest",
+		enabled = false,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-neotest/nvim-nio",

@@ -24,6 +24,8 @@ autocmd("ColorScheme", {
 			{ "ContextVt", { fg = "#716a56", italic = true } },
 			{ "CursorLine", { bg = "#25424D" } },
 			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#afacac" } },
+			{ "DiffAdd", { fg = "", bg = "#2C4F0C" } },
+			{ "DiffDelete", { fg = "", bg = "#590D0D" } },
 			{ "GitSignsAddInline", { fg = "#151413", bg = "#CFC8B0" } },
 			{ "GitSignsAddPreview", { fg = "#efe4ca", bg = "#33590D" } },
 			{ "GitSignsChangeInline", { fg = "#151413", bg = "#CFC8B0" } },

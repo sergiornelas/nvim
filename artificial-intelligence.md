@@ -121,6 +121,8 @@ Satanic symbols when copilot is working in the background:
 
 <https://github.com/memy85/claude-orchestra.nvim>
 
+<https://github.com/cmfcruz/buoy.nvim>
+
 ## Open code
 
 <https://github.com/NickvanDyke/opencode.nvim>
@@ -151,3 +153,6 @@ kyza0d/vocal.nvim           speech-to-text transcription using the OpenAI Whispe
 <https://www.reddit.com/r/neovim/comments/1pugxem/best_plugin_and_workflows_for_integrating_llms/>
 <https://www.reddit.com/r/neovim/comments/1pqpo8h/release_agenticnvim_ai_chat_interface_for_claude/>
 <https://github.com/ajatdarojat45/commitmate.nvim>   automatic commit messages
+
+<https://github.com/aimdevlee/herdr-nvim-nav> navigation across herdr panes
+<https://www.reddit.com/r/herdr/comments/1vdjfk0/herdrnvimnav_lowoverhead_navigation_between_herdr/>

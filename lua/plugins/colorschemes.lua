@@ -62,9 +62,6 @@ return {
 		keys = lazy_map,
 		opts = {
 			transparent = true,
-			background = {
-				dark = "dragon",
-			},
 		},
 	},
 	{
