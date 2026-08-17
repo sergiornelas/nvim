@@ -31,19 +31,28 @@ return {
 			"html",
 			"yamlls",
 			"vtsls",
-			"tsgo",
+			"tsc",
 			"tailwindcss",
 			"marksman",
 		})
 
 		config("vtsls", {
 			on_attach = on_attach,
+			-- The diagnoses are provided by tsc (~3x faster)
+			handlers = {
+				["textDocument/publishDiagnostics"] = function() end,
+			},
 			settings = require("plugins.lsp.settings.vtsls").settings,
 		})
 
-		config("tsgo", {
+		config("tsc", {
+			-- Pinning the command to Mason’s binary ensures it always starts the
+			-- native TypeScript 7 binary written in Go, regardless of what each
+			-- project has installed.
+			-- [Client tsc quit with exit code 1 and signal 0].
+			cmd = { vim.fs.joinpath(vim.fn.stdpath("data"), "mason", "bin", "tsc"), "--lsp", "--stdio" },
 			on_attach = function(client)
-				require("plugins.lsp.capabilities.tsgo").apply(client)
+				require("plugins.lsp.capabilities.tsc").apply(client)
 			end,
 		})
 

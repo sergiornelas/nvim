@@ -31,7 +31,7 @@ return {
 			"markdownlint",
 			"prettierd",
 			"stylua",
-			"tsgo",
+			"tsc",
 			"vtsls",
 			"yaml-language-server",
 		}

@@ -95,7 +95,7 @@ return {
 			vim.keymap.set("n", "<leader>th", require("ts_expand_hover").hover)
 		end,
 	},
-	-- Useful if you decide to use pure tsgo and no vtsls:
+	-- Useful if you decide to use pure tsc and no vtsls:
 	-- {
 	-- 	"Sebastian-Nielsen/better-type-hover",
 	-- 	ft = { "typescript", "typescriptreact" },

@@ -202,4 +202,4 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + tailwindcss
 + vtsls
 + yamlls
-+ tsgo
++ tsc

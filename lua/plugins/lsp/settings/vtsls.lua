@@ -1,17 +1,9 @@
--- Disable diagnostics
-vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx)
-	if vim.lsp.get_client_by_id(ctx.client_id) and vim.lsp.get_client_by_id(ctx.client_id).name == "vtsls" then
-		return
-	end
-	vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx)
-end
-
--- Disable prompts in vtsls and tsgo
+-- Disable prompts in vtsls and tsc
 -- local original_progress_handler = vim.lsp.handlers["$/progress"]
 -- vim.lsp.handlers["$/progress"] = function(err, result, ctx, config)
 -- 	local client = vim.lsp.get_client_by_id(ctx.client_id)
 -- 	-- Filter vtsls
--- 	if client and (client.name == "vtsls" or client.name == "tsgo") then
+-- 	if client and (client.name == "vtsls" or client.name == "tsc") then
 -- 		return
 -- 	end
 -- 	return original_progress_handler(err, result, ctx, config)
