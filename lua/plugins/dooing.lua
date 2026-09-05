@@ -4,8 +4,8 @@
 return {
 	"atiladefreitas/dooing",
 	keys = {
-		{ "<leader>do", "<cmd>Dooing<cr>" },
-		{ "<leader>d0", "<cmd>DooingLocal<cr>" },
+		{ "<leader>d", "<cmd>Dooing<cr>" },
+		{ "<leader>0", "<cmd>DooingLocal<cr>" },
 	},
 	config = function()
 		require("dooing").setup({
@@ -35,7 +35,7 @@ return {
 				on_missing = "auto_create", -- What to do when file missing ("prompt"/"auto_create")
 			},
 			keymaps = {
-				open_project_todo = "<leader>d0", -- Toggle project-specific todos
+				open_project_todo = "<leader>0", -- Toggle project-specific todos
 				show_due_notification = "<leader>tN", -- Show due items window
 			},
 		})
