@@ -5,14 +5,30 @@ return {
 	"atiladefreitas/dooing",
 	keys = {
 		{ "<leader>do", "<cmd>Dooing<cr>" },
+		{ "<leader>d0", "<cmd>DooingLocal<cr>" },
 	},
 	config = function()
 		require("dooing").setup({
 			ui = {
-				-- style = "modern", -- "classic" | "modern"
+				style = "modern", -- "classic" | "modern"
 			},
 			window = {
-				border = "single", -- Border style: 'single', 'double', 'rounded', 'solid'
+				dimensions = {
+					width = 80,
+					height = 37,
+				},
+				border = "double", -- Border style: 'single', 'double', 'rounded', 'solid'
+			},
+			formatting = {
+				pending = {
+					icon = "󰄱",
+				},
+				in_progress = {
+					icon = "󰛲",
+				},
+				done = {
+					icon = "󰱒",
+				},
 			},
 			quick_keys = true,
 			per_project = {

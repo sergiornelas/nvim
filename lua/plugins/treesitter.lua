@@ -1,4 +1,8 @@
 -- npm install -g tree-sitter-cli
+
+-- When you remove a language from the list in require("nvim-treesitter").install(),
+-- uninstall it also with: lua require("nvim-treesitter").uninstall({ "lang" })
+
 return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,

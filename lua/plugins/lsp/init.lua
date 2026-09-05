@@ -46,11 +46,6 @@ return {
 		})
 
 		config("tsc", {
-			-- Pinning the command to Mason’s binary ensures it always starts the
-			-- native TypeScript 7 binary written in Go, regardless of what each
-			-- project has installed.
-			-- [Client tsc quit with exit code 1 and signal 0].
-			cmd = { vim.fs.joinpath(vim.fn.stdpath("data"), "mason", "bin", "tsc"), "--lsp", "--stdio" },
 			on_attach = function(client)
 				require("plugins.lsp.capabilities.tsc").apply(client)
 			end,

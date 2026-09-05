@@ -38,7 +38,7 @@ return {
 
 		-- keymap: gb free
 
-		local kitty = require("config.kitty-opencode")
+		local kitty = require("config.kitty.opencode_helper")
 
 		local keymap = vim.keymap.set
 

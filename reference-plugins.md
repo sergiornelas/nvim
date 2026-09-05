@@ -178,6 +178,7 @@ propilideno/buffer-preview.nvim                             preview pdf and shor
 ChuYanLon/telegram.nvim                                           telegram for neovim
 justinmk/guh.nvim                             check PR from neovim, lighter than octo
 folke/snacks.nvim/blob/main/docs/gh.md                           check PR from neovim
+prosk-sudo/codewars.nvim                                          codewars for neovim
 
 Last time revisited all these plugins
 20/05/2024
@@ -185,7 +186,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Aug 15, 2026 (Remove IndianBoy42/tree-sitter-just)
+Aug 29, 2026 (Remove 404 plugins)
 
 <https://dotfyle.com/neovim/plugins/new>
-yahddyyp/mauve.nvim
+komar007/smart-codelens-run.nvim
