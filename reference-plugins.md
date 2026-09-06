@@ -186,7 +186,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Aug 29, 2026 (Remove 404 plugins)
+Sep 2, 2026 (Update aadielpr/bono.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-komar007/smart-codelens-run.nvim
+zzejone/nvim-help
