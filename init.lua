@@ -72,7 +72,6 @@ require("lazy").setup({
 				"gzip",
 				"logipat",
 				"matchit",
-				"matchparen",
 				"netrw",
 				"netrwFileHandlers",
 				"netrwPlugin",

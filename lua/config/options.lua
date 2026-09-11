@@ -4,6 +4,7 @@ o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 o.conceallevel = 2 --          so that `` is visible in markdown files, useful for markdown files
 o.cursorline = true --         highlight the current line
 o.expandtab = true --          convert tabs to spaces (useful for markdown extraspaces)
+o.guicursor:append("a:blinkwait700-blinkon500-blinkoff500") -- blink the cursor in all modes (nvim sends a steady cursor by default)
 o.ignorecase = true --         ignore case in search patterns
 o.linebreak = true --          avoid wrapping a line in the middle of a word.
 o.number = true --             show lines number

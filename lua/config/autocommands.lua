@@ -39,6 +39,7 @@ autocmd("ColorScheme", {
 			{ "LspReferenceRead", { fg = "#DACBA5", bg = "#403e3e" } },
 			{ "LspReferenceText", { fg = "#DACBA5", bg = "#403e3e" } },
 			{ "LspReferenceWrite", { fg = "#DACBA5", bg = "#403e3e" } },
+			{ "MatchParen", { fg = "#262222", bg = "#9ADE4E", bold = true } },
 			{ "MiniIndentscopeSymbol", { fg = "#DACBA5" } },
 			{ "MsgArea", { fg = "#DACBA5" } },
 			{ "SnacksIndent", { fg = "#525050" } },

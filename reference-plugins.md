@@ -186,7 +186,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Sep 2, 2026 (Update aadielpr/bono.nvim)
+Sep 6, 2026 (Add mm4cN/nvim-conan)
 
 <https://dotfyle.com/neovim/plugins/new>
 zzejone/nvim-help
