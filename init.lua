@@ -64,29 +64,23 @@ require("lazy").setup({
 	performance = {
 		rtp = {
 			disabled_plugins = {
-				"2html_plugin",
-				"bugreport",
-				"compiler",
-				"getscript",
-				"getscriptPlugin",
-				"gzip",
-				"logipat",
-				"matchit",
-				"netrw",
-				"netrwFileHandlers",
-				"netrwPlugin",
-				"netrwSettings",
-				"optwin",
-				"rrhelper",
-				"synmenu",
-				"tar",
-				"tarPlugin",
-				"tohtml",
-				"tutor",
-				"vimball",
-				"vimballPlugin",
-				"zip",
-				"zipPlugin",
+				-- Only files that actually exist in $VIMRUNTIME/plugin (Neovim 0.12).
+				-- lazy.nvim matches by filename, so legacy Vim entries are no-ops.
+				"gzip", -- edit .gz files in place
+				"matchit", -- extended % (packadd matchit); Snacks.words covers JSX/HTML tags
+				"netrwPlugin", -- :Explore (packadd netrw); mini.files replaces it
+				"tarPlugin", -- browse .tar archives
+				"tutor", -- :Tutor
+				"zipPlugin", -- browse .zip archives
+				-- If lazy.nvim is ever dropped for vim.pack, this table goes away
+				-- (lazy sets loadplugins = false and re-implements the loader).
+				-- The native equivalent is guard variables set in init.lua:
+				--   vim.g.loaded_gzip = 1
+				--   vim.g.loaded_matchit = 1
+				--   vim.g.loaded_netrwPlugin = 1
+				--   vim.g.loaded_tarPlugin = 1
+				--   vim.g.loaded_zipPlugin = 1
+				--   vim.g.loaded_tutor_mode_plugin = 1 -- note: not loaded_tutor
 			},
 		},
 	},
