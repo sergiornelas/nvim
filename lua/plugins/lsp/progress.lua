@@ -1,4 +1,7 @@
--- TODO: after some kitty terminal OSC 9;4 update, the ticks should be removed
+-- TODO: remove the ticks once kitty ships commit 9ee93ae8c (unreleased as of 0.49.1):
+-- "Fix indeterminate progress bar stopping when the window is idle"
+-- https://github.com/kovidgoyal/kitty/commit/9ee93ae8c
+-- Note: kitty clears progress after 60s without updates, so keep a slow refresh (~30s) if needed
 -- https://www.reddit.com/r/neovim/comments/1sacc91/ghostty_progress_bar_in_neovim_012_with/
 -- https://www.reddit.com/r/neovim/comments/1rcvliq/comment/o73wdkc/
 -- https://github.com/crisecheverria/dotfiles/blob/56929fdb0645cd3e715a72a5fbde410434a9d95b/.config/nvimless/lua/tools/lsp.lua
@@ -14,11 +17,13 @@ function M.setup()
 		vim.api.nvim_ui_send(seq)
 	end
 
+	local indeterminate_osc = "\27]9;4;3\27\\"
+
 	local function progress_osc(value)
 		if value.percentage then
 			return string.format("\27]9;4;1;%d\27\\", value.percentage)
 		end
-		return "\27]9;4;3\27\\"
+		return indeterminate_osc
 	end
 
 	local function cancel_clear_timer()
@@ -76,9 +81,6 @@ function M.setup()
 			cancel_clear_timer()
 
 			if value.kind == "begin" then
-				if active_count == 0 then
-					start_ticking()
-				end
 				active_count = active_count + 1
 				current_osc = progress_osc(value)
 			elseif value.kind == "report" then
@@ -90,6 +92,13 @@ function M.setup()
 					clear_timer = assert(vim.uv.new_timer())
 					clear_timer:start(1500, 0, vim.schedule_wrap(clear_progress))
 				end
+			end
+
+			-- Only the indeterminate animation needs ticks to keep kitty redrawing
+			if current_osc == indeterminate_osc then
+				start_ticking()
+			else
+				stop_ticking()
 			end
 
 			send_osc(current_osc)

@@ -186,7 +186,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Sep 6, 2026 (Add mm4cN/nvim-conan)
+Sep 26, 2026 (Add justinhj/battery.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-zzejone/nvim-help
+pewpewnor/dove.nvim

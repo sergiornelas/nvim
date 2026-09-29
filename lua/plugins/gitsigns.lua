@@ -56,7 +56,7 @@ function M.config()
 				gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end)
 
-			map("n", "<leader>S", gitsigns.stage_buffer)
+			map("n", "<leader><c-s>", gitsigns.stage_buffer)
 			map("n", "<leader>gr", gitsigns.reset_buffer)
 			map("n", "<leader>e", gitsigns.preview_hunk)
 			map("n", "<leader>gg", gitsigns.preview_hunk_inline)
@@ -84,7 +84,7 @@ function M.config()
 			map({ "o", "x" }, "ig", gitsigns.select_hunk)
 
 			-- Custom stage hunk current paragraph
-			map("n", "<leader><c-s>", function()
+			map("n", "<leader>S", function()
 				vim.cmd("normal! mzvip")
 				local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
 				vim.api.nvim_feedkeys(esc, "x", false)

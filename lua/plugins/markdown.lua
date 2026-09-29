@@ -178,6 +178,8 @@ return {
 		-- npm install
 		-- lua alterative:
 		-- brianhuster/live-preview.nvim
+		-- or try this modern fork:
+		-- https://github.com/sammaji/markdown-preview.nvim
 		"iamcco/markdown-preview.nvim",
 		ft = { "markdown" },
 		build = function()
