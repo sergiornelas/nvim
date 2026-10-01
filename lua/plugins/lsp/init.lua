@@ -30,25 +30,16 @@ return {
 			"cssls",
 			"html",
 			"yamlls",
-			"vtsls",
 			"tsc",
 			"tailwindcss",
 			"marksman",
 		})
 
-		config("vtsls", {
-			on_attach = on_attach,
-			-- The diagnoses are provided by tsc (~3x faster)
-			handlers = {
-				["textDocument/publishDiagnostics"] = function() end,
-			},
-			settings = require("plugins.lsp.settings.vtsls").settings,
-		})
-
 		config("tsc", {
-			on_attach = function(client)
-				require("plugins.lsp.capabilities.tsc").apply(client)
-			end,
+			on_attach = on_attach,
+			-- Required by ts-expand-hover.nvim to expand types
+			capabilities = { experimental = { hoverVerbosityLevel = true } },
+			settings = require("plugins.lsp.settings.tsc").settings,
 		})
 
 		config("lua_ls", {

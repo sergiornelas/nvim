@@ -32,7 +32,6 @@ return {
 			"prettierd",
 			"stylua",
 			"tsc",
-			"vtsls",
 			"yaml-language-server",
 		}
 

@@ -39,9 +39,6 @@ local function ts_source_action(key, action)
 	end, { silent = true })
 end
 
--- Disable: Language server `vtsls` does not support command `_typescript.didOrganizeImports`.
-vim.lsp.commands["_typescript.didOrganizeImports"] = function() end
-
 -- Organize correctly the imports
 ts_source_action("<leader>tti", "source.fixAll.eslint")
 -- Organize Imports
@@ -50,8 +47,6 @@ ts_source_action("<leader>tto", "source.organizeImports")
 ts_source_action("<leader>tts", "source.sortImports")
 -- Remove Unused Imports
 ts_source_action("<leader>ttu", "source.removeUnusedImports")
--- Add Missing Imports
-ts_source_action("<leader>tta", "source.addMissingImports.ts")
 
 return {
 	{
