@@ -9,6 +9,7 @@ map("n", "<c-;>", "<cmd>lua Snacks.zen()<cr>", opts)
 
 return {
 	"folke/snacks.nvim",
+	priority = 1000,
 	lazy = false,
 	opts = {
 		-- 3rd/image

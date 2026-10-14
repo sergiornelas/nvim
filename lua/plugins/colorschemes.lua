@@ -204,7 +204,6 @@ return {
 			transparent = true,
 		},
 	},
-	{ "Mofiqul/vscode.nvim", keys = lazy_map, opts = { transparent = true } },
 	{
 		"thallada/farout.nvim",
 		keys = lazy_map,

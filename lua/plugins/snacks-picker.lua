@@ -168,8 +168,6 @@ end)
 
 return {
 	"folke/snacks.nvim",
-	priority = 1000,
-	lazy = false,
 	-- Lazy.nvim merges opts tables together.
 	-- So it will be like you had them under one opts table.
 	opts = {

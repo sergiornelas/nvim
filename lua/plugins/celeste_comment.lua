@@ -1,6 +1,6 @@
 return {
 	"celeste3z/celeste_comment.nvim",
-	lazy = false,
+	event = "VeryLazy",
 	opts = {
 		mappings = {
 			line_toggle_insert = "<c-g><c-c>",

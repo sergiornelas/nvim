@@ -193,7 +193,7 @@ vim.api.nvim_create_autocmd("User", {
 
 return {
 	"coder/claudecode.nvim",
-	lazy = false,
+	cmd = { "ClaudeCode", "ClaudeCodeAdd", "ClaudeCodeSend", "ClaudeCodeTreeAdd", "ClaudeCodeDiffDeny" },
 	enabled = true,
 	opts = {
 		terminal = {
