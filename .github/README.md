@@ -200,6 +200,5 @@ NVIM_APPNAME=sergiornelas/nvim/ nvim
 + lua_ls
 + marksman
 + tailwindcss
-+ vtsls
 + yamlls
 + tsc

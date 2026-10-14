@@ -5,7 +5,6 @@ return {
 	dependencies = {
 		{ "L3MON4D3/LuaSnip", version = "v2.*" },
 		{ "rafamadriz/friendly-snippets" },
-		{ "xieyonn/blink-cmp-dat-word" },
 	},
 	---@module 'blink.cmp'
 	---@diagnostic disable-next-line: undefined-doc-name
@@ -25,15 +24,6 @@ return {
 						label = {
 							width = { fill = true, max = 33 },
 						},
-						kind_icon = {
-							text = function(ctx)
-								if ctx.source_name == "Word" then
-									return "" .. ctx.icon_gap
-								else
-									return ctx.kind_icon .. ctx.icon_gap
-								end
-							end,
-						},
 					},
 					treesitter = {
 						"lsp",
@@ -52,19 +42,9 @@ return {
 			-- Static list of providers to enable, or a function to dynamically enable/disable providers based on the context
 			default = { "lsp", "path", "snippets", "buffer" },
 			per_filetype = {
-				markdown = { "path", "snippets", "buffer", "datword" },
+				markdown = { "path", "snippets", "buffer" },
 			},
 			providers = {
-				datword = {
-					name = "Word",
-					module = "blink-cmp-dat-word",
-					opts = {
-						paths = {
-							-- "path_to_your_words.txt", -- add your owned word files before dictionary.
-							"/usr/share/dict/words", -- This file is included by default on Linux/macOS.
-						},
-					},
-				},
 				path = {
 					opts = {
 						show_hidden_files_by_default = false,

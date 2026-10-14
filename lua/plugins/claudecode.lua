@@ -250,6 +250,10 @@ return {
 			-- open_in_current_tab = true,
 		},
 	},
+	config = function(_, opts)
+		require("claudecode").setup(opts)
+		require("claudecode.selection").send_selection_update = function() end
+	end,
 	keys = {
 		{ "g]", "<cmd>ClaudeCode --resume<cr>" }, -- (vim: :tselect on the tag under the cursor)
 		{ "g[", "<cmd>ClaudeCode --continue<cr>" },

@@ -228,6 +228,10 @@ require("vim._core.ui2").enable({
 -- <c-v>+space skip the abbreviation"
 cmd("cabbrev sss AutoSession save<cr>")
 cmd("cabbrev ssd AutoSession delete<cr>")
+-- Add them also in macOS text expansion:
+-- System Settings > Keyboard > Text Input > Text Replacements...
+cmd("inoreabbrev email; sergio.ornelas.92@outlook.com")
+cmd("inoreabbrev name; Sergio Lopez Ornelas")
 
 -- Macros
 fn.setreg("E", "A +\x1bJ")

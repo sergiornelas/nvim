@@ -2,7 +2,7 @@ return {
 	"uga-rosa/translate.nvim",
 	keys = {
 		{
-			"<leader>\\e",
+			"<leader><bs>",
 			"<cmd>:Translate en -output=replace<cr>",
 			mode = { "n", "x" },
 		},

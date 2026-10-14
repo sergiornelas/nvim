@@ -68,8 +68,7 @@ return {
 	end,
 	dependencies = {
 		{
-			-- Original: https://github.com/mawkler/jsx-element.nvim/
-			"sergiornelas/jsx-element.nvim",
+			"mawkler/jsx-element.nvim",
 			ft = { "typescriptreact", "javascriptreact" },
 			opts = {
 				keymaps = {

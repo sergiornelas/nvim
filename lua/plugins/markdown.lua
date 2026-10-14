@@ -173,30 +173,6 @@ return {
 		end,
 	},
 	{
-		-- to work with this:
-		-- cd ~/.local/share/nvim/lazy/markdown-preview.nvim
-		-- npm install
-		-- lua alterative:
-		-- brianhuster/live-preview.nvim
-		-- or try this modern fork:
-		-- https://github.com/sammaji/markdown-preview.nvim
-		"iamcco/markdown-preview.nvim",
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-		config = function()
-			vim.g.mkdp_auto_close = 0
-			vim.g.mkdp_page_title = "<${name}/>"
-			vim.cmd([[
-        let g:mkdp_preview_options = {
-        \ 'disable_sync_scroll': 1,
-        \ }
-      ]])
-			map("n", "<leader>m", "<cmd>MarkdownPreview<cr>", opts)
-		end,
-	},
-	{
 		"sergiornelas/cloak.nvim",
 		ft = "markdown",
 		config = function()

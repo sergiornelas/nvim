@@ -4,18 +4,8 @@ return {
 		cmd = "CellularAutomaton",
 		keys = {
 			{
-				"<leader>\\",
+				"<leader>\\<leader>",
 				"<cmd>CellularAutomaton make_it_rain<cr>",
-			},
-		},
-	},
-	{
-		"alanfortlink/animatedbg.nvim",
-		config = true,
-		keys = {
-			{
-				"<leader>F",
-				"<cmd>lua require('animatedbg-nvim').play({ animation = 'fireworks' })<cr>",
 			},
 		},
 	},

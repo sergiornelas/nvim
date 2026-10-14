@@ -146,6 +146,10 @@ Satanic symbols when copilot is working in the background:
 
 <https://github.com/folke/sidekick.nvim>
 
+## Herdr
+
+<https://github.com/Rahularya01/tether.nvim>
+
 ## Misc
 
 <https://l-o-o-s-e-d.net/vibe-coding>      article vibe coding in neovim (voice chat)
