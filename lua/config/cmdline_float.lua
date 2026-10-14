@@ -66,8 +66,10 @@ local group = api.nvim_create_augroup("CmdlineFloat", { clear = true })
 api.nvim_create_autocmd("CmdlineEnter", {
 	group = group,
 	callback = function()
+		-- Pending typeahead means ':' came from a mapping or a terminal-sent sequence
+		-- (e.g. kitty writing ":ClaudeCode\r"), not typed by hand: keep it native
 		if vim.v.event.cmdlevel == 1 then
-			active = FLOAT_TYPES[vim.v.event.cmdtype] or false
+			active = FLOAT_TYPES[vim.v.event.cmdtype] and vim.fn.getchar(1) == 0 or false
 		end
 	end,
 })
