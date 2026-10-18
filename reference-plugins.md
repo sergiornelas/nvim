@@ -187,7 +187,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Oct 11, 2026 (Remove bennorichters/taal.nvim)
+Oct 17, 2026 (Add zacesshq/zacess.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-FrancescoDerme/tuna.nvim
+zacesshq/zacess.nvim
