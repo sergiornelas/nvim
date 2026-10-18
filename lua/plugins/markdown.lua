@@ -131,8 +131,9 @@ return {
 			})
 			require("markview.extras.checkboxes").setup({
 				-- remove_style = "list_item", -- Removes the list item markers too.
+				default = "x",
 				states = {
-					{ " ", "X", "/", "l", "?", "!", "-" },
+					{ " ", "x", "/", "l", "?", "!", "-" },
 					{ "*", "b", "i" },
 				},
 			})
@@ -161,6 +162,7 @@ return {
 			map({ "n", "x" }, "<c-c><c-c>", "<cmd>Checkbox toggle<cr>", opts) -- (vim :interrupt current (search) command)
 			map("n", "<leader>H", "<cmd>Heading decrease<cr>", opts)
 			map("n", "<leader>L", "<cmd>Heading increase<cr>", opts)
+			map("n", "<c-c><c-i>", "<cmd>Checkbox interactive<cr>", opts)
 
 			-- Code blocks
 			map("n", "<leader>CJ", "o```javascript```<esc>Tti<cr><c-o>O", opts)
