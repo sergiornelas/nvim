@@ -73,13 +73,6 @@ autocmd("FileType", {
 		map("i", "<c-z>", "<c-g>u<Esc>[s1z=`]a<c-g>u") -- fix last spell
 		map("n", "<leader>j", "i<c-g>u<Esc>]s1z=`]a<c-g>u<esc>") -- fix next spell
 		map("n", "<leader>k", "i<c-g>u<Esc>[s1z=`]a<c-g>u<esc>") -- fix prev spell
-		-- change heading level
-		vim.keymap.set("n", "<leader>H", function()
-			change_heading(-1)
-		end, opts)
-		vim.keymap.set("n", "<leader>L", function()
-			change_heading(1)
-		end, opts)
 	end,
 })
 

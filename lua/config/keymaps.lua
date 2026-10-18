@@ -20,7 +20,7 @@ map("n", "<leader>n", '<cmd>lua toggle_file_in_float("~/notes/main.md")<cr>') --
 map("n", "<leader>R", "<cmd>lua toggle_window_resize()<cr>") -- toggle auto resize window mode
 map("c", "<c-o>", "<c-p>") --                 previous command (mini.cmdline)
 map("n", "<c-q>", "<cmd>qa<cr>") -- 	 exit vim safely (vim: not used, or used for terminal control flow, visual block)
-map("i", "<c-c>", "<esc>^y$:execute 'read !echo \"scale=2; ' . @0 . '\" | bc'<cr>kA =<esc>J") -- calculate current math expression
+map("i", "<c-c>", "<esc>^y$:execute 'read !echo \"scale=10; x=' . @0 . '; scale=2; x/1\" | bc'<cr>kA =<esc>J") -- calculate current math expression
 
 -- Toggle options =================================
 map({ "n", "x" }, "<leader>p", "<cmd>set spell!<cr>")
