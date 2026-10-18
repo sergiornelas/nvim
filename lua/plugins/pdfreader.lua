@@ -18,6 +18,9 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 
 -- <leader>fP - Open snacks picker to select a PDF file
 
+-- You could also test Typst preview:
+-- https://github.com/chomosuke/typst-preview.nvim
+
 return {
 	"r-pletnev/pdfreader.nvim",
 	-- ft = "image", -- TODO: run PDF only for all pdf

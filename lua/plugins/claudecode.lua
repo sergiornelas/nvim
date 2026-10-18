@@ -192,6 +192,8 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 return {
+	-- In a future, check this:
+	-- https://github.com/ThorstenRhau/brygga.nvim
 	"coder/claudecode.nvim",
 	cmd = { "ClaudeCode", "ClaudeCodeAdd", "ClaudeCodeSend", "ClaudeCodeTreeAdd", "ClaudeCodeDiffDeny" },
 	enabled = true,

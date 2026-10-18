@@ -13,7 +13,7 @@ if not (ok_ui and ok_cmd) then
 	return
 end
 
-local active, saved = false, nil
+local active, pending, saved = false, false, nil
 
 local function get_win()
 	local win = ui2.wins and ui2.wins.cmd
@@ -66,10 +66,24 @@ local group = api.nvim_create_augroup("CmdlineFloat", { clear = true })
 api.nvim_create_autocmd("CmdlineEnter", {
 	group = group,
 	callback = function()
-		-- Pending typeahead means ':' came from a mapping or a terminal-sent sequence
-		-- (e.g. kitty writing ":ClaudeCode\r"), not typed by hand: keep it native
+		-- Float only once the cmdline waits for the user: typeahead still pending means
+		-- the keys come from a terminal-sent sequence (kitty writing ":ClaudeCode\r") or
+		-- a mapping. Visual mode and counts also stuff "'<,'>" / ".,.+N" as typeahead,
+		-- so the decision is deferred to CmdlineChanged until it is consumed.
 		if vim.v.event.cmdlevel == 1 then
-			active = FLOAT_TYPES[vim.v.event.cmdtype] and vim.fn.getchar(1) == 0 or false
+			local float = FLOAT_TYPES[vim.v.event.cmdtype] or false
+			active = float and vim.fn.getchar(1) == 0
+			pending = float and not active
+		end
+	end,
+})
+
+api.nvim_create_autocmd("CmdlineChanged", {
+	group = group,
+	callback = function()
+		if pending and vim.fn.getchar(1) == 0 then
+			active, pending = true, false
+			apply()
 		end
 	end,
 })
@@ -78,7 +92,7 @@ api.nvim_create_autocmd("CmdlineLeave", {
 	group = group,
 	callback = function()
 		if vim.v.event.cmdlevel == 1 then
-			active = false
+			active, pending = false, false
 			restore()
 		end
 	end,

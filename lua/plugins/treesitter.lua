@@ -27,6 +27,7 @@ return {
 			"styled",
 			"tsx",
 			"typescript",
+			"typst",
 			"vim",
 			"vimdoc",
 			"yaml",
