@@ -16,11 +16,13 @@ map("n", "<leader><c-q>", "<cmd>qa!<cr>") -- 	              force exit neovim
 map({ "n", "x" }, "<c-w><c-u>", "<cmd>vnew<cr>") -- new buffer vertical split
 map("t", "<esc>", "<c-\\><c-n>") --               escape insert mode terminal
 map("n", "<c-w><c-a>", "<cmd>vsplit #<cr>") -- split previous buffer vertical
-map("n", "<leader>n", '<cmd>lua toggle_file_in_float("~/notes/main.md")<cr>') -- toggle scratch file
 map("n", "<leader>R", "<cmd>lua toggle_window_resize()<cr>") -- toggle auto resize window mode
 map("c", "<c-o>", "<c-p>") --                 previous command (mini.cmdline)
 map("n", "<c-q>", "<cmd>qa<cr>") -- 	 exit vim safely (vim: not used, or used for terminal control flow, visual block)
 map("i", "<c-c>", "<esc>^y$:execute 'read !echo \"scale=10; x=' . @0 . '; scale=2; x/1\" | bc'<cr>kA =<esc>J") -- calculate current math expression
+map("n", "<leader>n", function() --                         open scratch file
+	_G.open_file_in_float("~/notes/main.md")
+end)
 
 -- Toggle options =================================
 map({ "n", "x" }, "<leader>p", "<cmd>set spell!<cr>")
