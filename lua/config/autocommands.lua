@@ -92,8 +92,17 @@ autocmd("BufEnter", {
 })
 
 -- Show cursor line only in active window
-autocmd({ "InsertLeave", "WinEnter" }, { pattern = "*", command = "set cursorline" })
-autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline" })
+local cursorline_group = create_group("ActiveCursorLine", { clear = true })
+autocmd({ "InsertLeave", "WinEnter" }, { group = cursorline_group, command = "setlocal cursorline" })
+autocmd({ "InsertEnter", "WinLeave" }, { group = cursorline_group, command = "setlocal nocursorline" })
+autocmd("BufWinEnter", {
+	group = cursorline_group,
+	callback = function()
+		if vim.api.nvim_win_get_config(0).relative == "" and vim.fn.mode() ~= "i" then
+			vim.cmd("setlocal cursorline")
+		end
+	end,
+})
 
 -- Jump to the last place you've visited in a file before exiting
 local function augroup(name)
