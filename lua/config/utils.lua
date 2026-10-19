@@ -90,26 +90,50 @@ function _G.auto_equalize_window_widths()
 end
 
 -- Snacks headings markdown menu
+local heading_query
 function _G.markdown_headings_index()
 	if vim.bo.filetype ~= "markdown" then
 		return
 	end
 	if api.nvim_win_get_config(0).relative ~= "" then
-		_G.promote_file_in_float_to_split()
+		_G.promote_file_in_float_to_tab()
 	end
-	cmd("normal! mz")
-	local status, headings_count = pcall(function()
-		return tonumber(fn.execute("%s/## //gn"):match("%d+"))
-	end)
-	if not status then
-		print("no headings")
+	local buf = api.nvim_get_current_buf()
+	local parser = vim.treesitter.get_parser(buf, "markdown", { error = false })
+	if not parser then
+		return
+	end
+	heading_query = heading_query or vim.treesitter.query.parse("markdown", "(atx_heading) @h")
+	local cursor_lnum = api.nvim_win_get_cursor(0)[1]
+	-- Treesitter highlights + buffer extmarks (markview rendering), like the builtin lines picker
+	local highlights = require("snacks.picker.util.highlight").get_highlights({ buf = buf, extmarks = true })
+	local items, current = {}, 1
+	for _, node in heading_query:iter_captures(parser:parse()[1]:root(), buf) do
+		local lnum = node:start() + 1
+		items[#items + 1] = {
+			text = api.nvim_buf_get_lines(buf, lnum - 1, lnum, false)[1],
+			highlights = highlights[lnum],
+			buf = buf,
+			pos = { lnum, 0 },
+		}
+		-- Last heading at or above the cursor is the current section
+		if lnum <= cursor_lnum then
+			current = #items
+		end
+	end
+	if #items == 0 then
+		vim.notify("No headings", vim.log.levels.WARN)
 		return
 	end
 	local snacks = require("snacks")
-	cmd("set nohlsearch")
-	cmd('silent execute "normal! $?## \\<CR>"')
-	local current_context_heading = api.nvim_get_current_line()
-	snacks.picker.lines({
+	snacks.picker({
+		title = "Headings",
+		items = items,
+		-- Like the "lines" format but without the line number column
+		format = function(item)
+			return vim.list_extend({ { item.text } }, item.highlights or {})
+		end,
+		focus = "list",
 		layout = {
 			preset = "sidebar",
 			cycle = false,
@@ -118,49 +142,27 @@ function _G.markdown_headings_index()
 				width = 50,
 			},
 		},
-		title = "Headings",
 		win = {
 			list = {
+				wo = { wrap = true },
 				keys = {
 					["l"] = { "confirm", mode = { "n" } },
 				},
 			},
 		},
-		pattern = "## ",
 		on_show = function(picker)
+			-- view() keeps a target if items aren't rendered yet, so no race
+			picker.list:view(current)
 			picker:show_preview()
-			snacks.picker.actions.toggle_focus(picker)
-			while headings_count > 0 do
-				local snacks_list_heading = api.nvim_get_current_line():match("^%s*(.-)%s*$")
-				if snacks_list_heading ~= current_context_heading then
-					snacks.picker.actions.list_down(picker)
-				else
-					break
-				end
-				headings_count = headings_count - 1
-			end
-			api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-				buffer = api.nvim_get_current_buf(),
+			-- The list forces scrolloff=0, so keep the cursor centered manually
+			api.nvim_create_autocmd("CursorMoved", {
+				buffer = picker.list.win.buf,
 				callback = function()
 					snacks.picker.actions.list_scroll_center(picker)
 				end,
 			})
-			api.nvim_create_autocmd("VimResized", {
-				buffer = api.nvim_get_current_buf(),
-				callback = function()
-					vim.defer_fn(function()
-						cmd("set wrap")
-					end, 90)
-				end,
-			})
-			vim.defer_fn(function()
-				cmd("set wrap")
-			end, 90)
 		end,
 	})
-	cmd("set hlsearch")
-	cmd("noh")
-	cmd("normal! `z")
 end
 
 -- execute `pnpm run build && yalc push` command in the background if you are in hd-igniter project
