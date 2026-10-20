@@ -42,7 +42,9 @@ local function pane_exists(id)
 	return false
 end
 
--- Find an orphaned "claude" window in the same Kitty tab as Neovim.
+-- Find an orphaned Claude window (marked with the user var claude=1) in the same
+-- Kitty tab as Neovim. We don't match by title: it belongs to Claude Code, which
+-- sets it to the session name (/rename) or the auto-generated topic.
 -- Returns the window id, or nil if none exists / not in Kitty.
 local function find_orphan_claude_in_nvim_tab()
 	if not nvim_pane_id then
@@ -59,7 +61,7 @@ local function find_orphan_claude_in_nvim_tab()
 				if win.id == nvim_pane_id then
 					has_nvim = true
 				end
-				if win.title == "claude" then
+				if win.user_vars and win.user_vars.claude == "1" then
 					claude_id = win.id
 				end
 			end
@@ -117,8 +119,11 @@ local function launch_pane(cmd_string, env_table)
 	end
 	local cwd = vim.fn.getcwd()
 	vim.fn.system("kitty @ goto-layout tall")
+	-- --add-to-session=.: el pane entra a la sesión de kitty del Neovim. Con un --cwd
+	-- explícito kitty no lo hace solo, y entonces goto_session no recuerda el pane y
+	-- al volver a la sesión siempre enfoca el primero.
 	local result = vim.fn.system(
-		"kitty @ launch --type=window --location=vsplit --title=claude --copy-env --cwd="
+		"kitty @ launch --type=window --location=vsplit --var=claude=1 --copy-env --add-to-session=. --cwd="
 			.. vim.fn.shellescape(cwd)
 			.. " "
 			.. env_args
@@ -198,6 +203,9 @@ return {
 	cmd = { "ClaudeCode", "ClaudeCodeAdd", "ClaudeCodeSend", "ClaudeCodeTreeAdd", "ClaudeCodeDiffDeny" },
 	enabled = true,
 	opts = {
+		-- Oculta los INFO del plugin (p. ej. "keepalive timeout ... closing connection",
+		-- inofensivo: Claude Code reconecta solo). WARN/ERROR siguen apareciendo.
+		log_level = "warn",
 		terminal = {
 			provider = {
 				is_available = function()
