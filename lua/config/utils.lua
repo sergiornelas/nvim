@@ -222,7 +222,11 @@ cmd("inoreabbrev email; sergio.ornelas.92@outlook.com")
 cmd("inoreabbrev name; Sergio Lopez Ornelas")
 
 -- Macros
-fn.setreg("E", "A +\x1bJ")
+-- "E" and "e" are the same register (uppercase appends instead of replacing)
+fn.setreg("E", "A +\x1bJ") -- append " +" and join with next line (@e)
+fn.setreg("A", "A.\x1b") -- add dot at end of line (q.)
+
+-- sergio
 
 -- Neovim 0.12
 -- https://www.youtube.com/watch?v=QOk7fjgV8q0
