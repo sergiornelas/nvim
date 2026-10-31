@@ -73,6 +73,14 @@ local function find_orphan_claude_in_nvim_tab()
 	return nil
 end
 
+-- Full size of the Kitty window when showing Claude / restore when closing it. It's
+-- the same script that kitty_mod+space uses (kitty/toggle_term.py), so each can
+-- undo what the other expanded. detach: do not wait for yabai.
+local fullscreen_zoom_script = vim.fn.expand("~/.config/kitty/fullscreen_zoom.sh")
+local function fullscreen_zoom(action)
+	vim.fn.jobstart({ fullscreen_zoom_script, action }, { detach = true })
+end
+
 local function focus_pane()
 	if kitty_pane_id then
 		vim.fn.system("kitty @ focus-window --match id:" .. kitty_pane_id)
@@ -83,6 +91,7 @@ local function close_pane()
 	if kitty_pane_id then
 		vim.fn.system("kitty @ close-window --match id:" .. kitty_pane_id)
 		kitty_pane_id = nil
+		fullscreen_zoom("restore")
 	end
 end
 
@@ -118,6 +127,7 @@ local function launch_pane(cmd_string, env_table)
 		env_args = env_args .. "--env " .. k .. "=" .. vim.fn.shellescape(v) .. " "
 	end
 	local cwd = vim.fn.getcwd()
+	fullscreen_zoom("ensure")
 	vim.fn.system("kitty @ goto-layout tall")
 	-- --add-to-session=.: el pane entra a la sesión de kitty del Neovim. Con un --cwd
 	-- explícito kitty no lo hace solo, y entonces goto_session no recuerda el pane y
@@ -216,6 +226,7 @@ return {
 
 				open = function(cmd_string, env_table)
 					if pane_exists(kitty_pane_id) then
+						fullscreen_zoom("ensure")
 						vim.fn.system("kitty @ goto-layout tall")
 						focus_pane()
 					else
