@@ -191,6 +191,7 @@ return {
 	{
 		"everviolet/nvim",
 		name = "evergarden",
+		keys = lazy_map,
 		opts = {
 			editor = {
 				transparent_background = true,
@@ -264,6 +265,33 @@ return {
 			require("fluoromachine").setup({
 				glow = false,
 				theme = "delta",
+				transparent = true,
+			})
+		end,
+	},
+	{
+		"Aejkatappaja/cendre",
+		keys = lazy_map,
+		config = function()
+			require("cendre").setup({
+				transparent = true,
+			})
+		end,
+	},
+	{
+		"harunnoir/limei.nvim",
+		keys = lazy_map,
+		config = function()
+			require("limei").setup({
+				transparent = true,
+			})
+		end,
+	},
+	{
+		"wtfox/luna.nvim",
+		keys = lazy_map,
+		config = function()
+			require("luna").setup({
 				transparent = true,
 			})
 		end,
