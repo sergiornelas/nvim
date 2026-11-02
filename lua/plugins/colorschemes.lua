@@ -274,6 +274,7 @@ return {
 		keys = lazy_map,
 		config = function()
 			require("cendre").setup({
+				background = "hard",
 				transparent = true,
 			})
 		end,
@@ -290,10 +291,8 @@ return {
 	{
 		"wtfox/luna.nvim",
 		keys = lazy_map,
-		config = function()
-			require("luna").setup({
-				transparent = true,
-			})
-		end,
+		opts = {
+			transparent = true,
+		},
 	},
 }

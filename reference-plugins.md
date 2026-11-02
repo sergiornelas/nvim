@@ -187,7 +187,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Oct 17, 2026 (Add zacesshq/zacess.nvim)
+Oct 31, 2026 (Add kryptamine/gruber-darker-renaissance)
 
 <https://dotfyle.com/neovim/plugins/new>
-zacesshq/zacess.nvim
+sammaji/markdown-preview.nvim

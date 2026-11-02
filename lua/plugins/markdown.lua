@@ -1,3 +1,5 @@
+-- modern markdown preview:
+-- https://github.com/sammaji/markdown-preview.nvim
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 

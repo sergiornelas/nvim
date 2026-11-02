@@ -18,7 +18,35 @@ return {
 			},
 		},
 	},
+
+	-- :Gitsigns blame
+
+	-- Neovim 0.13 =================
+	-- multi-cursor guide
+	-- https://blog.olimorris.com/2026/09/02/multiple-cursors-in-neovim-0.13/
+	-- https://www.reddit.com/r/neovim/comments/1x2akdv/neovim_multiline_editing_overview_multicursor/
+
+	-- https://www.reddit.com/r/neovim/comments/1wxzihu/just_a_quick_tip_for_all_the_multicursors_new/
+	-- https://www.reddit.com/r/neovim/comments/1wxo3ek/nvim_v013_multicursor_keybinds/
+
+	-- Makes working with AI agents easier (Milestone Due by October 1, 2026
+	-- https://www.youtube.com/watch?v=BgUhhFI3aAo
+
+	-- New text objects al (All lines)/il (Inner line)
+	-- https://www.youtube.com/watch?v=L5veQ3dKQU4
+
+	-- vim.log: Neovim 0.13’s new logging API
+	-- https://www.reddit.com/r/neovim/comments/1wh9tla/vimlog_neovim_013s_new_logging_api/
+
+	-- New features for Windows, Sessions, and Buffers
+	-- https://www.reddit.com/r/neovim/comments/1wk039g/neovim_013_new_features_for_windows_sessions_and/
+
+	-- file explorer 0.13
+	-- https://www.reddit.com/r/neovim/comments/1wxmb3u/do_we_still_need_a_file_explorer_plugin_in_neovim/
+	-- https://www.youtube.com/watch?v=vzFKHAL89lc
+
 	-- TODO:
+	-- https://github.com/emrearmagan/atlas.nvim
 	-- markdown checks: https://github.com/hamidi-dev/org-list.nvim
 	-- multiple keymaps actions: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-keymap.md
 	-- https://github.com/pwntester/octo.nvim (check prs from neovim)
@@ -32,17 +60,4 @@ return {
 	-- https://www.reddit.com/r/neovim/comments/1sdaetq/how_to_reproduce_lazynvims_lazy_loading_of_a/
 	-- https://dotfiles.substack.com/p/whats-new-in-neovim-012 (Minimal modern structure)
 	-- https://fredrikaverpil.github.io/blog/2026/04/15/from-lazy.nvim-to-vim.pack/
-
-	-- https://www.reddit.com/r/neovim/comments/1prctpf/integrating_snackspicker_with_vscodediffnvim_a/
-	-- https://www.reddit.com/r/neovim/comments/1puo5cm/any_way_to_speed_up_typescript_lsp_startup_or/
-	-- https://github.com/enochchau/nvim-pretty-ts-errors (seems like it's not working as the image (26/01/2026))
-	-- https://github.com/monkoose/neocodeium
-	-- https://www.reddit.com/r/neovim/comments/1qhubcr/hauntnvim_hear_the_ghosts_tell_you_where_you_were/
-	-- https://github.com/TheNoeTrevino/haunt.nvim
-	-- https://github.com/saghen/blink.pairs
-
-	-- https://github.com/emrearmagan/atlas.nvim
-
-	-- oxc (way faster than pretter and eslint)
-	-- https://www.reddit.com/r/neovim/comments/1tf3rlh/native_prettier_formatting_in_neovim_012/
 }
