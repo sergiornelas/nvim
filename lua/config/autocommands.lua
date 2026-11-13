@@ -21,6 +21,7 @@ autocmd("ColorScheme", {
 			{ "BlinkCmpMenu", { bg = "#1f1e1c" } },
 			{ "BlinkCmpMenuSelection", { bg = "#4b4a48" } },
 			{ "Comment", { fg = "#928374", italic = true } },
+			{ "CopilotSuggestion", { fg = "#b658cb" } },
 			{ "ContextVt", { fg = "#716a56", italic = true } },
 			{ "CursorLine", { bg = "#25424D" } },
 			{ "CursorLineNr", { bg = "#0f0e0e", fg = "#afacac" } },

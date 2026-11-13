@@ -19,7 +19,11 @@ map("n", "<c-w><c-a>", "<cmd>vsplit #<cr>") -- split previous buffer vertical
 map("n", "<leader>R", "<cmd>lua toggle_window_resize()<cr>") -- toggle auto resize window mode
 map("c", "<c-o>", "<c-p>") --                 previous command (mini.cmdline)
 map("n", "<c-q>", "<cmd>qa<cr>") -- 	 exit vim safely (vim: not used, or used for terminal control flow, visual block)
-map("i", "<c-c>", "<esc>^y$:execute 'read !echo \"scale=10; x=' . @0 . '; scale=2; x/1\" | bc'<cr>kA =<esc>J") -- calculate current math expression
+map(
+	"i",
+	"<c-c>",
+	"<esc>^y$:execute 'read !echo \"scale=10; x=' . substitute(@0, ',', '', 'g') . '; scale=2; x/1\" | bc | sed -E -e ''s/\\.00$//'' -e :a -e ''s/^(-?[0-9]+)([0-9]{3})/\\1,\\2/'' -e ta'<cr>kA =<esc>J"
+) --                                                        calculate current math expression
 map("n", "<leader>n", function() --                         open scratch file
 	_G.open_file_in_float("~/notes/main.md")
 end)

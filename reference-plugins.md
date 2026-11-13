@@ -187,7 +187,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Oct 31, 2026 (Add kryptamine/gruber-darker-renaissance)
+Nov 08, 2026 (Add tiagovla/tokyodark.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-sammaji/markdown-preview.nvim
+LFSCamargo/macscroll.nvim
