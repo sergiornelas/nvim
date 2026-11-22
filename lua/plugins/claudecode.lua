@@ -73,12 +73,30 @@ local function find_orphan_claude_in_nvim_tab()
 	return nil
 end
 
--- Full size of the Kitty window when showing Claude / restore when closing it. It's
--- the same script that kitty_mod+space uses (kitty/toggle_term.py), so each can
--- undo what the other expanded. detach: do not wait for yabai.
+-- Layout of the Kitty tab that holds the window with this id, or nil if not found.
+local function pane_layout(id)
+	local os_windows = list_os_windows()
+	if not (id and os_windows) then
+		return nil
+	end
+	for _, os_win in ipairs(os_windows) do
+		for _, tab in ipairs(os_win.tabs or {}) do
+			for _, win in ipairs(tab.windows or {}) do
+				if win.id == id then
+					return tab.layout
+				end
+			end
+		end
+	end
+	return nil
+end
+
+-- Full size of the Kitty window when showing a hidden Claude pane; it's never shrunk
+-- back. Same script that kitty_mod+space uses (kitty/toggle_term.py). detach: do not
+-- wait for yabai.
 local fullscreen_zoom_script = vim.fn.expand("~/.config/kitty/fullscreen_zoom.sh")
-local function fullscreen_zoom(action)
-	vim.fn.jobstart({ fullscreen_zoom_script, action }, { detach = true })
+local function fullscreen_zoom()
+	vim.fn.jobstart({ fullscreen_zoom_script }, { detach = true })
 end
 
 local function focus_pane()
@@ -91,7 +109,6 @@ local function close_pane()
 	if kitty_pane_id then
 		vim.fn.system("kitty @ close-window --match id:" .. kitty_pane_id)
 		kitty_pane_id = nil
-		fullscreen_zoom("restore")
 	end
 end
 
@@ -127,7 +144,7 @@ local function launch_pane(cmd_string, env_table)
 		env_args = env_args .. "--env " .. k .. "=" .. vim.fn.shellescape(v) .. " "
 	end
 	local cwd = vim.fn.getcwd()
-	fullscreen_zoom("ensure")
+	fullscreen_zoom()
 	vim.fn.system("kitty @ goto-layout tall")
 	-- --add-to-session=.: el pane entra a la sesión de kitty del Neovim. Con un --cwd
 	-- explícito kitty no lo hace solo, y entonces goto_session no recuerda el pane y
@@ -226,7 +243,10 @@ return {
 
 				open = function(cmd_string, env_table)
 					if pane_exists(kitty_pane_id) then
-						fullscreen_zoom("ensure")
+						-- In stack Claude is hidden behind Neovim; in tall it's already shown.
+						if pane_layout(kitty_pane_id) == "stack" then
+							fullscreen_zoom()
+						end
 						vim.fn.system("kitty @ goto-layout tall")
 						focus_pane()
 					else
