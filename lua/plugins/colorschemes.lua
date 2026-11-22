@@ -65,7 +65,8 @@ return {
 		},
 	},
 	{
-		"thesimonho/kanagawa-paper.nvim",
+		"thesimonho/kanagawa-paper",
+		branch = "neovim",
 		keys = lazy_map,
 		config = function()
 			require("kanagawa-paper").setup({
@@ -293,6 +294,13 @@ return {
 		keys = lazy_map,
 		opts = {
 			transparent = true,
+		},
+	},
+	{
+		"tiagovla/tokyodark.nvim",
+		keys = lazy_map,
+		opts = {
+			transparent_background = true,
 		},
 	},
 }

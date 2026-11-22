@@ -180,6 +180,7 @@ justinmk/guh.nvim                             check PR from neovim, lighter than
 folke/snacks.nvim/blob/main/docs/gh.md                           check PR from neovim
 prosk-sudo/codewars.nvim                                          codewars for neovim
 wurli/servery.nvim     jump between Neovim sessions using your favourite fuzzy finder
+xheisenbugx/org.nvim                                                         org mode
 
 Last time revisited all these plugins
 20/05/2024
@@ -187,7 +188,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Nov 08, 2026 (Add tiagovla/tokyodark.nvim)
+Nov 16, 2026 (Update dybdeskarphet/gruvbox-minimal.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-LFSCamargo/macscroll.nvim
+xheisenbugx/org.nvim
