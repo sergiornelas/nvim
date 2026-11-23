@@ -188,7 +188,7 @@ Last time revisited all these plugins
 ---
 
 <https://github.com/rockerBOO/awesome-neovim/commits/main/>
-Nov 16, 2026 (Update dybdeskarphet/gruvbox-minimal.nvim)
+Nov 20, 2026 (Add ~foosoft/boomer.nvim)
 
 <https://dotfyle.com/neovim/plugins/new>
-xheisenbugx/org.nvim
+bradley101/nvim-remote-ssh

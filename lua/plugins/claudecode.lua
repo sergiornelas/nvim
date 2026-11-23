@@ -200,8 +200,7 @@ vim.api.nvim_create_autocmd("User", {
 	callback = focus_pane,
 })
 
--- Tras cada send (go/gl/gll): enfocar el pane de Claude y dejar el cursor en una
--- línea nueva del input, para que @mentions consecutivos no se concatenen.
+-- Tras cada send (go/gl/gll): enfocar el pane de Claude.
 vim.api.nvim_create_autocmd("User", {
 	group = augroup,
 	pattern = "ClaudeCodeSendComplete",
@@ -210,16 +209,6 @@ vim.api.nvim_create_autocmd("User", {
 			return
 		end
 		focus_pane()
-		-- Cuando Claude está conectado el @mention se transmite síncronamente antes de
-		-- este evento, así que ya está renderizando; un defer corto basta para que el
-		-- salto aterrice justo después.
-		vim.defer_fn(function()
-			if pane_exists(kitty_pane_id) then
-				-- Alt/Meta+Enter (\e\r): un solo evento de tecla = salto de línea sin
-				-- enviar, evitando el repintado en dos fases del bracketed paste (flicker).
-				vim.fn.system("kitty @ send-text --match id:" .. kitty_pane_id .. " '\\e\\r'")
-			end
-		end, 40)
 	end,
 })
 
