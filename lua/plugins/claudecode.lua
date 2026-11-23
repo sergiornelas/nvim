@@ -112,7 +112,7 @@ local function close_pane()
 	end
 end
 
--- Captura el draft sin enviar del huérfano y lo re-pega en la sesión nueva.
+-- Captures the orphan's unsent draft and pastes it back into the new session.
 local input_handoff = require("claudecode_input_handoff")
 
 local function launch_pane(cmd_string, env_table)
@@ -121,17 +121,17 @@ local function launch_pane(cmd_string, env_table)
 		startup_check_done = true
 		local orphan_id = find_orphan_claude_in_nvim_tab()
 		if orphan_id then
-			-- Un Claude huérfano (su Neovim murió/reinició) NO se puede re-vincular.
-			-- El proceso sigue vivo y aplica cambios, pero pierde el link IDE (el
-			-- WebSocket a Neovim), así que deja de mandar los diffs a Neovim. Y `/ide`
-			-- NO lo recupera: Claude fija su IDE objetivo al ARRANCAR —vía la env var
-			-- CLAUDE_CODE_SSE_PORT que el plugin le inyecta— y no re-escanea los
-			-- lockfiles de ~/.claude/ide en vivo. Comprobado empíricamente: un `claude`
-			-- fresco sí encuentra el Neovim por `/ide`, pero el huérfano responde
-			-- "No available IDEs detected" aunque exista un lockfile nuevo del Neovim
-			-- actual. Por eso el workaround es: rescatar su draft sin enviar, cerrar el
-			-- huérfano, y relanzar con --continue/--resume (recupera el historial de la
-			-- conversación, aunque no la ejecución que estuviera en vuelo).
+			-- An orphaned Claude (its Neovim died/restarted) CANNOT be re-linked.
+			-- The process stays alive and applies changes, but it loses the IDE link
+			-- (the WebSocket to Neovim), so it stops sending diffs to Neovim. And `/ide`
+			-- does NOT recover it: Claude fixes its target IDE at STARTUP (via the
+			-- CLAUDE_CODE_SSE_PORT env var the plugin injects) and does not re-scan the
+			-- lockfiles in ~/.claude/ide live. Verified empirically: a fresh `claude`
+			-- does find Neovim via `/ide`, but the orphan answers "No available IDEs
+			-- detected" even when a new lockfile for the current Neovim exists. Hence
+			-- the workaround: rescue its unsent draft, close the orphan, and relaunch
+			-- with --continue/--resume (recovers the conversation history, though not
+			-- any execution that was in flight).
 			restored_input = input_handoff.capture(orphan_id)
 			vim.fn.system("kitty @ close-window --match id:" .. orphan_id)
 			if not cmd_string:match("%-%-continue") and not cmd_string:match("%-%-resume") then
@@ -146,9 +146,9 @@ local function launch_pane(cmd_string, env_table)
 	local cwd = vim.fn.getcwd()
 	fullscreen_zoom()
 	vim.fn.system("kitty @ goto-layout tall")
-	-- --add-to-session=.: el pane entra a la sesión de kitty del Neovim. Con un --cwd
-	-- explícito kitty no lo hace solo, y entonces goto_session no recuerda el pane y
-	-- al volver a la sesión siempre enfoca el primero.
+	-- --add-to-session=.: the pane joins Neovim's kitty session. With an explicit
+	-- --cwd kitty does not do this on its own, so goto_session would not remember the
+	-- pane and would always focus the first one when returning to the session.
 	local result = vim.fn.system(
 		"kitty @ launch --type=window --location=vsplit --var=claude=1 --copy-env --add-to-session=. --cwd="
 			.. vim.fn.shellescape(cwd)
@@ -165,9 +165,9 @@ end
 
 local augroup = vim.api.nvim_create_augroup("ClaudeCodeKitty", { clear = true })
 
--- Al abrir un diff: traer el foco a Neovim y montar la navegación del hunk.
--- ClaudeCodeDiffOpened se emite siempre y entrega diff_window, así que montamos los
--- keymaps en el buffer correcto sin adivinar por el nombre "(proposed)".
+-- When a diff opens: bring focus to Neovim and set up hunk navigation.
+-- ClaudeCodeDiffOpened always fires and provides diff_window, so the keymaps go on
+-- the right buffer without guessing by the "(proposed)" name.
 vim.api.nvim_create_autocmd("User", {
 	group = augroup,
 	pattern = "ClaudeCodeDiffOpened",
@@ -191,16 +191,16 @@ vim.api.nvim_create_autocmd("User", {
 	end,
 })
 
--- El foco regresa al pane de Claude al cerrarse el diff (aceptar/declinar/etc.).
--- ClaudeCodeDiffClosed se emite siempre, sin importar cómo se cierre el diff, así que
--- es más confiable que adivinar por el nombre del buffer "(proposed)" en BufWinLeave/TabClosed.
+-- Focus returns to the Claude pane when the diff closes (accept/deny/etc.).
+-- ClaudeCodeDiffClosed always fires, however the diff is closed, so it is more
+-- reliable than guessing by the "(proposed)" buffer name in BufWinLeave/TabClosed.
 vim.api.nvim_create_autocmd("User", {
 	group = augroup,
 	pattern = "ClaudeCodeDiffClosed",
 	callback = focus_pane,
 })
 
--- Tras cada send (go/gl/gll): enfocar el pane de Claude.
+-- After each send (go/gl/gll): focus the Claude pane.
 vim.api.nvim_create_autocmd("User", {
 	group = augroup,
 	pattern = "ClaudeCodeSendComplete",
@@ -219,8 +219,8 @@ return {
 	cmd = { "ClaudeCode", "ClaudeCodeAdd", "ClaudeCodeSend", "ClaudeCodeTreeAdd", "ClaudeCodeDiffDeny" },
 	enabled = true,
 	opts = {
-		-- Oculta los INFO del plugin (p. ej. "keepalive timeout ... closing connection",
-		-- inofensivo: Claude Code reconecta solo). WARN/ERROR siguen apareciendo.
+		-- Hides the plugin's INFO messages (e.g. "keepalive timeout ... closing connection",
+		-- harmless: Claude Code reconnects on its own). WARN/ERROR still show up.
 		log_level = "warn",
 		terminal = {
 			provider = {
@@ -269,7 +269,7 @@ return {
 		-- Diff Integration
 		diff_opts = {
 			layout = "vertical", -- "vertical", "horizontal" or "unified"
-			auto_resize_terminal = false, -- el ancho del pane lo maneja kitty, no Neovim
+			auto_resize_terminal = false, -- kitty manages the pane width, not Neovim
 			open_in_new_tab = true,
 			keep_terminal_focus = false, -- If true, moves focus back to terminal after diff opens. [Doesn't work with my current custom provider].
 			hide_terminal_in_new_tab = false,
@@ -326,8 +326,8 @@ return {
 				local text = "@" .. filename .. "#L" .. lnum .. "\n" .. table.concat(lines, "\n")
 
 				local function send_text()
-					-- En la rama diferida el pane puede no haberse lanzado aún; sin id,
-					-- "kitty @ send-text --match id:" quedaría malformado, así que abortamos.
+					-- In the deferred branch the pane may not have launched yet; without an id,
+					-- "kitty @ send-text --match id:" would be malformed, so we bail out.
 					if not kitty_pane_id then
 						return
 					end
