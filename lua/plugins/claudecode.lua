@@ -6,6 +6,11 @@ local kitty_pane_id = nil
 local nvim_pane_id = tonumber(vim.fn.getenv("KITTY_WINDOW_ID"))
 local startup_check_done = false
 
+-- Dentro de Rex, Claude va en un bloque real de Rex y no en una ventana de kitty:
+-- provider, autocmds y g. salen de claudecode_rex.lua. Fuera de Rex, todo lo de
+-- kitty de este archivo sigue igual.
+local rex = vim.env.REX_BLOCK and require("claudecode_rex") or nil
+
 -- Decode `kitty @ ls` once into a Lua table, or nil if unavailable / not in Kitty.
 local function list_os_windows()
 	local output = vim.fn.system("kitty @ ls 2>/dev/null")
@@ -163,54 +168,58 @@ local function launch_pane(cmd_string, env_table)
 	end
 end
 
-local augroup = vim.api.nvim_create_augroup("ClaudeCodeKitty", { clear = true })
+if rex then
+	rex.setup_autocmds()
+else
+	local augroup = vim.api.nvim_create_augroup("ClaudeCodeKitty", { clear = true })
 
--- When a diff opens: bring focus to Neovim and set up hunk navigation.
--- ClaudeCodeDiffOpened always fires and provides diff_window, so the keymaps go on
--- the right buffer without guessing by the "(proposed)" name.
-vim.api.nvim_create_autocmd("User", {
-	group = augroup,
-	pattern = "ClaudeCodeDiffOpened",
-	callback = function(ev)
-		if nvim_pane_id then
-			vim.fn.system("kitty @ focus-window --match id:" .. nvim_pane_id)
-			-- git diff in full screen:
-			-- vim.fn.system("kitty @ goto-layout stack")
-		end
-		local diff_window = ev.data and ev.data.diff_window
-		if not (diff_window and vim.api.nvim_win_is_valid(diff_window)) then
-			return
-		end
-		local opts = { buffer = vim.api.nvim_win_get_buf(diff_window) }
-		vim.keymap.set("n", "<c-j>", function()
-			vim.cmd.normal({ "]c", bang = true })
-		end, opts)
-		vim.keymap.set("n", "<c-k>", function()
-			vim.cmd.normal({ "[c", bang = true })
-		end, opts)
-	end,
-})
+	-- When a diff opens: bring focus to Neovim and set up hunk navigation.
+	-- ClaudeCodeDiffOpened always fires and provides diff_window, so the keymaps go on
+	-- the right buffer without guessing by the "(proposed)" name.
+	vim.api.nvim_create_autocmd("User", {
+		group = augroup,
+		pattern = "ClaudeCodeDiffOpened",
+		callback = function(ev)
+			if nvim_pane_id then
+				vim.fn.system("kitty @ focus-window --match id:" .. nvim_pane_id)
+				-- git diff in full screen:
+				-- vim.fn.system("kitty @ goto-layout stack")
+			end
+			local diff_window = ev.data and ev.data.diff_window
+			if not (diff_window and vim.api.nvim_win_is_valid(diff_window)) then
+				return
+			end
+			local opts = { buffer = vim.api.nvim_win_get_buf(diff_window) }
+			vim.keymap.set("n", "<c-j>", function()
+				vim.cmd.normal({ "]c", bang = true })
+			end, opts)
+			vim.keymap.set("n", "<c-k>", function()
+				vim.cmd.normal({ "[c", bang = true })
+			end, opts)
+		end,
+	})
 
--- Focus returns to the Claude pane when the diff closes (accept/deny/etc.).
--- ClaudeCodeDiffClosed always fires, however the diff is closed, so it is more
--- reliable than guessing by the "(proposed)" buffer name in BufWinLeave/TabClosed.
-vim.api.nvim_create_autocmd("User", {
-	group = augroup,
-	pattern = "ClaudeCodeDiffClosed",
-	callback = focus_pane,
-})
+	-- Focus returns to the Claude pane when the diff closes (accept/deny/etc.).
+	-- ClaudeCodeDiffClosed always fires, however the diff is closed, so it is more
+	-- reliable than guessing by the "(proposed)" buffer name in BufWinLeave/TabClosed.
+	vim.api.nvim_create_autocmd("User", {
+		group = augroup,
+		pattern = "ClaudeCodeDiffClosed",
+		callback = focus_pane,
+	})
 
--- After each send (go/gl/gll): focus the Claude pane.
-vim.api.nvim_create_autocmd("User", {
-	group = augroup,
-	pattern = "ClaudeCodeSendComplete",
-	callback = function()
-		if not pane_exists(kitty_pane_id) then
-			return
-		end
-		focus_pane()
-	end,
-})
+	-- After each send (go/gl/gll): focus the Claude pane.
+	vim.api.nvim_create_autocmd("User", {
+		group = augroup,
+		pattern = "ClaudeCodeSendComplete",
+		callback = function()
+			if not pane_exists(kitty_pane_id) then
+				return
+			end
+			focus_pane()
+		end,
+	})
+end
 
 return {
 	-- In a future, check this:
@@ -223,7 +232,7 @@ return {
 		-- harmless: Claude Code reconnects on its own). WARN/ERROR still show up.
 		log_level = "warn",
 		terminal = {
-			provider = {
+			provider = rex and rex.provider or {
 				is_available = function()
 					return true
 				end,
@@ -283,6 +292,9 @@ return {
 	config = function(_, opts)
 		require("claudecode").setup(opts)
 		require("claudecode.selection").send_selection_update = function() end
+		if rex then
+			rex.hook_diff_resolution()
+		end
 	end,
 	keys = {
 		{ "g]", "<cmd>ClaudeCode --resume<cr>" }, -- (vim: :tselect on the tag under the cursor)
@@ -324,6 +336,11 @@ return {
 				local filename = vim.fn.expand("%")
 				local lnum = vim.fn.line(".")
 				local text = "@" .. filename .. "#L" .. lnum .. "\n" .. table.concat(lines, "\n")
+
+				if rex then
+					rex.send_text(text)
+					return
+				end
 
 				local function send_text()
 					-- In the deferred branch the pane may not have launched yet; without an id,
