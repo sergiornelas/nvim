@@ -11,6 +11,7 @@ map("n", "<leader><leader>", "i<leader><esc>") --                adds a space
 map("n", "<leader>lo", "<cmd>lopen<cr>") --                      open loclist
 map("n", "<leader>q", "<cmd>copen<cr>") --                      open quickfix
 map("n", "<leader>x", "<cmd>lua toggle_boolean()<cr>") --      toggle boolean
+-- this will not be useful in nvim 0.13:
 map("n", "gG", "<cmd>%y<cr>") --            	               yank full buffer
 map("n", "<leader><c-q>", "<cmd>qa!<cr>") -- 	              force exit neovim
 map({ "n", "x" }, "<c-w><c-u>", "<cmd>vnew<cr>") -- new buffer vertical split
